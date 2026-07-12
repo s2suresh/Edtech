@@ -3,100 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharusuri EdTech Company - Grassroots Learning</title>
-    <style>
-        :root { --primary: #0284c7; --accent: #0ea5e9; --dark: #0f172a; --light: #f8fafc; }
-        body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; background: var(--light); color: var(--dark); line-height: 1.6; }
-        header { background: linear-gradient(135deg, #0369a1, #0f172a); color: white; padding: 80px 20px; text-align: center; }
-        .container { max-width: 1100px; margin: auto; padding: 20px; }
-        .btn { display: inline-block; background: var(--primary); color: white; padding: 12px 28px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px; border: none; cursor: pointer; transition: 0.2s; }
-        .btn:hover { background: var(--accent); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 40px 0; }
-        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.04); border-top: 4px solid var(--primary); }
-        .deck-section { background: #e2e8f0; padding: 40px 20px; border-radius: 12px; margin: 50px 0; }
-        .slide-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
-        .slide-box { background: white; padding: 15px; border-radius: 6px; border-left: 4px solid var(--dark); font-size: 0.95rem; }
-        form { background: white; padding: 35px; border-radius: 8px; max-width: 550px; margin: 40px auto; box-shadow: 0 4px 10px rgba(0,0,0,0.06); }
-        input, textarea, select { width: 100%; padding: 12px; margin: 8px 0 20px 0; border: 1px solid #cbd5e1; border-radius: 4px; box-sizing: border-box; }
-        footer { text-align: center; padding: 40px 20px; background: #1e293b; color: white; margin-top: 60px; }
-    </style>
+    <title>Sharusuri EdTech - Rural Education</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <header>
-        <h1 style="font-size: 2.8rem; margin: 0;">Sharusuri EdTech Company</h1>
-        <p style="font-size: 1.25rem; max-width: 700px; margin: 15px auto; color: #e0f2fe;">Bridging the digital divide by delivering ultra-affordable, low-bandwidth education starting at the village level and scaling nationwide.</p>
-        <a href="#pitch-deck" class="btn" style="margin-right: 10px; background: transparent; border: 2px solid white;">Review Investor Plan</a>
-        <a href="#contact" class="btn">Join Our Pilot Program</a>
+    <header class="main-header">
+        <h1>Sharusuri EdTech Company</h1>
+        <p>Bridging the digital divide with affordable learning.</p>
+        <a href="#contact" class="btn">Join Pilot Program</a>
     </header>
-
-    <div class="container">
-        
-        <!-- Scalability Roadmap -->
-        <h2 style="text-align: center; margin-top: 50px; font-size: 2rem;">Our 3-Phase Scalability Roadmap</h2>
-        <div class="grid">
-            <div class="card">
-                <h3 style="margin-top:0;">📍 Phase 1: Village Pilot</h3>
-                <p>Launching in 5–10 local villages. Proving student engagement using offline-ready, hyper-compressed learning modules running on low-end smartphones.</p>
+    <main class="container">
+        <!-- Content Sections -->
+        <section class="roadmap">
+            <h2>Our Scalability Roadmap</h2>
+            <div class="grid">
+                <div class="card"><h3>Phase 1</h3><p>Village Pilot</p></div>
+                <div class="card"><h3>Phase 2</h3><p>City Scale</p></div>
+                <div class="card"><h3>Phase 3</h3><p>Nationwide</p></div>
             </div>
-            <div class="card">
-                <h3 style="margin-top:0;">🏢 Phase 2: City Scale</h3>
-                <p>Expanding to tier-2 and tier-3 regional towns. Demonstrating strong operational unit economics, automated IT backend scaling, and local user traction.</p>
-            </div>
-            <div class="card">
-                <h3 style="margin-top:0;">🇮🇳 Phase 3: Nationwide</h3>
-                <p>Partnering with tier-1 Venture Capital funds to deploy multi-lingual, personalized learning systems to millions of homes across India.</p>
-            </div>
-        </div>
-
-        <!-- Interactive Pitch Deck Section -->
-        <div id="pitch-deck" class="deck-section">
-            <h2 style="margin-top: 0; text-align: center;">📊 Our 10-Slide Investor Pitch Outline</h2>
-            <p style="text-align: center; color: #475569; margin-bottom: 30px;">An overview of the complete business structure engineered for our future funding pitches.</p>
-            <div class="slide-list">
-                <div class="slide-box"><strong>Slide 1: Title</strong><br>The vision of democratising rural education.</div>
-                <div class="slide-box"><strong>Slide 2: Problem</strong><br>Lack of local teachers and high data costs.</div>
-                <div class="slide-box"><strong>Slide 3: Solution</strong><br>Ultra-affordable, data-saving learning ecosystem.</div>
-                <div class="slide-box"><strong>Slide 4: Technology</strong><br>Lightweight offline architecture for low-end mobile phones.</div>
-                <div class="slide-box"><strong>Slide 5: Roadmap</strong><br>Phased growth plan going from village to country.</div>
-                <div class="slide-box"><strong>Slide 6: Business Model</strong><br>High-volume, low-margin micro-subscriptions.</div>
-                <div class="slide-box"><strong>Slide 7: Market (TAM)</strong><br>Millions of untapped rural learners overlooked by urban tech.</div>
-                <div class="slide-box"><strong>Slide 8: Milestones</strong><br>Targeting 500+ active student users within 6 months.</div>
-                <div class="slide-box"><strong>Slide 9: Team leadership</strong><br>Combining technical execution with grassroots operational management.</div>
-                <div class="slide-box"><strong>Slide 10: The Ask</strong><br>Securing seed angel funding to power the local pilot phase.</div>
-            </div>
-        </div>
-
-        <!-- Dynamic Lead Capture Form -->
-        <form id="contact" action="https://formspree.io" method="POST">
-            <h2 style="margin-top: 0; text-align: center;">Get In Touch / Express Interest</h2>
-            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-bottom: 25px;">Are you an investor, parent, or student? Let us build the future together.</p>
-            
-            <label>Your Name</label>
-            <input type="text" name="name" required placeholder="Enter your full name">
-            
-            <label>Email Address / Phone Number</label>
-            <input type="text" name="contact" required placeholder="How can we reach you?">
-            
-            <label>I am interested as a:</label>
-            <select name="role" required>
-                <option value="" disabled selected>Select your profile...</option>
-                <option value="Investor / Supporter">Potential Investor / Community Supporter</option>
-                <option value="Parent">Parent / Guardian</option>
-                <option value="Student">Student Learner</option>
-            </select>
-            
-            <label>Message / Ideas</label>
-            <textarea name="message" rows="4" required placeholder="Tell us how you would like to get involved with Sharusuri EdTech..."></textarea>
-            
-            <button type="submit" class="btn" style="width: 100%;">Submit Inquiry Details</button>
-        </form>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Sharusuri EdTech Company. Built for scale, starting from the ground up.</p>
-    </footer>
-
+        </section>
+        <section id="contact" class="form-section">
+            <form id="leadForm">
+                <h2>Express Interest</h2>
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </section>
+    </main>
+    <script src="js/script.js"></script>
 </body>
 </html>
