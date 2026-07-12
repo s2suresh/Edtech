@@ -1,3 +1,59 @@
+.experience-section {
+    background:
+        radial-gradient(circle at 10% 10%, rgba(15, 118, 110, 0.12), transparent 26rem),
+        linear-gradient(180deg, var(--surface), var(--bg));
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.experience-grid article {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    padding: 28px;
+    box-shadow: var(--shadow);
+}
+
+.experience-grid article::after {
+    position: absolute;
+    right: -40px;
+    bottom: -46px;
+    width: 130px;
+    height: 130px;
+    border-radius: 999px;
+    background: rgba(15, 118, 110, 0.08);
+    content: "";
+}
+
+.experience-grid span {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border-radius: 16px;
+    background: var(--surface-soft);
+    color: var(--primary);
+    font-weight: 900;
+}
+
+.experience-grid h3 {
+    margin: 18px 0 10px;
+    font-size: 1.35rem;
+}
+
+.experience-grid p {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+    color: var(--muted);
+}
+
 .roadmap-card span,
 .news-list time {
     color: var(--primary);
