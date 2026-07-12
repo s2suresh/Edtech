@@ -16,7 +16,9 @@
 
     .program-grid,
     .card-grid,
-    .stats-grid {
+    .stats-grid,
+    .brand-proof,
+    .experience-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -67,12 +69,20 @@
     .dashboard-grid,
     .program-grid,
     .card-grid,
-    .stats-grid {
+    .stats-grid,
+    .brand-proof,
+    .experience-grid {
         grid-template-columns: 1fr;
     }
 
     .hero-actions,
     .footer-bottom {
+        flex-direction: column;
+    }
+
+    .hero-announcement,
+    .hero-card-header {
+        align-items: flex-start;
         flex-direction: column;
     }
 
