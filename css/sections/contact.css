@@ -1,0 +1,28 @@
+.contact-section {
+    background:
+        radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.16), transparent 28rem),
+        var(--surface-soft);
+}
+
+.contact-grid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.8fr);
+    align-items: start;
+}
+
+.contact-cards {
+    display: grid;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.contact-cards article {
+    display: grid;
+    gap: 4px;
+    border-radius: var(--radius-md);
+    padding: 18px;
+}
+
+.contact-cards a {
+    color: var(--primary);
+    text-decoration: none;
+}

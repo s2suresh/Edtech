@@ -1,0 +1,35 @@
+.roadmap-card span,
+.news-list time {
+    color: var(--primary);
+    font-weight: 900;
+}
+
+.news-list {
+    display: grid;
+    gap: 18px;
+}
+
+.news-list article {
+    border-radius: var(--radius-md);
+    padding: 24px;
+}
+
+.faq-list {
+    display: grid;
+    gap: 14px;
+}
+
+.faq-list details {
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+}
+
+.faq-list summary {
+    cursor: pointer;
+    font-weight: 900;
+}
+
+.faq-list p {
+    margin-bottom: 0;
+    color: var(--muted);
+}

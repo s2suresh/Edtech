@@ -1,0 +1,123 @@
+.skip-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 100;
+    transform: translateY(-140%);
+    border-radius: 999px;
+    background: var(--text);
+    color: var(--bg);
+    padding: 10px 16px;
+    text-decoration: none;
+    transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(100% - 32px, var(--container));
+    margin-inline: auto;
+    padding: 18px 0;
+}
+
+.navbar::before {
+    position: absolute;
+    inset: 8px -16px;
+    z-index: -1;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    background: rgba(7, 20, 17, 0.45);
+    backdrop-filter: blur(18px);
+    content: "";
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.brand-mark {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border-radius: 15px;
+    background: linear-gradient(135deg, var(--secondary), #fde68a);
+    color: #10201c;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+}
+
+.brand strong,
+.brand small {
+    display: block;
+    line-height: 1.05;
+}
+
+.brand small {
+    color: rgba(255, 255, 255, 0.76);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-menu a,
+.theme-toggle {
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.86);
+    padding: 10px 14px;
+    text-decoration: none;
+    transition: background 180ms ease, color 180ms ease;
+}
+
+.nav-menu a:hover,
+.theme-toggle:hover,
+.nav-menu a:focus-visible,
+.theme-toggle:focus-visible {
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    outline: none;
+}
+
+.nav-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-toggle span:not(.sr-only) {
+    display: block;
+    width: 18px;
+    height: 2px;
+    margin: 3px auto;
+    border-radius: 999px;
+    background: #ffffff;
+}
