@@ -1,0 +1,28 @@
+Instead of a basic HTML website, I recommend building SharusuriEdTech using a modern, industry-standard stack:
+
+HTML5
+CSS3 (organized with reusable components)
+JavaScript (ES6 modules)
+Bootstrap 5 or Tailwind CSS
+Font Awesome icons
+AOS (animations)
+Swiper.js (sliders)
+FullCalendar (calendar)
+Chart.js (dashboard)
+PHP or Node.js backend (if needed)
+MySQL database
+GitHub Actions for deployment
+
+This structure is scalable and suitable for a professional educational platform.
+
+I can also generate a complete starter project (around 150–250 files) with:
+
+Every HTML page already created.
+CSS and JavaScript linked correctly.
+Responsive navbar and footer.
+Home page similar to modern EdTech websites.
+Admission, Events, Calendar, News, Contact, and About pages.
+Placeholder content and reusable components.
+SEO configuration and GitHub-ready structure.
+
+The result can be packaged as a downloadable ZIP so you can upload it directly to your GitHub repository.
