@@ -1,0 +1,51 @@
+.dashboard-card,
+.dashboard-grid article,
+.card,
+.lead-form,
+.contact-cards article,
+.news-list article,
+.faq-list details {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.card-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+    border-radius: var(--radius-lg);
+    padding: 26px;
+}
+
+.card h3,
+.news-list h3,
+.lead-form h3 {
+    margin: 12px 0 10px;
+    font-size: 1.35rem;
+    line-height: 1.2;
+}
+
+.card p,
+.news-list p,
+.contact-section p {
+    color: var(--muted);
+}
+
+.card a {
+    color: var(--primary);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.card-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border-radius: 16px;
+    background: var(--surface-soft);
+    color: var(--primary);
+    font-weight: 900;
+}

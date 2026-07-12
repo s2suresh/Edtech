@@ -1,0 +1,41 @@
+.timeline {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: steps;
+}
+
+.timeline li {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    padding: 20px 20px 20px 72px;
+}
+
+.timeline li::before {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border-radius: 999px;
+    background: var(--primary);
+    color: var(--bg);
+    content: counter(steps);
+    counter-increment: steps;
+    font-weight: 900;
+}
+
+.timeline strong,
+.timeline span {
+    display: block;
+}
+
+.timeline span {
+    color: var(--muted);
+}

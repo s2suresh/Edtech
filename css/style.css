@@ -1,9 +1,14 @@
-:root { --primary: #0284c7; --dark: #0f172a; --light: #f8fafc; }
-body { font-family: sans-serif; margin: 0; background-color: var(--light); }
-.container { max-width: 1100px; margin: auto; padding: 20px; }
-.main-header { background: #0369a1; color: white; padding: 50px; text-align: center; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-.card { background: white; padding: 20px; border-radius: 8px; }
-.btn { display: inline-block; padding: 10px 20px; background: white; color: var(--dark); text-decoration: none; border-radius: 5px; }
-.form-section { max-width: 500px; margin: 40px auto; background: white; padding: 30px; }
-input { width: 100%; padding: 10px; margin-bottom: 10px; }
+@import url("./base/tokens.css");
+@import url("./base/reset.css");
+@import url("./layout/layout.css");
+@import url("./layout/navigation.css");
+@import url("./components/buttons.css");
+@import url("./components/cards.css");
+@import url("./components/forms.css");
+@import url("./sections/hero.css");
+@import url("./sections/programs.css");
+@import url("./sections/admissions.css");
+@import url("./sections/content.css");
+@import url("./sections/contact.css");
+@import url("./sections/footer.css");
+@import url("./utilities/responsive.css");

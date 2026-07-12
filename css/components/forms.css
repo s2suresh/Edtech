@@ -1,0 +1,43 @@
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    color: var(--text);
+    padding: 13px 14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
+    outline: none;
+}
+
+.lead-form {
+    display: grid;
+    gap: 16px;
+    border-radius: var(--radius-lg);
+    padding: 28px;
+}
+
+.lead-form label {
+    display: grid;
+    gap: 8px;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.lead-form .btn {
+    width: 100%;
+}
+
+.form-status {
+    min-height: 24px;
+    margin: 0;
+    color: var(--primary);
+    font-weight: 800;
+}

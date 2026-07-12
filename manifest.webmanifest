@@ -1,0 +1,17 @@
+{
+    "name": "Sharusuri EdTech",
+    "short_name": "Sharusuri",
+    "description": "Affordable digital learning for rural and semi-urban students.",
+    "start_url": "/Edtech/",
+    "display": "standalone",
+    "background_color": "#f7fbf8",
+    "theme_color": "#0f766e",
+    "icons": [
+        {
+            "src": "assets/icons/brand-mark.svg",
+            "sizes": "96x96",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        }
+    ]
+}
