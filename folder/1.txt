@@ -1,0 +1,165 @@
+SharusuriEdTech/
+│
+├── index.html
+├── favicon.ico
+├── robots.txt
+├── sitemap.xml
+├── manifest.json
+├── .gitignore
+├── README.md
+│
+├── assets/
+│   ├── css/
+│   │   ├── style.css
+│   │   ├── navbar.css
+│   │   ├── footer.css
+│   │   ├── home.css
+│   │   ├── about.css
+│   │   ├── contact.css
+│   │   ├── admission.css
+│   │   ├── events.css
+│   │   ├── calendar.css
+│   │   ├── news.css
+│   │   ├── classes.css
+│   │   ├── forms.css
+│   │   ├── responsive.css
+│   │   ├── animation.css
+│   │   └── variables.css
+│   │
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── navbar.js
+│   │   ├── footer.js
+│   │   ├── slider.js
+│   │   ├── calendar.js
+│   │   ├── events.js
+│   │   ├── news.js
+│   │   ├── validation.js
+│   │   ├── admission.js
+│   │   ├── api.js
+│   │   └── utils.js
+│   │
+│   ├── images/
+│   │   ├── logo/
+│   │   ├── banners/
+│   │   ├── teachers/
+│   │   ├── students/
+│   │   ├── courses/
+│   │   ├── gallery/
+│   │   ├── news/
+│   │   ├── events/
+│   │   ├── icons/
+│   │   └── backgrounds/
+│   │
+│   ├── fonts/
+│   ├── videos/
+│   └── documents/
+│
+├── pages/
+│   ├── about/
+│   │   └── index.html
+│   │
+│   ├── contact/
+│   │   └── index.html
+│   │
+│   ├── admissions/
+│   │   ├── index.html
+│   │   ├── apply.html
+│   │   ├── fee-structure.html
+│   │   └── scholarship.html
+│   │
+│   ├── classes/
+│   │   ├── index.html
+│   │   ├── class1.html
+│   │   ├── class2.html
+│   │   ├── class3.html
+│   │   ├── ...
+│   │   └── puc.html
+│   │
+│   ├── timings/
+│   │   └── index.html
+│   │
+│   ├── calendar/
+│   │   └── index.html
+│   │
+│   ├── events/
+│   │   └── index.html
+│   │
+│   ├── news/
+│   │   └── index.html
+│   │
+│   ├── gallery/
+│   │   └── index.html
+│   │
+│   ├── faq/
+│   │   └── index.html
+│   │
+│   ├── testimonials/
+│   │   └── index.html
+│   │
+│   ├── careers/
+│   │   └── index.html
+│   │
+│   ├── privacy-policy/
+│   │   └── index.html
+│   │
+│   ├── terms/
+│   │   └── index.html
+│   │
+│   ├── login/
+│   │   └── index.html
+│   │
+│   ├── register/
+│   │   └── index.html
+│   │
+│   ├── dashboard/
+│   │   └── index.html
+│   │
+│   └── 404/
+│       └── index.html
+│
+├── locations/
+│   ├── states/
+│   │   ├── karnataka/
+│   │   ├── tamilnadu/
+│   │   ├── kerala/
+│   │   └── ...
+│   │
+│   ├── districts/
+│   ├── taluks/
+│   ├── hoblis/
+│   └── villages/
+│
+├── data/
+│   ├── courses.json
+│   ├── news.json
+│   ├── events.json
+│   ├── calendar.json
+│   ├── teachers.json
+│   ├── students.json
+│   └── locations.json
+│
+├── components/
+│   ├── header.html
+│   ├── navbar.html
+│   ├── footer.html
+│   ├── sidebar.html
+│   ├── modal.html
+│   └── loader.html
+│
+├── api/
+│   ├── contact.php
+│   ├── admission.php
+│   ├── newsletter.php
+│   └── login.php
+│
+├── uploads/
+│   ├── students/
+│   ├── teachers/
+│   └── documents/
+│
+├── logs/
+│
+└── database/
+    ├── schema.sql
+    └── seed.sql
