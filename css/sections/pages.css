@@ -56,6 +56,20 @@
     color: rgba(255, 255, 255, 0.76);
 }
 
+.page-hero-card-link {
+    color: inherit;
+    text-decoration: none;
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.page-hero-card-link:hover,
+.page-hero-card-link:focus-visible {
+    transform: translateY(-3px);
+    border-color: rgba(251, 191, 36, 0.62);
+    background: rgba(255, 255, 255, 0.16);
+    outline: none;
+}
+
 .page-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
