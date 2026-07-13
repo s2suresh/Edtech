@@ -485,9 +485,17 @@
 }
 
 .qr-placeholder span,
+.qr-placeholder img,
 .qr-placeholder strong,
 .qr-placeholder small {
     display: block;
+}
+
+.qr-image {
+    width: min(100%, 360px);
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
 }
 
 .qr-placeholder span {
