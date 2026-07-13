@@ -95,6 +95,7 @@
 }
 
 .nav-menu a:hover,
+.nav-menu a[aria-current="page"],
 .theme-toggle:hover,
 .nav-menu a:focus-visible,
 .theme-toggle:focus-visible {
