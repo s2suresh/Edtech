@@ -24,6 +24,7 @@ Live site: https://s2suresh.github.io/Edtech/
 Edtech-main/
 ├── assets/
 │   └── icons/              # Logo, favicon, UI icons, and future SVG assets
+├── Nation/                 # State-wise location JSON data for admission dropdowns
 ├── css/
 │   ├── base/               # Design tokens, reset, and global defaults
 │   ├── components/         # Reusable UI pieces like buttons, cards, forms
@@ -54,6 +55,7 @@ Edtech-main/
 - Add a new reusable design piece in `css/components/`, then import it from `css/style.css`.
 - Add page-section styling in `css/sections/`, then import it from `css/style.css`.
 - Add feature behavior in `js/modules/`, export an init function, then call it from `js/script.js`.
+- Add verified state, district, taluk, hobli, and village data inside `Nation/` for location dropdowns.
 - Keep each HTML page focused on content and structure; keep styling in CSS and behavior in JS modules.
 
 ## Information To Replace Later

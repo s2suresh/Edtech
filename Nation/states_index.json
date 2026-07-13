@@ -1,0 +1,43 @@
+{
+  "country": "India",
+  "states": [
+    { "name": "Andhra Pradesh", "code": "AP", "file": null },
+    { "name": "Arunachal Pradesh", "code": "AR", "file": null },
+    { "name": "Assam", "code": "AS", "file": null },
+    { "name": "Bihar", "code": "BR", "file": null },
+    { "name": "Chhattisgarh", "code": "CG", "file": null },
+    { "name": "Goa", "code": "GA", "file": null },
+    { "name": "Gujarat", "code": "GJ", "file": null },
+    { "name": "Haryana", "code": "HR", "file": null },
+    { "name": "Himachal Pradesh", "code": "HP", "file": null },
+    { "name": "Jharkhand", "code": "JH", "file": null },
+    { "name": "Karnataka", "code": "KA", "file": "karnataka_villages.json" },
+    { "name": "Kerala", "code": "KL", "file": null },
+    { "name": "Madhya Pradesh", "code": "MP", "file": null },
+    { "name": "Maharashtra", "code": "MH", "file": null },
+    { "name": "Manipur", "code": "MN", "file": null },
+    { "name": "Meghalaya", "code": "ML", "file": null },
+    { "name": "Mizoram", "code": "MZ", "file": null },
+    { "name": "Nagaland", "code": "NL", "file": null },
+    { "name": "Odisha", "code": "OD", "file": null },
+    { "name": "Punjab", "code": "PB", "file": null },
+    { "name": "Rajasthan", "code": "RJ", "file": null },
+    { "name": "Sikkim", "code": "SK", "file": null },
+    { "name": "Tamil Nadu", "code": "TN", "file": null },
+    { "name": "Telangana", "code": "TS", "file": null },
+    { "name": "Tripura", "code": "TR", "file": null },
+    { "name": "Uttar Pradesh", "code": "UP", "file": null },
+    { "name": "Uttarakhand", "code": "UK", "file": null },
+    { "name": "West Bengal", "code": "WB", "file": null }
+  ],
+  "unionTerritories": [
+    { "name": "Andaman and Nicobar Islands", "code": "AN", "file": null },
+    { "name": "Chandigarh", "code": "CH", "file": null },
+    { "name": "Dadra and Nagar Haveli and Daman and Diu", "code": "DN", "file": null },
+    { "name": "Delhi", "code": "DL", "file": null },
+    { "name": "Jammu and Kashmir", "code": "JK", "file": null },
+    { "name": "Ladakh", "code": "LA", "file": null },
+    { "name": "Lakshadweep", "code": "LD", "file": null },
+    { "name": "Puducherry", "code": "PY", "file": null }
+  ]
+}

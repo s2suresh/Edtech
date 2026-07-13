@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0",
+  "country": "India",
+  "state": {
+    "name": "Karnataka",
+    "code": "KA"
+  },
+  "dataStatus": "Seed file for admission dropdowns. District names are listed for Karnataka. Taluk, hobli, and village lists should be expanded from an official government source before production use.",
+  "dropdownOrder": ["state", "district", "taluk", "hobli", "village"],
+  "districts": [
+    { "name": "Bagalkot", "taluks": [] },
+    { "name": "Ballari", "taluks": [] },
+    { "name": "Belagavi", "taluks": [] },
+    { "name": "Bengaluru Rural", "taluks": [] },
+    { "name": "Bengaluru Urban", "taluks": [] },
+    { "name": "Bidar", "taluks": [] },
+    { "name": "Chamarajanagar", "taluks": [] },
+    { "name": "Chikkaballapur", "taluks": [] },
+    { "name": "Chikkamagaluru", "taluks": [] },
+    { "name": "Chitradurga", "taluks": [] },
+    { "name": "Dakshina Kannada", "taluks": [] },
+    { "name": "Davanagere", "taluks": [] },
+    { "name": "Dharwad", "taluks": [] },
+    { "name": "Gadag", "taluks": [] },
+    { "name": "Hassan", "taluks": [] },
+    { "name": "Haveri", "taluks": [] },
+    { "name": "Kalaburagi", "taluks": [] },
+    { "name": "Kodagu", "taluks": [] },
+    { "name": "Kolar", "taluks": [] },
+    { "name": "Koppal", "taluks": [] },
+    { "name": "Mandya", "taluks": [] },
+    { "name": "Mysuru", "taluks": [] },
+    {
+      "name": "Raichur",
+      "taluks": [
+        {
+          "name": "Sindhanur",
+          "hoblis": [
+            {
+              "name": "AP K Hosalli",
+              "villages": [
+                "AP K Hosalli"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    { "name": "Ramanagara", "taluks": [] },
+    { "name": "Shivamogga", "taluks": [] },
+    { "name": "Tumakuru", "taluks": [] },
+    { "name": "Udupi", "taluks": [] },
+    { "name": "Uttara Kannada", "taluks": [] },
+    { "name": "Vijayanagara", "taluks": [] },
+    { "name": "Vijayapura", "taluks": [] },
+    { "name": "Yadgir", "taluks": [] }
+  ]
+}
