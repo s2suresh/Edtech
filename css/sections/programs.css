@@ -46,7 +46,8 @@
 }
 
 .program-marquee span,
-.program-marquee strong {
+.program-marquee strong,
+.program-marquee small {
     display: block;
 }
 
@@ -62,6 +63,68 @@
     margin-top: 12px;
     font-size: 1.65rem;
     line-height: 1.2;
+}
+
+.program-marquee small {
+    margin-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.82);
+    padding-top: 14px;
+    font-weight: 800;
+}
+
+.program-shopping-strip {
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    padding: 22px 0;
+}
+
+.shopping-strip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.shopping-strip-grid article {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background:
+        linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(245, 158, 11, 0.08)),
+        var(--surface);
+    padding: 20px;
+}
+
+.shopping-strip-grid strong,
+.shopping-strip-grid span {
+    display: block;
+}
+
+.shopping-strip-grid strong {
+    color: var(--text);
+    font-size: 1.05rem;
+}
+
+.shopping-strip-grid span {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 0.94rem;
+}
+
+.course-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 14px;
+}
+
+.course-meta span {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface-soft);
+    color: var(--primary);
+    padding: 6px 9px;
+    font-size: 0.78rem;
+    font-weight: 800;
 }
 
 @keyframes program-slide {

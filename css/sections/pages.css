@@ -334,3 +334,118 @@
     margin: 16px 0 0;
     padding-left: 18px;
 }
+
+.course-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.course-info-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.course-info-card strong,
+.course-info-card span {
+    display: block;
+}
+
+.course-info-card strong {
+    color: var(--text);
+    font-size: 1.15rem;
+    line-height: 1.25;
+}
+
+.course-info-card span {
+    margin-top: 12px;
+    color: var(--primary);
+    font-weight: 900;
+}
+
+.course-info-card p {
+    margin-bottom: 0;
+    color: var(--muted);
+}
+
+.payment-steps {
+    display: grid;
+    gap: 14px;
+}
+
+.payment-steps article {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: start;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    padding: 18px;
+    box-shadow: var(--shadow);
+}
+
+.payment-steps span {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 14px;
+    background: var(--primary);
+    color: var(--bg);
+    font-weight: 900;
+}
+
+.payment-steps strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.payment-steps p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.lecturer-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 22px;
+    align-items: start;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    padding: 28px;
+    box-shadow: var(--shadow);
+}
+
+.lecturer-avatar {
+    display: grid;
+    width: 84px;
+    height: 84px;
+    place-items: center;
+    border-radius: 28px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.lecturer-card span {
+    color: var(--primary);
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.lecturer-card h3 {
+    margin: 10px 0;
+    font-size: 1.55rem;
+}
+
+.lecturer-card p {
+    color: var(--muted);
+}
