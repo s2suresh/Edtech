@@ -455,6 +455,63 @@
     color: var(--muted);
 }
 
+.payment-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.65fr);
+    gap: 32px;
+    align-items: center;
+}
+
+.payment-panel h2 {
+    margin: 8px 0 12px;
+}
+
+.payment-panel p {
+    color: var(--muted);
+}
+
+.qr-placeholder {
+    display: grid;
+    min-height: 280px;
+    place-items: center;
+    border: 2px dashed rgba(15, 118, 110, 0.42);
+    border-radius: var(--radius-lg);
+    background:
+        linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(251, 191, 36, 0.12)),
+        var(--surface);
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.qr-placeholder span,
+.qr-placeholder strong,
+.qr-placeholder small {
+    display: block;
+}
+
+.qr-placeholder span {
+    display: grid;
+    width: 96px;
+    height: 96px;
+    place-items: center;
+    border-radius: 28px;
+    background: var(--primary);
+    color: #ffffff;
+    font-weight: 900;
+}
+
+.qr-placeholder strong {
+    margin-top: 18px;
+    color: var(--text);
+    font-size: 1.25rem;
+}
+
+.qr-placeholder small {
+    margin-top: 8px;
+    color: var(--muted);
+}
+
 .lecturer-card {
     display: grid;
     grid-template-columns: auto 1fr;

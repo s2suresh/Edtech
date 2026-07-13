@@ -16,7 +16,7 @@ Live site: https://s2suresh.github.io/Edtech/
 - Contact and admission enquiry form placeholder.
 - Responsive navigation, mobile menu, and dark/light mode.
 - SEO metadata, Open Graph tags, and Schema.org organization markup.
-- Standalone pages for About, Programs, Course Details, Admissions, Roadmap, News, and Contact.
+- Standalone pages for About, Programs, Course Details, Payment Details, Admissions, Roadmap, News, and Contact.
 
 ## Folder Structure
 
@@ -40,6 +40,7 @@ Edtech-main/
 ├── about.html
 ├── programs.html
 ├── course-details.html
+├── payment-details.html
 ├── admissions.html
 ├── roadmap.html
 ├── news.html
@@ -63,6 +64,7 @@ Edtech-main/
 
 - Real email address, phone number, WhatsApp number, and location.
 - Final program names, syllabus, class levels, fees, and batch timings.
+- Official UPI ID, UPI QR scanner image, payment account details, and final fee structure.
 - Teacher profiles, branch details, gallery images, and achievements.
 - Admission dates, event calendar, latest notices, and downloadable PDFs.
 - Real form integration such as Google Forms, Formspree, PHP, Node.js, or a database-backed API.
