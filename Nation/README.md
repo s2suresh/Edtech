@@ -5,7 +5,7 @@ This folder stores state-wise location data for admission dropdowns.
 ## Current files
 
 - `karnataka_villages.json`: Karnataka state dropdown data in the order state -> district -> taluk -> hobli -> village.
-- `states_index.json`: India state and union territory index. Karnataka points to the active state file.
+- `states_index.json`: India state and union territory index with district seed lists. Karnataka points to the active state file for deeper data.
 - `tools/build_karnataka_villages.py`: Import helper to generate the Karnataka JSON from a verified CSV export.
 
 ## Completing Karnataka
@@ -35,5 +35,6 @@ The script writes to `Nation/karnataka_villages.json` by default.
 
 - Add one JSON file per state when more states are needed.
 - Keep the same schema so the webpage can load each state file without custom code.
+- Keep state and district lists in `states_index.json` for first-level dropdown support.
 - Expand taluk, hobli, and village data only from official or verified government sources.
 - Do not add student or enquiry response data in this folder.
