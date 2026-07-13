@@ -234,6 +234,7 @@
 
 .founder-card {
     display: grid;
+    grid-template-columns: auto 1fr;
     gap: 20px;
     align-items: start;
     border: 1px solid var(--border);
@@ -241,6 +242,18 @@
     background: var(--surface);
     padding: 28px;
     box-shadow: var(--shadow);
+}
+
+.founder-avatar {
+    display: grid;
+    width: 72px;
+    height: 72px;
+    place-items: center;
+    border-radius: 24px;
+    background: linear-gradient(135deg, var(--secondary), #fde68a);
+    color: #10201c;
+    font-size: 2rem;
+    font-weight: 900;
 }
 
 .founder-role {
