@@ -1,3 +1,69 @@
+.program-marquee-section {
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background:
+        radial-gradient(circle at 20% 50%, rgba(245, 158, 11, 0.16), transparent 24rem),
+        var(--surface);
+    padding: 22px 0;
+}
+
+.program-marquee {
+    width: 100%;
+    overflow: hidden;
+}
+
+.program-marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 16px;
+    animation: program-slide 38s linear infinite;
+}
+
+.program-marquee:hover .program-marquee-track {
+    animation-play-state: paused;
+}
+
+.program-marquee article {
+    min-width: 270px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background:
+        linear-gradient(135deg, rgba(15, 118, 110, 0.96), rgba(17, 94, 89, 0.96)),
+        var(--primary);
+    color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 18px 40px rgba(15, 118, 110, 0.18);
+}
+
+.program-marquee span,
+.program-marquee strong {
+    display: block;
+}
+
+.program-marquee span {
+    color: #fbbf24;
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.program-marquee strong {
+    margin-top: 8px;
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+
+@keyframes program-slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
 .toolbar {
     display: flex;
     align-items: center;
@@ -35,7 +101,7 @@
 }
 
 .program-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .program-card.is-hidden {
