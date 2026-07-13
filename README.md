@@ -16,7 +16,7 @@ Live site: https://s2suresh.github.io/Edtech/
 - Contact and admission enquiry form placeholder.
 - Responsive navigation, mobile menu, and dark/light mode.
 - SEO metadata, Open Graph tags, and Schema.org organization markup.
-- Standalone pages for About, Programs, Admissions, Roadmap, News, and Contact.
+- Standalone pages for About, Programs, Course Details, Admissions, Roadmap, News, and Contact.
 
 ## Folder Structure
 
@@ -38,6 +38,7 @@ Edtech-main/
 ├── index.html
 ├── about.html
 ├── programs.html
+├── course-details.html
 ├── admissions.html
 ├── roadmap.html
 ├── news.html

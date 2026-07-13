@@ -6,6 +6,7 @@
     .hero,
     .page-hero,
     .page-split,
+    .course-detail-card,
     .two-column,
     .contact-grid,
     .footer-grid {
@@ -22,7 +23,8 @@
     .brand-proof,
     .experience-grid,
     .page-grid,
-    .mini-metrics {
+    .mini-metrics,
+    .founder-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -81,7 +83,12 @@
     .brand-proof,
     .experience-grid,
     .page-grid,
-    .mini-metrics {
+    .mini-metrics,
+    .founder-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .founder-card {
         grid-template-columns: 1fr;
     }
 
@@ -100,7 +107,7 @@
         width: 100%;
     }
 
-    .program-marquee article {
+    .program-marquee a {
         min-width: 230px;
     }
 
