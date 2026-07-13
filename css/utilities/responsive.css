@@ -23,6 +23,8 @@
     .brand-proof,
     .experience-grid,
     .page-grid,
+    .course-info-grid,
+    .shopping-strip-grid,
     .mini-metrics,
     .founder-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -83,12 +85,19 @@
     .brand-proof,
     .experience-grid,
     .page-grid,
+    .course-info-grid,
+    .shopping-strip-grid,
     .mini-metrics,
     .founder-grid {
         grid-template-columns: 1fr;
     }
 
     .founder-card {
+        grid-template-columns: 1fr;
+    }
+
+    .lecturer-card,
+    .payment-steps article {
         grid-template-columns: 1fr;
     }
 
