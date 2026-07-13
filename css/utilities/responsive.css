@@ -30,6 +30,10 @@
         align-items: stretch;
         flex-direction: column;
     }
+
+    .program-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 760px) {
@@ -94,6 +98,10 @@
 
     .btn {
         width: 100%;
+    }
+
+    .program-marquee article {
+        min-width: 230px;
     }
 
     .timeline li {
