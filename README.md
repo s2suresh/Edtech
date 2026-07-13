@@ -56,6 +56,7 @@ Edtech-main/
 - Add page-section styling in `css/sections/`, then import it from `css/style.css`.
 - Add feature behavior in `js/modules/`, export an init function, then call it from `js/script.js`.
 - Add verified state, district, taluk, hobli, and village data inside `Nation/` for location dropdowns.
+- Configure Google Sheet enquiry submission in `js/modules/enquiryConfig.js` after deploying the Apps Script Web App from `integrations/google-apps-script/`.
 - Keep each HTML page focused on content and structure; keep styling in CSS and behavior in JS modules.
 
 ## Information To Replace Later
