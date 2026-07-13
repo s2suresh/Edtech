@@ -26,3 +26,20 @@
     color: var(--primary);
     text-decoration: none;
 }
+
+.contact-cards .map-link {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    border-radius: 999px;
+    background: var(--surface-soft);
+    padding: 8px 12px;
+    font-weight: 900;
+}
+
+.contact-cards .map-link:hover,
+.contact-cards .map-link:focus-visible {
+    background: var(--primary);
+    color: var(--bg);
+    outline: none;
+}
