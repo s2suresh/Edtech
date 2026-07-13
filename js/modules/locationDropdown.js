@@ -7,8 +7,12 @@ const setOptions = (select, options, placeholder) => {
 
 const findByName = (items, name) => items.find((item) => item.name === name);
 
+const toDistrictOptions = (districts) => districts.map((district) => (
+    typeof district === 'string' ? { name: district, taluks: [] } : district
+));
+
 export const initLocationDropdown = () => {
-    const picker = document.querySelector('[data-location-source]');
+    const picker = document.querySelector('[data-state-index]');
     if (!picker) return;
 
     const stateSelect = picker.querySelector('#stateSelect');
@@ -17,6 +21,8 @@ export const initLocationDropdown = () => {
     const hobliSelect = picker.querySelector('#hobliSelect');
     const villageSelect = picker.querySelector('#villageSelect');
     const help = picker.querySelector('#locationHelp');
+    const locationBase = picker.dataset.locationBase || '';
+    let activeDistricts = [];
 
     const resetBelow = (level) => {
         if (level <= 1) setOptions(districtSelect, [], 'Select district');
@@ -25,24 +31,50 @@ export const initLocationDropdown = () => {
         if (level <= 4) setOptions(villageSelect, [], 'Select village');
     };
 
-    fetch(picker.dataset.locationSource)
+    const loadStateFile = (state) => {
+        if (!state.file) {
+            activeDistricts = toDistrictOptions(state.districts || []);
+            setOptions(districtSelect, activeDistricts, 'Select district');
+            help.textContent = 'Districts loaded. Taluk, hobli, and village data can be added later for this state.';
+            return Promise.resolve();
+        }
+
+        return fetch(`${locationBase}${state.file}`)
+            .then((response) => {
+                if (!response.ok) throw new Error('State location data not available');
+                return response.json();
+            })
+            .then((stateData) => {
+                activeDistricts = toDistrictOptions(stateData.districts || state.districts || []);
+                setOptions(districtSelect, activeDistricts, 'Select district');
+                help.textContent = 'Districts loaded. Select a district to load taluks where data is available.';
+            });
+    };
+
+    fetch(picker.dataset.stateIndex)
         .then((response) => {
             if (!response.ok) throw new Error('Location data not available');
             return response.json();
         })
         .then((data) => {
-            setOptions(stateSelect, [data.state], 'Select state');
+            const states = [...(data.states || []), ...(data.unionTerritories || [])];
+            setOptions(stateSelect, states, 'Select state');
 
             stateSelect.addEventListener('change', () => {
                 resetBelow(1);
-                if (stateSelect.value !== data.state.name) return;
-                setOptions(districtSelect, data.districts, 'Select district');
-                help.textContent = 'Select a district to load taluks where data is available.';
+                activeDistricts = [];
+                const state = findByName(states, stateSelect.value);
+                if (!state) return;
+                loadStateFile(state).catch(() => {
+                    activeDistricts = toDistrictOptions(state.districts || []);
+                    setOptions(districtSelect, activeDistricts, 'Select district');
+                    help.textContent = 'State file could not load. District seed data is shown where available.';
+                });
             });
 
             districtSelect.addEventListener('change', () => {
                 resetBelow(2);
-                const district = findByName(data.districts, districtSelect.value);
+                const district = findByName(activeDistricts, districtSelect.value);
                 const taluks = district?.taluks || [];
                 setOptions(talukSelect, taluks, 'Select taluk');
                 help.textContent = taluks.length
@@ -52,7 +84,7 @@ export const initLocationDropdown = () => {
 
             talukSelect.addEventListener('change', () => {
                 resetBelow(3);
-                const district = findByName(data.districts, districtSelect.value);
+                const district = findByName(activeDistricts, districtSelect.value);
                 const taluk = findByName(district?.taluks || [], talukSelect.value);
                 const hoblis = taluk?.hoblis || [];
                 setOptions(hobliSelect, hoblis, 'Select hobli');
@@ -63,7 +95,7 @@ export const initLocationDropdown = () => {
 
             hobliSelect.addEventListener('change', () => {
                 resetBelow(4);
-                const district = findByName(data.districts, districtSelect.value);
+                const district = findByName(activeDistricts, districtSelect.value);
                 const taluk = findByName(district?.taluks || [], talukSelect.value);
                 const hobli = findByName(taluk?.hoblis || [], hobliSelect.value);
                 const villages = hobli?.villages || [];

@@ -73,9 +73,9 @@
                 <div>
                     <p class="eyebrow">Location dropdown data</p>
                     <h2>Select student location step by step.</h2>
-                    <p>This section reads from <code>Nation/karnataka_villages.json</code> and can support the admission form flow: state, district, taluk, hobli, and village.</p>
+                    <p>This section reads from <code>Nation/states_index.json</code> for all states and districts. Karnataka also loads deeper taluk, hobli, and village data from <code>Nation/karnataka_villages.json</code>.</p>
                 </div>
-                <div class="location-picker" data-location-source="Nation/karnataka_villages.json">
+                <div class="location-picker" data-state-index="Nation/states_index.json" data-location-base="Nation/">
                     <label>
                         State
                         <select id="stateSelect" name="state">
@@ -106,7 +106,7 @@
                             <option value="">Select village</option>
                         </select>
                     </label>
-                    <p class="location-help" id="locationHelp">Choose Karnataka to load districts. Taluk, hobli, and village data can be expanded district by district.</p>
+                    <p class="location-help" id="locationHelp">Choose a state to load districts. Karnataka includes deeper sample taluk, hobli, and village data.</p>
                 </div>
             </div>
         </section>
