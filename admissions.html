@@ -45,6 +45,14 @@
 
     <main id="main">
         <section class="section-padding">
+            <div class="container page-panel admission-note">
+                <p class="eyebrow">Testing update</p>
+                <h2>DEV build status clarification.</h2>
+                <p>There is a DEV build under testing and an R build planned today. Suresh Suresh (Nokia), could you please help clarify the DEV build status further with the testing team?</p>
+            </div>
+        </section>
+
+        <section class="section-padding">
             <div class="container page-split">
                 <div>
                     <p class="eyebrow">Process</p>
@@ -57,6 +65,49 @@
                     <li><strong>Program recommendation</strong><span>Recommend foundation, higher secondary, digital skills, or admissions support.</span></li>
                     <li><strong>Batch confirmation</strong><span>Confirm documents, fee plan, timing, and start date when available.</span></li>
                 </ol>
+            </div>
+        </section>
+
+        <section class="section-padding page-band">
+            <div class="container page-split">
+                <div>
+                    <p class="eyebrow">Location dropdown data</p>
+                    <h2>Select student location step by step.</h2>
+                    <p>This section reads from <code>Nation/karnataka_villages.json</code> and can support the admission form flow: state, district, taluk, hobli, and village.</p>
+                </div>
+                <div class="location-picker" data-location-source="Nation/karnataka_villages.json">
+                    <label>
+                        State
+                        <select id="stateSelect" name="state">
+                            <option value="">Select state</option>
+                        </select>
+                    </label>
+                    <label>
+                        District
+                        <select id="districtSelect" name="district" disabled>
+                            <option value="">Select district</option>
+                        </select>
+                    </label>
+                    <label>
+                        Taluk
+                        <select id="talukSelect" name="taluk" disabled>
+                            <option value="">Select taluk</option>
+                        </select>
+                    </label>
+                    <label>
+                        Hobli
+                        <select id="hobliSelect" name="hobli" disabled>
+                            <option value="">Select hobli</option>
+                        </select>
+                    </label>
+                    <label>
+                        Village
+                        <select id="villageSelect" name="village" disabled>
+                            <option value="">Select village</option>
+                        </select>
+                    </label>
+                    <p class="location-help" id="locationHelp">Choose Karnataka to load districts. Taluk, hobli, and village data can be expanded district by district.</p>
+                </div>
             </div>
         </section>
 
