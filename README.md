@@ -25,6 +25,7 @@ Edtech-main/
 ├── assets/
 │   └── icons/              # Logo, favicon, UI icons, and future SVG assets
 ├── Nation/                 # State-wise location JSON data for admission dropdowns
+├── pay/                    # UPI QR and future payment reference assets
 ├── css/
 │   ├── base/               # Design tokens, reset, and global defaults
 │   ├── components/         # Reusable UI pieces like buttons, cards, forms
