@@ -16,6 +16,7 @@ Live site: https://s2suresh.github.io/Edtech/
 - Contact and admission enquiry form placeholder.
 - Responsive navigation, mobile menu, and dark/light mode.
 - SEO metadata, Open Graph tags, and Schema.org organization markup.
+- Standalone pages for About, Programs, Admissions, Roadmap, News, and Contact.
 
 ## Folder Structure
 
@@ -35,6 +36,12 @@ Edtech-main/
 │   └── script.js           # Main JavaScript initializer
 ├── folder/                 # Planning notes and source ideas
 ├── index.html
+├── about.html
+├── programs.html
+├── admissions.html
+├── roadmap.html
+├── news.html
+├── contact.html
 ├── manifest.webmanifest
 ├── robots.txt
 └── sitemap.xml
@@ -46,7 +53,7 @@ Edtech-main/
 - Add a new reusable design piece in `css/components/`, then import it from `css/style.css`.
 - Add page-section styling in `css/sections/`, then import it from `css/style.css`.
 - Add feature behavior in `js/modules/`, export an init function, then call it from `js/script.js`.
-- Keep `index.html` focused on content and structure; keep styling in CSS and behavior in JS modules.
+- Keep each HTML page focused on content and structure; keep styling in CSS and behavior in JS modules.
 
 ## Information To Replace Later
 

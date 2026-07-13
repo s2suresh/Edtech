@@ -4,6 +4,8 @@
     }
 
     .hero,
+    .page-hero,
+    .page-split,
     .two-column,
     .contact-grid,
     .footer-grid {
@@ -18,7 +20,9 @@
     .card-grid,
     .stats-grid,
     .brand-proof,
-    .experience-grid {
+    .experience-grid,
+    .page-grid,
+    .mini-metrics {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -71,7 +75,9 @@
     .card-grid,
     .stats-grid,
     .brand-proof,
-    .experience-grid {
+    .experience-grid,
+    .page-grid,
+    .mini-metrics {
         grid-template-columns: 1fr;
     }
 
