@@ -1,6 +1,19 @@
 import { ENQUIRY_ENDPOINT, ENQUIRY_SHEET_URL } from './enquiryConfig.js';
 
-const createReferenceId = () => `SE-${new Date().toISOString().replace(/[-:.TZ]/g, '').slice(0, 14)}`;
+const normalizeMobile = (value) => {
+    const digits = String(value || '').replace(/\D/g, '');
+    return digits.length === 12 && digits.startsWith('91') ? digits.slice(2) : digits;
+};
+
+const createReferenceId = (phone) => {
+    const now = new Date();
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = now.getFullYear();
+    const mobile = normalizeMobile(phone) || 'mobile';
+
+    return `${day}-${month}-${year}-${mobile}`;
+};
 
 const serializeForm = (form) => {
     const formData = new FormData(form);
@@ -11,7 +24,7 @@ const serializeForm = (form) => {
     });
 
     payload.sourcePage = window.location.pathname.split('/').pop() || 'index.html';
-    payload.referenceId = createReferenceId();
+    payload.referenceId = createReferenceId(payload.phone || payload.mobile);
     payload.submittedAt = new Date().toISOString();
 
     return payload;

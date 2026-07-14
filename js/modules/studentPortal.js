@@ -16,20 +16,20 @@ export function initStudentPortal() {
         const reference = String(formData.get('reference') || '').trim();
         const message = [
             'Hi Sharusuri EdTech,',
-            'I need student access support.',
+            'I need student access verification.',
             `Registered mobile: ${mobile || 'not provided'}.`,
             `Enquiry reference ID: ${reference || 'not provided'}.`,
-            'Please share my course/class updates.',
+            'Please verify my enquiry record and share my course/dashboard access details.',
         ].join(' ');
         const whatsappUrl = `https://wa.me/918088835686?text=${encodeURIComponent(message)}`;
 
         status.innerHTML = '';
-        status.append('Free access request is ready. ');
+        status.append('Verification request is ready. Backend matching will use registered mobile plus reference ID; for now, send it to support. ');
         const link = document.createElement('a');
         link.href = whatsappUrl;
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
-        link.textContent = 'Send details on WhatsApp';
+        link.textContent = 'Send verification on WhatsApp';
         status.append(link);
     });
 }

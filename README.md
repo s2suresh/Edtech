@@ -19,8 +19,7 @@ Live site: https://s2suresh.github.io/Edtech/
 - SEO metadata, Open Graph tags, and Schema.org organization markup.
 - Standalone pages for About, Programs, Course Details, Payment Details, Login / Signup, Student Dashboard Preview, Teacher Dashboard Preview, Admin Dashboard Preview, Admissions, Roadmap, News, and Contact.
 - Course detail pages include academic calendar, class mode guidance, and full-course/unit-course payment paths.
-- Login / Signup page starts with a free mobile number plus enquiry reference ID support flow.
-- Real mobile OTP is a later paid/provider-backed option; this static site does not send dummy OTPs.
+- Login / Signup page explains a step-wise enquiry, email reference ID, mobile verification, and dashboard access flow.
 
 ## Folder Structure
 
@@ -68,7 +67,7 @@ Edtech-main/
 - Add verified state, district, taluk, hobli, and village data inside `Nation/` for location dropdowns.
 - Configure Google Sheet enquiry submission in `js/modules/enquiryConfig.js` after deploying the Apps Script Web App from `integrations/google-apps-script/`.
 - Keep course-to-payment behavior in `js/modules/paymentFlow.js` so payment page messaging stays dynamic from URL parameters.
-- Keep student portal behavior in `js/modules/studentPortal.js`; do not store plain text passwords in Google Sheets.
+- Keep student portal behavior in `js/modules/studentPortal.js`; mobile number plus reference ID verification belongs in the backend, not plain text passwords in Google Sheets.
 - Keep each HTML page focused on content and structure; keep styling in CSS and behavior in JS modules.
 
 ## Information To Replace Later
@@ -79,8 +78,7 @@ Edtech-main/
 - Teacher profiles, branch details, gallery images, and achievements.
 - Admission dates, event calendar, latest notices, and downloadable PDFs.
 - Real form integration such as Google Forms, Formspree, PHP, Node.js, or a database-backed API.
-- Secure OTP/password backend for student, parent, teacher, and admin login when moving beyond the free manual support flow.
-- Optional SMS/WhatsApp OTP provider setup such as Firebase Phone Auth, MSG91, Fast2SMS, Twilio, or WhatsApp Business API.
+- Secure backend for student, parent, teacher, and admin login when moving beyond mobile plus reference ID verification.
 - Student dashboard data model for courses, classwork, homework, attendance, marks, payments, and daily updates.
 
 ## Recommended Next Steps
