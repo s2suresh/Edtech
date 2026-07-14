@@ -19,8 +19,8 @@ Live site: https://s2suresh.github.io/Edtech/
 - SEO metadata, Open Graph tags, and Schema.org organization markup.
 - Standalone pages for About, Programs, Course Details, Payment Details, Login / Signup, Admissions, Roadmap, News, and Contact.
 - Course detail pages include academic calendar, class mode guidance, and full-course/unit-course payment paths.
-- Login / Signup page is a safe student portal placeholder; real private student, teacher, and admin dashboards need secure OTP/password backend before launch.
-- Real mobile OTP requires an SMS or WhatsApp OTP provider through a secure backend; this static site does not send dummy OTPs.
+- Login / Signup page starts with a free mobile number plus enquiry reference ID support flow.
+- Real mobile OTP is a later paid/provider-backed option; this static site does not send dummy OTPs.
 
 ## Folder Structure
 
@@ -76,8 +76,8 @@ Edtech-main/
 - Teacher profiles, branch details, gallery images, and achievements.
 - Admission dates, event calendar, latest notices, and downloadable PDFs.
 - Real form integration such as Google Forms, Formspree, PHP, Node.js, or a database-backed API.
-- Secure OTP/password backend for student, parent, teacher, and admin login.
-- SMS/WhatsApp OTP provider setup such as Firebase Phone Auth, MSG91, Fast2SMS, Twilio, or WhatsApp Business API.
+- Secure OTP/password backend for student, parent, teacher, and admin login when moving beyond the free manual support flow.
+- Optional SMS/WhatsApp OTP provider setup such as Firebase Phone Auth, MSG91, Fast2SMS, Twilio, or WhatsApp Business API.
 - Student dashboard data model for courses, classwork, homework, attendance, marks, payments, and daily updates.
 
 ## Recommended Next Steps
