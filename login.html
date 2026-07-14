@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Student login and signup guidance for Sharusuri EdTech, including registered mobile number access and secure student portal planning.">
+    <meta name="theme-color" content="#0f766e">
+    <title>Login / Signup | Sharusuri EdTech</title>
+    <link rel="icon" href="assets/icons/brand-mark.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.webmanifest">
+</head>
+<body class="page-shell">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="page-header">
+        <nav class="navbar" aria-label="Primary navigation">
+            <a class="brand" href="about.html#founders" aria-label="Sharusuri EdTech founders"><span class="brand-mark">SE</span><span><strong>Sharusuri</strong><small>EdTech</small></span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navMenu"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
+            <div class="nav-menu" id="navMenu">
+                <a href="about.html">About</a>
+                <a href="programs.html">Programs</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="roadmap.html">Roadmap</a>
+                <a href="news.html">News</a>
+                <a href="contact.html">Contact</a>
+                <a class="login-link" href="login.html" aria-current="page">Login / Signup</a>
+                <button class="theme-toggle" type="button" aria-label="Switch color theme">Dark</button>
+            </div>
+        </nav>
+        <section class="page-hero section-padding">
+            <div>
+                <p class="eyebrow">Student portal</p>
+                <h1>Login with registered mobile number after secure access is enabled.</h1>
+                <p>Registered student details are collected through the enquiry form and stored in the Google Sheet. A real private portal needs OTP or a secure backend before showing personal course, class, and daily update data.</p>
+                <div class="page-actions">
+                    <a class="btn btn-primary" href="contact.html">Register Student</a>
+                    <a class="btn btn-secondary" href="programs.html">View Programs</a>
+                </div>
+            </div>
+            <aside class="page-hero-card">
+                <strong>Mobile number as username</strong>
+                <span>The registered mobile number can be the username. Passwords should be OTP-based or securely reset by the student, not stored as plain mobile numbers.</span>
+            </aside>
+        </section>
+    </header>
+
+    <main id="main">
+        <section class="section-padding">
+            <div class="container login-portal-grid">
+                <form class="page-panel portal-form" id="studentLoginForm">
+                    <p class="eyebrow">Login</p>
+                    <h2>Student access</h2>
+                    <p>Use this as the future login design. The secure backend or OTP service will validate the mobile number later.</p>
+                    <label>
+                        Registered mobile number
+                        <input type="tel" name="mobile" placeholder="+91 80888 35686" required>
+                    </label>
+                    <label>
+                        Password or OTP
+                        <input type="password" name="password" placeholder="Enter OTP or password" required>
+                    </label>
+                    <button class="btn btn-primary" type="submit">Login Preview</button>
+                    <p class="form-status" id="studentLoginStatus" role="status" aria-live="polite"></p>
+                </form>
+
+                <div class="page-panel">
+                    <p class="eyebrow">Signup</p>
+                    <h2>New student registration starts from enquiry.</h2>
+                    <p>When a student submits the Admission Enquiry form, their mobile number becomes the future username. The response is already stored in the Google Sheet for admission follow-up.</p>
+                    <div class="portal-checklist">
+                        <article><strong>01</strong><span>Submit enquiry with student mobile number.</span></article>
+                        <article><strong>02</strong><span>Team confirms course, batch, and payment.</span></article>
+                        <article><strong>03</strong><span>Secure login is enabled through OTP or password reset.</span></article>
+                    </div>
+                    <div class="page-actions">
+                        <a class="btn btn-primary" href="contact.html">Open Enquiry Form</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding page-band">
+            <div class="container page-grid">
+                <article class="page-card">
+                    <span class="card-icon">ID</span>
+                    <h3>Mobile as username</h3>
+                    <p>Every registered student can use their submitted mobile number as the unique login identifier.</p>
+                </article>
+                <article class="page-card">
+                    <span class="card-icon">OTP</span>
+                    <h3>Secure reset later</h3>
+                    <p>Students should reset their own password or receive OTP verification before private data is shown.</p>
+                </article>
+                <article class="page-card">
+                    <span class="card-icon">DB</span>
+                    <h3>Sheet as admission source</h3>
+                    <p>The Google Sheet can remain the admission list, but private login data should move to a secure backend when the portal goes live.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div><a class="brand footer-brand" href="about.html#founders"><span class="brand-mark">SE</span><span><strong>Sharusuri</strong><small>EdTech</small></span></a><p>Affordable digital learning for rural and semi-urban communities.</p></div>
+            <div><h3>Explore</h3><a href="about.html">About</a><a href="programs.html">Programs</a><a href="admissions.html">Admissions</a><a href="roadmap.html">Roadmap</a></div>
+            <div><h3>Connect</h3><a href="contact.html">Admission Enquiry</a><a href="payment-details.html">Payment Details</a><a href="login.html">Login / Signup</a></div>
+        </div>
+        <div class="container footer-bottom"><span>&copy; 2026 Sharusuri EdTech. All rights reserved.</span><span>Built for GitHub Pages.</span></div>
+    </footer>
+
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>

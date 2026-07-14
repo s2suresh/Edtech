@@ -16,8 +16,9 @@ Live site: https://s2suresh.github.io/Edtech/
 - Contact and admission enquiry form placeholder.
 - Responsive navigation, mobile menu, and dark/light mode.
 - SEO metadata, Open Graph tags, and Schema.org organization markup.
-- Standalone pages for About, Programs, Course Details, Payment Details, Admissions, Roadmap, News, and Contact.
+- Standalone pages for About, Programs, Course Details, Payment Details, Login / Signup, Admissions, Roadmap, News, and Contact.
 - Course detail pages include academic calendar, class mode guidance, and full-course/unit-course payment paths.
+- Login / Signup page is a safe student portal placeholder; real private student data needs secure OTP/password backend before launch.
 
 ## Folder Structure
 
@@ -43,6 +44,7 @@ Edtech-main/
 ├── programs.html
 ├── course-details.html
 ├── payment-details.html
+├── login.html
 ├── admissions.html
 ├── roadmap.html
 ├── news.html
@@ -61,6 +63,7 @@ Edtech-main/
 - Add verified state, district, taluk, hobli, and village data inside `Nation/` for location dropdowns.
 - Configure Google Sheet enquiry submission in `js/modules/enquiryConfig.js` after deploying the Apps Script Web App from `integrations/google-apps-script/`.
 - Keep course-to-payment behavior in `js/modules/paymentFlow.js` so payment page messaging stays dynamic from URL parameters.
+- Keep student portal behavior in `js/modules/studentPortal.js`; do not store plain text passwords in Google Sheets.
 - Keep each HTML page focused on content and structure; keep styling in CSS and behavior in JS modules.
 
 ## Information To Replace Later
@@ -71,7 +74,7 @@ Edtech-main/
 - Teacher profiles, branch details, gallery images, and achievements.
 - Admission dates, event calendar, latest notices, and downloadable PDFs.
 - Real form integration such as Google Forms, Formspree, PHP, Node.js, or a database-backed API.
-- Student, parent, teacher, and admin login links when a backend is built.
+- Secure OTP/password backend for student, parent, teacher, and admin login.
 
 ## Recommended Next Steps
 

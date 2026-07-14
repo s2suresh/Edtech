@@ -167,6 +167,66 @@
     margin-top: 24px;
 }
 
+.login-portal-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.portal-form {
+    display: grid;
+    gap: 16px;
+}
+
+.portal-form label {
+    display: grid;
+    gap: 8px;
+    color: var(--text);
+    font-weight: 800;
+}
+
+.portal-form input {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    color: var(--text);
+    padding: 13px 14px;
+    font: inherit;
+}
+
+.portal-checklist {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.portal-checklist article {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: start;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    padding: 16px;
+}
+
+.portal-checklist strong {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.portal-checklist span {
+    color: var(--muted);
+}
+
 .mini-metrics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
