@@ -9,9 +9,9 @@
     "icons": [
         {
             "src": "assets/icons/brand-mark.svg",
-            "sizes": "96x96",
+            "sizes": "any",
             "type": "image/svg+xml",
-            "purpose": "any"
+            "purpose": "any maskable"
         }
     ]
 }

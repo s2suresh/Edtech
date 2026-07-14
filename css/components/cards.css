@@ -15,8 +15,28 @@
 }
 
 .card {
+    position: relative;
+    overflow: hidden;
     border-radius: var(--radius-lg);
     padding: 26px;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.card::before {
+    position: absolute;
+    top: -72px;
+    right: -72px;
+    width: 144px;
+    height: 144px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(15, 118, 110, 0.12), transparent 68%);
+    content: "";
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(15, 118, 110, 0.28);
+    box-shadow: 0 26px 80px rgba(15, 118, 110, 0.18);
 }
 
 .card h3,
@@ -40,12 +60,29 @@
 }
 
 .card-icon {
+    position: relative;
+    overflow: hidden;
     display: grid;
-    width: 48px;
-    height: 48px;
+    width: 54px;
+    height: 54px;
     place-items: center;
-    border-radius: 16px;
-    background: var(--surface-soft);
-    color: var(--primary);
+    border: 1px solid rgba(15, 118, 110, 0.12);
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 72% 22%, rgba(255, 255, 255, 0.9), transparent 18px),
+        linear-gradient(135deg, rgba(251, 191, 36, 0.96), rgba(15, 118, 110, 0.94));
+    color: #ffffff;
+    box-shadow: 0 14px 28px rgba(15, 118, 110, 0.18);
     font-weight: 900;
+}
+
+.card-icon::after {
+    position: absolute;
+    right: -10px;
+    bottom: -12px;
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.24);
+    content: "";
 }
