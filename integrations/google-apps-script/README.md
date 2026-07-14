@@ -34,6 +34,9 @@ After that, website form submissions will be sent to Apps Script.
 ## How It Works
 
 - The website form sends all fields dynamically.
+- Reference IDs use `DD-MM-YYYY-MobileNumber`, for example `14-07-2026-8088835686`.
+- Apps Script rejects a new enquiry when the same mobile number already exists in the response sheet.
+- Student access verification can match `mobile` plus `referenceId` from the response sheet before opening a private dashboard in a future backend flow.
 - Apps Script adds new Sheet columns if future form fields are added.
 - Apps Script creates a PDF receipt in Google Drive folder `Sharusuri EdTech Enquiry PDFs`.
 - Apps Script emails the PDF to the submitted email address.

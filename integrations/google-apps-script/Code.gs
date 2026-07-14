@@ -25,10 +25,20 @@ const REQUIRED_HEADERS = [
 function doPost(event) {
   try {
     const payload = parsePayload_(event);
-    const referenceId = payload.referenceId || createReferenceId_();
     const timestamp = new Date();
     const sheet = getSheet_();
     const headers = ensureHeaders_(sheet, payload);
+
+    if (payload.action === 'verifyStudentAccess') {
+      return jsonResponse_(verifyStudentAccess_(sheet, headers, payload));
+    }
+
+    const phone = normalizeMobile_(payload.phone || payload.mobile || payload.Phone || payload.Mobile);
+    if (phone && findExistingPhoneRow_(sheet, headers, phone) > 1) {
+      throw new Error('This mobile number is already registered. Please use the existing reference ID or contact support.');
+    }
+
+    const referenceId = createReferenceId_(phone, timestamp);
     const pdfFile = createReceiptPdf_(payload, referenceId, timestamp);
 
     payload.timestamp = timestamp.toISOString();
@@ -77,9 +87,10 @@ function getSheet_() {
 }
 
 function ensureHeaders_(sheet, payload) {
+  const requiredHeaderKeys = REQUIRED_HEADERS.map(normalizeHeaderKey_);
   const dynamicHeaders = Object.keys(payload)
     .map(toTitle_)
-    .filter((header) => !REQUIRED_HEADERS.includes(header));
+    .filter((header) => !requiredHeaderKeys.includes(normalizeHeaderKey_(header)));
   const desiredHeaders = REQUIRED_HEADERS.concat(dynamicHeaders);
   const lastColumn = Math.max(sheet.getLastColumn(), desiredHeaders.length);
   const currentHeaders = sheet.getRange(1, 1, 1, lastColumn).getValues()[0].filter(Boolean);
@@ -173,8 +184,64 @@ function getOrCreateFolder_(folderName) {
   return folders.hasNext() ? folders.next() : DriveApp.createFolder(folderName);
 }
 
-function createReferenceId_() {
-  return `SE-${Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'yyyyMMdd-HHmmss')}`;
+function createReferenceId_(phone, timestamp) {
+  const dateText = Utilities.formatDate(timestamp || new Date(), Session.getScriptTimeZone(), 'dd-MM-yyyy');
+  const mobile = normalizeMobile_(phone) || 'mobile';
+  return `${dateText}-${mobile}`;
+}
+
+function verifyStudentAccess_(sheet, headers, payload) {
+  const phone = normalizeMobile_(payload.mobile || payload.phone || payload.Mobile || payload.Phone);
+  const referenceId = String(payload.referenceId || payload.reference || payload.Reference || payload['Reference ID'] || '').trim();
+
+  if (!phone || !referenceId) {
+    return {
+      ok: false,
+      message: 'Registered mobile number and enquiry reference ID are required.',
+    };
+  }
+
+  const phoneIndex = headers.indexOf('Phone');
+  const referenceIndex = headers.indexOf('Reference ID');
+  if (phoneIndex === -1 || referenceIndex === -1 || sheet.getLastRow() < 2) {
+    return {
+      ok: false,
+      message: 'No registered student records found.',
+    };
+  }
+
+  const rows = sheet.getRange(2, 1, sheet.getLastRow() - 1, headers.length).getValues();
+  const match = rows.find((row) => {
+    const rowPhone = normalizeMobile_(row[phoneIndex]);
+    const rowReference = String(row[referenceIndex] || '').trim();
+    return rowPhone === phone && rowReference === referenceId;
+  });
+
+  return match
+    ? {
+        ok: true,
+        message: 'Student access verified.',
+        redirectUrl: 'student-dashboard.html',
+      }
+    : {
+        ok: false,
+        message: 'Mobile number and reference ID do not match. Please check the email PDF receipt or contact WhatsApp support.',
+      };
+}
+
+function findExistingPhoneRow_(sheet, headers, phone) {
+  const phoneIndex = headers.indexOf('Phone');
+  if (phoneIndex === -1 || sheet.getLastRow() < 2) return -1;
+
+  const rows = sheet.getRange(2, 1, sheet.getLastRow() - 1, headers.length).getValues();
+  const normalizedPhone = normalizeMobile_(phone);
+  const matchIndex = rows.findIndex((row) => normalizeMobile_(row[phoneIndex]) === normalizedPhone);
+  return matchIndex === -1 ? -1 : matchIndex + 2;
+}
+
+function normalizeMobile_(value) {
+  const digits = String(value || '').replace(/\D/g, '');
+  return digits.length === 12 && digits.startsWith('91') ? digits.slice(2) : digits;
 }
 
 function jsonResponse_(data) {
@@ -190,6 +257,10 @@ function toTitle_(value) {
     .replace(/\s+/g, ' ')
     .trim()
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function normalizeHeaderKey_(value) {
+  return String(value).toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
 function toCamel_(value) {

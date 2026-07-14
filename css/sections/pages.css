@@ -190,6 +190,75 @@
     align-items: start;
 }
 
+.portal-step-grid,
+.portal-role-grid {
+    display: grid;
+    gap: 18px;
+}
+
+.portal-step-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.portal-step-grid article {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.portal-step-grid article::after {
+    position: absolute;
+    right: -36px;
+    bottom: -44px;
+    width: 112px;
+    height: 112px;
+    border-radius: 999px;
+    background: rgba(15, 118, 110, 0.08);
+    content: "";
+}
+
+.portal-step-grid strong {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #ffffff;
+}
+
+.portal-step-grid h3 {
+    margin: 18px 0 10px;
+}
+
+.portal-step-grid p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: var(--muted);
+}
+
+.portal-role-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.portal-role-grid .page-card {
+    background:
+        radial-gradient(circle at 88% 12%, rgba(251, 191, 36, 0.12), transparent 72px),
+        var(--surface);
+}
+
+.portal-card-action {
+    display: inline-flex;
+    margin-top: 18px;
+    color: var(--primary);
+    font-size: 0.92rem;
+}
+
 .portal-form {
     display: grid;
     gap: 16px;
