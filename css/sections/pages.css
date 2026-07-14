@@ -196,6 +196,10 @@
     font: inherit;
 }
 
+.portal-form .btn {
+    width: fit-content;
+}
+
 .portal-checklist {
     display: grid;
     gap: 12px;
