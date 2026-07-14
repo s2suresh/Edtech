@@ -68,8 +68,30 @@
     }
 
     .nav-menu a,
+    .nav-dropdown-toggle,
     .theme-toggle {
         text-align: left;
+    }
+
+    .nav-dropdown,
+    .nav-dropdown-toggle {
+        width: 100%;
+    }
+
+    .nav-dropdown-menu {
+        position: static;
+        display: none;
+        min-width: 0;
+        margin-top: 6px;
+        border-radius: 16px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+    }
+
+    .nav-dropdown.is-open .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+        display: grid;
     }
 
     .hero {

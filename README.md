@@ -15,6 +15,7 @@ Live site: https://s2suresh.github.io/Edtech/
 - FAQ section for common parent/student questions.
 - Contact and admission enquiry form placeholder.
 - Responsive navigation, mobile menu, and dark/light mode.
+- Roadmap dropdown groups Programs, Admissions, and Roadmap in the top navigation.
 - SEO metadata, Open Graph tags, and Schema.org organization markup.
 - Standalone pages for About, Programs, Course Details, Payment Details, Login / Signup, Admissions, Roadmap, News, and Contact.
 - Course detail pages include academic calendar, class mode guidance, and full-course/unit-course payment paths.
