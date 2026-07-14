@@ -15,9 +15,17 @@
     overflow: hidden;
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    background: var(--surface);
+    background:
+        radial-gradient(circle at 92% 12%, rgba(251, 191, 36, 0.12), transparent 64px),
+        var(--surface);
     padding: 28px;
     box-shadow: var(--shadow);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.experience-grid article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 84px rgba(15, 118, 110, 0.18);
 }
 
 .experience-grid article::after {
@@ -32,14 +40,30 @@
 }
 
 .experience-grid span {
+    position: relative;
+    overflow: hidden;
     display: grid;
-    width: 46px;
-    height: 46px;
+    width: 54px;
+    height: 54px;
     place-items: center;
-    border-radius: 16px;
-    background: var(--surface-soft);
-    color: var(--primary);
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 70% 22%, rgba(255, 255, 255, 0.72), transparent 18px),
+        linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #ffffff;
+    box-shadow: 0 14px 32px rgba(15, 118, 110, 0.18);
     font-weight: 900;
+}
+
+.experience-grid span::after {
+    position: absolute;
+    right: -8px;
+    bottom: -10px;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.24);
+    content: "";
 }
 
 .experience-grid h3 {

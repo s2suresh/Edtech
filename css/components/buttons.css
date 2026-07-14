@@ -1,4 +1,6 @@
 .btn {
+    position: relative;
+    overflow: hidden;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -11,20 +13,37 @@
     transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
+.btn::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+    content: "";
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 180ms ease, transform 240ms ease;
+}
+
 .btn:hover,
 .btn:focus-visible {
     transform: translateY(-2px);
     outline: none;
 }
 
+.btn:hover::after,
+.btn:focus-visible::after {
+    opacity: 1;
+    transform: translateX(100%);
+}
+
 .btn-primary {
-    background: var(--secondary);
+    background: linear-gradient(135deg, var(--secondary), #facc15);
     color: #10201c;
     box-shadow: 0 16px 36px rgba(245, 158, 11, 0.28);
 }
 
 .btn-secondary {
     border-color: rgba(255, 255, 255, 0.24);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.12);
     color: #ffffff;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
