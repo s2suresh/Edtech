@@ -104,6 +104,12 @@
     outline: none;
 }
 
+.nav-menu .login-link {
+    background: rgba(251, 191, 36, 0.18);
+    color: #ffffff;
+    font-weight: 800;
+}
+
 .nav-toggle {
     display: none;
     width: 44px;

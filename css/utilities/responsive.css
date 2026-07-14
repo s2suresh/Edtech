@@ -6,7 +6,9 @@
     .hero,
     .page-hero,
     .page-split,
+    .login-portal-grid,
     .payment-panel,
+    .payment-selection-panel,
     .course-detail-card,
     .two-column,
     .contact-grid,
@@ -25,6 +27,8 @@
     .experience-grid,
     .page-grid,
     .course-info-grid,
+    .academic-calendar-grid,
+    .mode-grid,
     .shopping-strip-grid,
     .mini-metrics,
     .founder-grid {
@@ -87,6 +91,8 @@
     .experience-grid,
     .page-grid,
     .course-info-grid,
+    .academic-calendar-grid,
+    .mode-grid,
     .shopping-strip-grid,
     .mini-metrics,
     .founder-grid {

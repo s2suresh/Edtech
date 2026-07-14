@@ -23,6 +23,7 @@
                 <a href="roadmap.html">Roadmap</a>
                 <a href="news.html">News</a>
                 <a href="contact.html">Contact</a>
+                <a class="login-link" href="login.html">Login / Signup</a>
                 <button class="theme-toggle" type="button" aria-label="Switch color theme">Dark</button>
             </div>
         </nav>
@@ -61,6 +62,22 @@
             </div>
         </section>
 
+        <section class="section-padding page-band" id="selected-course-payment">
+            <div class="container payment-selection-panel">
+                <div>
+                    <p class="eyebrow">Selected payment option</p>
+                    <h2 id="paymentCourseTitle">Course payment confirmation</h2>
+                    <p id="paymentCourseDescription">Open this page from a course card to show the selected course and full/unit payment option here.</p>
+                </div>
+                <div class="payment-selection-card">
+                    <span id="paymentCourseType">Course type pending</span>
+                    <strong id="paymentCourseMode">Offline, online, or hybrid</strong>
+                    <p id="paymentCourseNote">Submit enquiry first so the team can confirm fee amount, batch timing, and payment reference.</p>
+                    <a class="btn btn-secondary" id="paymentCourseDetailsLink" href="course-details.html">Review Course Details</a>
+                </div>
+            </div>
+        </section>
+
         <section class="section-padding page-band">
             <div class="container payment-panel">
                 <div>
@@ -68,7 +85,7 @@
                     <h2>Use the official UPI QR after fee confirmation.</h2>
                     <p>Pay only after the admission team confirms the course, batch, and fee amount. After payment, send the screenshot and enquiry reference ID on WhatsApp.</p>
                     <div class="page-actions">
-                        <a class="btn btn-primary" href="https://wa.me/918088835686?text=Hi%20Sharusuri%20EdTech%2C%20I%20have%20paid%20the%20course%20fee.%20Please%20confirm%20my%20payment." target="_blank" rel="noopener noreferrer">Share Payment Proof</a>
+                        <a class="btn btn-primary" id="paymentWhatsappLink" href="https://wa.me/918088835686?text=Hi%20Sharusuri%20EdTech%2C%20I%20have%20paid%20the%20course%20fee.%20Please%20confirm%20my%20payment." target="_blank" rel="noopener noreferrer">Share Payment Proof</a>
                         <a class="btn btn-secondary" href="contact.html">Submit Enquiry First</a>
                     </div>
                 </div>
