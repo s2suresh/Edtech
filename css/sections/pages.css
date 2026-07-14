@@ -57,6 +57,7 @@
 }
 
 .page-hero-card-link {
+    display: block;
     color: inherit;
     text-decoration: none;
     transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
@@ -79,11 +80,26 @@
 .page-card {
     position: relative;
     overflow: hidden;
+    display: block;
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     background: var(--surface);
     padding: 28px;
     box-shadow: var(--shadow);
+}
+
+.page-card-link {
+    color: inherit;
+    text-decoration: none;
+    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.page-card-link:hover,
+.page-card-link:focus-visible {
+    transform: translateY(-4px);
+    border-color: rgba(15, 118, 110, 0.32);
+    box-shadow: 0 28px 84px rgba(15, 118, 110, 0.18);
+    outline: none;
 }
 
 .page-card::after {
@@ -229,6 +245,76 @@
 
 .portal-checklist span {
     color: var(--muted);
+}
+
+.portal-preview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.portal-profile-card {
+    display: grid;
+    gap: 18px;
+}
+
+.portal-profile-card .founder-avatar {
+    width: 86px;
+    height: 86px;
+    border-radius: 28px;
+}
+
+.portal-status-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.portal-status-grid article,
+.portal-data-list article {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    padding: 16px;
+}
+
+.portal-status-grid strong,
+.portal-status-grid span,
+.portal-data-list strong,
+.portal-data-list span {
+    display: block;
+}
+
+.portal-status-grid strong {
+    color: var(--primary);
+    font-size: 1.45rem;
+    line-height: 1;
+}
+
+.portal-status-grid span,
+.portal-data-list span {
+    margin-top: 6px;
+    color: var(--muted);
+}
+
+.portal-data-list {
+    display: grid;
+    gap: 12px;
+}
+
+.portal-data-list article {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: start;
+}
+
+.portal-data-list .card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 15px;
+    font-size: 0.82rem;
 }
 
 .mini-metrics {

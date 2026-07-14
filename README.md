@@ -11,13 +11,13 @@ Live site: https://s2suresh.github.io/Edtech/
 - Program cards with search and category filtering.
 - Admissions journey for students and parents.
 - Scalability roadmap from village pilot to wider rollout.
-- Latest news placeholders for events and announcements.
+- News page includes teacher and mentor recruitment announcements.
 - FAQ section for common parent/student questions.
 - Contact and admission enquiry form placeholder.
 - Responsive navigation, mobile menu, and dark/light mode.
 - Roadmap dropdown groups Programs, Admissions, and Roadmap in the top navigation.
 - SEO metadata, Open Graph tags, and Schema.org organization markup.
-- Standalone pages for About, Programs, Course Details, Payment Details, Login / Signup, Admissions, Roadmap, News, and Contact.
+- Standalone pages for About, Programs, Course Details, Payment Details, Login / Signup, Student Dashboard Preview, Teacher Dashboard Preview, Admin Dashboard Preview, Admissions, Roadmap, News, and Contact.
 - Course detail pages include academic calendar, class mode guidance, and full-course/unit-course payment paths.
 - Login / Signup page starts with a free mobile number plus enquiry reference ID support flow.
 - Real mobile OTP is a later paid/provider-backed option; this static site does not send dummy OTPs.
@@ -47,6 +47,9 @@ Edtech-main/
 ├── course-details.html
 ├── payment-details.html
 ├── login.html
+├── student-dashboard.html
+├── teacher-dashboard.html
+├── admin-dashboard.html
 ├── admissions.html
 ├── roadmap.html
 ├── news.html
