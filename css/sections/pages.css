@@ -381,6 +381,62 @@
     padding-left: 18px;
 }
 
+.academic-calendar-grid,
+.mode-grid {
+    display: grid;
+    gap: 18px;
+}
+
+.academic-calendar-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.mode-grid {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 18px;
+}
+
+.academic-calendar-grid article,
+.mode-grid article {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.academic-calendar-grid span {
+    display: inline-flex;
+    border-radius: 999px;
+    background: var(--surface-soft);
+    color: var(--primary);
+    padding: 6px 10px;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.academic-calendar-grid h3,
+.mode-grid strong {
+    display: block;
+    margin: 14px 0 8px;
+    color: var(--text);
+    font-size: 1.2rem;
+}
+
+.academic-calendar-grid p,
+.mode-grid span {
+    color: var(--muted);
+}
+
+.course-choice-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
 .course-info-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -468,6 +524,50 @@
 
 .payment-panel p {
     color: var(--muted);
+}
+
+.payment-selection-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+    gap: 32px;
+    align-items: stretch;
+}
+
+.payment-selection-panel h2 {
+    margin: 8px 0 12px;
+}
+
+.payment-selection-panel p {
+    color: var(--muted);
+}
+
+.payment-selection-card {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    padding: 26px;
+    box-shadow: var(--shadow);
+}
+
+.payment-selection-card span {
+    display: inline-flex;
+    width: fit-content;
+    border-radius: 999px;
+    background: var(--primary);
+    color: #ffffff;
+    padding: 7px 12px;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.payment-selection-card strong {
+    color: var(--text);
+    font-size: 1.25rem;
 }
 
 .qr-placeholder {

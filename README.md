@@ -17,6 +17,7 @@ Live site: https://s2suresh.github.io/Edtech/
 - Responsive navigation, mobile menu, and dark/light mode.
 - SEO metadata, Open Graph tags, and Schema.org organization markup.
 - Standalone pages for About, Programs, Course Details, Payment Details, Admissions, Roadmap, News, and Contact.
+- Course detail pages include academic calendar, class mode guidance, and full-course/unit-course payment paths.
 
 ## Folder Structure
 
@@ -59,6 +60,7 @@ Edtech-main/
 - Add feature behavior in `js/modules/`, export an init function, then call it from `js/script.js`.
 - Add verified state, district, taluk, hobli, and village data inside `Nation/` for location dropdowns.
 - Configure Google Sheet enquiry submission in `js/modules/enquiryConfig.js` after deploying the Apps Script Web App from `integrations/google-apps-script/`.
+- Keep course-to-payment behavior in `js/modules/paymentFlow.js` so payment page messaging stays dynamic from URL parameters.
 - Keep each HTML page focused on content and structure; keep styling in CSS and behavior in JS modules.
 
 ## Information To Replace Later
