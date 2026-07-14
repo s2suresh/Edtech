@@ -35,16 +35,16 @@
         <section class="page-hero section-padding">
             <div>
                 <p class="eyebrow">Student portal</p>
-                <h1>Login with mobile OTP first, then add password login later.</h1>
-                <p>Registered student details are collected through the enquiry form and stored in the Google Sheet. A real private portal needs OTP, secure password reset, and a backend before showing personal course, class, attendance, homework, and marks data.</p>
+                <h1>Start free with mobile number and enquiry reference ID.</h1>
+                <p>Registered student details are collected through the enquiry form and stored in the Google Sheet. For the free starting phase, students can use their mobile number and email PDF reference ID for manual support while real OTP login is planned for a later backend phase.</p>
                 <div class="page-actions">
                     <a class="btn btn-primary" href="contact.html">Register Student</a>
                     <a class="btn btn-secondary" href="programs.html">View Programs</a>
                 </div>
             </div>
             <aside class="page-hero-card">
-                <strong>Future portal vision</strong>
-                <span>Mobile number can be the username. OTP is recommended first; password and forgot-password can be added after secure account storage is available.</span>
+                <strong>Free access first</strong>
+                <span>No paid OTP is needed now. Use mobile number, enquiry reference ID, email receipt, and WhatsApp confirmation until the secure portal is built.</span>
             </aside>
         </section>
     </header>
@@ -54,17 +54,17 @@
             <div class="container login-portal-grid">
                 <form class="page-panel portal-form" id="studentLoginForm">
                     <p class="eyebrow">Login</p>
-                    <h2>Student access</h2>
-                    <p>Use this as the future login design. The first safe version should validate the mobile number by OTP; username/password and forgot-password can be added later.</p>
+                    <h2>Student access request</h2>
+                    <p>Use this free access flow now. Enter the registered mobile number and enquiry reference ID from the email PDF, then contact the team for manual course updates.</p>
                     <label>
                         Registered mobile number
-                        <input type="tel" name="mobile" placeholder="+91 80888 35686" required>
+                        <input type="tel" id="studentMobile" name="mobile" placeholder="+91 80888 35686" required>
                     </label>
                     <label>
-                        OTP or password
-                        <input type="password" name="password" placeholder="Enter OTP now, password later" required>
+                        Enquiry reference ID
+                        <input type="text" id="studentReference" name="reference" placeholder="Example: SE-20260714-103000" required>
                     </label>
-                    <button class="btn btn-primary" type="submit">Login Preview</button>
+                    <button class="btn btn-primary" type="submit">Request Manual Access</button>
                     <p class="form-status" id="studentLoginStatus" role="status" aria-live="polite"></p>
                 </form>
 
@@ -75,7 +75,7 @@
                     <div class="portal-checklist">
                         <article><strong>01</strong><span>Submit enquiry with student mobile number.</span></article>
                         <article><strong>02</strong><span>Team confirms course, batch, and payment.</span></article>
-                        <article><strong>03</strong><span>Secure login is enabled through OTP first, then optional password and forgot-password flow later.</span></article>
+                        <article><strong>03</strong><span>Student uses mobile number and email PDF reference ID for free manual access support.</span></article>
                     </div>
                     <div class="page-actions">
                         <a class="btn btn-primary" href="contact.html">Open Enquiry Form</a>
@@ -92,14 +92,14 @@
                     <p>Every registered student can use their submitted mobile number as the unique login identifier.</p>
                 </article>
                 <article class="page-card">
-                    <span class="card-icon">OTP</span>
-                    <h3>Secure reset later</h3>
-                    <p>Students should reset their own password or receive OTP verification before private data is shown.</p>
+                    <span class="card-icon">PDF</span>
+                    <h3>Reference ID now</h3>
+                    <p>The email PDF reference ID can be used for manual student support without paid OTP cost.</p>
                 </article>
                 <article class="page-card">
-                    <span class="card-icon">DB</span>
-                    <h3>Sheet as admission source</h3>
-                    <p>The Google Sheet can remain the admission list, but private login data should move to a secure backend when the portal goes live.</p>
+                    <span class="card-icon">WA</span>
+                    <h3>WhatsApp support</h3>
+                    <p>Students can share their mobile number and reference ID on WhatsApp to get course updates from the team.</p>
                 </article>
             </div>
         </section>
@@ -134,15 +134,29 @@
         <section class="section-padding page-band">
             <div class="container page-split">
                 <div>
-                    <p class="eyebrow">Login roadmap</p>
-                    <h2>Recommended secure account plan.</h2>
-                    <p>Google Sheet can list registered users, but private dashboards and passwords need a real account system.</p>
+                    <p class="eyebrow">Free login roadmap</p>
+                    <h2>Start with manual access, add real login later.</h2>
+                    <p>Google Sheet can list registered users and reference IDs. Private dashboards, OTP, and passwords need a real account system later.</p>
                 </div>
                 <div class="portal-checklist">
-                    <article><strong>01</strong><span>OTP login using registered mobile number.</span></article>
-                    <article><strong>02</strong><span>Student sets their own password after first OTP login.</span></article>
-                    <article><strong>03</strong><span>Forgot password sends OTP to the registered mobile number.</span></article>
-                    <article><strong>04</strong><span>Dashboard shows only the logged-in user's own courses and records.</span></article>
+                    <article><strong>01</strong><span>User submits enquiry and receives email PDF reference ID.</span></article>
+                    <article><strong>02</strong><span>User enters mobile number and reference ID on this page.</span></article>
+                    <article><strong>03</strong><span>User contacts WhatsApp support for course, payment, and class updates.</span></article>
+                    <article><strong>04</strong><span>Later, OTP/password login can open their private dashboard automatically.</span></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container page-panel">
+                <p class="eyebrow">Paid OTP later</p>
+                <h2>Real OTP is optional for the future, not required now.</h2>
+                <p>This static website and Google Sheet cannot securely send and verify mobile OTP by themselves. For a fully automatic login later, connect a provider such as Firebase Phone Auth, MSG91, Fast2SMS, Twilio, or WhatsApp Business API through a backend.</p>
+                <div class="portal-checklist">
+                    <article><strong>01</strong><span>Backend checks whether the mobile number exists in registered users.</span></article>
+                    <article><strong>02</strong><span>OTP provider sends SMS or WhatsApp OTP to that mobile number.</span></article>
+                    <article><strong>03</strong><span>User enters OTP; backend verifies it.</span></article>
+                    <article><strong>04</strong><span>Verified user sees only their own dashboard data.</span></article>
                 </div>
             </div>
         </section>
