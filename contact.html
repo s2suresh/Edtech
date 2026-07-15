@@ -72,8 +72,28 @@
                     <h3>Admission Enquiry</h3>
                     <p class="form-intro">Example details are shown as placeholders. Students can replace them with their own information before submitting.</p>
                     <label>Full name<input type="text" id="name" name="name" placeholder="Suresh Suresh" required></label>
+                    <label>Parent / guardian name<input type="text" id="guardianName" name="guardianName" placeholder="Parent or guardian full name" required></label>
                     <label>Email<input type="email" id="email" name="email" placeholder="suresh2suresh80888@gmail.com" required></label>
                     <label>Phone<input type="tel" id="phone" name="phone" placeholder="+91 80888 35686" required></label>
+                    <label>
+                        Student class
+                        <select id="studentClass" name="studentClass" required>
+                            <option value="">Select student class</option>
+                            <option>Basic Foundation</option>
+                            <option>Class 1</option>
+                            <option>Class 2</option>
+                            <option>Class 3</option>
+                            <option>Class 4</option>
+                            <option>Class 5</option>
+                            <option>Class 6</option>
+                            <option>Class 7</option>
+                            <option>Class 8</option>
+                            <option>Class 9</option>
+                            <option>Class 10</option>
+                            <option>PUC 1 / Class 11</option>
+                            <option>PUC 2 / Class 12</option>
+                        </select>
+                    </label>
                     <label>
                         Interested program
                         <select id="program" name="program" required>
@@ -84,6 +104,50 @@
                             <option>Admissions Guidance</option>
                         </select>
                     </label>
+                    <label>
+                        Preferred learning mode
+                        <select id="preferredMode" name="preferredMode" required>
+                            <option value="">Select preferred mode</option>
+                            <option>Offline classroom</option>
+                            <option>Online class</option>
+                            <option>Hybrid: online plus local guidance</option>
+                            <option>Need counselling before deciding</option>
+                        </select>
+                    </label>
+                    <div class="form-fieldset location-picker location-picker-compact" data-state-index="Nation/states_index.json" data-location-base="Nation/">
+                        <p class="form-section-title">Student location details</p>
+                        <label>
+                            State
+                            <select id="contactStateSelect" name="state" data-location-level="state" required>
+                                <option value="">Select state</option>
+                            </select>
+                        </label>
+                        <label>
+                            District
+                            <select id="contactDistrictSelect" name="district" data-location-level="district" disabled required>
+                                <option value="">Select district</option>
+                            </select>
+                        </label>
+                        <label>
+                            Taluk
+                            <select id="contactTalukSelect" name="taluk" data-location-level="taluk" disabled>
+                                <option value="">Select taluk</option>
+                            </select>
+                        </label>
+                        <label>
+                            Hobli
+                            <select id="contactHobliSelect" name="hobli" data-location-level="hobli" disabled>
+                                <option value="">Select hobli</option>
+                            </select>
+                        </label>
+                        <label>
+                            Village
+                            <select id="contactVillageSelect" name="village" data-location-level="village" disabled>
+                                <option value="">Select village</option>
+                            </select>
+                        </label>
+                        <p class="location-help" data-location-help>Choose a state to load districts. Karnataka includes deeper taluk, hobli, and village data where available.</p>
+                    </div>
                     <label>Message<textarea id="message" name="message" rows="4" placeholder="I am interested in joining a course. Please share the syllabus, batch timing, fees, and guidance options based on my class or learning goal."></textarea></label>
                     <button class="btn btn-primary" type="submit">Submit Enquiry</button>
                     <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>

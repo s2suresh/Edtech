@@ -76,35 +76,35 @@
                 <div class="location-picker" data-state-index="Nation/states_index.json" data-location-base="Nation/">
                     <label>
                         State
-                        <select id="stateSelect" name="state">
+                        <select id="stateSelect" name="state" data-location-level="state">
                             <option value="">Select state</option>
                         </select>
                     </label>
                     <label>
                         District
-                        <select id="districtSelect" name="district" disabled>
+                        <select id="districtSelect" name="district" data-location-level="district" disabled>
                             <option value="">Select district</option>
                         </select>
                     </label>
                     <label>
                         Taluk
-                        <select id="talukSelect" name="taluk" disabled>
+                        <select id="talukSelect" name="taluk" data-location-level="taluk" disabled>
                             <option value="">Select taluk</option>
                         </select>
                     </label>
                     <label>
                         Hobli
-                        <select id="hobliSelect" name="hobli" disabled>
+                        <select id="hobliSelect" name="hobli" data-location-level="hobli" disabled>
                             <option value="">Select hobli</option>
                         </select>
                     </label>
                     <label>
                         Village
-                        <select id="villageSelect" name="village" disabled>
+                        <select id="villageSelect" name="village" data-location-level="village" disabled>
                             <option value="">Select village</option>
                         </select>
                     </label>
-                    <p class="location-help" id="locationHelp">Choose a state to load districts. Karnataka includes deeper sample taluk, hobli, and village data.</p>
+                    <p class="location-help" id="locationHelp" data-location-help>Choose a state to load districts. Karnataka includes deeper sample taluk, hobli, and village data.</p>
                 </div>
             </div>
         </section>

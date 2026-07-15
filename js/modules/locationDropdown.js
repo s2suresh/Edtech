@@ -12,17 +12,27 @@ const toDistrictOptions = (districts) => districts.map((district) => (
 ));
 
 export const initLocationDropdown = () => {
-    const picker = document.querySelector('[data-state-index]');
-    if (!picker) return;
+    const pickers = document.querySelectorAll('[data-state-index]');
+    if (!pickers.length) return;
 
-    const stateSelect = picker.querySelector('#stateSelect');
-    const districtSelect = picker.querySelector('#districtSelect');
-    const talukSelect = picker.querySelector('#talukSelect');
-    const hobliSelect = picker.querySelector('#hobliSelect');
-    const villageSelect = picker.querySelector('#villageSelect');
-    const help = picker.querySelector('#locationHelp');
+    pickers.forEach((picker) => {
+        initPicker(picker);
+    });
+};
+
+const initPicker = (picker) => {
+    const stateSelect = picker.querySelector('[data-location-level="state"]');
+    const districtSelect = picker.querySelector('[data-location-level="district"]');
+    const talukSelect = picker.querySelector('[data-location-level="taluk"]');
+    const hobliSelect = picker.querySelector('[data-location-level="hobli"]');
+    const villageSelect = picker.querySelector('[data-location-level="village"]');
+    const help = picker.querySelector('[data-location-help]');
     const locationBase = picker.dataset.locationBase || '';
     let activeDistricts = [];
+
+    if (!stateSelect || !districtSelect || !talukSelect || !hobliSelect || !villageSelect || !help) {
+        return;
+    }
 
     const resetBelow = (level) => {
         if (level <= 1) setOptions(districtSelect, [], 'Select district');

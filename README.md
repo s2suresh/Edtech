@@ -10,10 +10,11 @@ Live site: https://s2suresh.github.io/Edtech/
 - About section explaining the rural education purpose.
 - Program cards with search and category filtering.
 - Admissions journey for students and parents.
+- Admission enquiry form captures student details, guardian name, class, preferred mode, and location fields where data is available.
 - Scalability roadmap from village pilot to wider rollout.
 - News page includes teacher and mentor recruitment announcements.
 - FAQ section for common parent/student questions.
-- Contact and admission enquiry form placeholder.
+- Contact and admission enquiry form connected to the Google Apps Script response flow.
 - Responsive navigation, mobile menu, and dark/light mode.
 - Roadmap dropdown groups Programs, Admissions, and Roadmap in the top navigation.
 - SEO metadata, Open Graph tags, and Schema.org organization markup.
