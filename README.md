@@ -10,6 +10,7 @@ Live site: https://s2suresh.github.io/Edtech/
 - About section explaining the rural education purpose.
 - Program cards with search and category filtering.
 - Admissions journey for students and parents.
+- Admission enquiry form captures student state, district, taluk, hobli, and village where location data is available.
 - Scalability roadmap from village pilot to wider rollout.
 - News page includes teacher and mentor recruitment announcements.
 - FAQ section for common parent/student questions.

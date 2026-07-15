@@ -84,6 +84,40 @@
                             <option>Admissions Guidance</option>
                         </select>
                     </label>
+                    <div class="form-fieldset location-picker location-picker-compact" data-state-index="Nation/states_index.json" data-location-base="Nation/">
+                        <p class="form-section-title">Student location details</p>
+                        <label>
+                            State
+                            <select id="contactStateSelect" name="state" data-location-level="state" required>
+                                <option value="">Select state</option>
+                            </select>
+                        </label>
+                        <label>
+                            District
+                            <select id="contactDistrictSelect" name="district" data-location-level="district" disabled required>
+                                <option value="">Select district</option>
+                            </select>
+                        </label>
+                        <label>
+                            Taluk
+                            <select id="contactTalukSelect" name="taluk" data-location-level="taluk" disabled>
+                                <option value="">Select taluk</option>
+                            </select>
+                        </label>
+                        <label>
+                            Hobli
+                            <select id="contactHobliSelect" name="hobli" data-location-level="hobli" disabled>
+                                <option value="">Select hobli</option>
+                            </select>
+                        </label>
+                        <label>
+                            Village
+                            <select id="contactVillageSelect" name="village" data-location-level="village" disabled>
+                                <option value="">Select village</option>
+                            </select>
+                        </label>
+                        <p class="location-help" data-location-help>Choose a state to load districts. Karnataka includes deeper taluk, hobli, and village data where available.</p>
+                    </div>
                     <label>Message<textarea id="message" name="message" rows="4" placeholder="I am interested in joining a course. Please share the syllabus, batch timing, fees, and guidance options based on my class or learning goal."></textarea></label>
                     <button class="btn btn-primary" type="submit">Submit Enquiry</button>
                     <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
