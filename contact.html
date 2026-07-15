@@ -72,8 +72,28 @@
                     <h3>Admission Enquiry</h3>
                     <p class="form-intro">Example details are shown as placeholders. Students can replace them with their own information before submitting.</p>
                     <label>Full name<input type="text" id="name" name="name" placeholder="Suresh Suresh" required></label>
+                    <label>Parent / guardian name<input type="text" id="guardianName" name="guardianName" placeholder="Parent or guardian full name" required></label>
                     <label>Email<input type="email" id="email" name="email" placeholder="suresh2suresh80888@gmail.com" required></label>
                     <label>Phone<input type="tel" id="phone" name="phone" placeholder="+91 80888 35686" required></label>
+                    <label>
+                        Student class
+                        <select id="studentClass" name="studentClass" required>
+                            <option value="">Select student class</option>
+                            <option>Basic Foundation</option>
+                            <option>Class 1</option>
+                            <option>Class 2</option>
+                            <option>Class 3</option>
+                            <option>Class 4</option>
+                            <option>Class 5</option>
+                            <option>Class 6</option>
+                            <option>Class 7</option>
+                            <option>Class 8</option>
+                            <option>Class 9</option>
+                            <option>Class 10</option>
+                            <option>PUC 1 / Class 11</option>
+                            <option>PUC 2 / Class 12</option>
+                        </select>
+                    </label>
                     <label>
                         Interested program
                         <select id="program" name="program" required>
@@ -82,6 +102,16 @@
                             <option>Higher Secondary Support</option>
                             <option>Digital Skills</option>
                             <option>Admissions Guidance</option>
+                        </select>
+                    </label>
+                    <label>
+                        Preferred learning mode
+                        <select id="preferredMode" name="preferredMode" required>
+                            <option value="">Select preferred mode</option>
+                            <option>Offline classroom</option>
+                            <option>Online class</option>
+                            <option>Hybrid: online plus local guidance</option>
+                            <option>Need counselling before deciding</option>
                         </select>
                     </label>
                     <div class="form-fieldset location-picker location-picker-compact" data-state-index="Nation/states_index.json" data-location-base="Nation/">
