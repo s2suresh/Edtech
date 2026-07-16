@@ -36,15 +36,15 @@
             <div>
                 <p class="eyebrow">Admin preview</p>
                 <h1>A control panel for admissions and operations.</h1>
-                <p>This sample shows how admin can track registered users, course allocation, teacher mapping, payment confirmation, marks, attendance, and announcements.</p>
+                <p>This sample shows how admin can filter by teacher, mentor, student, or employee and review class handling, subject, attendance, leave, tasks, chapters, and mapped users.</p>
                 <div class="page-actions">
                     <a class="btn btn-primary" href="login.html">Back to Login</a>
                     <a class="btn btn-secondary" href="contact.html">Open Enquiry</a>
                 </div>
             </div>
             <aside class="page-hero-card">
-                <strong>Operations view</strong>
-                <span>Later, admin can connect this with Google Sheet, payment records, and secure user accounts.</span>
+                <strong>Relationship control view</strong>
+                <span>Later, admin can connect this with Google Sheet, payment records, secure user accounts, and role mapping tables.</span>
             </aside>
         </section>
     </header>
@@ -57,21 +57,37 @@
                     <div>
                         <p class="eyebrow">Admin overview</p>
                         <h2>Admissions Desk</h2>
-                        <p>Sample control panel for registered students, batches, teachers, and daily updates.</p>
+                        <p>Sample control panel for role mapping, registered users, batches, teachers, mentors, employees, and daily updates.</p>
                     </div>
                     <div class="portal-status-grid">
                         <article><strong>128</strong><span>Registered users</span></article>
                         <article><strong>9</strong><span>Active batches</span></article>
                         <article><strong>6</strong><span>Teachers mapped</span></article>
-                        <article><strong>14</strong><span>Payments pending</span></article>
+                        <article><strong>5</strong><span>Employees active</span></article>
                     </div>
                 </aside>
 
                 <div class="portal-data-list">
-                    <article><span class="card-icon">EN</span><div><strong>Enquiry follow-up</strong><span>Review new Google Sheet responses and assign counselling calls.</span></div></article>
-                    <article><span class="card-icon">FE</span><div><strong>Fee confirmation</strong><span>Verify UPI payment proof and update student payment status.</span></div></article>
-                    <article><span class="card-icon">MP</span><div><strong>Teacher mapping</strong><span>Assign teachers to batches and publish class schedules.</span></div></article>
-                    <article><span class="card-icon">AN</span><div><strong>Announcements</strong><span>Send daily updates, homework reminders, and exam notices to students.</span></div></article>
+                    <article><span class="card-icon">TR</span><div><strong>Teacher filter</strong><span>Select a teacher to see subject, class, days present, leave days, completed chapters, and students handled.</span></div></article>
+                    <article><span class="card-icon">MT</span><div><strong>Mentor filter</strong><span>Select a mentor to see mapped students, teachers connected, parent calls, and progress risk.</span></div></article>
+                    <article><span class="card-icon">ST</span><div><strong>Student filter</strong><span>Select a student to see teacher, mentor, course, class timing, attendance, marks, and fee status.</span></div></article>
+                    <article><span class="card-icon">EM</span><div><strong>Employee filter</strong><span>Select an employee to see registrations handled, mappings created, and pending operational tasks.</span></div></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding page-band">
+            <div class="container page-split">
+                <div>
+                    <p class="eyebrow">Admin matching table</p>
+                    <h2>Admin can review role relationships in one place.</h2>
+                    <p>This sample table shows how teacher, mentor, student, employee, attendance, leave, tasks, and chapters can be connected.</p>
+                </div>
+                <div class="portal-table">
+                    <article><strong>Teacher: Suresh</strong><span>Class 10 Maths, 24 present / 2 leave</span><small>Students: 32, Mentor: Manjushree, Chapters: 4 completed</small></article>
+                    <article><strong>Mentor: Manjushree</strong><span>34 students, 5 teachers connected</span><small>Tasks: 12 parent calls, 8 risk follow-ups</small></article>
+                    <article><strong>Student: Rahul K</strong><span>Teacher: Suresh, Mentor: Manjushree</span><small>Attendance 92%, Homework 8/10, Fee paid</small></article>
+                    <article><strong>Employee: Admissions Operator</strong><span>18 enquiries, 9 mappings pending</span><small>Queue: duplicate check, payment proof, dashboard access</small></article>
                 </div>
             </div>
         </section>
@@ -80,7 +96,7 @@
     <footer class="site-footer">
         <div class="container footer-grid">
             <div><a class="brand footer-brand" href="about.html#founders"><span class="brand-mark">SE</span><span><strong>Sharusuri</strong><small>EdTech</small></span></a><p>Affordable digital learning for rural and semi-urban communities.</p></div>
-            <div><h3>Explore</h3><a href="login.html">Login / Signup</a><a href="student-dashboard.html">Student Preview</a><a href="teacher-dashboard.html">Teacher Preview</a></div>
+            <div><h3>Explore</h3><a href="login.html">Login / Signup</a><a href="student-dashboard.html">Student Preview</a><a href="mentor-dashboard.html">Mentor Preview</a></div>
             <div><h3>Connect</h3><a href="contact.html">Admission Enquiry</a><a href="payment-details.html">Payment Details</a></div>
         </div>
         <div class="container footer-bottom"><span>&copy; 2026 Sharusuri EdTech. All rights reserved.</span><span>Built for GitHub Pages.</span></div>

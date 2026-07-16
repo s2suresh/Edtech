@@ -55,6 +55,18 @@
         <priority>0.6</priority>
     </url>
     <url>
+        <loc>https://s2suresh.github.io/Edtech/mentor-dashboard.html</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://s2suresh.github.io/Edtech/employee-dashboard.html</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>https://s2suresh.github.io/Edtech/admissions.html</loc>
         <lastmod>2026-07-13</lastmod>
         <changefreq>monthly</changefreq>
