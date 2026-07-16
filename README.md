@@ -18,7 +18,7 @@ Live site: https://s2suresh.github.io/Edtech/
 - Responsive navigation, mobile menu, and dark/light mode.
 - Roadmap dropdown groups Programs, Admissions, and Roadmap in the top navigation.
 - SEO metadata, Open Graph tags, and Schema.org organization markup.
-- Standalone pages for About, Programs, Course Details, Payment Details, Login / Signup, Student Dashboard Preview, Teacher Dashboard Preview, Admin Dashboard Preview, Admissions, Roadmap, News, and Contact.
+- Standalone pages for About, Programs, Course Details, Payment Details, Login / Signup, Student Dashboard Preview, Teacher Dashboard Preview, Mentor Dashboard Preview, Employee Dashboard Preview, Admin Dashboard Preview, Admissions, Roadmap, News, and Contact.
 - Course detail pages include academic calendar, class mode guidance, and full-course/unit-course payment paths.
 - Login / Signup page explains a step-wise enquiry, email reference ID, mobile verification, and dashboard access flow.
 
@@ -49,6 +49,8 @@ Edtech-main/
 ├── login.html
 ├── student-dashboard.html
 ├── teacher-dashboard.html
+├── mentor-dashboard.html
+├── employee-dashboard.html
 ├── admin-dashboard.html
 ├── admissions.html
 ├── roadmap.html

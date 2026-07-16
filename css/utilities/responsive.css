@@ -131,6 +131,7 @@
     }
 
     .lecturer-card,
+    .portal-table article,
     .payment-steps article {
         grid-template-columns: 1fr;
     }
