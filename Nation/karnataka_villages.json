@@ -5,34 +5,225 @@
     "name": "Karnataka",
     "code": "KA"
   },
-  "dataStatus": "Seed file for admission dropdowns. District names are listed for Karnataka. Taluk, hobli, and village lists should be expanded from an official government source before production use.",
+  "dataStatus": "Seed file for admission dropdowns. District and taluk names are listed for Karnataka. Hobli and village lists should be expanded from an official government source before production use.",
   "dropdownOrder": ["state", "district", "taluk", "hobli", "village"],
   "districts": [
-    { "name": "Bagalkot", "taluks": [] },
-    { "name": "Ballari", "taluks": [] },
-    { "name": "Belagavi", "taluks": [] },
-    { "name": "Bengaluru Rural", "taluks": [] },
-    { "name": "Bengaluru Urban", "taluks": [] },
-    { "name": "Bidar", "taluks": [] },
-    { "name": "Chamarajanagar", "taluks": [] },
-    { "name": "Chikkaballapur", "taluks": [] },
-    { "name": "Chikkamagaluru", "taluks": [] },
-    { "name": "Chitradurga", "taluks": [] },
-    { "name": "Dakshina Kannada", "taluks": [] },
-    { "name": "Davanagere", "taluks": [] },
-    { "name": "Dharwad", "taluks": [] },
-    { "name": "Gadag", "taluks": [] },
-    { "name": "Hassan", "taluks": [] },
-    { "name": "Haveri", "taluks": [] },
-    { "name": "Kalaburagi", "taluks": [] },
-    { "name": "Kodagu", "taluks": [] },
-    { "name": "Kolar", "taluks": [] },
-    { "name": "Koppal", "taluks": [] },
-    { "name": "Mandya", "taluks": [] },
-    { "name": "Mysuru", "taluks": [] },
+    { "name": "Bagalkot", "taluks": [
+      { "name": "Bagalkot", "hoblis": [] },
+      { "name": "Jamkhandi", "hoblis": [] },
+      { "name": "Mudhol", "hoblis": [] },
+      { "name": "Badami", "hoblis": [] },
+      { "name": "Bilagi", "hoblis": [] },
+      { "name": "Hunagund", "hoblis": [] },
+      { "name": "Ilkal", "hoblis": [] },
+      { "name": "Rabkavi Banhatti", "hoblis": [] },
+      { "name": "Guledgudda", "hoblis": [] }
+    ] },
+    { "name": "Ballari", "taluks": [
+      { "name": "Ballari", "hoblis": [] },
+      { "name": "Kurugodu", "hoblis": [] },
+      { "name": "Kampli", "hoblis": [] },
+      { "name": "Sanduru", "hoblis": [] },
+      { "name": "Siruguppa", "hoblis": [] }
+    ] },
+    { "name": "Belagavi", "taluks": [
+      { "name": "Belagavi", "hoblis": [] },
+      { "name": "Athani", "hoblis": [] },
+      { "name": "Bailhongal", "hoblis": [] },
+      { "name": "Chikkodi", "hoblis": [] },
+      { "name": "Gokak", "hoblis": [] },
+      { "name": "Khanapur", "hoblis": [] },
+      { "name": "Mudalagi", "hoblis": [] },
+      { "name": "Nippani", "hoblis": [] },
+      { "name": "Raybag", "hoblis": [] },
+      { "name": "Savadatti", "hoblis": [] },
+      { "name": "Ramdurg", "hoblis": [] },
+      { "name": "Kagawad", "hoblis": [] },
+      { "name": "Hukkeri", "hoblis": [] },
+      { "name": "Kittur", "hoblis": [] },
+      { "name": "Yaragatti", "hoblis": [] }
+    ] },
+    { "name": "Bengaluru Rural", "taluks": [
+      { "name": "Nelamangala", "hoblis": [] },
+      { "name": "Doddaballapura", "hoblis": [] },
+      { "name": "Devanahalli", "hoblis": [] },
+      { "name": "Hosakote", "hoblis": [] }
+    ] },
+    { "name": "Bengaluru Urban", "taluks": [
+      { "name": "Bengaluru", "hoblis": [] },
+      { "name": "Kengeri", "hoblis": [] },
+      { "name": "Krishnarajapura", "hoblis": [] },
+      { "name": "Anekal", "hoblis": [] },
+      { "name": "Yelahanka", "hoblis": [] }
+    ] },
+    { "name": "Bidar", "taluks": [
+      { "name": "Aurad", "hoblis": [] },
+      { "name": "Basavakalyan", "hoblis": [] },
+      { "name": "Bhalki", "hoblis": [] },
+      { "name": "Bidar", "hoblis": [] },
+      { "name": "Chitgoppa", "hoblis": [] },
+      { "name": "Hulsoor", "hoblis": [] },
+      { "name": "Humnabad", "hoblis": [] },
+      { "name": "Kamalanagar", "hoblis": [] }
+    ] },
+    { "name": "Chamarajanagar", "taluks": [
+      { "name": "Chamarajanagar", "hoblis": [] },
+      { "name": "Gundlupet", "hoblis": [] },
+      { "name": "Kollegal", "hoblis": [] },
+      { "name": "Yelandur", "hoblis": [] },
+      { "name": "Hanur", "hoblis": [] }
+    ] },
+    { "name": "Chikkaballapur", "taluks": [
+      { "name": "Chikkaballapur", "hoblis": [] },
+      { "name": "Bagepalli", "hoblis": [] },
+      { "name": "Chintamani", "hoblis": [] },
+      { "name": "Gauribidanur", "hoblis": [] },
+      { "name": "Gudibanda", "hoblis": [] },
+      { "name": "Sidlaghatta", "hoblis": [] },
+      { "name": "Chelur", "hoblis": [] },
+      { "name": "Manchenahalli", "hoblis": [] }
+    ] },
+    { "name": "Chikkamagaluru", "taluks": [
+      { "name": "Chikkamagaluru", "hoblis": [] },
+      { "name": "Kadur", "hoblis": [] },
+      { "name": "Koppa", "hoblis": [] },
+      { "name": "Mudigere", "hoblis": [] },
+      { "name": "Narasimharajapura", "hoblis": [] },
+      { "name": "Sringeri", "hoblis": [] },
+      { "name": "Tarikere", "hoblis": [] },
+      { "name": "Ajjampura", "hoblis": [] },
+      { "name": "Kalasa", "hoblis": [] }
+    ] },
+    { "name": "Chitradurga", "taluks": [
+      { "name": "Chitradurga", "hoblis": [] },
+      { "name": "Challakere", "hoblis": [] },
+      { "name": "Hiriyur", "hoblis": [] },
+      { "name": "Holalkere", "hoblis": [] },
+      { "name": "Hosadurga", "hoblis": [] },
+      { "name": "Molakalmuru", "hoblis": [] }
+    ] },
+    { "name": "Dakshina Kannada", "taluks": [
+      { "name": "Mangaluru", "hoblis": [] },
+      { "name": "Ullal", "hoblis": [] },
+      { "name": "Mulki", "hoblis": [] },
+      { "name": "Moodbidri", "hoblis": [] },
+      { "name": "Bantwal", "hoblis": [] },
+      { "name": "Belthangady", "hoblis": [] },
+      { "name": "Puttur", "hoblis": [] },
+      { "name": "Sullia", "hoblis": [] },
+      { "name": "Kadaba", "hoblis": [] }
+    ] },
+    { "name": "Davanagere", "taluks": [
+      { "name": "Davanagere", "hoblis": [] },
+      { "name": "Harihara", "hoblis": [] },
+      { "name": "Channagiri", "hoblis": [] },
+      { "name": "Honnali", "hoblis": [] },
+      { "name": "Nyamathi", "hoblis": [] },
+      { "name": "Jagaluru", "hoblis": [] }
+    ] },
+    { "name": "Dharwad", "taluks": [
+      { "name": "Kalghatagi", "hoblis": [] },
+      { "name": "Dharwad", "hoblis": [] },
+      { "name": "Hubballi Rural", "hoblis": [] },
+      { "name": "Hubballi Urban", "hoblis": [] },
+      { "name": "Kundagol", "hoblis": [] },
+      { "name": "Navalgund", "hoblis": [] },
+      { "name": "Alnavar", "hoblis": [] },
+      { "name": "Annigeri", "hoblis": [] }
+    ] },
+    { "name": "Gadag", "taluks": [
+      { "name": "Gadag", "hoblis": [] },
+      { "name": "Nargund", "hoblis": [] },
+      { "name": "Mundargi", "hoblis": [] },
+      { "name": "Ron", "hoblis": [] },
+      { "name": "Gajendragad", "hoblis": [] },
+      { "name": "Lakshmeshwar", "hoblis": [] },
+      { "name": "Shirhatti", "hoblis": [] }
+    ] },
+    { "name": "Hassan", "taluks": [
+      { "name": "Hassan", "hoblis": [] },
+      { "name": "Arsikere", "hoblis": [] },
+      { "name": "Channarayapatna", "hoblis": [] },
+      { "name": "Holenarasipur", "hoblis": [] },
+      { "name": "Sakleshpur", "hoblis": [] },
+      { "name": "Alur", "hoblis": [] },
+      { "name": "Arakalgud", "hoblis": [] },
+      { "name": "Belur", "hoblis": [] }
+    ] },
+    { "name": "Haveri", "taluks": [
+      { "name": "Ranebennur", "hoblis": [] },
+      { "name": "Byadgi", "hoblis": [] },
+      { "name": "Hangal", "hoblis": [] },
+      { "name": "Haveri", "hoblis": [] },
+      { "name": "Savanur", "hoblis": [] },
+      { "name": "Hirekerur", "hoblis": [] },
+      { "name": "Shiggaon", "hoblis": [] },
+      { "name": "Rattihalli", "hoblis": [] }
+    ] },
+    { "name": "Kalaburagi", "taluks": [
+      { "name": "Kalaburagi", "hoblis": [] },
+      { "name": "Afzalpur", "hoblis": [] },
+      { "name": "Aland", "hoblis": [] },
+      { "name": "Chincholi", "hoblis": [] },
+      { "name": "Chittapur", "hoblis": [] },
+      { "name": "Jevargi", "hoblis": [] },
+      { "name": "Sedam", "hoblis": [] },
+      { "name": "Kamalapur", "hoblis": [] },
+      { "name": "Shahabad", "hoblis": [] },
+      { "name": "Kalagi", "hoblis": [] },
+      { "name": "Yedrami", "hoblis": [] }
+    ] },
+    { "name": "Kodagu", "taluks": [
+      { "name": "Madikeri", "hoblis": [] },
+      { "name": "Somwarpet", "hoblis": [] },
+      { "name": "Virajpet", "hoblis": [] },
+      { "name": "Ponnampet", "hoblis": [] },
+      { "name": "Kushalanagar", "hoblis": [] }
+    ] },
+    { "name": "Kolar", "taluks": [
+      { "name": "Kolar", "hoblis": [] },
+      { "name": "Bangarapet", "hoblis": [] },
+      { "name": "Malur", "hoblis": [] },
+      { "name": "Mulbagal", "hoblis": [] },
+      { "name": "Srinivaspur", "hoblis": [] },
+      { "name": "Kolar Gold Fields", "hoblis": [] }
+    ] },
+    { "name": "Koppal", "taluks": [
+      { "name": "Koppal", "hoblis": [] },
+      { "name": "Gangavathi", "hoblis": [] },
+      { "name": "Kushtagi", "hoblis": [] },
+      { "name": "Yelburga", "hoblis": [] },
+      { "name": "Kanakagiri", "hoblis": [] },
+      { "name": "Karatagi", "hoblis": [] },
+      { "name": "Kukanur", "hoblis": [] }
+    ] },
+    { "name": "Mandya", "taluks": [
+      { "name": "Mandya", "hoblis": [] },
+      { "name": "Maddur", "hoblis": [] },
+      { "name": "Malavalli", "hoblis": [] },
+      { "name": "Srirangapatna", "hoblis": [] },
+      { "name": "Krishnarajpet", "hoblis": [] },
+      { "name": "Nagamangala", "hoblis": [] },
+      { "name": "Pandavapura", "hoblis": [] }
+    ] },
+    { "name": "Mysuru", "taluks": [
+      { "name": "Mysuru", "hoblis": [] },
+      { "name": "Hunsur", "hoblis": [] },
+      { "name": "Krishnarajanagara", "hoblis": [] },
+      { "name": "Nanjangud", "hoblis": [] },
+      { "name": "Heggadadevankote", "hoblis": [] },
+      { "name": "Piriyapatna", "hoblis": [] },
+      { "name": "Tirumakudalu Narasipura", "hoblis": [] },
+      { "name": "Saragur", "hoblis": [] },
+      { "name": "Saligrama", "hoblis": [] }
+    ] },
     {
       "name": "Raichur",
       "taluks": [
+        {
+          "name": "Raichur",
+          "hoblis": []
+        },
         {
           "name": "Sindhanur",
           "hoblis": [
@@ -43,16 +234,96 @@
               ]
             }
           ]
-        }
+        },
+        { "name": "Manvi", "hoblis": [] },
+        { "name": "Devadurga", "hoblis": [] },
+        { "name": "Lingasugur", "hoblis": [] },
+        { "name": "Mudgal", "hoblis": [] },
+        { "name": "Maski", "hoblis": [] },
+        { "name": "Sirwar", "hoblis": [] }
       ]
     },
-    { "name": "Ramanagara", "taluks": [] },
-    { "name": "Shivamogga", "taluks": [] },
-    { "name": "Tumakuru", "taluks": [] },
-    { "name": "Udupi", "taluks": [] },
-    { "name": "Uttara Kannada", "taluks": [] },
-    { "name": "Vijayanagara", "taluks": [] },
-    { "name": "Vijayapura", "taluks": [] },
-    { "name": "Yadgir", "taluks": [] }
+    { "name": "Ramanagara", "taluks": [
+      { "name": "Ramanagara", "hoblis": [] },
+      { "name": "Magadi", "hoblis": [] },
+      { "name": "Kanakapura", "hoblis": [] },
+      { "name": "Channapatna", "hoblis": [] },
+      { "name": "Harohalli", "hoblis": [] }
+    ] },
+    { "name": "Shivamogga", "taluks": [
+      { "name": "Shivamogga", "hoblis": [] },
+      { "name": "Sagar", "hoblis": [] },
+      { "name": "Bhadravathi", "hoblis": [] },
+      { "name": "Hosanagara", "hoblis": [] },
+      { "name": "Shikaripura", "hoblis": [] },
+      { "name": "Soraba", "hoblis": [] },
+      { "name": "Tirthahalli", "hoblis": [] }
+    ] },
+    { "name": "Tumakuru", "taluks": [
+      { "name": "Tumakuru", "hoblis": [] },
+      { "name": "Chikkanayakanahalli", "hoblis": [] },
+      { "name": "Kunigal", "hoblis": [] },
+      { "name": "Madhugiri", "hoblis": [] },
+      { "name": "Sira", "hoblis": [] },
+      { "name": "Tiptur", "hoblis": [] },
+      { "name": "Gubbi", "hoblis": [] },
+      { "name": "Koratagere", "hoblis": [] },
+      { "name": "Pavagada", "hoblis": [] },
+      { "name": "Turuvekere", "hoblis": [] }
+    ] },
+    { "name": "Udupi", "taluks": [
+      { "name": "Udupi", "hoblis": [] },
+      { "name": "Kapu", "hoblis": [] },
+      { "name": "Byndoor", "hoblis": [] },
+      { "name": "Karkala", "hoblis": [] },
+      { "name": "Kundapura", "hoblis": [] },
+      { "name": "Hebri", "hoblis": [] },
+      { "name": "Brahmavara", "hoblis": [] }
+    ] },
+    { "name": "Uttara Kannada", "taluks": [
+      { "name": "Karwar", "hoblis": [] },
+      { "name": "Sirsi", "hoblis": [] },
+      { "name": "Joida", "hoblis": [] },
+      { "name": "Dandeli", "hoblis": [] },
+      { "name": "Bhatkal", "hoblis": [] },
+      { "name": "Kumta", "hoblis": [] },
+      { "name": "Ankola", "hoblis": [] },
+      { "name": "Haliyal", "hoblis": [] },
+      { "name": "Honnavar", "hoblis": [] },
+      { "name": "Mundgod", "hoblis": [] },
+      { "name": "Siddapur", "hoblis": [] },
+      { "name": "Yellapur", "hoblis": [] }
+    ] },
+    { "name": "Vijayanagara", "taluks": [
+      { "name": "Hosapete", "hoblis": [] },
+      { "name": "Hagaribommanahalli", "hoblis": [] },
+      { "name": "Harapanahalli", "hoblis": [] },
+      { "name": "Hoovina Hadagali", "hoblis": [] },
+      { "name": "Kudligi", "hoblis": [] },
+      { "name": "Kottur", "hoblis": [] }
+    ] },
+    { "name": "Vijayapura", "taluks": [
+      { "name": "Vijayapura", "hoblis": [] },
+      { "name": "Indi", "hoblis": [] },
+      { "name": "Basavana Bagewadi", "hoblis": [] },
+      { "name": "Sindagi", "hoblis": [] },
+      { "name": "Muddebihal", "hoblis": [] },
+      { "name": "Talikote", "hoblis": [] },
+      { "name": "Devara Hipparagi", "hoblis": [] },
+      { "name": "Chadchan", "hoblis": [] },
+      { "name": "Tikota", "hoblis": [] },
+      { "name": "Babaleshwar", "hoblis": [] },
+      { "name": "Kolhar", "hoblis": [] },
+      { "name": "Nidagundi", "hoblis": [] },
+      { "name": "Almel", "hoblis": [] }
+    ] },
+    { "name": "Yadgir", "taluks": [
+      { "name": "Yadgir", "hoblis": [] },
+      { "name": "Shahapur", "hoblis": [] },
+      { "name": "Surpur", "hoblis": [] },
+      { "name": "Gurmitkal", "hoblis": [] },
+      { "name": "Vadagera", "hoblis": [] },
+      { "name": "Hunasagi", "hoblis": [] }
+    ] }
   ]
 }
