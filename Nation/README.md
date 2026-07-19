@@ -4,13 +4,13 @@ This folder stores state-wise location data for admission dropdowns.
 
 ## Current files
 
-- `karnataka_villages.json`: Karnataka state dropdown data in the order state -> district -> taluk -> hobli -> village. Districts and taluks are seeded; hoblis and villages should be completed from verified government data.
+- `karnataka_villages.json`: Karnataka state dropdown data in the order state -> district -> taluk -> hobli -> village. Districts and taluks are seeded; Raichur district has hobli seed data; villages should be completed from verified government data.
 - `states_index.json`: India state and union territory index with district seed lists. Karnataka points to the active state file for deeper data.
 - `tools/build_karnataka_villages.py`: Import helper to generate the Karnataka JSON from a verified CSV export.
 
 ## Completing Karnataka Hoblis And Villages
 
-Taluk-level data is available for Karnataka. To complete hobli and village dropdowns, use an official or verified source export that includes these columns:
+Taluk-level data is available for Karnataka, and Raichur district has hobli seed data. To complete village dropdowns and expand hoblis for other districts, use an official or verified source export that includes these columns:
 
 - `district`
 - `taluk`

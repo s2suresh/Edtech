@@ -5,7 +5,7 @@
     "name": "Karnataka",
     "code": "KA"
   },
-  "dataStatus": "Seed file for admission dropdowns. District and taluk names are listed for Karnataka. Hobli and village lists should be expanded from an official government source before production use.",
+  "dataStatus": "Seed file for admission dropdowns. District and taluk names are listed for Karnataka. Raichur district includes hobli seed data. Village lists should be expanded from an official government source before production use.",
   "dropdownOrder": ["state", "district", "taluk", "hobli", "village"],
   "districts": [
     { "name": "Bagalkot", "taluks": [
@@ -222,25 +222,86 @@
       "taluks": [
         {
           "name": "Raichur",
-          "hoblis": []
+          "hoblis": [
+            { "name": "Chandrabanda", "villages": [] },
+            { "name": "Devasugur", "villages": [] },
+            { "name": "Gillesugur", "villages": [] },
+            { "name": "Kalmala", "villages": [] },
+            { "name": "Raichur", "villages": [] },
+            { "name": "Yeragera", "villages": [] }
+          ]
         },
         {
           "name": "Sindhanur",
           "hoblis": [
+            { "name": "Badarli", "villages": [] },
+            { "name": "Balaganur", "villages": [] },
+            { "name": "Gorebal", "villages": [] },
+            { "name": "Gudadur", "villages": [] },
+            { "name": "Gunjahalli", "villages": [] },
+            { "name": "Hedaginal", "villages": [] },
+            { "name": "Hooda", "villages": [] },
+            { "name": "Jalihal", "villages": [] },
+            { "name": "Jawalgera", "villages": [] },
+            { "name": "Kunnatgi", "villages": [] },
+            { "name": "Salgunda", "villages": [] },
             {
-              "name": "AP K Hosalli",
+              "name": "Sindhanur",
               "villages": [
                 "AP K Hosalli"
               ]
-            }
+            },
+            { "name": "Turvihal", "villages": [] },
+            { "name": "Walkamdinni", "villages": [] }
           ]
         },
-        { "name": "Manvi", "hoblis": [] },
-        { "name": "Devadurga", "hoblis": [] },
-        { "name": "Lingasugur", "hoblis": [] },
-        { "name": "Mudgal", "hoblis": [] },
-        { "name": "Maski", "hoblis": [] },
-        { "name": "Sirwar", "hoblis": [] }
+        {
+          "name": "Manvi",
+          "hoblis": [
+            { "name": "Halapur", "villages": [] },
+            { "name": "Hirekotnakal", "villages": [] },
+            { "name": "Kallur", "villages": [] },
+            { "name": "Kurdi", "villages": [] },
+            { "name": "Mallata", "villages": [] },
+            { "name": "Manvi", "villages": [] },
+            { "name": "Pamanakallur", "villages": [] }
+          ]
+        },
+        {
+          "name": "Devadurga",
+          "hoblis": [
+            { "name": "Arkera", "villages": [] },
+            { "name": "Devadurga", "villages": [] },
+            { "name": "Gabbur", "villages": [] },
+            { "name": "Jalahalli", "villages": [] }
+          ]
+        },
+        {
+          "name": "Lingasugur",
+          "hoblis": [
+            { "name": "Gurgunta", "villages": [] },
+            { "name": "Lingasugur", "villages": [] }
+          ]
+        },
+        {
+          "name": "Mudgal",
+          "hoblis": [
+            { "name": "Mudgal", "villages": [] }
+          ]
+        },
+        {
+          "name": "Maski",
+          "hoblis": [
+            { "name": "Maski", "villages": [] }
+          ]
+        },
+        {
+          "name": "Sirwar",
+          "hoblis": [
+            { "name": "Kavithala", "villages": [] },
+            { "name": "Sirwar", "villages": [] }
+          ]
+        }
       ]
     },
     { "name": "Ramanagara", "taluks": [
