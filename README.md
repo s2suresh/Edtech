@@ -21,6 +21,8 @@ Live site: https://s2suresh.github.io/Edtech/
 - Standalone pages for About, Programs, Course Details, Payment Details, Login / Signup, Student Dashboard Preview, Teacher Dashboard Preview, Mentor Dashboard Preview, Employee Dashboard Preview, Admin Dashboard Preview, Admissions, Roadmap, News, and Contact.
 - Course detail pages include academic calendar, class mode guidance, and full-course/unit-course payment paths.
 - Login / Signup page explains a step-wise enquiry, email reference ID, mobile verification, and dashboard access flow.
+- Course catalog flow explains program discovery, enquiry, email/WhatsApp reply, counselling callback, batch selection, registration, and profile activity tracking.
+- Dashboard previews include teacher, mentor, parent meeting, Google Meet link, weekly exam, attendance, study-hour, and report concepts.
 
 ## Folder Structure
 
