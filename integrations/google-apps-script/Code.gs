@@ -3,6 +3,8 @@ const CONFIG = {
   SHEET_NAME: 'Admission Enquiries',
   PDF_FOLDER_NAME: 'Sharusuri EdTech Enquiry PDFs',
   FROM_NAME: 'Sharusuri EdTech',
+  PAYMENT_URL: 'https://s2suresh.github.io/Edtech/payment-details.html',
+  WHATSAPP_NUMBER: '918088835686',
 };
 
 const REQUIRED_HEADERS = [
@@ -139,12 +141,17 @@ function sendReceiptEmail_(payload, referenceId, pdfFile) {
 
   const name = payload.name || payload.Name || 'Student';
   const program = payload.program || payload.Program || 'selected course';
+  const paymentUrl = buildPaymentUrl_(program, referenceId);
+  const whatsappUrl = buildWhatsappUrl_(payload, referenceId);
   const subject = `Sharusuri EdTech enquiry received - ${referenceId}`;
   const body = [
     `Dear ${name},`,
     '',
     `Thank you for your interest in ${program}.`,
     `Your enquiry reference ID is ${referenceId}.`,
+    '',
+    `Payment guidance: ${paymentUrl}`,
+    `WhatsApp confirmation: ${whatsappUrl}`,
     '',
     'Our team will contact you with course details, batch timing, fee guidance, and next steps.',
     '',
@@ -167,6 +174,10 @@ function buildReceiptHtml_(payload, referenceId, timestamp) {
     .map((key) => `<tr><th>${escapeHtml_(toTitle_(key))}</th><td>${escapeHtml_(payload[key])}</td></tr>`)
     .join('');
 
+  const program = payload.program || payload.Program || 'selected course';
+  const paymentUrl = buildPaymentUrl_(program, referenceId);
+  const whatsappUrl = buildWhatsappUrl_(payload, referenceId);
+
   return `
     <html>
       <body style="font-family: Arial, sans-serif; color: #10201c;">
@@ -177,9 +188,34 @@ function buildReceiptHtml_(payload, referenceId, timestamp) {
           ${rows}
         </table>
         <p>Our team will contact you with course, timing, fee, and admission guidance.</p>
+        <p><strong>Payment guidance:</strong> <a href="${escapeHtml_(paymentUrl)}">${escapeHtml_(paymentUrl)}</a></p>
+        <p><strong>WhatsApp confirmation:</strong> <a href="${escapeHtml_(whatsappUrl)}">${escapeHtml_(whatsappUrl)}</a></p>
       </body>
     </html>
   `;
+}
+
+function buildPaymentUrl_(program, referenceId) {
+  const params = [
+    `course=${encodeURIComponent(program || 'selected course')}`,
+    `reference=${encodeURIComponent(referenceId)}`,
+  ].join('&');
+  return `${CONFIG.PAYMENT_URL}?${params}`;
+}
+
+function buildWhatsappUrl_(payload, referenceId) {
+  const name = payload.name || payload.Name || 'Student';
+  const program = payload.program || payload.Program || 'selected course';
+  const message = [
+    'Hi Sharusuri EdTech,',
+    'I submitted an admission enquiry.',
+    `Reference ID: ${referenceId}.`,
+    `Student: ${name}.`,
+    `Program: ${program}.`,
+    'Please guide me for course details, payment, and next steps.',
+  ].join(' ');
+
+  return `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
 function getOrCreateFolder_(folderName) {
