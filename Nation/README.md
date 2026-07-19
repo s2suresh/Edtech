@@ -7,6 +7,7 @@ This folder stores state-wise location data for admission dropdowns.
 - `karnataka_villages.json`: Karnataka state dropdown data in the order state -> district -> taluk -> hobli -> village. Districts and taluks are seeded; Raichur district has hobli seed data; villages should be completed from verified government data.
 - `states_index.json`: India state and union territory index with district seed lists. Karnataka points to the active state file for deeper data.
 - `tools/build_karnataka_villages.py`: Import helper to generate the Karnataka JSON from a verified CSV export.
+- `templates/raichur_verified_villages.sample.csv`: Sample CSV format for adding verified Raichur village rows.
 
 ## Completing Karnataka Hoblis And Villages
 
@@ -30,6 +31,21 @@ python Nation/tools/build_karnataka_villages.py path/to/karnataka_verified_locat
 ```
 
 The script writes to `Nation/karnataka_villages.json` by default.
+
+To add only Raichur villages without replacing the existing Karnataka seed data, use:
+
+```powershell
+python Nation/tools/build_karnataka_villages.py path/to/raichur_verified_villages.csv --merge-existing
+```
+
+For Raichur village completion, export or prepare verified rows from LGD, Panchatantra Village Master, SSLR Revenue Maps, or another official source with one row per village:
+
+```csv
+district,taluk,hobli,village
+Raichur,Sindhanur,Sindhanur,AP K Hosalli
+```
+
+Do not add village names manually from memory. Raichur has 37 hoblis and 994 villages in the NRDMS source summary, so the full village list should come from a verified export.
 
 ## Data rules
 
