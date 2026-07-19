@@ -39,6 +39,37 @@ const submitToEndpoint = (payload) => fetch(ENQUIRY_ENDPOINT, {
     body: JSON.stringify(payload),
 });
 
+const buildWhatsappConfirmationUrl = (payload) => {
+    const message = [
+        'Hi Sharusuri EdTech,',
+        'I submitted an admission enquiry.',
+        `Reference ID: ${payload.referenceId}.`,
+        `Student: ${payload.name || 'not provided'}.`,
+        `Program: ${payload.program || 'not provided'}.`,
+        'Please guide me for course details, payment, and next steps.',
+    ].join(' ');
+
+    return `https://wa.me/918088835686?text=${encodeURIComponent(message)}`;
+};
+
+const showSubmittedNextSteps = (formStatus, payload, name, program) => {
+    formStatus.innerHTML = '';
+    formStatus.append(`Thank you, ${name}. Your enquiry for ${program} has been submitted. Reference: ${payload.referenceId}. `);
+
+    const paymentLink = document.createElement('a');
+    paymentLink.href = `payment-details.html?course=${encodeURIComponent(program)}&reference=${encodeURIComponent(payload.referenceId)}`;
+    paymentLink.textContent = 'View payment guidance';
+    formStatus.append(paymentLink);
+    formStatus.append(' | ');
+
+    const whatsappLink = document.createElement('a');
+    whatsappLink.href = buildWhatsappConfirmationUrl(payload);
+    whatsappLink.target = '_blank';
+    whatsappLink.rel = 'noopener noreferrer';
+    whatsappLink.textContent = 'Send confirmation on WhatsApp';
+    formStatus.append(whatsappLink);
+};
+
 const showFallbackMessage = (formStatus, name, program) => {
     formStatus.textContent = `Thank you, ${name}. Your enquiry for ${program} has been noted. Google Sheet submission will start after the Apps Script Web App URL is configured. `;
     const sheetLink = document.createElement('a');
@@ -74,7 +105,7 @@ export function initLeadForm() {
 
         submitToEndpoint(payload)
             .then(() => {
-                formStatus.textContent = `Thank you, ${name}. Your enquiry for ${program} has been submitted. Reference: ${payload.referenceId}`;
+                showSubmittedNextSteps(formStatus, payload, name, program);
                 form.reset();
             })
             .catch(() => {

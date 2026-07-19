@@ -39,7 +39,8 @@ After that, website form submissions will be sent to Apps Script.
 - Student access verification can match `mobile` plus `referenceId` from the response sheet before opening a private dashboard in a future backend flow.
 - Apps Script adds new Sheet columns if future form fields are added.
 - Apps Script creates a PDF receipt in Google Drive folder `Sharusuri EdTech Enquiry PDFs`.
-- Apps Script emails the PDF to the submitted email address.
+- Apps Script emails the PDF to the submitted email address with payment guidance and a WhatsApp confirmation link.
+- Fully automatic WhatsApp replies require WhatsApp Business Platform or an approved provider later; the current free flow uses click-to-WhatsApp links.
 
 ## Future Enhancements
 
@@ -47,3 +48,4 @@ After that, website form submissions will be sent to Apps Script.
 - Add selected course fee and installment details to the PDF.
 - Add parent/student separate email templates.
 - Add WhatsApp notification workflow through a verified provider.
+- Generate secure per-user QR codes for student profile, parent report, teacher, mentor, employee, and admin dashboards after a real backend is added.
