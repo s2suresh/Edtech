@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sharusuri EdTech - Multi-Role Enterprise OS & Academic Marketplace">
-    <title>Sharusuri EdTech | Enterprise Multi-Role Portal System</title>
+    <meta name="description" content="Sharusuri EdTech - Multi-Role Enterprise OS, Franchise Network & Campus Infrastructure Management Platform">
+    <title>Sharusuri EdTech | Enterprise OS & Multi-Role Academic Platform</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,13 +88,13 @@
             list-style: none;
         }
 
-        /* TOP ANNOUNCEMENT TICKER */
+        /* TOP ANNOUNCEMENT BAR */
         .top-notice-bar {
             background: linear-gradient(90deg, #0f766e, #1d4ed8);
             color: white;
             font-size: 0.82rem;
             font-weight: 600;
-            padding: 0.4rem 1rem;
+            padding: 0.45rem 1.25rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -111,7 +111,7 @@
             margin-right: 0.5rem;
         }
 
-        /* HEADER & TOP NAVBAR */
+        /* HEADER & NAVBAR */
         .site-header {
             position: sticky;
             top: 0;
@@ -153,19 +153,47 @@
             box-shadow: 0 4px 12px rgba(15, 118, 110, 0.35);
         }
 
+        /* PUBLIC VS AUTH TOGGLE MODE */
+        .mode-switch-group {
+            display: flex;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 3px;
+            gap: 4px;
+        }
+
+        .mode-btn {
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mode-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(15, 118, 110, 0.3);
+        }
+
         /* ROLE SELECTOR DROPDOWN IN HEADER */
         .role-selector-wrapper {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.6rem;
             background: var(--bg);
             border: 2px solid var(--primary);
-            padding: 0.4rem 0.85rem;
+            padding: 0.35rem 0.85rem;
             border-radius: var(--radius-md);
         }
 
         .role-selector-label {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 800;
             color: var(--text-muted);
             text-transform: uppercase;
@@ -176,7 +204,7 @@
             border: none;
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--primary);
             cursor: pointer;
             outline: none;
@@ -185,7 +213,7 @@
         /* SEARCH & USER ACTIONS */
         .header-search {
             flex-grow: 1;
-            max-width: 420px;
+            max-width: 380px;
             position: relative;
         }
 
@@ -277,6 +305,97 @@
             font-size: 0.85rem;
         }
 
+        /* PUBLIC LANDING PAGE STYLES */
+        .public-landing {
+            display: block;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(15, 118, 110, 0.08) 0%, rgba(37, 99, 235, 0.08) 100%);
+            padding: 4rem 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 1rem;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .hero-title span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .public-grid {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .marketplace-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .marketplace-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .marketplace-img-placeholder {
+            height: 160px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .marketplace-body {
+            padding: 1.25rem;
+        }
+
         /* LAYOUT STRUCTURE WITH SIDEBAR & MAIN VIEW */
         .app-body {
             display: flex;
@@ -297,14 +416,6 @@
 
         .sidebar.collapsed {
             width: var(--sidebar-collapsed-width);
-        }
-
-        .sidebar-header {
-            padding: 1rem 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid var(--border-light);
         }
 
         .sidebar-role-card {
@@ -613,6 +724,7 @@
             gap: 0.5rem;
             border-bottom: 2px solid var(--border-light);
             margin-bottom: 1.25rem;
+            overflow-x: auto;
         }
 
         .tab-btn {
@@ -625,6 +737,7 @@
             cursor: pointer;
             border-bottom: 3px solid transparent;
             transition: var(--transition);
+            white-space: nowrap;
         }
 
         .tab-btn.active {
@@ -740,6 +853,7 @@
             .sidebar.mobile-open { left: 0; }
             .grid-4, .grid-2 { grid-template-columns: 1fr; }
             .header-search { display: none; }
+            .hero-title { font-size: 2rem; }
         }
     </style>
 </head>
@@ -749,7 +863,7 @@
     <div class="top-notice-bar">
         <div>
             <span class="notice-tag">🔥 Sharusuri OS v4.2</span>
-            <span>Enterprise Multi-Role Portal Connected Across 36 States/UTs (/Nation Directory)</span>
+            <span>Enterprise Multi-Role Portal & Geographic Franchise Network (36 States/UTs Coverage)</span>
         </div>
         <div style="display: flex; gap: 1rem;">
             <span>Academic Session: 2026-27</span>
@@ -757,36 +871,44 @@
         </div>
     </div>
 
-    <!-- MAIN HEADER WITH ROLE SELECTOR -->
+    <!-- MAIN HEADER WITH ROLE & VIEW TOGGLE SWITCHER -->
     <header class="site-header">
         <div class="header-main">
-            <!-- Brand & Mobile Toggle -->
+            <!-- Brand & Mobile Sidebar Toggle -->
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <button class="icon-btn" id="sidebarToggleBtn" aria-label="Toggle Navigation">☰</button>
-                <a href="#" class="brand-logo">
+                <a href="#" class="brand-logo" onclick="switchViewMode('public')">
                     <span class="brand-badge">SE</span>
-                    <span>Sharusuri <small style="font-size: 0.7rem; display: block; color: var(--primary); font-weight: 800;">ENTERPRISE CONSOLE</small></span>
+                    <span>Sharusuri <small style="font-size: 0.7rem; display: block; color: var(--primary); font-weight: 800;">ENTERPRISE OS</small></span>
                 </a>
             </div>
 
-            <!-- UNIFIED ROLE SELECTOR DROPDOWN -->
-            <div class="role-selector-wrapper">
-                <span class="role-selector-label">Active Portal View:</span>
+            <!-- PUBLIC LANDING VS LOGGED-IN PORTAL TOGGLE BUTTONS -->
+            <div class="mode-switch-group">
+                <button class="mode-btn active" id="modePublicBtn" onclick="switchViewMode('public')">🌐 Public View</button>
+                <button class="mode-btn" id="modePortalBtn" onclick="switchViewMode('portal')">🔒 Logged-In Portals</button>
+            </div>
+
+            <!-- UNIFIED ROLE SELECTOR DROPDOWN (ACTIVE WHEN IN PORTAL VIEW) -->
+            <div class="role-selector-wrapper" id="headerRoleWrapper" style="display: none;">
+                <span class="role-selector-label">Portal Role:</span>
                 <select id="globalRoleSelector" class="role-selector" onchange="switchRolePortal(this.value)">
-                    <option value="student">🎓 Student Dashboard</option>
-                    <option value="teacher">👩‍🏫 Faculty & Teacher Console</option>
+                    <option value="student">🎓 Student Portal</option>
+                    <option value="teacher">👩‍🏫 Faculty Workspace</option>
                     <option value="parent">👪 Parent Portal</option>
-                    <option value="mentor">👨‍💼 Academic Mentor Console</option>
-                    <option value="admin">⚙️ Enterprise Admin OS</option>
-                    <option value="receptionist">📞 Reception & Desk Desk</option>
-                    <option value="hiring">💼 Hiring & HR Portal</option>
+                    <option value="mentor">👨‍💼 Mentor Console</option>
+                    <option value="receptionist">📞 Front Desk Desk</option>
+                    <option value="hiring">💼 HR & Staff</option>
+                    <option value="franchise">🌐 Franchise Hub</option>
+                    <option value="infrastructure">🏢 Campus Assets</option>
+                    <option value="admin">⚙️ Enterprise Admin</option>
                 </select>
             </div>
 
             <!-- Instant Search Field -->
             <div class="header-search">
                 <span class="header-search-icon">🔍</span>
-                <input type="text" id="globalSearchInput" placeholder="Search student roll, teacher ID, course, or village..." oninput="handleGlobalSearch()">
+                <input type="text" id="globalSearchInput" placeholder="Search student roll, teacher ID, franchise village, asset..." oninput="handleGlobalSearch()">
             </div>
 
             <!-- Quick Action Controls -->
@@ -796,7 +918,7 @@
                     🔔
                     <span class="badge-dot"></span>
                 </button>
-                <div class="user-profile-pill" onclick="switchRolePortal('student')">
+                <div class="user-profile-pill" onclick="switchViewMode('portal'); switchRolePortal('student');">
                     <div class="user-avatar" id="navAvatar">SK</div>
                     <div style="line-height: 1.1;">
                         <span style="font-size: 0.85rem; font-weight: 800; display: block;" id="navUserName">Suresh Kumar</span>
@@ -807,8 +929,131 @@
         </div>
     </header>
 
-    <!-- MAIN APPLICATION BODY WITH SIDEBAR & CONSOLES -->
-    <div class="app-body">
+    <!-- ========================================================================= -->
+    <!-- PUBLIC LANDING PAGE (DEFAULT FOR UNAUTHENTICATED VISITORS) -->
+    <!-- ========================================================================= -->
+    <div id="publicLanding" class="public-landing">
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-badge">✨ Multi-Role Academic Platform & Franchise Network</div>
+                <h1 class="hero-title">Empowering Education Across <span>Villages, Hoblis & Cities</span></h1>
+                <p class="hero-subtitle">Sharusuri EdTech combines competitive exam prep, school management, multi-role portal hubs, and regional franchise networks into one seamless enterprise OS.</p>
+                <div class="hero-cta-group">
+                    <button class="btn btn-primary" onclick="switchViewMode('portal')">🚀 Explore Demo Portals</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('franchiseApplySection')">🌐 Partner / Apply for Franchise</button>
+                    <button class="btn btn-accent" onclick="scrollToSection('coursesSection')">📘 Browse Marketplace</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLIC COURSE MARKETPLACE -->
+        <section id="coursesSection" class="public-grid">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem; color: var(--text-main);">Academic Course Marketplace</h2>
+                <p style="color: var(--text-muted);">Explore flagship coaching programs tailored for Navodaya, State Board, & Science Entrance Exams.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="marketplace-card">
+                    <div class="marketplace-img-placeholder">🏆</div>
+                    <div class="marketplace-body">
+                        <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Navodaya Prep</span>
+                        <h3>Navodaya & Entrance Masterclass 2026</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">Complete mental ability, arithmetic, and language test series designed for rural & urban scholars.</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <strong style="font-size: 1.2rem; color: var(--primary);">₹5,999 / yr</strong>
+                            <button class="btn btn-primary btn-sm" onclick="alert('Redirecting to Course Enrollment...')">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="marketplace-card">
+                    <div class="marketplace-img-placeholder" style="background: linear-gradient(135deg, var(--secondary), #1d4ed8);">🔬</div>
+                    <div class="marketplace-body">
+                        <span class="badge badge-secondary" style="margin-bottom: 0.5rem;">Class 10 Excellence</span>
+                        <h3>Class 10 Math & Science Excellence</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">Interactive online classes, chapter-wise question banks, and weekly mock test feedback.</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <strong style="font-size: 1.2rem; color: var(--primary);">₹3,999 / yr</strong>
+                            <button class="btn btn-primary btn-sm" onclick="alert('Redirecting to Course Enrollment...')">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="marketplace-card">
+                    <div class="marketplace-img-placeholder" style="background: linear-gradient(135deg, var(--accent), var(--accent-hover));">🏫</div>
+                    <div class="marketplace-body">
+                        <span class="badge badge-warning" style="margin-bottom: 0.5rem;">Campus Offline</span>
+                        <h3>Residential Board Exam Bootcamp</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">Full-time campus study program with hostel room, 24/7 mentor access, and biometric tracking.</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <strong style="font-size: 1.2rem; color: var(--primary);">₹12,500 / term</strong>
+                            <button class="btn btn-primary btn-sm" onclick="alert('Redirecting to Course Enrollment...')">Apply Admission</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLIC GEOGRAPHIC FRANCHISE APPLICATION SECTION -->
+        <section id="franchiseApplySection" style="background: var(--card-bg); padding: 3.5rem 1.5rem; border-top: 1px solid var(--border-light);">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <span class="badge badge-primary">Grow With Us</span>
+                    <h2 style="font-size: 2rem; margin-top: 0.5rem;">Start a Sharusuri Regional Franchise Hub</h2>
+                    <p style="color: var(--text-muted);">Establish an authorized learning node in your District, Taluk, Hobli, or Village.</p>
+                </div>
+
+                <form class="panel-card" onsubmit="event.preventDefault(); alert('Franchise Application Submitted Successfully! Our Expansion Team will contact you within 24 hours.');">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.88rem;">
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Applicant Full Name *</label>
+                            <input type="text" required placeholder="e.g., Ramesh Patil" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Phone / WhatsApp Number *</label>
+                            <input type="tel" required placeholder="+91 98000 00000" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Target State / UT *</label>
+                            <select required style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                                <option>Karnataka</option>
+                                <option>Andhra Pradesh</option>
+                                <option>Telangana</option>
+                                <option>Maharashtra</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Target District *</label>
+                            <input type="text" required placeholder="e.g., Raichur" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Target Taluk / Tehsil *</label>
+                            <input type="text" required placeholder="e.g., Sindhanur" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Target Hobli / Village Name *</label>
+                            <input type="text" required placeholder="e.g., AP K Hosalli Hobli" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                        </div>
+                        <div style="grid-column: span 2;">
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Proposed Facility Space & Investment Budget</label>
+                            <textarea placeholder="Specify available space (e.g. 1500 sq.ft) and expected setup budget..." style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); height: 80px;"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.25rem;">Submit Franchise Inquiry</button>
+                </form>
+            </div>
+        </section>
+
+        <footer style="background: var(--dark-surface); color: white; padding: 2rem 1.5rem; text-align: center; font-size: 0.88rem;">
+            <p>© 2026 Sharusuri EdTech OS Platform. Connected across 36 States/UTs. Helpline: +91 80888 35686</p>
+        </footer>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- LOGGED-IN AUTHENTICATED APP SYSTEM (SIDEBAR + CONSOLES) -->
+    <!-- ========================================================================= -->
+    <div id="authenticatedApp" class="app-body" style="display: none;">
         
         <!-- SIDEBAR NAVIGATION -->
         <aside class="sidebar" id="appSidebar">
@@ -821,16 +1066,14 @@
             </div>
 
             <div class="sidebar-menu" id="sidebarNavItems">
-                <!-- Dynamic Navigation Items Populated via JS based on selected Role -->
+                <!-- Dynamic Sidebar Navigation Items Populated via JS -->
             </div>
         </aside>
 
-        <!-- MAIN CONTENT AREA -->
+        <!-- MAIN DASHBOARD CONTENT AREA -->
         <main class="main-content">
 
-            <!-- ========================================================================= -->
             <!-- 1. STUDENT DASHBOARD CONSOLE -->
-            <!-- ========================================================================= -->
             <section id="studentConsole" class="role-console active">
                 <div class="console-header">
                     <div class="console-title">
@@ -839,11 +1082,10 @@
                     </div>
                     <div style="display: flex; gap: 0.75rem;">
                         <button class="btn btn-secondary btn-sm" onclick="openReceiptModal()">📄 Download Fee Receipt</button>
-                        <button class="btn btn-primary btn-sm" onclick="printScorecard()">🖨️ Print Report Card</button>
+                        <button class="btn btn-primary btn-sm" onclick="printScorecard()">🖨️ Print Scorecard</button>
                     </div>
                 </div>
 
-                <!-- 4 KPI Stat Cards -->
                 <div class="grid-4">
                     <div class="stat-card">
                         <div class="stat-info">
@@ -879,11 +1121,10 @@
                     </div>
                 </div>
 
-                <!-- Personal, Address, Family & School Profile -->
                 <div class="grid-2">
                     <div class="panel-card">
                         <div class="panel-header">
-                            <h3 class="panel-title">👤 Student Personal & Address Info</h3>
+                            <h3 class="panel-title">👤 Student Personal & Regional Address Info</h3>
                             <span class="badge badge-primary">Verified Scholar</span>
                         </div>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.88rem;">
@@ -901,7 +1142,7 @@
 
                     <div class="panel-card">
                         <div class="panel-header">
-                            <h3 class="panel-title">👪 Family & Mentorship Profile</h3>
+                            <h3 class="panel-title">👪 Family & Mentorship Contacts</h3>
                             <span class="badge badge-secondary">Campus Resident</span>
                         </div>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.88rem;">
@@ -916,7 +1157,6 @@
                     </div>
                 </div>
 
-                <!-- Enrolled Courses, Delivery Mode, Fee Structure -->
                 <div class="panel-card">
                     <div class="panel-header">
                         <h3 class="panel-title">📘 Enrolled Courses & Fee Structure Breakdown</h3>
@@ -972,11 +1212,10 @@
                     </div>
                 </div>
 
-                <!-- Scorecard Analytics & Areas for Improvement Chart -->
                 <div class="grid-2-1">
                     <div class="panel-card">
                         <div class="panel-header">
-                            <h3 class="panel-title">📊 Subject Scorecard & Performance breakdown</h3>
+                            <h3 class="panel-title">📊 Subject Scorecard & Academic Progress</h3>
                             <span class="badge badge-primary">Term II Exams</span>
                         </div>
                         <div class="data-table-wrapper">
@@ -1029,7 +1268,6 @@
                             <h3 class="panel-title">📈 Areas for Improvement</h3>
                         </div>
                         <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem;">Subject mastery breakdown highlighting areas needing focus:</p>
-                        
                         <div class="chart-container">
                             <div class="bar-group">
                                 <div class="bar-fill" style="height: 94%;" data-value="94%"></div>
@@ -1050,104 +1288,21 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Exam History & Competitive Tests Tabs -->
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">🏆 Exam History & Competitive Entrance Records</h3>
-                    </div>
-                    
-                    <div class="tab-bar">
-                        <button class="tab-btn active" onclick="switchTab(this, 'weeklyTab')">Weekly Mock Tests</button>
-                        <button class="tab-btn" onclick="switchTab(this, 'monthlyTab')">Monthly Benchmarks</button>
-                        <button class="tab-btn" onclick="switchTab(this, 'competitiveTab')">Competitive (Navodaya / Olympiad)</button>
-                        <button class="tab-btn" onclick="switchTab(this, 'awardsTab')">Awards & Badges</button>
-                    </div>
-
-                    <div id="weeklyTab" class="tab-content active">
-                        <p style="font-size: 0.88rem; margin-bottom: 0.75rem;">Recent Weekly Practice Tests Results:</p>
-                        <ul style="font-size: 0.88rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                            <li style="padding: 0.5rem; background: var(--bg); border-radius: 6px; display: flex; justify-content: space-between;">
-                                <span>📝 Test #14: Mental Ability & Logical Reasoning</span>
-                                <strong>48/50 Marks (96%)</strong>
-                            </li>
-                            <li style="padding: 0.5rem; background: var(--bg); border-radius: 6px; display: flex; justify-content: space-between;">
-                                <span>📝 Test #13: Quadratic Equations & Trigonometry</span>
-                                <strong>45/50 Marks (90%)</strong>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div id="monthlyTab" class="tab-content" style="display: none;">
-                        <p style="font-size: 0.88rem;">Monthly Benchmark Exam #2 Score: <strong>442 / 500 (88.4%)</strong> - Rank #3 in District.</p>
-                    </div>
-
-                    <div id="competitiveTab" class="tab-content" style="display: none;">
-                        <p style="font-size: 0.88rem;">State Science Olympiad Rank: <strong>AIR 142</strong> | Navodaya Entrance Selection Rank: <strong>Qualified (Top 1%)</strong>.</p>
-                    </div>
-
-                    <div id="awardsTab" class="tab-content" style="display: none;">
-                        <p style="font-size: 0.88rem;">🏅 Awarded <strong>"Math Wizard of the Month"</strong> - Sharusuri Campus Foundation 2026.</p>
-                    </div>
-                </div>
             </section>
 
-            <!-- ========================================================================= -->
-            <!-- 2. TEACHER DASHBOARD CONSOLE -->
-            <!-- ========================================================================= -->
+            <!-- 2. TEACHER CONSOLE -->
             <section id="teacherConsole" class="role-console">
                 <div class="console-header">
                     <div class="console-title">
-                        <h1>👩‍🏫 Faculty & Teacher Workspace</h1>
-                        <p>Welcome, <strong>Prof. Anita Rao</strong> | Mathematics Department | Senior Faculty ID: <code>FAC-4012</code></p>
+                        <h1>👩‍🏫 Faculty Workspace</h1>
+                        <p>Welcome, <strong>Prof. Anita Rao</strong> | Mathematics Department | Faculty ID: <code>FAC-4012</code></p>
                     </div>
-                    <div style="display: flex; gap: 0.75rem;">
-                        <button class="btn btn-primary btn-sm" onclick="openTestCreatorModal()">➕ Create Test Series</button>
-                        <button class="btn btn-secondary btn-sm" onclick="alert('Opening Material Upload Portal...')">📤 Upload Notes</button>
-                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="alert('Opening Test Creator Studio...')">➕ Create Test Series</button>
                 </div>
 
-                <!-- Teacher Stat Cards -->
-                <div class="grid-4">
-                    <div class="stat-card">
-                        <div class="stat-info">
-                            <h4>Assigned Batches</h4>
-                            <div class="val">4 Active</div>
-                            <span class="sub">185 Total Scholars</span>
-                        </div>
-                        <div class="stat-icon blue">🏫</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-info">
-                            <h4>Pending Score Submissions</h4>
-                            <div class="val" style="color: var(--accent);">12 Papers</div>
-                            <span class="sub" style="color: var(--accent-hover);">Class 10 Mock II</span>
-                        </div>
-                        <div class="stat-icon amber">✍️</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-info">
-                            <h4>Class Avg Performance</h4>
-                            <div class="val" style="color: var(--success);">84.2%</div>
-                            <span class="sub">+3.5% vs Last Test</span>
-                        </div>
-                        <div class="stat-icon emerald">📈</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-info">
-                            <h4>Struggling Scholars</h4>
-                            <div class="val" style="color: var(--danger);">5 Flagged</div>
-                            <span class="sub" style="color: var(--danger);">Needs Mentorship</span>
-                        </div>
-                        <div class="stat-icon rose">⚠️</div>
-                    </div>
-                </div>
-
-                <!-- Assigned Batches & Class Rosters -->
                 <div class="panel-card">
                     <div class="panel-header">
-                        <h3 class="panel-title">📋 Class Roster & Bulk Attendance / Grading Interface</h3>
-                        <span class="badge badge-primary">Batch #A - Navodaya Prep</span>
+                        <h3 class="panel-title">📋 Class Roster & Student Performance Risk Tracker</h3>
                     </div>
                     <div class="data-table-wrapper">
                         <table class="data-table">
@@ -1155,44 +1310,31 @@
                                 <tr>
                                     <th>Roll No</th>
                                     <th>Student Name</th>
-                                    <th>Attendance Today</th>
-                                    <th>Last Test Score</th>
-                                    <th>Risk Status</th>
-                                    <th>Actions</th>
+                                    <th>Hobli / Village</th>
+                                    <th>Attendance</th>
+                                    <th>Last Score</th>
+                                    <th>Risk Level</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>#2026-01</td>
                                     <td>Suresh Kumar</td>
-                                    <td><span class="badge badge-success">Present</span></td>
+                                    <td>AP K Hosalli Hobli</td>
+                                    <td><span class="badge badge-success">96%</span></td>
                                     <td>94 / 100</td>
                                     <td><span class="badge badge-success">Low Risk</span></td>
-                                    <td><button class="btn btn-secondary btn-sm" onclick="openGradingModal('Suresh Kumar')">Grade</button></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="alert('Grading Suresh Kumar')">Grade</button></td>
                                 </tr>
                                 <tr>
                                     <td>#2026-02</td>
-                                    <td>Ananya Sharma</td>
-                                    <td><span class="badge badge-success">Present</span></td>
-                                    <td>98 / 100</td>
-                                    <td><span class="badge badge-success">Low Risk</span></td>
-                                    <td><button class="btn btn-secondary btn-sm" onclick="openGradingModal('Ananya Sharma')">Grade</button></td>
-                                </tr>
-                                <tr>
-                                    <td>#2026-03</td>
                                     <td>Rohan Verma</td>
-                                    <td><span class="badge badge-danger">Absent</span></td>
+                                    <td>Turvihal Village</td>
+                                    <td><span class="badge badge-danger">74%</span></td>
                                     <td>42 / 100</td>
                                     <td><span class="badge badge-danger">High Risk</span></td>
-                                    <td><button class="btn btn-secondary btn-sm" onclick="openGradingModal('Rohan Verma')">Grade</button></td>
-                                </tr>
-                                <tr>
-                                    <td>#2026-04</td>
-                                    <td>Pooja Hegde</td>
-                                    <td><span class="badge badge-success">Present</span></td>
-                                    <td>61 / 100</td>
-                                    <td><span class="badge badge-warning">Moderate Risk</span></td>
-                                    <td><button class="btn btn-secondary btn-sm" onclick="openGradingModal('Pooja Hegde')">Grade</button></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="alert('Flagging Rohan for Mentorship')">Flag Mentor</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1200,104 +1342,69 @@
                 </div>
             </section>
 
-            <!-- ========================================================================= -->
-            <!-- 3. PARENT DASHBOARD CONSOLE -->
-            <!-- ========================================================================= -->
+            <!-- 3. PARENT CONSOLE -->
             <section id="parentConsole" class="role-console">
                 <div class="console-header">
                     <div class="console-title">
-                        <h1>👪 Parent / Guardian Monitoring Console</h1>
+                        <h1>👪 Parent Portal</h1>
                         <p>Welcome, <strong>Mr. Manjunath Kumar</strong> | Parent Account ID: <code>PRT-8812</code></p>
                     </div>
-                    <div style="display: flex; gap: 0.75rem; align-items: center;">
-                        <span style="font-size: 0.85rem; font-weight: 700;">Select Child:</span>
-                        <select style="padding: 0.4rem 0.8rem; border-radius: 6px; font-weight: 700;" onchange="alert('Switching child profile to ' + this.value)">
-                            <option>Child 1: Suresh Kumar (Class 10)</option>
-                            <option>Child 2: Ananya Kumar (Class 6)</option>
-                        </select>
-                    </div>
                 </div>
-
-                <!-- Real-Time Entry/Exit & Attendance -->
-                <div class="grid-2">
-                    <div class="panel-card">
-                        <div class="panel-header">
-                            <h3 class="panel-title">🛡️ Campus Gate & Hostel Biometric Entry Logs</h3>
-                            <span class="badge badge-success">Live Sync</span>
-                        </div>
-                        <ul style="font-size: 0.88rem; display: flex; flex-direction: column; gap: 0.6rem;">
-                            <li style="padding: 0.6rem; background: var(--bg); border-radius: 6px; display: flex; justify-content: space-between;">
-                                <span>🚪 Hostel Gate Exit (Library Study)</span>
-                                <strong>Today, 08:15 AM</strong>
-                            </li>
-                            <li style="padding: 0.6rem; background: var(--bg); border-radius: 6px; display: flex; justify-content: space-between;">
-                                <span>🏫 Academic Block Biometric Check-in</span>
-                                <strong>Today, 08:28 AM</strong>
-                            </li>
-                            <li style="padding: 0.6rem; background: var(--bg); border-radius: 6px; display: flex; justify-content: space-between;">
-                                <span>🥗 Campus Dining Hall Lunch Punch</span>
-                                <strong>Today, 01:10 PM</strong>
-                            </li>
-                        </ul>
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h3 class="panel-title">🛡️ Campus Gate & Biometric Entry Logs for Suresh Kumar</h3>
                     </div>
-
-                    <div class="panel-card">
-                        <div class="panel-header">
-                            <h3 class="panel-title">💬 Mentor & Teacher Direct Scheduler</h3>
-                        </div>
-                        <p style="font-size: 0.88rem; margin-bottom: 1rem;">Schedule a 1-on-1 progress call with lead mentor Dr. Ramesh Patil:</p>
-                        <form onsubmit="event.preventDefault(); alert('Meeting Request Sent to Dr. Ramesh Patil!');">
-                            <input type="date" required style="width: 100%; padding: 0.6rem; margin-bottom: 0.75rem; border-radius: 6px; border: 1px solid var(--border);">
-                            <textarea placeholder="Reason for call..." style="width: 100%; padding: 0.6rem; margin-bottom: 0.75rem; border-radius: 6px; border: 1px solid var(--border);"></textarea>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Request Mentor Appointment</button>
-                        </form>
-                    </div>
+                    <p style="font-size: 0.88rem; margin-bottom: 1rem;">Real-time biometric attendance updates from Sindhanur Campus Gate & Dining Hall.</p>
                 </div>
             </section>
 
-            <!-- ========================================================================= -->
-            <!-- 4. MENTOR DASHBOARD CONSOLE -->
-            <!-- ========================================================================= -->
+            <!-- 4. MENTOR CONSOLE -->
             <section id="mentorConsole" class="role-console">
                 <div class="console-header">
                     <div class="console-title">
                         <h1>👨‍💼 Academic Mentor Console</h1>
-                        <p>Welcome, <strong>Dr. Ramesh Patil</strong> | Personal Mentorship & Guidance Department</p>
+                        <p>Welcome, <strong>Dr. Ramesh Patil</strong> | Personal Mentorship Lead</p>
                     </div>
                 </div>
-
                 <div class="panel-card">
                     <div class="panel-header">
-                        <h3 class="panel-title">👥 Assigned Mentees & 1-on-1 Counseling Tracker</h3>
+                        <h3 class="panel-title">👥 Assigned Mentees & Guidance Log</h3>
+                    </div>
+                    <p style="font-size: 0.88rem;">Managing 1-on-1 weekly counseling sessions for 24 high-priority scholars.</p>
+                </div>
+            </section>
+
+            <!-- 5. RECEPTIONIST CONSOLE -->
+            <section id="receptionistConsole" class="role-console">
+                <div class="console-header">
+                    <div class="console-title">
+                        <h1>📞 Front Desk & Visitor Management</h1>
+                        <p>Inbound inquiries, walk-in logs, and demo class bookings.</p>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="openVisitorModal()">➕ New Visitor Log</button>
+                </div>
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h3 class="panel-title">📋 Today's Visitor Inquiries</h3>
                     </div>
                     <div class="data-table-wrapper">
                         <table class="data-table">
                             <thead>
                                 <tr>
-                                    <th>Mentee ID</th>
-                                    <th>Student Name</th>
-                                    <th>Class/Target</th>
-                                    <th>Last 1-on-1 Session</th>
-                                    <th>Guidance Notes</th>
-                                    <th>Action</th>
+                                    <th>Visitor Name</th>
+                                    <th>Phone</th>
+                                    <th>Inquiry Course</th>
+                                    <th>Target Hobli/Village</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>#SE-9942</td>
-                                    <td>Suresh Kumar</td>
-                                    <td>Navodaya Prep</td>
-                                    <td>2 Days Ago</td>
-                                    <td>Strong in Math. Advised extra time for English grammar drills.</td>
-                                    <td><button class="btn btn-primary btn-sm" onclick="alert('Opening session notes editor...')">Add Note</button></td>
-                                </tr>
-                                <tr>
-                                    <td>#SE-9945</td>
-                                    <td>Rohan Verma</td>
-                                    <td>Class 10 Board</td>
-                                    <td>Yesterday</td>
-                                    <td>Exhibiting study stress. Arranged extra weekend doubt tutor.</td>
-                                    <td><button class="btn btn-primary btn-sm" onclick="alert('Opening session notes editor...')">Add Note</button></td>
+                                    <td>Rajesh Patil</td>
+                                    <td>+91 98450 22100</td>
+                                    <td>Navodaya Batch</td>
+                                    <td>Turvihal Hobli</td>
+                                    <td><span class="badge badge-warning">Demo Assigned</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1305,19 +1412,253 @@
                 </div>
             </section>
 
-            <!-- ========================================================================= -->
-            <!-- 5. ENTERPRISE ADMIN CONSOLE -->
-            <!-- ========================================================================= -->
+            <!-- 6. HR & STAFF CONSOLE -->
+            <section id="hiringConsole" class="role-console">
+                <div class="console-header">
+                    <div class="console-title">
+                        <h1>💼 Faculty Recruitment & HR Console</h1>
+                        <p>ATS candidate pipeline, staff directory, and offer letters.</p>
+                    </div>
+                </div>
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h3 class="panel-title">📄 Recruitment Pipeline</h3>
+                    </div>
+                    <p style="font-size: 0.88rem;">Applicant records for Senior Physics Lecturer & Campus Wardens.</p>
+                </div>
+            </section>
+
+            <!-- 7. GEOGRAPHIC FRANCHISE NETWORK MANAGEMENT CONSOLE -->
+            <section id="franchiseConsole" class="role-console">
+                <div class="console-header">
+                    <div class="console-title">
+                        <h1>🌐 Geographic Franchise Network Management</h1>
+                        <p>Multi-Level Location Hierarchy: <strong>State ➔ District ➔ Taluk ➔ Hobli ➔ Branch Unit</strong></p>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="scrollToSection('franchiseApplySection'); switchViewMode('public');">➕ Apply New Franchise</button>
+                </div>
+
+                <div class="grid-4">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Active Branches</h4>
+                            <div class="val" style="color: var(--primary);">42 Units</div>
+                            <span class="sub">Across 18 Districts</span>
+                        </div>
+                        <div class="stat-icon teal">🏬</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Pending Pipeline</h4>
+                            <div class="val" style="color: var(--accent);">14 Applications</div>
+                            <span class="sub" style="color: var(--accent-hover);">Under Inspection</span>
+                        </div>
+                        <div class="stat-icon amber">⏳</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Total Network Scholars</h4>
+                            <div class="val" style="color: var(--secondary);">8,450</div>
+                            <span class="sub">Rural & Urban Hubs</span>
+                        </div>
+                        <div class="stat-icon blue">🎓</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Franchise Revenue</h4>
+                            <div class="val" style="color: var(--success);">₹2.85 Cr</div>
+                            <span class="sub">+34% YOY Share</span>
+                        </div>
+                        <div class="stat-icon emerald">📈</div>
+                    </div>
+                </div>
+
+                <!-- Tabs: Approved Franchises vs Pending Applications -->
+                <div class="panel-card">
+                    <div class="tab-bar">
+                        <button class="tab-btn active" onclick="switchTab(this, 'approvedFranchiseTab')">Active Approved Franchises (42)</button>
+                        <button class="tab-btn" onclick="switchTab(this, 'pendingFranchiseTab')">Pending Applications Pipeline (14)</button>
+                    </div>
+
+                    <div id="approvedFranchiseTab" class="tab-content active">
+                        <div class="data-table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Franchise ID</th>
+                                        <th>State / District</th>
+                                        <th>Taluk / Hobli / Village</th>
+                                        <th>Branch Manager</th>
+                                        <th>Student Capacity</th>
+                                        <th>Monthly Revenue</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>#FR-KA-RCH-01</code></td>
+                                        <td>Karnataka / Raichur</td>
+                                        <td>Sindhanur / AP K Hosalli</td>
+                                        <td>Manjunath Rao (+91 98450 11223)</td>
+                                        <td>250 Scholars</td>
+                                        <td>₹4,50,000</td>
+                                        <td><span class="badge badge-success">Operational</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>#FR-KA-RCH-02</code></td>
+                                        <td>Karnataka / Raichur</td>
+                                        <td>Turvihal Hobli / Main Node</td>
+                                        <td>Suresh Patil (+91 94480 33441)</td>
+                                        <td>180 Scholars</td>
+                                        <td>₹3,20,000</td>
+                                        <td><span class="badge badge-success">Operational</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>#FR-AP-KRN-08</code></td>
+                                        <td>Andhra Pradesh / Kurnool</td>
+                                        <td>Adoni / Town Center</td>
+                                        <td>Venkatesh Reddy (+91 99001 88772)</td>
+                                        <td>300 Scholars</td>
+                                        <td>₹5,80,000</td>
+                                        <td><span class="badge badge-success">Operational</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="pendingFranchiseTab" class="tab-content" style="display: none;">
+                        <div class="data-table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Applicant Name</th>
+                                        <th>Proposed Location (Taluk / Hobli)</th>
+                                        <th>Facility Area</th>
+                                        <th>Budget</th>
+                                        <th>Inspection Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Basavaraj Gowda</td>
+                                        <td>Gangavathi / Karatagi Hobli</td>
+                                        <td>1,800 sq.ft</td>
+                                        <td>₹15 Lakhs</td>
+                                        <td><span class="badge badge-warning">Site Visit Pending</span></td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm" onclick="alert('Approved Franchise Application!')">Approve</button>
+                                            <button class="btn btn-secondary btn-sm" onclick="alert('Scheduled Site Inspection')">Inspect</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. SCHOOL INFRASTRUCTURE & ASSET MANAGEMENT CONSOLE -->
+            <section id="infrastructureConsole" class="role-console">
+                <div class="console-header">
+                    <div class="console-title">
+                        <h1>🏢 Campus Infrastructure & Physical Asset Management</h1>
+                        <p>Facility Inventory, Equipment Maintenance Schedules & Capacity Utilization Tracker</p>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="alert('Adding new equipment asset...')">➕ Register New Asset</button>
+                </div>
+
+                <div class="grid-4">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Smart Classrooms</h4>
+                            <div class="val" style="color: var(--primary);">24 Rooms</div>
+                            <span class="sub">100% Interactive Boards</span>
+                        </div>
+                        <div class="stat-icon teal">🏫</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Science & Computer Labs</h4>
+                            <div class="val" style="color: var(--secondary);">4 Labs</div>
+                            <span class="sub">60 Desktop PCs</span>
+                        </div>
+                        <div class="stat-icon blue">💻</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Library Inventory</h4>
+                            <div class="val" style="color: var(--accent);">14,200 Books</div>
+                            <span class="sub">Digital Kiosks Active</span>
+                        </div>
+                        <div class="stat-icon amber">📚</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Hostel Capacity</h4>
+                            <div class="val" style="color: var(--success);">120 Beds</div>
+                            <span class="sub">88 Occupied</span>
+                        </div>
+                        <div class="stat-icon emerald">🛏️</div>
+                    </div>
+                </div>
+
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h3 class="panel-title">🛠️ Equipment & Physical Infrastructure Asset Log</h3>
+                    </div>
+                    <div class="data-table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Asset Tag</th>
+                                    <th>Equipment / Room Item</th>
+                                    <th>Location Block</th>
+                                    <th>Condition</th>
+                                    <th>Last Service Date</th>
+                                    <th>Maintenance Log</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>#AST-DISP-01</code></td>
+                                    <td>75" 4K Interactive Smartboard</td>
+                                    <td>Classroom Block 10A</td>
+                                    <td><span class="badge badge-success">Excellent</span></td>
+                                    <td>12-Jan-2026</td>
+                                    <td>Routine calibration completed.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>#AST-PC-LAB2</code></td>
+                                    <td>Dell Intel i7 Computer Workstations (x20)</td>
+                                    <td>Main STEM Lab 2</td>
+                                    <td><span class="badge badge-success">Operational</span></td>
+                                    <td>01-Feb-2026</td>
+                                    <td>OS upgraded to v4.2.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>#AST-BUS-04</code></td>
+                                    <td>Campus Bus (40-Seater)</td>
+                                    <td>Transport Hub</td>
+                                    <td><span class="badge badge-warning">Service Due</span></td>
+                                    <td>10-Nov-2025</td>
+                                    <td>Scheduled oil change for next week.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. MASTER ENTERPRISE ADMIN CONSOLE -->
             <section id="adminConsole" class="role-console">
                 <div class="console-header">
                     <div class="console-title">
-                        <h1>⚙️ Master Enterprise Admin Console</h1>
-                        <p>Sharusuri Platform OS | Full Control & Multi-Branch Campus Operations</p>
+                        <h1>⚙️ Enterprise Admin OS Console</h1>
+                        <p>Global KPI Overview & Multi-Branch Campus Control System</p>
                     </div>
-                    <button class="btn btn-primary btn-sm" onclick="alert('Generating System System Audit Report...')">📊 System Audit Report</button>
                 </div>
-
-                <!-- Enterprise KPIs -->
                 <div class="grid-4">
                     <div class="stat-card">
                         <div class="stat-info">
@@ -1352,122 +1693,12 @@
                         <div class="stat-icon emerald">👨‍🏫</div>
                     </div>
                 </div>
-
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">🔒 Role-Based Access Control (RBAC) & User Account Management</h3>
-                        <button class="btn btn-primary btn-sm" onclick="alert('Creating new user account...')">➕ Create User Account</button>
-                    </div>
-                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">Configure global permissions, security roles, and regional hub access override settings.</p>
-                </div>
-            </section>
-
-            <!-- ========================================================================= -->
-            <!-- 6. RECEPTIONIST CONSOLE -->
-            <!-- ========================================================================= -->
-            <section id="receptionistConsole" class="role-console">
-                <div class="console-header">
-                    <div class="console-title">
-                        <h1>📞 Front Desk & Reception Desk</h1>
-                        <p>Walk-in Visitor Logs, Admissions Helpdesk & Demo Class Scheduling</p>
-                    </div>
-                    <button class="btn btn-primary btn-sm" onclick="openVisitorModal()">➕ New Visitor Log</button>
-                </div>
-
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">📋 Today's Walk-in Inquiries & Campus Tour Logs</h3>
-                    </div>
-                    <div class="data-table-wrapper">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Visitor Name</th>
-                                    <th>Phone</th>
-                                    <th>Inquiry Course</th>
-                                    <th>Target Village/Hobli</th>
-                                    <th>Demo Scheduled</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Rajesh Patil</td>
-                                    <td>+91 98450 22100</td>
-                                    <td>Navodaya Residential Batch</td>
-                                    <td>Turvihal Hobli</td>
-                                    <td>Tomorrow 10:00 AM</td>
-                                    <td><span class="badge badge-warning">Demo Assigned</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Sunita Reddy</td>
-                                    <td>+91 81050 44321</td>
-                                    <td>PUC II Science</td>
-                                    <td>Sindhanur Town</td>
-                                    <td>Completed Today</td>
-                                    <td><span class="badge badge-success">Converted</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ========================================================================= -->
-            <!-- 7. HIRING & HR CONSOLE -->
-            <!-- ========================================================================= -->
-            <section id="hiringConsole" class="role-console">
-                <div class="console-header">
-                    <div class="console-title">
-                        <h1>💼 Faculty Recruitment & ATS Console</h1>
-                        <p>Job Openings, Candidate Pipeline, Interview Rating & Offer Generator</p>
-                    </div>
-                    <button class="btn btn-primary btn-sm" onclick="alert('Creating new Job Opening...')">➕ Post New Faculty Opening</button>
-                </div>
-
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">📄 Applicant Tracking System (ATS) Pipeline</h3>
-                    </div>
-                    <div class="data-table-wrapper">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Candidate Name</th>
-                                    <th>Applied Position</th>
-                                    <th>Experience</th>
-                                    <th>Demo Rating</th>
-                                    <th>Interview Stage</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Dr. Srinivas Prasad</td>
-                                    <td>Senior Physics Lecturer</td>
-                                    <td>8 Years</td>
-                                    <td>⭐ 4.9 / 5.0</td>
-                                    <td><span class="badge badge-success">Offer Letter Stage</span></td>
-                                    <td><button class="btn btn-primary btn-sm" onclick="alert('Generating Offer Letter for Dr. Srinivas Prasad...')">Generate Offer</button></td>
-                                </tr>
-                                <tr>
-                                    <td>Priya Deshmukh</td>
-                                    <td>Resident Hostel Warden</td>
-                                    <td>4 Years</td>
-                                    <td>⭐ 4.5 / 5.0</td>
-                                    <td><span class="badge badge-primary">Demo Class Scheduled</span></td>
-                                    <td><button class="btn btn-secondary btn-sm" onclick="alert('Opening interview scorecard...')">Grade Demo</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </section>
 
         </main>
     </div>
 
-    <!-- PRINTABLE FEE RECEIPT MODAL POPUP -->
+    <!-- PRINTABLE RECEIPT MODAL -->
     <div class="modal-overlay" id="receiptModal">
         <div class="modal-box printable">
             <button class="modal-close" onclick="closeReceiptModal()">✕</button>
@@ -1486,7 +1717,7 @@
                 <div><strong>Student Name:</strong> Suresh Kumar</div>
                 <div><strong>Student ID:</strong> SE-9942-IND</div>
                 <div><strong>Parent / Guardian:</strong> Manjunath Kumar</div>
-                <div><strong>Campus Node:</strong> Sindhanur Central Campus</div>
+                <div><strong>Taluk / Hobli:</strong> Sindhanur / AP K Hosalli</div>
             </div>
 
             <table class="data-table" style="margin-bottom: 1.5rem;">
@@ -1519,36 +1750,66 @@
         </div>
     </div>
 
+    <!-- RECEPTIONIST VISITOR LOG MODAL -->
+    <div class="modal-overlay" id="visitorModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeVisitorModal()">✕</button>
+            <h2 style="color: var(--primary); margin-bottom: 1rem;">📞 New Walk-in Visitor Entry</h2>
+            <form onsubmit="event.preventDefault(); alert('Visitor Inquiry Log Saved!'); closeVisitorModal();">
+                <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
+                    <div>
+                        <label style="font-weight: 700;">Visitor Full Name</label>
+                        <input type="text" required placeholder="e.g. Anand Gowda" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                    </div>
+                    <div>
+                        <label style="font-weight: 700;">Phone Number</label>
+                        <input type="tel" required placeholder="+91 98000 00000" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                    </div>
+                    <div>
+                        <label style="font-weight: 700;">Hobli / Village Location</label>
+                        <input type="text" placeholder="e.g. Turvihal Village" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                    </div>
+                    <div>
+                        <label style="font-weight: 700;">Inquiry Course</label>
+                        <select style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                            <option>Navodaya Prep</option>
+                            <option>Class 10 Board Science</option>
+                            <option>PUC Science Residential</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">Save Visitor Log</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- JAVASCRIPT LOGIC ENGINE -->
     <script>
         // ROLE DEFINITIONS & NAVIGATION MAP
         const ROLE_CONFIGS = {
             student: {
-                title: "Student Console",
+                title: "Student Portal",
                 avatar: "SK",
                 userName: "Suresh Kumar",
                 userRole: "Student (#SE-9942)",
                 consoleId: "studentConsole",
                 menu: [
-                    { label: "Academic Dashboard", icon: "📊", active: true },
-                    { label: "My Enrolled Courses", icon: "📚" },
-                    { label: "Attendance & Schedule", icon: "📅" },
-                    { label: "Scorecard & Analytics", icon: "🏆" },
-                    { label: "Competitive Exams", icon: "🎯" }
+                    { label: "Dashboard Overview", icon: "📊", active: true },
+                    { label: "Enrolled Courses", icon: "📚" },
+                    { label: "Attendance & Gate Logs", icon: "📅" },
+                    { label: "Scorecard & Analytics", icon: "🏆" }
                 ]
             },
             teacher: {
-                title: "Teacher Workspace",
+                title: "Faculty Workspace",
                 avatar: "AR",
                 userName: "Prof. Anita Rao",
                 userRole: "Senior Faculty (#FAC-4012)",
                 consoleId: "teacherConsole",
                 menu: [
                     { label: "Faculty Workspace", icon: "👩‍🏫", active: true },
-                    { label: "Class Rosters & Grading", icon: "📋" },
-                    { label: "Material Uploads", icon: "📤" },
-                    { label: "Test Series Creator", icon: "✍️" },
-                    { label: "Struggling Students Risk", icon: "⚠️" }
+                    { label: "Class Rosters & Risk", icon: "📋" },
+                    { label: "Test Creator Studio", icon: "✍️" }
                 ]
             },
             parent: {
@@ -1558,35 +1819,18 @@
                 userRole: "Parent (#PRT-8812)",
                 consoleId: "parentConsole",
                 menu: [
-                    { label: "Child Overview", icon: "👪", active: true },
-                    { label: "Gate & Biometric Logs", icon: "🛡️" },
-                    { label: "Fee Installments", icon: "💳" },
-                    { label: "Mentor Call Scheduler", icon: "💬" }
+                    { label: "Child Attendance", icon: "👪", active: true },
+                    { label: "Biometric Gate Logs", icon: "🛡️" }
                 ]
             },
             mentor: {
                 title: "Mentor Console",
                 avatar: "RP",
                 userName: "Dr. Ramesh Patil",
-                userRole: "Lead Academic Mentor",
+                userRole: "Lead Mentor",
                 consoleId: "mentorConsole",
                 menu: [
-                    { label: "Mentorship Overview", icon: "👨‍💼", active: true },
-                    { label: "Assigned Mentees", icon: "👥" },
-                    { label: "1-on-1 Guidance Logs", icon: "📝" }
-                ]
-            },
-            admin: {
-                title: "Enterprise Admin",
-                avatar: "ADM",
-                userName: "Master Administrator",
-                userRole: "System Admin OS",
-                consoleId: "adminConsole",
-                menu: [
-                    { label: "Enterprise KPIs", icon: "⚙️", active: true },
-                    { label: "Multi-Branch & Hostels", icon: "🏢" },
-                    { label: "User Access Control", icon: "🔒" },
-                    { label: "Financial Reports", icon: "💰" }
+                    { label: "Assigned Mentees", icon: "👨‍💼", active: true }
                 ]
             },
             receptionist: {
@@ -1596,31 +1840,86 @@
                 userRole: "Campus Receptionist",
                 consoleId: "receptionistConsole",
                 menu: [
-                    { label: "Walk-in Visitor Logs", icon: "📞", active: true },
-                    { label: "Demo Class Scheduler", icon: "📅" },
-                    { label: "Helpdesk Tickets", icon: "🎟️" }
+                    { label: "Visitor Entry Logs", icon: "📞", active: true }
                 ]
             },
             hiring: {
-                title: "HR & Recruitment",
+                title: "HR & Staff Directory",
                 avatar: "HR",
                 userName: "HR Manager",
                 userRole: "Talent Acquisition",
                 consoleId: "hiringConsole",
                 menu: [
-                    { label: "ATS Candidate Pipeline", icon: "💼", active: true },
-                    { label: "Job Openings", icon: "📄" },
-                    { label: "Offer Letter Generator", icon: "📜" }
+                    { label: "ATS Pipeline", icon: "💼", active: true }
+                ]
+            },
+            franchise: {
+                title: "Franchise Network",
+                avatar: "FR",
+                userName: "Expansion Director",
+                userRole: "Franchise Manager",
+                consoleId: "franchiseConsole",
+                menu: [
+                    { label: "Active Franchises", icon: "🌐", active: true },
+                    { label: "Pending Pipeline", icon: "⏳" }
+                ]
+            },
+            infrastructure: {
+                title: "Campus Assets OS",
+                avatar: "INF",
+                userName: "Estate Manager",
+                userRole: "Asset Tracking",
+                consoleId: "infrastructureConsole",
+                menu: [
+                    { label: "Classrooms & Labs", icon: "🏢", active: true },
+                    { label: "Equipment Log", icon: "🛠️" }
+                ]
+            },
+            admin: {
+                title: "Enterprise Admin",
+                avatar: "ADM",
+                userName: "Master Admin OS",
+                userRole: "System Admin",
+                consoleId: "adminConsole",
+                menu: [
+                    { label: "Enterprise KPIs", icon: "⚙️", active: true }
                 ]
             }
         };
 
-        // SWITCH ACTIVE ROLE CONSOLE
+        // VIEW MODE SWITCHER (PUBLIC SITE VS PORTAL DASHBOARD)
+        function switchViewMode(mode) {
+            const publicEl = document.getElementById('publicLanding');
+            const portalEl = document.getElementById('authenticatedApp');
+            const roleWrapper = document.getElementById('headerRoleWrapper');
+            const btnPublic = document.getElementById('modePublicBtn');
+            const btnPortal = document.getElementById('modePortalBtn');
+
+            if (mode === 'public') {
+                publicEl.style.display = 'block';
+                portalEl.style.display = 'none';
+                roleWrapper.style.display = 'none';
+                btnPublic.classList.add('active');
+                btnPortal.classList.remove('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                publicEl.style.display = 'none';
+                portalEl.style.display = 'flex';
+                roleWrapper.style.display = 'flex';
+                btnPublic.classList.remove('active');
+                btnPortal.classList.add('active');
+            }
+        }
+
+        // SWITCH ACTIVE ROLE CONSOLE INSIDE PORTALS
         function switchRolePortal(roleKey) {
             const config = ROLE_CONFIGS[roleKey];
             if (!config) return;
 
-            // Update Header User Info
+            // Ensure we are in portal view
+            switchViewMode('portal');
+
+            // Update Header & Sidebar Role Info
             document.getElementById('globalRoleSelector').value = roleKey;
             document.getElementById('navAvatar').textContent = config.avatar;
             document.getElementById('sideAvatar').textContent = config.avatar;
@@ -1628,7 +1927,7 @@
             document.getElementById('navUserRole').textContent = config.userRole;
             document.getElementById('sideRoleTitle').textContent = config.title;
 
-            // Populate Sidebar Menu Items
+            // Populate Sidebar Menu
             const sidebarNav = document.getElementById('sidebarNavItems');
             sidebarNav.innerHTML = `<div class="menu-category">${config.title} Menu</div>`;
             
@@ -1639,9 +1938,12 @@
                 sidebarNav.appendChild(navDiv);
             });
 
-            // Hide All Consoles, Show Selected
+            // Hide All Consoles & Show Selected Console
             document.querySelectorAll('.role-console').forEach(el => el.classList.remove('active'));
-            document.getElementById(config.consoleId).classList.add('active');
+            const targetConsole = document.getElementById(config.consoleId);
+            if (targetConsole) {
+                targetConsole.classList.add('active');
+            }
         }
 
         // SIDEBAR COLLAPSE TOGGLE
@@ -1658,32 +1960,30 @@
             panel.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
 
             btnElement.classList.add('active');
-            document.getElementById(tabContentId).style.display = 'block';
+            const target = document.getElementById(tabContentId);
+            if (target) target.style.display = 'block';
         }
 
         // MODAL HANDLERS
         function openReceiptModal() { document.getElementById('receiptModal').classList.add('active'); }
         function closeReceiptModal() { document.getElementById('receiptModal').classList.remove('active'); }
+        function openVisitorModal() { document.getElementById('visitorModal').classList.add('active'); }
+        function closeVisitorModal() { document.getElementById('visitorModal').classList.remove('active'); }
 
-        function openGradingModal(studentName) {
-            alert(`Opening score grading interface for ${studentName}`);
-        }
-
-        function openTestCreatorModal() {
-            alert('Opening Test Series Creator Studio...');
-        }
-
-        function printScorecard() {
-            window.print();
-        }
+        function printScorecard() { window.print(); }
 
         function openNotificationsModal() {
-            alert('Notifications:\n1. Q3 Fee Receipt Generated\n2. Math Test Score Updated (94/100)\n3. Hostel Entry Verified at 08:28 AM');
+            alert('Live System Alerts:\n1. Q3 Fee Receipt Generated (#SE-REC-8831)\n2. Biometric Entry Verified for Suresh Kumar (08:28 AM)\n3. New Franchise Inquiry from Karatagi Hobli');
         }
 
         function handleGlobalSearch() {
             const q = document.getElementById('globalSearchInput').value.toLowerCase();
-            console.log("Searching for:", q);
+            console.log("Global Search Query:", q);
+        }
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
 
         // THEME SWITCHER
@@ -1695,9 +1995,10 @@
             themeBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
         });
 
-        // INITIALIZE DEFAULT ROLE (STUDENT)
+        // INITIALIZE DEFAULT PAGE STATE (PUBLIC SITE)
         document.addEventListener('DOMContentLoaded', () => {
             switchRolePortal('student');
+            switchViewMode('public');
         });
     </script>
 </body>
