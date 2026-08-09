@@ -184,6 +184,15 @@
             font-weight: 800;
             color: var(--text-main);
             flex-shrink: 0;
+            cursor: pointer;
+            transition: var(--transition);
+            user-select: none;
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-md);
+        }
+
+        .brand-logo:hover {
+            background: var(--primary-light);
         }
 
         .brand-badge {
@@ -1062,6 +1071,95 @@
             z-index: 10;
         }
 
+        /* FOUNDER & CO-FOUNDER LEADERSHIP MODAL STYLES */
+        .leadership-modal-box {
+            max-width: 880px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.25rem;
+        }
+
+        .founder-card {
+            background: var(--bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .founder-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .founder-avatar-wrap {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .founder-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            box-shadow: 0 4px 14px rgba(15, 118, 110, 0.3);
+            flex-shrink: 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.75rem;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .mission-banner {
+            background: linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(37, 99, 235, 0.08));
+            border: 1px solid var(--primary-light);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
         /* RECEIPT & PAYSTUB STYLING */
         .receipt-card, .paystub-card {
             border: 2px solid var(--primary);
@@ -1127,7 +1225,7 @@
         /* RESPONSIVE DESIGN */
         @media (max-width: 1100px) {
             .grid-4 { grid-template-columns: repeat(2, 1fr); }
-            .grid-3, .innovation-grid { grid-template-columns: 1fr; }
+            .grid-3, .innovation-grid, .founder-grid { grid-template-columns: 1fr; }
             .demo-accounts-grid { grid-template-columns: 1fr; }
         }
 
@@ -1163,7 +1261,7 @@
             <!-- Brand & Navigation Toggle -->
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <button class="icon-btn" id="sidebarToggleBtn" aria-label="Toggle Navigation">☰</button>
-                <a href="#" class="brand-logo" onclick="switchViewMode('public')">
+                <a href="javascript:void(0)" class="brand-logo" id="sharusuri-logo" onclick="openFounderModal(event)" title="Click to view Founder & Co-Founder Information Modal">
                     <span class="brand-badge">SE</span>
                     <span>Sharusuri <small style="font-size: 0.7rem; display: block; color: var(--primary); font-weight: 800;">ENTERPRISE OS</small></span>
                 </a>
@@ -1221,6 +1319,104 @@
             </div>
         </div>
     </header>
+
+    <!-- ========================================================================= -->
+    <!-- FOUNDER & CO-FOUNDER LEADERSHIP MODAL -->
+    <!-- ========================================================================= -->
+    <div class="modal-overlay" id="founderModal" onclick="closeFounderModalOnOverlay(event)">
+        <div class="modal-box leadership-modal-box" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeFounderModal()" aria-label="Close Modal">✕</button>
+            
+            <div style="text-align: center; margin-bottom: 1.25rem;">
+                <span class="badge badge-primary" style="margin-bottom: 0.4rem;">🏛️ Leadership & Vision</span>
+                <h2 style="font-size: 1.6rem; color: var(--text-main);">Sharusuri Enterprise OS — Leadership & Vision</h2>
+                <p style="font-size: 0.88rem; color: var(--text-muted); max-width: 650px; margin: 0.25rem auto 0;">
+                    Pioneering educational democratization across Villages, Hoblis, Taluks, and Cities with next-generation EdTech infrastructure.
+                </p>
+            </div>
+
+            <!-- MISSION STATEMENT BANNER -->
+            <div class="mission-banner">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                    <span style="font-size: 1.4rem;">🎯</span>
+                    <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--primary);">Corporate Mission Statement</h3>
+                </div>
+                <p style="font-size: 0.88rem; color: var(--text-main); line-height: 1.5;">
+                    Sharusuri Enterprise OS is committed to transforming learning access through hybrid technology, live interactive content, competitive coaching (Navodaya & STEM), and transparent administrative governance. We empower students, teachers, mentors, non-teaching staff, and regional franchise partners down to rural village nodes.
+                </p>
+            </div>
+
+            <!-- FOUNDER & CO-FOUNDER PROFILES GRID -->
+            <div class="founder-grid">
+                <!-- FOUNDER CARD -->
+                <div class="founder-card">
+                    <div>
+                        <div class="founder-avatar-wrap">
+                            <div class="founder-avatar">SS</div>
+                            <div>
+                                <span class="badge badge-primary" style="font-size: 0.68rem; margin-bottom: 0.2rem;">Founder & CEO</span>
+                                <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-main);">Suresh S</h3>
+                                <p style="font-size: 0.8rem; font-weight: 700; color: var(--primary);">Platform Architect & Lead Visionary</p>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+                            Architect of Sharusuri EdTech OS. Dedicated to driving rural & urban educational democratization across India through tech-driven learning platforms, live streaming systems, and enterprise OS architecture.
+                        </p>
+                    </div>
+
+                    <div>
+                        <div style="border-top: 1px dashed var(--border); padding-top: 0.85rem; margin-top: 0.5rem;">
+                            <div style="font-size: 0.78rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.4rem;">Direct Contacts & Socials</div>
+                            <div class="social-links">
+                                <a href="mailto:suresh2suresh80888@gmail.com" class="social-btn" title="Send Email">✉️ suresh2suresh80888@gmail.com</a>
+                                <a href="tel:+918088835686" class="social-btn" title="Direct Phone">📞 +91 80888 35686</a>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn" title="LinkedIn Profile">🔗 LinkedIn Profile</a>
+                                <a href="https://github.com" target="_blank" rel="noopener" class="social-btn" title="GitHub Repository">💻 GitHub Repositories</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CO-FOUNDER CARD -->
+                <div class="founder-card">
+                    <div>
+                        <div class="founder-avatar-wrap">
+                            <div class="founder-avatar" style="background: linear-gradient(135deg, var(--purple), var(--secondary));">SS</div>
+                            <div>
+                                <span class="badge badge-purple" style="font-size: 0.68rem; margin-bottom: 0.2rem;">Co-Founder & Director</span>
+                                <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-main);">Sharada S</h3>
+                                <p style="font-size: 0.8rem; font-weight: 700; color: var(--purple);">Co-Founder & Executive Director</p>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+                            Leading organizational growth, franchise partnerships, student mentorship programs, and regional outreach operations. Spearheading strategic alliances across state, district, and taluk learning hubs.
+                        </p>
+                    </div>
+
+                    <div>
+                        <div style="border-top: 1px dashed var(--border); padding-top: 0.85rem; margin-top: 0.5rem;">
+                            <div style="font-size: 0.78rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.4rem;">Direct Contacts & Inquiry</div>
+                            <div class="social-links">
+                                <a href="mailto:sharada@sharusuri.edu" class="social-btn" title="Send Email">✉️ sharada@sharusuri.edu</a>
+                                <a href="tel:+918088835686" class="social-btn" title="Direct Line">📞 Direct Executive Desk</a>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn" title="LinkedIn Profile">🔗 LinkedIn Profile</a>
+                                <button type="button" class="social-btn" onclick="closeFounderModal(); openAuthModal('otp');" style="cursor: pointer; background: var(--purple-light); color: var(--purple); border-color: var(--purple);">📩 Leadership Inquiry</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODAL FOOTER -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-light); flex-wrap: wrap; gap: 0.75rem;">
+                <span style="font-size: 0.78rem; color: var(--text-muted);">© 2026 Sharusuri EdTech OS Platform. All rights reserved.</span>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn btn-secondary btn-sm" onclick="closeFounderModal()">Close</button>
+                    <button class="btn btn-primary btn-sm" onclick="closeFounderModal(); scrollToSection('franchiseApplySection');">🌐 Franchise Opportunities</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ========================================================================= -->
     <!-- AUTHENTICATION & REGISTRATION GATEWAY MODAL WITH FIREBASE EMAIL OTP LINK -->
@@ -2259,6 +2455,22 @@
             setTimeout(() => toast.remove(), 4200);
         }
 
+        // FOUNDER & CO-FOUNDER MODAL ENGINE
+        function openFounderModal(e) {
+            if (e) e.preventDefault();
+            document.getElementById('founderModal').classList.add('active');
+        }
+
+        function closeFounderModal() {
+            document.getElementById('founderModal').classList.remove('active');
+        }
+
+        function closeFounderModalOnOverlay(e) {
+            if (e.target.id === 'founderModal') {
+                closeFounderModal();
+            }
+        }
+
         // YOUTUBE VIDEO SLIDER RENDER ENGINE
         function extractYouTubeId(url) {
             if (!url) return "dQw4w9WgXcQ";
@@ -2607,6 +2819,18 @@
         function openNotificationsModal() { showToast('Alerts: Biometric Gate Active, Q3 Receipts Released.'); }
         function handleGlobalSearch() { console.log('Searching...'); }
         function scrollToSection(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
+
+        // KEYBOARD SHORTCUTS & ESC HANDLER FOR ALL MODALS
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeFounderModal();
+                closeAuthModal();
+                closeVideoPlayerModal();
+                closeInnovationModal();
+                closeReceiptModal();
+                closeSalarySlipModal();
+            }
+        });
 
         // THEME TOGGLE
         document.getElementById('themeToggleBtn').addEventListener('click', () => {
