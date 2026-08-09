@@ -580,6 +580,73 @@
             letter-spacing: 0.8px;
         }
 
+        /* SEARCH AUTOCOMPLETE DESIGN */
+        .search-autocomplete-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-autocomplete-wrapper input {
+            width: 100%;
+            padding: 0.85rem 1.1rem;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            background: var(--card-bg);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-autocomplete-wrapper input:focus {
+            box-shadow: 0 0 0 4px var(--primary-glow);
+        }
+
+        .autocomplete-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            border-top: none;
+            border-radius: 0 0 var(--radius-md) var(--radius-md);
+            max-height: 260px;
+            overflow-y: auto;
+            z-index: 1010;
+            box-shadow: var(--shadow-lg);
+            display: none;
+        }
+
+        .suggestion-item {
+            padding: 0.85rem 1.25rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 1px solid var(--border-light);
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+
+        .suggestion-item:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .suggestion-item strong {
+            color: var(--primary);
+        }
+
+        .suggestion-path {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
         .location-grid-5 {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -1073,7 +1140,7 @@
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="dropdown-menu">
-                        <a href="javascript:void(0)" class="dropdown-item" onclick="filterByCategory('k12')">🏫 K-12 School Foundation</a>
+                        <a href="javascript:void(0)" class="dropdown-item" onclick="filterByCategory('school')">🏫 K-12 School Foundation</a>
                         <a href="javascript:void(0)" class="dropdown-item" onclick="filterByCategory('entrance')">🏆 Entrance Exams (Navodaya/Morarji)</a>
                         <a href="javascript:void(0)" class="dropdown-item" onclick="filterByCategory('puc')">🔬 PUC / 11th & 12th Science</a>
                         <a href="javascript:void(0)" class="dropdown-item" onclick="filterByCategory('skills')">💻 Coding & Digital Literacy</a>
@@ -1193,34 +1260,45 @@
         <section class="container" id="locationFinder">
             <div class="location-finder-panel">
                 <span class="location-panel-tag">📍 Village & Campus Hub Finder</span>
-                <div style="max-width: 700px;">
+                <div style="max-width: 700px; margin-bottom: 1.5rem;">
                     <h2 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 0.2rem;">Find Nearby Offline Centers & Hostel Availability</h2>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Select your exact location hierarchy down to your Hobli and Village to locate local mentors and study nodes.</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Select your location details step-by-step or start typing in the smart search box to match local study nodes instantly.</p>
                 </div>
 
+                <!-- NEW AUTOCOMPLETE SEARCH FIELD -->
+                <div class="search-autocomplete-wrapper">
+                    <label style="display: block; font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.4rem;">🔍 Smart Search (Type village, hobli, or district)</label>
+                    <div style="display: flex; gap: 0.5rem; position: relative;">
+                        <input type="text" id="locationSearchInput" placeholder="e.g. Sindhanur, Wagholi, Peelamedu, Alwal, Gomti Nagar..." oninput="searchLocationQuery()">
+                        <button type="button" class="btn btn-secondary" onclick="clearLocationSearch()" style="padding: 0 1.25rem;">Clear</button>
+                        <div id="locationSuggestions" class="autocomplete-suggestions"></div>
+                    </div>
+                </div>
+
+                <!-- Cascading Dropdowns -->
                 <div class="location-grid-5">
                     <div class="form-select-group">
-                        <label for="stateSelect">1. State</label>
+                        <label for="stateSelect">1. State *</label>
                         <select id="stateSelect" aria-label="Select State"><option value="">-- Select State --</option></select>
                     </div>
 
                     <div class="form-select-group">
-                        <label for="districtSelect">2. District</label>
+                        <label for="districtSelect">2. District *</label>
                         <select id="districtSelect" disabled aria-label="Select District"><option value="">-- Select State First --</option></select>
                     </div>
 
                     <div class="form-select-group">
-                        <label for="talukSelect">3. Taluk</label>
+                        <label for="talukSelect">3. Taluk *</label>
                         <select id="talukSelect" disabled aria-label="Select Taluk"><option value="">-- Select District First --</option></select>
                     </div>
 
                     <div class="form-select-group">
-                        <label for="hobliSelect">4. Hobli</label>
+                        <label for="hobliSelect">4. Hobli / Circle *</label>
                         <select id="hobliSelect" disabled aria-label="Select Hobli"><option value="">-- Select Taluk First --</option></select>
                     </div>
 
                     <div class="form-select-group">
-                        <label for="villageSelect">5. Village / Hub</label>
+                        <label for="villageSelect">5. Village / Hub *</label>
                         <select id="villageSelect" disabled aria-label="Select Village"><option value="">-- Select Hobli First --</option></select>
                     </div>
                 </div>
@@ -1720,47 +1798,139 @@
     <!-- INTERACTIVE JAVASCRIPT ENGINE -->
     <script>
         // ==========================================
-        // 1. CASCADING LOCATION HIERARCHY DATA ENGINE
+        // 1. EXTENSIVE COMPREHENSIVE LOCATION DATA
         // State -> District -> Taluk -> Hobli -> Village
         // ==========================================
         const locationData = {
             "Karnataka": {
+                "Bengaluru Urban": {
+                    "Bengaluru North": {
+                        "Yelahanka Hobli": ["Yelahanka Town Node", "Chikkajala Study Center", "Bagalur Hub", "Singanayakanahalli Node"],
+                        "Hesaraghatta Hobli": ["Hesaraghatta Central Campus", "Kakolu GP Circle", "Gollahalli Hub", "Byatha Node"]
+                    },
+                    "Bengaluru South": {
+                        "Uttarahalli Hobli": ["Uttarahalli Hub", "Subramanyapura Center", "Gottigere Node", "Kengeri Satellite Campus"],
+                        "Begur Hobli": ["Begur Village Node", "Hulimavu Study Center", "Devarachikkanahalli Hub", "Bannerghatta Link Node"]
+                    }
+                },
                 "Raichur": {
                     "Sindhanur": {
                         "AP K Hosalli Hobli": ["AP K Hosalli Main Campus", "Sunklamma Katte Region", "Gorebal Hub", "Turvihal Central"],
-                        "Turvihal Hobli": ["Turvihal Town Node", "Jalwadgi Center", "Badarli Node"],
-                        "Balaganur Hobli": ["Balaganur Center", "Salagunda Village"]
-                    },
-                    "Raichur": {
-                        "Raichur Rural": ["Yapaldinni Node", "Eklaspur Center", "Askihal Node"]
+                        "Turvihal Hobli": ["Turvihal Town Node", "Jalwadgi Center", "Badarli Node", "Hunasihal GP Hub"],
+                        "Balaganur Hobli": ["Balaganur Center", "Salagunda Village Node", "Gorebal Junction Node"]
                     },
                     "Manvi": {
-                        "Sirwar": ["Sirwar Town Hub", "Arakera Node", "Kallur Center"]
+                        "Sirwar Hobli": ["Sirwar Town Hub", "Arakera Node", "Kallur Center"],
+                        "Kavital Hobli": ["Kavital Study Circle", "Pamankallur Node", "Chikalparvi Center"]
                     }
                 },
-                "Bengaluru Urban": {
-                    "Bengaluru North": {
-                        "Yelahanka Hobli": ["Yelahanka Town Node", "Chikkajala Study Center"],
-                        "Hesaraghatta": ["Hesaraghatta Hub", "Kakolu Village Node"]
+                "Mysuru": {
+                    "Mysuru Taluk": {
+                        "Kasaba Hobli": ["Mysuru Central Campus", "Gokulam Node", "Vidyaranyapuram Hub", "Siddharthanagar Study Center"],
+                        "Varuna Hobli": ["Varuna Village GP", "Siddaramanahundi Node", "T.Katur Center", "Mellahalli Study Circle"]
+                    }
+                },
+                "Belagavi": {
+                    "Chikodi": {
+                        "Chikodi Hobli": ["Chikodi Rural Node", "Kharoshi Center", "Nainglaj Study Node"],
+                        "Sadalga Hobli": ["Sadalga Town Campus", "Bedkihal Node", "Borgaon Center"]
                     }
                 },
                 "Kalaburagi": {
                     "Kalaburagi": {
-                        "Gulbarga North": ["Farhatabad Hub", "Ramji Nagar Node"]
+                        "Gulbarga North": ["Farhatabad Hub", "Ramji Nagar Node", "Khaja Kotnoor Node"],
+                        "Gulbarga South": ["Afzalpur Road Center", "Rajapur Study Circle", "Udnoor Node"]
                     }
                 }
             },
             "Maharashtra": {
                 "Mumbai Suburban": {
-                    "Kurla": {
-                        "Kurla Central": ["Ghatkopar Study Hub", "Vidyavihar Node"]
+                    "Andheri": {
+                        "Kurla Circle": ["Ghatkopar Study Hub", "Vidyavihar Node", "Chembur Central Center"],
+                        "Versova Circle": ["Versova Coastal Node", "Juhu Village Hub", "Seven Bungalows Node"]
+                    }
+                },
+                "Pune": {
+                    "Haveli": {
+                        "Wagholi Circle": ["Wagholi Main Campus", "Lonikand Center", "Bakori Node"],
+                        "Hadapsar Circle": ["Hadapsar Town Hub", "Manjari Budruk GP", "Fursungi Node"]
+                    }
+                },
+                "Nagpur": {
+                    "Nagpur Rural": {
+                        "Kamptee Circle": ["Kamptee Hub Node", "Kanhan Town Center", "Yerla Village Campus"]
                     }
                 }
             },
             "Tamil Nadu": {
                 "Chennai": {
                     "Velachery": {
-                        "Velachery Hobli": ["Velachery Central Hub", "Madipakkam Node"]
+                        "Velachery Circle": ["Velachery Central Hub", "Madipakkam Node", "Adambakkam Center"],
+                        "Tambaram Circle": ["Tambaram East Campus", "Chromepet Study Center", "Selaiyur Node"]
+                    }
+                },
+                "Coimbatore": {
+                    "Coimbatore South": {
+                        "Peelamedu Circle": ["Peelamedu Tech Node", "Singanallur Hub", "Ondipudur Center"],
+                        "Sulur Circle": ["Sulur Village Hub", "Kalangal GP Node", "Kangayampalayam Campus"]
+                    }
+                }
+            },
+            "Telangana": {
+                "Hyderabad": {
+                    "Charminar": {
+                        "Malakpet Circle": ["Malakpet Study Node", "Saidabad Center", "Chanchalguda Hub"],
+                        "Falaknuma Circle": ["Falaknuma Town Node", "Chandrayangutta Center", "Bandlaguda Node"]
+                    }
+                },
+                "Medchal-Malkajgiri": {
+                    "Alwal": {
+                        "Alwal Circle": ["Alwal Central Hub", "Macha Bolarum Node", "Kompally Study Center", "Gundlapochampally Node"]
+                    }
+                }
+            },
+            "Andhra Pradesh": {
+                "Visakhapatnam": {
+                    "Visakhapatnam Urban": {
+                        "Maharanipeta Circle": ["Maharanipeta Node", "Jagadamba Junction Campus", "RK Beach Study Center"],
+                        "Gajuwaka Circle": ["Gajuwaka Hub", "Srinagar Village Node", "Kanithi Study Center"]
+                    }
+                },
+                "Guntur": {
+                    "Guntur East": {
+                        "Guntur Circle": ["Guntur City Campus", "Gorantla Hub", "Nallapadu Node", "Ananthavarappadu GP"]
+                    }
+                }
+            },
+            "Delhi NCR": {
+                "New Delhi": {
+                    "Chanakyapuri": {
+                        "Diplomatic Circle": ["Chanakyapuri Study Node", "Moti Bagh Center", "Shanti Path Center"],
+                        "Vasant Vihar Circle": ["Vasant Vihar Hub", "Munirka Node", "R.K. Puram Center"]
+                    }
+                }
+            },
+            "Kerala": {
+                "Ernakulam": {
+                    "Kochi": {
+                        "Vyttila Circle": ["Vyttila Hub Campus", "Thrippunithura Node", "Kadavanthra Center"],
+                        "Aluva Circle": ["Aluva Town Center", "Desom Node", "Edathala Village Hub"]
+                    }
+                }
+            },
+            "Uttar Pradesh": {
+                "Lucknow": {
+                    "Lucknow Sadar": {
+                        "Hazratganj Circle": ["Hazratganj Main Center", "Alambagh Campus", "Gomti Nagar Node"],
+                        "Chinhat Circle": ["Chinhat Hub", "Kamta Village Node", "Basti GP Study Center"]
+                    }
+                }
+            },
+            "Gujarat": {
+                "Ahmedabad": {
+                    "Asarwa": {
+                        "Sabarmati Circle": ["Sabarmati Town Hub", "Ranip Node", "Motera Stadium Campus"],
+                        "Navrangpura Circle": ["Navrangpura Elite Node", "Ambawadi Study Hub", "Vastrapur Campus"]
                     }
                 }
             }
@@ -1772,7 +1942,10 @@
         const hobliSelect = document.getElementById('hobliSelect');
         const villageSelect = document.getElementById('villageSelect');
         const hubResultCard = document.getElementById('hubResultCard');
+        const locationSearchInput = document.getElementById('locationSearchInput');
+        const locationSuggestions = document.getElementById('locationSuggestions');
 
+        // Initialize Location dropdown lists
         function initLocationEngine() {
             stateSelect.innerHTML = '<option value="">-- Select State --</option>';
             Object.keys(locationData).sort().forEach(state => {
@@ -1856,6 +2029,156 @@
                 hubResultCard.classList.remove('active');
             }
         });
+
+        // ==========================================
+        // SMART SEARCH / AUTOCOMPLETE LOCATION LOGIC
+        // ==========================================
+        function searchLocationQuery() {
+            const query = locationSearchInput.value.toLowerCase().trim();
+            if (query.length < 2) {
+                locationSuggestions.style.display = 'none';
+                return;
+            }
+            locationSuggestions.innerHTML = '';
+            let matches = [];
+
+            // Traverse nested data structure to find matches
+            for (let state in locationData) {
+                for (let dist in locationData[state]) {
+                    for (let taluk in locationData[state][dist]) {
+                        for (let hobli in locationData[state][dist][taluk]) {
+                            // Check Hobli name match
+                            if (hobli.toLowerCase().includes(query)) {
+                                matches.push({
+                                    type: 'Hobli',
+                                    name: hobli,
+                                    path: `${state} → ${dist} → ${taluk}`,
+                                    state, dist, taluk, hobli, village: ''
+                                });
+                            }
+                            // Check Village matches
+                            locationData[state][dist][taluk][hobli].forEach(village => {
+                                if (village.toLowerCase().includes(query)) {
+                                    matches.push({
+                                        type: 'Village/Hub',
+                                        name: village,
+                                        path: `${state} → ${dist} → ${taluk} → ${hobli}`,
+                                        state, dist, taluk, hobli, village
+                                    });
+                                }
+                            });
+                        }
+                        // Check Taluk matches
+                        if (taluk.toLowerCase().includes(query)) {
+                            matches.push({
+                                type: 'Taluk',
+                                name: taluk,
+                                path: `${state} → ${dist}`,
+                                state, dist, taluk, hobli: '', village: ''
+                            });
+                        }
+                    }
+                    // Check District matches
+                    if (dist.toLowerCase().includes(query)) {
+                        matches.push({
+                            type: 'District',
+                            name: dist,
+                            path: `${state}`,
+                            state, dist, taluk: '', hobli: '', village: ''
+                        });
+                    }
+                }
+            }
+
+            // Slice top matches to keep performance super smooth
+            const displayedMatches = matches.slice(0, 8);
+
+            if (displayedMatches.length > 0) {
+                displayedMatches.forEach(match => {
+                    const div = document.createElement('div');
+                    div.className = 'suggestion-item';
+                    div.innerHTML = `
+                        <div><strong>${match.name}</strong> <span style="font-size:0.7rem; font-weight:800; background:var(--primary-light); color:var(--primary); padding:2px 6px; border-radius:4px; margin-left:5px; text-transform:uppercase;">${match.type}</span></div>
+                        <span class="suggestion-path">${match.path}</span>
+                    `;
+                    div.onclick = function() {
+                        selectSmartLocation(match);
+                    };
+                    locationSuggestions.appendChild(div);
+                });
+                locationSuggestions.style.display = 'block';
+            } else {
+                locationSuggestions.style.display = 'none';
+            }
+        }
+
+        function selectSmartLocation(match) {
+            locationSearchInput.value = match.name;
+            locationSuggestions.style.display = 'none';
+
+            // Auto cascade and set values
+            stateSelect.value = match.state;
+            
+            populateSelect(districtSelect, Object.keys(locationData[match.state]).sort(), "Select District");
+            districtSelect.value = match.dist;
+
+            if (match.taluk) {
+                populateSelect(talukSelect, Object.keys(locationData[match.state][match.dist]).sort(), "Select Taluk");
+                talukSelect.value = match.taluk;
+            } else {
+                resetSelect(talukSelect, "Select Taluk");
+                resetSelect(hobliSelect, "Select Hobli First");
+                resetSelect(villageSelect, "Select Hobli First");
+                hubResultCard.classList.remove('active');
+                return;
+            }
+
+            if (match.hobli) {
+                populateSelect(hobliSelect, Object.keys(locationData[match.state][match.dist][match.taluk]).sort(), "Select Hobli");
+                hobliSelect.value = match.hobli;
+            } else {
+                resetSelect(hobliSelect, "Select Hobli");
+                resetSelect(villageSelect, "Select Hobli First");
+                hubResultCard.classList.remove('active');
+                return;
+            }
+
+            if (match.village) {
+                populateSelect(villageSelect, locationData[match.state][match.dist][match.taluk][match.hobli].slice().sort(), "Select Village");
+                villageSelect.value = match.village;
+
+                // Fire the card output manually
+                document.getElementById('hubTitle').textContent = `Nearest Center: ${match.village} Node`;
+                document.getElementById('hubDetails').textContent = `Located in ${match.hobli}, ${match.taluk}. Daily Bus Pickup & Hostel Seats Available!`;
+                hubResultCard.classList.add('active');
+            } else {
+                resetSelect(villageSelect, "Select Village");
+                const list = locationData[match.state][match.dist][match.taluk][match.hobli];
+                if (list && list.length > 0) {
+                    populateSelect(villageSelect, list.slice().sort(), "Select Village");
+                }
+                hubResultCard.classList.remove('active');
+            }
+        }
+
+        function clearLocationSearch() {
+            locationSearchInput.value = '';
+            locationSuggestions.style.display = 'none';
+            initLocationEngine();
+            resetSelect(districtSelect, "Select State First");
+            resetSelect(talukSelect, "Select District First");
+            resetSelect(hobliSelect, "Select Taluk First");
+            resetSelect(villageSelect, "Select Hobli First");
+            hubResultCard.classList.remove('active');
+        }
+
+        // Close smart search when clicked outside
+        document.addEventListener('click', function(e) {
+            if (!locationSearchInput.contains(e.target) && !locationSuggestions.contains(e.target)) {
+                locationSuggestions.style.display = 'none';
+            }
+        });
+
 
         // ==========================================
         // 2. HERO CAROUSEL SLIDER ENGINE
