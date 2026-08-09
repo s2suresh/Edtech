@@ -16,14 +16,14 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.2.0
         with:
           node-version: '22'
 
-      - name: Install Google Gen AI SDK
+      - name: Install Dependencies
         run: npm install @google/genai
 
       - name: Generate Code via Gemini API
@@ -34,7 +34,7 @@ jobs:
         run: node generate.js
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "feat: AI updates for issue #${{ github.event.issue.number }}"
