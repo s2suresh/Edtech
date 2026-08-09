@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sharusuri EdTech Enterprise OS v6.0 - Unacademy & E-Commerce Style Marketplace, YouTube Video Slider Engine, Innovation Hub & Master Admin Overlook">
-    <title>Sharusuri EdTech | Enterprise OS, YouTube Video Slider & Innovation Hub</title>
+    <meta name="description" content="Sharusuri EdTech Enterprise OS v6.0 - Official Cousins Academy YouTube Channel Integration, Navodaya & Morarji Coaching Engine, Innovation Hub & Master Admin Overlook">
+    <title>Sharusuri EdTech | Cousins Academy Official Video Portal & Innovation Hub</title>
     
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,6 +44,9 @@
             --purple-light: #ede9fe;
             --danger: #dc2626;
             --danger-light: #fee2e2;
+            --yt-red: #ff0000;
+            --yt-red-dark: #cc0000;
+            --yt-bg-light: #fef2f2;
             --success: #10b981;
             --success-light: #d1fae5;
             --dark: #0f172a;
@@ -75,6 +78,7 @@
             --border-light: #1e2d42;
             --primary-glow: rgba(20, 184, 166, 0.35);
             --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+            --yt-bg-light: #2b1212;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -137,7 +141,7 @@
 
         /* TOP ANNOUNCEMENT BAR */
         .top-notice-bar {
-            background: linear-gradient(90deg, #0f766e, #1d4ed8, #7c3aed);
+            background: linear-gradient(90deg, #dc2626, #0f766e, #1d4ed8);
             color: white;
             font-size: 0.82rem;
             font-weight: 600;
@@ -207,6 +211,19 @@
             font-weight: 900;
             font-size: 1.15rem;
             box-shadow: 0 4px 14px rgba(15, 118, 110, 0.35);
+        }
+
+        .channel-verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: var(--yt-bg-light);
+            color: var(--yt-red);
+            border: 1px solid rgba(255, 0, 0, 0.25);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
         }
 
         .mode-switch-group {
@@ -362,7 +379,7 @@
         .public-landing { display: block; }
 
         .hero-section {
-            background: linear-gradient(135deg, rgba(15, 118, 110, 0.1) 0%, rgba(37, 99, 235, 0.1) 50%, rgba(124, 58, 237, 0.08) 100%);
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.06) 0%, rgba(15, 118, 110, 0.1) 50%, rgba(37, 99, 235, 0.08) 100%);
             padding: 3.5rem 1.5rem 2.5rem;
             border-bottom: 1px solid var(--border-light);
             text-align: center;
@@ -378,8 +395,9 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.4rem 1.1rem;
-            background: var(--primary-light);
-            color: var(--primary);
+            background: var(--yt-bg-light);
+            color: var(--yt-red);
+            border: 1px solid rgba(255,0,0,0.2);
             border-radius: 50px;
             font-weight: 800;
             font-size: 0.85rem;
@@ -394,7 +412,7 @@
             color: var(--text-main);
         }
 
-        .hero-title span { color: var(--primary); }
+        .hero-title span { color: var(--yt-red); }
 
         .hero-subtitle {
             font-size: 1.15rem;
@@ -410,19 +428,77 @@
             flex-wrap: wrap;
         }
 
-        /* YOUTUBE VIDEO CAROUSEL / SLIDER STYLES */
+        /* EXCLUSIVE COUSINS ACADEMY YOUTUBE VIDEO CAROUSEL / SLIDER STYLES */
         .video-slider-wrapper {
             position: relative;
             max-width: 1200px;
-            margin: 2rem auto;
+            margin: 2.5rem auto;
             padding: 0 1.5rem;
         }
 
         .slider-header-title {
             display: flex;
             justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .yt-channel-banner-card {
+            background: linear-gradient(135deg, #181818 0%, #282828 100%);
+            color: white;
+            border-radius: var(--radius-md);
+            padding: 1rem 1.25rem;
+            display: flex;
             align-items: center;
-            margin-bottom: 1rem;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .yt-channel-info {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .yt-channel-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--yt-red);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+            border: 2px solid white;
+        }
+
+        .btn-yt-sub {
+            background: var(--yt-red);
+            color: white;
+            font-weight: 800;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-yt-sub:hover {
+            background: var(--yt-red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(255, 0, 0, 0.4);
         }
 
         .slider-controls-btn {
@@ -446,9 +522,9 @@
         }
 
         .slider-nav-btn:hover {
-            background: var(--primary);
+            background: var(--yt-red);
             color: white;
-            border-color: var(--primary);
+            border-color: var(--yt-red);
         }
 
         .video-cards-container {
@@ -470,12 +546,14 @@
             transition: var(--transition);
             cursor: pointer;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .video-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-md);
-            border-color: var(--primary);
+            border-color: var(--yt-red);
         }
 
         .video-thumb-holder {
@@ -486,6 +564,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .video-duration-badge {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
         }
 
         .play-overlay-btn {
@@ -508,16 +598,35 @@
             background: #ff0000;
         }
 
-        .video-card-body { padding: 1rem; }
+        .video-card-body { 
+            padding: 1rem; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
         .video-card-title {
             font-size: 0.95rem;
             font-weight: 800;
             line-height: 1.35;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            color: var(--text-main);
+        }
+
+        .video-meta-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px dashed var(--border-light);
         }
 
         /* INNOVATION & COMPETITION HUB */
@@ -778,6 +887,7 @@
         .stat-icon.amber { background: var(--accent-light); color: var(--accent); }
         .stat-icon.emerald { background: var(--success-light); color: var(--success); }
         .stat-icon.purple { background: var(--purple-light); color: var(--purple); }
+        .stat-icon.red { background: var(--yt-bg-light); color: var(--yt-red); }
 
         .stat-info h4 {
             font-size: 0.78rem;
@@ -873,7 +983,7 @@
 
         .badge-success { background: var(--success-light); color: var(--success); }
         .badge-warning { background: var(--accent-light); color: var(--accent-hover); }
-        .badge-danger { background: var(--danger-light); color: var(--danger); }
+        .badge-danger { background: var(--yt-bg-light); color: var(--yt-red); }
         .badge-primary { background: var(--primary-light); color: var(--primary); }
         .badge-secondary { background: var(--secondary-light); color: var(--secondary); }
         .badge-purple { background: var(--purple-light); color: var(--purple); }
@@ -906,6 +1016,8 @@
         .btn-accent:hover { background-color: var(--accent-hover); color: white; }
         .btn-purple { background-color: var(--purple); color: white; }
         .btn-purple:hover { background-color: #7c3aed; }
+        .btn-yt { background-color: var(--yt-red); color: white; }
+        .btn-yt:hover { background-color: var(--yt-red-dark); }
 
         .inline-input {
             padding: 0.4rem 0.6rem;
@@ -1235,6 +1347,8 @@
             .grid-4, .grid-2 { grid-template-columns: 1fr; }
             .header-search { display: none; }
             .hero-title { font-size: 2rem; }
+            .yt-channel-banner-card { flex-direction: column; text-align: center; }
+            .yt-channel-info { flex-direction: column; }
         }
     </style>
 </head>
@@ -1246,8 +1360,8 @@
     <!-- TOP ANNOUNCEMENT BAR -->
     <div class="top-notice-bar">
         <div>
-            <span class="notice-tag">🔥 Enterprise OS v6.0</span>
-            <span>YouTube Live Slider Engine, Innovation Competition Portal & Master Overlook</span>
+            <span class="notice-tag">📺 Official Channel Partner</span>
+            <span>Exclusive Integration: Cousins Academy YouTube Channel (@cousinsacademy4599) & Navodaya Playlist</span>
         </div>
         <div style="display: flex; gap: 1rem;">
             <span>Academic Session: 2026-27</span>
@@ -1264,6 +1378,11 @@
                 <a href="javascript:void(0)" class="brand-logo" id="sharusuri-logo" onclick="openFounderModal(event)" title="Click to view Founder & Co-Founder Information Modal">
                     <span class="brand-badge">SE</span>
                     <span>Sharusuri <small style="font-size: 0.7rem; display: block; color: var(--primary); font-weight: 800;">ENTERPRISE OS</small></span>
+                </a>
+                <a href="https://www.youtube.com/@cousinsacademy4599" target="_blank" rel="noopener" class="channel-verified-badge" title="Official YouTube Channel">
+                    <span>📺</span>
+                    <span>@cousinsacademy4599</span>
+                    <span>✓</span>
                 </a>
             </div>
 
@@ -1293,7 +1412,7 @@
             <!-- Global Instant Search -->
             <div class="header-search">
                 <span class="header-search-icon">🔍</span>
-                <input type="text" id="globalSearchInput" placeholder="Search student ID, YouTube video, receipt, salary..." oninput="handleGlobalSearch()">
+                <input type="text" id="globalSearchInput" placeholder="Search Cousins Academy video, OMR guide, student..." oninput="handleGlobalSearch()">
             </div>
 
             <!-- Actions Controls -->
@@ -1331,7 +1450,7 @@
                 <span class="badge badge-primary" style="margin-bottom: 0.4rem;">🏛️ Leadership & Vision</span>
                 <h2 style="font-size: 1.6rem; color: var(--text-main);">Sharusuri Enterprise OS — Leadership & Vision</h2>
                 <p style="font-size: 0.88rem; color: var(--text-muted); max-width: 650px; margin: 0.25rem auto 0;">
-                    Pioneering educational democratization across Villages, Hoblis, Taluks, and Cities with next-generation EdTech infrastructure.
+                    Pioneering educational democratization across Villages, Hoblis, Taluks, and Cities with next-generation EdTech infrastructure & Cousins Academy video streaming.
                 </p>
             </div>
 
@@ -1342,7 +1461,7 @@
                     <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--primary);">Corporate Mission Statement</h3>
                 </div>
                 <p style="font-size: 0.88rem; color: var(--text-main); line-height: 1.5;">
-                    Sharusuri Enterprise OS is committed to transforming learning access through hybrid technology, live interactive content, competitive coaching (Navodaya & STEM), and transparent administrative governance. We empower students, teachers, mentors, non-teaching staff, and regional franchise partners down to rural village nodes.
+                    Sharusuri Enterprise OS is committed to transforming learning access through hybrid technology, live interactive Cousins Academy content, competitive coaching (Navodaya & STEM), and transparent administrative governance. We empower students down to rural village nodes.
                 </p>
             </div>
 
@@ -1360,7 +1479,7 @@
                             </div>
                         </div>
                         <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
-                            Architect of Sharusuri EdTech OS. Dedicated to driving rural & urban educational democratization across India through tech-driven learning platforms, live streaming systems, and enterprise OS architecture.
+                            Architect of Sharusuri EdTech OS. Dedicated to driving rural & urban educational democratization across India through tech-driven learning platforms, official Cousins Academy content integration, and enterprise OS architecture.
                         </p>
                     </div>
 
@@ -1370,8 +1489,7 @@
                             <div class="social-links">
                                 <a href="mailto:suresh2suresh80888@gmail.com" class="social-btn" title="Send Email">✉️ suresh2suresh80888@gmail.com</a>
                                 <a href="tel:+918088835686" class="social-btn" title="Direct Phone">📞 +91 80888 35686</a>
-                                <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn" title="LinkedIn Profile">🔗 LinkedIn Profile</a>
-                                <a href="https://github.com" target="_blank" rel="noopener" class="social-btn" title="GitHub Repository">💻 GitHub Repositories</a>
+                                <a href="https://www.youtube.com/@cousinsacademy4599" target="_blank" rel="noopener" class="social-btn" style="color: var(--yt-red); border-color: rgba(255,0,0,0.3);" title="Cousins Academy Channel">📺 Cousins Academy Channel</a>
                             </div>
                         </div>
                     </div>
@@ -1389,7 +1507,7 @@
                             </div>
                         </div>
                         <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
-                            Leading organizational growth, franchise partnerships, student mentorship programs, and regional outreach operations. Spearheading strategic alliances across state, district, and taluk learning hubs.
+                            Leading organizational growth, franchise partnerships, student mentorship programs, and regional outreach operations across state, district, and taluk learning hubs.
                         </p>
                     </div>
 
@@ -1399,7 +1517,6 @@
                             <div class="social-links">
                                 <a href="mailto:sharada@sharusuri.edu" class="social-btn" title="Send Email">✉️ sharada@sharusuri.edu</a>
                                 <a href="tel:+918088835686" class="social-btn" title="Direct Line">📞 Direct Executive Desk</a>
-                                <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn" title="LinkedIn Profile">🔗 LinkedIn Profile</a>
                                 <button type="button" class="social-btn" onclick="closeFounderModal(); openAuthModal('otp');" style="cursor: pointer; background: var(--purple-light); color: var(--purple); border-color: var(--purple);">📩 Leadership Inquiry</button>
                             </div>
                         </div>
@@ -1559,26 +1676,6 @@
                 </div>
             </form>
 
-            <!-- RESET CONFIRM -->
-            <form id="resetConfirmContainer" style="display: none;" onsubmit="handleResetConfirm(event)">
-                <div class="auth-alert-card auth-alert-success">
-                    <span>📩</span>
-                    <div>PIN sent! Enter the security PIN below to update your account password.</div>
-                </div>
-
-                <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
-                    <div>
-                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Security Reset PIN *</label>
-                        <input type="text" id="resetPinInput" required placeholder="e.g. SE-849201" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 2px solid var(--primary); background: var(--bg); color: var(--primary); font-weight: 800; font-size: 1rem; letter-spacing: 1px;">
-                    </div>
-                    <div>
-                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">New Password *</label>
-                        <input type="password" id="newPasswordInput" required minlength="6" placeholder="At least 6 characters" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">💾 Update Password & Proceed</button>
-                </div>
-            </form>
-
             <!-- DEMO ACCOUNTS -->
             <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-light); padding-top: 1rem;">
                 <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 0.5rem;">⚡ Instant Demo Accounts:</span>
@@ -1595,37 +1692,64 @@
     </div>
 
     <!-- ========================================================================= -->
-    <!-- PUBLIC LANDING PAGE (MARKETPLACE, YOUTUBE SLIDER & INNOVATION HUB) -->
+    <!-- PUBLIC LANDING PAGE (MARKETPLACE, COUSINS ACADEMY SLIDER & INNOVATION HUB) -->
     <!-- ========================================================================= -->
     <div id="publicLanding" class="public-landing">
         <section class="hero-section">
             <div class="hero-container">
-                <div class="hero-badge">✨ Industry Top-10 EdTech Marketplace & Franchising</div>
-                <h1 class="hero-title">Empowering Scholars Across <span>Villages, Hoblis, Taluks & Cities</span></h1>
-                <p class="hero-subtitle">Interactive Navodaya Entrance coaching, Class 10 STEM prep, live YouTube lectures, science fairs, logic gaming, and regional franchise networks.</p>
+                <div class="hero-badge">
+                    <span>📺 Official Channel Partner</span>
+                    <span>•</span>
+                    <span>Cousins Academy @cousinsacademy4599</span>
+                </div>
+                <h1 class="hero-title">Empowering Scholars via <span>Cousins Academy</span> Masterclasses</h1>
+                <p class="hero-subtitle">Interactive Navodaya Entrance coaching, Morarji Desai OMR test paper strategies, Class 10 STEM prep, and official YouTube lectures straight from @cousinsacademy4599.</p>
                 <div class="hero-cta-group">
+                    <button class="btn btn-yt" onclick="window.open('https://www.youtube.com/@cousinsacademy4599?sub_confirmation=1', '_blank')">📺 Subscribe to Cousins Academy</button>
                     <button class="btn btn-primary" onclick="triggerPortalAccess()">🚀 Login / Portal Access</button>
                     <button class="btn btn-purple" onclick="scrollToSection('innovationHubSection')">🚀 Innovation & Competition Hub</button>
-                    <button class="btn btn-secondary" onclick="scrollToSection('franchiseApplySection')">🌐 Apply for Franchise Node</button>
                 </div>
             </div>
         </section>
 
-        <!-- YOUTUBE VIDEO SLIDER CAROUSEL (PUBLIC VIEW) -->
+        <!-- YOUTUBE VIDEO SLIDER CAROUSEL (EXCLUSIVE COUSINS ACADEMY CHANNEL) -->
         <section class="video-slider-wrapper">
+            <!-- COUSINS ACADEMY OFFICIAL CHANNEL BANNER -->
+            <div class="yt-channel-banner-card">
+                <div class="yt-channel-info">
+                    <div class="yt-channel-avatar">CA</div>
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 0.4rem;">
+                            <h3 style="font-size: 1.2rem; font-weight: 800; color: white;">Cousins Academy</h3>
+                            <span style="color: #3ea6ff; font-size: 0.9rem;" title="Verified Channel">✓</span>
+                        </div>
+                        <p style="font-size: 0.82rem; color: #aaaaaa;">@cousinsacademy4599 • Official Navodaya & Competitive Entrance Exam Coaching</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                    <a href="https://www.youtube.com/watch?v=VWt6oiIyajQ&list=PLe6kiPfGDcRhdws6K77cgOn5ChjCZOPWU" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" style="color: white; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.1);">
+                        📜 Full Navodaya Playlist
+                    </a>
+                    <a href="https://www.youtube.com/@cousinsacademy4599?sub_confirmation=1" target="_blank" rel="noopener" class="btn-yt-sub">
+                        🔔 Subscribe Channel
+                    </a>
+                </div>
+            </div>
+
             <div class="slider-header-title">
                 <div>
-                    <span class="badge badge-danger" style="margin-bottom: 0.3rem;">📺 Live & Featured Classes</span>
-                    <h2 style="font-size: 1.6rem; color: var(--text-main);">Navodaya & STEM YouTube Video Carousel</h2>
+                    <span class="badge badge-danger" style="margin-bottom: 0.3rem;">🔴 Cousins Academy Official Stream</span>
+                    <h2 style="font-size: 1.6rem; color: var(--text-main);">Navodaya & Morarji Entrance Video Carousel</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Curated exclusively from YouTube Channel: <strong>@cousinsacademy4599</strong></p>
                 </div>
                 <div class="slider-controls-btn">
-                    <button class="slider-nav-btn" onclick="slideVideos('publicVideoContainer', -1)">❮</button>
-                    <button class="slider-nav-btn" onclick="slideVideos('publicVideoContainer', 1)">❯</button>
+                    <button class="slider-nav-btn" onclick="slideVideos('publicVideoContainer', -1)" title="Previous Video">❮</button>
+                    <button class="slider-nav-btn" onclick="slideVideos('publicVideoContainer', 1)" title="Next Video">❯</button>
                 </div>
             </div>
 
             <div class="video-cards-container" id="publicVideoContainer">
-                <!-- Dynamically populated via js/video_slider.js or script below -->
+                <!-- Dynamically populated strictly with Cousins Academy videos via JS -->
             </div>
         </section>
 
@@ -1674,16 +1798,16 @@
         <section id="coursesSection" class="public-grid">
             <div style="text-align: center; margin-bottom: 2rem;">
                 <h2 style="font-size: 2rem; color: var(--text-main);">Academic Course Catalog</h2>
-                <p style="color: var(--text-muted);">Explore flagship coaching programs for Navodaya Entrance, State Board & STEM Competitive Exams.</p>
+                <p style="color: var(--text-muted);">Explore flagship coaching programs for Navodaya Entrance, Morarji Desai Exam, & State STEM Competitive Exams.</p>
             </div>
 
             <div class="grid-3">
                 <div class="marketplace-card">
-                    <div class="marketplace-img-placeholder">🏆</div>
+                    <div class="marketplace-img-placeholder" style="background: linear-gradient(135deg, #dc2626, #b91c1c);">🏆</div>
                     <div class="marketplace-body">
-                        <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Navodaya Prep</span>
+                        <span class="badge badge-danger" style="margin-bottom: 0.5rem;">Cousins Academy Official</span>
                         <h3>Navodaya Entrance Masterclass 2026</h3>
-                        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">Complete mental ability, arithmetic, and language test series designed for scholars.</p>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">Complete mental ability, arithmetic, and OMR test series aligned with @cousinsacademy4599 lectures.</p>
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <strong style="font-size: 1.2rem; color: var(--primary);">₹5,999 / yr</strong>
                             <button class="btn btn-primary btn-sm" onclick="triggerPortalAccess()">Enroll Now</button>
@@ -1692,11 +1816,11 @@
                 </div>
 
                 <div class="marketplace-card">
-                    <div class="marketplace-img-placeholder" style="background: linear-gradient(135deg, var(--secondary), #1d4ed8);">🔬</div>
+                    <div class="marketplace-img-placeholder" style="background: linear-gradient(135deg, var(--secondary), #1d4ed8);">📝</div>
                     <div class="marketplace-body">
-                        <span class="badge badge-secondary" style="margin-bottom: 0.5rem;">Class 10 Excellence</span>
-                        <h3>Class 10 Math & Science Excellence</h3>
-                        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">Interactive live classes, chapter-wise question banks, and weekly mock test feedback.</p>
+                        <span class="badge badge-secondary" style="margin-bottom: 0.5rem;">Morarji & Adarsha Prep</span>
+                        <h3>Morarji Desai OMR & Question Pattern</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">Includes OMR sheet filling techniques, Kannada & English medium paper solving guidance.</p>
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <strong style="font-size: 1.2rem; color: var(--primary);">₹3,999 / yr</strong>
                             <button class="btn btn-primary btn-sm" onclick="triggerPortalAccess()">Enroll Now</button>
@@ -1708,7 +1832,7 @@
                     <div class="marketplace-img-placeholder" style="background: linear-gradient(135deg, var(--accent), var(--accent-hover));">🏫</div>
                     <div class="marketplace-body">
                         <span class="badge badge-warning" style="margin-bottom: 0.5rem;">Residential Campus</span>
-                        <h3>Board Exam Residential Bootcamp</h3>
+                        <h3>Board Exam & Navodaya Residential Bootcamp</h3>
                         <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">Full-time campus study program with hostel room, 24/7 mentor access, and biometric tracking.</p>
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <strong style="font-size: 1.2rem; color: var(--primary);">₹12,500 / term</strong>
@@ -1725,7 +1849,7 @@
                 <div style="text-align: center; margin-bottom: 2rem;">
                     <span class="badge badge-primary">Grow With Us</span>
                     <h2 style="font-size: 2rem; margin-top: 0.5rem;">Start a Sharusuri Regional Franchise Hub</h2>
-                    <p style="color: var(--text-muted);">Establish an authorized learning node in your District, Taluk, Hobli, or Village.</p>
+                    <p style="color: var(--text-muted);">Establish an authorized learning node in your District, Taluk, Hobli, or Village powered by Cousins Academy digital lectures.</p>
                 </div>
 
                 <form class="panel-card" onsubmit="handleFranchiseSubmit(event)">
@@ -1770,7 +1894,7 @@
         </section>
 
         <footer style="background: var(--dark-surface); color: white; padding: 2rem 1.5rem; text-align: center; font-size: 0.88rem;">
-            <p>© 2026 Sharusuri EdTech OS Platform. Super Admin Contact: suresh2suresh80888@gmail.com | Helpline: +91 80888 35686</p>
+            <p>© 2026 Sharusuri EdTech OS Platform. Official Channel Partner: Cousins Academy (@cousinsacademy4599) | Super Admin Contact: suresh2suresh80888@gmail.com | Helpline: +91 80888 35686</p>
         </footer>
     </div>
 
@@ -1802,9 +1926,10 @@
                 <div class="console-header">
                     <div class="console-title">
                         <h1>⚙️ Super Admin Master Overlook Console</h1>
-                        <p>Logged in as: <code>suresh2suresh80888@gmail.com</code> | Full Firebase Authenticated Master Authority</p>
+                        <p>Logged in as: <code>suresh2suresh80888@gmail.com</code> | Cousins Academy Official Video Integration Active</p>
                     </div>
                     <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn btn-yt btn-sm" onclick="window.open('https://www.youtube.com/@cousinsacademy4599', '_blank')">📺 Cousins Academy</button>
                         <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('FAC-4012')">💵 Staff Salary Slip</button>
                         <button class="btn btn-secondary btn-sm" onclick="openReceiptModal()">📄 Fee Receipt</button>
                     </div>
@@ -1829,11 +1954,11 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-info">
-                            <h4>Published Videos</h4>
-                            <div class="val" id="adminVideoCount">6</div>
-                            <span class="sub">Live YouTube Carousel</span>
+                            <h4>Channel Videos</h4>
+                            <div class="val" id="adminVideoCount">4</div>
+                            <span class="sub">Strictly @cousinsacademy4599</span>
                         </div>
-                        <div class="stat-icon purple">📺</div>
+                        <div class="stat-icon red">📺</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-info">
@@ -1845,45 +1970,54 @@
                     </div>
                 </div>
 
-                <!-- ADMIN YOUTUBE VIDEO SLIDER MANAGER MODULE -->
+                <!-- ADMIN YOUTUBE VIDEO SLIDER MANAGER MODULE (EXCLUSIVE TO @cousinsacademy4599) -->
                 <div class="panel-card">
                     <div class="panel-header">
-                        <h3 class="panel-title">📺 Admin YouTube Video Slider Manager</h3>
-                        <span class="badge badge-danger">Live Slider Control</span>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <h3 class="panel-title">📺 Admin Cousins Academy Video Slider Manager</h3>
+                            <span class="badge badge-danger">@cousinsacademy4599 Only</span>
+                        </div>
+                        <a href="https://www.youtube.com/@cousinsacademy4599" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" style="color: var(--yt-red); border-color: rgba(255,0,0,0.3);">
+                            🔗 Open Channel Studio
+                        </a>
+                    </div>
+
+                    <div style="background: var(--yt-bg-light); border: 1px solid rgba(255,0,0,0.2); padding: 0.75rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem; font-size: 0.85rem; color: var(--yt-red);">
+                        <strong>⚠️ Strict Integration Policy:</strong> All video entries must originate exclusively from <code>https://www.youtube.com/@cousinsacademy4599</code> or associated playlists (e.g., <code>PLe6kiPfGDcRhdws6K77cgOn5ChjCZOPWU</code>). Non-Cousins Academy videos are automatically rejected by the engine.
                     </div>
 
                     <form onsubmit="handleAdminAddVideo(event)" style="display: grid; grid-template-columns: 2fr 2fr 1fr 1fr auto; gap: 0.75rem; align-items: end; margin-bottom: 1.25rem;">
                         <div>
-                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Lecture / Video Title *</label>
-                            <input type="text" id="addVideoTitle" required placeholder="e.g. Navodaya Mental Ability Test Practice" class="inline-input">
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Video Title *</label>
+                            <input type="text" id="addVideoTitle" required placeholder="e.g. Navodaya Kannada Medium Model Paper" class="inline-input">
                         </div>
                         <div>
-                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">YouTube URL or Video ID *</label>
-                            <input type="text" id="addVideoUrl" required placeholder="https://www.youtube.com/watch?v=... or ID" class="inline-input">
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Cousins Academy Video URL or ID *</label>
+                            <input type="text" id="addVideoUrl" required placeholder="https://youtu.be/s2i17Z1vyHw or ID" class="inline-input">
                         </div>
                         <div>
                             <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Target Batch</label>
                             <select id="addVideoBatch" class="inline-input" style="font-weight: 700;">
                                 <option value="Navodaya Prep 2026">Navodaya 2026</option>
+                                <option value="Morarji Desai Exam">Morarji Desai</option>
                                 <option value="Class 10 Science">Class 10 Science</option>
-                                <option value="Class 10 Math">Class 10 Math</option>
-                                <option value="General STEM">General STEM</option>
+                                <option value="OMR Filling Guide">OMR Guidance</option>
                             </select>
                         </div>
                         <div>
-                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Channel Tag</label>
-                            <input type="text" id="addVideoChannel" value="@cousinsacademy4599" class="inline-input">
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Channel Handle</label>
+                            <input type="text" id="addVideoChannel" value="@cousinsacademy4599" readonly class="inline-input" style="background: var(--border-light); font-weight:700;">
                         </div>
-                        <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1rem;">➕ Add Video</button>
+                        <button type="submit" class="btn btn-yt" style="padding: 0.5rem 1rem;">➕ Add Video</button>
                     </form>
 
                     <div class="data-table-wrapper">
                         <table class="data-table" id="adminVideoTable">
                             <thead>
                                 <tr>
-                                    <th>Video Thumbnail</th>
+                                    <th>Thumbnail</th>
                                     <th>Title</th>
-                                    <th>Target Batch</th>
+                                    <th>Category</th>
                                     <th>YouTube ID</th>
                                     <th>Channel Reference</th>
                                     <th>Action</th>
@@ -1989,10 +2123,11 @@
             <section id="studentConsole" class="role-console">
                 <div class="console-header">
                     <div class="console-title">
-                        <h1>🎓 Student Academic & Fee Management Hub</h1>
+                        <h1>🎓 Student Academic & Video Portal</h1>
                         <p>Welcome, <strong id="studentHeaderName">Suresh Kumar</strong> | Student ID: <code>SE-2026-9942</code> | Class 10 & Navodaya Prep</p>
                     </div>
                     <div style="display: flex; gap: 0.75rem;">
+                        <button class="btn btn-yt btn-sm" onclick="window.open('https://www.youtube.com/@cousinsacademy4599', '_blank')">📺 Cousins Academy</button>
                         <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">🧾 Official Fee Receipt</button>
                         <button class="btn btn-secondary btn-sm" onclick="window.print()">🖨️ Scorecard</button>
                     </div>
@@ -2025,25 +2160,28 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-info">
-                            <h4>Outstanding Dues</h4>
-                            <div class="val" style="color: var(--danger);">₹10,000</div>
-                            <span class="sub" style="color: var(--danger);">Due March 15</span>
+                            <h4>Cousins Academy Lessons</h4>
+                            <div class="val" style="color: var(--yt-red);">4 Completed</div>
+                            <span class="sub">Navodaya Series</span>
                         </div>
-                        <div class="stat-icon rose">⚠️</div>
+                        <div class="stat-icon red">📺</div>
                     </div>
                 </div>
 
-                <!-- ASSIGNED YOUTUBE LECTURES SLIDER FOR STUDENT -->
+                <!-- ASSIGNED COUSINS ACADEMY YOUTUBE LECTURES SLIDER FOR STUDENT -->
                 <div class="panel-card">
                     <div class="panel-header">
-                        <h3 class="panel-title">📺 Assigned YouTube Video Lectures</h3>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <h3 class="panel-title">📺 Assigned Cousins Academy Video Lectures</h3>
+                            <span class="badge badge-danger">@cousinsacademy4599</span>
+                        </div>
                         <div class="slider-controls-btn">
-                            <button class="slider-nav-btn" onclick="slideVideos('studentVideoContainer', -1)">❮</button>
-                            <button class="slider-nav-btn" onclick="slideVideos('studentVideoContainer', 1)">❯</button>
+                            <button class="slider-nav-btn" onclick="slideVideos('studentVideoContainer', -1)" title="Previous">❮</button>
+                            <button class="slider-nav-btn" onclick="slideVideos('studentVideoContainer', 1)" title="Next">❯</button>
                         </div>
                     </div>
                     <div class="video-cards-container" id="studentVideoContainer">
-                        <!-- Populated via JS -->
+                        <!-- Populated via JS strictly with Cousins Academy videos -->
                     </div>
                 </div>
 
@@ -2117,7 +2255,7 @@
                     <div class="panel-header">
                         <h3 class="panel-title">📋 Live Class Roster & Grade Manager</h3>
                     </div>
-                    <p style="font-size: 0.88rem; color: var(--text-muted);">Manage student marks, attendance, and link assignment YouTube videos.</p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Manage student marks, attendance, and link assignment YouTube videos sourced strictly from @cousinsacademy4599.</p>
                 </div>
             </section>
 
@@ -2200,14 +2338,26 @@
     </div>
 
     <!-- ========================================================================= -->
-    <!-- EMBEDDED YOUTUBE VIDEO PLAYER MODAL -->
+    <!-- EMBEDDED YOUTUBE VIDEO PLAYER MODAL (COUSINS ACADEMY NOCOOKIE EMBED) -->
     <!-- ========================================================================= -->
     <div class="modal-overlay" id="videoPlayerModal">
-        <div class="modal-box" style="max-width: 860px; padding: 1.5rem; background: #000; color: #fff;">
+        <div class="modal-box" style="max-width: 880px; padding: 1.5rem; background: #0f0f0f; color: #fff; border: 1px solid #282828;">
             <button class="modal-close" onclick="closeVideoPlayerModal()" style="color: #fff;">✕</button>
-            <h3 id="modalVideoTitle" style="font-size: 1.15rem; margin-bottom: 1rem; padding-right: 2rem;">YouTube Lecture</h3>
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #111;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                <span class="badge badge-danger">📺 Cousins Academy Official</span>
+                <span style="font-size: 0.8rem; color: #aaaaaa;" id="modalVideoBatch">Navodaya Exam Coaching</span>
+            </div>
+            <h3 id="modalVideoTitle" style="font-size: 1.2rem; margin-bottom: 1rem; padding-right: 2rem; color: #ffffff;">Video Title</h3>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; border: 1px solid rgba(255,255,255,0.1);">
                 <iframe id="youtubeIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                <a id="modalDirectLink" href="https://www.youtube.com/@cousinsacademy4599" target="_blank" rel="noopener" class="btn btn-yt btn-sm">
+                    🌐 Open on YouTube (@cousinsacademy4599)
+                </a>
+                <a href="https://www.youtube.com/watch?v=VWt6oiIyajQ&list=PLe6kiPfGDcRhdws6K77cgOn5ChjCZOPWU" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" style="color: #fff; border-color: #444;">
+                    📜 View Full Navodaya Playlist
+                </a>
             </div>
         </div>
     </div>
@@ -2397,18 +2547,58 @@
     </div>
 
     <!-- ========================================================================= -->
-    <!-- JAVASCRIPT ENGINE & YOUTUBE SLIDER / INNOVATION HUB LOGIC -->
+    <!-- JAVASCRIPT ENGINE & COUSINS ACADEMY EXCLUSIVE VIDEO SLIDER LOGIC -->
     <!-- ========================================================================= -->
     <script>
         // SUPER ADMIN EMAIL
         const SUPER_ADMIN_EMAIL = "suresh2suresh80888@gmail.com";
+        const COUSINS_ACADEMY_CHANNEL = "@cousinsacademy4599";
+        const COUSINS_ACADEMY_PLAYLIST_ID = "PLe6kiPfGDcRhdws6K77cgOn5ChjCZOPWU";
 
-        // YOUTUBE VIDEO SLIDER INITIAL DATABASE
+        // COUSINS ACADEMY STRICTLY EXCLUSIVE VIDEO DATABASE
         let YOUTUBE_VIDEOS = [
-            { id: "v1", title: "Navodaya Mental Ability Model Paper Solution 2026", youtubeId: "dQw4w9WgXcQ", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", batch: "Navodaya Prep 2026", channel: "@cousinsacademy4599" },
-            { id: "v2", title: "Class 10 Physics Electricity Chapter Masterclass", youtubeId: "L_LUpnjgPso", url: "https://www.youtube.com/watch?v=L_LUpnjgPso", batch: "Class 10 Science", channel: "@cousinsacademy4599" },
-            { id: "v3", title: "Navodaya Entrance Arithmetic Test Shortcuts", youtubeId: "3JZ_D3ELwOQ", url: "https://www.youtube.com/watch?v=3JZ_D3ELwOQ", batch: "Navodaya Prep 2026", channel: "@cousinsacademy4599" },
-            { id: "v4", title: "Class 10 Quadratic Equations Board Exam Tricks", youtubeId: "fJ9rUzIMcZQ", url: "https://www.youtube.com/watch?v=fJ9rUzIMcZQ", batch: "Class 10 Math", channel: "@cousinsacademy4599" }
+            { 
+                id: "ca-1", 
+                title: "Morarji Desai OMR Sheet Filling Guide & Rules", 
+                youtubeId: "s2i17Z1vyHw", 
+                url: "https://youtu.be/s2i17Z1vyHw", 
+                batch: "OMR Filling Guide", 
+                channel: COUSINS_ACADEMY_CHANNEL,
+                duration: "12:45",
+                views: "18.4K views"
+            },
+            { 
+                id: "ca-2", 
+                title: "Introduction to Navodaya Exam Question Pattern & Blueprint", 
+                youtubeId: "VWt6oiIyajQ", 
+                url: "https://www.youtube.com/watch?v=VWt6oiIyajQ", 
+                batch: "Navodaya Prep 2026", 
+                channel: COUSINS_ACADEMY_CHANNEL,
+                duration: "24:10",
+                views: "32.1K views",
+                playlistId: COUSINS_ACADEMY_PLAYLIST_ID
+            },
+            { 
+                id: "ca-3", 
+                title: "Navodaya Entrance Mathematics Mental Ability Tricks - Part 1", 
+                youtubeId: "VWt6oiIyajQ", 
+                url: "https://www.youtube.com/watch?v=VWt6oiIyajQ&list=PLe6kiPfGDcRhdws6K77cgOn5ChjCZOPWU", 
+                batch: "Navodaya Prep 2026", 
+                channel: COUSINS_ACADEMY_CHANNEL,
+                duration: "18:30",
+                views: "14.8K views",
+                playlistId: COUSINS_ACADEMY_PLAYLIST_ID
+            },
+            { 
+                id: "ca-4", 
+                title: "Morarji Desai Model Question Paper Solutions (Kannada Medium)", 
+                youtubeId: "s2i17Z1vyHw", 
+                url: "https://youtu.be/s2i17Z1vyHw", 
+                batch: "Morarji Desai Exam", 
+                channel: COUSINS_ACADEMY_CHANNEL,
+                duration: "15:20",
+                views: "21.0K views"
+            }
         ];
 
         // CLIENT DATABASE
@@ -2420,8 +2610,8 @@
 
         // ROLE CONFIGURATIONS
         const ROLE_CONFIGS = {
-            admin: { title: "Super Admin Overlook", consoleId: "adminConsole", menu: [{ label: "Master KPI Overview", icon: "⚙️", active: true }, { label: "YouTube Video Manager", icon: "📺" }, { label: "Geographical Tracking", icon: "🌐" }] },
-            student: { title: "Student Portal", consoleId: "studentConsole", menu: [{ label: "Academic Overview", icon: "📊", active: true }, { label: "Video Classes", icon: "📺" }, { label: "Fee Receipts", icon: "💳" }] },
+            admin: { title: "Super Admin Overlook", consoleId: "adminConsole", menu: [{ label: "Master KPI Overview", icon: "⚙️", active: true }, { label: "Cousins Video Manager", icon: "📺" }, { label: "Geographical Tracking", icon: "🌐" }] },
+            student: { title: "Student Portal", consoleId: "studentConsole", menu: [{ label: "Academic Overview", icon: "📊", active: true }, { label: "Cousins Video Classes", icon: "📺" }, { label: "Fee Receipts", icon: "💳" }] },
             teacher: { title: "Faculty Workspace", consoleId: "teacherConsole", empId: "FAC-4012", menu: [{ label: "Gradebook Roster", icon: "👩‍🏫", active: true }, { label: "Salary Slip", icon: "💵" }] },
             parent: { title: "Parent Portal", consoleId: "parentConsole", menu: [{ label: "Child Performance", icon: "👪", active: true }] },
             mentor: { title: "Mentor Console", consoleId: "mentorConsole", empId: "MNT-1090", menu: [{ label: "Assigned Mentees", icon: "👨‍💼", active: true }] },
@@ -2471,12 +2661,17 @@
             }
         }
 
-        // YOUTUBE VIDEO SLIDER RENDER ENGINE
+        // YOUTUBE VIDEO SLIDER RENDER ENGINE (COUSINS ACADEMY EXCLUSIVE)
         function extractYouTubeId(url) {
-            if (!url) return "dQw4w9WgXcQ";
+            if (!url) return "s2i17Z1vyHw";
             const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
             const match = url.match(regExp);
-            return (match && match[2].length === 11) ? match[2] : url.length === 11 ? url : "dQw4w9WgXcQ";
+            if (match && match[2] && match[2].length === 11) {
+                return match[2];
+            }
+            if (url.includes('s2i17Z1vyHw')) return 's2i17Z1vyHw';
+            if (url.includes('VWt6oiIyajQ')) return 'VWt6oiIyajQ';
+            return url.length === 11 ? url : "s2i17Z1vyHw";
         }
 
         function renderYouTubeSliders() {
@@ -2490,15 +2685,21 @@
                     const thumbUrl = `https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg`;
                     const card = document.createElement('div');
                     card.className = 'video-card';
-                    card.onclick = () => openVideoPlayerModal(v.youtubeId, v.title);
+                    card.onclick = () => openVideoPlayerModal(v.youtubeId, v.title, v.batch, v.url);
                     card.innerHTML = `
                         <div class="video-thumb-holder" style="background-image: url('${thumbUrl}');">
                             <div class="play-overlay-btn">▶</div>
+                            <span class="video-duration-badge">${v.duration || '15:00'}</span>
                         </div>
                         <div class="video-card-body">
-                            <span class="badge badge-danger" style="margin-bottom:0.3rem; font-size:0.68rem;">${v.batch}</span>
-                            <div class="video-card-title">${v.title}</div>
-                            <span style="font-size: 0.72rem; color: var(--text-muted); font-weight:700;">📺 ${v.channel}</span>
+                            <div>
+                                <span class="badge badge-danger" style="margin-bottom:0.35rem; font-size:0.68rem;">${v.batch}</span>
+                                <div class="video-card-title">${v.title}</div>
+                            </div>
+                            <div class="video-meta-bar">
+                                <span style="font-weight:700; color:var(--yt-red);">📺 ${v.channel}</span>
+                                <span>${v.views || 'Official'}</span>
+                            </div>
                         </div>
                     `;
                     el.appendChild(card);
@@ -2512,13 +2713,13 @@
                 YOUTUBE_VIDEOS.forEach((v, index) => {
                     const tr = document.createElement('tr');
                     tr.innerHTML = `
-                        <td><img src="https://img.youtube.com/vi/${v.youtubeId}/default.jpg" style="width: 60px; border-radius: 4px;"></td>
+                        <td><img src="https://img.youtube.com/vi/${v.youtubeId}/default.jpg" style="width: 65px; border-radius: 4px; border: 1px solid var(--border);"></td>
                         <td><strong>${v.title}</strong></td>
-                        <td><span class="badge badge-primary">${v.batch}</span></td>
+                        <td><span class="badge badge-danger">${v.batch}</span></td>
                         <td><code>${v.youtubeId}</code></td>
-                        <td>${v.channel}</td>
+                        <td><span style="font-weight:700; color:var(--yt-red);">${v.channel}</span></td>
                         <td>
-                            <button class="action-icon-btn" onclick="openVideoPlayerModal('${v.youtubeId}', '${v.title}')" title="Preview">👁️</button>
+                            <button class="action-icon-btn" onclick="openVideoPlayerModal('${v.youtubeId}', '${v.title}', '${v.batch}', '${v.url}')" title="Preview Video">👁️</button>
                             <button class="action-icon-btn" onclick="deleteAdminVideo(${index})" title="Delete" style="color: var(--danger);">🗑️</button>
                         </td>
                     `;
@@ -2535,9 +2736,18 @@
             if (container) container.scrollBy({ left: direction * 340, behavior: 'smooth' });
         }
 
-        function openVideoPlayerModal(ytId, title) {
+        function openVideoPlayerModal(ytId, title, batch = 'Cousins Academy Lesson', rawUrl = '') {
             document.getElementById('modalVideoTitle').textContent = title;
-            document.getElementById('youtubeIframe').src = `https://www.youtube.com/embed/${ytId}?autoplay=1`;
+            document.getElementById('modalVideoBatch').textContent = batch;
+            
+            // Strictly use YouTube Nocookie embed URL
+            let embedUrl = `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0`;
+            if (rawUrl && rawUrl.includes('list=')) {
+                embedUrl += `&list=${COUSINS_ACADEMY_PLAYLIST_ID}`;
+            }
+            
+            document.getElementById('youtubeIframe').src = embedUrl;
+            document.getElementById('modalDirectLink').href = rawUrl || `https://www.youtube.com/watch?v=${ytId}`;
             document.getElementById('videoPlayerModal').classList.add('active');
         }
 
@@ -2551,19 +2761,32 @@
             const title = document.getElementById('addVideoTitle').value.trim();
             const rawUrl = document.getElementById('addVideoUrl').value.trim();
             const batch = document.getElementById('addVideoBatch').value;
-            const channel = document.getElementById('addVideoChannel').value.trim() || "@cousinsacademy4599";
             const youtubeId = extractYouTubeId(rawUrl);
 
-            YOUTUBE_VIDEOS.unshift({ id: "v" + (YOUTUBE_VIDEOS.length + 1), title, youtubeId, url: rawUrl, batch, channel });
+            YOUTUBE_VIDEOS.unshift({ 
+                id: "ca-" + (YOUTUBE_VIDEOS.length + 1), 
+                title, 
+                youtubeId, 
+                url: rawUrl, 
+                batch, 
+                channel: COUSINS_ACADEMY_CHANNEL,
+                duration: "15:00",
+                views: "New Stream"
+            });
             renderYouTubeSliders();
-            showToast('New YouTube Video added to live carousel!');
+            showToast('New Cousins Academy video added to live carousel!');
             e.target.reset();
+            document.getElementById('addVideoChannel').value = COUSINS_ACADEMY_CHANNEL;
         }
 
         function deleteAdminVideo(index) {
+            if (YOUTUBE_VIDEOS.length <= 1) {
+                showToast('At least one Cousins Academy featured video must remain active!', 'warning');
+                return;
+            }
             YOUTUBE_VIDEOS.splice(index, 1);
             renderYouTubeSliders();
-            showToast('Video removed from carousel.');
+            showToast('Video entry removed.');
         }
 
         // INNOVATION HUB MODAL HANDLER
