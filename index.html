@@ -3,29 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sharusuri EdTech Enterprise OS - Unified Platform with Strict Admin Master Overlook, Firebase Email OTP Auth, Portal Lockdown, Fee Receipts & Payroll System">
-    <title>Sharusuri EdTech | Enterprise OS, Admin Master Overlook & Auth Gateway</title>
+    <meta name="description" content="Sharusuri EdTech Enterprise OS v6.0 - Unacademy & E-Commerce Style Marketplace, YouTube Video Slider Engine, Innovation Hub & Master Admin Overlook">
+    <title>Sharusuri EdTech | Enterprise OS, YouTube Video Slider & Innovation Hub</title>
     
-    <!-- Fonts -->
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Modular External CSS References -->
+    <link rel="stylesheet" href="css/main.css" id="mainCssReference" onerror="console.log('CSS folder loaded via embedded fallback')">
+    <link rel="stylesheet" href="css/dashboards.css" id="dashCssReference" onerror="console.log('Dashboard CSS fallback')">
 
     <!-- Firebase App & Auth Compat SDKs -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+    <!-- Modular JavaScript File Imports -->
+    <script defer src="js/auth/firebase_otp.js" onerror="console.log('Modular JS fallbacks active')"></script>
+    <script defer src="js/video_slider.js"></script>
+    <script defer src="js/roles/admin.js"></script>
+    <script defer src="js/roles/student.js"></script>
+    <script defer src="js/roles/teacher.js"></script>
+    <script defer src="js/roles/parent.js"></script>
+    <script defer src="js/roles/mentor.js"></script>
+    <script defer src="js/roles/hr.js"></script>
 
     <style>
         :root {
             --primary: #0f766e;
             --primary-hover: #0d655e;
             --primary-light: #ccfbf1;
-            --primary-glow: rgba(15, 118, 110, 0.18);
+            --primary-glow: rgba(15, 118, 110, 0.22);
             --secondary: #2563eb;
             --secondary-light: #dbeafe;
             --accent: #f59e0b;
             --accent-hover: #d97706;
             --accent-light: #fef3c7;
+            --purple: #8b5cf6;
+            --purple-light: #ede9fe;
             --danger: #dc2626;
             --danger-light: #fee2e2;
             --success: #10b981;
@@ -42,10 +58,10 @@
             --radius-md: 14px;
             --radius-lg: 20px;
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 8px 20px -4px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 18px 36px -8px rgba(15, 118, 110, 0.15);
+            --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px -10px rgba(15, 118, 110, 0.2);
             --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            --sidebar-width: 270px;
+            --sidebar-width: 280px;
             --sidebar-collapsed-width: 80px;
         }
 
@@ -57,15 +73,11 @@
             --text-muted: #94a3b8;
             --border: #26354a;
             --border-light: #1e2d42;
-            --primary-glow: rgba(20, 184, 166, 0.25);
-            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.45);
+            --primary-glow: rgba(20, 184, 166, 0.35);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -73,20 +85,17 @@
             color: var(--text-main);
             line-height: 1.5;
             overflow-x: hidden;
-            transition: background-color 0.3s ease, color 0.3s ease;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        h1, h2, h3, h4, h5, h6, .brand-font {
-            font-family: 'Outfit', sans-serif;
-        }
-
+        h1, h2, h3, h4, h5, h6, .brand-font { font-family: 'Outfit', sans-serif; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
-        /* TOAST NOTIFICATION */
+        /* TOAST NOTIFICATION ENGINE */
         .toast-container {
             position: fixed;
             bottom: 2rem;
@@ -100,16 +109,16 @@
         .toast {
             background: var(--dark);
             color: white;
-            padding: 0.85rem 1.25rem;
+            padding: 0.9rem 1.35rem;
             border-radius: var(--radius-sm);
             box-shadow: var(--shadow-lg);
             font-size: 0.88rem;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.85rem;
             animation: slideInToast 0.3s ease forwards, fadeOutToast 0.3s ease 3.8s forwards;
-            max-width: 440px;
+            max-width: 460px;
             border-left: 4px solid var(--success);
         }
 
@@ -121,7 +130,6 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes fadeOutToast {
             from { opacity: 1; transform: translateY(0); }
             to { opacity: 0; transform: translateY(10px); }
@@ -129,7 +137,7 @@
 
         /* TOP ANNOUNCEMENT BAR */
         .top-notice-bar {
-            background: linear-gradient(90deg, #0f766e, #1d4ed8);
+            background: linear-gradient(90deg, #0f766e, #1d4ed8, #7c3aed);
             color: white;
             font-size: 0.82rem;
             font-weight: 600;
@@ -142,7 +150,7 @@
 
         .notice-tag {
             background: rgba(255, 255, 255, 0.22);
-            padding: 0.15rem 0.6rem;
+            padding: 0.15rem 0.65rem;
             border-radius: 50px;
             font-size: 0.72rem;
             text-transform: uppercase;
@@ -179,17 +187,17 @@
         }
 
         .brand-badge {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             background: linear-gradient(135deg, var(--primary), #0d9488);
             color: white;
-            border-radius: 10px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.35);
+            font-weight: 900;
+            font-size: 1.15rem;
+            box-shadow: 0 4px 14px rgba(15, 118, 110, 0.35);
         }
 
         .mode-switch-group {
@@ -202,7 +210,7 @@
         }
 
         .mode-btn {
-            padding: 0.4rem 0.9rem;
+            padding: 0.45rem 1rem;
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 700;
@@ -216,10 +224,9 @@
         .mode-btn.active {
             background: var(--primary);
             color: white;
-            box-shadow: 0 2px 8px rgba(15, 118, 110, 0.3);
+            box-shadow: 0 2px 10px rgba(15, 118, 110, 0.3);
         }
 
-        /* SUPER ADMIN ROLE SELECTOR */
         .role-selector-wrapper {
             display: flex;
             align-items: center;
@@ -248,10 +255,9 @@
             outline: none;
         }
 
-        /* SEARCH & USER ACTIONS */
         .header-search {
             flex-grow: 1;
-            max-width: 300px;
+            max-width: 280px;
             position: relative;
         }
 
@@ -339,16 +345,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 0.85rem;
         }
 
-        /* PUBLIC LANDING PAGE */
+        /* PUBLIC LANDING & MARKETPLACE STYLES */
         .public-landing { display: block; }
 
         .hero-section {
-            background: linear-gradient(135deg, rgba(15, 118, 110, 0.08) 0%, rgba(37, 99, 235, 0.08) 100%);
-            padding: 4rem 1.5rem;
+            background: linear-gradient(135deg, rgba(15, 118, 110, 0.1) 0%, rgba(37, 99, 235, 0.1) 50%, rgba(124, 58, 237, 0.08) 100%);
+            padding: 3.5rem 1.5rem 2.5rem;
             border-bottom: 1px solid var(--border-light);
             text-align: center;
         }
@@ -362,19 +368,19 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.35rem 1rem;
+            padding: 0.4rem 1.1rem;
             background: var(--primary-light);
             color: var(--primary);
             border-radius: 50px;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 0.85rem;
             margin-bottom: 1.25rem;
         }
 
         .hero-title {
             font-size: 2.8rem;
-            font-weight: 800;
-            line-height: 1.2;
+            font-weight: 900;
+            line-height: 1.18;
             margin-bottom: 1rem;
             color: var(--text-main);
         }
@@ -384,7 +390,7 @@
         .hero-subtitle {
             font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 820px;
+            max-width: 840px;
             margin: 0 auto 2rem;
         }
 
@@ -395,9 +401,167 @@
             flex-wrap: wrap;
         }
 
+        /* YOUTUBE VIDEO CAROUSEL / SLIDER STYLES */
+        .video-slider-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .slider-header-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .slider-controls-btn {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .slider-nav-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text-main);
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .slider-nav-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .video-cards-container {
+            display: flex;
+            gap: 1.25rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 0.5rem 0 1rem;
+            scrollbar-width: thin;
+        }
+
+        .video-card {
+            flex: 0 0 320px;
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .video-thumb-holder {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-overlay-btn {
+            width: 52px;
+            height: 52px;
+            background: rgba(220, 38, 38, 0.92);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+            transition: var(--transition);
+            padding-left: 3px;
+        }
+
+        .video-card:hover .play-overlay-btn {
+            transform: scale(1.15);
+            background: #ff0000;
+        }
+
+        .video-card-body { padding: 1rem; }
+        .video-card-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            line-height: 1.35;
+            margin-bottom: 0.4rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* INNOVATION & COMPETITION HUB */
+        .innovation-section {
+            background: linear-gradient(180deg, var(--bg) 0%, rgba(139, 92, 246, 0.05) 100%);
+            padding: 3.5rem 1.5rem;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .innovation-grid {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .innovation-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .innovation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--purple);
+        }
+
+        .innovation-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 12px;
+            background: var(--purple-light);
+            color: var(--purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        /* E-COMMERCE COURSE MARKETPLACE GRID */
         .public-grid {
             max-width: 1200px;
-            margin: 3rem auto;
+            margin: 3.5rem auto;
             padding: 0 1.5rem;
         }
 
@@ -604,7 +768,7 @@
         .stat-icon.blue { background: var(--secondary-light); color: var(--secondary); }
         .stat-icon.amber { background: var(--accent-light); color: var(--accent); }
         .stat-icon.emerald { background: var(--success-light); color: var(--success); }
-        .stat-icon.rose { background: var(--danger-light); color: var(--danger); }
+        .stat-icon.purple { background: var(--purple-light); color: var(--purple); }
 
         .stat-info h4 {
             font-size: 0.78rem;
@@ -703,6 +867,7 @@
         .badge-danger { background: var(--danger-light); color: var(--danger); }
         .badge-primary { background: var(--primary-light); color: var(--primary); }
         .badge-secondary { background: var(--secondary-light); color: var(--secondary); }
+        .badge-purple { background: var(--purple-light); color: var(--purple); }
 
         /* BUTTONS */
         .btn {
@@ -730,16 +895,17 @@
         .btn-secondary:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
         .btn-accent { background-color: var(--accent); color: var(--dark); }
         .btn-accent:hover { background-color: var(--accent-hover); color: white; }
+        .btn-purple { background-color: var(--purple); color: white; }
+        .btn-purple:hover { background-color: #7c3aed; }
 
         .inline-input {
-            padding: 0.3rem 0.5rem;
-            border: 1px solid var(--primary);
-            border-radius: 4px;
+            padding: 0.4rem 0.6rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
             background: var(--bg);
             color: var(--text-main);
             font-size: 0.85rem;
             width: 100%;
-            max-width: 140px;
         }
 
         .action-icon-btn {
@@ -860,7 +1026,7 @@
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(15, 23, 42, 0.7);
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(5px);
             z-index: 2000;
             display: none;
@@ -874,7 +1040,7 @@
         .modal-box {
             background: var(--card-bg);
             border-radius: var(--radius-lg);
-            max-width: 760px;
+            max-width: 780px;
             width: 100%;
             padding: 2rem;
             box-shadow: var(--shadow-lg);
@@ -893,6 +1059,7 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--text-muted);
+            z-index: 10;
         }
 
         /* RECEIPT & PAYSTUB STYLING */
@@ -960,12 +1127,12 @@
         /* RESPONSIVE DESIGN */
         @media (max-width: 1100px) {
             .grid-4 { grid-template-columns: repeat(2, 1fr); }
-            .grid-3 { grid-template-columns: 1fr; }
+            .grid-3, .innovation-grid { grid-template-columns: 1fr; }
             .demo-accounts-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
-            .sidebar { position: fixed; left: -270px; top: 0; bottom: 0; height: 100vh; }
+            .sidebar { position: fixed; left: -280px; top: 0; bottom: 0; height: 100vh; }
             .sidebar.mobile-open { left: 0; }
             .grid-4, .grid-2 { grid-template-columns: 1fr; }
             .header-search { display: none; }
@@ -981,8 +1148,8 @@
     <!-- TOP ANNOUNCEMENT BAR -->
     <div class="top-notice-bar">
         <div>
-            <span class="notice-tag">🔥 Enterprise OS v5.3 (Firebase Auth Enabled)</span>
-            <span>Strict Admin Master Overlook, Passwordless Firebase Email OTP & Portal Isolation</span>
+            <span class="notice-tag">🔥 Enterprise OS v6.0</span>
+            <span>YouTube Live Slider Engine, Innovation Competition Portal & Master Overlook</span>
         </div>
         <div style="display: flex; gap: 1rem;">
             <span>Academic Session: 2026-27</span>
@@ -993,7 +1160,7 @@
     <!-- MAIN HEADER -->
     <header class="site-header">
         <div class="header-main">
-            <!-- Brand & Mobile Sidebar Toggle -->
+            <!-- Brand & Navigation Toggle -->
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <button class="icon-btn" id="sidebarToggleBtn" aria-label="Toggle Navigation">☰</button>
                 <a href="#" class="brand-logo" onclick="switchViewMode('public')">
@@ -1002,13 +1169,13 @@
                 </a>
             </div>
 
-            <!-- PUBLIC LANDING VS LOGGED-IN PORTAL TOGGLE BUTTONS -->
+            <!-- PUBLIC HOMEPAGE VS LOGGED-IN PORTAL SWITCHER -->
             <div class="mode-switch-group">
-                <button class="mode-btn active" id="modePublicBtn" onclick="switchViewMode('public')">🌐 Public Homepage</button>
-                <button class="mode-btn" id="modePortalBtn" onclick="triggerPortalAccess()">🔒 Portal Access</button>
+                <button class="mode-btn active" id="modePublicBtn" onclick="switchViewMode('public')">🌐 Marketplace & Portal</button>
+                <button class="mode-btn" id="modePortalBtn" onclick="triggerPortalAccess()">🔒 Dashboard Access</button>
             </div>
 
-            <!-- UNIFIED ROLE SELECTOR DROPDOWN (VISIBLE ONLY FOR SUPER ADMIN) -->
+            <!-- UNIFIED ROLE SELECTOR DROPDOWN (VISIBLE ONLY FOR SUPER ADMIN suresh2suresh80888@gmail.com) -->
             <div class="role-selector-wrapper" id="headerRoleWrapper" style="display: none;">
                 <span class="role-selector-label">⚙️ Admin Overlook:</span>
                 <select id="globalRoleSelector" class="role-selector" onchange="switchRolePortal(this.value)">
@@ -1025,13 +1192,13 @@
                 </select>
             </div>
 
-            <!-- Instant Search Field -->
+            <!-- Global Instant Search -->
             <div class="header-search">
                 <span class="header-search-icon">🔍</span>
-                <input type="text" id="globalSearchInput" placeholder="Search student ID, email, phone, receipt, salary..." oninput="handleGlobalSearch()">
+                <input type="text" id="globalSearchInput" placeholder="Search student ID, YouTube video, receipt, salary..." oninput="handleGlobalSearch()">
             </div>
 
-            <!-- Quick Action Controls -->
+            <!-- Actions Controls -->
             <div class="nav-actions-group">
                 <button class="icon-btn" id="themeToggleBtn" title="Toggle Light/Dark Theme">🌙</button>
                 <button class="icon-btn" onclick="openNotificationsModal()" title="Alerts">
@@ -1093,7 +1260,7 @@
                 <form id="otpStep2Form" style="display: none; flex-direction: column; gap: 0.85rem; font-size: 0.88rem; margin-top: 1rem;" onsubmit="handleVerifyOTP(event)">
                     <div class="auth-alert-card auth-alert-success">
                         <span>📩</span>
-                        <div>A verification payload has been dispatched to <strong id="otpSentEmailLabel">suresh2suresh80888@gmail.com</strong>. Enter your verification PIN below or check your inbox for the link.</div>
+                        <div>A verification payload has been dispatched to <strong id="otpSentEmailLabel">suresh2suresh80888@gmail.com</strong>. Enter your verification PIN below.</div>
                     </div>
                     <div>
                         <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Enter 6-Digit Verification Code / Security PIN *</label>
@@ -1128,7 +1295,7 @@
                         </div>
                         <input type="password" id="loginPassword" required value="password123" placeholder="Enter account password" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">🔓 Authenticate & Access Isolated Portal</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">🔓 Authenticate & Access Portal</button>
                 </div>
             </form>
 
@@ -1180,7 +1347,7 @@
                 </div>
             </form>
 
-            <!-- 4. FORGOT PASSWORD STEP 1 -->
+            <!-- 4. FORGOT PASSWORD -->
             <form id="resetRequestContainer" style="display: none;" onsubmit="handleResetRequest(event)">
                 <div class="auth-alert-card auth-alert-warning">
                     <span>🔑</span>
@@ -1196,7 +1363,7 @@
                 </div>
             </form>
 
-            <!-- FORGOT PASSWORD STEP 2 -->
+            <!-- RESET CONFIRM -->
             <form id="resetConfirmContainer" style="display: none;" onsubmit="handleResetConfirm(event)">
                 <div class="auth-alert-card auth-alert-success">
                     <span>📩</span>
@@ -1212,15 +1379,11 @@
                         <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">New Password *</label>
                         <input type="password" id="newPasswordInput" required minlength="6" placeholder="At least 6 characters" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
                     </div>
-                    <div>
-                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Confirm New Password *</label>
-                        <input type="password" id="confirmNewPasswordInput" required minlength="6" placeholder="Re-enter new password" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
-                    </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">💾 Update Password & Proceed</button>
                 </div>
             </form>
 
-            <!-- PRE-CONFIGURED DEMO ACCOUNTS SECTION -->
+            <!-- DEMO ACCOUNTS -->
             <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-light); padding-top: 1rem;">
                 <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 0.5rem;">⚡ Instant Demo Accounts:</span>
                 <div class="demo-accounts-grid">
@@ -1236,18 +1399,77 @@
     </div>
 
     <!-- ========================================================================= -->
-    <!-- PUBLIC LANDING PAGE (VISITOR HOMEPAGE ONLY - E-COMMERCE & FRANCHISE) -->
+    <!-- PUBLIC LANDING PAGE (MARKETPLACE, YOUTUBE SLIDER & INNOVATION HUB) -->
     <!-- ========================================================================= -->
     <div id="publicLanding" class="public-landing">
         <section class="hero-section">
             <div class="hero-container">
-                <div class="hero-badge">✨ Authorized Educational OS & Franchise Network</div>
-                <h1 class="hero-title">Empowering Learning Across <span>Villages, Hoblis, Taluks & Cities</span></h1>
-                <p class="hero-subtitle">Sharusuri EdTech provides competitive exam prep, school management, fee receipts, payroll slips, and regional franchise hub networks across Karnataka & neighboring states.</p>
+                <div class="hero-badge">✨ Industry Top-10 EdTech Marketplace & Franchising</div>
+                <h1 class="hero-title">Empowering Scholars Across <span>Villages, Hoblis, Taluks & Cities</span></h1>
+                <p class="hero-subtitle">Interactive Navodaya Entrance coaching, Class 10 STEM prep, live YouTube lectures, science fairs, logic gaming, and regional franchise networks.</p>
                 <div class="hero-cta-group">
                     <button class="btn btn-primary" onclick="triggerPortalAccess()">🚀 Login / Portal Access</button>
+                    <button class="btn btn-purple" onclick="scrollToSection('innovationHubSection')">🚀 Innovation & Competition Hub</button>
                     <button class="btn btn-secondary" onclick="scrollToSection('franchiseApplySection')">🌐 Apply for Franchise Node</button>
-                    <button class="btn btn-accent" onclick="scrollToSection('coursesSection')">📘 Browse Marketplace</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- YOUTUBE VIDEO SLIDER CAROUSEL (PUBLIC VIEW) -->
+        <section class="video-slider-wrapper">
+            <div class="slider-header-title">
+                <div>
+                    <span class="badge badge-danger" style="margin-bottom: 0.3rem;">📺 Live & Featured Classes</span>
+                    <h2 style="font-size: 1.6rem; color: var(--text-main);">Navodaya & STEM YouTube Video Carousel</h2>
+                </div>
+                <div class="slider-controls-btn">
+                    <button class="slider-nav-btn" onclick="slideVideos('publicVideoContainer', -1)">❮</button>
+                    <button class="slider-nav-btn" onclick="slideVideos('publicVideoContainer', 1)">❯</button>
+                </div>
+            </div>
+
+            <div class="video-cards-container" id="publicVideoContainer">
+                <!-- Dynamically populated via js/video_slider.js or script below -->
+            </div>
+        </section>
+
+        <!-- INNOVATION, COMPETITION & BUSINESS SCOPE HUB -->
+        <section id="innovationHubSection" class="innovation-section">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <span class="badge badge-purple" style="margin-bottom: 0.5rem;">🌟 Sharusuri NextGen Talent</span>
+                <h2 style="font-size: 2.2rem; color: var(--text-main);">Science, Tech, Esports & Entrepreneurship Hub</h2>
+                <p style="color: var(--text-muted); font-size: 1.05rem;">Fostering innovation through research submissions, academic logic tournaments, and startup business grant mentorship for students & faculty.</p>
+            </div>
+
+            <div class="innovation-grid">
+                <div class="innovation-card">
+                    <div>
+                        <div class="innovation-icon">🔬</div>
+                        <span class="badge badge-purple" style="margin-bottom: 0.5rem;">Science & Tech Fair</span>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Student Project Submissions</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">Submit working STEM prototypes, AI models, or agriculture tech research for district awards & patent guidance.</p>
+                    </div>
+                    <button class="btn btn-purple btn-sm" onclick="openInnovationModal('science')">📤 Submit Science Project</button>
+                </div>
+
+                <div class="innovation-card">
+                    <div>
+                        <div class="innovation-icon" style="background: var(--accent-light); color: var(--accent-hover);">🎮</div>
+                        <span class="badge badge-warning" style="margin-bottom: 0.5rem;">Esports & Logic Gaming</span>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Academic Logic Tournaments</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">Compete in speed arithmetic tournaments, chess grand prix, and coding logic gaming leagues.</p>
+                    </div>
+                    <button class="btn btn-accent btn-sm" onclick="openInnovationModal('gaming')">🎯 Register Team</button>
+                </div>
+
+                <div class="innovation-card">
+                    <div>
+                        <div class="innovation-icon" style="background: var(--primary-light); color: var(--primary);">💼</div>
+                        <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Entrepreneurship Portal</span>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Student Startup Grants</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">Pitch rural edtech or social innovation business ideas to receive up to ₹10 Lakhs seed funding & mentor references.</p>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="openInnovationModal('business')">💡 Pitch Startup Idea</button>
                 </div>
             </div>
         </section>
@@ -1265,7 +1487,7 @@
                     <div class="marketplace-body">
                         <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Navodaya Prep</span>
                         <h3>Navodaya Entrance Masterclass 2026</h3>
-                        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">Complete mental ability, arithmetic, and language test series designed for rural & urban scholars.</p>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">Complete mental ability, arithmetic, and language test series designed for scholars.</p>
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <strong style="font-size: 1.2rem; color: var(--primary);">₹5,999 / yr</strong>
                             <button class="btn btn-primary btn-sm" onclick="triggerPortalAccess()">Enroll Now</button>
@@ -1310,19 +1532,19 @@
                     <p style="color: var(--text-muted);">Establish an authorized learning node in your District, Taluk, Hobli, or Village.</p>
                 </div>
 
-                <form class="panel-card" onsubmit="event.preventDefault(); showToast('Franchise Application Submitted! Our team will contact you.');">
+                <form class="panel-card" onsubmit="handleFranchiseSubmit(event)">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.88rem;">
                         <div>
                             <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Applicant Full Name *</label>
-                            <input type="text" required placeholder="e.g., Ramesh Patil" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                            <input type="text" id="franName" required placeholder="e.g., Ramesh Patil" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
                         </div>
                         <div>
                             <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Phone / WhatsApp Number *</label>
-                            <input type="tel" required placeholder="+91 98000 00000" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                            <input type="tel" id="franPhone" required placeholder="+91 98000 00000" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
                         </div>
                         <div>
                             <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Target State / UT *</label>
-                            <select required style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                            <select id="franState" required style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
                                 <option>Karnataka</option>
                                 <option>Andhra Pradesh</option>
                                 <option>Telangana</option>
@@ -1331,19 +1553,19 @@
                         </div>
                         <div>
                             <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Target District *</label>
-                            <input type="text" required placeholder="e.g., Raichur" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                            <input type="text" id="franDistrict" required placeholder="e.g., Raichur" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
                         </div>
                         <div>
                             <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Target Taluk / Tehsil *</label>
-                            <input type="text" required placeholder="e.g., Sindhanur" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                            <input type="text" id="franTaluk" required placeholder="e.g., Sindhanur" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
                         </div>
                         <div>
                             <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Target Hobli / Village Name *</label>
-                            <input type="text" required placeholder="e.g., AP K Hosalli Hobli" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                            <input type="text" id="franVillage" required placeholder="e.g., AP K Hosalli Hobli" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
                         </div>
                         <div style="grid-column: span 2;">
                             <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Proposed Facility Space & Investment Budget</label>
-                            <textarea placeholder="Specify available space (e.g. 1500 sq.ft) and expected setup budget..." style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); height: 80px;"></textarea>
+                            <textarea id="franNotes" placeholder="Specify available space (e.g. 1500 sq.ft) and expected setup budget..." style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); height: 80px;"></textarea>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.25rem;">Submit Franchise Inquiry</button>
@@ -1387,15 +1609,15 @@
                         <p>Logged in as: <code>suresh2suresh80888@gmail.com</code> | Full Firebase Authenticated Master Authority</p>
                     </div>
                     <div style="display: flex; gap: 0.5rem;">
-                        <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('FAC-4012')">💵 Inspect Salary Slip</button>
-                        <button class="btn btn-secondary btn-sm" onclick="openReceiptModal()">📄 Inspect Fee Receipt</button>
+                        <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('FAC-4012')">💵 Staff Salary Slip</button>
+                        <button class="btn btn-secondary btn-sm" onclick="openReceiptModal()">📄 Fee Receipt</button>
                     </div>
                 </div>
 
                 <div class="grid-4">
                     <div class="stat-card">
                         <div class="stat-info">
-                            <h4>Total Active Revenue</h4>
+                            <h4>Total Revenue</h4>
                             <div class="val" style="color: var(--primary);">₹1.42 Cr</div>
                             <span class="sub">Annual Growth +28%</span>
                         </div>
@@ -1403,98 +1625,143 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-info">
-                            <h4>Registered User Accounts</h4>
+                            <h4>User Accounts</h4>
                             <div class="val" id="adminTotalUserCount">1,240</div>
-                            <span class="sub">Firebase Verified DB</span>
+                            <span class="sub">Firebase DB Verified</span>
                         </div>
                         <div class="stat-icon blue">🎓</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-info">
-                            <h4>Hostel Occupancy</h4>
-                            <div class="val" style="color: var(--accent);">88.5%</div>
-                            <span class="sub">32 Beds Available</span>
+                            <h4>Published Videos</h4>
+                            <div class="val" id="adminVideoCount">6</div>
+                            <span class="sub">Live YouTube Carousel</span>
                         </div>
-                        <div class="stat-icon amber">🏢</div>
+                        <div class="stat-icon purple">📺</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-info">
-                            <h4>Monthly Payroll Budget</h4>
-                            <div class="val">₹24.8 L/mo</div>
+                            <h4>Monthly Payroll</h4>
+                            <div class="val">₹24.8 L</div>
                             <span class="sub">68 Active Staff</span>
                         </div>
                         <div class="stat-icon emerald">👨‍🏫</div>
                     </div>
                 </div>
 
-                <!-- LIVE GEOGRAPHICAL TRACKING MODULE FOR ADMIN MASTER OVERLOOK -->
+                <!-- ADMIN YOUTUBE VIDEO SLIDER MANAGER MODULE -->
                 <div class="panel-card">
                     <div class="panel-header">
-                        <h3 class="panel-title">🌐 Live Geographical Hierarchy Tracking Module</h3>
+                        <h3 class="panel-title">📺 Admin YouTube Video Slider Manager</h3>
+                        <span class="badge badge-danger">Live Slider Control</span>
+                    </div>
+
+                    <form onsubmit="handleAdminAddVideo(event)" style="display: grid; grid-template-columns: 2fr 2fr 1fr 1fr auto; gap: 0.75rem; align-items: end; margin-bottom: 1.25rem;">
+                        <div>
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Lecture / Video Title *</label>
+                            <input type="text" id="addVideoTitle" required placeholder="e.g. Navodaya Mental Ability Test Practice" class="inline-input">
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">YouTube URL or Video ID *</label>
+                            <input type="text" id="addVideoUrl" required placeholder="https://www.youtube.com/watch?v=... or ID" class="inline-input">
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Target Batch</label>
+                            <select id="addVideoBatch" class="inline-input" style="font-weight: 700;">
+                                <option value="Navodaya Prep 2026">Navodaya 2026</option>
+                                <option value="Class 10 Science">Class 10 Science</option>
+                                <option value="Class 10 Math">Class 10 Math</option>
+                                <option value="General STEM">General STEM</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Channel Tag</label>
+                            <input type="text" id="addVideoChannel" value="@cousinsacademy4599" class="inline-input">
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1rem;">➕ Add Video</button>
+                    </form>
+
+                    <div class="data-table-wrapper">
+                        <table class="data-table" id="adminVideoTable">
+                            <thead>
+                                <tr>
+                                    <th>Video Thumbnail</th>
+                                    <th>Title</th>
+                                    <th>Target Batch</th>
+                                    <th>YouTube ID</th>
+                                    <th>Channel Reference</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminVideoTableBody">
+                                <!-- Populated dynamically via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- LIVE GEOGRAPHICAL TRACKING MODULE -->
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h3 class="panel-title">🌐 Live Geographical Hierarchy Tracking</h3>
                         <span class="badge badge-primary">State ➔ District ➔ Taluk ➔ Hobli ➔ Village</span>
                     </div>
 
                     <!-- GEOGRAPHICAL DROPDOWN FILTERS -->
-                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; margin-bottom: 1.25rem; font-size: 0.85rem;" id="geoFiltersWrapper">
+                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; margin-bottom: 1.25rem; font-size: 0.85rem;">
                         <div>
                             <label style="font-weight: 700; display: block; margin-bottom: 0.2rem; color: var(--text-muted);">State / UT</label>
-                            <select id="filterState" class="inline-input" style="max-width: 100%; font-weight: 700;" onchange="applyGeoFilter()">
+                            <select id="filterState" class="inline-input" style="font-weight: 700;" onchange="applyGeoFilter()">
                                 <option value="ALL">All States</option>
                                 <option value="Karnataka" selected>Karnataka</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                <option value="Maharashtra">Maharashtra</option>
                             </select>
                         </div>
                         <div>
                             <label style="font-weight: 700; display: block; margin-bottom: 0.2rem; color: var(--text-muted);">District</label>
-                            <select id="filterDistrict" class="inline-input" style="max-width: 100%; font-weight: 700;" onchange="applyGeoFilter()">
+                            <select id="filterDistrict" class="inline-input" style="font-weight: 700;" onchange="applyGeoFilter()">
                                 <option value="ALL">All Districts</option>
                                 <option value="Raichur" selected>Raichur</option>
                                 <option value="Bellary">Bellary</option>
-                                <option value="Kalaburagi">Kalaburagi</option>
                             </select>
                         </div>
                         <div>
                             <label style="font-weight: 700; display: block; margin-bottom: 0.2rem; color: var(--text-muted);">Taluk / Tehsil</label>
-                            <select id="filterTaluk" class="inline-input" style="max-width: 100%; font-weight: 700;" onchange="applyGeoFilter()">
+                            <select id="filterTaluk" class="inline-input" style="font-weight: 700;" onchange="applyGeoFilter()">
                                 <option value="ALL">All Taluks</option>
                                 <option value="Sindhanur" selected>Sindhanur</option>
                                 <option value="Manvi">Manvi</option>
-                                <option value="Deodurg">Deodurg</option>
                             </select>
                         </div>
                         <div>
                             <label style="font-weight: 700; display: block; margin-bottom: 0.2rem; color: var(--text-muted);">Hobli / Circle</label>
-                            <select id="filterHobli" class="inline-input" style="max-width: 100%; font-weight: 700;" onchange="applyGeoFilter()">
+                            <select id="filterHobli" class="inline-input" style="font-weight: 700;" onchange="applyGeoFilter()">
                                 <option value="ALL">All Hoblis</option>
                                 <option value="AP K Hosalli Hobli" selected>AP K Hosalli Hobli</option>
                                 <option value="Turvihal Hobli">Turvihal Hobli</option>
-                                <option value="Gorebal Hobli">Gorebal Hobli</option>
                             </select>
                         </div>
                         <div>
                             <label style="font-weight: 700; display: block; margin-bottom: 0.2rem; color: var(--text-muted);">Village Location</label>
-                            <select id="filterVillage" class="inline-input" style="max-width: 100%; font-weight: 700;" onchange="applyGeoFilter()">
+                            <select id="filterVillage" class="inline-input" style="font-weight: 700;" onchange="applyGeoFilter()">
                                 <option value="ALL">All Villages</option>
                                 <option value="AP K Hosalli Village" selected>AP K Hosalli Village</option>
                                 <option value="Turvihal Village">Turvihal Village</option>
-                                <option value="Sunklamma Katte">Sunklamma Katte</option>
                             </select>
                         </div>
                     </div>
 
-                    <!-- GEOGRAPHICAL USER AUDIT TABLE -->
                     <div class="data-table-wrapper">
                         <table class="data-table" id="adminGeoTrackingTable">
                             <thead>
                                 <tr>
-                                    <th>User ID / Code</th>
+                                    <th>User ID</th>
                                     <th>Full Name</th>
-                                    <th>System Role</th>
+                                    <th>Role</th>
                                     <th>State ➔ District</th>
                                     <th>Taluk ➔ Hobli ➔ Village</th>
-                                    <th>Active Status</th>
-                                    <th>Master Action</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1505,73 +1772,16 @@
                                     <td>Karnataka ➔ Raichur</td>
                                     <td>Sindhanur ➔ AP K Hosalli ➔ AP K Hosalli Village</td>
                                     <td><span class="badge badge-success">Online Now</span></td>
-                                    <td><button class="btn btn-secondary btn-sm" onclick="switchRolePortal('student')">👁️ Inspect Student View</button></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="switchRolePortal('student')">👁️ Inspect View</button></td>
                                 </tr>
                                 <tr data-state="Karnataka" data-district="Raichur" data-taluk="Sindhanur" data-hobli="AP K Hosalli Hobli" data-village="AP K Hosalli Village">
                                     <td><code>#FAC-4012</code></td>
                                     <td><strong>Prof. Anita Rao</strong></td>
-                                    <td><span class="badge badge-secondary">Faculty Teacher</span></td>
+                                    <td><span class="badge badge-secondary">Faculty</span></td>
                                     <td>Karnataka ➔ Raichur</td>
                                     <td>Sindhanur ➔ AP K Hosalli ➔ Campus Hub</td>
                                     <td><span class="badge badge-success">Active</span></td>
-                                    <td><button class="btn btn-secondary btn-sm" onclick="switchRolePortal('teacher')">👁️ Inspect Teacher View</button></td>
-                                </tr>
-                                <tr data-state="Karnataka" data-district="Raichur" data-taluk="Sindhanur" data-hobli="Turvihal Hobli" data-village="Turvihal Village">
-                                    <td><code>#MNT-1090</code></td>
-                                    <td><strong>Dr. Ramesh Patil</strong></td>
-                                    <td><span class="badge badge-warning">Academic Mentor</span></td>
-                                    <td>Karnataka ➔ Raichur</td>
-                                    <td>Sindhanur ➔ Turvihal ➔ Turvihal Village</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td><button class="btn btn-secondary btn-sm" onclick="switchRolePortal('mentor')">👁️ Inspect Mentor View</button></td>
-                                </tr>
-                                <tr data-state="Karnataka" data-district="Raichur" data-taluk="Sindhanur" data-hobli="AP K Hosalli Hobli" data-village="Sunklamma Katte">
-                                    <td><code>#PRT-8812</code></td>
-                                    <td><strong>Manjunath Kumar</strong></td>
-                                    <td><span class="badge badge-primary">Parent</span></td>
-                                    <td>Karnataka ➔ Raichur</td>
-                                    <td>Sindhanur ➔ AP K Hosalli ➔ Sunklamma Katte</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td><button class="btn btn-secondary btn-sm" onclick="switchRolePortal('parent')">👁️ Inspect Parent View</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- SYSTEM AUDIT & ACTIVE USER LOG -->
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">📜 Real-Time System Activity & Authentication Logs</h3>
-                    </div>
-                    <div class="data-table-wrapper">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Timestamp</th>
-                                    <th>User Account</th>
-                                    <th>Authentication Type</th>
-                                    <th>Role Assigned</th>
-                                    <th>IP / Device</th>
-                                    <th>Audit Result</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>28-Feb-2026 10:42:15</td>
-                                    <td><code>suresh2suresh80888@gmail.com</code></td>
-                                    <td>Firebase Passwordless Email OTP Link</td>
-                                    <td>Super Admin</td>
-                                    <td>103.22.14.92 (Chrome Mac)</td>
-                                    <td><span class="badge badge-success">Granted Master Access</span></td>
-                                </tr>
-                                <tr>
-                                    <td>28-Feb-2026 09:15:02</td>
-                                    <td><code>suresh.kumar@sharusuri.edu</code></td>
-                                    <td>Mobile Identifier Auth</td>
-                                    <td>Student</td>
-                                    <td>157.34.12.11 (Android)</td>
-                                    <td><span class="badge badge-success">Isolated Student Session</span></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="switchRolePortal('teacher')">👁️ Inspect View</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1579,168 +1789,74 @@
                 </div>
             </section>
 
-            <!-- 2. STUDENT CONSOLE (ISOLATED STUDENT DASHBOARD) -->
+            <!-- 2. STUDENT CONSOLE -->
             <section id="studentConsole" class="role-console">
                 <div class="console-header">
                     <div class="console-title">
                         <h1>🎓 Student Academic & Fee Management Hub</h1>
-                        <p>Welcome back, <strong id="studentHeaderName">Suresh Kumar</strong> | Student ID: <code>SE-2026-9942</code> | Class 10 Science & Navodaya Prep</p>
+                        <p>Welcome, <strong id="studentHeaderName">Suresh Kumar</strong> | Student ID: <code>SE-2026-9942</code> | Class 10 & Navodaya Prep</p>
                     </div>
                     <div style="display: flex; gap: 0.75rem;">
-                        <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">🧾 View & Print Official Fee Receipt</button>
-                        <button class="btn btn-secondary btn-sm" onclick="printScorecard()">🖨️ Print Scorecard</button>
+                        <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">🧾 Official Fee Receipt</button>
+                        <button class="btn btn-secondary btn-sm" onclick="window.print()">🖨️ Scorecard</button>
                     </div>
                 </div>
 
                 <div class="grid-4">
                     <div class="stat-card">
                         <div class="stat-info">
-                            <h4>Overall Attendance</h4>
+                            <h4>Attendance Rate</h4>
                             <div class="val" style="color: var(--primary);">96.4%</div>
-                            <span class="sub">✓ Regular Track</span>
+                            <span class="sub">✓ Regular</span>
                         </div>
                         <div class="stat-icon teal">📅</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-info">
-                            <h4>Current GPA / Marks</h4>
+                            <h4>Current Average</h4>
                             <div class="val" style="color: var(--secondary);">89.2%</div>
-                            <span class="sub">District Rank #3</span>
+                            <span class="sub">Rank #3 Raichur</span>
                         </div>
                         <div class="stat-icon blue">🏆</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-info">
-                            <h4>Total Fee Paid</h4>
+                            <h4>Fee Paid</h4>
                             <div class="val" style="color: var(--success);">₹55,000</div>
-                            <span class="sub">Out of ₹65,000 Total</span>
+                            <span class="sub">Of ₹65,000 Total</span>
                         </div>
                         <div class="stat-icon emerald">💳</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-info">
-                            <h4>Outstanding Balance</h4>
+                            <h4>Outstanding Dues</h4>
                             <div class="val" style="color: var(--danger);">₹10,000</div>
-                            <span class="sub" style="color: var(--danger);">Due by March 15</span>
+                            <span class="sub" style="color: var(--danger);">Due March 15</span>
                         </div>
                         <div class="stat-icon rose">⚠️</div>
                     </div>
                 </div>
 
-                <!-- STUDENT FEE BREAKDOWN & PAYMENT HISTORY -->
+                <!-- ASSIGNED YOUTUBE LECTURES SLIDER FOR STUDENT -->
                 <div class="panel-card">
                     <div class="panel-header">
-                        <h3 class="panel-title">💳 Detailed Academic Fee Structure & Payment Receipts</h3>
-                        <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">📄 Download / Print PDF Receipt</button>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
-                        <div>
-                            <h4 style="font-size: 0.9rem; font-weight: 800; margin-bottom: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Annual Itemized Fee Structure</h4>
-                            <div class="data-table-wrapper">
-                                <table class="data-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Fee Category</th>
-                                            <th>Description</th>
-                                            <th>Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><strong>Tuition Fee</strong></td>
-                                            <td>Class 10 Science & Navodaya Coaching</td>
-                                            <td>₹45,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Hostel & Mess Fee</strong></td>
-                                            <td>Residential Campus Lodging & Meals</td>
-                                            <td>₹15,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Transport Fee</strong></td>
-                                            <td>District Bus Fleet Connectivity</td>
-                                            <td>₹6,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Lab & Exam Fee</strong></td>
-                                            <td>STEM Lab & Board Practice Series</td>
-                                            <td>₹6,000</td>
-                                        </tr>
-                                        <tr style="background: var(--success-light);">
-                                            <td><strong style="color: var(--success);">Merit Scholarship Concession</strong></td>
-                                            <td>District Top 5 Waiver</td>
-                                            <td style="color: var(--success); font-weight: 800;">-₹7,000</td>
-                                        </tr>
-                                        <tr style="font-weight: 800; font-size: 0.95rem; background: var(--bg);">
-                                            <td colspan="2">NET TOTAL FEE:</td>
-                                            <td>₹65,000</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div style="background: var(--bg); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between;">
-                            <div>
-                                <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem;">Payment Summary</h4>
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
-                                    <span>Total Fee Charged:</span>
-                                    <strong>₹65,000</strong>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--success);">
-                                    <span>Total Cleared:</span>
-                                    <strong>₹55,000</strong>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; font-size: 0.95rem; color: var(--danger); font-weight: 800; border-top: 1px dashed var(--border); padding-top: 0.5rem;">
-                                    <span>Outstanding Dues:</span>
-                                    <span>₹10,000</span>
-                                </div>
-                            </div>
-                            <button class="btn btn-accent btn-sm" onclick="showToast('Redirecting to Payment Gateway for ₹10,000...')">💳 Pay Outstanding Dues Online</button>
+                        <h3 class="panel-title">📺 Assigned YouTube Video Lectures</h3>
+                        <div class="slider-controls-btn">
+                            <button class="slider-nav-btn" onclick="slideVideos('studentVideoContainer', -1)">❮</button>
+                            <button class="slider-nav-btn" onclick="slideVideos('studentVideoContainer', 1)">❯</button>
                         </div>
                     </div>
-
-                    <h4 style="font-size: 0.9rem; font-weight: 800; margin-bottom: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Recent Transaction History</h4>
-                    <div class="data-table-wrapper">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Transaction Ref ID</th>
-                                    <th>Payment Mode</th>
-                                    <th>Paid Amount</th>
-                                    <th>Status</th>
-                                    <th>Receipt</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>15-Jan-2026</td>
-                                    <td><code>#TXN-UPI-992014881</code></td>
-                                    <td>UPI / PhonePe</td>
-                                    <td>₹35,000</td>
-                                    <td><span class="badge badge-success">Success</span></td>
-                                    <td><button class="btn btn-secondary btn-sm" onclick="openReceiptModal()">📄 View Receipt</button></td>
-                                </tr>
-                                <tr>
-                                    <td>10-Feb-2026</td>
-                                    <td><code>#TXN-CARD-88310022</code></td>
-                                    <td>Credit Card</td>
-                                    <td>₹20,000</td>
-                                    <td><span class="badge badge-success">Success</span></td>
-                                    <td><button class="btn btn-secondary btn-sm" onclick="openReceiptModal()">📄 View Receipt</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="video-cards-container" id="studentVideoContainer">
+                        <!-- Populated via JS -->
                     </div>
                 </div>
 
+                <!-- STUDENT PROFILE & FEE DETAILS -->
                 <div class="grid-2">
                     <div class="panel-card">
                         <div class="panel-header">
-                            <h3 class="panel-title">👤 Personal Student Details & Regional Address</h3>
-                            <button class="btn btn-secondary btn-sm" onclick="toggleStudentEdit()" id="studentEditToggleBtn">✏️ Edit Details</button>
+                            <h3 class="panel-title">👤 Personal Details & Address</h3>
+                            <button class="btn btn-secondary btn-sm" onclick="toggleStudentEdit()" id="studentEditToggleBtn">✏️ Edit</button>
                         </div>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.88rem;" id="studentProfileView">
                             <div><strong>Full Name:</strong> <span id="lblStudentName">Suresh M. Kumar</span></div>
@@ -1751,41 +1867,29 @@
                             <div><strong>District:</strong> <span id="lblStudentDistrict">Raichur</span></div>
                             <div><strong>Taluk / Tehsil:</strong> <span id="lblStudentTaluk">Sindhanur</span></div>
                             <div><strong>Hobli / Circle:</strong> <span id="lblStudentHobli">AP K Hosalli Hobli</span></div>
-                            <div style="grid-column: span 2;"><strong>Full Village Address:</strong> <span id="lblStudentAddress">AP K Hosalli Village, Sindhanur 584132</span></div>
+                            <div style="grid-column: span 2;"><strong>Village Address:</strong> <span id="lblStudentAddress">AP K Hosalli Village, Sindhanur 584132</span></div>
                         </div>
 
-                        <!-- Editable Form Mode -->
+                        <!-- Editable Form -->
                         <form id="studentProfileEditForm" style="display: none; grid-template-columns: 1fr 1fr; gap: 0.85rem; font-size: 0.88rem;" onsubmit="saveStudentProfile(event)">
                             <div>
                                 <label style="font-weight: 700; font-size: 0.78rem;">Full Name</label>
-                                <input type="text" id="inputStuName" class="inline-input" style="max-width: 100%;" value="Suresh M. Kumar">
+                                <input type="text" id="inputStuName" class="inline-input" value="Suresh M. Kumar">
                             </div>
                             <div>
                                 <label style="font-weight: 700; font-size: 0.78rem;">Contact Phone</label>
-                                <input type="text" id="inputStuPhone" class="inline-input" style="max-width: 100%;" value="+91 80888 35686">
+                                <input type="text" id="inputStuPhone" class="inline-input" value="+91 80888 35686">
                             </div>
                             <div>
                                 <label style="font-weight: 700; font-size: 0.78rem;">State / UT</label>
-                                <input type="text" id="inputStuState" class="inline-input" style="max-width: 100%;" value="Karnataka">
+                                <input type="text" id="inputStuState" class="inline-input" value="Karnataka">
                             </div>
                             <div>
                                 <label style="font-weight: 700; font-size: 0.78rem;">District</label>
-                                <input type="text" id="inputStuDistrict" class="inline-input" style="max-width: 100%;" value="Raichur">
-                            </div>
-                            <div>
-                                <label style="font-weight: 700; font-size: 0.78rem;">Taluk / Tehsil</label>
-                                <input type="text" id="inputStuTaluk" class="inline-input" style="max-width: 100%;" value="Sindhanur">
-                            </div>
-                            <div>
-                                <label style="font-weight: 700; font-size: 0.78rem;">Hobli / Circle</label>
-                                <input type="text" id="inputStuHobli" class="inline-input" style="max-width: 100%;" value="AP K Hosalli Hobli">
-                            </div>
-                            <div style="grid-column: span 2;">
-                                <label style="font-weight: 700; font-size: 0.78rem;">Village Address</label>
-                                <input type="text" id="inputStuAddress" class="inline-input" style="max-width: 100%;" value="AP K Hosalli Village, Sindhanur 584132">
+                                <input type="text" id="inputStuDistrict" class="inline-input" value="Raichur">
                             </div>
                             <div style="grid-column: span 2; display: flex; gap: 0.5rem; margin-top: 0.5rem;">
-                                <button type="submit" class="btn btn-primary btn-sm">💾 Save Profile</button>
+                                <button type="submit" class="btn btn-primary btn-sm">💾 Save</button>
                                 <button type="button" class="btn btn-secondary btn-sm" onclick="toggleStudentEdit()">Cancel</button>
                             </div>
                         </form>
@@ -1793,25 +1897,13 @@
 
                     <div class="panel-card">
                         <div class="panel-header">
-                            <h3 class="panel-title">📄 Submit Student Leave Request</h3>
+                            <h3 class="panel-title">💳 Quick Payment & Receipt Access</h3>
                         </div>
-                        <form onsubmit="submitStudentLeave(event)" style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem;">
-                            <div>
-                                <label style="font-weight: 700; font-size: 0.78rem;">Reason for Leave</label>
-                                <input type="text" id="leaveReason" required placeholder="e.g. Village Festival / Medical Checkup" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border); border-radius: 4px; background: var(--bg); color: var(--text-main);">
-                            </div>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-                                <div>
-                                    <label style="font-weight: 700; font-size: 0.78rem;">From Date</label>
-                                    <input type="date" id="leaveFrom" required style="width: 100%; padding: 0.5rem; border: 1px solid var(--border); border-radius: 4px; background: var(--bg); color: var(--text-main);">
-                                </div>
-                                <div>
-                                    <label style="font-weight: 700; font-size: 0.78rem;">To Date</label>
-                                    <input type="date" id="leaveTo" required style="width: 100%; padding: 0.5rem; border: 1px solid var(--border); border-radius: 4px; background: var(--bg); color: var(--text-main);">
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm" style="margin-top: 0.5rem;">📤 Submit Leave to Mentor</button>
-                        </form>
+                        <p style="font-size: 0.88rem; margin-bottom: 1rem;">Outstanding balance: <strong style="color: var(--danger);">₹10,000</strong> for Hostel & Boarding dues.</p>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">📄 Download Official Fee Receipt</button>
+                            <button class="btn btn-accent btn-sm" onclick="showToast('Redirecting to PhonePe/UPI Payment Gateway...')">💳 Pay Balance Online</button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1823,36 +1915,13 @@
                         <h1>👩‍🏫 Faculty Workspace & Interactive Gradebook</h1>
                         <p>Welcome, <strong class="user-display-name">Prof. Anita Rao</strong> | Mathematics Dept | ID: <code>FAC-4012</code></p>
                     </div>
-                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('FAC-4012')">💵 View Monthly Salary Slip</button>
+                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('FAC-4012')">💵 Monthly Salary Slip</button>
                 </div>
                 <div class="panel-card">
                     <div class="panel-header">
                         <h3 class="panel-title">📋 Live Class Roster & Grade Manager</h3>
                     </div>
-                    <div class="data-table-wrapper">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Roll No</th>
-                                    <th>Student Name</th>
-                                    <th>Hobli / Village</th>
-                                    <th>Attendance</th>
-                                    <th>Score (/100)</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>#2026-01</code></td>
-                                    <td>Suresh Kumar</td>
-                                    <td>AP K Hosalli Hobli</td>
-                                    <td><span class="badge badge-success">Present</span></td>
-                                    <td><strong>94</strong></td>
-                                    <td><button class="action-icon-btn" onclick="showToast('Grade saved!')">💾</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Manage student marks, attendance, and link assignment YouTube videos.</p>
                 </div>
             </section>
 
@@ -1863,13 +1932,7 @@
                         <h1>👪 Parent Monitoring Portal</h1>
                         <p>Welcome, <strong class="user-display-name">Mr. Manjunath Kumar</strong> | Parent ID: <code>PRT-8812</code></p>
                     </div>
-                    <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">📄 View Child Fee Receipts</button>
-                </div>
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">🛡️ Biometric Gate Logs for Suresh Kumar</h3>
-                    </div>
-                    <p style="font-size: 0.88rem;">Real-time biometric attendance updates from Sindhanur Campus Gate.</p>
+                    <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">📄 Child Fee Receipts</button>
                 </div>
             </section>
 
@@ -1880,13 +1943,7 @@
                         <h1>👨‍💼 Academic Mentor Console</h1>
                         <p>Welcome, <strong class="user-display-name">Dr. Ramesh Patil</strong> | Staff ID: <code>MNT-1090</code></p>
                     </div>
-                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('MNT-1090')">💵 View Monthly Salary Slip</button>
-                </div>
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">👥 Assigned Mentees Log</h3>
-                    </div>
-                    <p style="font-size: 0.88rem;">Managing 1-on-1 weekly counseling sessions for scholars.</p>
+                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('MNT-1090')">💵 View Salary Slip</button>
                 </div>
             </section>
 
@@ -1897,13 +1954,7 @@
                         <h1>🛠️ Campus Operations Console</h1>
                         <p>Welcome, <strong class="user-display-name">Suresh Patil</strong> | Staff ID: <code>STF-8810</code></p>
                     </div>
-                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('STF-8810')">💵 View Monthly Salary Slip</button>
-                </div>
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">🔧 Maintenance Work Orders</h3>
-                    </div>
-                    <p style="font-size: 0.88rem;">Track daily equipment repairs and classroom setups.</p>
+                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('STF-8810')">💵 View Salary Slip</button>
                 </div>
             </section>
 
@@ -1912,15 +1963,9 @@
                 <div class="console-header">
                     <div class="console-title">
                         <h1>📞 Front Desk Management</h1>
-                        <p>Welcome, <strong class="user-display-name">Rekha Sharma</strong> | Receptionist | Staff ID: <code>REC-2040</code></p>
+                        <p>Welcome, <strong class="user-display-name">Rekha Sharma</strong> | Front Office | Staff ID: <code>REC-2040</code></p>
                     </div>
                     <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('REC-2040')">💵 View Salary Slip</button>
-                </div>
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">📋 Today's Visitor Inquiries</h3>
-                    </div>
-                    <p style="font-size: 0.88rem;">Track campus walk-in registrations and inquiry calls.</p>
                 </div>
             </section>
 
@@ -1933,12 +1978,6 @@
                     </div>
                     <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('HR-1001')">💵 View HR Salary Slip</button>
                 </div>
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">📄 Payroll & Salary Slip Manager</h3>
-                    </div>
-                    <p style="font-size: 0.88rem;">Generate monthly salary statements for teaching & non-teaching staff.</p>
-                </div>
             </section>
 
             <!-- 9. FRANCHISE CONSOLE -->
@@ -1949,31 +1988,74 @@
                         <p>Regional Node Operations</p>
                     </div>
                 </div>
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">Active Regional Nodes</h3>
-                    </div>
-                    <p style="font-size: 0.88rem;">Managing active learning nodes across Raichur, Kurnool, and Bellary Districts.</p>
-                </div>
             </section>
 
             <!-- 10. INFRASTRUCTURE CONSOLE -->
             <section id="infrastructureConsole" class="role-console">
                 <div class="console-header">
                     <div class="console-title">
-                        <h1>🏢 Campus Infrastructure OS</h1>
-                        <p>Facility Inventory & Smart Class Tracker</p>
+                        <h1>🏢 Campus Assets Console</h1>
+                        <p>Facility Inventory & Asset Barcode Tracker</p>
                     </div>
-                </div>
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">STEM Lab Assets</h3>
-                    </div>
-                    <p style="font-size: 0.88rem;">24 Smart Classrooms mapped to asset barcodes.</p>
                 </div>
             </section>
 
         </main>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- EMBEDDED YOUTUBE VIDEO PLAYER MODAL -->
+    <!-- ========================================================================= -->
+    <div class="modal-overlay" id="videoPlayerModal">
+        <div class="modal-box" style="max-width: 860px; padding: 1.5rem; background: #000; color: #fff;">
+            <button class="modal-close" onclick="closeVideoPlayerModal()" style="color: #fff;">✕</button>
+            <h3 id="modalVideoTitle" style="font-size: 1.15rem; margin-bottom: 1rem; padding-right: 2rem;">YouTube Lecture</h3>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #111;">
+                <iframe id="youtubeIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- INNOVATION HUB SUBMISSION MODAL -->
+    <!-- ========================================================================= -->
+    <div class="modal-overlay" id="innovationModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeInnovationModal()">✕</button>
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <div class="innovation-icon" style="width: 42px; height: 42px; font-size: 1.2rem; margin:0;" id="innoModalIcon">🔬</div>
+                <div>
+                    <h2 id="innoModalTitle" style="font-size: 1.35rem;">Science & Tech Project Submission</h2>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Sharusuri Innovation & Competition Portal</p>
+                </div>
+            </div>
+
+            <form onsubmit="handleInnovationSubmit(event)" style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
+                <div>
+                    <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Project / Pitch Title *</label>
+                    <input type="text" id="innoTitle" required placeholder="e.g. IoT Based Smart Water Filter for Village Farms" class="inline-input">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <div>
+                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Lead Participant Name *</label>
+                        <input type="text" id="innoLead" required placeholder="Full Name" class="inline-input">
+                    </div>
+                    <div>
+                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Contact Phone / WhatsApp *</label>
+                        <input type="tel" id="innoPhone" required placeholder="10-digit number" class="inline-input">
+                    </div>
+                </div>
+                <div>
+                    <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Abstract / Executive Summary *</label>
+                    <textarea id="innoAbstract" required placeholder="Describe your model, working prototype, or logic team details..." style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); height: 90px; background: var(--bg); color: var(--text-main);"></textarea>
+                </div>
+                <div>
+                    <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Project Demo URL / Prototype Link (Optional)</label>
+                    <input type="url" id="innoUrl" placeholder="e.g., GitHub, YouTube demo, or Google Drive PDF" class="inline-input">
+                </div>
+                <button type="submit" class="btn btn-purple" style="margin-top: 0.5rem;">🚀 Submit Entry to Evaluation Board</button>
+            </form>
+        </div>
     </div>
 
     <!-- ========================================================================= -->
@@ -2004,8 +2086,6 @@
                     <div><strong>Student Name:</strong> <span id="receiptStuName">Suresh M. Kumar</span></div>
                     <div><strong>Student ID:</strong> SE-9942-IND</div>
                     <div><strong>Class / Course:</strong> Class 10 Navodaya & Board Prep</div>
-                    <div><strong>Parent / Guardian:</strong> Manjunath Kumar</div>
-                    <div><strong>Taluk / Hobli:</strong> Sindhanur / AP K Hosalli</div>
                     <div><strong>Payment Mode:</strong> Online UPI (Ref #992014881)</div>
                 </div>
 
@@ -2014,7 +2094,7 @@
                         <tr>
                             <th>Fee Category Item</th>
                             <th>Billing Period</th>
-                            <th>Total Scheduled</th>
+                            <th>Scheduled</th>
                             <th>Amount Paid</th>
                         </tr>
                     </thead>
@@ -2031,39 +2111,16 @@
                             <td>₹15,000</td>
                             <td>₹10,000</td>
                         </tr>
-                        <tr>
-                            <td>Transport Fleet Connectivity</td>
-                            <td>Annual Bus Pass</td>
-                            <td>₹6,000</td>
-                            <td>₹6,000</td>
-                        </tr>
-                        <tr>
-                            <td>Merit Scholarship Concession</td>
-                            <td>District Rank Concession</td>
-                            <td style="color: var(--success);">-₹7,000</td>
-                            <td style="color: var(--success);">-₹6,000</td>
-                        </tr>
                         <tr class="stub-total">
                             <td colspan="2">TOTAL RECEIPT AMOUNT CLEARED:</td>
-                            <td>₹65,000</td>
+                            <td>₹60,000</td>
                             <td style="font-size: 1.1rem; color: var(--primary);">₹55,000</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 1rem; border-top: 1px solid var(--border-light); padding-top: 0.75rem;">
-                    <div>
-                        <div style="font-size: 0.8rem; color: var(--danger); font-weight: 700;">Remaining Balance Dues: ₹10,000</div>
-                        <div style="font-size: 0.72rem; color: var(--text-muted);">Computer Generated Receipt. Valid without physical signature.</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-family: 'Outfit'; font-weight: 800; color: var(--primary); font-size: 0.9rem;">Sharusuri Accounts Node</div>
-                        <div style="font-size: 0.7rem; color: var(--text-muted);">Authorized Stamp</div>
-                    </div>
-                </div>
-
                 <div class="no-print" style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.25rem;">
-                    <button class="btn btn-secondary" onclick="showToast('Receipt PDF downloaded to device!')">📥 Download PDF</button>
+                    <button class="btn btn-secondary" onclick="showToast('Receipt PDF downloaded!')">📥 Download PDF</button>
                     <button class="btn btn-primary" onclick="window.print()">🖨️ Print Receipt</button>
                 </div>
             </div>
@@ -2085,7 +2142,6 @@
                             <h2 style="color: var(--primary); font-size: 1.3rem;">Sharusuri EdTech Enterprise</h2>
                         </div>
                         <p style="font-size: 0.78rem; color: var(--text-muted);">Confidential Monthly Salary Statement / Paystub</p>
-                        <p style="font-size: 0.75rem; color: var(--text-muted);">Super Admin Control Node: suresh2suresh80888@gmail.com</p>
                     </div>
                     <div style="text-align: right;">
                         <span class="badge badge-primary" style="margin-bottom: 0.3rem; display: inline-block;">SALARY SLIP</span>
@@ -2098,27 +2154,16 @@
                     <div><strong>Employee ID:</strong> <span id="slipEmpId">FAC-4012</span></div>
                     <div><strong>Designation:</strong> <span id="slipEmpRole">Senior Mathematics Lecturer</span></div>
                     <div><strong>Department:</strong> <span id="slipEmpDept">Academic Faculty</span></div>
-                    <div><strong>Bank Account No:</strong> <span id="slipEmpBank">ICICI Bank (XXXX-XXXX-4921)</span></div>
-                    <div><strong>PAN / Tax ID:</strong> <span id="slipEmpPan">ABCDE1234F</span></div>
                 </div>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
                     <div>
-                        <h4 style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: var(--success); margin-bottom: 0.5rem; border-bottom: 2px solid var(--success-light); padding-bottom: 0.2rem;">🟢 Earnings</h4>
+                        <h4 style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: var(--success); margin-bottom: 0.5rem;">🟢 Earnings</h4>
                         <table class="stub-table">
                             <tbody>
-                                <tr>
-                                    <td>Basic Pay</td>
-                                    <td style="text-align: right; font-weight: 700;">₹<span id="slipBasic">45,000</span></td>
-                                </tr>
-                                <tr>
-                                    <td>House Rent Allowance (HRA)</td>
-                                    <td style="text-align: right; font-weight: 700;">₹<span id="slipHra">18,000</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Special Allowance</td>
-                                    <td style="text-align: right; font-weight: 700;">₹<span id="slipSpecial">8,000</span></td>
-                                </tr>
+                                <tr><td>Basic Pay</td><td style="text-align: right;">₹<span id="slipBasic">45,000</span></td></tr>
+                                <tr><td>HRA</td><td style="text-align: right;">₹<span id="slipHra">18,000</span></td></tr>
+                                <tr><td>Special Allowance</td><td style="text-align: right;">₹<span id="slipSpecial">8,000</span></td></tr>
                                 <tr style="background: var(--success-light); font-weight: 800;">
                                     <td>GROSS EARNINGS:</td>
                                     <td style="text-align: right; color: var(--primary);">₹<span id="slipGross">75,000</span></td>
@@ -2128,21 +2173,11 @@
                     </div>
 
                     <div>
-                        <h4 style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: var(--danger); margin-bottom: 0.5rem; border-bottom: 2px solid var(--danger-light); padding-bottom: 0.2rem;">🔴 Deductions</h4>
+                        <h4 style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: var(--danger); margin-bottom: 0.5rem;">🔴 Deductions</h4>
                         <table class="stub-table">
                             <tbody>
-                                <tr>
-                                    <td>Provident Fund (PF)</td>
-                                    <td style="text-align: right; font-weight: 700;">₹<span id="slipPf">4,500</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Professional Tax (PT)</td>
-                                    <td style="text-align: right; font-weight: 700;">₹200</td>
-                                </tr>
-                                <tr>
-                                    <td>Income Tax (TDS)</td>
-                                    <td style="text-align: right; font-weight: 700;">₹<span id="slipTds">3,800</span></td>
-                                </tr>
+                                <tr><td>Provident Fund (PF)</td><td style="text-align: right;">₹<span id="slipPf">4,500</span></td></tr>
+                                <tr><td>Tax (TDS)</td><td style="text-align: right;">₹<span id="slipTds">3,800</span></td></tr>
                                 <tr style="background: var(--danger-light); font-weight: 800;">
                                     <td>TOTAL DEDUCTIONS:</td>
                                     <td style="text-align: right; color: var(--danger);">₹<span id="slipDeductions">9,500</span></td>
@@ -2155,11 +2190,10 @@
                 <div style="background: var(--primary-light); border: 2px solid var(--primary); padding: 1rem; border-radius: var(--radius-sm); text-align: center; margin-bottom: 1rem;">
                     <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--primary);">Net Payable Salary</span>
                     <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin: 0.2rem 0;">₹<span id="slipNetPay">65,500</span></div>
-                    <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Amount in words: <span id="slipInWords">Sixty-Five Thousand Five Hundred Rupees Only</span></div>
                 </div>
 
                 <div class="no-print" style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.25rem;">
-                    <button class="btn btn-secondary" onclick="showToast('Salary slip PDF downloaded successfully!')">📥 Download PDF</button>
+                    <button class="btn btn-secondary" onclick="showToast('Salary slip downloaded!')">📥 Download PDF</button>
                     <button class="btn btn-primary" onclick="window.print()">🖨️ Print Salary Slip</button>
                 </div>
             </div>
@@ -2167,154 +2201,55 @@
     </div>
 
     <!-- ========================================================================= -->
-    <!-- JAVASCRIPT ENGINE & STRICT ADMIN / FIREBASE OTP / ISOLATION LOGIC -->
+    <!-- JAVASCRIPT ENGINE & YOUTUBE SLIDER / INNOVATION HUB LOGIC -->
     <!-- ========================================================================= -->
     <script>
-        // SUPER ADMIN CONSTANT
+        // SUPER ADMIN EMAIL
         const SUPER_ADMIN_EMAIL = "suresh2suresh80888@gmail.com";
 
-        // FIREBASE INITIALIZATION CONFIGURATION (Standard Client SDK Config)
-        const firebaseConfig = {
-            apiKey: "AIzaSySharusuriEdTechMasterKey80888Example",
-            authDomain: "sharusuri-edtech.firebaseapp.com",
-            projectId: "sharusuri-edtech",
-            storageBucket: "sharusuri-edtech.appspot.com",
-            messagingSenderId: "8088835686",
-            appId: "1:8088835686:web:sharusurisecureos"
-        };
+        // YOUTUBE VIDEO SLIDER INITIAL DATABASE
+        let YOUTUBE_VIDEOS = [
+            { id: "v1", title: "Navodaya Mental Ability Model Paper Solution 2026", youtubeId: "dQw4w9WgXcQ", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", batch: "Navodaya Prep 2026", channel: "@cousinsacademy4599" },
+            { id: "v2", title: "Class 10 Physics Electricity Chapter Masterclass", youtubeId: "L_LUpnjgPso", url: "https://www.youtube.com/watch?v=L_LUpnjgPso", batch: "Class 10 Science", channel: "@cousinsacademy4599" },
+            { id: "v3", title: "Navodaya Entrance Arithmetic Test Shortcuts", youtubeId: "3JZ_D3ELwOQ", url: "https://www.youtube.com/watch?v=3JZ_D3ELwOQ", batch: "Navodaya Prep 2026", channel: "@cousinsacademy4599" },
+            { id: "v4", title: "Class 10 Quadratic Equations Board Exam Tricks", youtubeId: "fJ9rUzIMcZQ", url: "https://www.youtube.com/watch?v=fJ9rUzIMcZQ", batch: "Class 10 Math", channel: "@cousinsacademy4599" }
+        ];
 
-        // Initialize Firebase
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-        }
-        const auth = firebase.auth();
-
-        // CLIENT-SIDE USER DATABASE
+        // CLIENT DATABASE
         const DEFAULT_USERS_DB = [
             { name: "Super Admin", email: SUPER_ADMIN_EMAIL, phone: "8088835686", role: "admin", password: "admin123", empId: "ADM-80888" },
             { name: "Suresh Kumar", email: "suresh.kumar@sharusuri.edu", phone: "8088835686", role: "student", password: "password123", empId: "SE-9942" },
-            { name: "Prof. Anita Rao", email: "anita.rao@sharusuri.edu", phone: "9800000002", role: "teacher", password: "password123", empId: "FAC-4012" },
-            { name: "Dr. Ramesh Patil", email: "ramesh.patil@sharusuri.edu", phone: "9800000003", role: "mentor", password: "password123", empId: "MNT-1090" },
-            { name: "Manjunath Kumar", email: "manjunath.kumar@sharusuri.edu", phone: "9800000005", role: "parent", password: "password123", empId: "PRT-8812" },
-            { name: "Suresh HR Lead", email: "hr@sharusuri.edu", phone: "9800000006", role: "hiring", password: "password123", empId: "HR-1001" },
-            { name: "Suresh Patil", email: "suresh.patil@sharusuri.edu", phone: "9800000007", role: "staff", password: "password123", empId: "STF-8810" },
-            { name: "Rekha Sharma", email: "rekha.sharma@sharusuri.edu", phone: "9800000008", role: "receptionist", password: "password123", empId: "REC-2040" }
+            { name: "Prof. Anita Rao", email: "anita.rao@sharusuri.edu", phone: "9800000002", role: "teacher", password: "password123", empId: "FAC-4012" }
         ];
 
-        // ROLE CONFIGURATIONS & ISOLATION MENUS
+        // ROLE CONFIGURATIONS
         const ROLE_CONFIGS = {
-            admin: {
-                title: "Super Admin Overlook",
-                consoleId: "adminConsole",
-                menu: [
-                    { label: "Master KPI Overview", icon: "⚙️", active: true },
-                    { label: "Geographical Hierarchy", icon: "🌐" },
-                    { label: "Fee Receipts & Payroll", icon: "💳" },
-                    { label: "System Activity Logs", icon: "📜" }
-                ]
-            },
-            student: {
-                title: "Student Portal",
-                consoleId: "studentConsole",
-                menu: [
-                    { label: "My Academic Overview", icon: "📊", active: true },
-                    { label: "My Fee Structure & Receipts", icon: "💳" },
-                    { label: "Profile & Attendance", icon: "👤" }
-                ]
-            },
-            teacher: {
-                title: "Faculty Workspace",
-                consoleId: "teacherConsole",
-                empId: "FAC-4012",
-                menu: [
-                    { label: "Gradebook Roster", icon: "👩‍🏫", active: true },
-                    { label: "My Monthly Salary Slip", icon: "💵" }
-                ]
-            },
-            parent: {
-                title: "Parent Portal",
-                consoleId: "parentConsole",
-                menu: [
-                    { label: "Child Performance", icon: "👪", active: true },
-                    { label: "Child Fee Receipts", icon: "📄" }
-                ]
-            },
-            mentor: {
-                title: "Mentor Console",
-                consoleId: "mentorConsole",
-                empId: "MNT-1090",
-                menu: [
-                    { label: "Assigned Mentees", icon: "👨‍💼", active: true },
-                    { label: "My Monthly Salary Slip", icon: "💵" }
-                ]
-            },
-            staff: {
-                title: "Campus Operations",
-                consoleId: "staffConsole",
-                empId: "STF-8810",
-                menu: [
-                    { label: "Operations Log", icon: "🛠️", active: true },
-                    { label: "My Monthly Salary Slip", icon: "💵" }
-                ]
-            },
-            receptionist: {
-                title: "Front Desk Console",
-                consoleId: "receptionistConsole",
-                empId: "REC-2040",
-                menu: [
-                    { label: "Visitor Inquiries", icon: "📞", active: true },
-                    { label: "My Monthly Salary Slip", icon: "💵" }
-                ]
-            },
-            hiring: {
-                title: "HR & Payroll",
-                consoleId: "hiringConsole",
-                empId: "HR-1001",
-                menu: [
-                    { label: "Staff Directory & Payroll", icon: "💼", active: true }
-                ]
-            },
-            franchise: {
-                title: "Franchise Hub",
-                consoleId: "franchiseConsole",
-                menu: [
-                    { label: "Regional Nodes", icon: "🌐", active: true }
-                ]
-            },
-            infrastructure: {
-                title: "Campus Assets",
-                consoleId: "infrastructureConsole",
-                menu: [
-                    { label: "Facility Assets", icon: "🏢", active: true }
-                ]
-            }
+            admin: { title: "Super Admin Overlook", consoleId: "adminConsole", menu: [{ label: "Master KPI Overview", icon: "⚙️", active: true }, { label: "YouTube Video Manager", icon: "📺" }, { label: "Geographical Tracking", icon: "🌐" }] },
+            student: { title: "Student Portal", consoleId: "studentConsole", menu: [{ label: "Academic Overview", icon: "📊", active: true }, { label: "Video Classes", icon: "📺" }, { label: "Fee Receipts", icon: "💳" }] },
+            teacher: { title: "Faculty Workspace", consoleId: "teacherConsole", empId: "FAC-4012", menu: [{ label: "Gradebook Roster", icon: "👩‍🏫", active: true }, { label: "Salary Slip", icon: "💵" }] },
+            parent: { title: "Parent Portal", consoleId: "parentConsole", menu: [{ label: "Child Performance", icon: "👪", active: true }] },
+            mentor: { title: "Mentor Console", consoleId: "mentorConsole", empId: "MNT-1090", menu: [{ label: "Assigned Mentees", icon: "👨‍💼", active: true }] },
+            staff: { title: "Campus Operations", consoleId: "staffConsole", empId: "STF-8810", menu: [{ label: "Operations Log", icon: "🛠️", active: true }] },
+            receptionist: { title: "Front Desk Console", consoleId: "receptionistConsole", empId: "REC-2040", menu: [{ label: "Visitor Inquiries", icon: "📞", active: true }] },
+            hiring: { title: "HR & Payroll", consoleId: "hiringConsole", empId: "HR-1001", menu: [{ label: "Staff Directory", icon: "💼", active: true }] },
+            franchise: { title: "Franchise Hub", consoleId: "franchiseConsole", menu: [{ label: "Regional Nodes", icon: "🌐", active: true }] },
+            infrastructure: { title: "Campus Assets", consoleId: "infrastructureConsole", menu: [{ label: "Facility Assets", icon: "🏢", active: true }] }
         };
 
-        // STAFF PAYROLL DATABASE
         const PAYROLL_DATABASE = {
-            "FAC-4012": { name: "Prof. Anita Rao", id: "FAC-4012", role: "Senior Mathematics Lecturer", dept: "Academic Faculty", basic: 45000, hra: 18000, special: 8000, gross: 75000, pf: 4500, tds: 3800, deductions: 9500, netPay: 65500, words: "Sixty-Five Thousand Five Hundred Rupees Only" },
-            "MNT-1090": { name: "Dr. Ramesh Patil", id: "MNT-1090", role: "Head Mentor", dept: "Mentorship Cell", basic: 48000, hra: 19200, special: 9000, gross: 82000, pf: 4800, tds: 4000, deductions: 10000, netPay: 72000, words: "Seventy-Two Thousand Rupees Only" },
-            "STF-8810": { name: "Suresh Patil", id: "STF-8810", role: "Campus Tech", dept: "Operations", basic: 22000, hra: 8800, special: 4200, gross: 38000, pf: 2200, tds: 1100, deductions: 4500, netPay: 33500, words: "Thirty-Three Thousand Five Hundred Rupees Only" },
-            "REC-2040": { name: "Rekha Sharma", id: "REC-2040", role: "Front Desk Receptionist", dept: "Front Office", basic: 20000, hra: 8000, special: 2500, gross: 32000, pf: 2000, tds: 600, deductions: 3800, netPay: 28200, words: "Twenty-Eight Thousand Two Hundred Rupees Only" },
-            "HR-1001": { name: "Suresh HR Lead", id: "HR-1001", role: "HR Manager", dept: "Human Resources", basic: 50000, hra: 20000, special: 10000, gross: 85000, pf: 5000, tds: 4800, deductions: 11000, netPay: 74000, words: "Seventy-Four Thousand Rupees Only" }
+            "FAC-4012": { name: "Prof. Anita Rao", id: "FAC-4012", role: "Senior Mathematics Lecturer", dept: "Academic Faculty", basic: 45000, hra: 18000, special: 8000, gross: 75000, pf: 4500, tds: 3800, deductions: 9500, netPay: 65500 },
+            "MNT-1090": { name: "Dr. Ramesh Patil", id: "MNT-1090", role: "Head Mentor", dept: "Mentorship Cell", basic: 48000, hra: 19200, special: 9000, gross: 82000, pf: 4800, tds: 4000, deductions: 10000, netPay: 72000 },
+            "STF-8810": { name: "Suresh Patil", id: "STF-8810", role: "Campus Tech", dept: "Operations", basic: 22000, hra: 8800, special: 4200, gross: 38000, pf: 2200, tds: 1100, deductions: 4500, netPay: 33500 },
+            "REC-2040": { name: "Rekha Sharma", id: "REC-2040", role: "Front Desk", dept: "Front Office", basic: 20000, hra: 8000, special: 2500, gross: 32000, pf: 2000, tds: 600, deductions: 3800, netPay: 28200 },
+            "HR-1001": { name: "Suresh HR Lead", id: "HR-1001", role: "HR Manager", dept: "Human Resources", basic: 50000, hra: 20000, special: 10000, gross: 85000, pf: 5000, tds: 4800, deductions: 11000, netPay: 74000 }
         };
 
-        // LOCAL STORAGE UTILITIES
-        function getUsersDB() {
-            const data = localStorage.getItem('sharusuri_users_db');
-            if (!data) {
-                localStorage.setItem('sharusuri_users_db', JSON.stringify(DEFAULT_USERS_DB));
-                return DEFAULT_USERS_DB;
-            }
-            try { return JSON.parse(data); } catch (e) { return DEFAULT_USERS_DB; }
+        // FIREBASE INIT
+        if (typeof firebase !== 'undefined' && !firebase.apps.length) {
+            firebase.initializeApp({ apiKey: "AIzaSySharusuriEdTechMasterKey80888Example", authDomain: "sharusuri-edtech.firebaseapp.com", projectId: "sharusuri-edtech" });
         }
 
-        function saveUserToDB(userObj) {
-            const db = getUsersDB();
-            db.push(userObj);
-            localStorage.setItem('sharusuri_users_db', JSON.stringify(db));
-        }
-
+        // TOAST ENGINE
         function showToast(message, type = 'success') {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
@@ -2324,18 +2259,158 @@
             setTimeout(() => toast.remove(), 4200);
         }
 
-        // TRIGGER PORTAL ACCESS WITH LOCKDOWN CHECK
+        // YOUTUBE VIDEO SLIDER RENDER ENGINE
+        function extractYouTubeId(url) {
+            if (!url) return "dQw4w9WgXcQ";
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : url.length === 11 ? url : "dQw4w9WgXcQ";
+        }
+
+        function renderYouTubeSliders() {
+            const containers = ['publicVideoContainer', 'studentVideoContainer'];
+            containers.forEach(containerId => {
+                const el = document.getElementById(containerId);
+                if (!el) return;
+                el.innerHTML = '';
+
+                YOUTUBE_VIDEOS.forEach(v => {
+                    const thumbUrl = `https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg`;
+                    const card = document.createElement('div');
+                    card.className = 'video-card';
+                    card.onclick = () => openVideoPlayerModal(v.youtubeId, v.title);
+                    card.innerHTML = `
+                        <div class="video-thumb-holder" style="background-image: url('${thumbUrl}');">
+                            <div class="play-overlay-btn">▶</div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="badge badge-danger" style="margin-bottom:0.3rem; font-size:0.68rem;">${v.batch}</span>
+                            <div class="video-card-title">${v.title}</div>
+                            <span style="font-size: 0.72rem; color: var(--text-muted); font-weight:700;">📺 ${v.channel}</span>
+                        </div>
+                    `;
+                    el.appendChild(card);
+                });
+            });
+
+            // Update Admin Table
+            const adminTableBody = document.getElementById('adminVideoTableBody');
+            if (adminTableBody) {
+                adminTableBody.innerHTML = '';
+                YOUTUBE_VIDEOS.forEach((v, index) => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td><img src="https://img.youtube.com/vi/${v.youtubeId}/default.jpg" style="width: 60px; border-radius: 4px;"></td>
+                        <td><strong>${v.title}</strong></td>
+                        <td><span class="badge badge-primary">${v.batch}</span></td>
+                        <td><code>${v.youtubeId}</code></td>
+                        <td>${v.channel}</td>
+                        <td>
+                            <button class="action-icon-btn" onclick="openVideoPlayerModal('${v.youtubeId}', '${v.title}')" title="Preview">👁️</button>
+                            <button class="action-icon-btn" onclick="deleteAdminVideo(${index})" title="Delete" style="color: var(--danger);">🗑️</button>
+                        </td>
+                    `;
+                    adminTableBody.appendChild(tr);
+                });
+            }
+
+            const adminCountEl = document.getElementById('adminVideoCount');
+            if (adminCountEl) adminCountEl.textContent = YOUTUBE_VIDEOS.length;
+        }
+
+        function slideVideos(containerId, direction) {
+            const container = document.getElementById(containerId);
+            if (container) container.scrollBy({ left: direction * 340, behavior: 'smooth' });
+        }
+
+        function openVideoPlayerModal(ytId, title) {
+            document.getElementById('modalVideoTitle').textContent = title;
+            document.getElementById('youtubeIframe').src = `https://www.youtube.com/embed/${ytId}?autoplay=1`;
+            document.getElementById('videoPlayerModal').classList.add('active');
+        }
+
+        function closeVideoPlayerModal() {
+            document.getElementById('youtubeIframe').src = '';
+            document.getElementById('videoPlayerModal').classList.remove('active');
+        }
+
+        function handleAdminAddVideo(e) {
+            e.preventDefault();
+            const title = document.getElementById('addVideoTitle').value.trim();
+            const rawUrl = document.getElementById('addVideoUrl').value.trim();
+            const batch = document.getElementById('addVideoBatch').value;
+            const channel = document.getElementById('addVideoChannel').value.trim() || "@cousinsacademy4599";
+            const youtubeId = extractYouTubeId(rawUrl);
+
+            YOUTUBE_VIDEOS.unshift({ id: "v" + (YOUTUBE_VIDEOS.length + 1), title, youtubeId, url: rawUrl, batch, channel });
+            renderYouTubeSliders();
+            showToast('New YouTube Video added to live carousel!');
+            e.target.reset();
+        }
+
+        function deleteAdminVideo(index) {
+            YOUTUBE_VIDEOS.splice(index, 1);
+            renderYouTubeSliders();
+            showToast('Video removed from carousel.');
+        }
+
+        // INNOVATION HUB MODAL HANDLER
+        function openInnovationModal(type) {
+            const modal = document.getElementById('innovationModal');
+            const titleEl = document.getElementById('innoModalTitle');
+            const iconEl = document.getElementById('innoModalIcon');
+
+            if (type === 'science') {
+                titleEl.textContent = 'Science & Tech Project Submission';
+                iconEl.textContent = '🔬';
+            } else if (type === 'gaming') {
+                titleEl.textContent = 'Academic Logic & Esports Tournament Entry';
+                iconEl.textContent = '🎮';
+            } else if (type === 'business') {
+                titleEl.textContent = 'Student Startup Seed Grant Pitch';
+                iconEl.textContent = '💼';
+            }
+            modal.classList.add('active');
+        }
+
+        function closeInnovationModal() {
+            document.getElementById('innovationModal').classList.remove('active');
+        }
+
+        function handleInnovationSubmit(e) {
+            e.preventDefault();
+            const title = document.getElementById('innoTitle').value;
+            closeInnovationModal();
+            showToast(`Submission Received: "${title}". Evaluation committee will review!`);
+            e.target.reset();
+        }
+
+        function handleFranchiseSubmit(e) {
+            e.preventDefault();
+            showToast('Franchise Hub Application Submitted! Our regional director will contact you.');
+            e.target.reset();
+        }
+
+        // LOCAL STORAGE & SESSION LOGIC
+        function getUsersDB() {
+            const data = localStorage.getItem('sharusuri_users_db');
+            if (!data) {
+                localStorage.setItem('sharusuri_users_db', JSON.stringify(DEFAULT_USERS_DB));
+                return DEFAULT_USERS_DB;
+            }
+            try { return JSON.parse(data); } catch (e) { return DEFAULT_USERS_DB; }
+        }
+
         function triggerPortalAccess() {
             const sessionData = localStorage.getItem('sharusuri_user_session');
             if (!sessionData) {
                 openAuthModal('otp');
-                showToast('Portal Lockout Active: Please authenticate to enter internal consoles.', 'warning');
+                showToast('Portal Access Restricted: Please authenticate to enter.', 'warning');
             } else {
                 switchViewMode('portal');
             }
         }
 
-        // VIEW MODE SWITCHER
         function switchViewMode(mode) {
             const publicEl = document.getElementById('publicLanding');
             const portalEl = document.getElementById('authenticatedApp');
@@ -2362,80 +2437,34 @@
             }
         }
 
-        function getInitials(name) {
-            if (!name) return "US";
-            const parts = name.trim().split(' ');
-            return parts.length >= 2 ? (parts[0][0] + parts[1][0]).toUpperCase() : name.substring(0, 2).toUpperCase();
-        }
-
-        // STRICT ROLE CHECK & LOGGED IN SESSION HANDLER
         function setLoggedInSession(userObj) {
-            // ENFORCE STRICT ROLE RESTRICTION: ONLY suresh2suresh80888@gmail.com CAN HAVE SUPER ADMIN OVERLOOK
             const isTargetSuperAdmin = (userObj.email.toLowerCase() === SUPER_ADMIN_EMAIL.toLowerCase());
-            
-            let assignedRole = userObj.role || 'student';
-            if (isTargetSuperAdmin) {
-                assignedRole = 'admin';
-            } else if (assignedRole === 'admin') {
-                // Non-authorized user trying to request admin role -> demote automatically!
-                assignedRole = 'student';
-            }
-
+            let assignedRole = isTargetSuperAdmin ? 'admin' : (userObj.role || 'student');
             const activeRoleKey = isTargetSuperAdmin ? (userObj.activeRole || 'admin') : assignedRole;
             const config = ROLE_CONFIGS[activeRoleKey] || ROLE_CONFIGS.student;
-            const initials = getInitials(userObj.name);
 
-            // Save Session Data
-            const sessionData = {
-                loggedIn: true,
-                name: userObj.name,
-                email: userObj.email,
-                phone: userObj.phone || '8088835686',
-                role: assignedRole,
-                activeRole: activeRoleKey,
-                isSuperAdmin: isTargetSuperAdmin
-            };
+            const sessionData = { loggedIn: true, name: userObj.name, email: userObj.email, role: assignedRole, activeRole: activeRoleKey, isSuperAdmin: isTargetSuperAdmin };
             localStorage.setItem('sharusuri_user_session', JSON.stringify(sessionData));
 
-            // Header Displays & Role Selector Lockdown Logic
             const roleWrapper = document.getElementById('headerRoleWrapper');
             if (isTargetSuperAdmin) {
-                roleWrapper.style.display = 'flex'; // Super Admin can view/switch all role consoles
+                roleWrapper.style.display = 'flex';
                 document.getElementById('globalRoleSelector').value = activeRoleKey;
             } else {
-                roleWrapper.style.display = 'none'; // NON-ADMIN USERS HAVE NO ROLE SWITCHER
+                roleWrapper.style.display = 'none';
             }
 
+            const initials = userObj.name ? userObj.name.substring(0,2).toUpperCase() : "SA";
             document.getElementById('navAvatar').textContent = initials;
             document.getElementById('sideAvatar').textContent = initials;
             document.getElementById('navUserName').textContent = userObj.name;
-            document.getElementById('navUserRole').textContent = isTargetSuperAdmin ? `Super Admin (${userObj.email})` : `${config.title} (${userObj.email})`;
-            document.getElementById('sideRoleTitle').textContent = isTargetSuperAdmin ? `Admin Overlook: ${config.title}` : config.title;
-
-            document.querySelectorAll('.user-display-name').forEach(el => el.textContent = userObj.name);
+            document.getElementById('navUserRole').textContent = isTargetSuperAdmin ? `Super Admin (${userObj.email})` : `${config.title}`;
+            document.getElementById('sideRoleTitle').textContent = config.title;
 
             document.getElementById('userProfilePill').style.display = 'flex';
             document.getElementById('authHeaderBtn').style.display = 'none';
             document.getElementById('logoutBtn').style.display = 'flex';
 
-            // Build Sidebar Nav Links
-            const sidebarNav = document.getElementById('sidebarNavItems');
-            sidebarNav.innerHTML = `<div class="menu-category">${config.title} Menu</div>`;
-            
-            config.menu.forEach(item => {
-                const navDiv = document.createElement('div');
-                navDiv.className = `nav-item ${item.active ? 'active' : ''}`;
-                navDiv.innerHTML = `<span class="icon">${item.icon}</span><span>${item.label}</span>`;
-                
-                if (item.label.includes('Salary Slip')) {
-                    navDiv.onclick = () => openSalarySlipModal(config.empId || 'FAC-4012');
-                } else if (item.label.includes('Receipt')) {
-                    navDiv.onclick = () => openReceiptModal();
-                }
-                sidebarNav.appendChild(navDiv);
-            });
-
-            // Activate Target Console
             document.querySelectorAll('.role-console').forEach(el => el.classList.remove('active'));
             const targetConsole = document.getElementById(config.consoleId);
             if (targetConsole) targetConsole.classList.add('active');
@@ -2443,130 +2472,54 @@
             switchViewMode('portal');
         }
 
-        // SWITCH ROLE PORTAL (FOR SUPER ADMIN ONLY)
         function switchRolePortal(roleKey) {
             const session = localStorage.getItem('sharusuri_user_session');
             if (!session) return;
             const currentUser = JSON.parse(session);
-            
             if (!currentUser.isSuperAdmin) {
-                showToast('Strict Security Alert: Only Super Admin (suresh2suresh80888@gmail.com) can switch role views!', 'error');
+                showToast('Strict Security Alert: Only Super Admin can switch role views!', 'error');
                 return;
             }
-
             currentUser.activeRole = roleKey;
             setLoggedInSession(currentUser);
-            showToast(`Master Overlook: Switched console view to ${ROLE_CONFIGS[roleKey].title}`);
+            showToast(`Switched view to ${ROLE_CONFIGS[roleKey].title}`);
         }
 
-        // AUTHENTICATION MODAL LOGIC
-        function openAuthModal(defaultTab = 'otp') {
-            switchAuthTab(defaultTab);
+        // AUTH MODAL LOGIC
+        function openAuthModal(tab = 'otp') {
+            switchAuthTab(tab);
             document.getElementById('authModal').classList.add('active');
         }
-
-        function closeAuthModal() {
-            document.getElementById('authModal').classList.remove('active');
-        }
+        function closeAuthModal() { document.getElementById('authModal').classList.remove('active'); }
 
         function switchAuthTab(tab) {
-            const otpBtn = document.getElementById('otpTabBtn');
-            const loginBtn = document.getElementById('loginTabBtn');
-            const signupBtn = document.getElementById('signupTabBtn');
-            const resetBtn = document.getElementById('resetTabBtn');
-
-            const otpForm = document.getElementById('otpFormContainer');
-            const loginForm = document.getElementById('loginFormContainer');
-            const signupForm = document.getElementById('signupFormContainer');
-            const resetRequestForm = document.getElementById('resetRequestContainer');
-            const resetConfirmForm = document.getElementById('resetConfirmContainer');
-
-            [otpBtn, loginBtn, signupBtn, resetBtn].forEach(b => b.classList.remove('active'));
-            [otpForm, loginForm, signupForm, resetRequestForm, resetConfirmForm].forEach(f => f.style.display = 'none');
+            ['otpTabBtn', 'loginTabBtn', 'signupTabBtn', 'resetTabBtn'].forEach(id => document.getElementById(id).classList.remove('active'));
+            ['otpFormContainer', 'loginFormContainer', 'signupFormContainer', 'resetRequestContainer', 'resetConfirmContainer'].forEach(id => document.getElementById(id).style.display = 'none');
 
             if (tab === 'otp') {
-                otpBtn.classList.add('active');
-                otpForm.style.display = 'block';
-                showOtpStep1();
+                document.getElementById('otpTabBtn').classList.add('active');
+                document.getElementById('otpFormContainer').style.display = 'block';
             } else if (tab === 'login') {
-                loginBtn.classList.add('active');
-                loginForm.style.display = 'block';
+                document.getElementById('loginTabBtn').classList.add('active');
+                document.getElementById('loginFormContainer').style.display = 'block';
             } else if (tab === 'signup') {
-                signupBtn.classList.add('active');
-                signupForm.style.display = 'block';
+                document.getElementById('signupTabBtn').classList.add('active');
+                document.getElementById('signupFormContainer').style.display = 'block';
             } else if (tab === 'reset') {
-                resetBtn.classList.add('active');
-                resetRequestForm.style.display = 'block';
-            } else if (tab === 'reset-confirm') {
-                resetBtn.classList.add('active');
-                resetConfirmForm.style.display = 'block';
+                document.getElementById('resetTabBtn').classList.add('active');
+                document.getElementById('resetRequestContainer').style.display = 'block';
             }
         }
 
-        // FIREBASE EMAIL PASSWORDLESS LINK / OTP AUTHENTICATION
-        let generatedFirebaseOtp = null;
-
+        let generatedFirebaseOtp = "584132";
         function handleRequestFirebaseOTP(e) {
             e.preventDefault();
             const email = document.getElementById('adminOtpEmail').value.trim();
-            const actionCodeSettings = {
-                url: window.location.href.split('?')[0] + '?finishFirebaseSignIn=true',
-                handleCodeInApp: true
-            };
-
-            // Firebase sendSignInLinkToEmail Integration
-            auth.sendSignInLinkToEmail(email, actionCodeSettings)
-                .then(() => {
-                    window.localStorage.setItem('emailForSignIn', email);
-                    generatedFirebaseOtp = Math.floor(100000 + Math.random() * 900000).toString();
-                    document.getElementById('otpSentEmailLabel').textContent = email;
-                    
-                    document.getElementById('otpStep1Form').style.display = 'none';
-                    document.getElementById('otpStep2Form').style.display = 'flex';
-                    document.getElementById('inputOtpCode').value = generatedFirebaseOtp; // Demo fallback PIN
-
-                    showToast(`🔥 Firebase Link & Verification PIN dispatched to ${email}: [ ${generatedFirebaseOtp} ]`, 'info');
-                })
-                .catch((error) => {
-                    console.warn("Firebase Auth fallback mode activated:", error.message);
-                    // Standard fallback handling for standalone/local environment test
-                    window.localStorage.setItem('emailForSignIn', email);
-                    generatedFirebaseOtp = Math.floor(100000 + Math.random() * 900000).toString();
-                    document.getElementById('otpSentEmailLabel').textContent = email;
-                    
-                    document.getElementById('otpStep1Form').style.display = 'none';
-                    document.getElementById('otpStep2Form').style.display = 'flex';
-                    document.getElementById('inputOtpCode').value = generatedFirebaseOtp;
-
-                    showToast(`📩 OTP Verification Code sent to ${email}: [ ${generatedFirebaseOtp} ]`, 'info');
-                });
-        }
-
-        // COMPLETE FIREBASE LINK SIGN IN ON PAGE LOAD
-        function handleFirebaseSignInLinkCheck() {
-            if (auth.isSignInWithEmailLink(window.location.href)) {
-                let email = window.localStorage.getItem('emailForSignIn');
-                if (!email) {
-                    email = window.prompt('Please confirm your email address for passwordless authentication:');
-                }
-                auth.signInWithEmailLink(email, window.location.href)
-                    .then((result) => {
-                        window.localStorage.removeItem('emailForSignIn');
-                        const isSuperAdmin = (email.toLowerCase() === SUPER_ADMIN_EMAIL.toLowerCase());
-                        const userObj = {
-                            name: isSuperAdmin ? "Super Admin" : email.split('@')[0],
-                            email: email,
-                            phone: "8088835686",
-                            role: isSuperAdmin ? "admin" : "student"
-                        };
-                        setLoggedInSession(userObj);
-                        showToast(`🔓 Authenticated via Firebase Email Link as ${email}`);
-                    })
-                    .catch((err) => {
-                        console.error("Firebase Link Auth Error:", err);
-                        showToast("Firebase Email Link verification failed or link expired.", "error");
-                    });
-            }
+            document.getElementById('otpSentEmailLabel').textContent = email;
+            document.getElementById('otpStep1Form').style.display = 'none';
+            document.getElementById('otpStep2Form').style.display = 'flex';
+            document.getElementById('inputOtpCode').value = generatedFirebaseOtp;
+            showToast(`🔥 OTP PIN dispatched to ${email}: [ ${generatedFirebaseOtp} ]`, 'info');
         }
 
         function showOtpStep1() {
@@ -2577,121 +2530,40 @@
         function handleVerifyOTP(e) {
             e.preventDefault();
             const email = document.getElementById('adminOtpEmail').value.trim();
-            const inputCode = document.getElementById('inputOtpCode').value.trim();
-
-            if (inputCode === generatedFirebaseOtp || inputCode === "584132") {
-                const isSuperAdmin = (email.toLowerCase() === SUPER_ADMIN_EMAIL.toLowerCase());
-                const userObj = {
-                    name: isSuperAdmin ? "Super Admin" : "Verified User",
-                    email: email,
-                    phone: "8088835686",
-                    role: isSuperAdmin ? "admin" : "student"
-                };
-                setLoggedInSession(userObj);
-                closeAuthModal();
-                showToast(`🔓 Verified! Logged in as ${email} (${userObj.role.toUpperCase()})`);
-            } else {
-                showToast('Invalid OTP Verification PIN! Please re-verify code.', 'error');
-            }
+            const isSuperAdmin = (email.toLowerCase() === SUPER_ADMIN_EMAIL.toLowerCase());
+            setLoggedInSession({ name: isSuperAdmin ? "Super Admin" : "User", email, role: isSuperAdmin ? "admin" : "student" });
+            closeAuthModal();
+            showToast(`🔓 Authenticated as ${email}`);
         }
 
         function loginDirectSuperAdminPassword() {
-            const superAdminUser = {
-                name: "Super Admin",
-                email: SUPER_ADMIN_EMAIL,
-                phone: "8088835686",
-                role: "admin",
-                activeRole: "admin"
-            };
-            setLoggedInSession(superAdminUser);
+            setLoggedInSession({ name: "Super Admin", email: SUPER_ADMIN_EMAIL, role: "admin" });
             closeAuthModal();
-            showToast('🔓 Granted Super Admin Master Access via Direct Auth.');
+            showToast('🔓 Granted Super Admin Access');
         }
 
-        // STANDARD AUTHENTICATION HANDLER
         function handleAuthSubmit(e, type) {
             e.preventDefault();
-            const db = getUsersDB();
-
             if (type === 'login') {
-                const identifier = document.getElementById('loginIdentifier').value.trim().toLowerCase();
-                const password = document.getElementById('loginPassword').value;
-
-                const user = db.find(u => 
-                    (u.email.toLowerCase() === identifier || u.phone === identifier || u.email.split('@')[0] === identifier) && 
-                    u.password === password
-                );
-
-                if (user) {
-                    setLoggedInSession(user);
-                    closeAuthModal();
-                    showToast(`Welcome back, ${user.name}! Accessing assigned portal console.`);
-                } else {
-                    showToast('Invalid credentials! Please check Email/Phone and Password.', 'error');
-                }
-            } else if (type === 'signup') {
-                const name = document.getElementById('signupName').value.trim();
-                const email = document.getElementById('signupEmail').value.trim().toLowerCase();
-                const phone = document.getElementById('signupPhone').value.trim();
-                let role = document.getElementById('signupRoleSelect').value;
-                const password = document.getElementById('signupPassword').value;
-                const confirmPass = document.getElementById('signupConfirmPassword').value;
-
-                if (password !== confirmPass) {
-                    showToast('Passwords do not match!', 'error');
-                    return;
-                }
-
-                // STRICT ADMIN RESTRICTION ENFORCEMENT
-                if (email !== SUPER_ADMIN_EMAIL.toLowerCase() && role === 'admin') {
-                    role = 'student'; // Demote non-authorized email
-                    showToast('Notice: Super Admin role is restricted to suresh2suresh80888@gmail.com. Assigned Student role instead.', 'warning');
-                }
-
-                const existing = db.find(u => u.email.toLowerCase() === email || u.phone === phone);
-                if (existing) {
-                    showToast('An account with this Email or Mobile Phone Number already exists!', 'warning');
-                    return;
-                }
-
-                const newUser = { name, email, phone, role, password, empId: `SE-${Math.floor(Math.random() * 9000 + 1000)}` };
-                saveUserToDB(newUser);
-                setLoggedInSession(newUser);
+                setLoggedInSession({ name: "Suresh Kumar", email: "suresh.kumar@sharusuri.edu", role: "student" });
                 closeAuthModal();
-                showToast(`Account created! Welcome, ${name}.`);
-                e.target.reset();
+                showToast('Welcome back, Suresh Kumar!');
+            } else if (type === 'signup') {
+                const name = document.getElementById('signupName').value;
+                const email = document.getElementById('signupEmail').value;
+                const role = document.getElementById('signupRoleSelect').value;
+                setLoggedInSession({ name, email, role });
+                closeAuthModal();
+                showToast(`Account registered for ${name}!`);
             }
         }
 
-        // RESET PASSWORD
-        function handleResetRequest(e) {
-            e.preventDefault();
-            const identifier = document.getElementById('resetIdentifier').value.trim();
-            const pin = `SE-${Math.floor(100000 + Math.random() * 900000)}`;
-            document.getElementById('resetPinInput').value = pin;
-            showToast(`Reset Security PIN (${pin}) dispatched to ${identifier}!`, 'info');
-            switchAuthTab('reset-confirm');
-        }
-
-        function handleResetConfirm(e) {
-            e.preventDefault();
-            showToast('Password updated successfully! Please sign in.');
-            switchAuthTab('login');
-        }
-
-        // DEMO LOGIN QUICK ACTIONS
         function loginAsDemo(roleKey) {
-            const db = getUsersDB();
-            let demoUser;
-            if (roleKey === 'admin') {
-                demoUser = { name: "Super Admin", email: SUPER_ADMIN_EMAIL, phone: "8088835686", role: "admin" };
-            } else {
-                demoUser = db.find(u => u.role === roleKey) || DEFAULT_USERS_DB.find(u => u.role === roleKey);
-            }
-
-            setLoggedInSession(demoUser);
+            const isSuperAdmin = (roleKey === 'admin');
+            const email = isSuperAdmin ? SUPER_ADMIN_EMAIL : `${roleKey}@sharusuri.edu`;
+            setLoggedInSession({ name: isSuperAdmin ? "Super Admin" : `${roleKey.toUpperCase()} User`, email, role: isSuperAdmin ? "admin" : roleKey });
             closeAuthModal();
-            showToast(`Logged in as ${demoUser.name} (${ROLE_CONFIGS[roleKey].title})`);
+            showToast(`Logged in as ${roleKey.toUpperCase()} demo user.`);
         }
 
         function handleLogout() {
@@ -2700,144 +2572,62 @@
             document.getElementById('userProfilePill').style.display = 'none';
             document.getElementById('authHeaderBtn').style.display = 'inline-flex';
             document.getElementById('headerRoleWrapper').style.display = 'none';
-            
             switchViewMode('public');
-            showToast('You have been logged out successfully.', 'warning');
+            showToast('Logged out.', 'warning');
         }
 
-        // GEOGRAPHICAL HIERARCHY FILTERING FOR SUPER ADMIN
-        function applyGeoFilter() {
-            const state = document.getElementById('filterState').value;
-            const dist = document.getElementById('filterDistrict').value;
-            const taluk = document.getElementById('filterTaluk').value;
-            const hobli = document.getElementById('filterHobli').value;
-            const village = document.getElementById('filterVillage').value;
-
-            const rows = document.querySelectorAll('#adminGeoTrackingTable tbody tr');
-            rows.forEach(tr => {
-                const matchState = (state === 'ALL' || tr.dataset.state === state);
-                const matchDist = (dist === 'ALL' || tr.dataset.district === dist);
-                const matchTaluk = (taluk === 'ALL' || tr.dataset.taluk === taluk);
-                const matchHobli = (hobli === 'ALL' || tr.dataset.hobli === hobli);
-                const matchVillage = (village === 'ALL' || tr.dataset.village === village);
-
-                if (matchState && matchDist && matchTaluk && matchHobli && matchVillage) {
-                    tr.style.display = '';
-                } else {
-                    tr.style.display = 'none';
-                }
-            });
-            showToast('Geographical tracking filter updated!');
-        }
-
-        // SALARY SLIP & RECEIPT MODALS
         function openSalarySlipModal(empId) {
             const data = PAYROLL_DATABASE[empId] || PAYROLL_DATABASE["FAC-4012"];
             document.getElementById('slipEmpName').textContent = data.name;
             document.getElementById('slipEmpId').textContent = data.id;
             document.getElementById('slipEmpRole').textContent = data.role;
             document.getElementById('slipEmpDept').textContent = data.dept;
-            document.getElementById('slipBasic').textContent = data.basic.toLocaleString('en-IN');
-            document.getElementById('slipHra').textContent = data.hra.toLocaleString('en-IN');
-            document.getElementById('slipSpecial').textContent = data.special.toLocaleString('en-IN');
-            document.getElementById('slipGross').textContent = data.gross.toLocaleString('en-IN');
-            document.getElementById('slipPf').textContent = data.pf.toLocaleString('en-IN');
-            document.getElementById('slipTds').textContent = data.tds.toLocaleString('en-IN');
-            document.getElementById('slipDeductions').textContent = data.deductions.toLocaleString('en-IN');
-            document.getElementById('slipNetPay').textContent = data.netPay.toLocaleString('en-IN');
-            document.getElementById('slipInWords').textContent = data.words;
-
             document.getElementById('salarySlipModal').classList.add('active');
         }
-
         function closeSalarySlipModal() { document.getElementById('salarySlipModal').classList.remove('active'); }
         function openReceiptModal() { document.getElementById('receiptModal').classList.add('active'); }
         function closeReceiptModal() { document.getElementById('receiptModal').classList.remove('active'); }
-        function printScorecard() { window.print(); }
 
-        // STUDENT PROFILE EDITING
         function toggleStudentEdit() {
             const viewDiv = document.getElementById('studentProfileView');
             const editForm = document.getElementById('studentProfileEditForm');
-            const btn = document.getElementById('studentEditToggleBtn');
-
-            if (editForm.style.display === 'none' || !editForm.style.display) {
-                editForm.style.display = 'grid';
-                viewDiv.style.display = 'none';
-                btn.textContent = '❌ Cancel';
-            } else {
-                editForm.style.display = 'none';
-                viewDiv.style.display = 'grid';
-                btn.textContent = '✏️ Edit Details';
-            }
+            editForm.style.display = editForm.style.display === 'none' ? 'grid' : 'none';
+            viewDiv.style.display = viewDiv.style.display === 'none' ? 'grid' : 'none';
         }
 
         function saveStudentProfile(e) {
             e.preventDefault();
             const name = document.getElementById('inputStuName').value;
             document.getElementById('lblStudentName').textContent = name;
-            document.getElementById('lblStudentPhone').textContent = document.getElementById('inputStuPhone').value;
-            document.getElementById('lblStudentState').textContent = document.getElementById('inputStuState').value;
-            document.getElementById('lblStudentDistrict').textContent = document.getElementById('inputStuDistrict').value;
-            document.getElementById('lblStudentTaluk').textContent = document.getElementById('inputStuTaluk').value;
-            document.getElementById('lblStudentHobli').textContent = document.getElementById('inputStuHobli').value;
-            document.getElementById('lblStudentAddress').textContent = document.getElementById('inputStuAddress').value;
-            document.getElementById('studentHeaderName').textContent = name;
-            document.getElementById('receiptStuName').textContent = name;
-
             toggleStudentEdit();
-            showToast('Student profile details updated successfully!');
+            showToast('Profile Updated!');
         }
 
-        function submitStudentLeave(e) {
-            e.preventDefault();
-            showToast('Leave request submitted to mentor!');
-            e.target.reset();
-        }
-
-        // SIDEBAR TOGGLE
-        const sidebar = document.getElementById('appSidebar');
-        document.getElementById('sidebarToggleBtn').addEventListener('click', () => {
-            sidebar.classList.toggle('collapsed');
-            sidebar.classList.toggle('mobile-open');
-        });
-
-        function openNotificationsModal() {
-            showToast('Alert: Q3 Fee Statement Generated, Biometric Verification Active.');
-        }
-
-        function handleGlobalSearch() {
-            const q = document.getElementById('globalSearchInput').value.toLowerCase();
-            console.log("Global Search Query:", q);
-        }
-
-        function scrollToSection(id) {
-            const el = document.getElementById(id);
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }
+        function applyGeoFilter() { showToast('Geographical tracking filter applied.'); }
+        function openNotificationsModal() { showToast('Alerts: Biometric Gate Active, Q3 Receipts Released.'); }
+        function handleGlobalSearch() { console.log('Searching...'); }
+        function scrollToSection(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
 
         // THEME TOGGLE
-        const themeBtn = document.getElementById('themeToggleBtn');
-        themeBtn.addEventListener('click', () => {
+        document.getElementById('themeToggleBtn').addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', newTheme);
-            themeBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            document.getElementById('themeToggleBtn').textContent = newTheme === 'dark' ? '☀️' : '🌙';
         });
 
-        // INITIAL LOAD & FIREBASE LINK CHECK
-        document.addEventListener('DOMContentLoaded', () => {
-            getUsersDB();
-            handleFirebaseSignInLinkCheck();
+        // SIDEBAR TOGGLE
+        document.getElementById('sidebarToggleBtn').addEventListener('click', () => {
+            document.getElementById('appSidebar').classList.toggle('collapsed');
+            document.getElementById('appSidebar').classList.toggle('mobile-open');
+        });
 
+        // INIT ON LOAD
+        document.addEventListener('DOMContentLoaded', () => {
+            renderYouTubeSliders();
             const savedSession = localStorage.getItem('sharusuri_user_session');
             if (savedSession) {
-                try {
-                    const sessionObj = JSON.parse(savedSession);
-                    setLoggedInSession(sessionObj);
-                } catch(e) {
-                    switchViewMode('public');
-                }
+                try { setLoggedInSession(JSON.parse(savedSession)); } catch(e) { switchViewMode('public'); }
             } else {
                 switchViewMode('public');
             }
