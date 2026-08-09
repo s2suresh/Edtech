@@ -1,6 +1,9 @@
 const fs = require("fs");
 const { GoogleGenAI } = require("@google/genai");
 
+// Helper function to handle delays on 429 Rate Limit errors
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 async function run() {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
@@ -26,8 +29,7 @@ Details: ${process.env.ISSUE_BODY}
 Update index.html to incorporate these requested design changes, ensuring the layout is modern, visually appealing, responsive, and tailored for business advertising.
 CRITICAL: Output ONLY valid raw HTML code. Do NOT wrap in \`\`\`html markdown blocks or include any introductory text.`;
 
-  // List of active models to try in order of preference
-  const modelsToTry = ["gemini-2.5-flash-lite", "gemini-2.0-flash", "gemini-2.5-pro"];
+  const modelsToTry = ["gemini-1.5-flash", "gemini-2.5-flash"];
   let response = null;
   let lastError = null;
 
@@ -38,13 +40,20 @@ CRITICAL: Output ONLY valid raw HTML code. Do NOT wrap in \`\`\`html markdown bl
         model: model,
         contents: prompt,
       });
+
       if (response && response.text) {
         console.log(`Successfully generated content using ${model}`);
         break;
       }
     } catch (err) {
-      console.warn(`Model ${model} failed: ${err.message}. Trying next model...`);
+      console.warn(`Model ${model} failed with error: ${err.message}`);
       lastError = err;
+
+      // If rate limited, wait 35 seconds to let the free tier quota reset
+      if (err.status === 429 || (err.message && err.message.includes("429"))) {
+        console.log("Quota exceeded. Waiting 35 seconds for quota reset before retrying...");
+        await sleep(35000);
+      }
     }
   }
 
