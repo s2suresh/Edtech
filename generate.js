@@ -39,6 +39,6 @@ CRITICAL: Output ONLY valid raw HTML code. Do NOT wrap in \`\`\`html markdown bl
 }
 
 run().catch((err) => {
-  console.error(err);
+  console.error("Error generating code:", err);
   process.exit(1);
 });
