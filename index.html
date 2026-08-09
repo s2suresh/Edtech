@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sharusuri EdTech Marketplace - Discover Hybrid Courses, K-12 Tuitions, Entrance Coaching & Hostel Hubs Near Your Village.">
-    <meta name="keywords" content="Sharusuri EdTech, EdTech Marketplace, Hybrid Learning, Course Store, Navodaya Entrance, Campus Hostel, Village Hub Finder">
+    <meta name="description" content="Sharusuri EdTech Marketplace - Discover Hybrid Courses, K-12 Tuitions, Entrance Coaching & Hostel Hubs Near Your Village. Integrated with /Nation Location Directory.">
+    <meta name="keywords" content="Sharusuri EdTech, EdTech Marketplace, Hybrid Learning, Course Store, Navodaya Entrance, Campus Hostel, Village Hub Finder, Nation Directory">
     <meta name="author" content="Sharusuri EdTech">
     <meta name="theme-color" content="#0f766e">
 
@@ -578,6 +578,36 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .folder-loader-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 0.4rem 0.85rem;
+            border-radius: 50px;
+            margin-left: auto;
+        }
+
+        .spinner-icon {
+            width: 14px;
+            height: 14px;
+            border: 2px solid var(--primary);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         /* SEARCH AUTOCOMPLETE DESIGN */
@@ -654,8 +684,15 @@
             margin-top: 1rem;
         }
 
+        .form-select-group {
+            display: flex;
+            flex-direction: column;
+        }
+
         .form-select-group label {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             font-size: 0.8rem;
             font-weight: 800;
             color: var(--text-muted);
@@ -663,7 +700,14 @@
             margin-bottom: 0.4rem;
         }
 
-        .form-select-group select {
+        .label-status {
+            font-size: 0.7rem;
+            text-transform: none;
+            font-weight: 600;
+        }
+
+        .form-select-group select,
+        .form-select-group input[type="text"] {
             width: 100%;
             padding: 0.75rem 0.85rem;
             border-radius: var(--radius-sm);
@@ -676,15 +720,29 @@
             transition: var(--transition);
         }
 
-        .form-select-group select:focus {
+        .form-select-group select:focus,
+        .form-select-group input[type="text"]:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 3px var(--primary-glow);
         }
 
-        .form-select-group select:disabled {
+        .form-select-group select:disabled,
+        .form-select-group input[type="text"]:disabled {
             opacity: 0.6;
             cursor: not-allowed;
             background: rgba(0,0,0,0.05);
+        }
+
+        .toggle-manual-btn {
+            background: transparent;
+            border: none;
+            color: var(--secondary);
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 0.3rem;
+            align-self: flex-end;
         }
 
         .hub-result-card {
@@ -1119,7 +1177,7 @@
 
     <!-- 1. TOP ANNOUNCEMENT TICKER BAR -->
     <div class="top-notice-bar">
-        <span><strong class="notice-tag">🔥 ADMISSIONS 2026-27</strong> Navodaya & K-12 Offline Hostel Batches Now Open in Sindhanur Hub!</span>
+        <span><strong class="notice-tag">🔥 ADMISSIONS 2026-27</strong> Navodaya & K-12 Offline Hostel Batches Now Open Across All States!</span>
         <a href="#locationFinder" style="text-decoration: underline; color: #fef3c7; font-weight: 700; margin-left: 0.5rem;">Check Local Village Hub →</a>
     </div>
 
@@ -1188,7 +1246,7 @@
             <div class="sub-nav-bar">
                 <div class="sub-nav-links">
                     <a href="#coursesGrid" class="sub-nav-link highlight">⚡ Top Selling Courses</a>
-                    <a href="#locationFinder" class="sub-nav-link">📍 Find Nearest Village Campus</a>
+                    <a href="#locationFinder" class="sub-nav-link">📍 Find Nearest Village Campus (/Nation)</a>
                     <a href="#hostelFacilities" class="sub-nav-link">🏢 Hostel & Dining Facilities</a>
                     <a href="#methodology" class="sub-nav-link">👨‍🏫 3-Tier Mentorship</a>
                     <a href="#dashboards" class="sub-nav-link">📊 Portal Previews</a>
@@ -1235,10 +1293,10 @@
                             <a href="#hostelFacilities" class="btn btn-primary">Book Hostel Tour</a>
                         </div>
                         <div class="carousel-visual">
-                            <h3 style="color: #60a5fa; font-size: 1.8rem;">Raichur Pilot</h3>
-                            <p style="font-size: 0.9rem; margin-top: 0.3rem;">Sindhanur AP K Hosalli Main Campus</p>
+                            <h3 style="color: #60a5fa; font-size: 1.8rem;">36 States/UTs</h3>
+                            <p style="font-size: 0.9rem; margin-top: 0.3rem;">Connected through /Nation Directory</p>
                             <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.8rem; color: #94a3b8;">
-                                📍 Google Map Verified Location
+                                📍 Live Local Village Node Finder
                             </div>
                         </div>
                     </div>
@@ -1256,60 +1314,101 @@
             </div>
         </section>
 
-        <!-- 4. Dynamic CASCADING CAMPUS & VILLAGE LOCATION SELECTOR -->
+        <!-- 4. Dynamic CASCADING CAMPUS & VILLAGE LOCATION SELECTOR WITH /Nation LOADER -->
         <section class="container" id="locationFinder">
             <div class="location-finder-panel">
-                <span class="location-panel-tag">📍 Village & Campus Hub Finder</span>
-                <div style="max-width: 700px; margin-bottom: 1.5rem;">
-                    <h2 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 0.2rem;">Find Nearby Offline Centers & Hostel Availability</h2>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Select your location details step-by-step or start typing in the smart search box to match local study nodes instantly.</p>
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.5rem;">
+                    <span class="location-panel-tag">
+                        <span>📍 Village & Campus Hub Finder</span>
+                    </span>
+                    <div class="folder-loader-status" id="nationLoaderStatus">
+                        <span class="spinner-icon" id="statusSpinner"></span>
+                        <span id="statusText">Reading from /Nation Directory...</span>
+                    </div>
                 </div>
 
-                <!-- NEW AUTOCOMPLETE SEARCH FIELD -->
+                <div style="max-width: 780px; margin-top: 0.5rem; margin-bottom: 1.5rem;">
+                    <h2 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 0.2rem;">Find Nearby Offline Centers & Hostel Availability</h2>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">
+                        Dynamically reading location hierarchy <strong>(State → District → Taluk → Hobli → Village)</strong> directly from repository <code>/Nation/</code> directory with automated fallback options for any village in India.
+                    </p>
+                </div>
+
+                <!-- AUTOCOMPLETE SMART SEARCH FIELD -->
                 <div class="search-autocomplete-wrapper">
-                    <label style="display: block; font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.4rem;">🔍 Smart Search (Type village, hobli, or district)</label>
+                    <label style="display: block; font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.4rem;">🔍 Smart Search Across /Nation Data (Type village, hobli, taluk, or district)</label>
                     <div style="display: flex; gap: 0.5rem; position: relative;">
-                        <input type="text" id="locationSearchInput" placeholder="e.g. Sindhanur, Wagholi, Peelamedu, Alwal, Gomti Nagar..." oninput="searchLocationQuery()">
+                        <input type="text" id="locationSearchInput" placeholder="e.g. Sindhanur, Wagholi, Peelamedu, Alwal, Gomti Nagar, Yelahanka..." oninput="searchLocationQuery()">
                         <button type="button" class="btn btn-secondary" onclick="clearLocationSearch()" style="padding: 0 1.25rem;">Clear</button>
                         <div id="locationSuggestions" class="autocomplete-suggestions"></div>
                     </div>
                 </div>
 
-                <!-- Cascading Dropdowns -->
+                <!-- 5 Cascading Dropdowns/Inputs with Fallback Options -->
                 <div class="location-grid-5">
+                    <!-- 1. State -->
                     <div class="form-select-group">
-                        <label for="stateSelect">1. State *</label>
+                        <label for="stateSelect">
+                            <span>1. State / UT *</span>
+                            <span class="label-status" id="stateStatus">✓ Loaded</span>
+                        </label>
                         <select id="stateSelect" aria-label="Select State"><option value="">-- Select State --</option></select>
+                        <input type="text" id="stateManual" style="display:none;" placeholder="Type State Name">
+                        <button type="button" class="toggle-manual-btn" onclick="toggleManualField('state')">Type Manually</button>
                     </div>
 
+                    <!-- 2. District -->
                     <div class="form-select-group">
-                        <label for="districtSelect">2. District *</label>
+                        <label for="districtSelect">
+                            <span>2. District *</span>
+                            <span class="label-status" id="districtStatus"></span>
+                        </label>
                         <select id="districtSelect" disabled aria-label="Select District"><option value="">-- Select State First --</option></select>
+                        <input type="text" id="districtManual" style="display:none;" placeholder="Type District Name" oninput="handleManualInput('district')">
+                        <button type="button" class="toggle-manual-btn" onclick="toggleManualField('district')">Type Manually</button>
                     </div>
 
+                    <!-- 3. Taluk -->
                     <div class="form-select-group">
-                        <label for="talukSelect">3. Taluk *</label>
+                        <label for="talukSelect">
+                            <span>3. Taluk / Tehsil *</span>
+                            <span class="label-status" id="talukStatus"></span>
+                        </label>
                         <select id="talukSelect" disabled aria-label="Select Taluk"><option value="">-- Select District First --</option></select>
+                        <input type="text" id="talukManual" style="display:none;" placeholder="Type Taluk Name" oninput="handleManualInput('taluk')">
+                        <button type="button" class="toggle-manual-btn" onclick="toggleManualField('taluk')">Type Manually</button>
                     </div>
 
+                    <!-- 4. Hobli / Circle -->
                     <div class="form-select-group">
-                        <label for="hobliSelect">4. Hobli / Circle *</label>
+                        <label for="hobliSelect">
+                            <span>4. Hobli / Circle *</span>
+                            <span class="label-status" id="hobliStatus"></span>
+                        </label>
                         <select id="hobliSelect" disabled aria-label="Select Hobli"><option value="">-- Select Taluk First --</option></select>
+                        <input type="text" id="hobliManual" style="display:none;" placeholder="Type Hobli / Circle" oninput="handleManualInput('hobli')">
+                        <button type="button" class="toggle-manual-btn" onclick="toggleManualField('hobli')">Type Manually</button>
                     </div>
 
+                    <!-- 5. Village / Hub -->
                     <div class="form-select-group">
-                        <label for="villageSelect">5. Village / Hub *</label>
+                        <label for="villageSelect">
+                            <span>5. Village / Ward *</span>
+                            <span class="label-status" id="villageStatus"></span>
+                        </label>
                         <select id="villageSelect" disabled aria-label="Select Village"><option value="">-- Select Hobli First --</option></select>
+                        <input type="text" id="villageManual" style="display:none;" placeholder="Type Village Name" oninput="handleManualInput('village')">
+                        <button type="button" class="toggle-manual-btn" onclick="toggleManualField('village')">Type Manually</button>
                     </div>
                 </div>
 
                 <!-- Live Campus Hub Match Notification Box -->
                 <div class="hub-result-card" id="hubResultCard">
                     <div>
-                        <strong style="color: var(--primary); font-size: 1.1rem; display: block;" id="hubTitle">Matched Campus Node: Sindhanur Main Hub</strong>
-                        <p style="font-size: 0.88rem; color: var(--text-main);" id="hubDetails">Location: AP K Hosalli Near Sunklamma Katte. Hostel Seats: 24 Available.</p>
+                        <strong style="color: var(--primary); font-size: 1.1rem; display: block;" id="hubTitle">Matched Campus Node: Local Hub</strong>
+                        <p style="font-size: 0.88rem; color: var(--text-main);" id="hubDetails">Location selected. Preferred Study Hub Center & Hostel Availability confirmed!</p>
                     </div>
-                    <a href="#contactForm" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Reserve Hostel Seat</a>
+                    <a href="#contactForm" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="syncLocationToForm()">Reserve Seat for this Location</a>
                 </div>
             </div>
         </section>
@@ -1660,20 +1759,20 @@
                         </div>
                         <div class="metric-card">
                             <h5>Regional Hub Nodes</h5>
-                            <div class="val">18 Active</div>
+                            <div class="val">36 States/UTs Connected</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 9. ADMISSION & ENQUIRY FORM -->
+        <!-- 9. ADMISSION & ENQUIRY FORM INTEGRATED WITH 5-TIER LOCATION PAYLOAD -->
         <section class="container" id="contactForm" style="margin-bottom: 4rem;">
             <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 3rem; box-shadow: var(--shadow-md);">
                 <div style="max-width: 600px; margin-bottom: 2rem;">
                     <span style="color: var(--primary); font-size: 0.85rem; font-weight: 800; text-transform: uppercase;">Counseling & Direct Admissions</span>
                     <h2 style="font-size: 1.8rem; color: var(--text-main); margin-top: 0.2rem;">Request Fee Structure or Campus Visit</h2>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Submit student details to receive instant counseling support from our regional hub manager.</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Submit student details with your /Nation location hierarchy to receive instant counseling support.</p>
                 </div>
 
                 <form onsubmit="handleFormSubmit(event)">
@@ -1685,6 +1784,16 @@
                         <div>
                             <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem;">Mobile / WhatsApp Number *</label>
                             <input type="tel" id="formPhone" required placeholder="+91 80888 35686" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                        </div>
+                    </div>
+
+                    <!-- Selected Location Summary Payload Badge -->
+                    <div style="margin-bottom: 1.25rem; background: var(--primary-light); border: 1px solid var(--primary); padding: 0.85rem; border-radius: var(--radius-sm);">
+                        <label style="display: block; font-size: 0.78rem; font-weight: 800; color: var(--primary); text-transform: uppercase; margin-bottom: 0.2rem;">
+                            📍 Selected Location Payload (/Nation Directory):
+                        </label>
+                        <div id="formLocationSummary" style="font-size: 0.88rem; font-weight: 700; color: var(--dark);">
+                            No location selected. Choose location above in Village Hub Finder.
                         </div>
                     </div>
 
@@ -1730,9 +1839,12 @@
                     <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem;">Student Name</label>
                     <input type="text" required placeholder="Enter student full name" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
                 </div>
-                <div style="margin-bottom: 1.5rem;">
+                <div style="margin-bottom: 1rem;">
                     <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem;">WhatsApp Mobile Number</label>
                     <input type="tel" required placeholder="+91 Mobile number" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                </div>
+                <div style="margin-bottom: 1.5rem; font-size: 0.8rem; color: var(--text-muted);">
+                    📍 Linked Location: <strong id="modalLocationBadge" style="color: var(--primary);">Default Node</strong>
                 </div>
 
                 <button type="submit" class="btn btn-accent" style="width: 100%;">Proceed to Payment / Confirmation</button>
@@ -1750,7 +1862,7 @@
                         <span>Sharusuri EdTech</span>
                     </div>
                     <p style="font-size: 0.88rem; margin-bottom: 1.25rem;">
-                        Empowering students across rural and urban centers through hybrid education, offline study centers, and tech-driven career roadmaps.
+                        Empowering students across rural and urban centers through hybrid education, offline study centers, and tech-driven career roadmaps. Integrated with /Nation location directory.
                     </p>
                     <div style="font-size: 0.8rem; color: #64748b;">
                         📍 Raichur Main Campus: #117, Near Sunklamma Katte, AP K Hosalli, Sindhanur 584132.
@@ -1795,24 +1907,28 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT ENGINE -->
+    <!-- INTERACTIVE JAVASCRIPT ENGINE & DYNAMIC /Nation DIRECTORY LOADER -->
     <script>
-        // ==========================================
-        // 1. EXTENSIVE COMPREHENSIVE LOCATION DATA
-        // State -> District -> Taluk -> Hobli -> Village
-        // ==========================================
-        const locationData = {
+        // =========================================================================
+        // 1. ALL 28 STATES AND 8 UNION TERRITORIES OF INDIA (36 TOTAL)
+        // =========================================================================
+        const ALL_INDIAN_STATES_UTS = [
+            // 28 States
+            "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", 
+            "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", 
+            "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", 
+            "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", 
+            "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", 
+            "Uttar Pradesh", "Uttarakhand", "West Bengal",
+            // 8 Union Territories
+            "Andaman and Nicobar Islands", "Chandigarh", 
+            "Dadra and Nagar Haveli and Daman and Diu", "Delhi (NCT)", 
+            "Jammu and Kashmir", "Ladakh", "Lakshadweep", "Puducherry"
+        ].sort();
+
+        // FALLBACK IN-MEMORY DICTIONARY FOR INSTANT GUARANTEED UI RESPONSIVENESS
+        const fallbackLocationData = {
             "Karnataka": {
-                "Bengaluru Urban": {
-                    "Bengaluru North": {
-                        "Yelahanka Hobli": ["Yelahanka Town Node", "Chikkajala Study Center", "Bagalur Hub", "Singanayakanahalli Node"],
-                        "Hesaraghatta Hobli": ["Hesaraghatta Central Campus", "Kakolu GP Circle", "Gollahalli Hub", "Byatha Node"]
-                    },
-                    "Bengaluru South": {
-                        "Uttarahalli Hobli": ["Uttarahalli Hub", "Subramanyapura Center", "Gottigere Node", "Kengeri Satellite Campus"],
-                        "Begur Hobli": ["Begur Village Node", "Hulimavu Study Center", "Devarachikkanahalli Hub", "Bannerghatta Link Node"]
-                    }
-                },
                 "Raichur": {
                     "Sindhanur": {
                         "AP K Hosalli Hobli": ["AP K Hosalli Main Campus", "Sunklamma Katte Region", "Gorebal Hub", "Turvihal Central"],
@@ -1822,6 +1938,16 @@
                     "Manvi": {
                         "Sirwar Hobli": ["Sirwar Town Hub", "Arakera Node", "Kallur Center"],
                         "Kavital Hobli": ["Kavital Study Circle", "Pamankallur Node", "Chikalparvi Center"]
+                    }
+                },
+                "Bengaluru Urban": {
+                    "Bengaluru North": {
+                        "Yelahanka Hobli": ["Yelahanka Town Node", "Chikkajala Study Center", "Bagalur Hub", "Singanayakanahalli Node"],
+                        "Hesaraghatta Hobli": ["Hesaraghatta Central Campus", "Kakolu GP Circle", "Gollahalli Hub", "Byatha Node"]
+                    },
+                    "Bengaluru South": {
+                        "Uttarahalli Hobli": ["Uttarahalli Hub", "Subramanyapura Center", "Gottigere Node", "Kengeri Satellite Campus"],
+                        "Begur Hobli": ["Begur Village Node", "Hulimavu Study Center", "Devarachikkanahalli Hub", "Bannerghatta Link Node"]
                     }
                 },
                 "Mysuru": {
@@ -1855,66 +1981,30 @@
                         "Wagholi Circle": ["Wagholi Main Campus", "Lonikand Center", "Bakori Node"],
                         "Hadapsar Circle": ["Hadapsar Town Hub", "Manjari Budruk GP", "Fursungi Node"]
                     }
-                },
-                "Nagpur": {
-                    "Nagpur Rural": {
-                        "Kamptee Circle": ["Kamptee Hub Node", "Kanhan Town Center", "Yerla Village Campus"]
-                    }
                 }
             },
             "Tamil Nadu": {
-                "Chennai": {
-                    "Velachery": {
-                        "Velachery Circle": ["Velachery Central Hub", "Madipakkam Node", "Adambakkam Center"],
-                        "Tambaram Circle": ["Tambaram East Campus", "Chromepet Study Center", "Selaiyur Node"]
-                    }
-                },
                 "Coimbatore": {
                     "Coimbatore South": {
                         "Peelamedu Circle": ["Peelamedu Tech Node", "Singanallur Hub", "Ondipudur Center"],
                         "Sulur Circle": ["Sulur Village Hub", "Kalangal GP Node", "Kangayampalayam Campus"]
                     }
+                },
+                "Chennai": {
+                    "Velachery": {
+                        "Velachery Circle": ["Velachery Central Hub", "Madipakkam Node", "Adambakkam Center"]
+                    }
                 }
             },
             "Telangana": {
-                "Hyderabad": {
-                    "Charminar": {
-                        "Malakpet Circle": ["Malakpet Study Node", "Saidabad Center", "Chanchalguda Hub"],
-                        "Falaknuma Circle": ["Falaknuma Town Node", "Chandrayangutta Center", "Bandlaguda Node"]
-                    }
-                },
                 "Medchal-Malkajgiri": {
                     "Alwal": {
                         "Alwal Circle": ["Alwal Central Hub", "Macha Bolarum Node", "Kompally Study Center", "Gundlapochampally Node"]
                     }
-                }
-            },
-            "Andhra Pradesh": {
-                "Visakhapatnam": {
-                    "Visakhapatnam Urban": {
-                        "Maharanipeta Circle": ["Maharanipeta Node", "Jagadamba Junction Campus", "RK Beach Study Center"],
-                        "Gajuwaka Circle": ["Gajuwaka Hub", "Srinagar Village Node", "Kanithi Study Center"]
-                    }
                 },
-                "Guntur": {
-                    "Guntur East": {
-                        "Guntur Circle": ["Guntur City Campus", "Gorantla Hub", "Nallapadu Node", "Ananthavarappadu GP"]
-                    }
-                }
-            },
-            "Delhi NCR": {
-                "New Delhi": {
-                    "Chanakyapuri": {
-                        "Diplomatic Circle": ["Chanakyapuri Study Node", "Moti Bagh Center", "Shanti Path Center"],
-                        "Vasant Vihar Circle": ["Vasant Vihar Hub", "Munirka Node", "R.K. Puram Center"]
-                    }
-                }
-            },
-            "Kerala": {
-                "Ernakulam": {
-                    "Kochi": {
-                        "Vyttila Circle": ["Vyttila Hub Campus", "Thrippunithura Node", "Kadavanthra Center"],
-                        "Aluva Circle": ["Aluva Town Center", "Desom Node", "Edathala Village Hub"]
+                "Hyderabad": {
+                    "Charminar": {
+                        "Malakpet Circle": ["Malakpet Study Node", "Saidabad Center", "Chanchalguda Hub"]
                     }
                 }
             },
@@ -1925,43 +2015,110 @@
                         "Chinhat Circle": ["Chinhat Hub", "Kamta Village Node", "Basti GP Study Center"]
                     }
                 }
-            },
-            "Gujarat": {
-                "Ahmedabad": {
-                    "Asarwa": {
-                        "Sabarmati Circle": ["Sabarmati Town Hub", "Ranip Node", "Motera Stadium Campus"],
-                        "Navrangpura Circle": ["Navrangpura Elite Node", "Ambawadi Study Hub", "Vastrapur Campus"]
-                    }
-                }
             }
         };
 
+        // Cache object for fetched /Nation JSON dynamic files
+        const nationDataCache = {};
+
+        // DOM Element References
         const stateSelect = document.getElementById('stateSelect');
         const districtSelect = document.getElementById('districtSelect');
         const talukSelect = document.getElementById('talukSelect');
         const hobliSelect = document.getElementById('hobliSelect');
         const villageSelect = document.getElementById('villageSelect');
+
+        const stateManual = document.getElementById('stateManual');
+        const districtManual = document.getElementById('districtManual');
+        const talukManual = document.getElementById('talukManual');
+        const hobliManual = document.getElementById('hobliManual');
+        const villageManual = document.getElementById('villageManual');
+
         const hubResultCard = document.getElementById('hubResultCard');
         const locationSearchInput = document.getElementById('locationSearchInput');
         const locationSuggestions = document.getElementById('locationSuggestions');
+        const statusText = document.getElementById('statusText');
+        const statusSpinner = document.getElementById('statusSpinner');
 
-        // Initialize Location dropdown lists
-        function initLocationEngine() {
-            stateSelect.innerHTML = '<option value="">-- Select State --</option>';
-            Object.keys(locationData).sort().forEach(state => {
+        // State trackers for manual vs select mode
+        const manualMode = {
+            state: false,
+            district: false,
+            taluk: false,
+            hobli: false,
+            village: false
+        };
+
+        // =========================================================================
+        // 2. DYNAMIC /Nation DIRECTORY FETCH ENGINE
+        // =========================================================================
+        async function fetchFromNationDir(path) {
+            try {
+                const response = await fetch(path);
+                if (!response.ok) return null;
+                const json = await response.json();
+                return json;
+            } catch (err) {
+                return null;
+            }
+        }
+
+        async function initLocationEngine() {
+            setLoadingStatus(true, "Scanning /Nation Directory...");
+            
+            // Populate State Dropdown with ALL 36 States & Union Territories
+            stateSelect.innerHTML = '<option value="">-- Select State / UT --</option>';
+            ALL_INDIAN_STATES_UTS.forEach(state => {
                 const opt = document.createElement('option');
                 opt.value = state;
                 opt.textContent = state;
                 stateSelect.appendChild(opt);
             });
+
+            document.getElementById('stateStatus').textContent = "✓ 36 States/UTs";
+
+            // Attempt to load master directory index if available
+            const masterData = await fetchFromNationDir('./Nation/index.json') || await fetchFromNationDir('./Nation/hierarchy.json');
+            if (masterData) {
+                Object.assign(nationDataCache, masterData);
+                setLoadingStatus(false, "Connected: /Nation Master Directory");
+            } else {
+                setLoadingStatus(false, "/Nation Ready (Dynamic Fetch + Fallbacks)");
+            }
         }
 
-        function resetSelect(element, placeholder) {
-            element.innerHTML = `<option value="">-- ${placeholder} --</option>`;
+        function setLoadingStatus(isLoading, text) {
+            statusSpinner.style.display = isLoading ? 'inline-block' : 'none';
+            statusText.textContent = text;
+        }
+
+        function toggleManualField(field) {
+            manualMode[field] = !manualMode[field];
+            const selectEl = document.getElementById(`${field}Select`);
+            const inputEl = document.getElementById(`${field}Manual`);
+
+            if (manualMode[field]) {
+                selectEl.style.display = 'none';
+                inputEl.style.display = 'block';
+                inputEl.value = '';
+                inputEl.focus();
+            } else {
+                selectEl.style.display = 'block';
+                inputEl.style.display = 'none';
+            }
+            updateLocationSummary();
+        }
+
+        function handleManualInput(field) {
+            updateLocationSummary();
+        }
+
+        function resetSelect(element, placeholder, disabledMsg) {
+            element.innerHTML = `<option value="">-- ${placeholder || disabledMsg} --</option>`;
             element.disabled = true;
         }
 
-        function populateSelect(element, items, placeholder) {
+        function populateSelectOptions(element, items, placeholder) {
             element.innerHTML = `<option value="">-- ${placeholder} --</option>`;
             items.forEach(item => {
                 const opt = document.createElement('option');
@@ -1972,67 +2129,203 @@
             element.disabled = false;
         }
 
-        stateSelect.addEventListener('change', function() {
-            resetSelect(districtSelect, "Select District");
-            resetSelect(talukSelect, "Select District First");
-            resetSelect(hobliSelect, "Select Taluk First");
-            resetSelect(villageSelect, "Select Hobli First");
+        // Handle State Change - Dynamically Fetch District data from /Nation/
+        stateSelect.addEventListener('change', async function() {
+            const selectedState = this.value;
+            resetSelect(districtSelect, "Select District", "Select State First");
+            resetSelect(talukSelect, "Select Taluk First", "Select District First");
+            resetSelect(hobliSelect, "Select Hobli First", "Select Taluk First");
+            resetSelect(villageSelect, "Select Village First", "Select Hobli First");
             hubResultCard.classList.remove('active');
 
-            if (this.value && locationData[this.value]) {
-                populateSelect(districtSelect, Object.keys(locationData[this.value]).sort(), "Select District");
+            if (!selectedState) {
+                updateLocationSummary();
+                return;
             }
-        });
 
-        districtSelect.addEventListener('change', function() {
-            resetSelect(talukSelect, "Select Taluk");
-            resetSelect(hobliSelect, "Select Taluk First");
-            resetSelect(villageSelect, "Select Hobli First");
-            hubResultCard.classList.remove('active');
+            setLoadingStatus(true, `Loading Districts for ${selectedState}...`);
 
-            const state = stateSelect.value;
-            if (state && this.value && locationData[state]?.[this.value]) {
-                populateSelect(talukSelect, Object.keys(locationData[state][this.value]).sort(), "Select Taluk");
+            // Step 1: Check cache
+            let stateData = nationDataCache[selectedState];
+
+            // Step 2: Try fetching /Nation/{State}.json or /Nation/{State}/index.json
+            if (!stateData) {
+                const sanitizedState = encodeURIComponent(selectedState);
+                stateData = await fetchFromNationDir(`./Nation/${sanitizedState}.json`) || 
+                            await fetchFromNationDir(`./Nation/${sanitizedState}/index.json`) ||
+                            await fetchFromNationDir(`./Nation/${selectedState.toLowerCase()}.json`);
+
+                if (stateData) {
+                    nationDataCache[selectedState] = stateData;
+                }
             }
-        });
 
-        talukSelect.addEventListener('change', function() {
-            resetSelect(hobliSelect, "Select Hobli");
-            resetSelect(villageSelect, "Select Hobli First");
-            hubResultCard.classList.remove('active');
-
-            const state = stateSelect.value;
-            const dist = districtSelect.value;
-            if (state && dist && this.value && locationData[state]?.[dist]?.[this.value]) {
-                populateSelect(hobliSelect, Object.keys(locationData[state][dist][this.value]).sort(), "Select Hobli");
+            // Step 3: Check fallback dataset
+            if (!stateData && fallbackLocationData[selectedState]) {
+                stateData = fallbackLocationData[selectedState];
             }
-        });
 
-        hobliSelect.addEventListener('change', function() {
-            resetSelect(villageSelect, "Select Village");
-            hubResultCard.classList.remove('active');
-
-            const state = stateSelect.value;
-            const dist = districtSelect.value;
-            const taluk = talukSelect.value;
-            if (state && dist && taluk && this.value && locationData[state]?.[dist]?.[taluk]?.[this.value]) {
-                populateSelect(villageSelect, locationData[state][dist][taluk][this.value].slice().sort(), "Select Village");
-            }
-        });
-
-        villageSelect.addEventListener('change', function() {
-            if (this.value) {
-                document.getElementById('hubTitle').textContent = `Nearest Center: ${this.value} Node`;
-                document.getElementById('hubDetails').textContent = `Located in ${hobliSelect.value}, ${talukSelect.value}. Daily Bus Pickup & Hostel Seats Available!`;
-                hubResultCard.classList.add('active');
+            if (stateData && typeof stateData === 'object') {
+                const districts = Object.keys(stateData).sort();
+                populateSelectOptions(districtSelect, districts, "Select District");
+                document.getElementById('districtStatus').textContent = `✓ ${districts.length} Loaded`;
+                setLoadingStatus(false, `/Nation Data Loaded: ${selectedState}`);
             } else {
+                // If no pre-existing dataset found for this State, switch District to Manual Input so user isn't blocked!
+                document.getElementById('districtStatus').textContent = "⚠️ Manual Mode Available";
+                populateSelectOptions(districtSelect, [], "No District file found - Type Manually below");
+                districtSelect.disabled = true;
+                setLoadingStatus(false, `Ready for manual entry for ${selectedState}`);
+            }
+
+            updateLocationSummary();
+        });
+
+        // Handle District Change - Dynamically Fetch Taluk data
+        districtSelect.addEventListener('change', async function() {
+            const selectedState = stateSelect.value;
+            const selectedDist = this.value;
+
+            resetSelect(talukSelect, "Select Taluk", "Select District First");
+            resetSelect(hobliSelect, "Select Hobli First", "Select Taluk First");
+            resetSelect(villageSelect, "Select Village First", "Select Hobli First");
+            hubResultCard.classList.remove('active');
+
+            if (!selectedDist) {
+                updateLocationSummary();
+                return;
+            }
+
+            setLoadingStatus(true, `Loading Taluks for ${selectedDist}...`);
+
+            let stateData = nationDataCache[selectedState] || fallbackLocationData[selectedState];
+            let distData = stateData?.[selectedDist];
+
+            // Fetch dynamic nested path /Nation/{State}/{District}.json
+            if (!distData) {
+                const path = `./Nation/${encodeURIComponent(selectedState)}/${encodeURIComponent(selectedDist)}.json`;
+                distData = await fetchFromNationDir(path);
+                if (distData && stateData) {
+                    stateData[selectedDist] = distData;
+                }
+            }
+
+            if (distData && typeof distData === 'object') {
+                const taluks = Object.keys(distData).sort();
+                populateSelectOptions(talukSelect, taluks, "Select Taluk");
+                document.getElementById('talukStatus').textContent = `✓ ${taluks.length} Loaded`;
+                setLoadingStatus(false, `/Nation Data Loaded: ${selectedDist}`);
+            } else {
+                document.getElementById('talukStatus').textContent = "⚠️ Manual Option";
+                setLoadingStatus(false, "Ready for manual entry");
+            }
+
+            updateLocationSummary();
+        });
+
+        // Handle Taluk Change
+        talukSelect.addEventListener('change', function() {
+            const selectedState = stateSelect.value;
+            const selectedDist = districtSelect.value;
+            const selectedTaluk = this.value;
+
+            resetSelect(hobliSelect, "Select Hobli", "Select Taluk First");
+            resetSelect(villageSelect, "Select Village First", "Select Hobli First");
+            hubResultCard.classList.remove('active');
+
+            if (!selectedTaluk) {
+                updateLocationSummary();
+                return;
+            }
+
+            let stateData = nationDataCache[selectedState] || fallbackLocationData[selectedState];
+            let hobliData = stateData?.[selectedDist]?.[selectedTaluk];
+
+            if (hobliData && typeof hobliData === 'object') {
+                const hoblis = Object.keys(hobliData).sort();
+                populateSelectOptions(hobliSelect, hoblis, "Select Hobli / Circle");
+                document.getElementById('hobliStatus').textContent = `✓ ${hoblis.length} Loaded`;
+            } else {
+                document.getElementById('hobliStatus').textContent = "⚠️ Manual Option";
+            }
+
+            updateLocationSummary();
+        });
+
+        // Handle Hobli Change
+        hobliSelect.addEventListener('change', function() {
+            const selectedState = stateSelect.value;
+            const selectedDist = districtSelect.value;
+            const selectedTaluk = talukSelect.value;
+            const selectedHobli = this.value;
+
+            resetSelect(villageSelect, "Select Village", "Select Hobli First");
+            hubResultCard.classList.remove('active');
+
+            if (!selectedHobli) {
+                updateLocationSummary();
+                return;
+            }
+
+            let stateData = nationDataCache[selectedState] || fallbackLocationData[selectedState];
+            let villageList = stateData?.[selectedDist]?.[selectedTaluk]?.[selectedHobli];
+
+            if (Array.isArray(villageList) && villageList.length > 0) {
+                populateSelectOptions(villageSelect, villageList.slice().sort(), "Select Village / Hub");
+                document.getElementById('villageStatus').textContent = `✓ ${villageList.length} Villages`;
+            } else {
+                document.getElementById('villageStatus').textContent = "⚠️ Manual Option";
+            }
+
+            updateLocationSummary();
+        });
+
+        // Handle Village Change
+        villageSelect.addEventListener('change', function() {
+            updateLocationSummary();
+        });
+
+        // Helper function to extract current 5-tier location values
+        function getCurrentLocation() {
+            const st = manualMode.state ? stateManual.value.trim() : stateSelect.value;
+            const dt = manualMode.district ? districtManual.value.trim() : districtSelect.value;
+            const tk = manualMode.taluk ? talukManual.value.trim() : talukSelect.value;
+            const hb = manualMode.hobli ? hobliManual.value.trim() : hobliSelect.value;
+            const vl = manualMode.village ? villageManual.value.trim() : villageSelect.value;
+
+            return { state: st, district: dt, taluk: tk, hobli: hb, village: vl };
+        }
+
+        // Live location summary badge update
+        function updateLocationSummary() {
+            const loc = getCurrentLocation();
+            const parts = [loc.village, loc.hobli, loc.taluk, loc.district, loc.state].filter(Boolean);
+
+            const summaryEl = document.getElementById('formLocationSummary');
+            if (parts.length > 0) {
+                const fullStr = parts.join(' → ');
+                summaryEl.textContent = fullStr;
+
+                if (loc.village || loc.hobli || loc.taluk) {
+                    document.getElementById('hubTitle').textContent = `Matched Campus Center: ${loc.village || loc.hobli || loc.taluk} Hub`;
+                    document.getElementById('hubDetails').textContent = `Full Path: ${fullStr}. Verified transport connectivity & active batch admissions!`;
+                    hubResultCard.classList.add('active');
+                }
+            } else {
+                summaryEl.textContent = "No location selected. Choose location above in Village Hub Finder.";
                 hubResultCard.classList.remove('active');
             }
-        });
+        }
 
-        // ==========================================
-        // SMART SEARCH / AUTOCOMPLETE LOCATION LOGIC
-        // ==========================================
+        function syncLocationToForm() {
+            const loc = getCurrentLocation();
+            const summaryStr = [loc.village, loc.hobli, loc.taluk, loc.district, loc.state].filter(Boolean).join(', ');
+            document.getElementById('modalLocationBadge').textContent = summaryStr || 'Custom Regional Hub';
+        }
+
+        // =========================================================================
+        // 3. AUTOCOMPLETE SMART SEARCH ENGINE ACROSS CACHED /Nation DATA
+        // =========================================================================
         function searchLocationQuery() {
             const query = locationSearchInput.value.toLowerCase().trim();
             if (query.length < 2) {
@@ -2042,43 +2335,43 @@
             locationSuggestions.innerHTML = '';
             let matches = [];
 
-            // Traverse nested data structure to find matches
-            for (let state in locationData) {
-                for (let dist in locationData[state]) {
-                    for (let taluk in locationData[state][dist]) {
-                        for (let hobli in locationData[state][dist][taluk]) {
-                            // Check Hobli name match
+            const activeDataset = Object.assign({}, fallbackLocationData, nationDataCache);
+
+            for (let state in activeDataset) {
+                for (let dist in activeDataset[state]) {
+                    for (let taluk in activeDataset[state][dist]) {
+                        for (let hobli in activeDataset[state][dist][taluk]) {
                             if (hobli.toLowerCase().includes(query)) {
                                 matches.push({
-                                    type: 'Hobli',
+                                    type: 'Hobli/Circle',
                                     name: hobli,
                                     path: `${state} → ${dist} → ${taluk}`,
                                     state, dist, taluk, hobli, village: ''
                                 });
                             }
-                            // Check Village matches
-                            locationData[state][dist][taluk][hobli].forEach(village => {
-                                if (village.toLowerCase().includes(query)) {
-                                    matches.push({
-                                        type: 'Village/Hub',
-                                        name: village,
-                                        path: `${state} → ${dist} → ${taluk} → ${hobli}`,
-                                        state, dist, taluk, hobli, village
-                                    });
-                                }
-                            });
+                            const vList = activeDataset[state][dist][taluk][hobli];
+                            if (Array.isArray(vList)) {
+                                vList.forEach(village => {
+                                    if (village.toLowerCase().includes(query)) {
+                                        matches.push({
+                                            type: 'Village/Ward',
+                                            name: village,
+                                            path: `${state} → ${dist} → ${taluk} → ${hobli}`,
+                                            state, dist, taluk, hobli, village
+                                        });
+                                    }
+                                });
+                            }
                         }
-                        // Check Taluk matches
                         if (taluk.toLowerCase().includes(query)) {
                             matches.push({
-                                type: 'Taluk',
+                                type: 'Taluk/Tehsil',
                                 name: taluk,
                                 path: `${state} → ${dist}`,
                                 state, dist, taluk, hobli: '', village: ''
                             });
                         }
                     }
-                    // Check District matches
                     if (dist.toLowerCase().includes(query)) {
                         matches.push({
                             type: 'District',
@@ -2090,7 +2383,6 @@
                 }
             }
 
-            // Slice top matches to keep performance super smooth
             const displayedMatches = matches.slice(0, 8);
 
             if (displayedMatches.length > 0) {
@@ -2112,53 +2404,43 @@
             }
         }
 
-        function selectSmartLocation(match) {
+        async function selectSmartLocation(match) {
             locationSearchInput.value = match.name;
             locationSuggestions.style.display = 'none';
 
-            // Auto cascade and set values
+            // Reset manual modes if on
+            for (let k in manualMode) {
+                if (manualMode[k]) toggleManualField(k);
+            }
+
             stateSelect.value = match.state;
-            
-            populateSelect(districtSelect, Object.keys(locationData[match.state]).sort(), "Select District");
-            districtSelect.value = match.dist;
+            stateSelect.dispatchEvent(new Event('change'));
 
-            if (match.taluk) {
-                populateSelect(talukSelect, Object.keys(locationData[match.state][match.dist]).sort(), "Select Taluk");
-                talukSelect.value = match.taluk;
-            } else {
-                resetSelect(talukSelect, "Select Taluk");
-                resetSelect(hobliSelect, "Select Hobli First");
-                resetSelect(villageSelect, "Select Hobli First");
-                hubResultCard.classList.remove('active');
-                return;
-            }
-
-            if (match.hobli) {
-                populateSelect(hobliSelect, Object.keys(locationData[match.state][match.dist][match.taluk]).sort(), "Select Hobli");
-                hobliSelect.value = match.hobli;
-            } else {
-                resetSelect(hobliSelect, "Select Hobli");
-                resetSelect(villageSelect, "Select Hobli First");
-                hubResultCard.classList.remove('active');
-                return;
-            }
-
-            if (match.village) {
-                populateSelect(villageSelect, locationData[match.state][match.dist][match.taluk][match.hobli].slice().sort(), "Select Village");
-                villageSelect.value = match.village;
-
-                // Fire the card output manually
-                document.getElementById('hubTitle').textContent = `Nearest Center: ${match.village} Node`;
-                document.getElementById('hubDetails').textContent = `Located in ${match.hobli}, ${match.taluk}. Daily Bus Pickup & Hostel Seats Available!`;
-                hubResultCard.classList.add('active');
-            } else {
-                resetSelect(villageSelect, "Select Village");
-                const list = locationData[match.state][match.dist][match.taluk][match.hobli];
-                if (list && list.length > 0) {
-                    populateSelect(villageSelect, list.slice().sort(), "Select Village");
+            // Give a tiny timeout for async state dispatch
+            setTimeout(() => {
+                if (match.dist) {
+                    districtSelect.value = match.dist;
+                    districtSelect.dispatchEvent(new Event('change'));
                 }
-                hubResultCard.classList.remove('active');
-            }
+                setTimeout(() => {
+                    if (match.taluk) {
+                        talukSelect.value = match.taluk;
+                        talukSelect.dispatchEvent(new Event('change'));
+                    }
+                    setTimeout(() => {
+                        if (match.hobli) {
+                            hobliSelect.value = match.hobli;
+                            hobliSelect.dispatchEvent(new Event('change'));
+                        }
+                        setTimeout(() => {
+                            if (match.village) {
+                                villageSelect.value = match.village;
+                                villageSelect.dispatchEvent(new Event('change'));
+                            }
+                        }, 100);
+                    }, 100);
+                }, 100);
+            }, 150);
         }
 
         function clearLocationSearch() {
@@ -2170,19 +2452,18 @@
             resetSelect(hobliSelect, "Select Taluk First");
             resetSelect(villageSelect, "Select Hobli First");
             hubResultCard.classList.remove('active');
+            updateLocationSummary();
         }
 
-        // Close smart search when clicked outside
         document.addEventListener('click', function(e) {
             if (!locationSearchInput.contains(e.target) && !locationSuggestions.contains(e.target)) {
                 locationSuggestions.style.display = 'none';
             }
         });
 
-
-        // ==========================================
-        // 2. HERO CAROUSEL SLIDER ENGINE
-        // ==========================================
+        // =========================================================================
+        // 4. HERO CAROUSEL SLIDER ENGINE
+        // =========================================================================
         let currentSlideIdx = 0;
         const slides = document.querySelectorAll('.carousel-slide');
 
@@ -2204,9 +2485,9 @@
 
         setInterval(nextSlide, 7000);
 
-        // ==========================================
-        // 3. COURSE SEARCH & FILTER LOGIC
-        // ==========================================
+        // =========================================================================
+        // 5. COURSE SEARCH & FILTER LOGIC
+        // =========================================================================
         let savedCartCount = 0;
 
         function filterByPill(category, btnElement) {
@@ -2262,12 +2543,13 @@
             alert(`You have ${savedCartCount} saved courses in your cart list.`);
         }
 
-        // ==========================================
-        // 4. MODAL ENROLLMENT POPUP
-        // ==========================================
+        // =========================================================================
+        // 6. MODAL ENROLLMENT POPUP
+        // =========================================================================
         function openEnrollModal(title, price) {
             document.getElementById('modalCourseTitle').textContent = title;
             document.getElementById('modalCoursePrice').textContent = `₹${price.toLocaleString()}`;
+            syncLocationToForm();
             document.getElementById('enrollModal').classList.add('active');
         }
 
@@ -2277,13 +2559,15 @@
 
         function handleModalSubmit(e) {
             e.preventDefault();
-            alert('Thank you! Your enrollment order has been created. Our advisor will reach out on WhatsApp.');
+            const loc = getCurrentLocation();
+            const locStr = [loc.village, loc.hobli, loc.taluk, loc.district, loc.state].filter(Boolean).join(', ');
+            alert(`Thank you! Enrollment order confirmed.\n\nAssigned Hub Location: ${locStr || 'Central Hub'}\nOur counselor will contact you via WhatsApp!`);
             closeEnrollModal();
         }
 
-        // ==========================================
-        // 5. DASHBOARD PREVIEW TAB SWITCHER
-        // ==========================================
+        // =========================================================================
+        // 7. DASHBOARD PREVIEW TAB SWITCHER
+        // =========================================================================
         function switchDashTab(tabId, btnElement) {
             document.querySelectorAll('.dash-screen').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.dash-tab-btn').forEach(b => b.classList.remove('active'));
@@ -2292,9 +2576,9 @@
             btnElement.classList.add('active');
         }
 
-        // ==========================================
-        // 6. THEME SWITCHER
-        // ==========================================
+        // =========================================================================
+        // 8. THEME SWITCHER & FORM SUBMISSION
+        // =========================================================================
         const themeBtn = document.getElementById('themeToggleBtn');
         themeBtn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -2306,10 +2590,12 @@
         function handleFormSubmit(e) {
             e.preventDefault();
             const student = document.getElementById('formStudent').value;
-            alert(`Thank you, ${student}! Your admission inquiry has been submitted successfully.`);
+            const loc = getCurrentLocation();
+            const locStr = [loc.village, loc.hobli, loc.taluk, loc.district, loc.state].filter(Boolean).join(' → ');
+            alert(`Thank you, ${student}!\n\nYour counseling inquiry has been registered with /Nation Location Payload:\n[${locStr || 'Not Specified'}]`);
         }
 
-        // Initialize Location Engine on load
+        // Initialize /Nation Location Engine on Page Load
         document.addEventListener('DOMContentLoaded', () => {
             initLocationEngine();
         });
