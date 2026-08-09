@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sharusuri EdTech & Cousins Academy - Multi-Page Coaching Engine for Navodaya Entrance, Morarji Desai, Sainik School, and State Board Foundation with Interactive Batch Timings Hub.">
-    <title>Sharusuri EdTech | Cousins Academy Programs, Batches & Interactive Portal</title>
+    <meta name="description" content="Sharusuri EdTech & Cousins Academy - Multi-Page Coaching Engine for Navodaya Entrance, Morarji Desai, Sainik School, with 4-Tier Support, Multi-Branch Access, and Parent Assurance Dashboard.">
+    <title>Sharusuri EdTech | Cousins Academy Programs, Batches & Multi-Branch Support Hub</title>
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -298,10 +298,7 @@
             border-color: var(--primary);
         }
 
-        /* MOBILE MENU DRAWER */
-        .mobile-nav-toggle {
-            display: none;
-        }
+        .mobile-nav-toggle { display: none; }
 
         /* PAGE VIEWS MANAGEMENT */
         .page-view {
@@ -370,7 +367,7 @@
             flex-wrap: wrap;
         }
 
-        /* DYNAMIC 4-STEP PROGRAM & BATCH SELECTOR WIZARD */
+        /* DYNAMIC WIZARD & CARDS */
         .selector-wizard-wrapper {
             max-width: 1100px;
             margin: -2.5rem auto 3rem;
@@ -522,7 +519,7 @@
             border-top: 1px solid var(--border-light);
         }
 
-        /* TIMING & SLOT SUMMARY CARD (STEP 4) */
+        /* TIMING & SLOT SUMMARY CARD */
         .timing-summary-box {
             background: linear-gradient(135deg, var(--primary-light), rgba(37, 99, 235, 0.08));
             border: 2px solid var(--primary);
@@ -555,6 +552,149 @@
         .slot-pill.active {
             background: var(--primary);
             color: white;
+        }
+
+        /* 4-TIER ACADEMIC SUPPORT HIERARCHY STYLES */
+        .tier-flow-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .tier-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            position: relative;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .tier-badge-number {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 900;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 10px rgba(15, 118, 110, 0.25);
+        }
+
+        .tier-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .tier-subtitle {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .tier-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .tier-feature-list {
+            font-size: 0.8rem;
+            color: var(--text-main);
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .tier-feature-list li::before {
+            content: "✦ ";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* FLEXIBLE TUITION MODEL CARDS */
+        .tuition-models-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .model-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .model-card:hover {
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        /* PARENT ASSURANCE DASHBOARD IN PORTAL */
+        .dashboard-tab-nav {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .dash-tab-btn {
+            padding: 0.65rem 1.25rem;
+            border-radius: 50px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            color: var(--text-main);
+        }
+
+        .dash-tab-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .dash-panel-content {
+            display: none;
+            animation: fadeInView 0.25s ease forwards;
+        }
+
+        .dash-panel-content.active {
+            display: block;
         }
 
         /* BUTTON STYLES */
@@ -752,6 +892,7 @@
         .badge-success { background: var(--success-light); color: var(--success); }
         .badge-warning { background: var(--accent-light); color: var(--accent-hover); }
         .badge-danger { background: var(--yt-bg-light); color: var(--yt-red); }
+        .badge-purple { background: var(--purple-light); color: var(--purple); }
 
         /* FOOTER */
         .site-footer {
@@ -772,8 +913,8 @@
 
         /* RESPONSIVE DESIGN */
         @media (max-width: 1024px) {
-            .grid-3, .footer-grid { grid-template-columns: repeat(2, 1fr); }
-            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .grid-3, .footer-grid, .tuition-models-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-4, .tier-flow-grid { grid-template-columns: repeat(2, 1fr); }
             .wizard-steps-bar { grid-template-columns: repeat(2, 1fr); }
         }
 
@@ -781,7 +922,7 @@
             .nav-links-menu { display: none; }
             .mobile-nav-toggle { display: flex; }
             .hero-title { font-size: 2.1rem; }
-            .grid-3, .grid-2, .grid-4, .footer-grid { grid-template-columns: 1fr; }
+            .grid-3, .grid-2, .grid-4, .footer-grid, .tier-flow-grid, .tuition-models-grid { grid-template-columns: 1fr; }
             .wizard-steps-bar { grid-template-columns: 1fr; }
             .top-notice-bar { flex-direction: column; text-align: center; }
         }
@@ -800,13 +941,13 @@
     <!-- TOP ANNOUNCEMENT & CONTACT BAR -->
     <div class="top-notice-bar">
         <div>
-            <span class="notice-tag" id="noticeTagText">📺 Channel Integration</span>
-            <span id="noticeBarMsg">Official Partner: Cousins Academy (@cousinsacademy4599) • Admissions Open 2026-27</span>
+            <span class="notice-tag" id="noticeTagText">🎓 Multi-Tier Support & Trial Demos</span>
+            <span id="noticeBarMsg">Official Partner: Cousins Academy (@cousinsacademy4599) • Free Demo Sessions Available Nationwide</span>
         </div>
         <div class="top-contacts">
             <a href="tel:+918088835686">📞 +91 80888 35686</a>
             <a href="https://wa.me/919160837748" target="_blank">💬 +91 9160837748</a>
-            <span>📍 Sindhanur, Raichur</span>
+            <span>📍 Sindhanur • Raichur • Bellary</span>
         </div>
     </div>
 
@@ -828,7 +969,7 @@
                     <span>🏠</span> <span data-i18n="nav_home">Home</span>
                 </button>
                 <button class="nav-link-btn" id="nav-programs" onclick="navigateToPage('programs')">
-                    <span>📚</span> <span data-i18n="nav_programs">Programs</span>
+                    <span>📚</span> <span data-i18n="nav_programs">Programs & Tiers</span>
                 </button>
                 <button class="nav-link-btn" id="nav-schedule" onclick="navigateToPage('schedule')">
                     <span>🗓️</span> <span data-i18n="nav_schedule">Batches & Schedule</span>
@@ -840,7 +981,7 @@
                     <span>📞</span> <span data-i18n="nav_contact">Contact Us</span>
                 </button>
                 <button class="nav-link-btn" id="nav-portal" onclick="navigateToPage('portal')">
-                    <span>💻</span> <span data-i18n="nav_portal">Student Portal</span>
+                    <span>💻</span> <span data-i18n="nav_portal">Parent & Student Portal</span>
                 </button>
                 <button class="nav-link-btn" id="nav-admin" onclick="navigateToPage('admin')">
                     <span>⚙️</span> <span data-i18n="nav_admin">Admin Console</span>
@@ -857,6 +998,11 @@
 
                 <!-- THEME TOGGLE -->
                 <button class="icon-btn" id="themeToggleBtn" title="Toggle Theme">🌙</button>
+
+                <!-- FREE DEMO ACTION -->
+                <button class="btn btn-accent btn-sm" onclick="openDemoModal()">
+                    ✨ Free Demo
+                </button>
 
                 <!-- AUTH TRIGGER BUTTON -->
                 <button class="btn btn-primary btn-sm" id="mainAuthBtn" onclick="openAuthModal()">
@@ -886,17 +1032,17 @@
                         Master Navodaya & Morarji Entrance Exams with <span>Cousins Academy</span>
                     </h1>
                     <p class="hero-subtitle" data-i18n="hero_sub">
-                        Karnataka's top coaching engine for Jawahar Navodaya Vidyalaya (JNVST), Morarji Desai, Rani Chennamma, Sainik School entrance prep, and State Board Foundation.
+                        Karnataka's top coaching engine backed by a 4-Tier Academic Support Hierarchy, Cross-Branch Teacher Access, and Flexible Hybrid Learning Models.
                     </p>
                     <div class="hero-cta-group">
+                        <button class="btn btn-accent btn-lg" onclick="openDemoModal()">
+                            🎯 Book Free Trial Demo Class
+                        </button>
                         <button class="btn btn-primary btn-lg" onclick="navigateToPage('programs')">
-                            🚀 Explore Programs & Batches
+                            🚀 Explore Programs & Support Tiers
                         </button>
                         <button class="btn btn-yt btn-lg" onclick="window.open('https://www.youtube.com/@cousinsacademy4599?sub_confirmation=1', '_blank')">
                             📺 Subscribe YouTube Channel
-                        </button>
-                        <button class="btn btn-whatsapp btn-lg" onclick="openWhatsAppInquiry()">
-                            💬 WhatsApp Inquiry
                         </button>
                     </div>
                 </div>
@@ -905,12 +1051,25 @@
             <!-- QUICK PROGRAM SELECTOR SNAPSHOT -->
             <div class="selector-wizard-wrapper">
                 <div class="wizard-card" style="text-align: center;">
-                    <span class="badge badge-primary" style="margin-bottom: 0.5rem;">⚡ Fast Track Enrollment</span>
+                    <span class="badge badge-primary" style="margin-bottom: 0.5rem;">⚡ Fast Track Enrollment & Trial Demos</span>
                     <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Choose Your Coaching Path in 4 Simple Steps</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">Select program, batch type, mode (Online/Offline/Home Tuition), and view custom timing slots.</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">Select program, batch type, mode (Online/Offline/Home Mentorship), and view custom timing slots.</p>
                     <button class="btn btn-primary" onclick="navigateToPage('programs')">
                         👉 Launch Interactive Program & Batch Selector
                     </button>
+                </div>
+            </div>
+
+            <!-- 4-TIER SUPPORT HIERARCHY FEATURE HIGHLIGHT -->
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="badge badge-purple">🛡️ Unmatched Student Protection & Support</span>
+                    <h2>4-Tier Academic Support Hierarchy</h2>
+                    <p>Every student gets 360-degree coverage across every subject, guaranteed zero doubt backlog, and cross-branch expert access.</p>
+                </div>
+
+                <div class="tier-flow-grid" id="homeTierGrid">
+                    <!-- Dynamic rendering via JS -->
                 </div>
             </div>
 
@@ -925,12 +1084,12 @@
                     <div class="info-card" style="text-align: center;">
                         <div style="font-size: 2.2rem; color: var(--secondary); font-weight: 900;">12,500+</div>
                         <div style="font-weight: 800; font-size: 0.95rem; margin-top: 0.3rem;">Enrolled Students</div>
-                        <div style="font-size: 0.8rem; color: var(--text-muted);">Online & Offline Campuses</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">Online & Multi-Campus Network</div>
                     </div>
                     <div class="info-card" style="text-align: center;">
-                        <div style="font-size: 2.2rem; color: var(--accent); font-weight: 900;">100%</div>
-                        <div style="font-weight: 800; font-size: 0.95rem; margin-top: 0.3rem;">OMR Accuracy Drills</div>
-                        <div style="font-size: 0.8rem; color: var(--text-muted);">Zero-error practice system</div>
+                        <div style="font-size: 2.2rem; color: var(--accent); font-weight: 900;">4 Tiers</div>
+                        <div style="font-weight: 800; font-size: 0.95rem; margin-top: 0.3rem;">Academic Backing</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">Class teacher to cross-branch mentors</div>
                     </div>
                     <div class="info-card" style="text-align: center;">
                         <div style="font-size: 2.2rem; color: var(--yt-red); font-weight: 900;">@cousinsacademy</div>
@@ -941,187 +1100,254 @@
             </div>
         </section>
 
-        <!-- 2. DEEP INTERACTIVE PROGRAM & BATCH SELECTOR (PROGRAMS.HTML PAGE VIEW) -->
+        <!-- 2. DEEP INTERACTIVE PROGRAM, SUPPORT TIERS & BATCH SELECTOR (PROGRAMS PAGE VIEW) -->
         <section id="page-programs" class="page-view">
             <div class="section-container" style="margin-top: 2rem;">
+                <!-- SECTION 1: 4-TIER VISUAL FLOW -->
                 <div class="section-header">
-                    <span class="badge badge-primary">📚 Dynamic Program & Batch Selector</span>
-                    <h2>Customize Your Learning Journey</h2>
-                    <p>Complete the 4-step selection workflow to find your ideal program, batch type, mode of learning, and available timing slots.</p>
+                    <span class="badge badge-purple">🎓 Complete Subject Coverage Framework</span>
+                    <h2>Our 4-Tier Academic Support Hierarchy</h2>
+                    <p>Designed to ensure no child is left behind. Experience complete support from core lectures to cross-region subject specialists.</p>
                 </div>
 
-                <div class="wizard-card">
-                    <!-- Wizard Steps Bar -->
-                    <div class="wizard-steps-bar">
-                        <div class="step-indicator active" id="stepInd-1">
-                            <span class="step-num">1</span>
-                            <span>Choose Program</span>
-                        </div>
-                        <div class="step-indicator" id="stepInd-2">
-                            <span class="step-num">2</span>
-                            <span>Batch Type</span>
-                        </div>
-                        <div class="step-indicator" id="stepInd-3">
-                            <span class="step-num">3</span>
-                            <span>Learning Mode</span>
-                        </div>
-                        <div class="step-indicator" id="stepInd-4">
-                            <span class="step-num">4</span>
-                            <span>Timings & Summary</span>
-                        </div>
+                <div class="tier-flow-grid" id="programsTierGrid">
+                    <!-- Populated dynamically -->
+                </div>
+
+                <!-- SECTION 2: FLEXIBLE TUITION MODELS -->
+                <div style="margin-top: 4rem;">
+                    <div class="section-header">
+                        <span class="badge badge-primary">🔀 Adaptable Tuition Ecosystem</span>
+                        <h2>Flexible Tuition & Learning Models</h2>
+                        <p>Switch seamlessly between campus classes, home tuition, and cross-branch revision centers based on your convenience.</p>
                     </div>
 
-                    <!-- STEP 1: CHOOSE PROGRAM -->
-                    <div class="wizard-step-content active" id="wizardStep1">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Step 1: Select Target Program / Course</h3>
-                        <div class="wizard-grid">
-                            <div class="option-selectable-card selected" onclick="selectWizardOption(1, 'program', 'Navodaya Entrance Coaching', this)">
-                                <div class="option-icon">🏆</div>
-                                <div class="option-title">Navodaya Entrance Coaching</div>
-                                <div class="option-desc">JNVST Class 5 & 6 mental ability, arithmetic, and language test preparation.</div>
+                    <div class="tuition-models-grid">
+                        <div class="model-card">
+                            <div>
+                                <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Option 1</span>
+                                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Regular Campus Tuition</h3>
+                                <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
+                                    Structured daily in-person classes at your nearest regional tuition center with direct teacher interaction and daily OMR test papers.
+                                </p>
                             </div>
-
-                            <div class="option-selectable-card" onclick="selectWizardOption(1, 'program', 'Morarji Desai Entrance Exam', this)">
-                                <div class="option-icon">📝</div>
-                                <div class="option-title">Morarji Desai Entrance Exam</div>
-                                <div class="option-desc">KREIS residential school preparation with Kannada & English OMR test paper practice.</div>
-                            </div>
-
-                            <div class="option-selectable-card" onclick="selectWizardOption(1, 'program', 'Sainik School / RMS Entrance', this)">
-                                <div class="option-icon">🎖️</div>
-                                <div class="option-title">Sainik School / RMS Entrance</div>
-                                <div class="option-desc">All India Sainik School Competitive Entrance Examination (AISSEE) coaching.</div>
-                            </div>
-
-                            <div class="option-selectable-card" onclick="selectWizardOption(1, 'program', 'State Board & Foundation Tuition', this)">
-                                <div class="option-icon">🏫</div>
-                                <div class="option-title">State Board & Foundation Tuition</div>
-                                <div class="option-desc">Class 5 to 10 Mathematics, Science, and Olympiad foundation subjects.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- STEP 2: CHOOSE BATCH TYPE -->
-                    <div class="wizard-step-content" id="wizardStep2">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Step 2: Choose Batch Type</h3>
-                        <div class="wizard-grid">
-                            <div class="option-selectable-card selected" onclick="selectWizardOption(2, 'batch', 'Regular Batch (Monday to Friday)', this)">
-                                <div class="option-icon">📅</div>
-                                <div class="option-title">Regular Batch</div>
-                                <div class="option-desc">Monday to Friday daily 1.5-hour structured classes with weekly OMR revision tests.</div>
-                            </div>
-
-                            <div class="option-selectable-card" onclick="selectWizardOption(2, 'batch', 'Weekend Batch (Saturday & Sunday)', this)">
-                                <div class="option-icon">🗓️</div>
-                                <div class="option-title">Weekend Batch</div>
-                                <div class="option-desc">Saturday & Sunday intensive sessions designed for students attending standard day schools.</div>
-                            </div>
-
-                            <div class="option-selectable-card" onclick="selectWizardOption(2, 'batch', 'Vacation / Crash Course', this)">
-                                <div class="option-icon">⚡</div>
-                                <div class="option-title">Vacation / Crash Course</div>
-                                <div class="option-desc">30-day intensive holiday sprint with continuous mock exams and direct faculty doubt solving.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- STEP 3: CHOOSE LEARNING MODE -->
-                    <div class="wizard-step-content" id="wizardStep3">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Step 3: Choose Learning Mode</h3>
-                        <div class="wizard-grid">
-                            <div class="option-selectable-card selected" onclick="selectWizardOption(3, 'mode', 'Online Live Interactive Classes', this)">
-                                <div class="option-icon">🌐</div>
-                                <div class="option-title">Online Live Interactive</div>
-                                <div class="option-desc">Live streaming masterclasses with live chat, Cousins Academy video library, and digital notes.</div>
-                            </div>
-
-                            <div class="option-selectable-card" onclick="selectWizardOption(3, 'mode', 'Offline Campus Classes', this)">
-                                <div class="option-icon">🏫</div>
-                                <div class="option-title">Offline Campus Classes</div>
-                                <div class="option-desc">In-person classroom coaching at our Sindhanur campus with physical OMR sheet evaluations.</div>
-                            </div>
-
-                            <div class="option-selectable-card" onclick="selectWizardOption(3, 'mode', 'Hybrid (Online + Offline)', this)">
-                                <div class="option-icon">🔀</div>
-                                <div class="option-title">Hybrid Mode</div>
-                                <div class="option-desc">Combine weekday online live streaming with weekend campus physical mock test series.</div>
-                            </div>
-
-                            <div class="option-selectable-card" onclick="selectWizardOption(3, 'mode', 'Home Tuition / Personalized Mentorship', this)">
-                                <div class="option-icon">🏠</div>
-                                <div class="option-title">Home Tuition / Personal Mentor</div>
-                                <div class="option-desc">1-on-1 personalized tutor visits or private online mentor slots for dedicated guidance.</div>
-                            </div>
-
-                            <div class="option-selectable-card" onclick="selectWizardOption(3, 'mode', 'Visit Tuition Center', this)">
-                                <div class="option-icon">📍</div>
-                                <div class="option-title">Visit Tuition Center</div>
-                                <div class="option-desc">In-person walk-in counseling, study room access, and instant doubt clearing at regional centers.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- STEP 4: TIMINGS & SUMMARY -->
-                    <div class="wizard-step-content" id="wizardStep4">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Step 4: Select Class Timing Slot & Confirm Details</h3>
-                        
-                        <div class="timing-summary-box">
-                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
-                                <div>
-                                    <span class="badge badge-primary">Program Summary</span>
-                                    <h4 style="font-size: 1.2rem; font-weight: 800; margin-top: 0.2rem;" id="sumProgramTitle">Navodaya Entrance Coaching</h4>
-                                </div>
-                                <div>
-                                    <span style="font-size: 0.82rem; color: var(--text-muted);">Course Fee:</span>
-                                    <strong style="font-size: 1.3rem; color: var(--primary); display: block;" id="sumCourseFee">₹5,999 / Year</strong>
-                                </div>
-                            </div>
-
-                            <div style="margin-top: 1rem; font-size: 0.88rem; display: grid; grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) ); gap: 0.75rem;">
-                                <div><strong>Selected Batch:</strong> <span id="sumBatchType">Regular Batch (Monday to Friday)</span></div>
-                                <div><strong>Selected Mode:</strong> <span id="sumModeType">Online Live Interactive Classes</span></div>
-                                <div><strong>Seats Remaining:</strong> <span class="badge badge-warning" id="sumSeatsLeft">🔥 7 Seats Left</span></div>
-                                <div><strong>Assigned Faculty:</strong> <span id="sumFaculty">Prof. Anita Rao & Suresh S</span></div>
-                            </div>
-
                             <div style="margin-top: 1.25rem;">
-                                <label class="form-label">Available Timing Slots *</label>
-                                <div class="timing-slots-grid">
-                                    <div class="slot-pill active" onclick="selectTimingSlot('Morning Slot (6:30 AM - 8:00 AM)', this)">
-                                        <div style="font-weight: 800;">🌅 Morning Slot</div>
-                                        <div style="font-size: 0.8rem;">6:30 AM – 8:00 AM</div>
-                                    </div>
-                                    <div class="slot-pill" onclick="selectTimingSlot('Evening Slot (5:30 PM - 7:00 PM)', this)">
-                                        <div style="font-weight: 800;">🌆 Evening Slot</div>
-                                        <div style="font-size: 0.8rem;">5:30 PM – 7:00 PM</div>
-                                    </div>
-                                    <div class="slot-pill" onclick="selectTimingSlot('Weekend Special (9:00 AM - 1:00 PM)', this)">
-                                        <div style="font-weight: 800;">☀️ Weekend Special</div>
-                                        <div style="font-size: 0.8rem;">9:00 AM – 1:00 PM</div>
-                                    </div>
+                                <button class="btn btn-secondary btn-sm" style="width: 100%;" onclick="openDemoModal('Campus Visit Demo')">
+                                    📍 Book Campus Visit Demo
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="model-card">
+                            <div>
+                                <span class="badge badge-success" style="margin-bottom: 0.5rem;">Option 2</span>
+                                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Cross-Branch Access Pass</h3>
+                                <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
+                                    Enroll in one campus and get free access to neighboring centers for weekend doubt clinics, specialized revision camps, and mock test drills.
+                                </p>
+                            </div>
+                            <div style="margin-top: 1.25rem;">
+                                <button class="btn btn-secondary btn-sm" style="width: 100%;" onclick="openDemoModal('Cross-Branch Pass Demo')">
+                                    🌐 Explore Branch Network
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="model-card">
+                            <div>
+                                <span class="badge badge-purple" style="margin-bottom: 0.5rem;">Option 3</span>
+                                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Hybrid & Home Mentorship</h3>
+                                <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
+                                    Combine online live streaming with weekly 1-on-1 home mentor visits for exam strategy, paper solving, and personalized progress reviews.
+                                </p>
+                            </div>
+                            <div style="margin-top: 1.25rem;">
+                                <button class="btn btn-secondary btn-sm" style="width: 100%;" onclick="openDemoModal('Hybrid Mentorship Demo')">
+                                    🏠 Request Home Mentor Demo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: 4-STEP WIZARD SELECTOR -->
+                <div style="margin-top: 4rem;">
+                    <div class="section-header">
+                        <span class="badge badge-primary">📚 Interactive Batch & Program Selector</span>
+                        <h2>Customize Your Learning Journey</h2>
+                        <p>Complete the 4-step selection workflow to find your ideal program, batch type, mode of learning, and available timing slots.</p>
+                    </div>
+
+                    <div class="wizard-card">
+                        <!-- Wizard Steps Bar -->
+                        <div class="wizard-steps-bar">
+                            <div class="step-indicator active" id="stepInd-1">
+                                <span class="step-num">1</span>
+                                <span>Choose Program</span>
+                            </div>
+                            <div class="step-indicator" id="stepInd-2">
+                                <span class="step-num">2</span>
+                                <span>Batch Type</span>
+                            </div>
+                            <div class="step-indicator" id="stepInd-3">
+                                <span class="step-num">3</span>
+                                <span>Learning Mode</span>
+                            </div>
+                            <div class="step-indicator" id="stepInd-4">
+                                <span class="step-num">4</span>
+                                <span>Timings & Summary</span>
+                            </div>
+                        </div>
+
+                        <!-- STEP 1: CHOOSE PROGRAM -->
+                        <div class="wizard-step-content active" id="wizardStep1">
+                            <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Step 1: Select Target Program / Course</h3>
+                            <div class="wizard-grid">
+                                <div class="option-selectable-card selected" onclick="selectWizardOption(1, 'program', 'Navodaya Entrance Coaching', this)">
+                                    <div class="option-icon">🏆</div>
+                                    <div class="option-title">Navodaya Entrance Coaching</div>
+                                    <div class="option-desc">JNVST Class 5 & 6 mental ability, arithmetic, and language test preparation.</div>
+                                </div>
+
+                                <div class="option-selectable-card" onclick="selectWizardOption(1, 'program', 'Morarji Desai Entrance Exam', this)">
+                                    <div class="option-icon">📝</div>
+                                    <div class="option-title">Morarji Desai Entrance Exam</div>
+                                    <div class="option-desc">KREIS residential school preparation with Kannada & English OMR test paper practice.</div>
+                                </div>
+
+                                <div class="option-selectable-card" onclick="selectWizardOption(1, 'program', 'Sainik School / RMS Entrance', this)">
+                                    <div class="option-icon">🎖️</div>
+                                    <div class="option-title">Sainik School / RMS Entrance</div>
+                                    <div class="option-desc">All India Sainik School Competitive Entrance Examination (AISSEE) coaching.</div>
+                                </div>
+
+                                <div class="option-selectable-card" onclick="selectWizardOption(1, 'program', 'State Board & Foundation Tuition', this)">
+                                    <div class="option-icon">🏫</div>
+                                    <div class="option-title">State Board & Foundation Tuition</div>
+                                    <div class="option-desc">Class 5 to 10 Mathematics, Science, and Olympiad foundation subjects.</div>
                                 </div>
                             </div>
                         </div>
 
-                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-end;">
-                            <button class="btn btn-whatsapp" onclick="openWhatsAppInquiry()">
-                                💬 WhatsApp Direct Registration
+                        <!-- STEP 2: CHOOSE BATCH TYPE -->
+                        <div class="wizard-step-content" id="wizardStep2">
+                            <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Step 2: Choose Batch Type</h3>
+                            <div class="wizard-grid">
+                                <div class="option-selectable-card selected" onclick="selectWizardOption(2, 'batch', 'Regular Batch (Monday to Friday)', this)">
+                                    <div class="option-icon">📅</div>
+                                    <div class="option-title">Regular Batch</div>
+                                    <div class="option-desc">Monday to Friday daily 1.5-hour structured classes with weekly OMR revision tests.</div>
+                                </div>
+
+                                <div class="option-selectable-card" onclick="selectWizardOption(2, 'batch', 'Weekend Batch (Saturday & Sunday)', this)">
+                                    <div class="option-icon">🗓️</div>
+                                    <div class="option-title">Weekend Batch</div>
+                                    <div class="option-desc">Saturday & Sunday intensive sessions designed for students attending standard day schools.</div>
+                                </div>
+
+                                <div class="option-selectable-card" onclick="selectWizardOption(2, 'batch', 'Vacation / Crash Course', this)">
+                                    <div class="option-icon">⚡</div>
+                                    <div class="option-title">Vacation / Crash Course</div>
+                                    <div class="option-desc">30-day intensive holiday sprint with continuous mock exams and direct faculty doubt solving.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 3: CHOOSE LEARNING MODE -->
+                        <div class="wizard-step-content" id="wizardStep3">
+                            <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Step 3: Choose Learning Mode</h3>
+                            <div class="wizard-grid">
+                                <div class="option-selectable-card selected" onclick="selectWizardOption(3, 'mode', 'Online Live Interactive Classes', this)">
+                                    <div class="option-icon">🌐</div>
+                                    <div class="option-title">Online Live Interactive</div>
+                                    <div class="option-desc">Live streaming masterclasses with live chat, Cousins Academy video library, and digital notes.</div>
+                                </div>
+
+                                <div class="option-selectable-card" onclick="selectWizardOption(3, 'mode', 'Offline Campus Classes', this)">
+                                    <div class="option-icon">🏫</div>
+                                    <div class="option-title">Offline Campus Classes</div>
+                                    <div class="option-desc">In-person classroom coaching at our Sindhanur campus with physical OMR sheet evaluations.</div>
+                                </div>
+
+                                <div class="option-selectable-card" onclick="selectWizardOption(3, 'mode', 'Hybrid (Online + Offline)', this)">
+                                    <div class="option-icon">🔀</div>
+                                    <div class="option-title">Hybrid Mode</div>
+                                    <div class="option-desc">Combine weekday online live streaming with weekend campus physical mock test series.</div>
+                                </div>
+
+                                <div class="option-selectable-card" onclick="selectWizardOption(3, 'mode', 'Home Tuition / Personalized Mentorship', this)">
+                                    <div class="option-icon">🏠</div>
+                                    <div class="option-title">Home Tuition / Personal Mentor</div>
+                                    <div class="option-desc">1-on-1 personalized tutor visits or private online mentor slots for dedicated guidance.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 4: TIMINGS & SUMMARY -->
+                        <div class="wizard-step-content" id="wizardStep4">
+                            <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Step 4: Select Class Timing Slot & Confirm Details</h3>
+                            
+                            <div class="timing-summary-box">
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                                    <div>
+                                        <span class="badge badge-primary">Program Summary</span>
+                                        <h4 style="font-size: 1.2rem; font-weight: 800; margin-top: 0.2rem;" id="sumProgramTitle">Navodaya Entrance Coaching</h4>
+                                    </div>
+                                    <div>
+                                        <span style="font-size: 0.82rem; color: var(--text-muted);">Course Fee:</span>
+                                        <strong style="font-size: 1.3rem; color: var(--primary); display: block;" id="sumCourseFee">₹5,999 / Year</strong>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 1rem; font-size: 0.88rem; display: grid; grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) ); gap: 0.75rem;">
+                                    <div><strong>Selected Batch:</strong> <span id="sumBatchType">Regular Batch (Monday to Friday)</span></div>
+                                    <div><strong>Selected Mode:</strong> <span id="sumModeType">Online Live Interactive Classes</span></div>
+                                    <div><strong>Academic Support:</strong> <span class="badge badge-purple">Included All 4 Tiers</span></div>
+                                    <div><strong>Assigned Faculty:</strong> <span id="sumFaculty">Prof. Anita Rao & Suresh S</span></div>
+                                </div>
+
+                                <div style="margin-top: 1.25rem;">
+                                    <label class="form-label">Available Timing Slots *</label>
+                                    <div class="timing-slots-grid">
+                                        <div class="slot-pill active" onclick="selectTimingSlot('Morning Slot (6:30 AM - 8:00 AM)', this)">
+                                            <div style="font-weight: 800;">🌅 Morning Slot</div>
+                                            <div style="font-size: 0.8rem;">6:30 AM – 8:00 AM</div>
+                                        </div>
+                                        <div class="slot-pill" onclick="selectTimingSlot('Evening Slot (5:30 PM - 7:00 PM)', this)">
+                                            <div style="font-weight: 800;">🌆 Evening Slot</div>
+                                            <div style="font-size: 0.8rem;">5:30 PM – 7:00 PM</div>
+                                        </div>
+                                        <div class="slot-pill" onclick="selectTimingSlot('Weekend Special (9:00 AM - 1:00 PM)', this)">
+                                            <div style="font-weight: 800;">☀️ Weekend Special</div>
+                                            <div style="font-size: 0.8rem;">9:00 AM – 1:00 PM</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-end;">
+                                <button class="btn btn-accent" onclick="openDemoModal()">
+                                    ✨ Book Free Trial Demo First
+                                </button>
+                                <button class="btn btn-whatsapp" onclick="openWhatsAppInquiry()">
+                                    💬 WhatsApp Direct Registration
+                                </button>
+                                <button class="btn btn-primary" onclick="openEnrollmentModal()">
+                                    📝 Book Seat / Enroll Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Wizard Actions Controls -->
+                        <div class="wizard-nav-actions">
+                            <button class="btn btn-secondary" id="wizBackBtn" onclick="navigateWizardStep(-1)" style="display: none;">
+                                ← Previous Step
                             </button>
-                            <button class="btn btn-primary" onclick="openEnrollmentModal()">
-                                📝 Book Free Demo / Enroll Now
+                            <div></div>
+                            <button class="btn btn-primary" id="wizNextBtn" onclick="navigateWizardStep(1)">
+                                Next Step →
                             </button>
                         </div>
-                    </div>
-
-                    <!-- Wizard Actions Controls -->
-                    <div class="wizard-nav-actions">
-                        <button class="btn btn-secondary" id="wizBackBtn" onclick="navigateWizardStep(-1)" style="display: none;">
-                            ← Previous Step
-                        </button>
-                        <div></div>
-                        <button class="btn btn-primary" id="wizNextBtn" onclick="navigateWizardStep(1)">
-                            Next Step →
-                        </button>
                     </div>
                 </div>
             </div>
@@ -1133,7 +1359,7 @@
                 <div class="section-header">
                     <span class="badge badge-primary">🗓️ Interactive Class Schedule Hub</span>
                     <h2>Weekly Timetable & Live Sessions</h2>
-                    <p>Check upcoming live interactive streams, campus batch timings, and free orientation demos.</p>
+                    <p>Check upcoming live interactive streams, campus batch timings, and cross-branch expert doubt clinics.</p>
                 </div>
 
                 <div class="data-table-wrapper info-card">
@@ -1142,8 +1368,8 @@
                             <tr>
                                 <th>Day & Timing Slot</th>
                                 <th>Program / Grade</th>
-                                <th>Subject Topic</th>
-                                <th>Batch Mode</th>
+                                <th>Subject Topic & Tier</th>
+                                <th>Batch Mode & Branch</th>
                                 <th>Faculty</th>
                                 <th>Action</th>
                             </tr>
@@ -1152,34 +1378,34 @@
                             <tr>
                                 <td><strong>Mon • 6:30 AM - 8:00 AM</strong></td>
                                 <td><span class="badge badge-primary">Navodaya Class 5</span></td>
-                                <td>Mental Ability Patterns & Figures</td>
-                                <td>Online Live</td>
+                                <td>Mental Ability Patterns <span class="badge badge-purple">Tier 1 Core</span></td>
+                                <td>Online Live Stream</td>
                                 <td>Prof. Anita Rao</td>
                                 <td><button class="btn btn-primary btn-sm" onclick="navigateToPage('portal')">🔴 Join Live Stream</button></td>
                             </tr>
                             <tr>
                                 <td><strong>Mon • 5:30 PM - 7:00 PM</strong></td>
                                 <td><span class="badge badge-success">Morarji Class 6</span></td>
-                                <td>Kannada Language OMR Practice</td>
-                                <td>Campus Classroom</td>
+                                <td>Kannada Language OMR Drill <span class="badge badge-primary">Tier 2 Study Hour</span></td>
+                                <td>Sindhanur Main Campus</td>
                                 <td>Suresh S</td>
                                 <td><button class="btn btn-secondary btn-sm" onclick="openEnrollmentModal()">🎯 Book Seat</button></td>
                             </tr>
                             <tr>
                                 <td><strong>Tue • 6:30 AM - 8:00 AM</strong></td>
                                 <td><span class="badge badge-primary">Navodaya Class 5</span></td>
-                                <td>Fractions & Arithmetic Tricks</td>
-                                <td>Online Live</td>
+                                <td>Fractions & Arithmetic Short Tricks</td>
+                                <td>Online Live Stream</td>
                                 <td>Prof. Anita Rao</td>
                                 <td><button class="btn btn-primary btn-sm" onclick="navigateToPage('portal')">🔴 Join Live Stream</button></td>
                             </tr>
                             <tr>
                                 <td><strong>Sat • 9:00 AM - 1:00 PM</strong></td>
                                 <td><span class="badge badge-warning">Sainik School</span></td>
-                                <td>Mathematics & Intelligence Test</td>
-                                <td>Hybrid Batch</td>
+                                <td>Cross-Branch Intelligence Workshop <span class="badge badge-danger">Tier 4 Expert</span></td>
+                                <td>Raichur Central Hub</td>
                                 <td>Dr. Ramesh Patil</td>
-                                <td><button class="btn btn-purple btn-sm" onclick="openEnrollmentModal()">📝 Join Demo</button></td>
+                                <td><button class="btn btn-purple btn-sm" onclick="openDemoModal()">📝 Request Demo</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -1192,8 +1418,8 @@
             <div class="section-container" style="margin-top: 2rem;">
                 <div class="section-header">
                     <span class="badge badge-primary">ℹ️ About Sharusuri & Cousins Academy</span>
-                    <h2>Democratizing Competitive Coaching</h2>
-                    <p>Empowering rural and urban students across Karnataka to achieve top ranks in state and national entrance examinations.</p>
+                    <h2>Democratizing Competitive Coaching Across Karnataka</h2>
+                    <p>Empowering rural and urban students across Raichur, Bellary, Koppal, and state-wide to achieve top ranks in competitive entrance exams.</p>
                 </div>
 
                 <div class="grid-2">
@@ -1223,7 +1449,7 @@
                             </div>
                         </div>
                         <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
-                            Directing regional franchise partnerships, student mentorship programs, and residential hostel operations across Sindhanur, Raichur, and neighboring districts.
+                            Directing regional franchise partnerships, 4-tier mentorship operations, and residential hostel academic monitoring across regional campuses.
                         </p>
                         <div style="margin-top: 1rem; font-size: 0.85rem;">
                             <div>✉️ Email: <strong>sharada@sharusuri.edu</strong></div>
@@ -1234,31 +1460,31 @@
             </div>
         </section>
 
-        <!-- 5. CONTACT US PAGE VIEW -->
+        <!-- 5. CONTACT US PAGE VIEW WITH DEMO BOOKING -->
         <section id="page-contact" class="page-view">
             <div class="section-container" style="margin-top: 2rem;">
                 <div class="section-header">
                     <span class="badge badge-primary">📞 Direct Help & Admissions Desk</span>
-                    <h2>Get in Touch with Our Team</h2>
-                    <p>We are available via direct call, WhatsApp chat, email, or in-person center visit.</p>
+                    <h2>Get in Touch & Book Your Free Demo Class</h2>
+                    <p>We are available via direct call, WhatsApp chat, email, or in-person branch visits.</p>
                 </div>
 
                 <div class="grid-2">
-                    <!-- Contact Form -->
+                    <!-- Contact & Demo Form -->
                     <div class="info-card">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">📩 Send Us a Direct Message</h3>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">✨ Book Free Trial Demo or Send Inquiry</h3>
                         <form onsubmit="handleContactSubmit(event)">
                             <div class="form-group">
-                                <label class="form-label">Full Name *</label>
-                                <input type="text" class="form-input" required placeholder="e.g. Ramesh Patil">
+                                <label class="form-label">Student Full Name *</label>
+                                <input type="text" class="form-input" id="contactStudentName" required placeholder="e.g. Ramesh Patil">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Phone / WhatsApp Number *</label>
-                                <input type="tel" class="form-input" required placeholder="10-digit mobile number">
+                                <input type="tel" class="form-input" id="contactPhone" required placeholder="10-digit mobile number">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Target Program</label>
-                                <select class="form-input" style="font-weight: 700;">
+                                <select class="form-input" id="contactProgram" style="font-weight: 700;">
                                     <option>Navodaya Entrance Coaching</option>
                                     <option>Morarji Desai Entrance Exam</option>
                                     <option>Sainik School Entrance</option>
@@ -1266,22 +1492,44 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Your Message or Inquiry Details</label>
-                                <textarea class="form-input" rows="3" placeholder="Specify your query..."></textarea>
+                                <label class="form-label">Preferred Demo / Visit Mode</label>
+                                <select class="form-input" id="contactMode" style="font-weight: 700;">
+                                    <option>Online Live Class Demo</option>
+                                    <option>Sindhanur Campus Visit</option>
+                                    <option>Raichur Central Hub Visit</option>
+                                    <option>Bellary Campus Visit</option>
+                                    <option>Home Tuition Demo Session</option>
+                                </select>
                             </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">📤 Send Inquiry</button>
+                            <div class="form-group">
+                                <label class="form-label">Your Message or Inquiry Details</label>
+                                <textarea class="form-input" id="contactMsg" rows="3" placeholder="Specify your preferred date/time or question..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                📤 Submit & Generate WhatsApp Confirmation
+                            </button>
                         </form>
                     </div>
 
-                    <!-- Direct Reach Out Box -->
+                    <!-- Direct Reach Out Box & Branch Locations -->
                     <div class="info-card" style="display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
-                            <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">📍 Main Campus Location</h3>
-                            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
-                                <strong>Sharusuri EdTech & Cousins Academy Hub</strong><br>
-                                Near Bus Stand Road, AP K Hosalli Circle,<br>
-                                Sindhanur, Raichur District, Karnataka – 584128
-                            </p>
+                            <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">📍 Regional Campus Network</h3>
+                            
+                            <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+                                <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--border);">
+                                    <strong style="color: var(--text-main);">🏛️ Sindhanur Main Campus:</strong><br>
+                                    Near Bus Stand Road, AP K Hosalli Circle, Sindhanur – 584128
+                                </div>
+                                <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--border);">
+                                    <strong style="color: var(--text-main);">🏛️ Raichur Central Hub:</strong><br>
+                                    Station Road, Opposite Govt Junior College, Raichur – 584101
+                                </div>
+                                <div>
+                                    <strong style="color: var(--text-main);">🏛️ Bellary Branch:</strong><br>
+                                    Infantry Road, Near Royal Circle, Bellary – 583101
+                                </div>
+                            </div>
 
                             <div style="display: flex; flex-direction: column; gap: 0.75rem;">
                                 <a href="https://wa.me/919160837748" target="_blank" class="btn btn-whatsapp">
@@ -1299,7 +1547,7 @@
                         <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed var(--border);">
                             <span class="badge badge-danger">YouTube Partner</span>
                             <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">
-                                Channel: <strong>@cousinsacademy4599</strong>
+                                Official Channel: <strong>@cousinsacademy4599</strong>
                             </div>
                         </div>
                     </div>
@@ -1307,17 +1555,134 @@
             </div>
         </section>
 
-        <!-- 6. STUDENT PORTAL PAGE VIEW -->
+        <!-- 6. STUDENT & PARENT PORTAL PAGE VIEW (WITH PARENT TRANSPARENCY DASHBOARD) -->
         <section id="page-portal" class="page-view">
             <div class="section-container" style="margin-top: 2rem;">
                 <div class="section-header">
-                    <span class="badge badge-danger">💻 Student Learning Portal</span>
-                    <h2>Cousins Academy Video Lessons & OMR Practice</h2>
-                    <p>Access assigned YouTube masterclasses, practice OMR test papers, and downloadable study materials.</p>
+                    <span class="badge badge-purple">💻 Parent Transparency & Student Portal</span>
+                    <h2>Mentor Assignments, Cross-Branch Sessions & Doubt Tracker</h2>
+                    <p>Track your child's 4-tier support staff, request doubt sessions with expert teachers from any branch, and view video lessons.</p>
                 </div>
 
-                <div class="grid-3" id="portalVideoGrid">
-                    <!-- Populated dynamically -->
+                <!-- DASHBOARD TAB NAVIGATION -->
+                <div class="dashboard-tab-nav">
+                    <button class="dash-tab-btn active" onclick="switchPortalTab('assigned-mentors', this)">
+                        🛡️ Assigned Support Staff (4-Tiers)
+                    </button>
+                    <button class="dash-tab-btn" onclick="switchPortalTab('cross-branch-scheduler', this)">
+                        🌐 Cross-Branch Teacher Scheduler
+                    </button>
+                    <button class="dash-tab-btn" onclick="switchPortalTab('doubt-tracker', this)">
+                        ❓ Real-Time Doubt Resolution Tracker
+                    </button>
+                    <button class="dash-tab-btn" onclick="switchPortalTab('video-library', this)">
+                        📺 Cousins Academy Video Lessons
+                    </button>
+                </div>
+
+                <!-- TAB PANEL 1: ASSIGNED SUPPORT STAFF (4-TIERS) -->
+                <div class="dash-panel-content active" id="panel-assigned-mentors">
+                    <div class="grid-4" id="assignedStaffCardsGrid">
+                        <!-- Dynamically populated via JS -->
+                    </div>
+                </div>
+
+                <!-- TAB PANEL 2: CROSS-BRANCH TEACHER SCHEDULER -->
+                <div class="dash-panel-content" id="panel-cross-branch-scheduler">
+                    <div class="info-card" style="margin-bottom: 1.5rem;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">🗓️ Book Open Doubt Session with Faculty Across Any Branch</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                            If your child needs a different explanation or teaching style for complex arithmetic/mental ability topics, select an expert teacher from any campus nationwide.
+                        </p>
+                        
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+                            <label style="font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+                                Filter Branch:
+                                <select class="form-input" id="branchFilterSelect" style="width: auto; font-weight: 700;" onchange="renderBranchScheduler()">
+                                    <option value="ALL">All Branches & Locations</option>
+                                    <option value="b1">Sindhanur Main Campus</option>
+                                    <option value="b2">Raichur Central Hub</option>
+                                    <option value="b3">Bellary Campus</option>
+                                    <option value="b4">Online Digital Branch</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="data-table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Faculty Member</th>
+                                        <th>Home Branch</th>
+                                        <th>Subject Expertise</th>
+                                        <th>Upcoming Open Slot</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="branchSchedulerTableBody">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB PANEL 3: REAL-TIME DOUBT RESOLUTION TRACKER -->
+                <div class="dash-panel-content" id="panel-doubt-tracker">
+                    <div class="grid-2" style="margin-bottom: 1.5rem;">
+                        <div class="info-card">
+                            <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem;">❓ Submit a New Question / OMR Doubt</h3>
+                            <form onsubmit="handleDoubtSubmit(event)">
+                                <div class="form-group">
+                                    <label class="form-label">Subject & Topic *</label>
+                                    <input type="text" id="doubtTopicVal" class="form-input" required placeholder="e.g. Mental Ability - Figure Matching Q.14">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Question Description / Doubt Details</label>
+                                    <textarea id="doubtDescVal" class="form-input" rows="3" required placeholder="Describe what was difficult or upload reference question number..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                    ⚡ Submit to Tier 3 Mentor
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="info-card">
+                            <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem;">📊 Doubt SLA & Guarantee SLA</h3>
+                            <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+                                <p style="margin-bottom: 0.5rem;"><strong>⚡ SLA Guarantee:</strong> All submitted questions are reviewed within 2 hours by dedicated Tier 3 mentors.</p>
+                                <p style="margin-bottom: 0.5rem;"><strong>🎥 Response Mode:</strong> Mentors attach step-by-step video solutions, handwritten OMR paper notes, or audio voice clips.</p>
+                                <p><strong>🔁 Escalation:</strong> Unresolved doubts automatically escalate to Tier 4 Cross-Branch Experts after 6 hours.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">📋 Submitted Questions History & Status</h3>
+                        <div class="data-table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Ticket ID</th>
+                                        <th>Topic & Details</th>
+                                        <th>Assigned Mentor</th>
+                                        <th>Status</th>
+                                        <th>Resolution / Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="doubtTrackerTableBody">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB PANEL 4: VIDEO LIBRARY -->
+                <div class="dash-panel-content" id="panel-video-library">
+                    <div class="grid-3" id="portalVideoGrid">
+                        <!-- Populated dynamically -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -1328,7 +1693,7 @@
                 <div class="section-header">
                     <span class="badge badge-primary">⚙️ Master Admin Console</span>
                     <h2>Platform Governance & Program Management</h2>
-                    <p>Log in as <code>suresh2suresh80888@gmail.com</code> to add programs, manage schedule slots, and monitor student registrations.</p>
+                    <p>Log in as <code>suresh2suresh80888@gmail.com</code> to add programs, manage schedule slots, monitor demo requests, and manage doubt escalations.</p>
                 </div>
 
                 <div class="info-card" style="margin-bottom: 2rem;">
@@ -1367,7 +1732,7 @@
                     <h3 style="font-size: 1.2rem; color: white;">Sharusuri EdTech & Cousins Academy</h3>
                 </div>
                 <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.6;">
-                    Karnataka's leading educational platform for Navodaya, Morarji Desai, Sainik School entrance exams, and State Board tuition.
+                    Karnataka's leading educational platform equipped with a 4-Tier Support Hierarchy, multi-branch expert network, and flexible tuition models.
                 </p>
             </div>
 
@@ -1375,9 +1740,9 @@
                 <h4 style="font-size: 0.95rem; color: white; margin-bottom: 0.85rem;">Quick Links</h4>
                 <ul style="font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.4rem; color: #cbd5e1;">
                     <li><a href="javascript:void(0)" onclick="navigateToPage('home')">Home</a></li>
-                    <li><a href="javascript:void(0)" onclick="navigateToPage('programs')">Programs & Selector</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigateToPage('programs')">Programs & Support Tiers</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('schedule')">Batches & Schedule</a></li>
-                    <li><a href="javascript:void(0)" onclick="navigateToPage('portal')">Student Portal</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigateToPage('portal')">Parent & Student Portal</a></li>
                 </ul>
             </div>
 
@@ -1392,7 +1757,10 @@
             </div>
 
             <div>
-                <h4 style="font-size: 0.95rem; color: white; margin-bottom: 0.85rem;">YouTube Partner</h4>
+                <h4 style="font-size: 0.95rem; color: white; margin-bottom: 0.85rem;">Trial Demo & YouTube</h4>
+                <button class="btn btn-accent btn-sm" style="width: 100%; margin-bottom: 0.5rem;" onclick="openDemoModal()">
+                    ✨ Book Free Demo Class
+                </button>
                 <a href="https://www.youtube.com/@cousinsacademy4599" target="_blank" class="btn btn-yt btn-sm" style="width: 100%;">
                     📺 @cousinsacademy4599
                 </a>
@@ -1404,13 +1772,67 @@
         </div>
     </footer>
 
-    <!-- MODAL 1: ENROLLMENT & DEMO BOOKING -->
+    <!-- MODAL 1: INTERACTIVE FREE TRIAL DEMO BOOKING MODAL -->
+    <div class="modal-overlay" id="demoModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeDemoModal()">✕</button>
+            <div style="text-align: center; margin-bottom: 1.25rem;">
+                <span class="badge badge-accent" style="margin-bottom: 0.3rem;">🎯 Free Trial Demo & Campus Visit</span>
+                <h3 style="font-size: 1.4rem;" id="demoModalTitle">Book a Free Trial Demo Class</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Experience our 4-tier support and interactive teaching before joining.</p>
+            </div>
+
+            <form onsubmit="handleDemoBookingSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label">Student Full Name *</label>
+                    <input type="text" id="demoStudentName" class="form-input" required placeholder="e.g. Pradeep Kumar">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Parent / Guardian Mobile Number *</label>
+                    <input type="tel" id="demoPhone" class="form-input" required placeholder="10-digit phone number">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Target Coaching Program *</label>
+                    <select id="demoProgramSelect" class="form-input" style="font-weight: 700;">
+                        <option>Navodaya Entrance Coaching (Class 5/6)</option>
+                        <option>Morarji Desai Entrance Exam (Class 6)</option>
+                        <option>Sainik School / RMS Entrance</option>
+                        <option>State Board & Olympiad Foundation</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Demo Learning Mode & Campus Location *</label>
+                    <select id="demoLocationSelect" class="form-input" style="font-weight: 700;">
+                        <option value="Online Live Interactive Stream">Online Live Interactive Stream</option>
+                        <option value="Sindhanur Main Campus Visit">Sindhanur Main Campus Visit</option>
+                        <option value="Raichur Central Hub Visit">Raichur Central Hub Visit</option>
+                        <option value="Bellary Campus Visit">Bellary Campus Visit</option>
+                        <option value="Home Tuition Demo Session">Home Tuition 1-on-1 Demo Visit</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Preferred Date & Time Slot</label>
+                    <select id="demoSlotSelect" class="form-input">
+                        <option>Tomorrow Morning (6:30 AM - 8:00 AM)</option>
+                        <option>Tomorrow Evening (5:30 PM - 7:00 PM)</option>
+                        <option>Upcoming Weekend Special (Sat 9:00 AM)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1rem; margin-top: 0.5rem;">
+                    🚀 Confirm Demo & Send WhatsApp Ticket
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: ENROLLMENT & SEAT RESERVATION -->
     <div class="modal-overlay" id="enrollmentModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeEnrollmentModal()">✕</button>
             <div style="text-align: center; margin-bottom: 1.25rem;">
-                <span class="badge badge-primary" style="margin-bottom: 0.3rem;">📝 Direct Enrollment & Demo Seat</span>
-                <h3 style="font-size: 1.4rem;" id="modalEnrollTitle">Book Free Demo Session</h3>
+                <span class="badge badge-primary" style="margin-bottom: 0.3rem;">📝 Seat Reservation</span>
+                <h3 style="font-size: 1.4rem;">Confirm Course Enrollment</h3>
                 <p style="font-size: 0.85rem; color: var(--text-muted);">Fill in student details to confirm instant seat reservation.</p>
             </div>
 
@@ -1434,14 +1856,14 @@
         </div>
     </div>
 
-    <!-- MODAL 2: AUTHENTICATION MODAL -->
+    <!-- MODAL 3: AUTHENTICATION MODAL -->
     <div class="modal-overlay" id="authModal">
         <div class="modal-box" style="max-width: 480px;">
             <button class="modal-close" onclick="closeAuthModal()">✕</button>
             <div style="text-align: center; margin-bottom: 1.25rem;">
                 <span class="brand-badge" style="margin: 0 auto 0.5rem;">SE</span>
                 <h3 style="font-size: 1.35rem;">Portal Login</h3>
-                <p style="font-size: 0.82rem; color: var(--text-muted);">Log in as Super Admin or Student</p>
+                <p style="font-size: 0.82rem; color: var(--text-muted);">Log in as Super Admin, Teacher, or Student</p>
             </div>
 
             <form onsubmit="handleQuickLogin(event)">
@@ -1460,36 +1882,89 @@
 
     <!-- JAVASCRIPT ENGINE -->
     <script>
-        // 1. DYNAMIC TRANSLATION DATASET
+        // 1. TRANSLATION DATASET
         const I18N_DATA = {
             en: {
                 nav_home: "Home",
-                nav_programs: "Programs",
+                nav_programs: "Programs & Tiers",
                 nav_schedule: "Batches & Schedule",
                 nav_about: "About Us",
                 nav_contact: "Contact Us",
-                nav_portal: "Student Portal",
+                nav_portal: "Parent & Student Portal",
                 nav_admin: "Admin Console",
                 hero_title: "Master Navodaya & Morarji Entrance Exams with Cousins Academy",
-                hero_sub: "Karnataka's top coaching engine for Jawahar Navodaya Vidyalaya (JNVST), Morarji Desai, Rani Chennamma, Sainik School entrance prep, and State Board Foundation."
+                hero_sub: "Karnataka's top coaching engine backed by a 4-Tier Academic Support Hierarchy, Cross-Branch Teacher Access, and Flexible Hybrid Learning Models."
             },
             kn: {
                 nav_home: "ಮುಖಪುಟ",
-                nav_programs: "ಕೋರ್ಸ್‌ಗಳು",
+                nav_programs: "ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಸಪೋರ್ಟ್",
                 nav_schedule: "ಬ್ಯಾಚ್ ಸಮಯ",
                 nav_about: "ನಮ್ಮ ಬಗ್ಗೆ",
                 nav_contact: "ಸಂಪರ್ಕಿಸಿ",
-                nav_portal: "ವಿದ್ಯಾರ್ಥಿ ಪೋರ್ಟಲ್",
+                nav_portal: "ಪೋಷಕರ & ವಿದ್ಯಾರ್ಥಿ ಪೋರ್ಟಲ್",
                 nav_admin: "ಅಡ್ಮಿನ್",
                 hero_title: "ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿಯೊಂದಿಗೆ ನವೋದಯ ಮತ್ತು ಮೊರಾರ್ಜಿ ಪರೀಕ್ಷೆಗಳನ್ನು ಗೆಲ್ಲಿರಿ",
-                hero_sub: "ಜವಾಹರ್ ನವೋದಯ, ಮೊರಾರ್ಜಿ ದೇಸಾಯಿ, ರಾಣಿ ಚೆನ್ನಮ್ಮ ಮತ್ತು ಸೈನಿಕ ಶಾಲೆ ಪ್ರವೇಶ ಪರೀಕ್ಷೆಗಳಿಗೆ ಅತ್ಯುತ್ತಮ ತರಬೇತಿ."
+                hero_sub: "4 ಹಂತದ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ, ಮಲ್ಟಿ-ಬ್ರಾಂಚ್ ಶಿಕ್ಷಕರ ನೆರವು ಮತ್ತು ಉಚಿತ ಡೆಮೊ ತರಗತಿಗಳೊಂದಿಗೆ ಅತ್ಯುತ್ತಮ ತರಬೇತಿ."
             }
         };
 
         let currentLang = 'en';
 
-        // 2. CENTRAL DATA STRUCTURE (`js/app_data.js` SIMULATION)
+        // 2. EXPANDED APP DATASET WITH SUPPORT TIERS, BRANCHES & DOUBTS
         const APP_DATA = {
+            support_tiers: [
+                {
+                    tier: 1,
+                    title: "Core Class Teacher",
+                    subtitle: "Primary Subject Specialist",
+                    desc: "Delivers live interactive lectures and structured syllabus coverage (Online or Campus).",
+                    features: ["Live Interactive Lectures", "Structured Syllabus Completion", "Weekly Exam Strategy"]
+                },
+                {
+                    tier: 2,
+                    title: "Subject Study Hour Leads",
+                    subtitle: "Daily Practice Supervisors",
+                    desc: "Supervises dedicated daily practice hours to solve OMR worksheets and reinforce concepts.",
+                    features: ["Supervised Practice Hours", "Daily OMR Drills", "Speed & Accuracy Coaching"]
+                },
+                {
+                    tier: 3,
+                    title: "1-on-1 Doubt Mentors",
+                    subtitle: "Personal Doubt Specialists",
+                    desc: "On-demand mentors assigned to resolve individual homework and concept doubts within 2 hours.",
+                    features: ["Sub-2 hr Resolution SLA", "Individual Homework Help", "Video/Audio Explanations"]
+                },
+                {
+                    tier: 4,
+                    title: "Cross-Branch Expert Network",
+                    subtitle: "Statewide Faculty Access",
+                    desc: "Freedom to join doubt clinics or request sessions with top teachers from ANY branch nationwide.",
+                    features: ["Access Any Center's Faculty", "Specialized Revision Clinics", "State-Level Top Rankers"]
+                }
+            ],
+            branch_network: [
+                { id: "b1", name: "Sindhanur Main Campus", city: "Sindhanur", lead: "Suresh S", address: "AP K Hosalli Circle" },
+                { id: "b2", name: "Raichur Central Hub", city: "Raichur", lead: "Prof. Anita Rao", address: "Station Road" },
+                { id: "b3", name: "Bellary Campus", city: "Bellary", lead: "Dr. Ramesh Patil", address: "Infantry Road" },
+                { id: "b4", name: "Online Digital Branch", city: "Statewide", lead: "Cousins Academy Media Unit", address: "Live Portal & YouTube" }
+            ],
+            teachers: [
+                { id: "t1", name: "Prof. Anita Rao", subject: "Mental Ability & Reasoning", branchId: "b2", branchName: "Raichur Central Hub", slot: "Mon/Wed 4:00 PM" },
+                { id: "t2", name: "Suresh S", subject: "Arithmetic & Mathematics Tricks", branchId: "b1", branchName: "Sindhanur Main Campus", slot: "Daily 5:00 PM" },
+                { id: "t3", name: "Dr. Ramesh Patil", subject: "Sainik Intelligence & General Science", branchId: "b3", branchName: "Bellary Campus", slot: "Sat 10:00 AM" },
+                { id: "t4", name: "Rekha Sharma", subject: "Kannada & English Language OMR", branchId: "b1", branchName: "Sindhanur Main Campus", slot: "Tue/Thu 6:00 PM" },
+                { id: "t5", name: "Venkatesh K", subject: "Class 5/6 Foundation Science", branchId: "b4", branchName: "Online Digital Branch", slot: "Fri 7:00 PM" }
+            ],
+            assigned_staff: [
+                { role: "Tier 1: Core Teacher", name: "Prof. Anita Rao", subject: "Mental Ability & Math", contact: "+91 80888 35686", status: "Active" },
+                { role: "Tier 2: Study Hour Lead", name: "Suresh S", subject: "Daily OMR Practice", contact: "+91 9160837748", status: "Active" },
+                { role: "Tier 3: Personal Mentor", name: "Rekha Sharma", subject: "1-on-1 Doubt Resolver", contact: "+91 8123543866", status: "Assigned" },
+                { role: "Tier 4: Cross-Branch Expert", name: "Dr. Ramesh Patil", subject: "Sainik & Higher Math", contact: "Cross-Branch Pass Active", status: "Available" }
+            ],
+            doubts_tracker: [
+                { id: "TICK-901", topic: "Mental Ability - Pattern Completion Q.12", mentor: "Rekha Sharma", status: "Resolved", reply: "Attached 1-min video explanation & trick notes." },
+                { id: "TICK-902", topic: "Fractions Simplification Step 3", mentor: "Suresh S", status: "In Progress", reply: "Under review by Tier 3 mentor." }
+            ],
             programs: [
                 { id: "p1", name: "Navodaya Entrance Coaching", fee: "₹5,999 / Year", faculty: "Prof. Anita Rao & Suresh S" },
                 { id: "p2", name: "Morarji Desai Entrance Exam", fee: "₹3,999 / Year", faculty: "Suresh S & Rekha Sharma" },
@@ -1542,6 +2017,122 @@
             });
 
             showToast(`Language switched to ${currentLang === 'en' ? 'English' : 'ಕನ್ನಡ'}`);
+        }
+
+        // RENDER 4-TIER HIERARCHY CARDS
+        function renderSupportTiers() {
+            const containers = [document.getElementById('homeTierGrid'), document.getElementById('programsTierGrid')];
+            containers.forEach(container => {
+                if (!container) return;
+                container.innerHTML = '';
+                APP_DATA.support_tiers.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'tier-card';
+                    card.innerHTML = `
+                        <div class="tier-badge-number">${item.tier}</div>
+                        <div class="tier-subtitle">Tier ${item.tier} Support</div>
+                        <div class="tier-title">${item.title}</div>
+                        <div class="tier-desc">${item.desc}</div>
+                        <ul class="tier-feature-list">
+                            ${item.features.map(f => `<li>${f}</li>`).join('')}
+                        </ul>
+                    `;
+                    container.appendChild(card);
+                });
+            });
+        }
+
+        // RENDER PORTAL DASHBOARD TABS
+        function switchPortalTab(tabId, btnEl) {
+            document.querySelectorAll('.dash-tab-btn').forEach(b => b.classList.remove('active'));
+            btnEl.classList.add('active');
+
+            document.querySelectorAll('.dash-panel-content').forEach(p => p.classList.remove('active'));
+            const activePanel = document.getElementById(`panel-${tabId}`);
+            if (activePanel) activePanel.classList.add('active');
+        }
+
+        function renderAssignedStaff() {
+            const container = document.getElementById('assignedStaffCardsGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            APP_DATA.assigned_staff.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'info-card';
+                card.innerHTML = `
+                    <span class="badge badge-purple" style="margin-bottom: 0.5rem;">${s.role}</span>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 0.2rem;">${s.name}</h4>
+                    <p style="font-size: 0.82rem; color: var(--primary); font-weight: 700;">${s.subject}</p>
+                    <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.75rem;">
+                        📞 Contact: <strong>${s.contact}</strong>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderBranchScheduler() {
+            const tableBody = document.getElementById('branchSchedulerTableBody');
+            if (!tableBody) return;
+            const filter = document.getElementById('branchFilterSelect')?.value || 'ALL';
+            tableBody.innerHTML = '';
+
+            const list = filter === 'ALL' ? APP_DATA.teachers : APP_DATA.teachers.filter(t => t.branchId === filter);
+            list.forEach(t => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${t.name}</strong></td>
+                    <td><span class="badge badge-primary">${t.branchName}</span></td>
+                    <td>${t.subject}</td>
+                    <td><strong>${t.slot}</strong></td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" onclick="requestCrossBranchSlot('${t.name}', '${t.branchName}')">
+                            📩 Book Doubt Slot
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(tr);
+            });
+        }
+
+        function requestCrossBranchSlot(teacherName, branchName) {
+            showToast(`🎉 Doubt slot request sent to ${teacherName} (${branchName})!`);
+        }
+
+        function renderDoubtTracker() {
+            const tbody = document.getElementById('doubtTrackerTableBody');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+            APP_DATA.doubts_tracker.forEach(d => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${d.id}</strong></td>
+                    <td>${d.topic}</td>
+                    <td>${d.mentor}</td>
+                    <td><span class="badge ${d.status === 'Resolved' ? 'badge-success' : 'badge-warning'}">${d.status}</span></td>
+                    <td><small>${d.reply}</small></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function handleDoubtSubmit(e) {
+            e.preventDefault();
+            const topic = document.getElementById('doubtTopicVal').value;
+            const desc = document.getElementById('doubtDescVal').value;
+            const newId = `TICK-${Math.floor(100 + Math.random() * 900)}`;
+
+            APP_DATA.doubts_tracker.unshift({
+                id: newId,
+                topic: topic,
+                mentor: "Rekha Sharma (Tier 3)",
+                status: "Assigned",
+                reply: "Reviewing description. Resolution expected within 2 hrs."
+            });
+
+            renderDoubtTracker();
+            showToast(`⚡ Question submitted under Ticket ${newId}!`);
+            e.target.reset();
         }
 
         // WIZARD SELECTION ENGINE
@@ -1601,13 +2192,45 @@
             document.getElementById('wizNextBtn').style.display = currentWizardStep < 4 ? 'inline-flex' : 'none';
         }
 
+        // DEMO MODAL HANDLERS & WHATSAPP GENERATION
+        function openDemoModal(customTitle = null) {
+            if (customTitle) {
+                document.getElementById('demoModalTitle').textContent = customTitle;
+            } else {
+                document.getElementById('demoModalTitle').textContent = "Book a Free Trial Demo Class";
+            }
+            document.getElementById('demoModal').classList.add('active');
+        }
+
+        function closeDemoModal() {
+            document.getElementById('demoModal').classList.remove('active');
+        }
+
+        function handleDemoBookingSubmit(e) {
+            e.preventDefault();
+            const student = document.getElementById('demoStudentName').value;
+            const phone = document.getElementById('demoPhone').value;
+            const program = document.getElementById('demoProgramSelect').value;
+            const location = document.getElementById('demoLocationSelect').value;
+            const slot = document.getElementById('demoSlotSelect').value;
+
+            closeDemoModal();
+            showToast(`✨ Trial Demo booked for ${student}! Generating WhatsApp confirmation ticket...`);
+
+            const msg = `Hello Cousins Academy, I would like to confirm a FREE TRIAL DEMO for my child:\n\n• Student: ${student}\n• Phone: ${phone}\n• Program: ${program}\n• Mode/Location: ${location}\n• Slot: ${slot}\n\nPlease confirm our demo ticket slot.`;
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/919160837748?text=${encodeURIComponent(msg)}`, '_blank');
+            }, 800);
+        }
+
         // WHATSAPP INQUIRY
         function openWhatsAppInquiry() {
             const msg = `Hello Cousins Academy, I am interested in ${wizardSelection.program} (${wizardSelection.batch}, ${wizardSelection.mode}, Slot: ${wizardSelection.timing}). Please share admission details.`;
             window.open(`https://wa.me/919160837748?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        // MODAL HANDLERS
+        // ENROLLMENT MODAL
         function openEnrollmentModal() {
             document.getElementById('modalSelectedSummary').value = `${wizardSelection.program} | ${wizardSelection.mode} | ${wizardSelection.timing}`;
             document.getElementById('enrollmentModal').classList.add('active');
@@ -1635,12 +2258,24 @@
             e.preventDefault();
             closeAuthModal();
             showToast('🔓 Logged in successfully!');
-            navigateToPage('admin');
+            navigateToPage('portal');
         }
 
         function handleContactSubmit(e) {
             e.preventDefault();
-            showToast('✉️ Message sent successfully!');
+            const student = document.getElementById('contactStudentName').value;
+            const phone = document.getElementById('contactPhone').value;
+            const prog = document.getElementById('contactProgram').value;
+            const mode = document.getElementById('contactMode').value;
+            const text = document.getElementById('contactMsg').value;
+
+            showToast('✉️ Message recorded! Opening WhatsApp confirmation...');
+            const msg = `Hello Cousins Academy team, Inquiry details:\n• Name: ${student}\n• Phone: ${phone}\n• Program: ${prog}\n• Mode: ${mode}\n• Message: ${text}`;
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/919160837748?text=${encodeURIComponent(msg)}`, '_blank');
+            }, 800);
+
             e.target.reset();
         }
 
@@ -1660,7 +2295,7 @@
                 const card = document.createElement('div');
                 card.className = 'info-card';
                 card.innerHTML = `
-                    <img src="https://img.youtube.com/vi/${v.ytId}/hqdefault.jpg" style="width: 100%; border-radius: 8px; margin-bottom: 0.75rem;">
+                    <img src="https://img.youtube.com/vi/${v.ytId}/hqdefault.jpg" style="width: 100%; border-radius: 8px; margin-bottom: 0.75rem;" alt="Lesson Thumbnail">
                     <span class="badge badge-danger">@cousinsacademy4599</span>
                     <h4 style="font-size: 1rem; margin: 0.5rem 0;">${v.title}</h4>
                     <button class="btn btn-yt btn-sm" style="width: 100%;" onclick="window.open('https://youtu.be/${v.ytId}', '_blank')">▶ Watch Masterclass</button>
@@ -1687,8 +2322,12 @@
             document.getElementById('themeToggleBtn').textContent = next === 'dark' ? '☀️' : '🌙';
         });
 
-        // INIT
+        // INITIALIZATION
         document.addEventListener('DOMContentLoaded', () => {
+            renderSupportTiers();
+            renderAssignedStaff();
+            renderBranchScheduler();
+            renderDoubtTracker();
             renderPortalVideos();
             updateWizardSummary();
         });
