@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sharusuri EdTech - Multi-Role Enterprise OS with Auth System, Printable Fee Receipts, and Staff Salary Slips">
-    <title>Sharusuri EdTech | Enterprise OS, Fee Receipts & Payroll OS</title>
+    <meta name="description" content="Sharusuri EdTech - Enterprise OS with Full Auth System, Registration, Mobile & Email Reset, Fee Receipts & Payroll Slips">
+    <title>Sharusuri EdTech | Enterprise OS, Auth Gateway, Fee Receipts & Payroll</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,13 +110,14 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            animation: slideInToast 0.3s ease forwards, fadeOutToast 0.3s ease 2.7s forwards;
-            max-width: 380px;
+            animation: slideInToast 0.3s ease forwards, fadeOutToast 0.3s ease 3.2s forwards;
+            max-width: 420px;
             border-left: 4px solid var(--success);
         }
 
         .toast.error { border-left-color: var(--danger); }
         .toast.warning { border-left-color: var(--accent); }
+        .toast.info { border-left-color: var(--secondary); }
 
         @keyframes slideInToast {
             from { opacity: 0; transform: translateY(20px); }
@@ -590,13 +591,6 @@
             margin-bottom: 1.75rem;
         }
 
-        .grid-2-1 {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 1.25rem;
-            margin-bottom: 1.75rem;
-        }
-
         .stat-card {
             background: var(--card-bg);
             border: 1px solid var(--border-light);
@@ -758,7 +752,6 @@
         .btn-secondary:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
         .btn-accent { background-color: var(--accent); color: var(--dark); }
         .btn-accent:hover { background-color: var(--accent-hover); color: white; }
-        .btn-danger { background-color: var(--danger); color: white; }
 
         /* EDITABLE TABLE INPUTS */
         .inline-input {
@@ -786,7 +779,7 @@
             background: var(--primary-light);
         }
 
-        /* AUTH MODAL & TABS */
+        /* AUTH MODAL & ADVANCED TABS */
         .auth-modal-overlay {
             position: fixed;
             inset: 0;
@@ -804,7 +797,7 @@
         .auth-box {
             background: var(--card-bg);
             border-radius: var(--radius-lg);
-            max-width: 580px;
+            max-width: 620px;
             width: 100%;
             padding: 2.25rem;
             box-shadow: var(--shadow-lg);
@@ -821,6 +814,7 @@
             padding: 4px;
             margin-bottom: 1.5rem;
             border: 1px solid var(--border);
+            gap: 2px;
         }
 
         .auth-tab-btn {
@@ -828,12 +822,13 @@
             padding: 0.5rem;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             border: none;
             background: transparent;
             color: var(--text-muted);
             cursor: pointer;
             transition: var(--transition);
+            text-align: center;
         }
 
         .auth-tab-btn.active {
@@ -841,6 +836,21 @@
             color: white;
             box-shadow: 0 2px 8px rgba(15, 118, 110, 0.3);
         }
+
+        .auth-alert-card {
+            padding: 0.85rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            line-height: 1.4;
+        }
+
+        .auth-alert-info { background: var(--secondary-light); color: var(--secondary); border: 1px solid rgba(37, 99, 235, 0.3); }
+        .auth-alert-success { background: var(--success-light); color: var(--primary); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .auth-alert-warning { background: var(--accent-light); color: var(--accent-hover); border: 1px solid rgba(245, 158, 11, 0.3); }
 
         .demo-accounts-grid {
             display: grid;
@@ -869,83 +879,6 @@
             border-color: var(--primary);
             background: var(--primary-light);
             color: var(--primary);
-        }
-
-        /* TABBED PANELS */
-        .tab-bar {
-            display: flex;
-            gap: 0.5rem;
-            border-bottom: 2px solid var(--border-light);
-            margin-bottom: 1.25rem;
-            overflow-x: auto;
-        }
-
-        .tab-btn {
-            background: transparent;
-            border: none;
-            padding: 0.65rem 1.1rem;
-            font-weight: 700;
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: var(--transition);
-            white-space: nowrap;
-        }
-
-        .tab-btn.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
-        }
-
-        /* BAR CHART VISUALIZER */
-        .chart-container {
-            width: 100%;
-            height: 220px;
-            display: flex;
-            align-items: flex-end;
-            gap: 1.25rem;
-            padding-top: 1.5rem;
-            border-bottom: 2px solid var(--border-light);
-        }
-
-        .bar-group {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
-            justify-content: flex-end;
-        }
-
-        .bar-fill {
-            width: 100%;
-            max-width: 38px;
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-            border-radius: 6px 6px 0 0;
-            transition: height 0.6s ease;
-            position: relative;
-        }
-
-        .bar-fill:hover::after {
-            content: attr(data-value);
-            position: absolute;
-            top: -24px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--dark);
-            color: white;
-            font-size: 0.72rem;
-            padding: 2px 6px;
-            border-radius: 4px;
-            white-space: nowrap;
-        }
-
-        .bar-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 0.5rem;
-            font-weight: 700;
         }
 
         /* MODALS */
@@ -1053,7 +986,6 @@
         @media (max-width: 1100px) {
             .grid-4 { grid-template-columns: repeat(2, 1fr); }
             .grid-3 { grid-template-columns: 1fr; }
-            .grid-2-1 { grid-template-columns: 1fr; }
             .demo-accounts-grid { grid-template-columns: 1fr; }
         }
 
@@ -1074,8 +1006,8 @@
     <!-- TOP ANNOUNCEMENT BAR -->
     <div class="top-notice-bar">
         <div>
-            <span class="notice-tag">🔥 Sharusuri Enterprise OS v4.5</span>
-            <span>Multi-Role Platform with Fee Receipts, Payroll Slips & Geographic Network (36 States/UTs Coverage)</span>
+            <span class="notice-tag">🔥 Sharusuri Enterprise OS v5.0</span>
+            <span>Multi-Role Platform with Advanced Auth System, Fee Receipts, Payroll & Geographic Network Coverage</span>
         </div>
         <div style="display: flex; gap: 1rem;">
             <span>Academic Session: 2026-27</span>
@@ -1121,7 +1053,7 @@
             <!-- Instant Search Field -->
             <div class="header-search">
                 <span class="header-search-icon">🔍</span>
-                <input type="text" id="globalSearchInput" placeholder="Search roll no, staff ID, receipt, salary..." oninput="handleGlobalSearch()">
+                <input type="text" id="globalSearchInput" placeholder="Search student ID, email, phone, receipt, salary..." oninput="handleGlobalSearch()">
             </div>
 
             <!-- Quick Action Controls -->
@@ -1133,13 +1065,13 @@
                 </button>
 
                 <!-- Auth Trigger / User Status Pill -->
-                <button class="btn btn-primary btn-sm" id="authHeaderBtn" onclick="openAuthModal()" style="border-radius: 50px;">🔐 Login / Auth</button>
+                <button class="btn btn-primary btn-sm" id="authHeaderBtn" onclick="openAuthModal('login')" style="border-radius: 50px;">🔐 Login / Register</button>
                 
-                <div class="user-profile-pill" id="userProfilePill" onclick="openAuthModal()" title="Click to Switch User / Auth">
+                <div class="user-profile-pill" id="userProfilePill" onclick="openAuthModal('login')" title="Click to View Account / Switch Auth" style="display: none;">
                     <div class="user-avatar" id="navAvatar">SK</div>
                     <div style="line-height: 1.1;">
                         <span style="font-size: 0.85rem; font-weight: 800; display: block;" id="navUserName">Suresh Kumar</span>
-                        <span style="font-size: 0.7rem; color: var(--text-muted);" id="navUserRole">Student (#SE-9942)</span>
+                        <span style="font-size: 0.7rem; color: var(--text-muted);" id="navUserRole">Student (suresh.kumar@sharusuri.edu)</span>
                     </div>
                 </div>
 
@@ -1148,89 +1080,149 @@
         </div>
     </header>
 
-    <!-- AUTHENTICATION & LOGIN/SIGNUP MODAL WITH ALL DEMO ACCOUNTS -->
+    <!-- ========================================================================= -->
+    <!-- AUTHENTICATION & REGISTRATION GATEWAY MODAL (LOGIN, SIGN UP, RESET PASS) -->
+    <!-- ========================================================================= -->
     <div class="auth-modal-overlay" id="authModal">
         <div class="auth-box">
             <button class="modal-close" onclick="closeAuthModal()">✕</button>
             <div style="text-align: center; margin-bottom: 1.25rem;">
                 <span class="brand-badge" style="margin: 0 auto 0.5rem;">SE</span>
-                <h2 style="font-size: 1.5rem;">Sharusuri OS Authentication Gateway</h2>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Secure Multi-Role Portal, Fee Receipt & Payroll Access</p>
+                <h2 style="font-size: 1.5rem;">Sharusuri Authentication Gateway</h2>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Secure Portal Access with Email & Mobile Identifier Authentication</p>
             </div>
 
+            <!-- TAB CONTROLS FOR AUTH SYSTEM -->
             <div class="auth-tabs">
-                <button class="auth-tab-btn active" id="loginTabBtn" onclick="switchAuthTab('login')">Login</button>
-                <button class="auth-tab-btn" id="signupTabBtn" onclick="switchAuthTab('signup')">Sign Up</button>
+                <button class="auth-tab-btn active" id="loginTabBtn" onclick="switchAuthTab('login')">Sign In</button>
+                <button class="auth-tab-btn" id="signupTabBtn" onclick="switchAuthTab('signup')">Register Account</button>
+                <button class="auth-tab-btn" id="resetTabBtn" onclick="switchAuthTab('reset')">Reset Password</button>
             </div>
 
-            <!-- Login Form -->
+            <!-- 1. SIGN IN FORM (SUPPORTS EMAIL OR 10-DIGIT MOBILE NUMBER) -->
             <form id="loginFormContainer" onsubmit="handleAuthSubmit(event, 'login')">
+                <div class="auth-alert-card auth-alert-info">
+                    <span>💡</span>
+                    <div>Enter your registered <strong>Email Address</strong> OR <strong>10-Digit Mobile Phone Number</strong> to sign in.</div>
+                </div>
+
                 <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
                     <div>
-                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Target Portal Role</label>
-                        <select id="loginRoleSelect" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main); font-weight: 700;">
-                            <option value="admin">⚙️ Super Admin (suresh-admin)</option>
-                            <option value="teacher">👩‍🏫 Teacher / Faculty (suresh-teacher)</option>
-                            <option value="mentor">👨‍💼 Personal Mentor (suresh-mentor)</option>
-                            <option value="student" selected>🎓 Student (suresh-student)</option>
-                            <option value="parent">👪 Parent (suresh-parent)</option>
-                            <option value="hiring">💼 HR Manager (suresh-hr)</option>
-                            <option value="staff">🛠️ Non-Teaching Staff (suresh-staff)</option>
-                            <option value="receptionist">📞 Receptionist (suresh-receptionist)</option>
-                        </select>
+                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Email Address or Mobile Phone Number *</label>
+                        <input type="text" id="loginIdentifier" required value="suresh.kumar@sharusuri.edu" placeholder="e.g. suresh.kumar@sharusuri.edu OR 8088835686" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main); font-weight: 600;">
                     </div>
                     <div>
-                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Username / Login ID</label>
-                        <input type="text" id="loginUser" required value="suresh-student" placeholder="e.g. suresh-student" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;">
+                            <label style="font-weight: 700;">Account Password *</label>
+                            <a href="#" onclick="switchAuthTab('reset'); return false;" style="font-size: 0.78rem; color: var(--primary); font-weight: 700;">Forgot Password?</a>
+                        </div>
+                        <input type="password" id="loginPassword" required value="password123" placeholder="Enter account password" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
                     </div>
-                    <div>
-                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Password</label>
-                        <input type="password" id="loginPass" required value="password123" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Sign In to Secure Portal</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">🔓 Authenticate & Access Portal</button>
                 </div>
             </form>
 
-            <!-- Signup Form -->
+            <!-- 2. NEW USER REGISTRATION FORM (SIGN UP) -->
             <form id="signupFormContainer" style="display: none;" onsubmit="handleAuthSubmit(event, 'signup')">
+                <div class="auth-alert-card auth-alert-success">
+                    <span>✨</span>
+                    <div>Create a new user account. Your mobile number and email will serve as valid sign-in identifiers.</div>
+                </div>
+
                 <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
                     <div>
-                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Full Name</label>
-                        <input type="text" required placeholder="e.g. Ramesh Patil" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Full Legal Name *</label>
+                        <input type="text" id="signupName" required placeholder="e.g. Ramesh Patil" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Email Address *</label>
+                            <input type="email" id="signupEmail" required placeholder="user@sharusuri.edu" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Mobile Phone Number *</label>
+                            <input type="tel" id="signupPhone" required placeholder="10-digit number e.g. 9845012345" pattern="[0-9]{10}" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                        </div>
                     </div>
                     <div>
-                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Select Account Role</label>
+                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Target Account Role *</label>
                         <select id="signupRoleSelect" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main); font-weight: 700;">
-                            <option value="student">Student</option>
-                            <option value="parent">Parent</option>
-                            <option value="teacher">Teacher / Faculty</option>
-                            <option value="mentor">Personal Mentor</option>
-                            <option value="staff">Non-Teaching Staff</option>
-                            <option value="receptionist">Receptionist / Front Desk</option>
-                            <option value="hiring">HR Manager</option>
-                            <option value="admin">Super Admin</option>
+                            <option value="student">🎓 Student Account</option>
+                            <option value="parent">👪 Parent Account</option>
+                            <option value="teacher">👩‍🏫 Teacher / Faculty</option>
+                            <option value="mentor">👨‍💼 Personal Academic Mentor</option>
+                            <option value="staff">🛠️ Non-Teaching Operations Staff</option>
+                            <option value="receptionist">📞 Front Desk Receptionist</option>
+                            <option value="hiring">💼 HR & Staff Payroll Manager</option>
+                            <option value="admin">⚙️ Enterprise Super Admin</option>
                         </select>
                     </div>
-                    <div>
-                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Email / Phone Number</label>
-                        <input type="text" required placeholder="user@sharusuri.edu" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Password *</label>
+                            <input type="password" id="signupPassword" required minlength="6" placeholder="Min 6 characters" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Confirm Password *</label>
+                            <input type="password" id="signupConfirmPassword" required minlength="6" placeholder="Re-enter password" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Create Account & Authenticate</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">👤 Register Account & Login</button>
                 </div>
             </form>
 
-            <!-- Pre-configured Demo Accounts Section -->
+            <!-- 3. FORGOT PASSWORD STEP 1: REQUEST PIN / RESET LINK -->
+            <form id="resetRequestContainer" style="display: none;" onsubmit="handleResetRequest(event)">
+                <div class="auth-alert-card auth-alert-warning">
+                    <span>🔑</span>
+                    <div>Enter your registered Email Address or Mobile Phone Number to receive a temporary Security PIN and Password Reset Token.</div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
+                    <div>
+                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Registered Email or Mobile Phone Number *</label>
+                        <input type="text" id="resetIdentifier" required placeholder="e.g. suresh.kumar@sharusuri.edu OR 8088835686" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main); font-weight: 600;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">📩 Dispatch Reset Token & Link</button>
+                </div>
+            </form>
+
+            <!-- 4. FORGOT PASSWORD STEP 2: CONFIRM RESET PIN & CREATE NEW PASSWORD -->
+            <form id="resetConfirmContainer" style="display: none;" onsubmit="handleResetConfirm(event)">
+                <div class="auth-alert-card auth-alert-success" id="resetDispatchedBanner">
+                    <span>📩</span>
+                    <div>Password reset link and temporary security PIN sent to your registered email/phone! Enter the PIN below to set a new password.</div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
+                    <div>
+                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Security Reset PIN / Token *</label>
+                        <input type="text" id="resetPinInput" required placeholder="e.g. SE-849201" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 2px solid var(--primary); background: var(--bg); color: var(--primary); font-weight: 800; font-size: 1rem; letter-spacing: 1px;">
+                    </div>
+                    <div>
+                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">New Password *</label>
+                        <input type="password" id="newPasswordInput" required minlength="6" placeholder="At least 6 characters" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                    </div>
+                    <div>
+                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Confirm New Password *</label>
+                        <input type="password" id="confirmNewPasswordInput" required minlength="6" placeholder="Re-enter new password" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">💾 Update Password & Proceed to Login</button>
+                </div>
+            </form>
+
+            <!-- PRE-CONFIGURED DEMO ACCOUNTS SECTION -->
             <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-light); padding-top: 1rem;">
                 <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 0.5rem;">⚡ Instant One-Click Demo Logins:</span>
                 <div class="demo-accounts-grid">
-                    <button class="demo-btn" onclick="loginAsDemo('admin')">⚙️ suresh-admin</button>
-                    <button class="demo-btn" onclick="loginAsDemo('teacher')">👩‍🏫 suresh-teacher</button>
-                    <button class="demo-btn" onclick="loginAsDemo('mentor')">👨‍💼 suresh-mentor</button>
-                    <button class="demo-btn" onclick="loginAsDemo('student')">🎓 suresh-student</button>
-                    <button class="demo-btn" onclick="loginAsDemo('parent')">👪 suresh-parent</button>
-                    <button class="demo-btn" onclick="loginAsDemo('hiring')">💼 suresh-hr</button>
-                    <button class="demo-btn" onclick="loginAsDemo('staff')">🛠️ suresh-staff</button>
-                    <button class="demo-btn" onclick="loginAsDemo('receptionist')">📞 suresh-receptionist</button>
+                    <button class="demo-btn" onclick="loginAsDemo('admin')">⚙️ Admin (admin@sharusuri.edu)</button>
+                    <button class="demo-btn" onclick="loginAsDemo('teacher')">👩‍🏫 Teacher (anita.rao@sharusuri.edu)</button>
+                    <button class="demo-btn" onclick="loginAsDemo('mentor')">👨‍💼 Mentor (ramesh.patil@sharusuri.edu)</button>
+                    <button class="demo-btn" onclick="loginAsDemo('student')">🎓 Student (8088835686)</button>
+                    <button class="demo-btn" onclick="loginAsDemo('parent')">👪 Parent (manjunath.kumar@sharusuri.edu)</button>
+                    <button class="demo-btn" onclick="loginAsDemo('hiring')">💼 HR Lead (hr@sharusuri.edu)</button>
+                    <button class="demo-btn" onclick="loginAsDemo('staff')">🛠️ Staff (suresh.patil@sharusuri.edu)</button>
+                    <button class="demo-btn" onclick="loginAsDemo('receptionist')">📞 Receptionist (rekha.sharma@sharusuri.edu)</button>
                 </div>
             </div>
         </div>
@@ -1368,7 +1360,7 @@
                 <div class="user-avatar" style="width: 38px; height: 38px;" id="sideAvatar">SK</div>
                 <div class="role-info">
                     <h4 style="font-size: 0.9rem; line-height: 1.2;" id="sideRoleTitle">Student Console</h4>
-                    <span style="font-size: 0.72rem; color: var(--primary);" id="sideRoleSub">Active User Session</span>
+                    <span style="font-size: 0.72rem; color: var(--primary);" id="sideRoleSub">Active Session</span>
                 </div>
             </div>
 
@@ -1624,7 +1616,7 @@
                 <div class="console-header">
                     <div class="console-title">
                         <h1>👩‍🏫 Faculty Workspace & Interactive Gradebook</h1>
-                        <p>Welcome, <strong>Prof. Anita Rao</strong> | Mathematics Dept | ID: <code>FAC-4012</code></p>
+                        <p>Welcome, <strong class="user-display-name">Prof. Anita Rao</strong> | Mathematics Dept | ID: <code>FAC-4012</code></p>
                     </div>
                     <div style="display: flex; gap: 0.75rem;">
                         <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('FAC-4012')">💵 View My Monthly Salary Slip</button>
@@ -1697,7 +1689,7 @@
                 <div class="console-header">
                     <div class="console-title">
                         <h1>👪 Parent Portal & Student Performance Monitoring</h1>
-                        <p>Welcome, <strong>Mr. Manjunath Kumar</strong> | Parent ID: <code>PRT-8812</code> | Child: Suresh Kumar</p>
+                        <p>Welcome, <strong class="user-display-name">Mr. Manjunath Kumar</strong> | Parent ID: <code>PRT-8812</code> | Child: Suresh Kumar</p>
                     </div>
                     <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">📄 View Child Fee Receipts</button>
                 </div>
@@ -1714,7 +1706,7 @@
                 <div class="console-header">
                     <div class="console-title">
                         <h1>👨‍💼 Academic Mentor Console</h1>
-                        <p>Welcome, <strong>Dr. Ramesh Patil</strong> | Personal Mentorship Lead | Staff ID: <code>MNT-1090</code></p>
+                        <p>Welcome, <strong class="user-display-name">Dr. Ramesh Patil</strong> | Personal Mentorship Lead | Staff ID: <code>MNT-1090</code></p>
                     </div>
                     <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('MNT-1090')">💵 View My Monthly Salary Slip</button>
                 </div>
@@ -1731,7 +1723,7 @@
                 <div class="console-header">
                     <div class="console-title">
                         <h1>🛠️ Non-Teaching Staff Operations Console</h1>
-                        <p>Welcome, <strong>Suresh Patil</strong> | Campus Technician | Staff ID: <code>STF-8810</code></p>
+                        <p>Welcome, <strong class="user-display-name">Suresh Patil</strong> | Campus Technician | Staff ID: <code>STF-8810</code></p>
                     </div>
                     <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('STF-8810')">💵 View My Monthly Salary Slip</button>
                 </div>
@@ -1748,7 +1740,7 @@
                 <div class="console-header">
                     <div class="console-title">
                         <h1>📞 Front Desk & Visitor Management</h1>
-                        <p>Welcome, <strong>Rekha Sharma</strong> | Receptionist | Staff ID: <code>REC-2040</code></p>
+                        <p>Welcome, <strong class="user-display-name">Rekha Sharma</strong> | Receptionist | Staff ID: <code>REC-2040</code></p>
                     </div>
                     <div style="display: flex; gap: 0.5rem;">
                         <button class="btn btn-primary btn-sm" onclick="openVisitorModal()">➕ New Visitor Log</button>
@@ -1789,12 +1781,12 @@
                 </div>
             </section>
 
-            <!-- 7. HR MANAGER & STAFF PAYROLL CONSOLE (FULL PAYROLL CONTROL) -->
+            <!-- 7. HR MANAGER & STAFF PAYROLL CONSOLE -->
             <section id="hiringConsole" class="role-console">
                 <div class="console-header">
                     <div class="console-title">
                         <h1>💼 HR Management & Staff Payroll Directory</h1>
-                        <p>Welcome, <strong>Suresh HR Lead</strong> | HR Dept ID: <code>HR-1001</code></p>
+                        <p>Welcome, <strong class="user-display-name">Suresh HR Lead</strong> | HR Dept ID: <code>HR-1001</code></p>
                     </div>
                     <div style="display: flex; gap: 0.5rem;">
                         <button class="btn btn-primary btn-sm" onclick="openStaffModal()">➕ Add Staff Member</button>
@@ -1914,7 +1906,7 @@
                 <div class="console-header">
                     <div class="console-title">
                         <h1>⚙️ Enterprise Admin Master OS Console</h1>
-                        <p>Full Administrative Authority over Fees, Payroll, Franchises & Infrastructure</p>
+                        <p>Full Administrative Authority over Auth Registrations, Fees, Payroll & Infrastructure</p>
                     </div>
                     <div style="display: flex; gap: 0.5rem;">
                         <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('FAC-4012')">💵 Sample Salary Slip</button>
@@ -1932,9 +1924,9 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-info">
-                            <h4>Total Enrolled Students</h4>
-                            <div class="val">1,240</div>
-                            <span class="sub">Across 36 States/UTs</span>
+                            <h4>Registered User Accounts</h4>
+                            <div class="val" id="adminTotalUserCount">1,240</div>
+                            <span class="sub">Auth Local Database Active</span>
                         </div>
                         <div class="stat-icon blue">🎓</div>
                     </div>
@@ -1961,7 +1953,7 @@
     </div>
 
     <!-- ========================================================================= -->
-    <!-- PRINTABLE FEE RECEIPT MODAL (STUDENT & PARENT FEE RECEIPT) -->
+    <!-- PRINTABLE FEE RECEIPT MODAL -->
     <!-- ========================================================================= -->
     <div class="modal-overlay" id="receiptModal">
         <div class="modal-box printable-area">
@@ -2242,15 +2234,26 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT ENGINE & DYNAMIC PAYROLL/RECEIPT LOGIC -->
+    <!-- ========================================================================= -->
+    <!-- JAVASCRIPT ENGINE & ADVANCED AUTHENTICATION SYSTEM LOGIC -->
+    <!-- ========================================================================= -->
     <script>
+        // DEFAULT SEEDED CLIENT-SIDE USER DATABASE
+        const DEFAULT_USERS_DB = [
+            { name: "Master Admin OS", email: "admin@sharusuri.edu", phone: "9800000001", role: "admin", password: "password123", empId: "ADM-1001" },
+            { name: "Prof. Anita Rao", email: "anita.rao@sharusuri.edu", phone: "9800000002", role: "teacher", password: "password123", empId: "FAC-4012" },
+            { name: "Dr. Ramesh Patil", email: "ramesh.patil@sharusuri.edu", phone: "9800000003", role: "mentor", password: "password123", empId: "MNT-1090" },
+            { name: "Suresh Kumar", email: "suresh.kumar@sharusuri.edu", phone: "8088835686", role: "student", password: "password123", empId: "SE-9942" },
+            { name: "Manjunath Kumar", email: "manjunath.kumar@sharusuri.edu", phone: "9800000005", role: "parent", password: "password123", empId: "PRT-8812" },
+            { name: "Suresh HR Lead", email: "hr@sharusuri.edu", phone: "9800000006", role: "hiring", password: "password123", empId: "HR-1001" },
+            { name: "Suresh Patil", email: "suresh.patil@sharusuri.edu", phone: "9800000007", role: "staff", password: "password123", empId: "STF-8810" },
+            { name: "Rekha Sharma", email: "rekha.sharma@sharusuri.edu", phone: "9800000008", role: "receptionist", password: "password123", empId: "REC-2040" }
+        ];
+
         // EXPANDED ROLE DEFINITIONS & CONFIGURATIONS
         const ROLE_CONFIGS = {
             admin: {
                 title: "Enterprise Admin",
-                avatar: "ADM",
-                userName: "Master Admin OS",
-                userRole: "Super Admin (#suresh-admin)",
                 consoleId: "adminConsole",
                 menu: [
                     { label: "Enterprise System KPIs", icon: "⚙️", active: true },
@@ -2261,9 +2264,6 @@
             },
             teacher: {
                 title: "Faculty Workspace",
-                avatar: "AR",
-                userName: "Prof. Anita Rao",
-                userRole: "Senior Faculty (#FAC-4012)",
                 consoleId: "teacherConsole",
                 empId: "FAC-4012",
                 menu: [
@@ -2274,9 +2274,6 @@
             },
             mentor: {
                 title: "Mentor Console",
-                avatar: "RP",
-                userName: "Dr. Ramesh Patil",
-                userRole: "Head Counselor (#MNT-1090)",
                 consoleId: "mentorConsole",
                 empId: "MNT-1090",
                 menu: [
@@ -2286,9 +2283,6 @@
             },
             student: {
                 title: "Student Portal",
-                avatar: "SK",
-                userName: "Suresh Kumar",
-                userRole: "Student (#SE-9942)",
                 consoleId: "studentConsole",
                 menu: [
                     { label: "Dashboard Overview", icon: "📊", active: true },
@@ -2298,9 +2292,6 @@
             },
             parent: {
                 title: "Parent Portal",
-                avatar: "MK",
-                userName: "Manjunath Kumar",
-                userRole: "Parent (#PRT-8812)",
                 consoleId: "parentConsole",
                 menu: [
                     { label: "Child Attendance", icon: "👪", active: true },
@@ -2310,9 +2301,6 @@
             },
             hiring: {
                 title: "HR & Staff Payroll",
-                avatar: "HR",
-                userName: "Suresh HR Lead",
-                userRole: "HR Dept (#HR-1001)",
                 consoleId: "hiringConsole",
                 empId: "HR-1001",
                 menu: [
@@ -2322,9 +2310,6 @@
             },
             staff: {
                 title: "Non-Teaching Staff",
-                avatar: "SP",
-                userName: "Suresh Patil",
-                userRole: "Campus Tech (#STF-8810)",
                 consoleId: "staffConsole",
                 empId: "STF-8810",
                 menu: [
@@ -2334,9 +2319,6 @@
             },
             receptionist: {
                 title: "Front Desk Console",
-                avatar: "RS",
-                userName: "Rekha Sharma",
-                userRole: "Receptionist (#REC-2040)",
                 consoleId: "receptionistConsole",
                 empId: "REC-2040",
                 menu: [
@@ -2346,9 +2328,6 @@
             },
             franchise: {
                 title: "Franchise Network",
-                avatar: "FR",
-                userName: "Expansion Director",
-                userRole: "Franchise Hub",
                 consoleId: "franchiseConsole",
                 menu: [
                     { label: "Active Regional Nodes", icon: "🌐", active: true }
@@ -2356,9 +2335,6 @@
             },
             infrastructure: {
                 title: "Campus Assets OS",
-                avatar: "INF",
-                userName: "Estate Manager",
-                userRole: "Asset Tracking",
                 consoleId: "infrastructureConsole",
                 menu: [
                     { label: "Classrooms & Labs", icon: "🏢", active: true }
@@ -2460,14 +2436,56 @@
             }
         };
 
+        // LOCAL STORAGE USER DATABASE UTILITIES
+        function getUsersDB() {
+            const data = localStorage.getItem('sharusuri_users_db');
+            if (!data) {
+                localStorage.setItem('sharusuri_users_db', JSON.stringify(DEFAULT_USERS_DB));
+                return DEFAULT_USERS_DB;
+            }
+            try {
+                return JSON.parse(data);
+            } catch (e) {
+                return DEFAULT_USERS_DB;
+            }
+        }
+
+        function saveUserToDB(userObj) {
+            const db = getUsersDB();
+            db.push(userObj);
+            localStorage.setItem('sharusuri_users_db', JSON.stringify(db));
+            // Update stats
+            const countEl = document.getElementById('adminTotalUserCount');
+            if (countEl) countEl.textContent = db.length.toLocaleString('en-IN');
+        }
+
+        function updateUserPasswordInDB(identifier, newPassword) {
+            const db = getUsersDB();
+            const q = identifier.trim().toLowerCase();
+            let updated = false;
+
+            for (let u of db) {
+                if (u.email.toLowerCase() === q || u.phone === q) {
+                    u.password = newPassword;
+                    updated = true;
+                    break;
+                }
+            }
+
+            if (updated) {
+                localStorage.setItem('sharusuri_users_db', JSON.stringify(db));
+            }
+            return updated;
+        }
+
         // TOAST NOTIFICATION UTILITY
         function showToast(message, type = 'success') {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
             toast.className = `toast ${type}`;
-            toast.innerHTML = `<span>${type === 'success' ? '✓' : 'ℹ'}</span> <span>${message}</span>`;
+            toast.innerHTML = `<span>${type === 'success' ? '✓' : type === 'error' ? '❌' : 'ℹ'}</span> <span>${message}</span>`;
             container.appendChild(toast);
-            setTimeout(() => toast.remove(), 3200);
+            setTimeout(() => toast.remove(), 3600);
         }
 
         // VIEW MODE SWITCHER (PUBLIC SITE VS PORTAL DASHBOARD)
@@ -2494,31 +2512,48 @@
             }
         }
 
-        // SWITCH ACTIVE ROLE CONSOLE & UPDATE SESSION
-        function switchRolePortal(roleKey) {
-            const config = ROLE_CONFIGS[roleKey];
-            if (!config) return;
+        // HELPER TO GENERATE INITIALS
+        function getInitials(name) {
+            if (!name) return "US";
+            const parts = name.trim().split(' ');
+            if (parts.length >= 2) {
+                return (parts[0][0] + parts[1][0]).toUpperCase();
+            }
+            return name.substring(0, 2).toUpperCase();
+        }
 
-            // Store active session in localStorage
-            localStorage.setItem('sharusuri_active_role', roleKey);
-            localStorage.setItem('sharusuri_user_session', JSON.stringify({
+        // ACTIVE USER SESSION MANAGER
+        function setLoggedInSession(userObj) {
+            const roleKey = userObj.role || 'student';
+            const config = ROLE_CONFIGS[roleKey] || ROLE_CONFIGS.student;
+            const initials = getInitials(userObj.name);
+
+            // Persist session to localStorage
+            const sessionData = {
+                loggedIn: true,
+                name: userObj.name,
+                email: userObj.email,
+                phone: userObj.phone,
                 role: roleKey,
-                userName: config.userName,
-                title: config.title,
-                loggedIn: true
-            }));
+                empId: userObj.empId || 'SE-9942'
+            };
+            localStorage.setItem('sharusuri_user_session', JSON.stringify(sessionData));
 
-            // Update Header Role Selector & User Profile Pill
+            // Update Header & Navigation Bar
             document.getElementById('globalRoleSelector').value = roleKey;
-            document.getElementById('navAvatar').textContent = config.avatar;
-            document.getElementById('sideAvatar').textContent = config.avatar;
-            document.getElementById('navUserName').textContent = config.userName;
-            document.getElementById('navUserRole').textContent = config.userRole;
+            document.getElementById('navAvatar').textContent = initials;
+            document.getElementById('sideAvatar').textContent = initials;
+            document.getElementById('navUserName').textContent = userObj.name;
+            document.getElementById('navUserRole').textContent = `${ROLE_CONFIGS[roleKey].title} (${userObj.email})`;
             document.getElementById('sideRoleTitle').textContent = config.title;
 
-            // Show Logout Button
-            document.getElementById('logoutBtn').style.display = 'flex';
+            // Update Console Header Displays
+            document.querySelectorAll('.user-display-name').forEach(el => el.textContent = userObj.name);
+
+            // Toggle Header Action Buttons
+            document.getElementById('userProfilePill').style.display = 'flex';
             document.getElementById('authHeaderBtn').style.display = 'none';
+            document.getElementById('logoutBtn').style.display = 'flex';
 
             // Populate Sidebar Menu
             const sidebarNav = document.getElementById('sidebarNavItems');
@@ -2529,80 +2564,224 @@
                 navDiv.className = `nav-item ${item.active ? 'active' : ''}`;
                 navDiv.innerHTML = `<span class="icon">${item.icon}</span><span>${item.label}</span>`;
                 
-                // Attach handler if it's a salary slip action
                 if (item.label.includes('Salary Slip')) {
                     navDiv.onclick = () => openSalarySlipModal(config.empId || 'FAC-4012');
                 } else if (item.label.includes('Receipt')) {
                     navDiv.onclick = () => openReceiptModal();
                 }
-
                 sidebarNav.appendChild(navDiv);
             });
 
-            // Hide All Consoles & Show Active Target Console
+            // Activate Target Role Console
             document.querySelectorAll('.role-console').forEach(el => el.classList.remove('active'));
             const targetConsole = document.getElementById(config.consoleId);
             if (targetConsole) {
                 targetConsole.classList.add('active');
             }
 
-            // Ensure we are in portal view mode
             switchViewMode('portal');
         }
 
-        // AUTHENTICATION MODAL HANDLERS
-        function openAuthModal() { document.getElementById('authModal').classList.add('active'); }
-        function closeAuthModal() { document.getElementById('authModal').classList.remove('active'); }
+        // SWITCH ROLE PORTAL FROM DROPDOWN
+        function switchRolePortal(roleKey) {
+            const session = localStorage.getItem('sharusuri_user_session');
+            let currentUser = { name: "Suresh Kumar", email: "suresh.kumar@sharusuri.edu", phone: "8088835686", role: roleKey };
+            if (session) {
+                try {
+                    currentUser = JSON.parse(session);
+                    currentUser.role = roleKey;
+                } catch(e) {}
+            }
+            setLoggedInSession(currentUser);
+        }
+
+        // AUTHENTICATION MODAL SWITCHING & TABS
+        function openAuthModal(defaultTab = 'login') {
+            switchAuthTab(defaultTab);
+            document.getElementById('authModal').classList.add('active');
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+        }
 
         function switchAuthTab(tab) {
             const loginBtn = document.getElementById('loginTabBtn');
             const signupBtn = document.getElementById('signupTabBtn');
+            const resetBtn = document.getElementById('resetTabBtn');
+
             const loginForm = document.getElementById('loginFormContainer');
             const signupForm = document.getElementById('signupFormContainer');
+            const resetRequestForm = document.getElementById('resetRequestContainer');
+            const resetConfirmForm = document.getElementById('resetConfirmContainer');
+
+            // Reset Tab Actives
+            [loginBtn, signupBtn, resetBtn].forEach(b => b.classList.remove('active'));
+            [loginForm, signupForm, resetRequestForm, resetConfirmForm].forEach(f => f.style.display = 'none');
 
             if (tab === 'login') {
                 loginBtn.classList.add('active');
-                signupBtn.classList.remove('active');
                 loginForm.style.display = 'block';
-                signupForm.style.display = 'none';
-            } else {
+            } else if (tab === 'signup') {
                 signupBtn.classList.add('active');
-                loginBtn.classList.remove('active');
                 signupForm.style.display = 'block';
-                loginForm.style.display = 'none';
+            } else if (tab === 'reset') {
+                resetBtn.classList.add('active');
+                resetRequestForm.style.display = 'block';
+            } else if (tab === 'reset-confirm') {
+                resetBtn.classList.add('active');
+                resetConfirmForm.style.display = 'block';
             }
         }
 
+        // AUTHENTICATION SUBMIT HANDLER (LOGIN & SIGN UP)
         function handleAuthSubmit(e, type) {
             e.preventDefault();
-            let roleKey = 'student';
+            const db = getUsersDB();
+
             if (type === 'login') {
-                roleKey = document.getElementById('loginRoleSelect').value;
-            } else {
-                roleKey = document.getElementById('signupRoleSelect').value;
+                const identifier = document.getElementById('loginIdentifier').value.trim().toLowerCase();
+                const password = document.getElementById('loginPassword').value;
+
+                // Match user by Email OR Mobile Phone
+                const user = db.find(u => 
+                    (u.email.toLowerCase() === identifier || u.phone === identifier || u.email.split('@')[0] === identifier) && 
+                    u.password === password
+                );
+
+                if (user) {
+                    setLoggedInSession(user);
+                    closeAuthModal();
+                    showToast(`Welcome back, ${user.name}! Authenticated successfully.`);
+                } else {
+                    showToast('Invalid credentials! Check your Email/Mobile Number and Password.', 'error');
+                }
+            } else if (type === 'signup') {
+                const name = document.getElementById('signupName').value.trim();
+                const email = document.getElementById('signupEmail').value.trim().toLowerCase();
+                const phone = document.getElementById('signupPhone').value.trim();
+                const role = document.getElementById('signupRoleSelect').value;
+                const password = document.getElementById('signupPassword').value;
+                const confirmPass = document.getElementById('signupConfirmPassword').value;
+
+                if (password !== confirmPass) {
+                    showToast('Passwords do not match! Please verify.', 'error');
+                    return;
+                }
+
+                // Check for duplicate account
+                const existing = db.find(u => u.email.toLowerCase() === email || u.phone === phone);
+                if (existing) {
+                    showToast('An account with this Email or Mobile Number already exists!', 'warning');
+                    return;
+                }
+
+                const newUser = {
+                    name,
+                    email,
+                    phone,
+                    role,
+                    password,
+                    empId: `SE-${Math.floor(Math.random() * 9000 + 1000)}`
+                };
+
+                saveUserToDB(newUser);
+                setLoggedInSession(newUser);
+                closeAuthModal();
+                showToast(`Account registered successfully! Welcome, ${name}.`);
+                e.target.reset();
+            }
+        }
+
+        // PASSWORD RESET FLOW STEP 1: REQUEST TOKEN
+        function handleResetRequest(e) {
+            e.preventDefault();
+            const identifier = document.getElementById('resetIdentifier').value.trim().toLowerCase();
+            const db = getUsersDB();
+
+            const user = db.find(u => u.email.toLowerCase() === identifier || u.phone === identifier);
+            
+            // Generate random temporary PIN token
+            const pinCode = `SE-${Math.floor(100000 + Math.random() * 900000)}`;
+
+            // Store temporary reset session in sessionStorage
+            sessionStorage.setItem('sharusuri_reset_target', JSON.stringify({
+                identifier: identifier,
+                pin: pinCode,
+                userEmail: user ? user.email : identifier
+            }));
+
+            // Prefill the PIN in step 2 for realistic smooth experience
+            document.getElementById('resetPinInput').value = pinCode;
+
+            // Trigger notification
+            const targetContact = user ? user.email : identifier;
+            showToast(`Password reset link & PIN (${pinCode}) dispatched to ${targetContact}!`, 'info');
+
+            // Switch to Step 2 confirmation tab
+            switchAuthTab('reset-confirm');
+        }
+
+        // PASSWORD RESET FLOW STEP 2: VERIFY & SET NEW PASSWORD
+        function handleResetConfirm(e) {
+            e.preventDefault();
+            const enteredPin = document.getElementById('resetPinInput').value.trim();
+            const newPassword = document.getElementById('newPasswordInput').value;
+            const confirmNewPassword = document.getElementById('confirmNewPasswordInput').value;
+
+            if (newPassword !== confirmNewPassword) {
+                showToast('New passwords do not match! Check re-entered password.', 'error');
+                return;
             }
 
-            switchRolePortal(roleKey);
-            closeAuthModal();
-            showToast(`Authenticated successfully as ${ROLE_CONFIGS[roleKey].title}!`);
+            const pending = sessionStorage.getItem('sharusuri_reset_target');
+            if (!pending) {
+                showToast('Reset token expired. Please request a new link.', 'error');
+                switchAuthTab('reset');
+                return;
+            }
+
+            const resetObj = JSON.parse(pending);
+            if (enteredPin.toUpperCase() !== resetObj.pin.toUpperCase()) {
+                showToast('Invalid Reset PIN Token! Please verify token code.', 'error');
+                return;
+            }
+
+            // Update password in client database
+            const updated = updateUserPasswordInDB(resetObj.identifier, newPassword);
+
+            sessionStorage.removeItem('sharusuri_reset_target');
+
+            // Prefill Login input
+            document.getElementById('loginIdentifier').value = resetObj.userEmail;
+            document.getElementById('loginPassword').value = newPassword;
+
+            showToast('Password updated successfully! Log in with your new credentials.');
+            switchAuthTab('login');
         }
 
+        // DEMO ACCOUNT QUICK LOGIN
         function loginAsDemo(roleKey) {
-            switchRolePortal(roleKey);
+            const db = getUsersDB();
+            let demoUser = db.find(u => u.role === roleKey);
+            if (!demoUser) {
+                demoUser = DEFAULT_USERS_DB.find(u => u.role === roleKey) || DEFAULT_USERS_DB[3];
+            }
+
+            setLoggedInSession(demoUser);
             closeAuthModal();
-            showToast(`Demo Session Activated: Logged in as ${ROLE_CONFIGS[roleKey].title}`);
+            showToast(`Logged in as ${demoUser.name} (${ROLE_CONFIGS[roleKey].title})`);
         }
 
+        // LOGOUT HANDLER
         function handleLogout() {
-            localStorage.removeItem('sharusuri_active_role');
             localStorage.removeItem('sharusuri_user_session');
             document.getElementById('logoutBtn').style.display = 'none';
+            document.getElementById('userProfilePill').style.display = 'none';
             document.getElementById('authHeaderBtn').style.display = 'inline-flex';
-            document.getElementById('navUserName').textContent = 'Guest Visitor';
-            document.getElementById('navUserRole').textContent = 'Click to Login';
-            document.getElementById('navAvatar').textContent = 'GV';
+            
             switchViewMode('public');
-            showToast('Logged out successfully!', 'warning');
+            showToast('You have been logged out successfully.', 'warning');
         }
 
         // SALARY SLIP GENERATOR & MODAL LOGIC
@@ -2829,12 +3008,20 @@
 
         // INITIALIZATION ON PAGE LOAD
         document.addEventListener('DOMContentLoaded', () => {
+            // Seed DB if empty
+            getUsersDB();
+
             const savedSession = localStorage.getItem('sharusuri_user_session');
             if (savedSession) {
-                const sessionObj = JSON.parse(savedSession);
-                switchRolePortal(sessionObj.role || 'student');
+                try {
+                    const sessionObj = JSON.parse(savedSession);
+                    setLoggedInSession(sessionObj);
+                } catch(e) {
+                    loginAsDemo('student');
+                    switchViewMode('public');
+                }
             } else {
-                switchRolePortal('student');
+                loginAsDemo('student');
                 switchViewMode('public');
             }
         });
