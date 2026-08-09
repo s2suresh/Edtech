@@ -26,8 +26,9 @@ Details: ${process.env.ISSUE_BODY}
 Update index.html to incorporate these requested design changes, ensuring the layout is modern, visually appealing, responsive, and tailored for business advertising.
 CRITICAL: Output ONLY valid raw HTML code. Do NOT wrap in \`\`\`html markdown blocks or include any introductory text.`;
 
+  // Use 'gemini-1.5-flash' for maximum compatibility
   const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
+    model: "gemini-1.5-flash",
     contents: prompt,
   });
 
@@ -35,7 +36,7 @@ CRITICAL: Output ONLY valid raw HTML code. Do NOT wrap in \`\`\`html markdown bl
   updatedCode = updatedCode.replace(/^```html\s*/i, "").replace(/```$/i, "").trim();
 
   fs.writeFileSync("index.html", updatedCode);
-  console.log("Successfully updated index.html");
+  console.log("Successfully updated index.html using Gemini Pro!");
 }
 
 run().catch((err) => {
