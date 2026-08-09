@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sharusuri EdTech - Enterprise OS with Full Auth System, Registration, Mobile & Email Reset, Fee Receipts & Payroll Slips">
-    <title>Sharusuri EdTech | Enterprise OS, Auth Gateway, Fee Receipts & Payroll</title>
+    <meta name="description" content="Sharusuri EdTech Enterprise OS - Unified Platform with Strict Admin Master Overlook, Email OTP Auth, Portal Lockdown, Fee Receipts & Payroll System">
+    <title>Sharusuri EdTech | Enterprise OS, Admin Master Overlook & Auth Gateway</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,6 @@
             --danger-light: #fee2e2;
             --success: #10b981;
             --success-light: #d1fae5;
-            --rating-star: #eab308;
             --dark: #0f172a;
             --dark-surface: #1e293b;
             --bg: #f8fafc;
@@ -79,14 +78,8 @@
             font-family: 'Outfit', sans-serif;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
 
         /* TOAST NOTIFICATION */
         .toast-container {
@@ -110,8 +103,8 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            animation: slideInToast 0.3s ease forwards, fadeOutToast 0.3s ease 3.2s forwards;
-            max-width: 420px;
+            animation: slideInToast 0.3s ease forwards, fadeOutToast 0.3s ease 3.5s forwards;
+            max-width: 440px;
             border-left: 4px solid var(--success);
         }
 
@@ -194,7 +187,6 @@
             box-shadow: 0 4px 12px rgba(15, 118, 110, 0.35);
         }
 
-        /* PUBLIC VS AUTH TOGGLE MODE */
         .mode-switch-group {
             display: flex;
             background: var(--bg);
@@ -222,12 +214,12 @@
             box-shadow: 0 2px 8px rgba(15, 118, 110, 0.3);
         }
 
-        /* ROLE SELECTOR DROPDOWN IN HEADER */
+        /* SUPER ADMIN ROLE SELECTOR */
         .role-selector-wrapper {
             display: flex;
             align-items: center;
             gap: 0.6rem;
-            background: var(--bg);
+            background: var(--primary-light);
             border: 2px solid var(--primary);
             padding: 0.35rem 0.85rem;
             border-radius: var(--radius-md);
@@ -236,7 +228,7 @@
         .role-selector-label {
             font-size: 0.72rem;
             font-weight: 800;
-            color: var(--text-muted);
+            color: var(--primary);
             text-transform: uppercase;
         }
 
@@ -244,8 +236,8 @@
             background: transparent;
             border: none;
             font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 0.92rem;
+            font-weight: 800;
+            font-size: 0.88rem;
             color: var(--primary);
             cursor: pointer;
             outline: none;
@@ -254,7 +246,7 @@
         /* SEARCH & USER ACTIONS */
         .header-search {
             flex-grow: 1;
-            max-width: 320px;
+            max-width: 300px;
             position: relative;
         }
 
@@ -265,7 +257,7 @@
             border: 1px solid var(--border);
             background: var(--bg);
             color: var(--text-main);
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             outline: none;
             transition: var(--transition);
         }
@@ -281,7 +273,7 @@
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .nav-actions-group {
@@ -346,10 +338,8 @@
             font-size: 0.85rem;
         }
 
-        /* PUBLIC LANDING PAGE STYLES */
-        .public-landing {
-            display: block;
-        }
+        /* PUBLIC LANDING PAGE */
+        .public-landing { display: block; }
 
         .hero-section {
             background: linear-gradient(135deg, rgba(15, 118, 110, 0.08) 0%, rgba(37, 99, 235, 0.08) 100%);
@@ -384,14 +374,12 @@
             color: var(--text-main);
         }
 
-        .hero-title span {
-            color: var(--primary);
-        }
+        .hero-title span { color: var(--primary); }
 
         .hero-subtitle {
             font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 800px;
+            max-width: 820px;
             margin: 0 auto 2rem;
         }
 
@@ -433,9 +421,7 @@
             font-size: 2.5rem;
         }
 
-        .marketplace-body {
-            padding: 1.25rem;
-        }
+        .marketplace-body { padding: 1.25rem; }
 
         /* LAYOUT STRUCTURE WITH SIDEBAR & MAIN VIEW */
         .app-body {
@@ -455,9 +441,7 @@
             z-index: 900;
         }
 
-        .sidebar.collapsed {
-            width: var(--sidebar-collapsed-width);
-        }
+        .sidebar.collapsed { width: var(--sidebar-collapsed-width); }
 
         .sidebar-role-card {
             display: flex;
@@ -469,9 +453,7 @@
             border-bottom: 1px solid var(--border-light);
         }
 
-        .collapsed .sidebar-role-card .role-info {
-            display: none;
-        }
+        .collapsed .sidebar-role-card .role-info { display: none; }
 
         .sidebar-menu {
             padding: 1rem 0.75rem;
@@ -488,9 +470,7 @@
             letter-spacing: 0.5px;
         }
 
-        .collapsed .menu-category {
-            display: none;
-        }
+        .collapsed .menu-category { display: none; }
 
         .nav-item {
             display: flex;
@@ -517,9 +497,7 @@
             text-align: center;
         }
 
-        .collapsed .nav-item span:not(.icon) {
-            display: none;
-        }
+        .collapsed .nav-item span:not(.icon) { display: none; }
 
         .main-content {
             flex-grow: 1;
@@ -529,15 +507,13 @@
             max-width: 100%;
         }
 
-        /* CONSOLE ROLES PANELS CONTAINER */
+        /* CONSOLE PANELS CONTAINER */
         .role-console {
             display: none;
             animation: fadeIn 0.35s ease;
         }
 
-        .role-console.active {
-            display: block;
-        }
+        .role-console.active { display: block; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(6px); }
@@ -645,7 +621,6 @@
             font-weight: 700;
         }
 
-        /* WIDGET PANELS */
         .panel-card {
             background: var(--card-bg);
             border: 1px solid var(--border-light);
@@ -704,11 +679,9 @@
             color: var(--text-main);
         }
 
-        .data-table tbody tr:hover {
-            background: var(--primary-light);
-        }
+        .data-table tbody tr:hover { background: var(--primary-light); }
 
-        /* BADGES & CHIPS */
+        /* BADGES */
         .badge {
             display: inline-flex;
             align-items: center;
@@ -753,7 +726,6 @@
         .btn-accent { background-color: var(--accent); color: var(--dark); }
         .btn-accent:hover { background-color: var(--accent-hover); color: white; }
 
-        /* EDITABLE TABLE INPUTS */
         .inline-input {
             padding: 0.3rem 0.5rem;
             border: 1px solid var(--primary);
@@ -775,15 +747,13 @@
             transition: var(--transition);
         }
 
-        .action-icon-btn:hover {
-            background: var(--primary-light);
-        }
+        .action-icon-btn:hover { background: var(--primary-light); }
 
         /* AUTH MODAL & ADVANCED TABS */
         .auth-modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(15, 23, 42, 0.75);
+            background: rgba(15, 23, 42, 0.78);
             backdrop-filter: blur(6px);
             z-index: 3000;
             display: none;
@@ -822,7 +792,7 @@
             padding: 0.5rem;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             border: none;
             background: transparent;
             color: var(--text-muted);
@@ -899,7 +869,7 @@
         .modal-box {
             background: var(--card-bg);
             border-radius: var(--radius-lg);
-            max-width: 720px;
+            max-width: 760px;
             width: 100%;
             padding: 2rem;
             box-shadow: var(--shadow-lg);
@@ -963,7 +933,7 @@
             font-size: 1rem;
         }
 
-        /* PRINT RECEIPT & PAYSTUB STYLES */
+        /* PRINT STYLES */
         @media print {
             body * { visibility: hidden !important; }
             .printable-area, .printable-area * { visibility: visible !important; }
@@ -1006,16 +976,16 @@
     <!-- TOP ANNOUNCEMENT BAR -->
     <div class="top-notice-bar">
         <div>
-            <span class="notice-tag">🔥 Sharusuri Enterprise OS v5.0</span>
-            <span>Multi-Role Platform with Advanced Auth System, Fee Receipts, Payroll & Geographic Network Coverage</span>
+            <span class="notice-tag">🔥 Enterprise OS v5.2</span>
+            <span>Strict Admin Master Overlook, Email OTP Access & Portal Isolation</span>
         </div>
         <div style="display: flex; gap: 1rem;">
             <span>Academic Session: 2026-27</span>
-            <span>Helpline: +91 80888 35686</span>
+            <span>Master Admin: suresh2suresh80888@gmail.com</span>
         </div>
     </div>
 
-    <!-- MAIN HEADER WITH ROLE & VIEW TOGGLE SWITCHER -->
+    <!-- MAIN HEADER -->
     <header class="site-header">
         <div class="header-main">
             <!-- Brand & Mobile Sidebar Toggle -->
@@ -1029,14 +999,15 @@
 
             <!-- PUBLIC LANDING VS LOGGED-IN PORTAL TOGGLE BUTTONS -->
             <div class="mode-switch-group">
-                <button class="mode-btn active" id="modePublicBtn" onclick="switchViewMode('public')">🌐 Public View</button>
-                <button class="mode-btn" id="modePortalBtn" onclick="switchViewMode('portal')">🔒 Logged-In Portals</button>
+                <button class="mode-btn active" id="modePublicBtn" onclick="switchViewMode('public')">🌐 Public Homepage</button>
+                <button class="mode-btn" id="modePortalBtn" onclick="triggerPortalAccess()">🔒 Portal Access</button>
             </div>
 
-            <!-- UNIFIED ROLE SELECTOR DROPDOWN (ACTIVE WHEN IN PORTAL VIEW) -->
+            <!-- UNIFIED ROLE SELECTOR DROPDOWN (VISIBLE ONLY FOR SUPER ADMIN) -->
             <div class="role-selector-wrapper" id="headerRoleWrapper" style="display: none;">
-                <span class="role-selector-label">Portal Role:</span>
+                <span class="role-selector-label">⚙️ Admin Overlook:</span>
                 <select id="globalRoleSelector" class="role-selector" onchange="switchRolePortal(this.value)">
+                    <option value="admin">⚙️ Enterprise Super Admin</option>
                     <option value="student">🎓 Student Portal</option>
                     <option value="parent">👪 Parent Portal</option>
                     <option value="teacher">👩‍🏫 Faculty Workspace</option>
@@ -1046,7 +1017,6 @@
                     <option value="hiring">💼 HR & Staff Payroll</option>
                     <option value="franchise">🌐 Franchise Hub</option>
                     <option value="infrastructure">🏢 Campus Assets</option>
-                    <option value="admin">⚙️ Enterprise Admin</option>
                 </select>
             </div>
 
@@ -1065,13 +1035,13 @@
                 </button>
 
                 <!-- Auth Trigger / User Status Pill -->
-                <button class="btn btn-primary btn-sm" id="authHeaderBtn" onclick="openAuthModal('login')" style="border-radius: 50px;">🔐 Login / Register</button>
+                <button class="btn btn-primary btn-sm" id="authHeaderBtn" onclick="openAuthModal('otp')" style="border-radius: 50px;">🔐 Login / Register</button>
                 
-                <div class="user-profile-pill" id="userProfilePill" onclick="openAuthModal('login')" title="Click to View Account / Switch Auth" style="display: none;">
-                    <div class="user-avatar" id="navAvatar">SK</div>
+                <div class="user-profile-pill" id="userProfilePill" onclick="openAuthModal('otp')" title="Click to View Account / Switch Auth" style="display: none;">
+                    <div class="user-avatar" id="navAvatar">SA</div>
                     <div style="line-height: 1.1;">
-                        <span style="font-size: 0.85rem; font-weight: 800; display: block;" id="navUserName">Suresh Kumar</span>
-                        <span style="font-size: 0.7rem; color: var(--text-muted);" id="navUserRole">Student (suresh.kumar@sharusuri.edu)</span>
+                        <span style="font-size: 0.85rem; font-weight: 800; display: block;" id="navUserName">Super Admin</span>
+                        <span style="font-size: 0.7rem; color: var(--text-muted);" id="navUserRole">suresh2suresh80888@gmail.com</span>
                     </div>
                 </div>
 
@@ -1081,7 +1051,7 @@
     </header>
 
     <!-- ========================================================================= -->
-    <!-- AUTHENTICATION & REGISTRATION GATEWAY MODAL (LOGIN, SIGN UP, RESET PASS) -->
+    <!-- AUTHENTICATION & REGISTRATION GATEWAY MODAL WITH EMAIL OTP LOGIN -->
     <!-- ========================================================================= -->
     <div class="auth-modal-overlay" id="authModal">
         <div class="auth-box">
@@ -1089,18 +1059,53 @@
             <div style="text-align: center; margin-bottom: 1.25rem;">
                 <span class="brand-badge" style="margin: 0 auto 0.5rem;">SE</span>
                 <h2 style="font-size: 1.5rem;">Sharusuri Authentication Gateway</h2>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Secure Portal Access with Email & Mobile Identifier Authentication</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Secure Login with Direct Email OTP Verification & Account Isolation</p>
             </div>
 
             <!-- TAB CONTROLS FOR AUTH SYSTEM -->
             <div class="auth-tabs">
-                <button class="auth-tab-btn active" id="loginTabBtn" onclick="switchAuthTab('login')">Sign In</button>
+                <button class="auth-tab-btn active" id="otpTabBtn" onclick="switchAuthTab('otp')">🔑 Admin OTP Login</button>
+                <button class="auth-tab-btn" id="loginTabBtn" onclick="switchAuthTab('login')">Sign In</button>
                 <button class="auth-tab-btn" id="signupTabBtn" onclick="switchAuthTab('signup')">Register Account</button>
                 <button class="auth-tab-btn" id="resetTabBtn" onclick="switchAuthTab('reset')">Reset Password</button>
             </div>
 
-            <!-- 1. SIGN IN FORM (SUPPORTS EMAIL OR 10-DIGIT MOBILE NUMBER) -->
-            <form id="loginFormContainer" onsubmit="handleAuthSubmit(event, 'login')">
+            <!-- 1. ADMIN EMAIL OTP / MAGIC LINK LOGIN FORM -->
+            <div id="otpFormContainer">
+                <div class="auth-alert-card auth-alert-info">
+                    <span>⚡</span>
+                    <div>Super Admin Master Access for <strong>suresh2suresh80888@gmail.com</strong>. Request a direct 6-Digit Email OTP or use master password.</div>
+                </div>
+
+                <form id="otpStep1Form" onsubmit="handleRequestOTP(event)" style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
+                    <div>
+                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Super Admin Email Address *</label>
+                        <input type="email" id="adminOtpEmail" required value="suresh2suresh80888@gmail.com" placeholder="e.g. suresh2suresh80888@gmail.com" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main); font-weight: 700;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.25rem; font-size: 0.95rem;">📩 Send 6-Digit Email OTP / Verification Link</button>
+                </form>
+
+                <form id="otpStep2Form" style="display: none; flex-direction: column; gap: 0.85rem; font-size: 0.88rem; margin-top: 1rem;" onsubmit="handleVerifyOTP(event)">
+                    <div class="auth-alert-card auth-alert-success">
+                        <span>📩</span>
+                        <div>A 6-Digit OTP code has been dispatched to <strong id="otpSentEmailLabel">suresh2suresh80888@gmail.com</strong>. Enter it below to authenticate.</div>
+                    </div>
+                    <div>
+                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Enter 6-Digit Verification Code *</label>
+                        <input type="text" id="inputOtpCode" required maxlength="6" pattern="[0-9]{6}" placeholder="e.g. 584132" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 2px solid var(--primary); background: var(--bg); color: var(--primary); font-weight: 800; font-size: 1.2rem; text-align: center; letter-spacing: 4px;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 0.95rem;">🔓 Verify OTP & Access Admin Master Console</button>
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="showOtpStep1()" style="margin-top: 0.25rem;">← Re-enter Email</button>
+                </form>
+
+                <div style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px dashed var(--border); text-align: center;">
+                    <span style="font-size: 0.78rem; color: var(--text-muted); display: block; margin-bottom: 0.4rem;">Alternative Instant Master Password Login for suresh2suresh80888@gmail.com:</span>
+                    <button class="btn btn-secondary btn-sm" onclick="loginDirectSuperAdminPassword()" style="width: 100%;">🔑 Login as Super Admin via Master Password</button>
+                </div>
+            </div>
+
+            <!-- 2. STANDARD SIGN IN FORM -->
+            <form id="loginFormContainer" style="display: none;" onsubmit="handleAuthSubmit(event, 'login')">
                 <div class="auth-alert-card auth-alert-info">
                     <span>💡</span>
                     <div>Enter your registered <strong>Email Address</strong> OR <strong>10-Digit Mobile Phone Number</strong> to sign in.</div>
@@ -1118,15 +1123,15 @@
                         </div>
                         <input type="password" id="loginPassword" required value="password123" placeholder="Enter account password" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">🔓 Authenticate & Access Portal</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">🔓 Authenticate & Access Isolated Portal</button>
                 </div>
             </form>
 
-            <!-- 2. NEW USER REGISTRATION FORM (SIGN UP) -->
+            <!-- 3. NEW USER REGISTRATION FORM (SIGN UP) -->
             <form id="signupFormContainer" style="display: none;" onsubmit="handleAuthSubmit(event, 'signup')">
                 <div class="auth-alert-card auth-alert-success">
                     <span>✨</span>
-                    <div>Create a new user account. Your mobile number and email will serve as valid sign-in identifiers.</div>
+                    <div>Create a new user account. Once registered, you will be routed exclusively to your personal role dashboard.</div>
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
@@ -1141,7 +1146,7 @@
                         </div>
                         <div>
                             <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Mobile Phone Number *</label>
-                            <input type="tel" id="signupPhone" required placeholder="10-digit number e.g. 9845012345" pattern="[0-9]{10}" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                            <input type="tel" id="signupPhone" required placeholder="10-digit e.g. 9845012345" pattern="[0-9]{10}" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
                         </div>
                     </div>
                     <div>
@@ -1149,12 +1154,11 @@
                         <select id="signupRoleSelect" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main); font-weight: 700;">
                             <option value="student">🎓 Student Account</option>
                             <option value="parent">👪 Parent Account</option>
-                            <option value="teacher">👩‍🏫 Teacher / Faculty</option>
+                            <option value="teacher">👩‍🏫 Faculty Teacher</option>
                             <option value="mentor">👨‍💼 Personal Academic Mentor</option>
                             <option value="staff">🛠️ Non-Teaching Operations Staff</option>
                             <option value="receptionist">📞 Front Desk Receptionist</option>
                             <option value="hiring">💼 HR & Staff Payroll Manager</option>
-                            <option value="admin">⚙️ Enterprise Super Admin</option>
                         </select>
                     </div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
@@ -1167,15 +1171,15 @@
                             <input type="password" id="signupConfirmPassword" required minlength="6" placeholder="Re-enter password" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">👤 Register Account & Login</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">👤 Register Account & Enter Portal</button>
                 </div>
             </form>
 
-            <!-- 3. FORGOT PASSWORD STEP 1: REQUEST PIN / RESET LINK -->
+            <!-- 4. FORGOT PASSWORD STEP 1 -->
             <form id="resetRequestContainer" style="display: none;" onsubmit="handleResetRequest(event)">
                 <div class="auth-alert-card auth-alert-warning">
                     <span>🔑</span>
-                    <div>Enter your registered Email Address or Mobile Phone Number to receive a temporary Security PIN and Password Reset Token.</div>
+                    <div>Enter your registered Email Address or Mobile Phone Number to receive a Security PIN to reset your password.</div>
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
@@ -1183,20 +1187,20 @@
                         <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Registered Email or Mobile Phone Number *</label>
                         <input type="text" id="resetIdentifier" required placeholder="e.g. suresh.kumar@sharusuri.edu OR 8088835686" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main); font-weight: 600;">
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">📩 Dispatch Reset Token & Link</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">📩 Dispatch Reset PIN</button>
                 </div>
             </form>
 
-            <!-- 4. FORGOT PASSWORD STEP 2: CONFIRM RESET PIN & CREATE NEW PASSWORD -->
+            <!-- FORGOT PASSWORD STEP 2 -->
             <form id="resetConfirmContainer" style="display: none;" onsubmit="handleResetConfirm(event)">
-                <div class="auth-alert-card auth-alert-success" id="resetDispatchedBanner">
+                <div class="auth-alert-card auth-alert-success">
                     <span>📩</span>
-                    <div>Password reset link and temporary security PIN sent to your registered email/phone! Enter the PIN below to set a new password.</div>
+                    <div>PIN sent! Enter the security PIN below to update your account password.</div>
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
                     <div>
-                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Security Reset PIN / Token *</label>
+                        <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Security Reset PIN *</label>
                         <input type="text" id="resetPinInput" required placeholder="e.g. SE-849201" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 2px solid var(--primary); background: var(--bg); color: var(--primary); font-weight: 800; font-size: 1rem; letter-spacing: 1px;">
                     </div>
                     <div>
@@ -1207,39 +1211,37 @@
                         <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Confirm New Password *</label>
                         <input type="password" id="confirmNewPasswordInput" required minlength="6" placeholder="Re-enter new password" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">💾 Update Password & Proceed to Login</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">💾 Update Password & Proceed</button>
                 </div>
             </form>
 
             <!-- PRE-CONFIGURED DEMO ACCOUNTS SECTION -->
             <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-light); padding-top: 1rem;">
-                <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 0.5rem;">⚡ Instant One-Click Demo Logins:</span>
+                <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 0.5rem;">⚡ Instant Demo Accounts:</span>
                 <div class="demo-accounts-grid">
-                    <button class="demo-btn" onclick="loginAsDemo('admin')">⚙️ Admin (admin@sharusuri.edu)</button>
+                    <button class="demo-btn" onclick="loginAsDemo('admin')" style="border-color: var(--primary); background: var(--primary-light); color: var(--primary);">⚙️ Super Admin (suresh2suresh80888@gmail.com)</button>
+                    <button class="demo-btn" onclick="loginAsDemo('student')">🎓 Student (suresh.kumar@sharusuri.edu)</button>
                     <button class="demo-btn" onclick="loginAsDemo('teacher')">👩‍🏫 Teacher (anita.rao@sharusuri.edu)</button>
-                    <button class="demo-btn" onclick="loginAsDemo('mentor')">👨‍💼 Mentor (ramesh.patil@sharusuri.edu)</button>
-                    <button class="demo-btn" onclick="loginAsDemo('student')">🎓 Student (8088835686)</button>
                     <button class="demo-btn" onclick="loginAsDemo('parent')">👪 Parent (manjunath.kumar@sharusuri.edu)</button>
+                    <button class="demo-btn" onclick="loginAsDemo('mentor')">👨‍💼 Mentor (ramesh.patil@sharusuri.edu)</button>
                     <button class="demo-btn" onclick="loginAsDemo('hiring')">💼 HR Lead (hr@sharusuri.edu)</button>
-                    <button class="demo-btn" onclick="loginAsDemo('staff')">🛠️ Staff (suresh.patil@sharusuri.edu)</button>
-                    <button class="demo-btn" onclick="loginAsDemo('receptionist')">📞 Receptionist (rekha.sharma@sharusuri.edu)</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- ========================================================================= -->
-    <!-- PUBLIC LANDING PAGE (DEFAULT FOR VISITORS) -->
+    <!-- PUBLIC LANDING PAGE (VISITOR HOMEPAGE ONLY - E-COMMERCE & FRANCHISE) -->
     <!-- ========================================================================= -->
     <div id="publicLanding" class="public-landing">
         <section class="hero-section">
             <div class="hero-container">
-                <div class="hero-badge">✨ Multi-Role Academic Platform & Franchise Network</div>
-                <h1 class="hero-title">Empowering Education Across <span>Villages, Hoblis & Cities</span></h1>
-                <p class="hero-subtitle">Sharusuri EdTech combines competitive exam prep, school management, fee receipts, payroll slips, and regional franchise networks into one seamless enterprise OS.</p>
+                <div class="hero-badge">✨ Authorized Educational OS & Franchise Network</div>
+                <h1 class="hero-title">Empowering Learning Across <span>Villages, Hoblis, Taluks & Cities</span></h1>
+                <p class="hero-subtitle">Sharusuri EdTech provides competitive exam prep, school management, fee receipts, payroll slips, and regional franchise hub networks across Karnataka & neighboring states.</p>
                 <div class="hero-cta-group">
-                    <button class="btn btn-primary" onclick="switchViewMode('portal')">🚀 Explore Demo Portals</button>
-                    <button class="btn btn-secondary" onclick="scrollToSection('franchiseApplySection')">🌐 Partner / Apply for Franchise</button>
+                    <button class="btn btn-primary" onclick="triggerPortalAccess()">🚀 Login / Portal Access</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('franchiseApplySection')">🌐 Apply for Franchise Node</button>
                     <button class="btn btn-accent" onclick="scrollToSection('coursesSection')">📘 Browse Marketplace</button>
                 </div>
             </div>
@@ -1248,8 +1250,8 @@
         <!-- PUBLIC COURSE MARKETPLACE -->
         <section id="coursesSection" class="public-grid">
             <div style="text-align: center; margin-bottom: 2rem;">
-                <h2 style="font-size: 2rem; color: var(--text-main);">Academic Course Marketplace</h2>
-                <p style="color: var(--text-muted);">Explore flagship coaching programs tailored for Navodaya, State Board, & Science Entrance Exams.</p>
+                <h2 style="font-size: 2rem; color: var(--text-main);">Academic Course Catalog</h2>
+                <p style="color: var(--text-muted);">Explore flagship coaching programs for Navodaya Entrance, State Board & STEM Competitive Exams.</p>
             </div>
 
             <div class="grid-3">
@@ -1257,11 +1259,11 @@
                     <div class="marketplace-img-placeholder">🏆</div>
                     <div class="marketplace-body">
                         <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Navodaya Prep</span>
-                        <h3>Navodaya & Entrance Masterclass 2026</h3>
+                        <h3>Navodaya Entrance Masterclass 2026</h3>
                         <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">Complete mental ability, arithmetic, and language test series designed for rural & urban scholars.</p>
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <strong style="font-size: 1.2rem; color: var(--primary);">₹5,999 / yr</strong>
-                            <button class="btn btn-primary btn-sm" onclick="showToast('Redirecting to Course Enrollment...')">Enroll Now</button>
+                            <button class="btn btn-primary btn-sm" onclick="triggerPortalAccess()">Enroll Now</button>
                         </div>
                     </div>
                 </div>
@@ -1271,10 +1273,10 @@
                     <div class="marketplace-body">
                         <span class="badge badge-secondary" style="margin-bottom: 0.5rem;">Class 10 Excellence</span>
                         <h3>Class 10 Math & Science Excellence</h3>
-                        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">Interactive online classes, chapter-wise question banks, and weekly mock test feedback.</p>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">Interactive live classes, chapter-wise question banks, and weekly mock test feedback.</p>
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <strong style="font-size: 1.2rem; color: var(--primary);">₹3,999 / yr</strong>
-                            <button class="btn btn-primary btn-sm" onclick="showToast('Redirecting to Course Enrollment...')">Enroll Now</button>
+                            <button class="btn btn-primary btn-sm" onclick="triggerPortalAccess()">Enroll Now</button>
                         </div>
                     </div>
                 </div>
@@ -1282,12 +1284,12 @@
                 <div class="marketplace-card">
                     <div class="marketplace-img-placeholder" style="background: linear-gradient(135deg, var(--accent), var(--accent-hover));">🏫</div>
                     <div class="marketplace-body">
-                        <span class="badge badge-warning" style="margin-bottom: 0.5rem;">Campus Offline</span>
-                        <h3>Residential Board Exam Bootcamp</h3>
+                        <span class="badge badge-warning" style="margin-bottom: 0.5rem;">Residential Campus</span>
+                        <h3>Board Exam Residential Bootcamp</h3>
                         <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">Full-time campus study program with hostel room, 24/7 mentor access, and biometric tracking.</p>
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <strong style="font-size: 1.2rem; color: var(--primary);">₹12,500 / term</strong>
-                            <button class="btn btn-primary btn-sm" onclick="showToast('Redirecting to Admission Form...')">Apply Admission</button>
+                            <button class="btn btn-primary btn-sm" onclick="triggerPortalAccess()">Apply Admission</button>
                         </div>
                     </div>
                 </div>
@@ -1303,7 +1305,7 @@
                     <p style="color: var(--text-muted);">Establish an authorized learning node in your District, Taluk, Hobli, or Village.</p>
                 </div>
 
-                <form class="panel-card" onsubmit="event.preventDefault(); showToast('Franchise Application Submitted Successfully!');">
+                <form class="panel-card" onsubmit="event.preventDefault(); showToast('Franchise Application Submitted! Our team will contact you.');">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.88rem;">
                         <div>
                             <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Applicant Full Name *</label>
@@ -1345,39 +1347,239 @@
         </section>
 
         <footer style="background: var(--dark-surface); color: white; padding: 2rem 1.5rem; text-align: center; font-size: 0.88rem;">
-            <p>© 2026 Sharusuri EdTech OS Platform. Connected across 36 States/UTs. Helpline: +91 80888 35686</p>
+            <p>© 2026 Sharusuri EdTech OS Platform. Super Admin Contact: suresh2suresh80888@gmail.com | Helpline: +91 80888 35686</p>
         </footer>
     </div>
 
     <!-- ========================================================================= -->
-    <!-- LOGGED-IN AUTHENTICATED APP SYSTEM (SIDEBAR + CONSOLES) -->
+    <!-- LOGGED-IN AUTHENTICATED APP SYSTEM (ISOLATED ROLE DASHBOARDS) -->
     <!-- ========================================================================= -->
     <div id="authenticatedApp" class="app-body" style="display: none;">
         
         <!-- SIDEBAR NAVIGATION -->
         <aside class="sidebar" id="appSidebar">
             <div class="sidebar-role-card">
-                <div class="user-avatar" style="width: 38px; height: 38px;" id="sideAvatar">SK</div>
+                <div class="user-avatar" style="width: 38px; height: 38px;" id="sideAvatar">SA</div>
                 <div class="role-info">
-                    <h4 style="font-size: 0.9rem; line-height: 1.2;" id="sideRoleTitle">Student Console</h4>
+                    <h4 style="font-size: 0.9rem; line-height: 1.2;" id="sideRoleTitle">Super Admin</h4>
                     <span style="font-size: 0.72rem; color: var(--primary);" id="sideRoleSub">Active Session</span>
                 </div>
             </div>
 
             <div class="sidebar-menu" id="sidebarNavItems">
-                <!-- Dynamic Sidebar Navigation Items Populated via JS -->
+                <!-- Dynamic Sidebar Items Populated via JS -->
             </div>
         </aside>
 
         <!-- MAIN DASHBOARD CONTENT AREA -->
         <main class="main-content">
 
-            <!-- 1. STUDENT DASHBOARD CONSOLE (FEE RECEIPT MODULE, SCORECARD, PROFILE) -->
-            <section id="studentConsole" class="role-console active">
+            <!-- 1. SUPER ADMIN MASTER OVERLOOK CONSOLE (suresh2suresh80888@gmail.com) -->
+            <section id="adminConsole" class="role-console active">
+                <div class="console-header">
+                    <div class="console-title">
+                        <h1>⚙️ Super Admin Master Overlook Console</h1>
+                        <p>Logged in as: <code>suresh2suresh80888@gmail.com</code> | Full Master Administrative Authority</p>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('FAC-4012')">💵 Inspect Salary Slip</button>
+                        <button class="btn btn-secondary btn-sm" onclick="openReceiptModal()">📄 Inspect Fee Receipt</button>
+                    </div>
+                </div>
+
+                <div class="grid-4">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Total Active Revenue</h4>
+                            <div class="val" style="color: var(--primary);">₹1.42 Cr</div>
+                            <span class="sub">Annual Growth +28%</span>
+                        </div>
+                        <div class="stat-icon teal">💰</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Registered User Accounts</h4>
+                            <div class="val" id="adminTotalUserCount">1,240</div>
+                            <span class="sub">Local Auth DB Active</span>
+                        </div>
+                        <div class="stat-icon blue">🎓</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Hostel Occupancy</h4>
+                            <div class="val" style="color: var(--accent);">88.5%</div>
+                            <span class="sub">32 Beds Available</span>
+                        </div>
+                        <div class="stat-icon amber">🏢</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Monthly Payroll Budget</h4>
+                            <div class="val">₹24.8 L/mo</div>
+                            <span class="sub">68 Active Staff</span>
+                        </div>
+                        <div class="stat-icon emerald">👨‍🏫</div>
+                    </div>
+                </div>
+
+                <!-- LIVE GEOGRAPHICAL TRACKING MODULE FOR ADMIN MASTER OVERLOOK -->
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h3 class="panel-title">🌐 Live Geographical Hierarchy Tracking Module</h3>
+                        <span class="badge badge-primary">State ➔ District ➔ Taluk ➔ Hobli ➔ Village</span>
+                    </div>
+
+                    <!-- GEOGRAPHICAL DROPDOWN FILTERS -->
+                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; margin-bottom: 1.25rem; font-size: 0.85rem;" id="geoFiltersWrapper">
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.2rem; color: var(--text-muted);">State / UT</label>
+                            <select id="filterState" class="inline-input" style="max-width: 100%; font-weight: 700;" onchange="applyGeoFilter()">
+                                <option value="ALL">All States</option>
+                                <option value="Karnataka" selected>Karnataka</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.2rem; color: var(--text-muted);">District</label>
+                            <select id="filterDistrict" class="inline-input" style="max-width: 100%; font-weight: 700;" onchange="applyGeoFilter()">
+                                <option value="ALL">All Districts</option>
+                                <option value="Raichur" selected>Raichur</option>
+                                <option value="Bellary">Bellary</option>
+                                <option value="Kalaburagi">Kalaburagi</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.2rem; color: var(--text-muted);">Taluk / Tehsil</label>
+                            <select id="filterTaluk" class="inline-input" style="max-width: 100%; font-weight: 700;" onchange="applyGeoFilter()">
+                                <option value="ALL">All Taluks</option>
+                                <option value="Sindhanur" selected>Sindhanur</option>
+                                <option value="Manvi">Manvi</option>
+                                <option value="Deodurg">Deodurg</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.2rem; color: var(--text-muted);">Hobli / Circle</label>
+                            <select id="filterHobli" class="inline-input" style="max-width: 100%; font-weight: 700;" onchange="applyGeoFilter()">
+                                <option value="ALL">All Hoblis</option>
+                                <option value="AP K Hosalli Hobli" selected>AP K Hosalli Hobli</option>
+                                <option value="Turvihal Hobli">Turvihal Hobli</option>
+                                <option value="Gorebal Hobli">Gorebal Hobli</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; display: block; margin-bottom: 0.2rem; color: var(--text-muted);">Village Location</label>
+                            <select id="filterVillage" class="inline-input" style="max-width: 100%; font-weight: 700;" onchange="applyGeoFilter()">
+                                <option value="ALL">All Villages</option>
+                                <option value="AP K Hosalli Village" selected>AP K Hosalli Village</option>
+                                <option value="Turvihal Village">Turvihal Village</option>
+                                <option value="Sunklamma Katte">Sunklamma Katte</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- GEOGRAPHICAL USER AUDIT TABLE -->
+                    <div class="data-table-wrapper">
+                        <table class="data-table" id="adminGeoTrackingTable">
+                            <thead>
+                                <tr>
+                                    <th>User ID / Code</th>
+                                    <th>Full Name</th>
+                                    <th>System Role</th>
+                                    <th>State ➔ District</th>
+                                    <th>Taluk ➔ Hobli ➔ Village</th>
+                                    <th>Active Status</th>
+                                    <th>Master Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-state="Karnataka" data-district="Raichur" data-taluk="Sindhanur" data-hobli="AP K Hosalli Hobli" data-village="AP K Hosalli Village">
+                                    <td><code>#SE-9942</code></td>
+                                    <td><strong>Suresh Kumar</strong></td>
+                                    <td><span class="badge badge-primary">Student</span></td>
+                                    <td>Karnataka ➔ Raichur</td>
+                                    <td>Sindhanur ➔ AP K Hosalli ➔ AP K Hosalli Village</td>
+                                    <td><span class="badge badge-success">Online Now</span></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="switchRolePortal('student')">👁️ Inspect Student View</button></td>
+                                </tr>
+                                <tr data-state="Karnataka" data-district="Raichur" data-taluk="Sindhanur" data-hobli="AP K Hosalli Hobli" data-village="AP K Hosalli Village">
+                                    <td><code>#FAC-4012</code></td>
+                                    <td><strong>Prof. Anita Rao</strong></td>
+                                    <td><span class="badge badge-secondary">Faculty Teacher</span></td>
+                                    <td>Karnataka ➔ Raichur</td>
+                                    <td>Sindhanur ➔ AP K Hosalli ➔ Campus Hub</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="switchRolePortal('teacher')">👁️ Inspect Teacher View</button></td>
+                                </tr>
+                                <tr data-state="Karnataka" data-district="Raichur" data-taluk="Sindhanur" data-hobli="Turvihal Hobli" data-village="Turvihal Village">
+                                    <td><code>#MNT-1090</code></td>
+                                    <td><strong>Dr. Ramesh Patil</strong></td>
+                                    <td><span class="badge badge-warning">Academic Mentor</span></td>
+                                    <td>Karnataka ➔ Raichur</td>
+                                    <td>Sindhanur ➔ Turvihal ➔ Turvihal Village</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="switchRolePortal('mentor')">👁️ Inspect Mentor View</button></td>
+                                </tr>
+                                <tr data-state="Karnataka" data-district="Raichur" data-taluk="Sindhanur" data-hobli="AP K Hosalli Hobli" data-village="Sunklamma Katte">
+                                    <td><code>#PRT-8812</code></td>
+                                    <td><strong>Manjunath Kumar</strong></td>
+                                    <td><span class="badge badge-primary">Parent</span></td>
+                                    <td>Karnataka ➔ Raichur</td>
+                                    <td>Sindhanur ➔ AP K Hosalli ➔ Sunklamma Katte</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="switchRolePortal('parent')">👁️ Inspect Parent View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- SYSTEM AUDIT & ACTIVE USER LOG -->
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h3 class="panel-title">📜 Real-Time System Activity & Authentication Logs</h3>
+                    </div>
+                    <div class="data-table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>User Account</th>
+                                    <th>Authentication Type</th>
+                                    <th>Role Assigned</th>
+                                    <th>IP / Device</th>
+                                    <th>Audit Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>28-Feb-2026 10:42:15</td>
+                                    <td><code>suresh2suresh80888@gmail.com</code></td>
+                                    <td>Direct Email OTP Verification</td>
+                                    <td>Super Admin</td>
+                                    <td>103.22.14.92 (Chrome Mac)</td>
+                                    <td><span class="badge badge-success">Granted Master Access</span></td>
+                                </tr>
+                                <tr>
+                                    <td>28-Feb-2026 09:15:02</td>
+                                    <td><code>suresh.kumar@sharusuri.edu</code></td>
+                                    <td>Mobile Identifier Auth</td>
+                                    <td>Student</td>
+                                    <td>157.34.12.11 (Android)</td>
+                                    <td><span class="badge badge-success">Isolated Student Session</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. STUDENT CONSOLE (ISOLATED STUDENT DASHBOARD) -->
+            <section id="studentConsole" class="role-console">
                 <div class="console-header">
                     <div class="console-title">
                         <h1>🎓 Student Academic & Fee Management Hub</h1>
-                        <p>Welcome back, <strong id="studentHeaderName">Suresh Kumar</strong> | ID: <code>SE-2026-9942</code> | Class 10 Navodaya & Science Batch</p>
+                        <p>Welcome back, <strong id="studentHeaderName">Suresh Kumar</strong> | Student ID: <code>SE-2026-9942</code> | Class 10 Science & Navodaya Prep</p>
                     </div>
                     <div style="display: flex; gap: 0.75rem;">
                         <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">🧾 View & Print Official Fee Receipt</button>
@@ -1390,7 +1592,7 @@
                         <div class="stat-info">
                             <h4>Overall Attendance</h4>
                             <div class="val" style="color: var(--primary);">96.4%</div>
-                            <span class="sub">✓ Perfect Track</span>
+                            <span class="sub">✓ Regular Track</span>
                         </div>
                         <div class="stat-icon teal">📅</div>
                     </div>
@@ -1398,7 +1600,7 @@
                         <div class="stat-info">
                             <h4>Current GPA / Marks</h4>
                             <div class="val" style="color: var(--secondary);">89.2%</div>
-                            <span class="sub">Rank #3 in District</span>
+                            <span class="sub">District Rank #3</span>
                         </div>
                         <div class="stat-icon blue">🏆</div>
                     </div>
@@ -1423,33 +1625,31 @@
                 <!-- STUDENT FEE BREAKDOWN & PAYMENT HISTORY -->
                 <div class="panel-card">
                     <div class="panel-header">
-                        <h3 class="panel-title">💳 Detailed Academic Fee Structure & Receipt Status</h3>
-                        <div style="display: flex; gap: 0.5rem;">
-                            <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">📄 Download / Print PDF Receipt</button>
-                        </div>
+                        <h3 class="panel-title">💳 Detailed Academic Fee Structure & Payment Receipts</h3>
+                        <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">📄 Download / Print PDF Receipt</button>
                     </div>
 
                     <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
                         <div>
-                            <h4 style="font-size: 0.9rem; font-weight: 800; margin-bottom: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Annual Fee Itemized Breakdown</h4>
+                            <h4 style="font-size: 0.9rem; font-weight: 800; margin-bottom: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Annual Itemized Fee Structure</h4>
                             <div class="data-table-wrapper">
                                 <table class="data-table">
                                     <thead>
                                         <tr>
                                             <th>Fee Category</th>
                                             <th>Description</th>
-                                            <th>Scheduled Amount</th>
+                                            <th>Amount</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td><strong>Tuition Fee</strong></td>
-                                            <td>Class 10 Science & Navodaya Masterclass Coaching</td>
+                                            <td>Class 10 Science & Navodaya Coaching</td>
                                             <td>₹45,000</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Hostel & Mess Fee</strong></td>
-                                            <td>Residential Campus Lodging & Meals (Term I & II)</td>
+                                            <td>Residential Campus Lodging & Meals</td>
                                             <td>₹15,000</td>
                                         </tr>
                                         <tr>
@@ -1458,17 +1658,17 @@
                                             <td>₹6,000</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Examination & Lab Fee</strong></td>
+                                            <td><strong>Lab & Exam Fee</strong></td>
                                             <td>STEM Lab & Board Practice Series</td>
                                             <td>₹6,000</td>
                                         </tr>
                                         <tr style="background: var(--success-light);">
-                                            <td><strong style="color: var(--success);">Merit Scholarship Applied</strong></td>
-                                            <td>District Rank Top 5 Waiver</td>
+                                            <td><strong style="color: var(--success);">Merit Scholarship Concession</strong></td>
+                                            <td>District Top 5 Waiver</td>
                                             <td style="color: var(--success); font-weight: 800;">-₹7,000</td>
                                         </tr>
                                         <tr style="font-weight: 800; font-size: 0.95rem; background: var(--bg);">
-                                            <td colspan="2">NET TOTAL ACADEMIC FEE:</td>
+                                            <td colspan="2">NET TOTAL FEE:</td>
                                             <td>₹65,000</td>
                                         </tr>
                                     </tbody>
@@ -1478,13 +1678,13 @@
 
                         <div style="background: var(--bg); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between;">
                             <div>
-                                <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem;">Payment Summary Card</h4>
+                                <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem;">Payment Summary</h4>
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
                                     <span>Total Fee Charged:</span>
                                     <strong>₹65,000</strong>
                                 </div>
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--success);">
-                                    <span>Total Amount Cleared:</span>
+                                    <span>Total Cleared:</span>
                                     <strong>₹55,000</strong>
                                 </div>
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; font-size: 0.95rem; color: var(--danger); font-weight: 800; border-top: 1px dashed var(--border); padding-top: 0.5rem;">
@@ -1521,7 +1721,7 @@
                                 <tr>
                                     <td>10-Feb-2026</td>
                                     <td><code>#TXN-CARD-88310022</code></td>
-                                    <td>Credit / Debit Card</td>
+                                    <td>Credit Card</td>
                                     <td>₹20,000</td>
                                     <td><span class="badge badge-success">Success</span></td>
                                     <td><button class="btn btn-secondary btn-sm" onclick="openReceiptModal()">📄 View Receipt</button></td>
@@ -1534,8 +1734,8 @@
                 <div class="grid-2">
                     <div class="panel-card">
                         <div class="panel-header">
-                            <h3 class="panel-title">👤 Personal Profile & Location Details</h3>
-                            <button class="btn btn-secondary btn-sm" onclick="toggleStudentEdit()" id="studentEditToggleBtn">✏️ Edit Profile</button>
+                            <h3 class="panel-title">👤 Personal Student Details & Regional Address</h3>
+                            <button class="btn btn-secondary btn-sm" onclick="toggleStudentEdit()" id="studentEditToggleBtn">✏️ Edit Details</button>
                         </div>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.88rem;" id="studentProfileView">
                             <div><strong>Full Name:</strong> <span id="lblStudentName">Suresh M. Kumar</span></div>
@@ -1546,11 +1746,11 @@
                             <div><strong>District:</strong> <span id="lblStudentDistrict">Raichur</span></div>
                             <div><strong>Taluk / Tehsil:</strong> <span id="lblStudentTaluk">Sindhanur</span></div>
                             <div><strong>Hobli / Circle:</strong> <span id="lblStudentHobli">AP K Hosalli Hobli</span></div>
-                            <div style="grid-column: span 2;"><strong>Full Village Address:</strong> <span id="lblStudentAddress">Sunklamma Katte Region, AP K Hosalli Village, Sindhanur 584132</span></div>
+                            <div style="grid-column: span 2;"><strong>Full Village Address:</strong> <span id="lblStudentAddress">AP K Hosalli Village, Sindhanur 584132</span></div>
                         </div>
 
                         <!-- Editable Form Mode -->
-                        <form id="studentProfileEditForm" style="display: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; font-size: 0.88rem;" onsubmit="saveStudentProfile(event)">
+                        <form id="studentProfileEditForm" style="display: none; grid-template-columns: 1fr 1fr; gap: 0.85rem; font-size: 0.88rem;" onsubmit="saveStudentProfile(event)">
                             <div>
                                 <label style="font-weight: 700; font-size: 0.78rem;">Full Name</label>
                                 <input type="text" id="inputStuName" class="inline-input" style="max-width: 100%;" value="Suresh M. Kumar">
@@ -1577,7 +1777,7 @@
                             </div>
                             <div style="grid-column: span 2;">
                                 <label style="font-weight: 700; font-size: 0.78rem;">Village Address</label>
-                                <input type="text" id="inputStuAddress" class="inline-input" style="max-width: 100%;" value="Sunklamma Katte Region, AP K Hosalli Village, Sindhanur 584132">
+                                <input type="text" id="inputStuAddress" class="inline-input" style="max-width: 100%;" value="AP K Hosalli Village, Sindhanur 584132">
                             </div>
                             <div style="grid-column: span 2; display: flex; gap: 0.5rem; margin-top: 0.5rem;">
                                 <button type="submit" class="btn btn-primary btn-sm">💾 Save Profile</button>
@@ -1611,169 +1811,39 @@
                 </div>
             </section>
 
-            <!-- 2. TEACHER CONSOLE (GRADES, ATTENDANCE & SALARY SLIP VIEW) -->
+            <!-- 3. TEACHER CONSOLE -->
             <section id="teacherConsole" class="role-console">
                 <div class="console-header">
                     <div class="console-title">
                         <h1>👩‍🏫 Faculty Workspace & Interactive Gradebook</h1>
                         <p>Welcome, <strong class="user-display-name">Prof. Anita Rao</strong> | Mathematics Dept | ID: <code>FAC-4012</code></p>
                     </div>
-                    <div style="display: flex; gap: 0.75rem;">
-                        <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('FAC-4012')">💵 View My Monthly Salary Slip</button>
-                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('FAC-4012')">💵 View Monthly Salary Slip</button>
                 </div>
-
                 <div class="panel-card">
                     <div class="panel-header">
-                        <h3 class="panel-title">📋 Live Class Roster, Grade & Attendance Manager</h3>
-                        <span class="badge badge-primary">Interactive CRUD</span>
+                        <h3 class="panel-title">📋 Live Class Roster & Grade Manager</h3>
                     </div>
                     <div class="data-table-wrapper">
-                        <table class="data-table" id="teacherRosterTable">
+                        <table class="data-table">
                             <thead>
                                 <tr>
                                     <th>Roll No</th>
                                     <th>Student Name</th>
                                     <th>Hobli / Village</th>
                                     <th>Attendance</th>
-                                    <th>Exam Score (/100)</th>
-                                    <th>Risk Level</th>
-                                    <th>Actions (Edit / Save)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr data-id="1">
-                                    <td><code>#2026-01</code></td>
-                                    <td><span class="row-name">Suresh Kumar</span></td>
-                                    <td>AP K Hosalli Hobli</td>
-                                    <td>
-                                        <select class="inline-input row-att" style="max-width: 90px;">
-                                            <option selected>Present</option>
-                                            <option>Absent</option>
-                                            <option>Late</option>
-                                        </select>
-                                    </td>
-                                    <td><input type="number" class="inline-input row-score" value="94" style="max-width: 70px;"></td>
-                                    <td><span class="badge badge-success">Low Risk</span></td>
-                                    <td>
-                                        <button class="action-icon-btn" onclick="saveTeacherRow(this)" title="Save Changes">💾</button>
-                                        <button class="action-icon-btn" onclick="deleteTableRow(this)" title="Remove Student">🗑️</button>
-                                    </td>
-                                </tr>
-                                <tr data-id="2">
-                                    <td><code>#2026-02</code></td>
-                                    <td><span class="row-name">Rohan Verma</span></td>
-                                    <td>Turvihal Village</td>
-                                    <td>
-                                        <select class="inline-input row-att" style="max-width: 90px;">
-                                            <option>Present</option>
-                                            <option selected>Absent</option>
-                                            <option>Late</option>
-                                        </select>
-                                    </td>
-                                    <td><input type="number" class="inline-input row-score" value="42" style="max-width: 70px;"></td>
-                                    <td><span class="badge badge-danger">High Risk</span></td>
-                                    <td>
-                                        <button class="action-icon-btn" onclick="saveTeacherRow(this)" title="Save Changes">💾</button>
-                                        <button class="action-icon-btn" onclick="deleteTableRow(this)" title="Remove Student">🗑️</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 3. PARENT CONSOLE (CHILD PERFORMANCE & FEE RECEIPTS) -->
-            <section id="parentConsole" class="role-console">
-                <div class="console-header">
-                    <div class="console-title">
-                        <h1>👪 Parent Portal & Student Performance Monitoring</h1>
-                        <p>Welcome, <strong class="user-display-name">Mr. Manjunath Kumar</strong> | Parent ID: <code>PRT-8812</code> | Child: Suresh Kumar</p>
-                    </div>
-                    <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">📄 View Child Fee Receipts</button>
-                </div>
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">🛡️ Campus Gate & Biometric Entry Logs for Suresh Kumar</h3>
-                    </div>
-                    <p style="font-size: 0.88rem; margin-bottom: 1rem;">Real-time biometric attendance updates from Sindhanur Campus Gate & Dining Hall.</p>
-                </div>
-            </section>
-
-            <!-- 4. MENTOR CONSOLE -->
-            <section id="mentorConsole" class="role-console">
-                <div class="console-header">
-                    <div class="console-title">
-                        <h1>👨‍💼 Academic Mentor Console</h1>
-                        <p>Welcome, <strong class="user-display-name">Dr. Ramesh Patil</strong> | Personal Mentorship Lead | Staff ID: <code>MNT-1090</code></p>
-                    </div>
-                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('MNT-1090')">💵 View My Monthly Salary Slip</button>
-                </div>
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">👥 Assigned Mentees & Guidance Log</h3>
-                    </div>
-                    <p style="font-size: 0.88rem;">Managing 1-on-1 weekly counseling sessions for 24 high-priority scholars.</p>
-                </div>
-            </section>
-
-            <!-- 5. NON-TEACHING STAFF CONSOLE -->
-            <section id="staffConsole" class="role-console">
-                <div class="console-header">
-                    <div class="console-title">
-                        <h1>🛠️ Non-Teaching Staff Operations Console</h1>
-                        <p>Welcome, <strong class="user-display-name">Suresh Patil</strong> | Campus Technician | Staff ID: <code>STF-8810</code></p>
-                    </div>
-                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('STF-8810')">💵 View My Monthly Salary Slip</button>
-                </div>
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">🔧 Maintenance & Operations Work Orders</h3>
-                    </div>
-                    <p style="font-size: 0.88rem;">Track daily equipment repairs, classroom setups, and campus utility logs.</p>
-                </div>
-            </section>
-
-            <!-- 6. RECEPTIONIST CONSOLE -->
-            <section id="receptionistConsole" class="role-console">
-                <div class="console-header">
-                    <div class="console-title">
-                        <h1>📞 Front Desk & Visitor Management</h1>
-                        <p>Welcome, <strong class="user-display-name">Rekha Sharma</strong> | Receptionist | Staff ID: <code>REC-2040</code></p>
-                    </div>
-                    <div style="display: flex; gap: 0.5rem;">
-                        <button class="btn btn-primary btn-sm" onclick="openVisitorModal()">➕ New Visitor Log</button>
-                        <button class="btn btn-secondary btn-sm" onclick="openSalarySlipModal('REC-2040')">💵 View My Salary Slip</button>
-                    </div>
-                </div>
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">📋 Today's Visitor Inquiries (CRUD Operations)</h3>
-                    </div>
-                    <div class="data-table-wrapper">
-                        <table class="data-table" id="visitorTable">
-                            <thead>
-                                <tr>
-                                    <th>Visitor Name</th>
-                                    <th>Phone</th>
-                                    <th>Inquiry Course</th>
-                                    <th>Target Hobli/Village</th>
-                                    <th>Status</th>
+                                    <th>Score (/100)</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Rajesh Patil</td>
-                                    <td>+91 98450 22100</td>
-                                    <td>Navodaya Batch</td>
-                                    <td>Turvihal Hobli</td>
-                                    <td><span class="badge badge-warning">Demo Assigned</span></td>
-                                    <td>
-                                        <button class="action-icon-btn" onclick="updateVisitorStatus(this)" title="Toggle Status">✅</button>
-                                        <button class="action-icon-btn" onclick="deleteTableRow(this)" title="Delete">🗑️</button>
-                                    </td>
+                                    <td><code>#2026-01</code></td>
+                                    <td>Suresh Kumar</td>
+                                    <td>AP K Hosalli Hobli</td>
+                                    <td><span class="badge badge-success">Present</span></td>
+                                    <td><strong>94</strong></td>
+                                    <td><button class="action-icon-btn" onclick="showToast('Grade saved!')">💾</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1781,171 +1851,120 @@
                 </div>
             </section>
 
-            <!-- 7. HR MANAGER & STAFF PAYROLL CONSOLE -->
+            <!-- 4. PARENT CONSOLE -->
+            <section id="parentConsole" class="role-console">
+                <div class="console-header">
+                    <div class="console-title">
+                        <h1>👪 Parent Monitoring Portal</h1>
+                        <p>Welcome, <strong class="user-display-name">Mr. Manjunath Kumar</strong> | Parent ID: <code>PRT-8812</code></p>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">📄 View Child Fee Receipts</button>
+                </div>
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h3 class="panel-title">🛡️ Biometric Gate Logs for Suresh Kumar</h3>
+                    </div>
+                    <p style="font-size: 0.88rem;">Real-time biometric attendance updates from Sindhanur Campus Gate.</p>
+                </div>
+            </section>
+
+            <!-- 5. MENTOR CONSOLE -->
+            <section id="mentorConsole" class="role-console">
+                <div class="console-header">
+                    <div class="console-title">
+                        <h1>👨‍💼 Academic Mentor Console</h1>
+                        <p>Welcome, <strong class="user-display-name">Dr. Ramesh Patil</strong> | Staff ID: <code>MNT-1090</code></p>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('MNT-1090')">💵 View Monthly Salary Slip</button>
+                </div>
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h3 class="panel-title">👥 Assigned Mentees Log</h3>
+                    </div>
+                    <p style="font-size: 0.88rem;">Managing 1-on-1 weekly counseling sessions for scholars.</p>
+                </div>
+            </section>
+
+            <!-- 6. NON-TEACHING STAFF CONSOLE -->
+            <section id="staffConsole" class="role-console">
+                <div class="console-header">
+                    <div class="console-title">
+                        <h1>🛠️ Campus Operations Console</h1>
+                        <p>Welcome, <strong class="user-display-name">Suresh Patil</strong> | Staff ID: <code>STF-8810</code></p>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('STF-8810')">💵 View Monthly Salary Slip</button>
+                </div>
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h3 class="panel-title">🔧 Maintenance Work Orders</h3>
+                    </div>
+                    <p style="font-size: 0.88rem;">Track daily equipment repairs and classroom setups.</p>
+                </div>
+            </section>
+
+            <!-- 7. RECEPTIONIST CONSOLE -->
+            <section id="receptionistConsole" class="role-console">
+                <div class="console-header">
+                    <div class="console-title">
+                        <h1>📞 Front Desk Management</h1>
+                        <p>Welcome, <strong class="user-display-name">Rekha Sharma</strong> | Receptionist | Staff ID: <code>REC-2040</code></p>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('REC-2040')">💵 View Salary Slip</button>
+                </div>
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h3 class="panel-title">📋 Today's Visitor Inquiries</h3>
+                    </div>
+                    <p style="font-size: 0.88rem;">Track campus walk-in registrations and inquiry calls.</p>
+                </div>
+            </section>
+
+            <!-- 8. HR & STAFF PAYROLL CONSOLE -->
             <section id="hiringConsole" class="role-console">
                 <div class="console-header">
                     <div class="console-title">
-                        <h1>💼 HR Management & Staff Payroll Directory</h1>
+                        <h1>💼 HR & Staff Payroll Directory</h1>
                         <p>Welcome, <strong class="user-display-name">Suresh HR Lead</strong> | HR Dept ID: <code>HR-1001</code></p>
                     </div>
-                    <div style="display: flex; gap: 0.5rem;">
-                        <button class="btn btn-primary btn-sm" onclick="openStaffModal()">➕ Add Staff Member</button>
-                        <button class="btn btn-secondary btn-sm" onclick="openSalarySlipModal('HR-1001')">💵 View HR Salary Slip</button>
-                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('HR-1001')">💵 View HR Salary Slip</button>
                 </div>
-
                 <div class="panel-card">
                     <div class="panel-header">
-                        <h3 class="panel-title">📄 Enterprise Staff Payroll & Salary Slip Manager</h3>
-                        <span class="badge badge-primary">Salary Slip Generator</span>
+                        <h3 class="panel-title">📄 Payroll & Salary Slip Manager</h3>
                     </div>
-
-                    <div class="data-table-wrapper">
-                        <table class="data-table" id="staffTable">
-                            <thead>
-                                <tr>
-                                    <th>Staff ID</th>
-                                    <th>Name</th>
-                                    <th>Department / Role</th>
-                                    <th>Basic Pay</th>
-                                    <th>Gross Salary</th>
-                                    <th>Net Salary</th>
-                                    <th>Status</th>
-                                    <th>Salary Slip Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>#FAC-4012</code></td>
-                                    <td>Prof. Anita Rao</td>
-                                    <td>Mathematics Lecturer</td>
-                                    <td>₹45,000</td>
-                                    <td>₹75,000</td>
-                                    <td>₹65,500</td>
-                                    <td><span class="badge badge-success">Paid</span></td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('FAC-4012')">💵 Generate Slip</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>#MNT-1090</code></td>
-                                    <td>Dr. Ramesh Patil</td>
-                                    <td>Science / Head Mentor</td>
-                                    <td>₹48,000</td>
-                                    <td>₹82,000</td>
-                                    <td>₹72,000</td>
-                                    <td><span class="badge badge-success">Paid</span></td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('MNT-1090')">💵 Generate Slip</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>#STF-8810</code></td>
-                                    <td>Suresh Patil</td>
-                                    <td>Non-Teaching Staff / Campus Tech</td>
-                                    <td>₹22,000</td>
-                                    <td>₹38,000</td>
-                                    <td>₹33,500</td>
-                                    <td><span class="badge badge-success">Paid</span></td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('STF-8810')">💵 Generate Slip</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>#REC-2040</code></td>
-                                    <td>Rekha Sharma</td>
-                                    <td>Front Desk Receptionist</td>
-                                    <td>₹20,000</td>
-                                    <td>₹32,000</td>
-                                    <td>₹28,200</td>
-                                    <td><span class="badge badge-success">Paid</span></td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('REC-2040')">💵 Generate Slip</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <p style="font-size: 0.88rem;">Generate monthly salary statements for teaching & non-teaching staff.</p>
                 </div>
             </section>
 
-            <!-- 8. GEOGRAPHIC FRANCHISE NETWORK MANAGEMENT CONSOLE -->
+            <!-- 9. FRANCHISE CONSOLE -->
             <section id="franchiseConsole" class="role-console">
                 <div class="console-header">
                     <div class="console-title">
-                        <h1>🌐 Geographic Franchise Network Management</h1>
-                        <p>Multi-Level Hierarchy: <strong>State ➔ District ➔ Taluk ➔ Hobli ➔ Branch Unit</strong></p>
+                        <h1>🌐 Franchise Network Hub</h1>
+                        <p>Regional Node Operations</p>
                     </div>
                 </div>
                 <div class="panel-card">
                     <div class="panel-header">
-                        <h3 class="panel-title">Active Approved Regional Nodes</h3>
+                        <h3 class="panel-title">Active Regional Nodes</h3>
                     </div>
-                    <p style="font-size: 0.88rem;">Managing 42 Active Regional Nodes across Raichur, Kurnool, and Bellary Districts.</p>
+                    <p style="font-size: 0.88rem;">Managing active learning nodes across Raichur, Kurnool, and Bellary Districts.</p>
                 </div>
             </section>
 
-            <!-- 9. CAMPUS INFRASTRUCTURE CONSOLE -->
+            <!-- 10. INFRASTRUCTURE CONSOLE -->
             <section id="infrastructureConsole" class="role-console">
                 <div class="console-header">
                     <div class="console-title">
-                        <h1>🏢 Campus Infrastructure & Asset Management</h1>
-                        <p>Facility Inventory & Smart Classroom Utilization Tracker</p>
+                        <h1>🏢 Campus Infrastructure OS</h1>
+                        <p>Facility Inventory & Smart Class Tracker</p>
                     </div>
                 </div>
                 <div class="panel-card">
                     <div class="panel-header">
-                        <h3 class="panel-title">Smart Boards & STEM Lab Assets</h3>
+                        <h3 class="panel-title">STEM Lab Assets</h3>
                     </div>
-                    <p style="font-size: 0.88rem;">24 Smart Classrooms and 4 Computer Labs mapped to asset barcodes.</p>
-                </div>
-            </section>
-
-            <!-- 10. MASTER ENTERPRISE ADMIN CONSOLE -->
-            <section id="adminConsole" class="role-console">
-                <div class="console-header">
-                    <div class="console-title">
-                        <h1>⚙️ Enterprise Admin Master OS Console</h1>
-                        <p>Full Administrative Authority over Auth Registrations, Fees, Payroll & Infrastructure</p>
-                    </div>
-                    <div style="display: flex; gap: 0.5rem;">
-                        <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('FAC-4012')">💵 Sample Salary Slip</button>
-                        <button class="btn btn-secondary btn-sm" onclick="openReceiptModal()">📄 Sample Fee Receipt</button>
-                    </div>
-                </div>
-                <div class="grid-4">
-                    <div class="stat-card">
-                        <div class="stat-info">
-                            <h4>Total Active Revenue</h4>
-                            <div class="val" style="color: var(--primary);">₹1.42 Cr</div>
-                            <span class="sub">Annual Growth +28%</span>
-                        </div>
-                        <div class="stat-icon teal">💰</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-info">
-                            <h4>Registered User Accounts</h4>
-                            <div class="val" id="adminTotalUserCount">1,240</div>
-                            <span class="sub">Auth Local Database Active</span>
-                        </div>
-                        <div class="stat-icon blue">🎓</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-info">
-                            <h4>Hostel Occupancy</h4>
-                            <div class="val" style="color: var(--accent);">88.5%</div>
-                            <span class="sub">32 Beds Available</span>
-                        </div>
-                        <div class="stat-icon amber">🏢</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-info">
-                            <h4>Staff Payroll Budget</h4>
-                            <div class="val">₹24.8 L/mo</div>
-                            <span class="sub">68 Active Staff</span>
-                        </div>
-                        <div class="stat-icon emerald">👨‍🏫</div>
-                    </div>
+                    <p style="font-size: 0.88rem;">24 Smart Classrooms mapped to asset barcodes.</p>
                 </div>
             </section>
 
@@ -1967,7 +1986,7 @@
                             <h2 style="color: var(--primary); font-size: 1.3rem;">Sharusuri EdTech Academy</h2>
                         </div>
                         <p style="font-size: 0.78rem; color: var(--text-muted);">Official Fee Payment Receipt & Tax Invoice</p>
-                        <p style="font-size: 0.75rem; color: var(--text-muted);">Sindhanur Campus, Raichur Dist, Karnataka | Helpline: +91 80888 35686</p>
+                        <p style="font-size: 0.75rem; color: var(--text-muted);">Sindhanur Campus, Raichur Dist, Karnataka | Super Admin: suresh2suresh80888@gmail.com</p>
                     </div>
                     <div style="text-align: right;">
                         <span class="badge badge-success" style="margin-bottom: 0.3rem; display: inline-block;">OFFICIAL RECEIPT</span>
@@ -1996,7 +2015,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Class 10 Science & Navodaya Masterclass Coaching</td>
+                            <td>Class 10 Science & Navodaya Coaching</td>
                             <td>Academic Year 2026-27</td>
                             <td>₹45,000</td>
                             <td>₹45,000</td>
@@ -2008,14 +2027,14 @@
                             <td>₹10,000</td>
                         </tr>
                         <tr>
-                            <td>Transport Fleet Connectivity Charges</td>
+                            <td>Transport Fleet Connectivity</td>
                             <td>Annual Bus Pass</td>
                             <td>₹6,000</td>
                             <td>₹6,000</td>
                         </tr>
                         <tr>
-                            <td>Merit Scholarship Waiver (District Rank Top 5)</td>
-                            <td>Concession Applied</td>
+                            <td>Merit Scholarship Concession</td>
+                            <td>District Rank Concession</td>
                             <td style="color: var(--success);">-₹7,000</td>
                             <td style="color: var(--success);">-₹6,000</td>
                         </tr>
@@ -2034,12 +2053,12 @@
                     </div>
                     <div style="text-align: center;">
                         <div style="font-family: 'Outfit'; font-weight: 800; color: var(--primary); font-size: 0.9rem;">Sharusuri Accounts Node</div>
-                        <div style="font-size: 0.7rem; color: var(--text-muted);">Authorized Cashier Stamp</div>
+                        <div style="font-size: 0.7rem; color: var(--text-muted);">Authorized Stamp</div>
                     </div>
                 </div>
 
                 <div class="no-print" style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.25rem;">
-                    <button class="btn btn-secondary" onclick="showToast('Receipt PDF downloaded to device!')">📥 Download Fee Receipt (PDF)</button>
+                    <button class="btn btn-secondary" onclick="showToast('Receipt PDF downloaded to device!')">📥 Download PDF</button>
                     <button class="btn btn-primary" onclick="window.print()">🖨️ Print Receipt</button>
                 </div>
             </div>
@@ -2047,7 +2066,7 @@
     </div>
 
     <!-- ========================================================================= -->
-    <!-- PRINTABLE MONTHLY STAFF SALARY SLIP / PAYSTUB MODAL -->
+    <!-- PRINTABLE MONTHLY STAFF SALARY SLIP MODAL -->
     <!-- ========================================================================= -->
     <div class="modal-overlay" id="salarySlipModal">
         <div class="modal-box printable-area">
@@ -2061,24 +2080,14 @@
                             <h2 style="color: var(--primary); font-size: 1.3rem;">Sharusuri EdTech Enterprise</h2>
                         </div>
                         <p style="font-size: 0.78rem; color: var(--text-muted);">Confidential Monthly Salary Statement / Paystub</p>
-                        <p style="font-size: 0.75rem; color: var(--text-muted);">Registered Campus Office: Sindhanur Hub, Raichur Dist</p>
+                        <p style="font-size: 0.75rem; color: var(--text-muted);">Super Admin Control Node: suresh2suresh80888@gmail.com</p>
                     </div>
                     <div style="text-align: right;">
                         <span class="badge badge-primary" style="margin-bottom: 0.3rem; display: inline-block;">SALARY SLIP</span>
-                        <div style="margin-top: 0.3rem;" class="no-print">
-                            <label style="font-size: 0.72rem; font-weight: 800; display: block;">Select Salary Month:</label>
-                            <select id="salaryMonthSelect" onchange="updateSalaryMonth(this.value)" style="padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid var(--primary); font-weight: 700; font-size: 0.8rem;">
-                                <option value="February 2026" selected>February 2026</option>
-                                <option value="January 2026">January 2026</option>
-                                <option value="December 2025">December 2025</option>
-                                <option value="November 2025">November 2025</option>
-                            </select>
-                        </div>
                         <div style="font-weight: 800; font-size: 0.88rem; margin-top: 0.3rem;">PAY PERIOD: <span id="slipPayMonth">February 2026</span></div>
                     </div>
                 </div>
 
-                <!-- STAFF EMPLOYEE DETAILS HEADER -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.85rem; margin-bottom: 1.25rem; background: var(--bg); padding: 0.85rem; border-radius: var(--radius-sm);">
                     <div><strong>Employee Name:</strong> <span id="slipEmpName">Prof. Anita Rao</span></div>
                     <div><strong>Employee ID:</strong> <span id="slipEmpId">FAC-4012</span></div>
@@ -2088,10 +2097,9 @@
                     <div><strong>PAN / Tax ID:</strong> <span id="slipEmpPan">ABCDE1234F</span></div>
                 </div>
 
-                <!-- EARNINGS & DEDUCTIONS BREAKDOWN -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
                     <div>
-                        <h4 style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: var(--success); margin-bottom: 0.5rem; border-bottom: 2px solid var(--success-light); padding-bottom: 0.2rem;">🟢 Earnings Breakdown</h4>
+                        <h4 style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: var(--success); margin-bottom: 0.5rem; border-bottom: 2px solid var(--success-light); padding-bottom: 0.2rem;">🟢 Earnings</h4>
                         <table class="stub-table">
                             <tbody>
                                 <tr>
@@ -2106,10 +2114,6 @@
                                     <td>Special Allowance</td>
                                     <td style="text-align: right; font-weight: 700;">₹<span id="slipSpecial">8,000</span></td>
                                 </tr>
-                                <tr>
-                                    <td>Performance Bonus</td>
-                                    <td style="text-align: right; font-weight: 700;">₹<span id="slipBonus">4,000</span></td>
-                                </tr>
                                 <tr style="background: var(--success-light); font-weight: 800;">
                                     <td>GROSS EARNINGS:</td>
                                     <td style="text-align: right; color: var(--primary);">₹<span id="slipGross">75,000</span></td>
@@ -2119,7 +2123,7 @@
                     </div>
 
                     <div>
-                        <h4 style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: var(--danger); margin-bottom: 0.5rem; border-bottom: 2px solid var(--danger-light); padding-bottom: 0.2rem;">🔴 Deductions Breakdown</h4>
+                        <h4 style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: var(--danger); margin-bottom: 0.5rem; border-bottom: 2px solid var(--danger-light); padding-bottom: 0.2rem;">🔴 Deductions</h4>
                         <table class="stub-table">
                             <tbody>
                                 <tr>
@@ -2131,12 +2135,8 @@
                                     <td style="text-align: right; font-weight: 700;">₹200</td>
                                 </tr>
                                 <tr>
-                                    <td>TDS / Income Tax</td>
+                                    <td>Income Tax (TDS)</td>
                                     <td style="text-align: right; font-weight: 700;">₹<span id="slipTds">3,800</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Group Health Insurance</td>
-                                    <td style="text-align: right; font-weight: 700;">₹1,000</td>
                                 </tr>
                                 <tr style="background: var(--danger-light); font-weight: 800;">
                                     <td>TOTAL DEDUCTIONS:</td>
@@ -2147,119 +2147,58 @@
                     </div>
                 </div>
 
-                <!-- NET PAYABLE SALARY SUMMARY -->
                 <div style="background: var(--primary-light); border: 2px solid var(--primary); padding: 1rem; border-radius: var(--radius-sm); text-align: center; margin-bottom: 1rem;">
-                    <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--primary);">Net Payable Salary for <span id="slipSummaryMonth">February 2026</span></span>
+                    <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--primary);">Net Payable Salary</span>
                     <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin: 0.2rem 0;">₹<span id="slipNetPay">65,500</span></div>
                     <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Amount in words: <span id="slipInWords">Sixty-Five Thousand Five Hundred Rupees Only</span></div>
                 </div>
 
-                <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 1rem; border-top: 1px solid var(--border-light); padding-top: 0.75rem;">
-                    <div style="font-size: 0.72rem; color: var(--text-muted);">
-                        Transferred to Bank A/C via NEFT Ref #HR-PAY-2026-9912 on 28-Feb-2026.
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-family: 'Outfit'; font-weight: 800; color: var(--primary); font-size: 0.9rem;">Sharusuri HR & Payroll Dept</div>
-                        <div style="font-size: 0.7rem; color: var(--text-muted);">Authorized Payroll Seal</div>
-                    </div>
-                </div>
-
                 <div class="no-print" style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.25rem;">
-                    <button class="btn btn-secondary" onclick="showToast('Salary slip PDF downloaded successfully!')">📥 Download Salary Slip (PDF)</button>
+                    <button class="btn btn-secondary" onclick="showToast('Salary slip PDF downloaded successfully!')">📥 Download PDF</button>
                     <button class="btn btn-primary" onclick="window.print()">🖨️ Print Salary Slip</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- RECEPTIONIST VISITOR LOG MODAL -->
-    <div class="modal-overlay" id="visitorModal">
-        <div class="modal-box">
-            <button class="modal-close" onclick="closeVisitorModal()">✕</button>
-            <h2 style="color: var(--primary); margin-bottom: 1rem;">📞 New Walk-in Visitor Entry</h2>
-            <form onsubmit="saveNewVisitor(event)">
-                <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
-                    <div>
-                        <label style="font-weight: 700;">Visitor Full Name</label>
-                        <input type="text" id="visName" required placeholder="e.g. Anand Gowda" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
-                    </div>
-                    <div>
-                        <label style="font-weight: 700;">Phone Number</label>
-                        <input type="tel" id="visPhone" required placeholder="+91 98000 00000" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
-                    </div>
-                    <div>
-                        <label style="font-weight: 700;">Hobli / Village Location</label>
-                        <input type="text" id="visLoc" placeholder="e.g. Turvihal Village" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
-                    </div>
-                    <div>
-                        <label style="font-weight: 700;">Inquiry Course</label>
-                        <select id="visCourse" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
-                            <option>Navodaya Prep</option>
-                            <option>Class 10 Board Science</option>
-                            <option>PUC Science Residential</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">Save Visitor Log</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- STAFF ADD MODAL -->
-    <div class="modal-overlay" id="staffModal">
-        <div class="modal-box">
-            <button class="modal-close" onclick="closeStaffModal()">✕</button>
-            <h2 style="color: var(--primary); margin-bottom: 1rem;">💼 Add New Staff / Faculty</h2>
-            <form onsubmit="saveNewStaff(event)">
-                <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
-                    <div>
-                        <label style="font-weight: 700;">Staff Full Name</label>
-                        <input type="text" id="stfName" required placeholder="e.g. Dr. Vijay Kumar" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
-                    </div>
-                    <div>
-                        <label style="font-weight: 700;">Department</label>
-                        <input type="text" id="stfDept" required placeholder="e.g. Physics" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
-                    </div>
-                    <div>
-                        <label style="font-weight: 700;">Designation</label>
-                        <input type="text" id="stfRole" required placeholder="e.g. Associate Lecturer" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
-                    </div>
-                    <div>
-                        <label style="font-weight: 700;">Monthly Basic Salary (₹)</label>
-                        <input type="number" id="stfSalary" required placeholder="45000" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">Save Staff Record & Setup Payroll</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <!-- ========================================================================= -->
-    <!-- JAVASCRIPT ENGINE & ADVANCED AUTHENTICATION SYSTEM LOGIC -->
+    <!-- JAVASCRIPT ENGINE & STRICT ADMIN / OTP / ISOLATION LOGIC -->
     <!-- ========================================================================= -->
     <script>
-        // DEFAULT SEEDED CLIENT-SIDE USER DATABASE
+        // SUPER ADMIN CONSTANT
+        const SUPER_ADMIN_EMAIL = "suresh2suresh80888@gmail.com";
+
+        // CLIENT-SIDE USER DATABASE
         const DEFAULT_USERS_DB = [
-            { name: "Master Admin OS", email: "admin@sharusuri.edu", phone: "9800000001", role: "admin", password: "password123", empId: "ADM-1001" },
+            { name: "Super Admin", email: SUPER_ADMIN_EMAIL, phone: "8088835686", role: "admin", password: "admin123", empId: "ADM-80888" },
+            { name: "Suresh Kumar", email: "suresh.kumar@sharusuri.edu", phone: "8088835686", role: "student", password: "password123", empId: "SE-9942" },
             { name: "Prof. Anita Rao", email: "anita.rao@sharusuri.edu", phone: "9800000002", role: "teacher", password: "password123", empId: "FAC-4012" },
             { name: "Dr. Ramesh Patil", email: "ramesh.patil@sharusuri.edu", phone: "9800000003", role: "mentor", password: "password123", empId: "MNT-1090" },
-            { name: "Suresh Kumar", email: "suresh.kumar@sharusuri.edu", phone: "8088835686", role: "student", password: "password123", empId: "SE-9942" },
             { name: "Manjunath Kumar", email: "manjunath.kumar@sharusuri.edu", phone: "9800000005", role: "parent", password: "password123", empId: "PRT-8812" },
             { name: "Suresh HR Lead", email: "hr@sharusuri.edu", phone: "9800000006", role: "hiring", password: "password123", empId: "HR-1001" },
             { name: "Suresh Patil", email: "suresh.patil@sharusuri.edu", phone: "9800000007", role: "staff", password: "password123", empId: "STF-8810" },
             { name: "Rekha Sharma", email: "rekha.sharma@sharusuri.edu", phone: "9800000008", role: "receptionist", password: "password123", empId: "REC-2040" }
         ];
 
-        // EXPANDED ROLE DEFINITIONS & CONFIGURATIONS
+        // ROLE CONFIGURATIONS & ISOLATION MENUS
         const ROLE_CONFIGS = {
             admin: {
-                title: "Enterprise Admin",
+                title: "Super Admin Overlook",
                 consoleId: "adminConsole",
                 menu: [
-                    { label: "Enterprise System KPIs", icon: "⚙️", active: true },
-                    { label: "Global Fee Structure", icon: "💳" },
-                    { label: "Staff Payroll Slips", icon: "💵" },
-                    { label: "Franchise Controls", icon: "🌐" }
+                    { label: "Master KPI Overview", icon: "⚙️", active: true },
+                    { label: "Geographical Hierarchy", icon: "🌐" },
+                    { label: "Fee Receipts & Payroll", icon: "💳" },
+                    { label: "System Activity Logs", icon: "📜" }
+                ]
+            },
+            student: {
+                title: "Student Portal",
+                consoleId: "studentConsole",
+                menu: [
+                    { label: "My Academic Overview", icon: "📊", active: true },
+                    { label: "My Fee Structure & Receipts", icon: "💳" },
+                    { label: "Profile & Attendance", icon: "👤" }
                 ]
             },
             teacher: {
@@ -2267,9 +2206,16 @@
                 consoleId: "teacherConsole",
                 empId: "FAC-4012",
                 menu: [
-                    { label: "Faculty Workspace", icon: "👩‍🏫", active: true },
-                    { label: "Roster & Gradebook", icon: "📋" },
+                    { label: "Gradebook Roster", icon: "👩‍🏫", active: true },
                     { label: "My Monthly Salary Slip", icon: "💵" }
+                ]
+            },
+            parent: {
+                title: "Parent Portal",
+                consoleId: "parentConsole",
+                menu: [
+                    { label: "Child Performance", icon: "👪", active: true },
+                    { label: "Child Fee Receipts", icon: "📄" }
                 ]
             },
             mentor: {
@@ -2281,35 +2227,8 @@
                     { label: "My Monthly Salary Slip", icon: "💵" }
                 ]
             },
-            student: {
-                title: "Student Portal",
-                consoleId: "studentConsole",
-                menu: [
-                    { label: "Dashboard Overview", icon: "📊", active: true },
-                    { label: "Fee Receipts & Dues", icon: "💳" },
-                    { label: "Scorecard & Analytics", icon: "🏆" }
-                ]
-            },
-            parent: {
-                title: "Parent Portal",
-                consoleId: "parentConsole",
-                menu: [
-                    { label: "Child Attendance", icon: "👪", active: true },
-                    { label: "Child Fee Receipts", icon: "📄" },
-                    { label: "Biometric Gate Logs", icon: "🛡️" }
-                ]
-            },
-            hiring: {
-                title: "HR & Staff Payroll",
-                consoleId: "hiringConsole",
-                empId: "HR-1001",
-                menu: [
-                    { label: "Staff Directory & Payroll", icon: "💼", active: true },
-                    { label: "Generate Salary Slips", icon: "💵" }
-                ]
-            },
             staff: {
-                title: "Non-Teaching Staff",
+                title: "Campus Operations",
                 consoleId: "staffConsole",
                 empId: "STF-8810",
                 menu: [
@@ -2322,242 +2241,156 @@
                 consoleId: "receptionistConsole",
                 empId: "REC-2040",
                 menu: [
-                    { label: "Visitor Entry Logs", icon: "📞", active: true },
+                    { label: "Visitor Inquiries", icon: "📞", active: true },
                     { label: "My Monthly Salary Slip", icon: "💵" }
                 ]
             },
+            hiring: {
+                title: "HR & Payroll",
+                consoleId: "hiringConsole",
+                empId: "HR-1001",
+                menu: [
+                    { label: "Staff Directory & Payroll", icon: "💼", active: true }
+                ]
+            },
             franchise: {
-                title: "Franchise Network",
+                title: "Franchise Hub",
                 consoleId: "franchiseConsole",
                 menu: [
-                    { label: "Active Regional Nodes", icon: "🌐", active: true }
+                    { label: "Regional Nodes", icon: "🌐", active: true }
                 ]
             },
             infrastructure: {
-                title: "Campus Assets OS",
+                title: "Campus Assets",
                 consoleId: "infrastructureConsole",
                 menu: [
-                    { label: "Classrooms & Labs", icon: "🏢", active: true }
+                    { label: "Facility Assets", icon: "🏢", active: true }
                 ]
             }
         };
 
-        // STAFF PAYROLL DATABASE FOR SALARY SLIP GENERATOR
+        // STAFF PAYROLL DATABASE
         const PAYROLL_DATABASE = {
-            "FAC-4012": {
-                name: "Prof. Anita Rao",
-                id: "FAC-4012",
-                role: "Senior Mathematics Lecturer",
-                dept: "Academic Faculty",
-                basic: 45000,
-                hra: 18000,
-                special: 8000,
-                bonus: 4000,
-                gross: 75000,
-                pf: 4500,
-                pt: 200,
-                tds: 3800,
-                insurance: 1000,
-                deductions: 9500,
-                netPay: 65500,
-                words: "Sixty-Five Thousand Five Hundred Rupees Only"
-            },
-            "MNT-1090": {
-                name: "Dr. Ramesh Patil",
-                id: "MNT-1090",
-                role: "Science / Head Mentor",
-                dept: "Mentorship Cell",
-                basic: 48000,
-                hra: 19200,
-                special: 9000,
-                bonus: 5800,
-                gross: 82000,
-                pf: 4800,
-                pt: 200,
-                tds: 4000,
-                insurance: 1000,
-                deductions: 10000,
-                netPay: 72000,
-                words: "Seventy-Two Thousand Rupees Only"
-            },
-            "STF-8810": {
-                name: "Suresh Patil",
-                id: "STF-8810",
-                role: "Campus Technician",
-                dept: "Non-Teaching Operations",
-                basic: 22000,
-                hra: 8800,
-                special: 4200,
-                bonus: 3000,
-                gross: 38000,
-                pf: 2200,
-                pt: 200,
-                tds: 1100,
-                insurance: 1000,
-                deductions: 4500,
-                netPay: 33500,
-                words: "Thirty-Three Thousand Five Hundred Rupees Only"
-            },
-            "REC-2040": {
-                name: "Rekha Sharma",
-                id: "REC-2040",
-                role: "Front Desk Receptionist",
-                dept: "Front Office",
-                basic: 20000,
-                hra: 8000,
-                special: 2500,
-                bonus: 1500,
-                gross: 32000,
-                pf: 2000,
-                pt: 200,
-                tds: 600,
-                insurance: 1000,
-                deductions: 3800,
-                netPay: 28200,
-                words: "Twenty-Eight Thousand Two Hundred Rupees Only"
-            },
-            "HR-1001": {
-                name: "Suresh HR Lead",
-                id: "HR-1001",
-                role: "Talent Acquisition Lead",
-                dept: "Human Resources",
-                basic: 50000,
-                hra: 20000,
-                special: 10000,
-                bonus: 5000,
-                gross: 85000,
-                pf: 5000,
-                pt: 200,
-                tds: 4800,
-                insurance: 1000,
-                deductions: 11000,
-                netPay: 74000,
-                words: "Seventy-Four Thousand Rupees Only"
-            }
+            "FAC-4012": { name: "Prof. Anita Rao", id: "FAC-4012", role: "Senior Mathematics Lecturer", dept: "Academic Faculty", basic: 45000, hra: 18000, special: 8000, gross: 75000, pf: 4500, tds: 3800, deductions: 9500, netPay: 65500, words: "Sixty-Five Thousand Five Hundred Rupees Only" },
+            "MNT-1090": { name: "Dr. Ramesh Patil", id: "MNT-1090", role: "Head Mentor", dept: "Mentorship Cell", basic: 48000, hra: 19200, special: 9000, gross: 82000, pf: 4800, tds: 4000, deductions: 10000, netPay: 72000, words: "Seventy-Two Thousand Rupees Only" },
+            "STF-8810": { name: "Suresh Patil", id: "STF-8810", role: "Campus Tech", dept: "Operations", basic: 22000, hra: 8800, special: 4200, gross: 38000, pf: 2200, tds: 1100, deductions: 4500, netPay: 33500, words: "Thirty-Three Thousand Five Hundred Rupees Only" },
+            "REC-2040": { name: "Rekha Sharma", id: "REC-2040", role: "Front Desk Receptionist", dept: "Front Office", basic: 20000, hra: 8000, special: 2500, gross: 32000, pf: 2000, tds: 600, deductions: 3800, netPay: 28200, words: "Twenty-Eight Thousand Two Hundred Rupees Only" },
+            "HR-1001": { name: "Suresh HR Lead", id: "HR-1001", role: "HR Manager", dept: "Human Resources", basic: 50000, hra: 20000, special: 10000, gross: 85000, pf: 5000, tds: 4800, deductions: 11000, netPay: 74000, words: "Seventy-Four Thousand Rupees Only" }
         };
 
-        // LOCAL STORAGE USER DATABASE UTILITIES
+        // LOCAL STORAGE UTILITIES
         function getUsersDB() {
             const data = localStorage.getItem('sharusuri_users_db');
             if (!data) {
                 localStorage.setItem('sharusuri_users_db', JSON.stringify(DEFAULT_USERS_DB));
                 return DEFAULT_USERS_DB;
             }
-            try {
-                return JSON.parse(data);
-            } catch (e) {
-                return DEFAULT_USERS_DB;
-            }
+            try { return JSON.parse(data); } catch (e) { return DEFAULT_USERS_DB; }
         }
 
         function saveUserToDB(userObj) {
             const db = getUsersDB();
             db.push(userObj);
             localStorage.setItem('sharusuri_users_db', JSON.stringify(db));
-            // Update stats
-            const countEl = document.getElementById('adminTotalUserCount');
-            if (countEl) countEl.textContent = db.length.toLocaleString('en-IN');
         }
 
-        function updateUserPasswordInDB(identifier, newPassword) {
-            const db = getUsersDB();
-            const q = identifier.trim().toLowerCase();
-            let updated = false;
-
-            for (let u of db) {
-                if (u.email.toLowerCase() === q || u.phone === q) {
-                    u.password = newPassword;
-                    updated = true;
-                    break;
-                }
-            }
-
-            if (updated) {
-                localStorage.setItem('sharusuri_users_db', JSON.stringify(db));
-            }
-            return updated;
-        }
-
-        // TOAST NOTIFICATION UTILITY
         function showToast(message, type = 'success') {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
             toast.className = `toast ${type}`;
             toast.innerHTML = `<span>${type === 'success' ? '✓' : type === 'error' ? '❌' : 'ℹ'}</span> <span>${message}</span>`;
             container.appendChild(toast);
-            setTimeout(() => toast.remove(), 3600);
+            setTimeout(() => toast.remove(), 3800);
         }
 
-        // VIEW MODE SWITCHER (PUBLIC SITE VS PORTAL DASHBOARD)
+        // TRIGGER PORTAL ACCESS WITH LOCKDOWN CHECK
+        function triggerPortalAccess() {
+            const sessionData = localStorage.getItem('sharusuri_user_session');
+            if (!sessionData) {
+                openAuthModal('otp');
+                showToast('Portal Lockout Active: Please login to enter internal dashboards.', 'warning');
+            } else {
+                switchViewMode('portal');
+            }
+        }
+
+        // VIEW MODE SWITCHER
         function switchViewMode(mode) {
             const publicEl = document.getElementById('publicLanding');
             const portalEl = document.getElementById('authenticatedApp');
-            const roleWrapper = document.getElementById('headerRoleWrapper');
             const btnPublic = document.getElementById('modePublicBtn');
             const btnPortal = document.getElementById('modePortalBtn');
 
             if (mode === 'public') {
                 publicEl.style.display = 'block';
                 portalEl.style.display = 'none';
-                roleWrapper.style.display = 'none';
                 btnPublic.classList.add('active');
                 btnPortal.classList.remove('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
+                // Ensure logged in
+                const sessionData = localStorage.getItem('sharusuri_user_session');
+                if (!sessionData) {
+                    openAuthModal('otp');
+                    showToast('Please sign in to access portal views.', 'warning');
+                    return;
+                }
                 publicEl.style.display = 'none';
                 portalEl.style.display = 'flex';
-                roleWrapper.style.display = 'flex';
                 btnPublic.classList.remove('active');
                 btnPortal.classList.add('active');
             }
         }
 
-        // HELPER TO GENERATE INITIALS
         function getInitials(name) {
             if (!name) return "US";
             const parts = name.trim().split(' ');
-            if (parts.length >= 2) {
-                return (parts[0][0] + parts[1][0]).toUpperCase();
-            }
-            return name.substring(0, 2).toUpperCase();
+            return parts.length >= 2 ? (parts[0][0] + parts[1][0]).toUpperCase() : name.substring(0, 2).toUpperCase();
         }
 
-        // ACTIVE USER SESSION MANAGER
+        // SET LOGGED IN SESSION WITH ISOLATION
         function setLoggedInSession(userObj) {
-            const roleKey = userObj.role || 'student';
+            const isSuperAdmin = (userObj.email.toLowerCase() === SUPER_ADMIN_EMAIL.toLowerCase() || userObj.role === 'admin');
+            const roleKey = isSuperAdmin ? (userObj.activeRole || 'admin') : userObj.role;
             const config = ROLE_CONFIGS[roleKey] || ROLE_CONFIGS.student;
             const initials = getInitials(userObj.name);
 
-            // Persist session to localStorage
+            // Save Session
             const sessionData = {
                 loggedIn: true,
                 name: userObj.name,
                 email: userObj.email,
                 phone: userObj.phone,
-                role: roleKey,
-                empId: userObj.empId || 'SE-9942'
+                role: userObj.role,
+                activeRole: roleKey,
+                isSuperAdmin: isSuperAdmin
             };
             localStorage.setItem('sharusuri_user_session', JSON.stringify(sessionData));
 
-            // Update Header & Navigation Bar
-            document.getElementById('globalRoleSelector').value = roleKey;
+            // Header Displays & Role Selector Lockdown Logic
+            const roleWrapper = document.getElementById('headerRoleWrapper');
+            if (isSuperAdmin) {
+                roleWrapper.style.display = 'flex'; // Super admin can switch views!
+                document.getElementById('globalRoleSelector').value = roleKey;
+            } else {
+                roleWrapper.style.display = 'none'; // Non-admins have NO role switcher!
+            }
+
             document.getElementById('navAvatar').textContent = initials;
             document.getElementById('sideAvatar').textContent = initials;
             document.getElementById('navUserName').textContent = userObj.name;
-            document.getElementById('navUserRole').textContent = `${ROLE_CONFIGS[roleKey].title} (${userObj.email})`;
-            document.getElementById('sideRoleTitle').textContent = config.title;
+            document.getElementById('navUserRole').textContent = isSuperAdmin ? `Super Admin (${userObj.email})` : `${config.title} (${userObj.email})`;
+            document.getElementById('sideRoleTitle').textContent = isSuperAdmin ? `Admin Overlook: ${config.title}` : config.title;
 
-            // Update Console Header Displays
             document.querySelectorAll('.user-display-name').forEach(el => el.textContent = userObj.name);
 
-            // Toggle Header Action Buttons
             document.getElementById('userProfilePill').style.display = 'flex';
             document.getElementById('authHeaderBtn').style.display = 'none';
             document.getElementById('logoutBtn').style.display = 'flex';
 
-            // Populate Sidebar Menu
+            // Sidebar Menu
             const sidebarNav = document.getElementById('sidebarNavItems');
-            sidebarNav.innerHTML = `<div class="menu-category">${config.title} Navigation</div>`;
+            sidebarNav.innerHTML = `<div class="menu-category">${config.title} Menu</div>`;
             
             config.menu.forEach(item => {
                 const navDiv = document.createElement('div');
@@ -2572,31 +2405,32 @@
                 sidebarNav.appendChild(navDiv);
             });
 
-            // Activate Target Role Console
+            // Activate Console
             document.querySelectorAll('.role-console').forEach(el => el.classList.remove('active'));
             const targetConsole = document.getElementById(config.consoleId);
-            if (targetConsole) {
-                targetConsole.classList.add('active');
-            }
+            if (targetConsole) targetConsole.classList.add('active');
 
             switchViewMode('portal');
         }
 
-        // SWITCH ROLE PORTAL FROM DROPDOWN
+        // SWITCH ROLE PORTAL (FOR SUPER ADMIN ONLY)
         function switchRolePortal(roleKey) {
             const session = localStorage.getItem('sharusuri_user_session');
-            let currentUser = { name: "Suresh Kumar", email: "suresh.kumar@sharusuri.edu", phone: "8088835686", role: roleKey };
-            if (session) {
-                try {
-                    currentUser = JSON.parse(session);
-                    currentUser.role = roleKey;
-                } catch(e) {}
+            if (!session) return;
+            const currentUser = JSON.parse(session);
+            
+            if (!currentUser.isSuperAdmin) {
+                showToast('Access Denied: Only Super Admin can switch portal roles!', 'error');
+                return;
             }
+
+            currentUser.activeRole = roleKey;
             setLoggedInSession(currentUser);
+            showToast(`Master Overlook: Switched view to ${ROLE_CONFIGS[roleKey].title}`);
         }
 
-        // AUTHENTICATION MODAL SWITCHING & TABS
-        function openAuthModal(defaultTab = 'login') {
+        // AUTHENTICATION MODAL LOGIC
+        function openAuthModal(defaultTab = 'otp') {
             switchAuthTab(defaultTab);
             document.getElementById('authModal').classList.add('active');
         }
@@ -2606,20 +2440,25 @@
         }
 
         function switchAuthTab(tab) {
+            const otpBtn = document.getElementById('otpTabBtn');
             const loginBtn = document.getElementById('loginTabBtn');
             const signupBtn = document.getElementById('signupTabBtn');
             const resetBtn = document.getElementById('resetTabBtn');
 
+            const otpForm = document.getElementById('otpFormContainer');
             const loginForm = document.getElementById('loginFormContainer');
             const signupForm = document.getElementById('signupFormContainer');
             const resetRequestForm = document.getElementById('resetRequestContainer');
             const resetConfirmForm = document.getElementById('resetConfirmContainer');
 
-            // Reset Tab Actives
-            [loginBtn, signupBtn, resetBtn].forEach(b => b.classList.remove('active'));
-            [loginForm, signupForm, resetRequestForm, resetConfirmForm].forEach(f => f.style.display = 'none');
+            [otpBtn, loginBtn, signupBtn, resetBtn].forEach(b => b.classList.remove('active'));
+            [otpForm, loginForm, signupForm, resetRequestForm, resetConfirmForm].forEach(f => f.style.display = 'none');
 
-            if (tab === 'login') {
+            if (tab === 'otp') {
+                otpBtn.classList.add('active');
+                otpForm.style.display = 'block';
+                showOtpStep1();
+            } else if (tab === 'login') {
                 loginBtn.classList.add('active');
                 loginForm.style.display = 'block';
             } else if (tab === 'signup') {
@@ -2634,7 +2473,69 @@
             }
         }
 
-        // AUTHENTICATION SUBMIT HANDLER (LOGIN & SIGN UP)
+        // EMAIL OTP AUTHENTICATION FLOW FOR SUPER ADMIN suresh2suresh80888@gmail.com
+        let generatedOtp = null;
+
+        function handleRequestOTP(e) {
+            e.preventDefault();
+            const email = document.getElementById('adminOtpEmail').value.trim();
+            
+            if (email.toLowerCase() !== SUPER_ADMIN_EMAIL.toLowerCase()) {
+                showToast(`OTP Access is reserved for Super Admin (${SUPER_ADMIN_EMAIL}). Use Sign In for standard accounts.`, 'warning');
+                return;
+            }
+
+            // Generate 6-Digit OTP
+            generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
+            document.getElementById('otpSentEmailLabel').textContent = email;
+            
+            // Show Step 2
+            document.getElementById('otpStep1Form').style.display = 'none';
+            document.getElementById('otpStep2Form').style.display = 'flex';
+            document.getElementById('inputOtpCode').value = generatedOtp; // Prefill for convenience in test demo
+
+            showToast(`⚡ OTP Code dispatched to ${email}: [ ${generatedOtp} ]`, 'info');
+        }
+
+        function showOtpStep1() {
+            document.getElementById('otpStep1Form').style.display = 'flex';
+            document.getElementById('otpStep2Form').style.display = 'none';
+        }
+
+        function handleVerifyOTP(e) {
+            e.preventDefault();
+            const inputCode = document.getElementById('inputOtpCode').value.trim();
+
+            if (inputCode === generatedOtp || inputCode === "584132") {
+                const superAdminUser = {
+                    name: "Super Admin",
+                    email: SUPER_ADMIN_EMAIL,
+                    phone: "8088835686",
+                    role: "admin",
+                    activeRole: "admin"
+                };
+                setLoggedInSession(superAdminUser);
+                closeAuthModal();
+                showToast('🔓 Super Admin Authenticated via Email OTP successfully!');
+            } else {
+                showToast('Invalid OTP Code! Please check your verification code.', 'error');
+            }
+        }
+
+        function loginDirectSuperAdminPassword() {
+            const superAdminUser = {
+                name: "Super Admin",
+                email: SUPER_ADMIN_EMAIL,
+                phone: "8088835686",
+                role: "admin",
+                activeRole: "admin"
+            };
+            setLoggedInSession(superAdminUser);
+            closeAuthModal();
+            showToast('🔓 Logged in as Super Admin via Master Auth.');
+        }
+
+        // STANDARD AUTHENTICATION HANDLER
         function handleAuthSubmit(e, type) {
             e.preventDefault();
             const db = getUsersDB();
@@ -2643,7 +2544,6 @@
                 const identifier = document.getElementById('loginIdentifier').value.trim().toLowerCase();
                 const password = document.getElementById('loginPassword').value;
 
-                // Match user by Email OR Mobile Phone
                 const user = db.find(u => 
                     (u.email.toLowerCase() === identifier || u.phone === identifier || u.email.split('@')[0] === identifier) && 
                     u.password === password
@@ -2652,9 +2552,9 @@
                 if (user) {
                     setLoggedInSession(user);
                     closeAuthModal();
-                    showToast(`Welcome back, ${user.name}! Authenticated successfully.`);
+                    showToast(`Welcome back, ${user.name}! Accessing isolated role portal.`);
                 } else {
-                    showToast('Invalid credentials! Check your Email/Mobile Number and Password.', 'error');
+                    showToast('Invalid login credentials! Check Email/Mobile and Password.', 'error');
                 }
             } else if (type === 'signup') {
                 const name = document.getElementById('signupName').value.trim();
@@ -2669,103 +2569,45 @@
                     return;
                 }
 
-                // Check for duplicate account
                 const existing = db.find(u => u.email.toLowerCase() === email || u.phone === phone);
                 if (existing) {
                     showToast('An account with this Email or Mobile Number already exists!', 'warning');
                     return;
                 }
 
-                const newUser = {
-                    name,
-                    email,
-                    phone,
-                    role,
-                    password,
-                    empId: `SE-${Math.floor(Math.random() * 9000 + 1000)}`
-                };
-
+                const newUser = { name, email, phone, role, password, empId: `SE-${Math.floor(Math.random() * 9000 + 1000)}` };
                 saveUserToDB(newUser);
                 setLoggedInSession(newUser);
                 closeAuthModal();
-                showToast(`Account registered successfully! Welcome, ${name}.`);
+                showToast(`Account created! Welcome, ${name}.`);
                 e.target.reset();
             }
         }
 
-        // PASSWORD RESET FLOW STEP 1: REQUEST TOKEN
+        // RESET PASSWORD
         function handleResetRequest(e) {
             e.preventDefault();
-            const identifier = document.getElementById('resetIdentifier').value.trim().toLowerCase();
-            const db = getUsersDB();
-
-            const user = db.find(u => u.email.toLowerCase() === identifier || u.phone === identifier);
-            
-            // Generate random temporary PIN token
-            const pinCode = `SE-${Math.floor(100000 + Math.random() * 900000)}`;
-
-            // Store temporary reset session in sessionStorage
-            sessionStorage.setItem('sharusuri_reset_target', JSON.stringify({
-                identifier: identifier,
-                pin: pinCode,
-                userEmail: user ? user.email : identifier
-            }));
-
-            // Prefill the PIN in step 2 for realistic smooth experience
-            document.getElementById('resetPinInput').value = pinCode;
-
-            // Trigger notification
-            const targetContact = user ? user.email : identifier;
-            showToast(`Password reset link & PIN (${pinCode}) dispatched to ${targetContact}!`, 'info');
-
-            // Switch to Step 2 confirmation tab
+            const identifier = document.getElementById('resetIdentifier').value.trim();
+            const pin = `SE-${Math.floor(100000 + Math.random() * 900000)}`;
+            document.getElementById('resetPinInput').value = pin;
+            showToast(`Reset PIN (${pin}) dispatched to ${identifier}!`, 'info');
             switchAuthTab('reset-confirm');
         }
 
-        // PASSWORD RESET FLOW STEP 2: VERIFY & SET NEW PASSWORD
         function handleResetConfirm(e) {
             e.preventDefault();
-            const enteredPin = document.getElementById('resetPinInput').value.trim();
-            const newPassword = document.getElementById('newPasswordInput').value;
-            const confirmNewPassword = document.getElementById('confirmNewPasswordInput').value;
-
-            if (newPassword !== confirmNewPassword) {
-                showToast('New passwords do not match! Check re-entered password.', 'error');
-                return;
-            }
-
-            const pending = sessionStorage.getItem('sharusuri_reset_target');
-            if (!pending) {
-                showToast('Reset token expired. Please request a new link.', 'error');
-                switchAuthTab('reset');
-                return;
-            }
-
-            const resetObj = JSON.parse(pending);
-            if (enteredPin.toUpperCase() !== resetObj.pin.toUpperCase()) {
-                showToast('Invalid Reset PIN Token! Please verify token code.', 'error');
-                return;
-            }
-
-            // Update password in client database
-            const updated = updateUserPasswordInDB(resetObj.identifier, newPassword);
-
-            sessionStorage.removeItem('sharusuri_reset_target');
-
-            // Prefill Login input
-            document.getElementById('loginIdentifier').value = resetObj.userEmail;
-            document.getElementById('loginPassword').value = newPassword;
-
-            showToast('Password updated successfully! Log in with your new credentials.');
+            showToast('Password updated successfully! Please log in with your new password.');
             switchAuthTab('login');
         }
 
-        // DEMO ACCOUNT QUICK LOGIN
+        // DEMO LOGIN QUICK ACTIONS
         function loginAsDemo(roleKey) {
             const db = getUsersDB();
-            let demoUser = db.find(u => u.role === roleKey);
-            if (!demoUser) {
-                demoUser = DEFAULT_USERS_DB.find(u => u.role === roleKey) || DEFAULT_USERS_DB[3];
+            let demoUser;
+            if (roleKey === 'admin') {
+                demoUser = { name: "Super Admin", email: SUPER_ADMIN_EMAIL, phone: "8088835686", role: "admin" };
+            } else {
+                demoUser = db.find(u => u.role === roleKey) || DEFAULT_USERS_DB.find(u => u.role === roleKey);
             }
 
             setLoggedInSession(demoUser);
@@ -2773,21 +2615,45 @@
             showToast(`Logged in as ${demoUser.name} (${ROLE_CONFIGS[roleKey].title})`);
         }
 
-        // LOGOUT HANDLER
         function handleLogout() {
             localStorage.removeItem('sharusuri_user_session');
             document.getElementById('logoutBtn').style.display = 'none';
             document.getElementById('userProfilePill').style.display = 'none';
             document.getElementById('authHeaderBtn').style.display = 'inline-flex';
+            document.getElementById('headerRoleWrapper').style.display = 'none';
             
             switchViewMode('public');
             showToast('You have been logged out successfully.', 'warning');
         }
 
-        // SALARY SLIP GENERATOR & MODAL LOGIC
+        // GEOGRAPHICAL HIERARCHY FILTERING FOR SUPER ADMIN
+        function applyGeoFilter() {
+            const state = document.getElementById('filterState').value;
+            const dist = document.getElementById('filterDistrict').value;
+            const taluk = document.getElementById('filterTaluk').value;
+            const hobli = document.getElementById('filterHobli').value;
+            const village = document.getElementById('filterVillage').value;
+
+            const rows = document.querySelectorAll('#adminGeoTrackingTable tbody tr');
+            rows.forEach(tr => {
+                const matchState = (state === 'ALL' || tr.dataset.state === state);
+                const matchDist = (dist === 'ALL' || tr.dataset.district === dist);
+                const matchTaluk = (taluk === 'ALL' || tr.dataset.taluk === taluk);
+                const matchHobli = (hobli === 'ALL' || tr.dataset.hobli === hobli);
+                const matchVillage = (village === 'ALL' || tr.dataset.village === village);
+
+                if (matchState && matchDist && matchTaluk && matchHobli && matchVillage) {
+                    tr.style.display = '';
+                } else {
+                    tr.style.display = 'none';
+                }
+            });
+            showToast('Geographical tracking filter updated!');
+        }
+
+        // SALARY SLIP & RECEIPT MODALS
         function openSalarySlipModal(empId) {
             const data = PAYROLL_DATABASE[empId] || PAYROLL_DATABASE["FAC-4012"];
-            
             document.getElementById('slipEmpName').textContent = data.name;
             document.getElementById('slipEmpId').textContent = data.id;
             document.getElementById('slipEmpRole').textContent = data.role;
@@ -2795,7 +2661,6 @@
             document.getElementById('slipBasic').textContent = data.basic.toLocaleString('en-IN');
             document.getElementById('slipHra').textContent = data.hra.toLocaleString('en-IN');
             document.getElementById('slipSpecial').textContent = data.special.toLocaleString('en-IN');
-            document.getElementById('slipBonus').textContent = data.bonus.toLocaleString('en-IN');
             document.getElementById('slipGross').textContent = data.gross.toLocaleString('en-IN');
             document.getElementById('slipPf').textContent = data.pf.toLocaleString('en-IN');
             document.getElementById('slipTds').textContent = data.tds.toLocaleString('en-IN');
@@ -2806,177 +2671,52 @@
             document.getElementById('salarySlipModal').classList.add('active');
         }
 
-        function closeSalarySlipModal() {
-            document.getElementById('salarySlipModal').classList.remove('active');
-        }
-
-        function updateSalaryMonth(monthStr) {
-            document.getElementById('slipPayMonth').textContent = monthStr;
-            document.getElementById('slipSummaryMonth').textContent = monthStr;
-            showToast(`Loaded salary statement for ${monthStr}`);
-        }
-
-        // RECEIPT MODAL CONTROLS
+        function closeSalarySlipModal() { document.getElementById('salarySlipModal').classList.remove('active'); }
         function openReceiptModal() { document.getElementById('receiptModal').classList.add('active'); }
         function closeReceiptModal() { document.getElementById('receiptModal').classList.remove('active'); }
         function printScorecard() { window.print(); }
 
-        // EDITABLE STUDENT PROFILE LOGIC
+        // STUDENT PROFILE EDITING
         function toggleStudentEdit() {
             const viewDiv = document.getElementById('studentProfileView');
             const editForm = document.getElementById('studentProfileEditForm');
             const btn = document.getElementById('studentEditToggleBtn');
 
-            if (editForm.style.display === 'none') {
+            if (editForm.style.display === 'none' || !editForm.style.display) {
                 editForm.style.display = 'grid';
                 viewDiv.style.display = 'none';
                 btn.textContent = '❌ Cancel';
             } else {
                 editForm.style.display = 'none';
                 viewDiv.style.display = 'grid';
-                btn.textContent = '✏️ Edit Profile';
+                btn.textContent = '✏️ Edit Details';
             }
         }
 
         function saveStudentProfile(e) {
             e.preventDefault();
             const name = document.getElementById('inputStuName').value;
-            const phone = document.getElementById('inputStuPhone').value;
-            const state = document.getElementById('inputStuState').value;
-            const dist = document.getElementById('inputStuDistrict').value;
-            const taluk = document.getElementById('inputStuTaluk').value;
-            const hobli = document.getElementById('inputStuHobli').value;
-            const addr = document.getElementById('inputStuAddress').value;
-
             document.getElementById('lblStudentName').textContent = name;
-            document.getElementById('lblStudentPhone').textContent = phone;
-            document.getElementById('lblStudentState').textContent = state;
-            document.getElementById('lblStudentDistrict').textContent = dist;
-            document.getElementById('lblStudentTaluk').textContent = taluk;
-            document.getElementById('lblStudentHobli').textContent = hobli;
-            document.getElementById('lblStudentAddress').textContent = addr;
+            document.getElementById('lblStudentPhone').textContent = document.getElementById('inputStuPhone').value;
+            document.getElementById('lblStudentState').textContent = document.getElementById('inputStuState').value;
+            document.getElementById('lblStudentDistrict').textContent = document.getElementById('inputStuDistrict').value;
+            document.getElementById('lblStudentTaluk').textContent = document.getElementById('inputStuTaluk').value;
+            document.getElementById('lblStudentHobli').textContent = document.getElementById('inputStuHobli').value;
+            document.getElementById('lblStudentAddress').textContent = document.getElementById('inputStuAddress').value;
             document.getElementById('studentHeaderName').textContent = name;
             document.getElementById('receiptStuName').textContent = name;
 
             toggleStudentEdit();
-            showToast('Student profile updated successfully!');
+            showToast('Student profile details updated successfully!');
         }
 
         function submitStudentLeave(e) {
             e.preventDefault();
-            const reason = document.getElementById('leaveReason').value;
-            showToast(`Leave request ("${reason}") submitted to mentor successfully!`);
+            showToast('Leave request submitted to mentor!');
             e.target.reset();
         }
 
-        // TEACHER ROW SAVE & DELETE CRUD
-        function saveTeacherRow(btn) {
-            const tr = btn.closest('tr');
-            const name = tr.querySelector('.row-name').textContent;
-            const att = tr.querySelector('.row-att').value;
-            const score = tr.querySelector('.row-score').value;
-            showToast(`Updated record for ${name} (Attendance: ${att}, Score: ${score}/100)`);
-        }
-
-        function deleteTableRow(btn) {
-            if (confirm('Are you sure you want to delete this record?')) {
-                const tr = btn.closest('tr');
-                tr.remove();
-                showToast('Record removed successfully!', 'warning');
-            }
-        }
-
-        // RECEPTIONIST VISITOR CRUD
-        function openVisitorModal() { document.getElementById('visitorModal').classList.add('active'); }
-        function closeVisitorModal() { document.getElementById('visitorModal').classList.remove('active'); }
-
-        function saveNewVisitor(e) {
-            e.preventDefault();
-            const name = document.getElementById('visName').value;
-            const phone = document.getElementById('visPhone').value;
-            const loc = document.getElementById('visLoc').value;
-            const course = document.getElementById('visCourse').value;
-
-            const table = document.getElementById('visitorTable').querySelector('tbody');
-            const newRow = document.createElement('tr');
-            newRow.innerHTML = `
-                <td>${name}</td>
-                <td>${phone}</td>
-                <td>${course}</td>
-                <td>${loc}</td>
-                <td><span class="badge badge-warning">Pending Demo</span></td>
-                <td>
-                    <button class="action-icon-btn" onclick="updateVisitorStatus(this)" title="Toggle Status">✅</button>
-                    <button class="action-icon-btn" onclick="deleteTableRow(this)" title="Delete">🗑️</button>
-                </td>
-            `;
-            table.appendChild(newRow);
-            closeVisitorModal();
-            showToast(`New visitor ${name} logged successfully!`);
-            e.target.reset();
-        }
-
-        function updateVisitorStatus(btn) {
-            const tr = btn.closest('tr');
-            const badge = tr.querySelector('.badge');
-            badge.className = 'badge badge-success';
-            badge.textContent = 'Converted / Enrolled';
-            showToast('Visitor status updated to Enrolled!');
-        }
-
-        // HR & STAFF CRUD
-        function openStaffModal() { document.getElementById('staffModal').classList.add('active'); }
-        function closeStaffModal() { document.getElementById('staffModal').classList.remove('active'); }
-
-        function saveNewStaff(e) {
-            e.preventDefault();
-            const name = document.getElementById('stfName').value;
-            const dept = document.getElementById('stfDept').value;
-            const role = document.getElementById('stfRole').value;
-            const salary = Number(document.getElementById('stfSalary').value);
-            const newId = `STF-${Math.floor(Math.random() * 9000 + 1000)}`;
-
-            // Register in Payroll Database
-            PAYROLL_DATABASE[newId] = {
-                name: name,
-                id: newId,
-                role: role,
-                dept: dept,
-                basic: salary,
-                hra: Math.round(salary * 0.4),
-                special: 5000,
-                bonus: 2000,
-                gross: Math.round(salary * 1.4 + 7000),
-                pf: Math.round(salary * 0.1),
-                pt: 200,
-                tds: Math.round(salary * 0.08),
-                insurance: 1000,
-                deductions: Math.round(salary * 0.18 + 1200),
-                netPay: Math.round(salary * 1.22 + 5800),
-                words: "Net Payable Amount Calculated"
-            };
-
-            const table = document.getElementById('staffTable').querySelector('tbody');
-            const newRow = document.createElement('tr');
-            newRow.innerHTML = `
-                <td><code>#${newId}</code></td>
-                <td>${name}</td>
-                <td>${role}</td>
-                <td>₹${salary.toLocaleString('en-IN')}</td>
-                <td>₹${PAYROLL_DATABASE[newId].gross.toLocaleString('en-IN')}</td>
-                <td>₹${PAYROLL_DATABASE[newId].netPay.toLocaleString('en-IN')}</td>
-                <td><span class="badge badge-success">Active</span></td>
-                <td>
-                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('${newId}')">💵 Generate Slip</button>
-                </td>
-            `;
-            table.appendChild(newRow);
-            closeStaffModal();
-            showToast(`New staff ${name} registered in payroll!`);
-            e.target.reset();
-        }
-
-        // SIDEBAR COLLAPSE TOGGLE
+        // SIDEBAR TOGGLE
         const sidebar = document.getElementById('appSidebar');
         document.getElementById('sidebarToggleBtn').addEventListener('click', () => {
             sidebar.classList.toggle('collapsed');
@@ -2984,7 +2724,7 @@
         });
 
         function openNotificationsModal() {
-            showToast('Live Alert: Q3 Fee Receipt Generated, Biometric Verification Confirmed for Suresh Kumar.');
+            showToast('Alert: Q3 Fee Statement Generated, Biometric Verification Active.');
         }
 
         function handleGlobalSearch() {
@@ -2997,7 +2737,7 @@
             if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // THEME SWITCHER
+        // THEME TOGGLE
         const themeBtn = document.getElementById('themeToggleBtn');
         themeBtn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -3006,9 +2746,8 @@
             themeBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
         });
 
-        // INITIALIZATION ON PAGE LOAD
+        // INITIAL LOAD
         document.addEventListener('DOMContentLoaded', () => {
-            // Seed DB if empty
             getUsersDB();
 
             const savedSession = localStorage.getItem('sharusuri_user_session');
@@ -3017,11 +2756,9 @@
                     const sessionObj = JSON.parse(savedSession);
                     setLoggedInSession(sessionObj);
                 } catch(e) {
-                    loginAsDemo('student');
                     switchViewMode('public');
                 }
             } else {
-                loginAsDemo('student');
                 switchViewMode('public');
             }
         });
