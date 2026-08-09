@@ -4,7 +4,7 @@ const { GoogleGenAI } = require("@google/genai");
 async function run() {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    throw new Error("GEMINI_API_KEY environment variable is missing.");
+    throw new Error("GEMINI_API_KEY environment variable is missing in GitHub Secrets.");
   }
 
   const ai = new GoogleGenAI({ apiKey });
