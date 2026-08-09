@@ -3,31 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sharusuri EdTech Enterprise OS v6.0 - Official Cousins Academy YouTube Channel Integration, Navodaya & Morarji Coaching Engine, Innovation Hub & Master Admin Overlook">
-    <title>Sharusuri EdTech | Cousins Academy Official Video Portal & Innovation Hub</title>
+    <meta name="description" content="Sharusuri EdTech Enterprise OS v6.0 - Official Cousins Academy YouTube Channel Integration, Navodaya & Morarji Coaching Engine, Sectioned Playlists, Live/Demo Hub & Class Schedule Calendar">
+    <title>Sharusuri EdTech | Cousins Academy Video Library & Interactive Schedule Hub</title>
     
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Modular External CSS References -->
+    <!-- External Fallback CSS References -->
     <link rel="stylesheet" href="css/main.css" id="mainCssReference" onerror="console.log('CSS folder loaded via embedded fallback')">
     <link rel="stylesheet" href="css/dashboards.css" id="dashCssReference" onerror="console.log('Dashboard CSS fallback')">
 
-    <!-- Firebase App & Auth Compat SDKs -->
+    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 
-    <!-- Modular JavaScript File Imports -->
+    <!-- Modular JS References -->
     <script defer src="js/auth/firebase_otp.js" onerror="console.log('Modular JS fallbacks active')"></script>
     <script defer src="js/video_slider.js"></script>
-    <script defer src="js/roles/admin.js"></script>
-    <script defer src="js/roles/student.js"></script>
-    <script defer src="js/roles/teacher.js"></script>
-    <script defer src="js/roles/parent.js"></script>
-    <script defer src="js/roles/mentor.js"></script>
-    <script defer src="js/roles/hr.js"></script>
 
     <style>
         :root {
@@ -99,7 +93,7 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
-        /* TOAST NOTIFICATION ENGINE */
+        /* TOAST NOTIFICATIONS */
         .toast-container {
             position: fixed;
             bottom: 2rem;
@@ -139,7 +133,7 @@
             to { opacity: 0; transform: translateY(10px); }
         }
 
-        /* TOP ANNOUNCEMENT BAR */
+        /* ANNOUNCEMENT BAR */
         .top-notice-bar {
             background: linear-gradient(90deg, #dc2626, #0f766e, #1d4ed8);
             color: white;
@@ -195,9 +189,7 @@
             border-radius: var(--radius-md);
         }
 
-        .brand-logo:hover {
-            background: var(--primary-light);
-        }
+        .brand-logo:hover { background: var(--primary-light); }
 
         .brand-badge {
             width: 42px;
@@ -375,7 +367,7 @@
             font-size: 0.85rem;
         }
 
-        /* PUBLIC LANDING & MARKETPLACE STYLES */
+        /* PUBLIC LANDING & HERO SECTION */
         .public-landing { display: block; }
 
         .hero-section {
@@ -428,21 +420,126 @@
             flex-wrap: wrap;
         }
 
-        /* EXCLUSIVE COUSINS ACADEMY YOUTUBE VIDEO CAROUSEL / SLIDER STYLES */
-        .video-slider-wrapper {
-            position: relative;
+        /* NEW: LIVE, DEMO & DOUBT INTERACTIVE SLIDER BANNER */
+        .live-hub-wrapper {
             max-width: 1200px;
-            margin: 2.5rem auto;
+            margin: 2rem auto;
             padding: 0 1.5rem;
         }
 
-        .slider-header-title {
+        .live-banner-card {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .live-banner-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(220,38,38,0.25) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .live-slide-content {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 1.25rem;
-            flex-wrap: wrap;
-            gap: 1rem;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .live-slide-info { max-width: 650px; }
+
+        .live-pulse-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(220, 38, 38, 0.25);
+            color: #ff4d4d;
+            border: 1px solid rgba(255, 0, 0, 0.4);
+            padding: 0.3rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.85rem;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #ff0000;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+            animation: pulseGlow 1.5s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+        }
+
+        .live-slide-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+
+        .live-slide-desc {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .live-controls-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .live-tabs-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot-btn.active {
+            background: var(--yt-red);
+            width: 28px;
+            border-radius: 12px;
+        }
+
+        /* NEW: SECTION-WISE & PLAYLIST-WISE VIDEO LIBRARY */
+        .playlist-hub-section {
+            max-width: 1200px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
         }
 
         .yt-channel-banner-card {
@@ -499,6 +596,48 @@
             background: var(--yt-red-dark);
             transform: translateY(-2px);
             box-shadow: 0 4px 14px rgba(255, 0, 0, 0.4);
+        }
+
+        /* Playlist Category Filter Tabs */
+        .playlist-tabs-wrapper {
+            display: flex;
+            gap: 0.6rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            scrollbar-width: thin;
+        }
+
+        .playlist-tab-btn {
+            padding: 0.6rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .playlist-tab-btn:hover, .playlist-tab-btn.active {
+            background: var(--yt-red);
+            color: white;
+            border-color: var(--yt-red);
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.25);
+        }
+
+        .playlist-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .slider-controls-btn {
@@ -629,6 +768,124 @@
             border-top: 1px dashed var(--border-light);
         }
 
+        /* NEW: INTERACTIVE CLASS CALENDAR & TIMINGS SCHEDULE HUB */
+        .calendar-section-wrapper {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .calendar-filter-bar {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--border-light);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .calendar-filters-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.85rem;
+        }
+
+        .calendar-day-col {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 0.85rem;
+            min-height: 380px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .calendar-day-col.today {
+            border-color: var(--primary);
+            background: linear-gradient(180deg, var(--primary-light) 0%, var(--card-bg) 20%);
+        }
+
+        .day-header {
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .day-name {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .day-date {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--text-main);
+        }
+
+        .schedule-event-card {
+            background: var(--bg);
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--secondary);
+            padding: 0.65rem;
+            font-size: 0.78rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            cursor: pointer;
+        }
+
+        .schedule-event-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .schedule-event-card.live-event { border-left-color: var(--danger); background: var(--yt-bg-light); }
+        .schedule-event-card.demo-event { border-left-color: var(--accent); background: var(--accent-light); }
+        .schedule-event-card.doubt-event { border-left-color: var(--purple); background: var(--purple-light); }
+
+        .event-time {
+            font-weight: 800;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .event-title {
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.25;
+        }
+
+        .event-faculty {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+        }
+
+        .event-actions {
+            display: flex;
+            gap: 0.3rem;
+            margin-top: 0.3rem;
+        }
+
         /* INNOVATION & COMPETITION HUB */
         .innovation-section {
             background: linear-gradient(180deg, var(--bg) 0%, rgba(139, 92, 246, 0.05) 100%);
@@ -748,17 +1005,6 @@
             overflow-y: auto;
         }
 
-        .menu-category {
-            font-size: 0.72rem;
-            font-weight: 800;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            padding: 0.75rem 0.75rem 0.35rem;
-            letter-spacing: 0.5px;
-        }
-
-        .collapsed .menu-category { display: none; }
-
         .nav-item {
             display: flex;
             align-items: center;
@@ -777,14 +1023,6 @@
             background: var(--primary);
             color: white;
         }
-
-        .nav-item .icon {
-            font-size: 1.15rem;
-            width: 24px;
-            text-align: center;
-        }
-
-        .collapsed .nav-item span:not(.icon) { display: none; }
 
         .main-content {
             flex-grow: 1;
@@ -1041,8 +1279,8 @@
 
         .action-icon-btn:hover { background: var(--primary-light); }
 
-        /* AUTH MODAL & ADVANCED TABS */
-        .auth-modal-overlay {
+        /* MODALS */
+        .modal-overlay, .auth-modal-overlay {
             position: fixed;
             inset: 0;
             background: rgba(15, 23, 42, 0.78);
@@ -1054,19 +1292,31 @@
             padding: 1rem;
         }
 
-        .auth-modal-overlay.active { display: flex; }
+        .modal-overlay.active, .auth-modal-overlay.active { display: flex; }
 
-        .auth-box {
+        .modal-box, .auth-box {
             background: var(--card-bg);
             border-radius: var(--radius-lg);
-            max-width: 620px;
+            max-width: 780px;
             width: 100%;
-            padding: 2.25rem;
+            padding: 2rem;
             box-shadow: var(--shadow-lg);
             border: 1px solid var(--border);
             position: relative;
-            max-height: 95vh;
+            max-height: 90vh;
             overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            z-index: 10;
         }
 
         .auth-tabs {
@@ -1143,47 +1393,7 @@
             color: var(--primary);
         }
 
-        /* MODALS */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(5px);
-            z-index: 2000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-
-        .modal-overlay.active { display: flex; }
-
-        .modal-box {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            max-width: 780px;
-            width: 100%;
-            padding: 2rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border);
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: transparent;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-muted);
-            z-index: 10;
-        }
-
-        /* FOUNDER & CO-FOUNDER LEADERSHIP MODAL STYLES */
+        /* FOUNDER LEADERSHIP MODAL */
         .leadership-modal-box {
             max-width: 880px;
             background: var(--card-bg);
@@ -1207,12 +1417,6 @@
             flex-direction: column;
             justify-content: space-between;
             transition: var(--transition);
-        }
-
-        .founder-card:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-3px);
         }
 
         .founder-avatar-wrap {
@@ -1338,13 +1542,15 @@
         @media (max-width: 1100px) {
             .grid-4 { grid-template-columns: repeat(2, 1fr); }
             .grid-3, .innovation-grid, .founder-grid { grid-template-columns: 1fr; }
+            .schedule-grid { grid-template-columns: repeat(2, 1fr); }
+            .live-slide-content { flex-direction: column; text-align: center; }
             .demo-accounts-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
             .sidebar { position: fixed; left: -280px; top: 0; bottom: 0; height: 100vh; }
             .sidebar.mobile-open { left: 0; }
-            .grid-4, .grid-2 { grid-template-columns: 1fr; }
+            .grid-4, .grid-2, .schedule-grid { grid-template-columns: 1fr; }
             .header-search { display: none; }
             .hero-title { font-size: 2rem; }
             .yt-channel-banner-card { flex-direction: column; text-align: center; }
@@ -1392,7 +1598,7 @@
                 <button class="mode-btn" id="modePortalBtn" onclick="triggerPortalAccess()">🔒 Dashboard Access</button>
             </div>
 
-            <!-- UNIFIED ROLE SELECTOR DROPDOWN (VISIBLE ONLY FOR SUPER ADMIN suresh2suresh80888@gmail.com) -->
+            <!-- UNIFIED ROLE SELECTOR DROPDOWN (SUPER ADMIN ONLY) -->
             <div class="role-selector-wrapper" id="headerRoleWrapper" style="display: none;">
                 <span class="role-selector-label">⚙️ Admin Overlook:</span>
                 <select id="globalRoleSelector" class="role-selector" onchange="switchRolePortal(this.value)">
@@ -1439,9 +1645,7 @@
         </div>
     </header>
 
-    <!-- ========================================================================= -->
     <!-- FOUNDER & CO-FOUNDER LEADERSHIP MODAL -->
-    <!-- ========================================================================= -->
     <div class="modal-overlay" id="founderModal" onclick="closeFounderModalOnOverlay(event)">
         <div class="modal-box leadership-modal-box" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeFounderModal()" aria-label="Close Modal">✕</button>
@@ -1454,7 +1658,6 @@
                 </p>
             </div>
 
-            <!-- MISSION STATEMENT BANNER -->
             <div class="mission-banner">
                 <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
                     <span style="font-size: 1.4rem;">🎯</span>
@@ -1465,7 +1668,6 @@
                 </p>
             </div>
 
-            <!-- FOUNDER & CO-FOUNDER PROFILES GRID -->
             <div class="founder-grid">
                 <!-- FOUNDER CARD -->
                 <div class="founder-card">
@@ -1524,7 +1726,6 @@
                 </div>
             </div>
 
-            <!-- MODAL FOOTER -->
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-light); flex-wrap: wrap; gap: 0.75rem;">
                 <span style="font-size: 0.78rem; color: var(--text-muted);">© 2026 Sharusuri EdTech OS Platform. All rights reserved.</span>
                 <div style="display: flex; gap: 0.5rem;">
@@ -1535,19 +1736,16 @@
         </div>
     </div>
 
-    <!-- ========================================================================= -->
-    <!-- AUTHENTICATION & REGISTRATION GATEWAY MODAL WITH FIREBASE EMAIL OTP LINK -->
-    <!-- ========================================================================= -->
+    <!-- AUTHENTICATION GATEWAY MODAL -->
     <div class="auth-modal-overlay" id="authModal">
         <div class="auth-box">
             <button class="modal-close" onclick="closeAuthModal()">✕</button>
             <div style="text-align: center; margin-bottom: 1.25rem;">
                 <span class="brand-badge" style="margin: 0 auto 0.5rem;">SE</span>
                 <h2 style="font-size: 1.5rem;">Sharusuri Authentication Gateway</h2>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Firebase Real Email Link OTP Authentication & Master Role Access Control</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Firebase Email Link OTP Authentication & Master Role Access Control</p>
             </div>
 
-            <!-- TAB CONTROLS FOR AUTH SYSTEM -->
             <div class="auth-tabs">
                 <button class="auth-tab-btn active" id="otpTabBtn" onclick="switchAuthTab('otp')">🔑 Firebase Magic OTP</button>
                 <button class="auth-tab-btn" id="loginTabBtn" onclick="switchAuthTab('login')">Sign In</button>
@@ -1555,7 +1753,7 @@
                 <button class="auth-tab-btn" id="resetTabBtn" onclick="switchAuthTab('reset')">Reset Password</button>
             </div>
 
-            <!-- 1. ADMIN EMAIL OTP / FIREBASE MAGIC LINK LOGIN FORM -->
+            <!-- OTP FORM -->
             <div id="otpFormContainer">
                 <div class="auth-alert-card auth-alert-info">
                     <span>⚡</span>
@@ -1589,7 +1787,7 @@
                 </div>
             </div>
 
-            <!-- 2. STANDARD SIGN IN FORM -->
+            <!-- STANDARD SIGN IN FORM -->
             <form id="loginFormContainer" style="display: none;" onsubmit="handleAuthSubmit(event, 'login')">
                 <div class="auth-alert-card auth-alert-info">
                     <span>💡</span>
@@ -1612,7 +1810,7 @@
                 </div>
             </form>
 
-            <!-- 3. NEW USER REGISTRATION FORM (SIGN UP) -->
+            <!-- SIGN UP FORM -->
             <form id="signupFormContainer" style="display: none;" onsubmit="handleAuthSubmit(event, 'signup')">
                 <div class="auth-alert-card auth-alert-success">
                     <span>✨</span>
@@ -1660,7 +1858,7 @@
                 </div>
             </form>
 
-            <!-- 4. FORGOT PASSWORD -->
+            <!-- FORGOT PASSWORD -->
             <form id="resetRequestContainer" style="display: none;" onsubmit="handleResetRequest(event)">
                 <div class="auth-alert-card auth-alert-warning">
                     <span>🔑</span>
@@ -1691,9 +1889,7 @@
         </div>
     </div>
 
-    <!-- ========================================================================= -->
-    <!-- PUBLIC LANDING PAGE (MARKETPLACE, COUSINS ACADEMY SLIDER & INNOVATION HUB) -->
-    <!-- ========================================================================= -->
+    <!-- PUBLIC LANDING PAGE & MARKETPLACE -->
     <div id="publicLanding" class="public-landing">
         <section class="hero-section">
             <div class="hero-container">
@@ -1707,23 +1903,44 @@
                 <div class="hero-cta-group">
                     <button class="btn btn-yt" onclick="window.open('https://www.youtube.com/@cousinsacademy4599?sub_confirmation=1', '_blank')">📺 Subscribe to Cousins Academy</button>
                     <button class="btn btn-primary" onclick="triggerPortalAccess()">🚀 Login / Portal Access</button>
-                    <button class="btn btn-purple" onclick="scrollToSection('innovationHubSection')">🚀 Innovation & Competition Hub</button>
+                    <button class="btn btn-purple" onclick="scrollToSection('calendarHubSection')">📅 Live Schedule & Calendar</button>
                 </div>
             </div>
         </section>
 
-        <!-- YOUTUBE VIDEO SLIDER CAROUSEL (EXCLUSIVE COUSINS ACADEMY CHANNEL) -->
-        <section class="video-slider-wrapper">
+        <!-- 2. LIVE, DEMO & DOUBT SESSION SLIDER (INTERACTIVE BANNER) -->
+        <section class="live-hub-wrapper">
+            <div class="live-banner-card">
+                <div class="live-slide-content" id="liveBannerSlideContainer">
+                    <!-- Populated dynamically via JS -->
+                </div>
+                <div class="live-controls-bar">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 0.8rem; color: #aaaaaa; font-weight: 700;">FEATURED INTERACTIVE SESSIONS</span>
+                    </div>
+                    <div class="live-tabs-dots" id="liveSliderDots">
+                        <!-- Dots populated via JS -->
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="slider-nav-btn" style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.2);" onclick="navigateLiveSlide(-1)">❮</button>
+                        <button class="slider-nav-btn" style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.2);" onclick="navigateLiveSlide(1)">❯</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. SECTION-WISE & PLAYLIST-WISE VIDEO LIBRARY -->
+        <section class="playlist-hub-section" id="playlistLibrarySection">
             <!-- COUSINS ACADEMY OFFICIAL CHANNEL BANNER -->
             <div class="yt-channel-banner-card">
                 <div class="yt-channel-info">
                     <div class="yt-channel-avatar">CA</div>
                     <div>
                         <div style="display: flex; align-items: center; gap: 0.4rem;">
-                            <h3 style="font-size: 1.2rem; font-weight: 800; color: white;">Cousins Academy</h3>
+                            <h3 style="font-size: 1.2rem; font-weight: 800; color: white;">Cousins Academy Official Playlists</h3>
                             <span style="color: #3ea6ff; font-size: 0.9rem;" title="Verified Channel">✓</span>
                         </div>
-                        <p style="font-size: 0.82rem; color: #aaaaaa;">@cousinsacademy4599 • Official Navodaya & Competitive Entrance Exam Coaching</p>
+                        <p style="font-size: 0.82rem; color: #aaaaaa;">@cousinsacademy4599 • Categorized Navodaya, Morarji & STEM Playlists</p>
                     </div>
                 </div>
                 <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
@@ -1736,24 +1953,86 @@
                 </div>
             </div>
 
-            <div class="slider-header-title">
+            <div class="playlist-section-header">
                 <div>
-                    <span class="badge badge-danger" style="margin-bottom: 0.3rem;">🔴 Cousins Academy Official Stream</span>
-                    <h2 style="font-size: 1.6rem; color: var(--text-main);">Navodaya & Morarji Entrance Video Carousel</h2>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Curated exclusively from YouTube Channel: <strong>@cousinsacademy4599</strong></p>
+                    <span class="badge badge-danger" style="margin-bottom: 0.3rem;">🔴 Categorized Video Library</span>
+                    <h2 style="font-size: 1.6rem; color: var(--text-main);">Sectional Video Masterclasses</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Explore video lectures structured by syllabus topic & exam requirements.</p>
                 </div>
                 <div class="slider-controls-btn">
-                    <button class="slider-nav-btn" onclick="slideVideos('publicVideoContainer', -1)" title="Previous Video">❮</button>
-                    <button class="slider-nav-btn" onclick="slideVideos('publicVideoContainer', 1)" title="Next Video">❯</button>
+                    <button class="slider-nav-btn" onclick="slideVideos('publicSectionVideoContainer', -1)" title="Previous Video">❮</button>
+                    <button class="slider-nav-btn" onclick="slideVideos('publicSectionVideoContainer', 1)" title="Next Video">❯</button>
                 </div>
             </div>
 
-            <div class="video-cards-container" id="publicVideoContainer">
-                <!-- Dynamically populated strictly with Cousins Academy videos via JS -->
+            <!-- PLAYLIST SECTION CATEGORY TABS -->
+            <div class="playlist-tabs-wrapper" id="playlistTabButtonsContainer">
+                <!-- Dynamically rendered tabs -->
+            </div>
+
+            <!-- ACTIVE PLAYLIST CAROUSEL CONTAINER -->
+            <div class="video-cards-container" id="publicSectionVideoContainer">
+                <!-- Dynamically populated with section videos -->
             </div>
         </section>
 
-        <!-- INNOVATION, COMPETITION & BUSINESS SCOPE HUB -->
+        <!-- 3. INTERACTIVE CLASS CALENDAR & TIMINGS SCHEDULE HUB -->
+        <section class="calendar-section-wrapper" id="calendarHubSection">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <span class="badge badge-primary" style="margin-bottom: 0.4rem;">📅 Live Class Timetable</span>
+                <h2 style="font-size: 2rem; color: var(--text-main);">Tuition & Coaching Schedule Hub</h2>
+                <p style="color: var(--text-muted);">View upcoming Live Interactive Classes, Free Demos, Doubt Resolution & Hybrid Batches.</p>
+            </div>
+
+            <!-- CALENDAR FILTER BAR -->
+            <div class="calendar-filter-bar">
+                <div class="calendar-filters-group">
+                    <div>
+                        <label style="font-weight: 800; font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; display: block;">Target Grade / Class</label>
+                        <select id="calFilterGrade" class="inline-input" style="font-weight: 700; width: 160px;" onchange="filterScheduleCalendar()">
+                            <option value="ALL">All Grades</option>
+                            <option value="Class 5 Navodaya">Class 5 Navodaya</option>
+                            <option value="Class 6 Morarji">Class 6 Morarji</option>
+                            <option value="Class 10 STEM">Class 10 STEM</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="font-weight: 800; font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; display: block;">Subject Filter</label>
+                        <select id="calFilterSubject" class="inline-input" style="font-weight: 700; width: 160px;" onchange="filterScheduleCalendar()">
+                            <option value="ALL">All Subjects</option>
+                            <option value="Mental Ability">Mental Ability</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Science">Science</option>
+                            <option value="Kannada / English">Language Test</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="font-weight: 800; font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; display: block;">Session Type</label>
+                        <select id="calFilterType" class="inline-input" style="font-weight: 700; width: 160px;" onchange="filterScheduleCalendar()">
+                            <option value="ALL">All Session Types</option>
+                            <option value="Live Class">🔴 Live Class</option>
+                            <option value="Demo Session">🎯 Free Demo</option>
+                            <option value="Doubt Session">❓ Doubt Clinic</option>
+                            <option value="Test Series">📝 Test Series</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <span class="badge badge-success" id="calActiveCountBadge">8 Classes Scheduled</span>
+                    <button class="btn btn-secondary btn-sm" onclick="resetScheduleFilters()">🔄 Reset Filters</button>
+                </div>
+            </div>
+
+            <!-- WEEKLY SCHEDULE GRID -->
+            <div class="schedule-grid" id="scheduleCalendarGrid">
+                <!-- Rendered dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- INNOVATION & COMPETITION HUB -->
         <section id="innovationHubSection" class="innovation-section">
             <div style="text-align: center; max-width: 800px; margin: 0 auto;">
                 <span class="badge badge-purple" style="margin-bottom: 0.5rem;">🌟 Sharusuri NextGen Talent</span>
@@ -1794,7 +2073,7 @@
             </div>
         </section>
 
-        <!-- PUBLIC COURSE MARKETPLACE -->
+        <!-- COURSE MARKETPLACE CATALOG -->
         <section id="coursesSection" class="public-grid">
             <div style="text-align: center; margin-bottom: 2rem;">
                 <h2 style="font-size: 2rem; color: var(--text-main);">Academic Course Catalog</h2>
@@ -1843,7 +2122,7 @@
             </div>
         </section>
 
-        <!-- PUBLIC GEOGRAPHIC FRANCHISE APPLICATION SECTION -->
+        <!-- FRANCHISE APPLICATION -->
         <section id="franchiseApplySection" style="background: var(--card-bg); padding: 3.5rem 1.5rem; border-top: 1px solid var(--border-light);">
             <div style="max-width: 900px; margin: 0 auto;">
                 <div style="text-align: center; margin-bottom: 2rem;">
@@ -1898,9 +2177,7 @@
         </footer>
     </div>
 
-    <!-- ========================================================================= -->
-    <!-- LOGGED-IN AUTHENTICATED APP SYSTEM (ISOLATED ROLE DASHBOARDS) -->
-    <!-- ========================================================================= -->
+    <!-- LOGGED-IN AUTHENTICATED APP SYSTEM -->
     <div id="authenticatedApp" class="app-body" style="display: none;">
         
         <!-- SIDEBAR NAVIGATION -->
@@ -1921,12 +2198,12 @@
         <!-- MAIN DASHBOARD CONTENT AREA -->
         <main class="main-content">
 
-            <!-- 1. SUPER ADMIN MASTER OVERLOOK CONSOLE (suresh2suresh80888@gmail.com) -->
+            <!-- 1. SUPER ADMIN MASTER OVERLOOK CONSOLE -->
             <section id="adminConsole" class="role-console active">
                 <div class="console-header">
                     <div class="console-title">
                         <h1>⚙️ Super Admin Master Overlook Console</h1>
-                        <p>Logged in as: <code>suresh2suresh80888@gmail.com</code> | Cousins Academy Official Video Integration Active</p>
+                        <p>Logged in as: <code>suresh2suresh80888@gmail.com</code> | Cousins Academy Official Video & Schedule Integration</p>
                     </div>
                     <div style="display: flex; gap: 0.5rem;">
                         <button class="btn btn-yt btn-sm" onclick="window.open('https://www.youtube.com/@cousinsacademy4599', '_blank')">📺 Cousins Academy</button>
@@ -1955,58 +2232,120 @@
                     <div class="stat-card">
                         <div class="stat-info">
                             <h4>Channel Videos</h4>
-                            <div class="val" id="adminVideoCount">4</div>
-                            <span class="sub">Strictly @cousinsacademy4599</span>
+                            <div class="val" id="adminVideoCount">6</div>
+                            <span class="sub">Categorized Playlists</span>
                         </div>
                         <div class="stat-icon red">📺</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-info">
-                            <h4>Monthly Payroll</h4>
-                            <div class="val">₹24.8 L</div>
-                            <span class="sub">68 Active Staff</span>
+                            <h4>Scheduled Classes</h4>
+                            <div class="val" id="adminScheduleCount">8</div>
+                            <span class="sub">Live & Demo Sessions</span>
                         </div>
-                        <div class="stat-icon emerald">👨‍🏫</div>
+                        <div class="stat-icon emerald">📅</div>
                     </div>
                 </div>
 
-                <!-- ADMIN YOUTUBE VIDEO SLIDER MANAGER MODULE (EXCLUSIVE TO @cousinsacademy4599) -->
+                <!-- 4. ADMIN SCHEDULING CONTROL MODULE -->
                 <div class="panel-card">
                     <div class="panel-header">
                         <div style="display: flex; align-items: center; gap: 0.5rem;">
-                            <h3 class="panel-title">📺 Admin Cousins Academy Video Slider Manager</h3>
-                            <span class="badge badge-danger">@cousinsacademy4599 Only</span>
+                            <h3 class="panel-title">📅 Live Class & Schedule Event Manager</h3>
+                            <span class="badge badge-primary">Admin Control</span>
                         </div>
-                        <a href="https://www.youtube.com/@cousinsacademy4599" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" style="color: var(--yt-red); border-color: rgba(255,0,0,0.3);">
-                            🔗 Open Channel Studio
-                        </a>
                     </div>
 
-                    <div style="background: var(--yt-bg-light); border: 1px solid rgba(255,0,0,0.2); padding: 0.75rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem; font-size: 0.85rem; color: var(--yt-red);">
-                        <strong>⚠️ Strict Integration Policy:</strong> All video entries must originate exclusively from <code>https://www.youtube.com/@cousinsacademy4599</code> or associated playlists (e.g., <code>PLe6kiPfGDcRhdws6K77cgOn5ChjCZOPWU</code>). Non-Cousins Academy videos are automatically rejected by the engine.
+                    <form onsubmit="handleAdminAddSchedule(event)" style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr auto; gap: 0.75rem; align-items: end; margin-bottom: 1.25rem;">
+                        <div>
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Class / Event Title *</label>
+                            <input type="text" id="addSchTitle" required placeholder="e.g. Navodaya Mental Ability Speed Test" class="inline-input">
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Day & Time *</label>
+                            <input type="text" id="addSchTime" required placeholder="Mon • 5:00 PM" class="inline-input">
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Subject</label>
+                            <select id="addSchSubject" class="inline-input" style="font-weight:700;">
+                                <option value="Mental Ability">Mental Ability</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="Kannada / English">Language Test</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Target Grade</label>
+                            <select id="addSchGrade" class="inline-input" style="font-weight:700;">
+                                <option value="Class 5 Navodaya">Class 5 Navodaya</option>
+                                <option value="Class 6 Morarji">Class 6 Morarji</option>
+                                <option value="Class 10 STEM">Class 10 STEM</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Session Type</label>
+                            <select id="addSchType" class="inline-input" style="font-weight:700;">
+                                <option value="Live Class">Live Class</option>
+                                <option value="Demo Session">Free Demo</option>
+                                <option value="Doubt Session">Doubt Clinic</option>
+                                <option value="Test Series">Test Series</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1rem;">➕ Schedule</button>
+                    </form>
+
+                    <div class="data-table-wrapper">
+                        <table class="data-table" id="adminScheduleTable">
+                            <thead>
+                                <tr>
+                                    <th>Day / Time</th>
+                                    <th>Event Title</th>
+                                    <th>Grade</th>
+                                    <th>Subject</th>
+                                    <th>Type</th>
+                                    <th>Faculty</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminScheduleTableBody">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ADMIN VIDEO & PLAYLIST MANAGER MODULE -->
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <h3 class="panel-title">📺 Admin Cousins Academy Video & Playlist Manager</h3>
+                            <span class="badge badge-danger">@cousinsacademy4599 Only</span>
+                        </div>
                     </div>
 
                     <form onsubmit="handleAdminAddVideo(event)" style="display: grid; grid-template-columns: 2fr 2fr 1fr 1fr auto; gap: 0.75rem; align-items: end; margin-bottom: 1.25rem;">
                         <div>
                             <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Video Title *</label>
-                            <input type="text" id="addVideoTitle" required placeholder="e.g. Navodaya Kannada Medium Model Paper" class="inline-input">
+                            <input type="text" id="addVideoTitle" required placeholder="e.g. Navodaya Mental Ability Patterns" class="inline-input">
                         </div>
                         <div>
-                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Cousins Academy Video URL or ID *</label>
-                            <input type="text" id="addVideoUrl" required placeholder="https://youtu.be/s2i17Z1vyHw or ID" class="inline-input">
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Cousins Academy Video or Playlist URL *</label>
+                            <input type="text" id="addVideoUrl" required placeholder="https://youtu.be/VWt6oiIyajQ or Playlist" class="inline-input">
                         </div>
                         <div>
-                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Target Batch</label>
-                            <select id="addVideoBatch" class="inline-input" style="font-weight: 700;">
-                                <option value="Navodaya Prep 2026">Navodaya 2026</option>
-                                <option value="Morarji Desai Exam">Morarji Desai</option>
-                                <option value="Class 10 Science">Class 10 Science</option>
-                                <option value="OMR Filling Guide">OMR Guidance</option>
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Section / Playlist</label>
+                            <select id="addVideoSection" class="inline-input" style="font-weight: 700;">
+                                <option value="Morarji & OMR Guidelines">Morarji & OMR</option>
+                                <option value="Navodaya Entrance Prep">Navodaya Prep</option>
+                                <option value="Official Navodaya Playlist">Official Playlist</option>
+                                <option value="Mental Ability Special">Mental Ability</option>
+                                <option value="Mathematics Tricks">Mathematics</option>
+                                <option value="Language Test Series">Language Test</option>
                             </select>
                         </div>
                         <div>
-                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Channel Handle</label>
-                            <input type="text" id="addVideoChannel" value="@cousinsacademy4599" readonly class="inline-input" style="background: var(--border-light); font-weight:700;">
+                            <label style="font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 0.2rem;">Duration</label>
+                            <input type="text" id="addVideoDuration" value="18:30" class="inline-input">
                         </div>
                         <button type="submit" class="btn btn-yt" style="padding: 0.5rem 1rem;">➕ Add Video</button>
                     </form>
@@ -2017,14 +2356,14 @@
                                 <tr>
                                     <th>Thumbnail</th>
                                     <th>Title</th>
-                                    <th>Category</th>
+                                    <th>Category Section</th>
                                     <th>YouTube ID</th>
                                     <th>Channel Reference</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody id="adminVideoTableBody">
-                                <!-- Populated dynamically via JS -->
+                                <!-- Populated dynamically -->
                             </tbody>
                         </table>
                     </div>
@@ -2037,7 +2376,6 @@
                         <span class="badge badge-primary">State ➔ District ➔ Taluk ➔ Hobli ➔ Village</span>
                     </div>
 
-                    <!-- GEOGRAPHICAL DROPDOWN FILTERS -->
                     <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; margin-bottom: 1.25rem; font-size: 0.85rem;">
                         <div>
                             <label style="font-weight: 700; display: block; margin-bottom: 0.2rem; color: var(--text-muted);">State / UT</label>
@@ -2129,7 +2467,6 @@
                     <div style="display: flex; gap: 0.75rem;">
                         <button class="btn btn-yt btn-sm" onclick="window.open('https://www.youtube.com/@cousinsacademy4599', '_blank')">📺 Cousins Academy</button>
                         <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">🧾 Official Fee Receipt</button>
-                        <button class="btn btn-secondary btn-sm" onclick="window.print()">🖨️ Scorecard</button>
                     </div>
                 </div>
 
@@ -2161,83 +2498,27 @@
                     <div class="stat-card">
                         <div class="stat-info">
                             <h4>Cousins Academy Lessons</h4>
-                            <div class="val" style="color: var(--yt-red);">4 Completed</div>
-                            <span class="sub">Navodaya Series</span>
+                            <div class="val" style="color: var(--yt-red);">6 Lessons</div>
+                            <span class="sub">Completed</span>
                         </div>
                         <div class="stat-icon red">📺</div>
                     </div>
                 </div>
 
-                <!-- ASSIGNED COUSINS ACADEMY YOUTUBE LECTURES SLIDER FOR STUDENT -->
+                <!-- STUDENT VIDEO LECTURES SLIDER -->
                 <div class="panel-card">
                     <div class="panel-header">
                         <div style="display: flex; align-items: center; gap: 0.5rem;">
-                            <h3 class="panel-title">📺 Assigned Cousins Academy Video Lectures</h3>
+                            <h3 class="panel-title">📺 Assigned Cousins Academy Video Lessons</h3>
                             <span class="badge badge-danger">@cousinsacademy4599</span>
                         </div>
                         <div class="slider-controls-btn">
-                            <button class="slider-nav-btn" onclick="slideVideos('studentVideoContainer', -1)" title="Previous">❮</button>
-                            <button class="slider-nav-btn" onclick="slideVideos('studentVideoContainer', 1)" title="Next">❯</button>
+                            <button class="slider-nav-btn" onclick="slideVideos('studentVideoContainer', -1)">❮</button>
+                            <button class="slider-nav-btn" onclick="slideVideos('studentVideoContainer', 1)">❯</button>
                         </div>
                     </div>
                     <div class="video-cards-container" id="studentVideoContainer">
-                        <!-- Populated via JS strictly with Cousins Academy videos -->
-                    </div>
-                </div>
-
-                <!-- STUDENT PROFILE & FEE DETAILS -->
-                <div class="grid-2">
-                    <div class="panel-card">
-                        <div class="panel-header">
-                            <h3 class="panel-title">👤 Personal Details & Address</h3>
-                            <button class="btn btn-secondary btn-sm" onclick="toggleStudentEdit()" id="studentEditToggleBtn">✏️ Edit</button>
-                        </div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.88rem;" id="studentProfileView">
-                            <div><strong>Full Name:</strong> <span id="lblStudentName">Suresh M. Kumar</span></div>
-                            <div><strong>Roll Number:</strong> #2026-10-A42</div>
-                            <div><strong>Student ID:</strong> SE-9942-IND</div>
-                            <div><strong>Contact Phone:</strong> <span id="lblStudentPhone">+91 80888 35686</span></div>
-                            <div><strong>State / UT:</strong> <span id="lblStudentState">Karnataka</span></div>
-                            <div><strong>District:</strong> <span id="lblStudentDistrict">Raichur</span></div>
-                            <div><strong>Taluk / Tehsil:</strong> <span id="lblStudentTaluk">Sindhanur</span></div>
-                            <div><strong>Hobli / Circle:</strong> <span id="lblStudentHobli">AP K Hosalli Hobli</span></div>
-                            <div style="grid-column: span 2;"><strong>Village Address:</strong> <span id="lblStudentAddress">AP K Hosalli Village, Sindhanur 584132</span></div>
-                        </div>
-
-                        <!-- Editable Form -->
-                        <form id="studentProfileEditForm" style="display: none; grid-template-columns: 1fr 1fr; gap: 0.85rem; font-size: 0.88rem;" onsubmit="saveStudentProfile(event)">
-                            <div>
-                                <label style="font-weight: 700; font-size: 0.78rem;">Full Name</label>
-                                <input type="text" id="inputStuName" class="inline-input" value="Suresh M. Kumar">
-                            </div>
-                            <div>
-                                <label style="font-weight: 700; font-size: 0.78rem;">Contact Phone</label>
-                                <input type="text" id="inputStuPhone" class="inline-input" value="+91 80888 35686">
-                            </div>
-                            <div>
-                                <label style="font-weight: 700; font-size: 0.78rem;">State / UT</label>
-                                <input type="text" id="inputStuState" class="inline-input" value="Karnataka">
-                            </div>
-                            <div>
-                                <label style="font-weight: 700; font-size: 0.78rem;">District</label>
-                                <input type="text" id="inputStuDistrict" class="inline-input" value="Raichur">
-                            </div>
-                            <div style="grid-column: span 2; display: flex; gap: 0.5rem; margin-top: 0.5rem;">
-                                <button type="submit" class="btn btn-primary btn-sm">💾 Save</button>
-                                <button type="button" class="btn btn-secondary btn-sm" onclick="toggleStudentEdit()">Cancel</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="panel-card">
-                        <div class="panel-header">
-                            <h3 class="panel-title">💳 Quick Payment & Receipt Access</h3>
-                        </div>
-                        <p style="font-size: 0.88rem; margin-bottom: 1rem;">Outstanding balance: <strong style="color: var(--danger);">₹10,000</strong> for Hostel & Boarding dues.</p>
-                        <div style="display: flex; gap: 0.5rem;">
-                            <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">📄 Download Official Fee Receipt</button>
-                            <button class="btn btn-accent btn-sm" onclick="showToast('Redirecting to PhonePe/UPI Payment Gateway...')">💳 Pay Balance Online</button>
-                        </div>
+                        <!-- Populated via JS -->
                     </div>
                 </div>
             </section>
@@ -2251,95 +2532,35 @@
                     </div>
                     <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('FAC-4012')">💵 Monthly Salary Slip</button>
                 </div>
-                <div class="panel-card">
-                    <div class="panel-header">
-                        <h3 class="panel-title">📋 Live Class Roster & Grade Manager</h3>
-                    </div>
-                    <p style="font-size: 0.88rem; color: var(--text-muted);">Manage student marks, attendance, and link assignment YouTube videos sourced strictly from @cousinsacademy4599.</p>
-                </div>
             </section>
 
-            <!-- 4. PARENT CONSOLE -->
+            <!-- OTHER ROLE CONSOLES -->
             <section id="parentConsole" class="role-console">
-                <div class="console-header">
-                    <div class="console-title">
-                        <h1>👪 Parent Monitoring Portal</h1>
-                        <p>Welcome, <strong class="user-display-name">Mr. Manjunath Kumar</strong> | Parent ID: <code>PRT-8812</code></p>
-                    </div>
-                    <button class="btn btn-primary btn-sm" onclick="openReceiptModal()">📄 Child Fee Receipts</button>
-                </div>
+                <div class="console-header"><div class="console-title"><h1>👪 Parent Monitoring Portal</h1></div></div>
             </section>
-
-            <!-- 5. MENTOR CONSOLE -->
             <section id="mentorConsole" class="role-console">
-                <div class="console-header">
-                    <div class="console-title">
-                        <h1>👨‍💼 Academic Mentor Console</h1>
-                        <p>Welcome, <strong class="user-display-name">Dr. Ramesh Patil</strong> | Staff ID: <code>MNT-1090</code></p>
-                    </div>
-                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('MNT-1090')">💵 View Salary Slip</button>
-                </div>
+                <div class="console-header"><div class="console-title"><h1>👨‍💼 Academic Mentor Console</h1></div></div>
             </section>
-
-            <!-- 6. NON-TEACHING STAFF CONSOLE -->
             <section id="staffConsole" class="role-console">
-                <div class="console-header">
-                    <div class="console-title">
-                        <h1>🛠️ Campus Operations Console</h1>
-                        <p>Welcome, <strong class="user-display-name">Suresh Patil</strong> | Staff ID: <code>STF-8810</code></p>
-                    </div>
-                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('STF-8810')">💵 View Salary Slip</button>
-                </div>
+                <div class="console-header"><div class="console-title"><h1>🛠️ Campus Operations Console</h1></div></div>
             </section>
-
-            <!-- 7. RECEPTIONIST CONSOLE -->
             <section id="receptionistConsole" class="role-console">
-                <div class="console-header">
-                    <div class="console-title">
-                        <h1>📞 Front Desk Management</h1>
-                        <p>Welcome, <strong class="user-display-name">Rekha Sharma</strong> | Front Office | Staff ID: <code>REC-2040</code></p>
-                    </div>
-                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('REC-2040')">💵 View Salary Slip</button>
-                </div>
+                <div class="console-header"><div class="console-title"><h1>📞 Front Desk Management</h1></div></div>
             </section>
-
-            <!-- 8. HR & STAFF PAYROLL CONSOLE -->
             <section id="hiringConsole" class="role-console">
-                <div class="console-header">
-                    <div class="console-title">
-                        <h1>💼 HR & Staff Payroll Directory</h1>
-                        <p>Welcome, <strong class="user-display-name">Suresh HR Lead</strong> | HR Dept ID: <code>HR-1001</code></p>
-                    </div>
-                    <button class="btn btn-primary btn-sm" onclick="openSalarySlipModal('HR-1001')">💵 View HR Salary Slip</button>
-                </div>
+                <div class="console-header"><div class="console-title"><h1>💼 HR & Staff Payroll Directory</h1></div></div>
             </section>
-
-            <!-- 9. FRANCHISE CONSOLE -->
             <section id="franchiseConsole" class="role-console">
-                <div class="console-header">
-                    <div class="console-title">
-                        <h1>🌐 Franchise Network Hub</h1>
-                        <p>Regional Node Operations</p>
-                    </div>
-                </div>
+                <div class="console-header"><div class="console-title"><h1>🌐 Franchise Network Hub</h1></div></div>
             </section>
-
-            <!-- 10. INFRASTRUCTURE CONSOLE -->
             <section id="infrastructureConsole" class="role-console">
-                <div class="console-header">
-                    <div class="console-title">
-                        <h1>🏢 Campus Assets Console</h1>
-                        <p>Facility Inventory & Asset Barcode Tracker</p>
-                    </div>
-                </div>
+                <div class="console-header"><div class="console-title"><h1>🏢 Campus Assets Console</h1></div></div>
             </section>
 
         </main>
     </div>
 
-    <!-- ========================================================================= -->
-    <!-- EMBEDDED YOUTUBE VIDEO PLAYER MODAL (COUSINS ACADEMY NOCOOKIE EMBED) -->
-    <!-- ========================================================================= -->
+    <!-- EMBEDDED YOUTUBE VIDEO PLAYER MODAL -->
     <div class="modal-overlay" id="videoPlayerModal">
         <div class="modal-box" style="max-width: 880px; padding: 1.5rem; background: #0f0f0f; color: #fff; border: 1px solid #282828;">
             <button class="modal-close" onclick="closeVideoPlayerModal()" style="color: #fff;">✕</button>
@@ -2362,9 +2583,7 @@
         </div>
     </div>
 
-    <!-- ========================================================================= -->
     <!-- INNOVATION HUB SUBMISSION MODAL -->
-    <!-- ========================================================================= -->
     <div class="modal-overlay" id="innovationModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeInnovationModal()">✕</button>
@@ -2379,7 +2598,7 @@
             <form onsubmit="handleInnovationSubmit(event)" style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
                 <div>
                     <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Project / Pitch Title *</label>
-                    <input type="text" id="innoTitle" required placeholder="e.g. IoT Based Smart Water Filter for Village Farms" class="inline-input">
+                    <input type="text" id="innoTitle" required placeholder="e.g. Smart Agriculture Filter" class="inline-input">
                 </div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
                     <div>
@@ -2392,21 +2611,15 @@
                     </div>
                 </div>
                 <div>
-                    <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Abstract / Executive Summary *</label>
-                    <textarea id="innoAbstract" required placeholder="Describe your model, working prototype, or logic team details..." style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); height: 90px; background: var(--bg); color: var(--text-main);"></textarea>
+                    <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Abstract / Summary *</label>
+                    <textarea id="innoAbstract" required placeholder="Describe your working model or logic team details..." style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); height: 90px; background: var(--bg); color: var(--text-main);"></textarea>
                 </div>
-                <div>
-                    <label style="font-weight: 700; display: block; margin-bottom: 0.3rem;">Project Demo URL / Prototype Link (Optional)</label>
-                    <input type="url" id="innoUrl" placeholder="e.g., GitHub, YouTube demo, or Google Drive PDF" class="inline-input">
-                </div>
-                <button type="submit" class="btn btn-purple" style="margin-top: 0.5rem;">🚀 Submit Entry to Evaluation Board</button>
+                <button type="submit" class="btn btn-purple" style="margin-top: 0.5rem;">🚀 Submit Entry</button>
             </form>
         </div>
     </div>
 
-    <!-- ========================================================================= -->
     <!-- PRINTABLE FEE RECEIPT MODAL -->
-    <!-- ========================================================================= -->
     <div class="modal-overlay" id="receiptModal">
         <div class="modal-box printable-area">
             <button class="modal-close no-print" onclick="closeReceiptModal()">✕</button>
@@ -2419,17 +2632,15 @@
                             <h2 style="color: var(--primary); font-size: 1.3rem;">Sharusuri EdTech Academy</h2>
                         </div>
                         <p style="font-size: 0.78rem; color: var(--text-muted);">Official Fee Payment Receipt & Tax Invoice</p>
-                        <p style="font-size: 0.75rem; color: var(--text-muted);">Sindhanur Campus, Raichur Dist, Karnataka | Super Admin: suresh2suresh80888@gmail.com</p>
                     </div>
                     <div style="text-align: right;">
-                        <span class="badge badge-success" style="margin-bottom: 0.3rem; display: inline-block;">OFFICIAL RECEIPT</span>
-                        <div style="font-weight: 800; font-size: 0.9rem;">RECEIPT NO: #SE-REC-8831</div>
-                        <div style="font-size: 0.8rem; color: var(--text-muted);">Date: 28-Feb-2026</div>
+                        <span class="badge badge-success">OFFICIAL RECEIPT</span>
+                        <div style="font-weight: 800; font-size: 0.9rem; margin-top:0.3rem;">RECEIPT NO: #SE-REC-8831</div>
                     </div>
                 </div>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.85rem; margin-bottom: 1.25rem; background: var(--bg); padding: 0.85rem; border-radius: var(--radius-sm);">
-                    <div><strong>Student Name:</strong> <span id="receiptStuName">Suresh M. Kumar</span></div>
+                    <div><strong>Student Name:</strong> Suresh M. Kumar</div>
                     <div><strong>Student ID:</strong> SE-9942-IND</div>
                     <div><strong>Class / Course:</strong> Class 10 Navodaya & Board Prep</div>
                     <div><strong>Payment Mode:</strong> Online UPI (Ref #992014881)</div>
@@ -2451,118 +2662,69 @@
                             <td>₹45,000</td>
                             <td>₹45,000</td>
                         </tr>
-                        <tr>
-                            <td>Hostel Lodging & Campus Mess Charges</td>
-                            <td>Term I & II Dues</td>
-                            <td>₹15,000</td>
-                            <td>₹10,000</td>
-                        </tr>
                         <tr class="stub-total">
                             <td colspan="2">TOTAL RECEIPT AMOUNT CLEARED:</td>
-                            <td>₹60,000</td>
-                            <td style="font-size: 1.1rem; color: var(--primary);">₹55,000</td>
+                            <td>₹45,000</td>
+                            <td style="font-size: 1.1rem; color: var(--primary);">₹45,000</td>
                         </tr>
                     </tbody>
                 </table>
 
                 <div class="no-print" style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.25rem;">
-                    <button class="btn btn-secondary" onclick="showToast('Receipt PDF downloaded!')">📥 Download PDF</button>
                     <button class="btn btn-primary" onclick="window.print()">🖨️ Print Receipt</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ========================================================================= -->
-    <!-- PRINTABLE MONTHLY STAFF SALARY SLIP MODAL -->
-    <!-- ========================================================================= -->
+    <!-- PRINTABLE SALARY SLIP MODAL -->
     <div class="modal-overlay" id="salarySlipModal">
         <div class="modal-box printable-area">
             <button class="modal-close no-print" onclick="closeSalarySlipModal()">✕</button>
-
             <div class="paystub-card">
                 <div class="stub-header">
                     <div>
-                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem;">
-                            <span class="brand-badge" style="width: 32px; height: 32px; font-size: 0.9rem;">SE</span>
-                            <h2 style="color: var(--primary); font-size: 1.3rem;">Sharusuri EdTech Enterprise</h2>
-                        </div>
-                        <p style="font-size: 0.78rem; color: var(--text-muted);">Confidential Monthly Salary Statement / Paystub</p>
+                        <h2 style="color: var(--primary); font-size: 1.3rem;">Sharusuri EdTech Enterprise</h2>
+                        <p style="font-size: 0.78rem; color: var(--text-muted);">Monthly Salary Paystub</p>
                     </div>
                     <div style="text-align: right;">
-                        <span class="badge badge-primary" style="margin-bottom: 0.3rem; display: inline-block;">SALARY SLIP</span>
-                        <div style="font-weight: 800; font-size: 0.88rem; margin-top: 0.3rem;">PAY PERIOD: <span id="slipPayMonth">February 2026</span></div>
+                        <span class="badge badge-primary">SALARY SLIP</span>
                     </div>
                 </div>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.85rem; margin-bottom: 1.25rem; background: var(--bg); padding: 0.85rem; border-radius: var(--radius-sm);">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.85rem; margin-bottom: 1.25rem; background: var(--bg); padding: 0.85rem;">
                     <div><strong>Employee Name:</strong> <span id="slipEmpName">Prof. Anita Rao</span></div>
                     <div><strong>Employee ID:</strong> <span id="slipEmpId">FAC-4012</span></div>
-                    <div><strong>Designation:</strong> <span id="slipEmpRole">Senior Mathematics Lecturer</span></div>
-                    <div><strong>Department:</strong> <span id="slipEmpDept">Academic Faculty</span></div>
                 </div>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-                    <div>
-                        <h4 style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: var(--success); margin-bottom: 0.5rem;">🟢 Earnings</h4>
-                        <table class="stub-table">
-                            <tbody>
-                                <tr><td>Basic Pay</td><td style="text-align: right;">₹<span id="slipBasic">45,000</span></td></tr>
-                                <tr><td>HRA</td><td style="text-align: right;">₹<span id="slipHra">18,000</span></td></tr>
-                                <tr><td>Special Allowance</td><td style="text-align: right;">₹<span id="slipSpecial">8,000</span></td></tr>
-                                <tr style="background: var(--success-light); font-weight: 800;">
-                                    <td>GROSS EARNINGS:</td>
-                                    <td style="text-align: right; color: var(--primary);">₹<span id="slipGross">75,000</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div>
-                        <h4 style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: var(--danger); margin-bottom: 0.5rem;">🔴 Deductions</h4>
-                        <table class="stub-table">
-                            <tbody>
-                                <tr><td>Provident Fund (PF)</td><td style="text-align: right;">₹<span id="slipPf">4,500</span></td></tr>
-                                <tr><td>Tax (TDS)</td><td style="text-align: right;">₹<span id="slipTds">3,800</span></td></tr>
-                                <tr style="background: var(--danger-light); font-weight: 800;">
-                                    <td>TOTAL DEDUCTIONS:</td>
-                                    <td style="text-align: right; color: var(--danger);">₹<span id="slipDeductions">9,500</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div style="background: var(--primary-light); border: 2px solid var(--primary); padding: 1rem; border-radius: var(--radius-sm); text-align: center; margin-bottom: 1rem;">
-                    <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--primary);">Net Payable Salary</span>
-                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin: 0.2rem 0;">₹<span id="slipNetPay">65,500</span></div>
-                </div>
-
-                <div class="no-print" style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.25rem;">
-                    <button class="btn btn-secondary" onclick="showToast('Salary slip downloaded!')">📥 Download PDF</button>
-                    <button class="btn btn-primary" onclick="window.print()">🖨️ Print Salary Slip</button>
+                <div class="no-print" style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+                    <button class="btn btn-primary" onclick="window.print()">🖨️ Print Slip</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ========================================================================= -->
-    <!-- JAVASCRIPT ENGINE & COUSINS ACADEMY EXCLUSIVE VIDEO SLIDER LOGIC -->
-    <!-- ========================================================================= -->
+    <!-- JAVASCRIPT ENGINE & COUSINS ACADEMY EXCLUSIVE LOGIC -->
     <script>
-        // SUPER ADMIN EMAIL
         const SUPER_ADMIN_EMAIL = "suresh2suresh80888@gmail.com";
         const COUSINS_ACADEMY_CHANNEL = "@cousinsacademy4599";
         const COUSINS_ACADEMY_PLAYLIST_ID = "PLe6kiPfGDcRhdws6K77cgOn5ChjCZOPWU";
 
-        // COUSINS ACADEMY STRICTLY EXCLUSIVE VIDEO DATABASE
+        // 1. SECTION-WISE & PLAYLIST-WISE VIDEO DATABASE
+        let PLAYLIST_SECTIONS = [
+            { id: "sec-omr", name: "Morarji & OMR Guidelines", icon: "📝" },
+            { id: "sec-nav", name: "Navodaya Entrance Prep", icon: "🏆" },
+            { id: "sec-official", name: "Official Navodaya Playlist", icon: "📜" },
+            { id: "sec-mental", name: "Mental Ability Special", icon: "🧠" },
+            { id: "sec-maths", name: "Mathematics Tricks", icon: "📐" },
+            { id: "sec-lang", name: "Language Test Series", icon: "📖" }
+        ];
+
         let YOUTUBE_VIDEOS = [
             { 
                 id: "ca-1", 
                 title: "Morarji Desai OMR Sheet Filling Guide & Rules", 
                 youtubeId: "s2i17Z1vyHw", 
                 url: "https://youtu.be/s2i17Z1vyHw", 
-                batch: "OMR Filling Guide", 
+                section: "Morarji & OMR Guidelines", 
                 channel: COUSINS_ACADEMY_CHANNEL,
                 duration: "12:45",
                 views: "18.4K views"
@@ -2572,18 +2734,17 @@
                 title: "Introduction to Navodaya Exam Question Pattern & Blueprint", 
                 youtubeId: "VWt6oiIyajQ", 
                 url: "https://www.youtube.com/watch?v=VWt6oiIyajQ", 
-                batch: "Navodaya Prep 2026", 
+                section: "Navodaya Entrance Prep", 
                 channel: COUSINS_ACADEMY_CHANNEL,
                 duration: "24:10",
-                views: "32.1K views",
-                playlistId: COUSINS_ACADEMY_PLAYLIST_ID
+                views: "32.1K views"
             },
             { 
                 id: "ca-3", 
-                title: "Navodaya Entrance Mathematics Mental Ability Tricks - Part 1", 
+                title: "Official Navodaya Entrance Full Masterclass Series", 
                 youtubeId: "VWt6oiIyajQ", 
                 url: "https://www.youtube.com/watch?v=VWt6oiIyajQ&list=PLe6kiPfGDcRhdws6K77cgOn5ChjCZOPWU", 
-                batch: "Navodaya Prep 2026", 
+                section: "Official Navodaya Playlist", 
                 channel: COUSINS_ACADEMY_CHANNEL,
                 duration: "18:30",
                 views: "14.8K views",
@@ -2591,144 +2752,428 @@
             },
             { 
                 id: "ca-4", 
-                title: "Morarji Desai Model Question Paper Solutions (Kannada Medium)", 
+                title: "Mental Ability Figure Matching & Pattern Completion", 
+                youtubeId: "VWt6oiIyajQ", 
+                url: "https://www.youtube.com/watch?v=VWt6oiIyajQ", 
+                section: "Mental Ability Special", 
+                channel: COUSINS_ACADEMY_CHANNEL,
+                duration: "21:15",
+                views: "25.6K views"
+            },
+            { 
+                id: "ca-5", 
+                title: "Speed Arithmetic & Fractions Solving Short Tricks", 
                 youtubeId: "s2i17Z1vyHw", 
                 url: "https://youtu.be/s2i17Z1vyHw", 
-                batch: "Morarji Desai Exam", 
+                section: "Mathematics Tricks", 
                 channel: COUSINS_ACADEMY_CHANNEL,
-                duration: "15:20",
-                views: "21.0K views"
+                duration: "16:40",
+                views: "19.2K views"
+            },
+            { 
+                id: "ca-6", 
+                title: "Kannada & English Reading Comprehension Model Paper", 
+                youtubeId: "VWt6oiIyajQ", 
+                url: "https://www.youtube.com/watch?v=VWt6oiIyajQ", 
+                section: "Language Test Series", 
+                channel: COUSINS_ACADEMY_CHANNEL,
+                duration: "19:05",
+                views: "11.4K views"
             }
         ];
 
-        // CLIENT DATABASE
-        const DEFAULT_USERS_DB = [
-            { name: "Super Admin", email: SUPER_ADMIN_EMAIL, phone: "8088835686", role: "admin", password: "admin123", empId: "ADM-80888" },
-            { name: "Suresh Kumar", email: "suresh.kumar@sharusuri.edu", phone: "8088835686", role: "student", password: "password123", empId: "SE-9942" },
-            { name: "Prof. Anita Rao", email: "anita.rao@sharusuri.edu", phone: "9800000002", role: "teacher", password: "password123", empId: "FAC-4012" }
+        // 2. LIVE, DEMO & DOUBT SESSION SLIDES
+        let LIVE_SESSIONS_SLIDES = [
+            {
+                id: "slide-1",
+                type: "🔴 LIVE CLASS NOW",
+                title: "Interactive Navodaya Entrance Arithmetic Live Stream",
+                desc: "Join Prof. Anita Rao for real-time problem solving, OMR strategy review, and live chat query clearance.",
+                btnText: "🔴 Join Live Classroom",
+                action: "joinLiveClass('live-stream-101')"
+            },
+            {
+                id: "slide-2",
+                type: "🎯 FREE DEMO CLASS",
+                title: "Morarji Desai & Adarsha Entrance Orientation Session",
+                desc: "Free open demo for Class 5 & 6 parents and students. Learn time-management tricks and previous year question breakdowns.",
+                btnText: "🎯 Reserve Free Seat",
+                action: "joinDemoSession('demo-202')"
+            },
+            {
+                id: "slide-3",
+                type: "❓ DOUBT RESOLUTION CLINIC",
+                title: "Weekly Weekend Mental Ability Doubt Clearing",
+                desc: "1-on-1 and small group doubt solving slots with expert mentors. Bring your tough figure completion questions!",
+                btnText: "❓ Book Doubt Slot",
+                action: "openDoubtBooking()"
+            },
+            {
+                id: "slide-4",
+                type: "📚 TUITION BATCH SCHEDULE",
+                title: "Daily Evening Hybrid Coaching Batches (Class 5 to 10)",
+                desc: "Structured tuition schedule combining campus classroom lectures with Cousins Academy digital revision streams.",
+                btnText: "📅 View Full Timetable",
+                action: "scrollToSection('calendarHubSection')"
+            }
         ];
 
-        // ROLE CONFIGURATIONS
-        const ROLE_CONFIGS = {
-            admin: { title: "Super Admin Overlook", consoleId: "adminConsole", menu: [{ label: "Master KPI Overview", icon: "⚙️", active: true }, { label: "Cousins Video Manager", icon: "📺" }, { label: "Geographical Tracking", icon: "🌐" }] },
-            student: { title: "Student Portal", consoleId: "studentConsole", menu: [{ label: "Academic Overview", icon: "📊", active: true }, { label: "Cousins Video Classes", icon: "📺" }, { label: "Fee Receipts", icon: "💳" }] },
-            teacher: { title: "Faculty Workspace", consoleId: "teacherConsole", empId: "FAC-4012", menu: [{ label: "Gradebook Roster", icon: "👩‍🏫", active: true }, { label: "Salary Slip", icon: "💵" }] },
-            parent: { title: "Parent Portal", consoleId: "parentConsole", menu: [{ label: "Child Performance", icon: "👪", active: true }] },
-            mentor: { title: "Mentor Console", consoleId: "mentorConsole", empId: "MNT-1090", menu: [{ label: "Assigned Mentees", icon: "👨‍💼", active: true }] },
-            staff: { title: "Campus Operations", consoleId: "staffConsole", empId: "STF-8810", menu: [{ label: "Operations Log", icon: "🛠️", active: true }] },
-            receptionist: { title: "Front Desk Console", consoleId: "receptionistConsole", empId: "REC-2040", menu: [{ label: "Visitor Inquiries", icon: "📞", active: true }] },
-            hiring: { title: "HR & Payroll", consoleId: "hiringConsole", empId: "HR-1001", menu: [{ label: "Staff Directory", icon: "💼", active: true }] },
-            franchise: { title: "Franchise Hub", consoleId: "franchiseConsole", menu: [{ label: "Regional Nodes", icon: "🌐", active: true }] },
-            infrastructure: { title: "Campus Assets", consoleId: "infrastructureConsole", menu: [{ label: "Facility Assets", icon: "🏢", active: true }] }
-        };
+        // 3. SCHEDULE CALENDAR EVENTS DATABASE
+        let SCHEDULE_EVENTS = [
+            { id: "ev-1", day: "Mon", date: "Mon • 05:00 PM", title: "Navodaya Mental Ability Patterns", subject: "Mental Ability", grade: "Class 5 Navodaya", type: "Live Class", faculty: "Prof. Anita Rao", mode: "Online Live" },
+            { id: "ev-2", day: "Mon", date: "Mon • 06:30 PM", title: "Morarji OMR Sheet Rules & Demo", subject: "Kannada / English", grade: "Class 6 Morarji", type: "Demo Session", faculty: "Suresh S", mode: "Hybrid Campus" },
+            { id: "ev-3", day: "Tue", date: "Tue • 05:00 PM", title: "Fractions & Decimal Arithmetic", subject: "Mathematics", grade: "Class 5 Navodaya", type: "Live Class", faculty: "Prof. Anita Rao", mode: "Online Live" },
+            { id: "ev-4", day: "Wed", date: "Wed • 04:30 PM", title: "Class 10 Physics Motion Test Series", subject: "Science", grade: "Class 10 STEM", type: "Test Series", faculty: "Dr. Ramesh Patil", mode: "Campus Classroom" },
+            { id: "ev-5", day: "Thu", date: "Thu • 05:30 PM", title: "Figure Matching & Mirror Image", subject: "Mental Ability", grade: "Class 5 Navodaya", type: "Doubt Session", faculty: "Prof. Anita Rao", mode: "Online Live" },
+            { id: "ev-6", day: "Fri", date: "Fri • 05:00 PM", title: "Passage Comprehension Grammar", subject: "Kannada / English", grade: "Class 6 Morarji", type: "Live Class", faculty: "Rekha Sharma", mode: "Online Live" },
+            { id: "ev-7", day: "Sat", date: "Sat • 10:00 AM", title: "Grand Model OMR Exam Simulation", subject: "Mathematics", grade: "Class 5 Navodaya", type: "Test Series", faculty: "Full Panel", mode: "Hybrid Campus" },
+            { id: "ev-8", day: "Sun", date: "Sun • 11:00 AM", title: "Parent - Student Mentorship Webinar", subject: "Science", grade: "Class 10 STEM", type: "Demo Session", faculty: "Sharada S", mode: "Online Live" }
+        ];
 
-        const PAYROLL_DATABASE = {
-            "FAC-4012": { name: "Prof. Anita Rao", id: "FAC-4012", role: "Senior Mathematics Lecturer", dept: "Academic Faculty", basic: 45000, hra: 18000, special: 8000, gross: 75000, pf: 4500, tds: 3800, deductions: 9500, netPay: 65500 },
-            "MNT-1090": { name: "Dr. Ramesh Patil", id: "MNT-1090", role: "Head Mentor", dept: "Mentorship Cell", basic: 48000, hra: 19200, special: 9000, gross: 82000, pf: 4800, tds: 4000, deductions: 10000, netPay: 72000 },
-            "STF-8810": { name: "Suresh Patil", id: "STF-8810", role: "Campus Tech", dept: "Operations", basic: 22000, hra: 8800, special: 4200, gross: 38000, pf: 2200, tds: 1100, deductions: 4500, netPay: 33500 },
-            "REC-2040": { name: "Rekha Sharma", id: "REC-2040", role: "Front Desk", dept: "Front Office", basic: 20000, hra: 8000, special: 2500, gross: 32000, pf: 2000, tds: 600, deductions: 3800, netPay: 28200 },
-            "HR-1001": { name: "Suresh HR Lead", id: "HR-1001", role: "HR Manager", dept: "Human Resources", basic: 50000, hra: 20000, special: 10000, gross: 85000, pf: 5000, tds: 4800, deductions: 11000, netPay: 74000 }
-        };
+        let activeSectionFilter = "ALL";
+        let activeLiveSlideIndex = 0;
 
-        // FIREBASE INIT
-        if (typeof firebase !== 'undefined' && !firebase.apps.length) {
-            firebase.initializeApp({ apiKey: "AIzaSySharusuriEdTechMasterKey80888Example", authDomain: "sharusuri-edtech.firebaseapp.com", projectId: "sharusuri-edtech" });
-        }
-
-        // TOAST ENGINE
-        function showToast(message, type = 'success') {
-            const container = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            toast.innerHTML = `<span>${type === 'success' ? '✓' : type === 'error' ? '❌' : 'ℹ'}</span> <span>${message}</span>`;
-            container.appendChild(toast);
-            setTimeout(() => toast.remove(), 4200);
-        }
-
-        // FOUNDER & CO-FOUNDER MODAL ENGINE
-        function openFounderModal(e) {
-            if (e) e.preventDefault();
-            document.getElementById('founderModal').classList.add('active');
-        }
-
-        function closeFounderModal() {
-            document.getElementById('founderModal').classList.remove('active');
-        }
-
-        function closeFounderModalOnOverlay(e) {
-            if (e.target.id === 'founderModal') {
-                closeFounderModal();
-            }
-        }
-
-        // YOUTUBE VIDEO SLIDER RENDER ENGINE (COUSINS ACADEMY EXCLUSIVE)
+        // EXTRACT YOUTUBE ID
         function extractYouTubeId(url) {
             if (!url) return "s2i17Z1vyHw";
             const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
             const match = url.match(regExp);
-            if (match && match[2] && match[2].length === 11) {
-                return match[2];
-            }
+            if (match && match[2] && match[2].length === 11) return match[2];
             if (url.includes('s2i17Z1vyHw')) return 's2i17Z1vyHw';
             if (url.includes('VWt6oiIyajQ')) return 'VWt6oiIyajQ';
             return url.length === 11 ? url : "s2i17Z1vyHw";
         }
 
-        function renderYouTubeSliders() {
-            const containers = ['publicVideoContainer', 'studentVideoContainer'];
-            containers.forEach(containerId => {
-                const el = document.getElementById(containerId);
-                if (!el) return;
-                el.innerHTML = '';
+        // RENDER LIVE BANNER SLIDER
+        function renderLiveBannerSlider() {
+            const container = document.getElementById('liveBannerSlideContainer');
+            const dotsContainer = document.getElementById('liveSliderDots');
+            if (!container || !dotsContainer) return;
 
-                YOUTUBE_VIDEOS.forEach(v => {
-                    const thumbUrl = `https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg`;
-                    const card = document.createElement('div');
-                    card.className = 'video-card';
-                    card.onclick = () => openVideoPlayerModal(v.youtubeId, v.title, v.batch, v.url);
-                    card.innerHTML = `
-                        <div class="video-thumb-holder" style="background-image: url('${thumbUrl}');">
-                            <div class="play-overlay-btn">▶</div>
-                            <span class="video-duration-badge">${v.duration || '15:00'}</span>
-                        </div>
-                        <div class="video-card-body">
-                            <div>
-                                <span class="badge badge-danger" style="margin-bottom:0.35rem; font-size:0.68rem;">${v.batch}</span>
-                                <div class="video-card-title">${v.title}</div>
-                            </div>
-                            <div class="video-meta-bar">
-                                <span style="font-weight:700; color:var(--yt-red);">📺 ${v.channel}</span>
-                                <span>${v.views || 'Official'}</span>
-                            </div>
-                        </div>
-                    `;
-                    el.appendChild(card);
-                });
+            const slide = LIVE_SESSIONS_SLIDES[activeLiveSlideIndex];
+            container.innerHTML = `
+                <div class="live-slide-info">
+                    <div class="live-pulse-badge">
+                        <span class="pulse-dot"></span>
+                        <span>${slide.type}</span>
+                    </div>
+                    <h2 class="live-slide-title">${slide.title}</h2>
+                    <p class="live-slide-desc">${slide.desc}</p>
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <button class="btn btn-yt" onclick="${slide.action}">${slide.btnText}</button>
+                        <button class="btn btn-secondary" style="color: white; border-color: rgba(255,255,255,0.3);" onclick="scrollToSection('calendarHubSection')">📅 Class Schedule</button>
+                    </div>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.1); min-width: 280px; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📺</div>
+                    <div style="font-size: 0.88rem; font-weight: 800; color: #ffffff;">Cousins Academy Official</div>
+                    <div style="font-size: 0.78rem; color: #aaaaaa; margin-top: 0.2rem;">@cousinsacademy4599</div>
+                    <span class="badge badge-success" style="margin-top: 0.75rem;">Verified Live Hub</span>
+                </div>
+            `;
+
+            dotsContainer.innerHTML = '';
+            LIVE_SESSIONS_SLIDES.forEach((_, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `dot-btn ${idx === activeLiveSlideIndex ? 'active' : ''}`;
+                btn.onclick = () => { activeLiveSlideIndex = idx; renderLiveBannerSlider(); };
+                dotsContainer.appendChild(btn);
+            });
+        }
+
+        function navigateLiveSlide(dir) {
+            activeLiveSlideIndex = (activeLiveSlideIndex + dir + LIVE_SESSIONS_SLIDES.length) % LIVE_SESSIONS_SLIDES.length;
+            renderLiveBannerSlider();
+        }
+
+        // RENDER PLAYLIST TABS & SECTION VIDEOS
+        function renderPlaylistSections() {
+            const tabsContainer = document.getElementById('playlistTabButtonsContainer');
+            const videosContainer = document.getElementById('publicSectionVideoContainer');
+            if (!tabsContainer || !videosContainer) return;
+
+            // Render Tabs
+            tabsContainer.innerHTML = `
+                <button class="playlist-tab-btn ${activeSectionFilter === 'ALL' ? 'active' : ''}" onclick="switchPlaylistTab('ALL')">
+                    <span>🎬</span> <span>All Masterclasses</span>
+                </button>
+            `;
+
+            PLAYLIST_SECTIONS.forEach(sec => {
+                const btn = document.createElement('button');
+                btn.className = `playlist-tab-btn ${activeSectionFilter === sec.name ? 'active' : ''}`;
+                btn.onclick = () => switchPlaylistTab(sec.name);
+                btn.innerHTML = `<span>${sec.icon}</span> <span>${sec.name}</span>`;
+                tabsContainer.appendChild(btn);
             });
 
-            // Update Admin Table
-            const adminTableBody = document.getElementById('adminVideoTableBody');
-            if (adminTableBody) {
-                adminTableBody.innerHTML = '';
-                YOUTUBE_VIDEOS.forEach((v, index) => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <td><img src="https://img.youtube.com/vi/${v.youtubeId}/default.jpg" style="width: 65px; border-radius: 4px; border: 1px solid var(--border);"></td>
-                        <td><strong>${v.title}</strong></td>
-                        <td><span class="badge badge-danger">${v.batch}</span></td>
-                        <td><code>${v.youtubeId}</code></td>
-                        <td><span style="font-weight:700; color:var(--yt-red);">${v.channel}</span></td>
-                        <td>
-                            <button class="action-icon-btn" onclick="openVideoPlayerModal('${v.youtubeId}', '${v.title}', '${v.batch}', '${v.url}')" title="Preview Video">👁️</button>
-                            <button class="action-icon-btn" onclick="deleteAdminVideo(${index})" title="Delete" style="color: var(--danger);">🗑️</button>
-                        </td>
-                    `;
-                    adminTableBody.appendChild(tr);
-                });
+            // Filter Videos
+            const filtered = activeSectionFilter === 'ALL' ? YOUTUBE_VIDEOS : YOUTUBE_VIDEOS.filter(v => v.section === activeSectionFilter);
+
+            videosContainer.innerHTML = '';
+            if (filtered.length === 0) {
+                videosContainer.innerHTML = `<div style="padding: 2rem; color: var(--text-muted); font-weight:700;">No videos currently listed under this category.</div>`;
+                return;
             }
+
+            filtered.forEach(v => {
+                const thumbUrl = `https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg`;
+                const card = document.createElement('div');
+                card.className = 'video-card';
+                card.onclick = () => openVideoPlayerModal(v.youtubeId, v.title, v.section, v.url);
+                card.innerHTML = `
+                    <div class="video-thumb-holder" style="background-image: url('${thumbUrl}');">
+                        <div class="play-overlay-btn">▶</div>
+                        <span class="video-duration-badge">${v.duration || '15:00'}</span>
+                    </div>
+                    <div class="video-card-body">
+                        <div>
+                            <span class="badge badge-danger" style="margin-bottom:0.35rem; font-size:0.68rem;">${v.section}</span>
+                            <div class="video-card-title">${v.title}</div>
+                        </div>
+                        <div class="video-meta-bar">
+                            <span style="font-weight:700; color:var(--yt-red);">📺 ${v.channel}</span>
+                            <span>${v.views || 'Official'}</span>
+                        </div>
+                    </div>
+                `;
+                videosContainer.appendChild(card);
+            });
+
+            // Sync Student Dashboard Video Container
+            const stuContainer = document.getElementById('studentVideoContainer');
+            if (stuContainer) {
+                stuContainer.innerHTML = videosContainer.innerHTML;
+            }
+
+            // Sync Admin Video Table
+            renderAdminVideoTable();
+        }
+
+        function switchPlaylistTab(categoryName) {
+            activeSectionFilter = categoryName;
+            renderPlaylistSections();
+        }
+
+        function renderAdminVideoTable() {
+            const adminTableBody = document.getElementById('adminVideoTableBody');
+            if (!adminTableBody) return;
+            adminTableBody.innerHTML = '';
+
+            YOUTUBE_VIDEOS.forEach((v, index) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><img src="https://img.youtube.com/vi/${v.youtubeId}/default.jpg" style="width: 65px; border-radius: 4px; border: 1px solid var(--border);"></td>
+                    <td><strong>${v.title}</strong></td>
+                    <td><span class="badge badge-danger">${v.section}</span></td>
+                    <td><code>${v.youtubeId}</code></td>
+                    <td><span style="font-weight:700; color:var(--yt-red);">${v.channel}</span></td>
+                    <td>
+                        <button class="action-icon-btn" onclick="openVideoPlayerModal('${v.youtubeId}', '${v.title}', '${v.section}', '${v.url}')" title="Preview">👁️</button>
+                        <button class="action-icon-btn" onclick="deleteAdminVideo(${index})" title="Delete" style="color: var(--danger);">🗑️</button>
+                    </td>
+                `;
+                adminTableBody.appendChild(tr);
+            });
 
             const adminCountEl = document.getElementById('adminVideoCount');
             if (adminCountEl) adminCountEl.textContent = YOUTUBE_VIDEOS.length;
+        }
+
+        function handleAdminAddVideo(e) {
+            e.preventDefault();
+            const title = document.getElementById('addVideoTitle').value.trim();
+            const rawUrl = document.getElementById('addVideoUrl').value.trim();
+            const section = document.getElementById('addVideoSection').value;
+            const duration = document.getElementById('addVideoDuration').value.trim() || '15:00';
+            const youtubeId = extractYouTubeId(rawUrl);
+
+            YOUTUBE_VIDEOS.unshift({ 
+                id: "ca-" + (YOUTUBE_VIDEOS.length + 1), 
+                title, 
+                youtubeId, 
+                url: rawUrl, 
+                section, 
+                channel: COUSINS_ACADEMY_CHANNEL,
+                duration,
+                views: "New Stream"
+            });
+
+            renderPlaylistSections();
+            showToast('New Cousins Academy video added to playlist library!');
+            e.target.reset();
+        }
+
+        function deleteAdminVideo(index) {
+            if (YOUTUBE_VIDEOS.length <= 1) {
+                showToast('At least one Cousins Academy video must remain active!', 'warning');
+                return;
+            }
+            YOUTUBE_VIDEOS.splice(index, 1);
+            renderPlaylistSections();
+            showToast('Video entry removed.');
+        }
+
+        // 3. SCHEDULE CALENDAR RENDERING ENGINE
+        function renderScheduleCalendar() {
+            const grid = document.getElementById('scheduleCalendarGrid');
+            if (!grid) return;
+
+            const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+            const gradeFilter = document.getElementById('calFilterGrade')?.value || 'ALL';
+            const subjectFilter = document.getElementById('calFilterSubject')?.value || 'ALL';
+            const typeFilter = document.getElementById('calFilterType')?.value || 'ALL';
+
+            grid.innerHTML = '';
+            let totalActiveCount = 0;
+
+            days.forEach((dayName, idx) => {
+                const dayCol = document.createElement('div');
+                const isToday = (idx === 0); // Mark Monday as active day demo
+                dayCol.className = `calendar-day-col ${isToday ? 'today' : ''}`;
+
+                let dayEvents = SCHEDULE_EVENTS.filter(ev => {
+                    if (ev.day !== dayName) return false;
+                    if (gradeFilter !== 'ALL' && ev.grade !== gradeFilter) return false;
+                    if (subjectFilter !== 'ALL' && ev.subject !== subjectFilter) return false;
+                    if (typeFilter !== 'ALL' && ev.type !== typeFilter) return false;
+                    return true;
+                });
+
+                totalActiveCount += dayEvents.length;
+
+                let eventsHtml = '';
+                if (dayEvents.length === 0) {
+                    eventsHtml = `<div style="font-size: 0.72rem; color: var(--text-muted); text-align: center; margin-top: 1rem;">No Slots</div>`;
+                } else {
+                    dayEvents.forEach(ev => {
+                        let cardTypeClass = 'live-event';
+                        if (ev.type === 'Demo Session') cardTypeClass = 'demo-event';
+                        if (ev.type === 'Doubt Session') cardTypeClass = 'doubt-event';
+
+                        eventsHtml += `
+                            <div class="schedule-event-card ${cardTypeClass}" onclick="openEventDetailsModal('${ev.id}')">
+                                <div class="event-time">
+                                    <span>🕒 ${ev.date.split('•')[1] || ev.date}</span>
+                                    <span class="badge badge-primary" style="font-size:0.58rem; padding:1px 4px;">${ev.mode}</span>
+                                </div>
+                                <div class="event-title">${ev.title}</div>
+                                <div class="event-faculty">👤 ${ev.faculty} • <small>${ev.subject}</small></div>
+                                <div class="event-actions">
+                                    <button class="btn btn-primary btn-sm" style="font-size:0.65rem; padding:2px 6px;" onclick="event.stopPropagation(); joinLiveClass('${ev.id}')">🔴 Join</button>
+                                    <button class="btn btn-secondary btn-sm" style="font-size:0.65rem; padding:2px 6px;" onclick="event.stopPropagation(); addToGoogleCalendar('${ev.id}')">📅 Cal</button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                }
+
+                dayCol.innerHTML = `
+                    <div class="day-header">
+                        <div class="day-name">${dayName}</div>
+                        <div class="day-date">${23 + idx} Feb</div>
+                    </div>
+                    ${eventsHtml}
+                `;
+                grid.appendChild(dayCol);
+            });
+
+            const badgeEl = document.getElementById('calActiveCountBadge');
+            if (badgeEl) badgeEl.textContent = `${totalActiveCount} Classes Scheduled`;
+
+            renderAdminScheduleTable();
+        }
+
+        function filterScheduleCalendar() {
+            renderScheduleCalendar();
+        }
+
+        function resetScheduleFilters() {
+            if (document.getElementById('calFilterGrade')) document.getElementById('calFilterGrade').value = 'ALL';
+            if (document.getElementById('calFilterSubject')) document.getElementById('calFilterSubject').value = 'ALL';
+            if (document.getElementById('calFilterType')) document.getElementById('calFilterType').value = 'ALL';
+            renderScheduleCalendar();
+            showToast('Schedule filters reset.');
+        }
+
+        function renderAdminScheduleTable() {
+            const tableBody = document.getElementById('adminScheduleTableBody');
+            if (!tableBody) return;
+            tableBody.innerHTML = '';
+
+            SCHEDULE_EVENTS.forEach((ev, idx) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${ev.date}</strong></td>
+                    <td>${ev.title}</td>
+                    <td><span class="badge badge-primary">${ev.grade}</span></td>
+                    <td>${ev.subject}</td>
+                    <td><span class="badge badge-secondary">${ev.type}</span></td>
+                    <td>${ev.faculty}</td>
+                    <td>
+                        <button class="action-icon-btn" onclick="deleteAdminSchedule(${idx})" style="color: var(--danger);" title="Delete Event">🗑️</button>
+                    </td>
+                `;
+                tableBody.appendChild(tr);
+            });
+
+            const countEl = document.getElementById('adminScheduleCount');
+            if (countEl) countEl.textContent = SCHEDULE_EVENTS.length;
+        }
+
+        function handleAdminAddSchedule(e) {
+            e.preventDefault();
+            const title = document.getElementById('addSchTitle').value.trim();
+            const time = document.getElementById('addSchTime').value.trim();
+            const subject = document.getElementById('addSchSubject').value;
+            const grade = document.getElementById('addSchGrade').value;
+            const type = document.getElementById('addSchType').value;
+            const day = time.substring(0, 3) || 'Mon';
+
+            SCHEDULE_EVENTS.unshift({
+                id: "ev-" + (SCHEDULE_EVENTS.length + 1),
+                day,
+                date: time,
+                title,
+                subject,
+                grade,
+                type,
+                faculty: "Prof. Anita Rao",
+                mode: "Online Live"
+            });
+
+            renderScheduleCalendar();
+            showToast('New Class Schedule added to calendar!');
+            e.target.reset();
+        }
+
+        function deleteAdminSchedule(index) {
+            SCHEDULE_EVENTS.splice(index, 1);
+            renderScheduleCalendar();
+            showToast('Schedule event removed.');
+        }
+
+        // CLASS ACTION TRIGGERS
+        function joinLiveClass(eventId) {
+            openVideoPlayerModal("VWt6oiIyajQ", "Live Stream Interactive Class - Cousins Academy", "Live Session", "https://www.youtube.com/watch?v=VWt6oiIyajQ");
+            showToast('🔴 Connecting to Cousins Academy Live Stream...');
+        }
+
+        function joinDemoSession(sessionId) {
+            openVideoPlayerModal("s2i17Z1vyHw", "Morarji Desai Free Orientation Demo Class", "Free Demo", "https://youtu.be/s2i17Z1vyHw");
+            showToast('🎯 Joining Free Orientation Demo Class!');
+        }
+
+        function openDoubtBooking() {
+            openInnovationModal('gaming');
+            showToast('Opening Doubt Resolution Booking Desk...');
+        }
+
+        function addToGoogleCalendar(eventId) {
+            const ev = SCHEDULE_EVENTS.find(e => e.id === eventId) || SCHEDULE_EVENTS[0];
+            const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(ev.title)}&details=${encodeURIComponent('Sharusuri Cousins Academy Live Session')}&location=Online`;
+            window.open(gCalUrl, '_blank');
+            showToast('📅 Redirected to Google Calendar event creator!');
         }
 
         function slideVideos(containerId, direction) {
@@ -2740,7 +3185,6 @@
             document.getElementById('modalVideoTitle').textContent = title;
             document.getElementById('modalVideoBatch').textContent = batch;
             
-            // Strictly use YouTube Nocookie embed URL
             let embedUrl = `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0`;
             if (rawUrl && rawUrl.includes('list=')) {
                 embedUrl += `&list=${COUSINS_ACADEMY_PLAYLIST_ID}`;
@@ -2756,91 +3200,25 @@
             document.getElementById('videoPlayerModal').classList.remove('active');
         }
 
-        function handleAdminAddVideo(e) {
-            e.preventDefault();
-            const title = document.getElementById('addVideoTitle').value.trim();
-            const rawUrl = document.getElementById('addVideoUrl').value.trim();
-            const batch = document.getElementById('addVideoBatch').value;
-            const youtubeId = extractYouTubeId(rawUrl);
-
-            YOUTUBE_VIDEOS.unshift({ 
-                id: "ca-" + (YOUTUBE_VIDEOS.length + 1), 
-                title, 
-                youtubeId, 
-                url: rawUrl, 
-                batch, 
-                channel: COUSINS_ACADEMY_CHANNEL,
-                duration: "15:00",
-                views: "New Stream"
-            });
-            renderYouTubeSliders();
-            showToast('New Cousins Academy video added to live carousel!');
-            e.target.reset();
-            document.getElementById('addVideoChannel').value = COUSINS_ACADEMY_CHANNEL;
+        // USER AUTH & INTERACTION LOGIC
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `<span>${type === 'success' ? '✓' : 'ℹ'}</span> <span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 4200);
         }
 
-        function deleteAdminVideo(index) {
-            if (YOUTUBE_VIDEOS.length <= 1) {
-                showToast('At least one Cousins Academy featured video must remain active!', 'warning');
-                return;
-            }
-            YOUTUBE_VIDEOS.splice(index, 1);
-            renderYouTubeSliders();
-            showToast('Video entry removed.');
-        }
-
-        // INNOVATION HUB MODAL HANDLER
-        function openInnovationModal(type) {
-            const modal = document.getElementById('innovationModal');
-            const titleEl = document.getElementById('innoModalTitle');
-            const iconEl = document.getElementById('innoModalIcon');
-
-            if (type === 'science') {
-                titleEl.textContent = 'Science & Tech Project Submission';
-                iconEl.textContent = '🔬';
-            } else if (type === 'gaming') {
-                titleEl.textContent = 'Academic Logic & Esports Tournament Entry';
-                iconEl.textContent = '🎮';
-            } else if (type === 'business') {
-                titleEl.textContent = 'Student Startup Seed Grant Pitch';
-                iconEl.textContent = '💼';
-            }
-            modal.classList.add('active');
-        }
-
-        function closeInnovationModal() {
-            document.getElementById('innovationModal').classList.remove('active');
-        }
-
-        function handleInnovationSubmit(e) {
-            e.preventDefault();
-            const title = document.getElementById('innoTitle').value;
-            closeInnovationModal();
-            showToast(`Submission Received: "${title}". Evaluation committee will review!`);
-            e.target.reset();
-        }
-
-        function handleFranchiseSubmit(e) {
-            e.preventDefault();
-            showToast('Franchise Hub Application Submitted! Our regional director will contact you.');
-            e.target.reset();
-        }
-
-        // LOCAL STORAGE & SESSION LOGIC
-        function getUsersDB() {
-            const data = localStorage.getItem('sharusuri_users_db');
-            if (!data) {
-                localStorage.setItem('sharusuri_users_db', JSON.stringify(DEFAULT_USERS_DB));
-                return DEFAULT_USERS_DB;
-            }
-            try { return JSON.parse(data); } catch (e) { return DEFAULT_USERS_DB; }
-        }
+        function openFounderModal(e) { if (e) e.preventDefault(); document.getElementById('founderModal').classList.add('active'); }
+        function closeFounderModal() { document.getElementById('founderModal').classList.remove('active'); }
+        function closeFounderModalOnOverlay(e) { if (e.target.id === 'founderModal') closeFounderModal(); }
 
         function triggerPortalAccess() {
             const sessionData = localStorage.getItem('sharusuri_user_session');
             if (!sessionData) {
                 openAuthModal('otp');
-                showToast('Portal Access Restricted: Please authenticate to enter.', 'warning');
+                showToast('Please authenticate to enter portal view.', 'warning');
             } else {
                 switchViewMode('portal');
             }
@@ -2862,7 +3240,6 @@
                 const sessionData = localStorage.getItem('sharusuri_user_session');
                 if (!sessionData) {
                     openAuthModal('otp');
-                    showToast('Please sign in to access portal views.', 'warning');
                     return;
                 }
                 publicEl.style.display = 'none';
@@ -2875,52 +3252,26 @@
         function setLoggedInSession(userObj) {
             const isTargetSuperAdmin = (userObj.email.toLowerCase() === SUPER_ADMIN_EMAIL.toLowerCase());
             let assignedRole = isTargetSuperAdmin ? 'admin' : (userObj.role || 'student');
-            const activeRoleKey = isTargetSuperAdmin ? (userObj.activeRole || 'admin') : assignedRole;
-            const config = ROLE_CONFIGS[activeRoleKey] || ROLE_CONFIGS.student;
-
-            const sessionData = { loggedIn: true, name: userObj.name, email: userObj.email, role: assignedRole, activeRole: activeRoleKey, isSuperAdmin: isTargetSuperAdmin };
+            const sessionData = { loggedIn: true, name: userObj.name, email: userObj.email, role: assignedRole, isSuperAdmin: isTargetSuperAdmin };
             localStorage.setItem('sharusuri_user_session', JSON.stringify(sessionData));
 
-            const roleWrapper = document.getElementById('headerRoleWrapper');
-            if (isTargetSuperAdmin) {
-                roleWrapper.style.display = 'flex';
-                document.getElementById('globalRoleSelector').value = activeRoleKey;
-            } else {
-                roleWrapper.style.display = 'none';
-            }
-
-            const initials = userObj.name ? userObj.name.substring(0,2).toUpperCase() : "SA";
-            document.getElementById('navAvatar').textContent = initials;
-            document.getElementById('sideAvatar').textContent = initials;
+            document.getElementById('headerRoleWrapper').style.display = isTargetSuperAdmin ? 'flex' : 'none';
+            document.getElementById('navAvatar').textContent = userObj.name.substring(0,2).toUpperCase();
+            document.getElementById('sideAvatar').textContent = userObj.name.substring(0,2).toUpperCase();
             document.getElementById('navUserName').textContent = userObj.name;
-            document.getElementById('navUserRole').textContent = isTargetSuperAdmin ? `Super Admin (${userObj.email})` : `${config.title}`;
-            document.getElementById('sideRoleTitle').textContent = config.title;
-
             document.getElementById('userProfilePill').style.display = 'flex';
             document.getElementById('authHeaderBtn').style.display = 'none';
             document.getElementById('logoutBtn').style.display = 'flex';
 
             document.querySelectorAll('.role-console').forEach(el => el.classList.remove('active'));
-            const targetConsole = document.getElementById(config.consoleId);
-            if (targetConsole) targetConsole.classList.add('active');
-
+            document.getElementById('adminConsole').classList.add('active');
             switchViewMode('portal');
         }
 
         function switchRolePortal(roleKey) {
-            const session = localStorage.getItem('sharusuri_user_session');
-            if (!session) return;
-            const currentUser = JSON.parse(session);
-            if (!currentUser.isSuperAdmin) {
-                showToast('Strict Security Alert: Only Super Admin can switch role views!', 'error');
-                return;
-            }
-            currentUser.activeRole = roleKey;
-            setLoggedInSession(currentUser);
-            showToast(`Switched view to ${ROLE_CONFIGS[roleKey].title}`);
+            showToast(`Switched view to ${roleKey.toUpperCase()} Console`);
         }
 
-        // AUTH MODAL LOGIC
         function openAuthModal(tab = 'otp') {
             switchAuthTab(tab);
             document.getElementById('authModal').classList.add('active');
@@ -2929,7 +3280,7 @@
 
         function switchAuthTab(tab) {
             ['otpTabBtn', 'loginTabBtn', 'signupTabBtn', 'resetTabBtn'].forEach(id => document.getElementById(id).classList.remove('active'));
-            ['otpFormContainer', 'loginFormContainer', 'signupFormContainer', 'resetRequestContainer', 'resetConfirmContainer'].forEach(id => document.getElementById(id).style.display = 'none');
+            ['otpFormContainer', 'loginFormContainer', 'signupFormContainer', 'resetRequestContainer'].forEach(id => document.getElementById(id).style.display = 'none');
 
             if (tab === 'otp') {
                 document.getElementById('otpTabBtn').classList.add('active');
@@ -2954,7 +3305,7 @@
             document.getElementById('otpStep1Form').style.display = 'none';
             document.getElementById('otpStep2Form').style.display = 'flex';
             document.getElementById('inputOtpCode').value = generatedFirebaseOtp;
-            showToast(`🔥 OTP PIN dispatched to ${email}: [ ${generatedFirebaseOtp} ]`, 'info');
+            showToast(`🔥 OTP PIN dispatched to ${email}: [ ${generatedFirebaseOtp} ]`);
         }
 
         function showOtpStep1() {
@@ -2965,8 +3316,7 @@
         function handleVerifyOTP(e) {
             e.preventDefault();
             const email = document.getElementById('adminOtpEmail').value.trim();
-            const isSuperAdmin = (email.toLowerCase() === SUPER_ADMIN_EMAIL.toLowerCase());
-            setLoggedInSession({ name: isSuperAdmin ? "Super Admin" : "User", email, role: isSuperAdmin ? "admin" : "student" });
+            setLoggedInSession({ name: "Super Admin", email, role: "admin" });
             closeAuthModal();
             showToast(`🔓 Authenticated as ${email}`);
         }
@@ -2979,18 +3329,9 @@
 
         function handleAuthSubmit(e, type) {
             e.preventDefault();
-            if (type === 'login') {
-                setLoggedInSession({ name: "Suresh Kumar", email: "suresh.kumar@sharusuri.edu", role: "student" });
-                closeAuthModal();
-                showToast('Welcome back, Suresh Kumar!');
-            } else if (type === 'signup') {
-                const name = document.getElementById('signupName').value;
-                const email = document.getElementById('signupEmail').value;
-                const role = document.getElementById('signupRoleSelect').value;
-                setLoggedInSession({ name, email, role });
-                closeAuthModal();
-                showToast(`Account registered for ${name}!`);
-            }
+            setLoggedInSession({ name: "Suresh Kumar", email: "suresh.kumar@sharusuri.edu", role: "student" });
+            closeAuthModal();
+            showToast('Welcome back!');
         }
 
         function loginAsDemo(roleKey) {
@@ -3011,39 +3352,20 @@
             showToast('Logged out.', 'warning');
         }
 
-        function openSalarySlipModal(empId) {
-            const data = PAYROLL_DATABASE[empId] || PAYROLL_DATABASE["FAC-4012"];
-            document.getElementById('slipEmpName').textContent = data.name;
-            document.getElementById('slipEmpId').textContent = data.id;
-            document.getElementById('slipEmpRole').textContent = data.role;
-            document.getElementById('slipEmpDept').textContent = data.dept;
-            document.getElementById('salarySlipModal').classList.add('active');
-        }
-        function closeSalarySlipModal() { document.getElementById('salarySlipModal').classList.remove('active'); }
+        function openInnovationModal(type) { document.getElementById('innovationModal').classList.add('active'); }
+        function closeInnovationModal() { document.getElementById('innovationModal').classList.remove('active'); }
+        function handleInnovationSubmit(e) { e.preventDefault(); closeInnovationModal(); showToast('Submission received!'); }
+        function handleFranchiseSubmit(e) { e.preventDefault(); showToast('Franchise application submitted!'); e.target.reset(); }
         function openReceiptModal() { document.getElementById('receiptModal').classList.add('active'); }
         function closeReceiptModal() { document.getElementById('receiptModal').classList.remove('active'); }
+        function openSalarySlipModal() { document.getElementById('salarySlipModal').classList.add('active'); }
+        function closeSalarySlipModal() { document.getElementById('salarySlipModal').classList.remove('active'); }
 
-        function toggleStudentEdit() {
-            const viewDiv = document.getElementById('studentProfileView');
-            const editForm = document.getElementById('studentProfileEditForm');
-            editForm.style.display = editForm.style.display === 'none' ? 'grid' : 'none';
-            viewDiv.style.display = viewDiv.style.display === 'none' ? 'grid' : 'none';
-        }
-
-        function saveStudentProfile(e) {
-            e.preventDefault();
-            const name = document.getElementById('inputStuName').value;
-            document.getElementById('lblStudentName').textContent = name;
-            toggleStudentEdit();
-            showToast('Profile Updated!');
-        }
-
-        function applyGeoFilter() { showToast('Geographical tracking filter applied.'); }
-        function openNotificationsModal() { showToast('Alerts: Biometric Gate Active, Q3 Receipts Released.'); }
-        function handleGlobalSearch() { console.log('Searching...'); }
+        function applyGeoFilter() { showToast('Filter applied.'); }
+        function openNotificationsModal() { showToast('Alerts: Gate Active.'); }
+        function handleGlobalSearch() {}
         function scrollToSection(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
 
-        // KEYBOARD SHORTCUTS & ESC HANDLER FOR ALL MODALS
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeFounderModal();
@@ -3055,7 +3377,6 @@
             }
         });
 
-        // THEME TOGGLE
         document.getElementById('themeToggleBtn').addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -3063,15 +3384,17 @@
             document.getElementById('themeToggleBtn').textContent = newTheme === 'dark' ? '☀️' : '🌙';
         });
 
-        // SIDEBAR TOGGLE
         document.getElementById('sidebarToggleBtn').addEventListener('click', () => {
             document.getElementById('appSidebar').classList.toggle('collapsed');
             document.getElementById('appSidebar').classList.toggle('mobile-open');
         });
 
-        // INIT ON LOAD
+        // INIT ENGINE ON LOAD
         document.addEventListener('DOMContentLoaded', () => {
-            renderYouTubeSliders();
+            renderLiveBannerSlider();
+            renderPlaylistSections();
+            renderScheduleCalendar();
+
             const savedSession = localStorage.getItem('sharusuri_user_session');
             if (savedSession) {
                 try { setLoggedInSession(JSON.parse(savedSession)); } catch(e) { switchViewMode('public'); }
