@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sharusuri EdTech - Empowering Next-Gen Learners with Hybrid Education, On-Campus Facilities, and Role-Based Portals.">
-    <meta name="keywords" content="Sharusuri EdTech, Hybrid Learning, Rural Education, K-12 Tutoring, Entrance Coaching, Campus Hostel, Student Portal">
+    <meta name="description" content="Sharusuri EdTech Marketplace - Discover Hybrid Courses, K-12 Tuitions, Entrance Coaching & Hostel Hubs Near Your Village.">
+    <meta name="keywords" content="Sharusuri EdTech, EdTech Marketplace, Hybrid Learning, Course Store, Navodaya Entrance, Campus Hostel, Village Hub Finder">
     <meta name="author" content="Sharusuri EdTech">
     <meta name="theme-color" content="#0f766e">
 
-    <title>Sharusuri EdTech | Enterprise Hybrid Learning & Campus Platform</title>
+    <title>Sharusuri EdTech Marketplace | Buy Courses & Find Local Campus Hubs</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,37 +19,42 @@
             --primary: #0f766e;
             --primary-hover: #0d655e;
             --primary-light: #ccfbf1;
-            --primary-glow: rgba(15, 118, 110, 0.15);
+            --primary-glow: rgba(15, 118, 110, 0.18);
             --secondary: #2563eb;
             --secondary-light: #dbeafe;
             --accent: #f59e0b;
+            --accent-hover: #d97706;
             --accent-light: #fef3c7;
+            --discount-badge: #dc2626;
+            --rating-star: #eab308;
             --dark: #0f172a;
             --dark-surface: #1e293b;
-            --bg: #f8fafc;
+            --bg: #f1f5f9;
             --card-bg: #ffffff;
-            --text-main: #1e293b;
+            --text-main: #0f172a;
             --text-muted: #64748b;
-            --border: #e2e8f0;
+            --border: #cbd5e1;
+            --border-light: #e2e8f0;
             --radius-sm: 8px;
             --radius-md: 14px;
             --radius-lg: 20px;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 20px 35px -10px rgba(15, 118, 110, 0.12);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --max-width: 1280px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 20px -4px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 18px 36px -8px rgba(15, 118, 110, 0.15);
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --max-width: 1380px;
         }
 
         [data-theme="dark"] {
-            --bg: #090d16;
+            --bg: #0b0f19;
             --card-bg: #131c2e;
             --dark-surface: #1a263d;
-            --text-main: #f1f5f9;
+            --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border: #24344d;
-            --primary-glow: rgba(20, 184, 166, 0.2);
-            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+            --border: #26354a;
+            --border-light: #1e2d42;
+            --primary-glow: rgba(20, 184, 166, 0.25);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.45);
         }
 
         * {
@@ -62,12 +67,12 @@
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.5;
             overflow-x: hidden;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        h1, h2, h3, h4, .brand-font {
+        h1, h2, h3, h4, h5, .brand-font {
             font-family: 'Outfit', sans-serif;
         }
 
@@ -83,125 +88,70 @@
         .container {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 1.25rem;
         }
 
-        /* SECTION STYLES */
-        .section-padding {
-            padding: 5rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 760px;
-            margin: 0 auto 3.5rem;
-        }
-
-        .eyebrow {
-            display: inline-block;
+        /* ANNOUNCEMENT TICKER BAR */
+        .top-notice-bar {
+            background: linear-gradient(90deg, #0f766e, #1d4ed8);
+            color: white;
             font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: var(--primary);
-            background: var(--primary-light);
-            padding: 0.35rem 1rem;
-            border-radius: 50px;
-            margin-bottom: 1rem;
-        }
-
-        [data-theme="dark"] .eyebrow {
-            background: rgba(15, 118, 110, 0.25);
-            color: #2dd4bf;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: var(--text-main);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-        }
-
-        /* BUTTONS */
-        .btn {
-            display: inline-flex;
+            font-weight: 600;
+            padding: 0.45rem 1rem;
+            text-align: center;
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.6rem;
-            padding: 0.85rem 1.75rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-            border-radius: var(--radius-sm);
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: var(--transition);
+            gap: 0.75rem;
+            box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.15);
         }
 
-        .btn-primary {
-            background-color: var(--primary);
-            color: #ffffff;
-            box-shadow: 0 4px 14px rgba(15, 118, 110, 0.35);
+        .top-notice-bar span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
         }
 
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(15, 118, 110, 0.45);
+        .notice-tag {
+            background: rgba(255, 255, 255, 0.22);
+            padding: 0.15rem 0.6rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .btn-secondary {
-            background-color: transparent;
-            border-color: var(--border);
-            color: var(--text-main);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            background-color: var(--primary-light);
-        }
-
-        /* HEADER & NAVBAR */
+        /* E-COMMERCE NAVBAR */
         .site-header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border);
-            transition: var(--transition);
+            background: var(--card-bg);
+            border-bottom: 2px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
         }
 
-        [data-theme="dark"] .site-header {
-            background: rgba(19, 28, 46, 0.85);
-        }
-
-        .navbar {
+        .header-main {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 80px;
+            gap: 1.5rem;
+            padding: 0.85rem 0;
         }
 
         .brand-logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-size: 1.4rem;
+            font-size: 1.45rem;
             font-weight: 800;
             color: var(--text-main);
+            flex-shrink: 0;
         }
 
         .brand-badge {
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             background: linear-gradient(135deg, var(--primary), #0d9488);
             color: white;
             border-radius: 12px;
@@ -209,43 +159,133 @@
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 10px rgba(15, 118, 110, 0.3);
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.35);
         }
 
-        .nav-links {
+        /* CATEGORIES MEGA DROPDOWN BUTTON */
+        .category-dropdown-btn {
             display: flex;
             align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--text-muted);
+            gap: 0.5rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 0.65rem 1.1rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            cursor: pointer;
             transition: var(--transition);
+            flex-shrink: 0;
         }
 
-        .nav-link:hover, .nav-link.active {
+        .category-dropdown-btn:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
             color: var(--primary);
         }
 
-        .nav-actions {
+        /* FLIPKART/AMAZON STYLE SEARCH BAR */
+        .search-box-container {
+            flex-grow: 1;
+            max-width: 620px;
+            position: relative;
+        }
+
+        .search-form {
+            display: flex;
+            width: 100%;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            padding-right: 3.5rem;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+            background: var(--card-bg);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .search-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 1.4rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .search-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        /* NAV ACTION BUTTONS */
+        .nav-actions-group {
             display: flex;
             align-items: center;
             gap: 1rem;
+            flex-shrink: 0;
         }
 
-        /* PORTAL DROPDOWN */
+        .action-icon-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            cursor: pointer;
+            position: relative;
+            background: none;
+            border: none;
+            gap: 0.15rem;
+            transition: var(--transition);
+        }
+
+        .action-icon-btn:hover {
+            color: var(--primary);
+        }
+
+        .action-icon-btn .icon {
+            font-size: 1.25rem;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -4px;
+            right: 4px;
+            background: var(--discount-badge);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 800;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* PORTAL ACCESS DROPDOWN */
         .dropdown {
             position: relative;
         }
 
         .dropdown-menu {
             position: absolute;
-            top: 120%;
+            top: 110%;
             right: 0;
-            width: 260px;
+            width: 270px;
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
@@ -282,450 +322,546 @@
             color: var(--primary);
         }
 
-        [data-theme="dark"] .dropdown-item:hover {
-            background-color: rgba(15, 118, 110, 0.2);
+        /* SUB-NAV / QUICK LINKS BAR */
+        .sub-nav-bar {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-light);
+            padding: 0.5rem 0;
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
-        .theme-toggle {
-            background: transparent;
-            border: 1px solid var(--border);
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
+        .sub-nav-links {
             display: flex;
             align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--text-main);
+            gap: 1.75rem;
+        }
+
+        .sub-nav-link {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
             transition: var(--transition);
         }
 
-        .theme-toggle:hover {
-            border-color: var(--primary);
+        .sub-nav-link:hover, .sub-nav-link.highlight {
             color: var(--primary);
-        }
-
-        /* HERO SECTION */
-        .hero {
-            position: relative;
-            padding: 6rem 0 5rem;
-            background: radial-gradient(circle at 80% 20%, var(--primary-glow) 0%, transparent 50%),
-                        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 3.5rem;
-            align-items: center;
-        }
-
-        .hero-announcement {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.4rem 1rem;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .badge-pulse {
-            width: 10px;
-            height: 10px;
-            background-color: #10b981;
-            border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-            animation: pulse 1.8s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -1px;
-            margin-bottom: 1.25rem;
-        }
-
-        .highlight-text {
-            background: linear-gradient(135deg, var(--primary), #0d9488, var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        /* STATS BAR */
-        .stats-counter-bar {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            padding: 2rem;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--primary);
-            display: block;
-            line-height: 1.1;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            margin-top: 0.25rem;
-        }
-
-        /* HERO CARD WIDGET */
-        .hero-visual-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-        }
-
-        .hero-visual-card::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            background: linear-gradient(135deg, var(--primary), transparent, var(--secondary));
-            border-radius: var(--radius-lg);
-            z-index: -1;
-            opacity: 0.3;
-        }
-
-        .widget-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .widget-badge {
-            padding: 0.35rem 0.75rem;
-            background: var(--primary-light);
-            color: var(--primary);
-            border-radius: 50px;
-            font-size: 0.8rem;
             font-weight: 700;
         }
 
-        .mode-preview-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-
-        .mini-mode-box {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            padding: 1rem;
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.4rem;
+            font-weight: 700;
+            font-size: 0.9rem;
             border-radius: var(--radius-sm);
-            text-align: left;
-        }
-
-        .mini-mode-box h4 {
-            font-size: 0.95rem;
-            color: var(--text-main);
-            margin-bottom: 0.25rem;
-        }
-
-        .mini-mode-box p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* VISION & MISSION */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .value-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 2.5rem 2rem;
-            border-radius: var(--radius-md);
+            border: 2px solid transparent;
+            cursor: pointer;
             transition: var(--transition);
         }
 
-        .value-card:hover {
-            transform: translateY(-5px);
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: #0f172a;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--accent-hover);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border-color: var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        /* HERO PROMOTIONAL BANNER CAROUSEL */
+        .hero-carousel-section {
+            padding: 1.5rem 0;
+        }
+
+        .carousel-container {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: linear-gradient(135deg, #0f766e, #1e293b);
+            color: white;
             box-shadow: var(--shadow-md);
+            min-height: 360px;
+            display: flex;
+            align-items: center;
+        }
+
+        .carousel-slide {
+            display: none;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2rem;
+            padding: 3.5rem 4rem;
+            width: 100%;
+            align-items: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .carousel-slide.active {
+            display: grid;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.99); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .carousel-tag {
+            display: inline-block;
+            padding: 0.35rem 0.9rem;
+            background: var(--accent);
+            color: #0f172a;
+            font-weight: 800;
+            font-size: 0.8rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 1rem;
+        }
+
+        .carousel-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .carousel-desc {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-bottom: 1.75rem;
+        }
+
+        .carousel-visual {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .carousel-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+            color: var(--dark);
+        }
+
+        .prev-btn { left: 1rem; }
+        .next-btn { right: 1rem; }
+
+        /* QUICK FILTER PILLS BAR */
+        .quick-filters-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .filter-pill {
+            padding: 0.6rem 1.25rem;
+            border-radius: 50px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-pill.active, .filter-pill:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
+        }
+
+        /* SECTION HEADERS */
+        .section-header-compact {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 0.75rem;
+        }
+
+        .section-title-main {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .section-subtitle-main {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        /* Dynamic CASCADING LOCATION ENGINE PANEL */
+        .location-finder-panel {
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .location-panel-tag {
+            position: absolute;
+            top: -14px;
+            left: 2rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .location-grid-5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .form-select-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+        }
+
+        .form-select-group select {
+            width: 100%;
+            padding: 0.75rem 0.85rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.9rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-select-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
+        }
+
+        .form-select-group select:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background: rgba(0,0,0,0.05);
+        }
+
+        .hub-result-card {
+            margin-top: 1.5rem;
+            background: var(--primary-light);
+            border: 1px dashed var(--primary);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .hub-result-card.active {
+            display: flex;
+        }
+
+        /* E-COMMERCE COURSE CARDS GRID (FLIPKART/AMAZON STYLE) */
+        .marketplace-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .course-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .course-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
             border-color: var(--primary);
         }
 
-        .value-icon {
-            width: 56px;
-            height: 56px;
+        .course-thumb-wrapper {
+            position: relative;
+            height: 180px;
+            background-color: var(--dark-surface);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .course-thumb-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .course-card:hover .course-thumb-img {
+            transform: scale(1.05);
+        }
+
+        .badge-mode {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: white;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-mode.hybrid { background: var(--primary); }
+        .badge-mode.offline { background: var(--accent); color: var(--dark); }
+
+        .discount-ribbon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--discount-badge);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
+        }
+
+        .course-card-content {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .course-category {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .course-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            height: 2.8em;
+        }
+
+        .course-rating-row {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+        }
+
+        .stars {
+            color: var(--rating-star);
+            font-weight: 800;
+        }
+
+        .rating-num {
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .rating-count {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .course-meta-list {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .course-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .price-row {
+            margin-top: auto;
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-light);
+            margin-bottom: 1rem;
+        }
+
+        .current-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .original-price {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .card-actions {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0.5rem;
+        }
+
+        /* LEARNING MODES & HOSTEL FACILITIES */
+        .facilities-banner-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .facility-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .facility-box:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .facility-icon-header {
+            width: 52px;
+            height: 52px;
             background: var(--primary-light);
             color: var(--primary);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .value-card h3 {
-            font-size: 1.35rem;
-            margin-bottom: 0.75rem;
-        }
-
-        /* PROGRAMS & FILTERS */
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.6rem 1.4rem;
-            border-radius: 50px;
-            border: 1px solid var(--border);
-            background: var(--card-bg);
-            color: var(--text-muted);
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .program-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .program-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
-        }
-
-        .program-header {
-            padding: 1.5rem 1.5rem 1rem;
-            border-bottom: 1px solid var(--border);
-            background: linear-gradient(to bottom, var(--bg), var(--card-bg));
-        }
-
-        .program-tag {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--primary);
-        }
-
-        .program-card h3 {
-            font-size: 1.25rem;
-            margin: 0.3rem 0;
-        }
-
-        .program-body {
-            padding: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .program-body p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            font-size: 1.6rem;
             margin-bottom: 1.25rem;
         }
 
-        .program-features {
-            margin-bottom: 1.5rem;
-        }
-
-        .program-features li {
-            font-size: 0.85rem;
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .program-footer {
-            padding: 1rem 1.5rem 1.5rem;
-            border-top: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        /* DELIVERY MODES & BATCHES */
-        .delivery-modes-wrapper {
-            margin-top: 5rem;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 3rem;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .modes-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .mode-box {
-            padding: 1.5rem;
-            border-radius: var(--radius-md);
-            background: var(--bg);
-            border: 1px solid var(--border);
-        }
-
-        .mode-box h4 {
-            font-size: 1.1rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* METHODOLOGY & 3-TIER MODEL */
-        .tier-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            position: relative;
-        }
-
-        .tier-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .tier-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 0 0 4px 4px;
-        }
-
-        .tier-card h3 {
-            font-size: 1.25rem;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* HOSTEL & FACILITIES */
-        .facilities-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        .facility-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 1.75rem;
-            transition: var(--transition);
-        }
-
-        .facility-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-4px);
-        }
-
-        .facility-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        /* ROLE-BASED DASHBOARD PREVIEW */
-        .dashboard-preview-box {
+        /* ROLE-BASED DASHBOARD PREVIEW TABS */
+        .dashboard-section-wrapper {
             background: var(--dark);
             border-radius: var(--radius-lg);
-            padding: 2.5rem;
+            padding: 3rem;
             color: white;
+            margin: 4rem 0;
             box-shadow: var(--shadow-lg);
         }
 
-        .tab-buttons {
+        .tab-buttons-row {
             display: flex;
             gap: 1rem;
-            border-bottom: 1px solid var(--dark-surface);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
             padding-bottom: 1rem;
             margin-bottom: 2rem;
         }
 
-        .tab-btn {
+        .dash-tab-btn {
             background: transparent;
             border: none;
             color: #94a3b8;
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             padding: 0.6rem 1.2rem;
             cursor: pointer;
@@ -733,177 +869,90 @@
             transition: var(--transition);
         }
 
-        .tab-btn.active {
+        .dash-tab-btn.active {
             background: var(--primary);
             color: white;
         }
 
-        .dashboard-screen {
+        .dash-screen {
             display: none;
             background: var(--dark-surface);
             border-radius: var(--radius-md);
             padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .dashboard-screen.active {
+        .dash-screen.active {
             display: block;
             animation: fadeIn 0.4s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .dash-widget-grid {
+        .dash-metrics-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
 
-        .dash-card {
+        .metric-card {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 1.25rem;
             border-radius: var(--radius-sm);
         }
 
-        .dash-card h5 {
+        .metric-card h5 {
             color: #94a3b8;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
-        .dash-card .val {
-            font-size: 1.6rem;
+        .metric-card .val {
+            font-size: 1.8rem;
             font-weight: 800;
             color: white;
         }
 
-        /* CONTACT & INQUIRY FORM */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 0.95fr 1.15fr;
-            gap: 3.5rem;
-        }
-
-        .contact-info-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .info-item {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-
-        .info-item-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--primary-light);
-            color: var(--primary);
-            border-radius: 10px;
-            display: flex;
+        /* MODAL POPUP FOR QUICK ENROLLMENT */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(6px);
+            z-index: 2000;
+            display: none;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
+            padding: 1rem;
         }
 
-        .inquiry-form-card {
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-card {
             background: var(--card-bg);
-            border: 1px solid var(--border);
             border-radius: var(--radius-lg);
-            padding: 2.5rem;
-            box-shadow: var(--shadow-md);
-        }
-
-        .form-section-title {
-            font-size: 0.85rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            padding-bottom: 0.4rem;
-            border-bottom: 1px dashed var(--border);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .form-row-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 0.4rem;
-            color: var(--text-main);
-        }
-
-        input, select, textarea {
+            max-width: 580px;
             width: 100%;
-            padding: 0.8rem 1rem;
-            border-radius: var(--radius-sm);
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
             border: 1px solid var(--border);
-            background: var(--bg);
-            color: var(--text-main);
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: var(--transition);
+            animation: fadeIn 0.3s ease;
+            position: relative;
         }
 
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px var(--primary-glow);
-        }
-
-        select:disabled {
-            background-color: rgba(0, 0, 0, 0.04);
+        .modal-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
             color: var(--text-muted);
-            cursor: not-allowed;
-            border-color: var(--border);
-            opacity: 0.75;
-        }
-
-        [data-theme="dark"] select:disabled {
-            background-color: rgba(255, 255, 255, 0.04);
-        }
-
-        .location-helper-badge {
-            font-size: 0.75rem;
-            color: var(--primary);
-            margin-top: 0.3rem;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            font-weight: 600;
         }
 
         /* FOOTER */
@@ -952,22 +1001,17 @@
             color: white;
         }
 
-        .app-badges {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-
         .app-btn {
             background: #1e293b;
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 8px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
+            font-weight: 600;
         }
 
         .footer-bottom {
@@ -980,914 +1024,755 @@
         }
 
         /* RESPONSIVE DESIGN */
-        @media (max-width: 1024px) {
-            .hero-grid, .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .programs-grid, .values-grid, .tier-grid, .modes-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .facilities-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .form-row-3 {
-                grid-template-columns: 1fr 1fr;
-            }
+        @media (max-width: 1200px) {
+            .marketplace-grid { grid-template-columns: repeat(3, 1fr); }
+            .location-grid-5 { grid-template-columns: repeat(3, 1fr); }
         }
 
-        @media (max-width: 768px) {
-            .navbar {
-                height: 70px;
-            }
-            .nav-links {
-                display: none;
-            }
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            .stats-counter-bar {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .programs-grid, .values-grid, .tier-grid, .modes-grid, .facilities-grid {
-                grid-template-columns: 1fr;
-            }
-            .dash-widget-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .form-row, .form-row-3 {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 900px) {
+            .marketplace-grid { grid-template-columns: repeat(2, 1fr); }
+            .carousel-slide { grid-template-columns: 1fr; padding: 2.5rem; }
+            .carousel-visual { display: none; }
+            .location-grid-5 { grid-template-columns: repeat(2, 1fr); }
+            .facilities-banner-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .marketplace-grid { grid-template-columns: 1fr; }
+            .location-grid-5 { grid-template-columns: 1fr; }
+            .header-main { flex-wrap: wrap; }
+            .search-box-container { order: 3; max-width: 100%; margin-top: 0.5rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .dash-metrics-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. GLOBAL NAVIGATION & APP HEADER -->
+    <!-- 1. TOP ANNOUNCEMENT TICKER BAR -->
+    <div class="top-notice-bar">
+        <span><strong class="notice-tag">🔥 ADMISSIONS 2026-27</strong> Navodaya & K-12 Offline Hostel Batches Now Open in Sindhanur Hub!</span>
+        <a href="#locationFinder" style="text-decoration: underline; color: #fef3c7; font-weight: 700; margin-left: 0.5rem;">Check Local Village Hub →</a>
+    </div>
+
+    <!-- 2. E-COMMERCE STYLE NAVBAR & HEADER -->
     <header class="site-header">
         <div class="container">
-            <nav class="navbar" aria-label="Global Navigation">
+            <div class="header-main">
+                <!-- Brand Logo -->
                 <a href="index.html" class="brand-logo">
                     <span class="brand-badge">SE</span>
-                    <span>Sharusuri <small style="font-size: 0.75rem; display: block; color: var(--primary); font-weight: 700;">EDTECH PLATFORM</small></span>
+                    <span>Sharusuri <small style="font-size: 0.72rem; display: block; color: var(--primary); font-weight: 800; letter-spacing: 0.5px;">EDTECH STORE</small></span>
                 </a>
 
-                <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#programs" class="nav-link">Programs</a></li>
-                    <li><a href="#methodology" class="nav-link">Methodology</a></li>
-                    <li><a href="#facilities" class="nav-link">Facilities</a></li>
-                    <li><a href="#dashboards" class="nav-link">Portals</a></li>
-                    <li><a href="#contact" class="nav-link">Contact Us</a></li>
-                </ul>
+                <!-- Category Mega Menu Dropdown -->
+                <div class="dropdown">
+                    <button class="category-dropdown-btn">
+                        <span>☰ Browse Categories</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="javascript:void(0)" class="dropdown-item" onclick="filterByCategory('k12')">🏫 K-12 School Foundation</a>
+                        <a href="javascript:void(0)" class="dropdown-item" onclick="filterByCategory('entrance')">🏆 Entrance Exams (Navodaya/Morarji)</a>
+                        <a href="javascript:void(0)" class="dropdown-item" onclick="filterByCategory('puc')">🔬 PUC / 11th & 12th Science</a>
+                        <a href="javascript:void(0)" class="dropdown-item" onclick="filterByCategory('skills')">💻 Coding & Digital Literacy</a>
+                        <a href="javascript:void(0)" class="dropdown-item" onclick="filterByCategory('hostel')">🏢 Offline Campus & Hostel Batches</a>
+                    </div>
+                </div>
 
-                <div class="nav-actions">
-                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
-                        🌙
+                <!-- Central Marketplace Search Bar -->
+                <div class="search-box-container">
+                    <form class="search-form" onsubmit="event.preventDefault(); handleSearch();">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search for courses, subjects, entrance exams, or campus hubs..." oninput="handleSearch()">
+                        <button type="submit" class="search-btn" aria-label="Search">🔍</button>
+                    </form>
+                </div>
+
+                <!-- Navigation Actions (Cart, Theme, Portals) -->
+                <div class="nav-actions-group">
+                    <button class="action-icon-btn" id="themeToggleBtn" aria-label="Toggle Dark Theme">
+                        <span class="icon">🌙</span>
+                        <span>Theme</span>
+                    </button>
+
+                    <button class="action-icon-btn" onclick="openCartModal()" aria-label="Saved Courses">
+                        <span class="icon">🛒</span>
+                        <span>Saved</span>
+                        <span class="cart-badge" id="cartCount">0</span>
                     </button>
 
                     <!-- Role-Based Access Dropdown -->
                     <div class="dropdown">
-                        <button class="btn btn-primary" style="padding: 0.65rem 1.25rem;">
-                            <span>Portal Login</span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        <button class="btn btn-primary" style="padding: 0.55rem 1rem; font-size: 0.85rem;">
+                            <span>Portal Access</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
                         </button>
                         <div class="dropdown-menu">
-                            <a href="login.html?role=student" class="dropdown-item">
-                                🎓 Student Portal
-                            </a>
-                            <a href="login.html?role=teacher" class="dropdown-item">
-                                👩‍🏫 Mentor / Faculty Portal
-                            </a>
-                            <a href="login.html?role=admin" class="dropdown-item">
-                                ⚙️ Admin & Campus OS
-                            </a>
+                            <a href="login.html?role=student" class="dropdown-item">🎓 Student Dashboard Login</a>
+                            <a href="login.html?role=teacher" class="dropdown-item">👩‍🏫 Faculty & Mentor Portal</a>
+                            <a href="login.html?role=admin" class="dropdown-item">⚙️ Campus Admin Console</a>
                         </div>
                     </div>
                 </div>
-            </nav>
+            </div>
+
+            <!-- Sub Navigation Bar -->
+            <div class="sub-nav-bar">
+                <div class="sub-nav-links">
+                    <a href="#coursesGrid" class="sub-nav-link highlight">⚡ Top Selling Courses</a>
+                    <a href="#locationFinder" class="sub-nav-link">📍 Find Nearest Village Campus</a>
+                    <a href="#hostelFacilities" class="sub-nav-link">🏢 Hostel & Dining Facilities</a>
+                    <a href="#methodology" class="sub-nav-link">👨‍🏫 3-Tier Mentorship</a>
+                    <a href="#dashboards" class="sub-nav-link">📊 Portal Previews</a>
+                    <a href="#contactForm" class="sub-nav-link">📞 Admissions Helpline</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main id="main">
-        <!-- 2. HERO SECTION & VALUE PROPOSITION -->
-        <section class="hero" id="home">
+    <main id="mainContent">
+        <!-- 3. HERO PROMOTIONAL BANNER CAROUSEL -->
+        <section class="hero-carousel-section">
             <div class="container">
-                <div class="hero-grid">
-                    <div class="hero-content">
-                        <div class="hero-announcement">
-                            <span class="badge-pulse"></span>
-                            <span>Admissions Open for 2026-27 Hybrid Batches</span>
-                        </div>
-                        <h1 class="hero-title">
-                            Empowering Next-Gen Learners with <span class="highlight-text">Hybrid Education</span>
-                        </h1>
-                        <p class="hero-description">
-                            Bridging academic excellence across rural and urban learning centers through live digital interactive classes, local mentorship hubs, and tech-driven career roadmaps.
-                        </p>
-                        <div class="hero-actions">
-                            <a href="#programs" class="btn btn-primary">
-                                <span>Explore Programs</span>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </a>
-                            <a href="#contact" class="btn btn-secondary">
-                                <span>Book Free Demo Class</span>
-                            </a>
-                        </div>
+                <div class="carousel-container">
+                    <button class="carousel-nav-btn prev-btn" onclick="prevSlide()">❮</button>
+                    <button class="carousel-nav-btn next-btn" onclick="nextSlide()">❯</button>
 
-                        <!-- Stats Bar -->
-                        <div class="stats-counter-bar">
-                            <div class="stat-item">
-                                <span class="stat-number">50,000+</span>
-                                <span class="stat-label">Active Students</span>
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide active">
+                        <div>
+                            <span class="carousel-tag">Featured Hybrid Program</span>
+                            <h1 class="carousel-title">Navodaya & Entrance Coaching 2026</h1>
+                            <p class="carousel-desc">Includes 100+ Live Mock Tests, Offline Class Support, and Dedicated Weekend Doubt Clearing.</p>
+                            <div style="display: flex; gap: 1rem; align-items: center;">
+                                <a href="#coursesGrid" class="btn btn-accent">Explore Course Packages</a>
+                                <span style="font-size: 0.9rem; color: #cbd5e1;">Starts at <strong>₹2,499/year</strong></span>
                             </div>
-                            <div class="stat-item">
-                                <span class="stat-number">500+</span>
-                                <span class="stat-label">Expert Mentors</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">98%</span>
-                                <span class="stat-label">Success Rate</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">120+</span>
-                                <span class="stat-label">Campus Hubs</span>
+                        </div>
+                        <div class="carousel-visual">
+                            <h3 style="color: var(--accent); font-size: 1.8rem;">98.4%</h3>
+                            <p style="font-size: 0.9rem; margin-top: 0.3rem;">Selection Success Rate in Morarji & Navodaya Exams</p>
+                            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.8rem; color: #94a3b8;">
+                                🛡️ Verified Sharusuri Hybrid Curriculum
                             </div>
                         </div>
                     </div>
 
-                    <!-- Hero Visual Card -->
-                    <div class="hero-visual-card">
-                        <div class="widget-head">
-                            <div>
-                                <h3 style="font-size: 1.1rem; color: var(--text-main);">Sharusuri Hybrid OS</h3>
-                                <p style="font-size: 0.8rem; color: var(--text-muted);">Integrated Learning System</p>
-                            </div>
-                            <span class="widget-badge">Live Active</span>
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide">
+                        <div>
+                            <span class="carousel-tag" style="background: #10b981; color: white;">Campus Hostel Special</span>
+                            <h2 class="carousel-title">Residential Offline Study Hubs</h2>
+                            <p class="carousel-desc">Secure hostels, 24/7 Wi-Fi, nutritious food, and supervised evening library study sessions.</p>
+                            <a href="#hostelFacilities" class="btn btn-primary">Book Hostel Tour</a>
                         </div>
-
-                        <div class="mode-preview-grid">
-                            <div class="mini-mode-box">
-                                <h4>💻 Digital Live Portal</h4>
-                                <p>Interactive HD Streams & Recorded Vault</p>
-                            </div>
-                            <div class="mini-mode-box">
-                                <h4>🏫 Offline Campus Hub</h4>
-                                <p>Smart Classrooms & Hostel Facilities</p>
-                            </div>
-                            <div class="mini-mode-box">
-                                <h4>📊 Mentorship Sync</h4>
-                                <p>1-on-1 Performance Tracking</p>
-                            </div>
-                            <div class="mini-mode-box">
-                                <h4>⚡ AI Doubt Resolver</h4>
-                                <p>Instant 24/7 Conceptual Answers</p>
+                        <div class="carousel-visual">
+                            <h3 style="color: #60a5fa; font-size: 1.8rem;">Raichur Pilot</h3>
+                            <p style="font-size: 0.9rem; margin-top: 0.3rem;">Sindhanur AP K Hosalli Main Campus</p>
+                            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.8rem; color: #94a3b8;">
+                                📍 Google Map Verified Location
                             </div>
                         </div>
+                    </div>
+                </div>
 
-                        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
-                            <span style="font-size: 0.85rem; color: var(--text-muted);">Next Batch Starts: <strong>1st of Next Month</strong></span>
-                            <a href="#contact" style="font-size: 0.85rem; font-weight: 700; color: var(--primary);">Reserve Seat →</a>
+                <!-- Quick Filter Pills -->
+                <div class="quick-filters-bar">
+                    <button class="filter-pill active" onclick="filterByPill('all', this)">🔥 All Offerings</button>
+                    <button class="filter-pill" onclick="filterByPill('school', this)">🏫 K-12 Tuitions</button>
+                    <button class="filter-pill" onclick="filterByPill('entrance', this)">🏆 Navodaya / Morarji</button>
+                    <button class="filter-pill" onclick="filterByPill('puc', this)">🔬 PUC Science</button>
+                    <button class="filter-pill" onclick="filterByPill('skills', this)">💻 Coding & Skills</button>
+                    <button class="filter-pill" onclick="filterByPill('hostel', this)">🏢 Hostel Included</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Dynamic CASCADING CAMPUS & VILLAGE LOCATION SELECTOR -->
+        <section class="container" id="locationFinder">
+            <div class="location-finder-panel">
+                <span class="location-panel-tag">📍 Village & Campus Hub Finder</span>
+                <div style="max-width: 700px;">
+                    <h2 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 0.2rem;">Find Nearby Offline Centers & Hostel Availability</h2>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Select your exact location hierarchy down to your Hobli and Village to locate local mentors and study nodes.</p>
+                </div>
+
+                <div class="location-grid-5">
+                    <div class="form-select-group">
+                        <label for="stateSelect">1. State</label>
+                        <select id="stateSelect" aria-label="Select State"><option value="">-- Select State --</option></select>
+                    </div>
+
+                    <div class="form-select-group">
+                        <label for="districtSelect">2. District</label>
+                        <select id="districtSelect" disabled aria-label="Select District"><option value="">-- Select State First --</option></select>
+                    </div>
+
+                    <div class="form-select-group">
+                        <label for="talukSelect">3. Taluk</label>
+                        <select id="talukSelect" disabled aria-label="Select Taluk"><option value="">-- Select District First --</option></select>
+                    </div>
+
+                    <div class="form-select-group">
+                        <label for="hobliSelect">4. Hobli</label>
+                        <select id="hobliSelect" disabled aria-label="Select Hobli"><option value="">-- Select Taluk First --</option></select>
+                    </div>
+
+                    <div class="form-select-group">
+                        <label for="villageSelect">5. Village / Hub</label>
+                        <select id="villageSelect" disabled aria-label="Select Village"><option value="">-- Select Hobli First --</option></select>
+                    </div>
+                </div>
+
+                <!-- Live Campus Hub Match Notification Box -->
+                <div class="hub-result-card" id="hubResultCard">
+                    <div>
+                        <strong style="color: var(--primary); font-size: 1.1rem; display: block;" id="hubTitle">Matched Campus Node: Sindhanur Main Hub</strong>
+                        <p style="font-size: 0.88rem; color: var(--text-main);" id="hubDetails">Location: AP K Hosalli Near Sunklamma Katte. Hostel Seats: 24 Available.</p>
+                    </div>
+                    <a href="#contactForm" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Reserve Hostel Seat</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. E-COMMERCE COURSE MARKETPLACE GRID -->
+        <section class="container" id="coursesGrid" style="padding-bottom: 3rem;">
+            <div class="section-header-compact">
+                <div>
+                    <h2 class="section-title-main">Trending Academic & Skill Courses</h2>
+                    <p class="section-subtitle-main">Instant digital access, hybrid weekend mentorship, and exam preparation kits.</p>
+                </div>
+                <span style="font-size: 0.9rem; font-weight: 700; color: var(--primary);" id="courseCounterText">Showing All 6 Courses</span>
+            </div>
+
+            <div class="marketplace-grid" id="courseCardsContainer">
+                <!-- Course Card 1 -->
+                <div class="course-card" data-category="entrance" data-title="Navodaya & Entrance Coaching Class 4-5">
+                    <div class="course-thumb-wrapper">
+                        <span class="badge-mode hybrid">Hybrid Mode</span>
+                        <span class="discount-ribbon">58% OFF</span>
+                        <div style="font-size: 3.5rem; color: #2dd4bf;">🏆</div>
+                    </div>
+                    <div class="course-card-content">
+                        <span class="course-category">Competitive Entrance</span>
+                        <h3 class="course-title">Navodaya & Morarji Desai Complete Exam Prep</h3>
+                        <div class="course-rating-row">
+                            <span class="rating-num">4.9</span>
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(1,420 reviews)</span>
+                        </div>
+                        <div class="course-meta-list">
+                            <div class="course-meta-item"><span>📚 120+ Video Masterclasses</span></div>
+                            <div class="course-meta-item"><span>📝 100 Printed Practice Question Sets</span></div>
+                            <div class="course-meta-item"><span>🏫 Weekend Offline Doubts Session</span></div>
+                        </div>
+                        <div class="price-row">
+                            <span class="current-price">₹2,499</span>
+                            <span class="original-price">₹5,999</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="openEnrollModal('Navodaya & Morarji Complete Prep', 2499)">Enroll Now</button>
+                            <button class="btn btn-secondary" onclick="addToCart('Navodaya Prep')" title="Save for later">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div class="course-card" data-category="school" data-title="Class 6 to 10 Secondary Math and Science">
+                    <div class="course-thumb-wrapper">
+                        <span class="badge-mode hybrid">Online + Offline</span>
+                        <span class="discount-ribbon">50% OFF</span>
+                        <div style="font-size: 3.5rem; color: #60a5fa;">📐</div>
+                    </div>
+                    <div class="course-card-content">
+                        <span class="course-category">K-12 School Foundation</span>
+                        <h3 class="course-title">Class 6 - 10 Secondary Math & Science Excellence</h3>
+                        <div class="course-rating-row">
+                            <span class="rating-num">4.8</span>
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(980 reviews)</span>
+                        </div>
+                        <div class="course-meta-list">
+                            <div class="course-meta-item"><span>🎯 NCERT & State Board Aligned</span></div>
+                            <div class="course-meta-item"><span>📄 Daily Worksheets & Solution Guides</span></div>
+                            <div class="course-meta-item"><span>👩‍💼 Personal Academic Advisor</span></div>
+                        </div>
+                        <div class="price-row">
+                            <span class="current-price">₹3,999</span>
+                            <span class="original-price">₹7,999</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="openEnrollModal('Class 6-10 Secondary Math & Science', 3999)">Enroll Now</button>
+                            <button class="btn btn-secondary" onclick="addToCart('Class 6-10 Math Science')" title="Save for later">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div class="course-card" data-category="hostel" data-title="Class 10 Board Exam Residential Bootcamp">
+                    <div class="course-thumb-wrapper">
+                        <span class="badge-mode offline">Hostel Included</span>
+                        <span class="discount-ribbon">35% OFF</span>
+                        <div style="font-size: 3.5rem; color: #f59e0b;">🏢</div>
+                    </div>
+                    <div class="course-card-content">
+                        <span class="course-category">Residential Campus</span>
+                        <h3 class="course-title">Class 10 Board Exam Residential Intensive Bootcamp</h3>
+                        <div class="course-rating-row">
+                            <span class="rating-num">5.0</span>
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(310 reviews)</span>
+                        </div>
+                        <div class="course-meta-list">
+                            <div class="course-meta-item"><span>🛌 Full Campus Lodging & Meals</span></div>
+                            <div class="course-meta-item"><span>📖 Supervised Evening Study Lounge</span></div>
+                            <div class="course-meta-item"><span>🔥 10 Mock Board Practice Exams</span></div>
+                        </div>
+                        <div class="price-row">
+                            <span class="current-price">₹12,500</span>
+                            <span class="original-price">₹18,999</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-accent" onclick="openEnrollModal('Class 10 Residential Bootcamp', 12500)">Book Seat</button>
+                            <button class="btn btn-secondary" onclick="addToCart('Class 10 Hostel Bootcamp')" title="Save for later">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 4 -->
+                <div class="course-card" data-category="puc" data-title="PUC 1st and 2nd Year Science Stream">
+                    <div class="course-thumb-wrapper">
+                        <span class="badge-mode hybrid">Hybrid Stream</span>
+                        <span class="discount-ribbon">45% OFF</span>
+                        <div style="font-size: 3.5rem; color: #a855f7;">🧪</div>
+                    </div>
+                    <div class="course-card-content">
+                        <span class="course-category">PUC Higher Secondary</span>
+                        <h3 class="course-title">PUC I & II Science (Physics, Chemistry, Math, Bio)</h3>
+                        <div class="course-rating-row">
+                            <span class="rating-num">4.7</span>
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-count">(640 reviews)</span>
+                        </div>
+                        <div class="course-meta-list">
+                            <div class="course-meta-item"><span>⚡ Formula Question Banks</span></div>
+                            <div class="course-meta-item"><span>📊 Board + Entrance Dual Strategy</span></div>
+                            <div class="course-meta-item"><span>📱 24/7 AI Doubt Solving App</span></div>
+                        </div>
+                        <div class="price-row">
+                            <span class="current-price">₹5,499</span>
+                            <span class="original-price">₹9,999</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="openEnrollModal('PUC Science Stream', 5499)">Enroll Now</button>
+                            <button class="btn btn-secondary" onclick="addToCart('PUC Science')" title="Save for later">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 5 -->
+                <div class="course-card" data-category="skills" data-title="Digital Literacy Computer and Coding">
+                    <div class="course-thumb-wrapper">
+                        <span class="badge-mode hybrid">Digital Certification</span>
+                        <span class="discount-ribbon">60% OFF</span>
+                        <div style="font-size: 3.5rem; color: #38bdf8;">💻</div>
+                    </div>
+                    <div class="course-card-content">
+                        <span class="course-category">Skill Development</span>
+                        <h3 class="course-title">Youth Coding & Digital Literacy Practical Foundation</h3>
+                        <div class="course-rating-row">
+                            <span class="rating-num">4.9</span>
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(512 reviews)</span>
+                        </div>
+                        <div class="course-meta-list">
+                            <div class="course-meta-item"><span>💻 Computer Fundamentals & Web Basics</span></div>
+                            <div class="course-meta-item"><span>📜 Sharusuri Certification Included</span></div>
+                            <div class="course-meta-item"><span>🛠️ Practical Lab Assignments</span></div>
+                        </div>
+                        <div class="price-row">
+                            <span class="current-price">₹1,999</span>
+                            <span class="original-price">₹4,999</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="openEnrollModal('Digital Literacy & Coding', 1999)">Enroll Now</button>
+                            <button class="btn btn-secondary" onclick="addToCart('Digital Literacy')" title="Save for later">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 6 -->
+                <div class="course-card" data-category="school" data-title="Primary Academic Foundation Classes 1 to 5">
+                    <div class="course-thumb-wrapper">
+                        <span class="badge-mode hybrid">Interactive Learning</span>
+                        <span class="discount-ribbon">50% OFF</span>
+                        <div style="font-size: 3.5rem; color: #f43f5e;">🎨</div>
+                    </div>
+                    <div class="course-card-content">
+                        <span class="course-category">Primary Foundation</span>
+                        <h3 class="course-title">Class 1 - 5 Early Years Literacy & Numeracy Kit</h3>
+                        <div class="course-rating-row">
+                            <span class="rating-num">4.9</span>
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(890 reviews)</span>
+                        </div>
+                        <div class="course-meta-list">
+                            <div class="course-meta-item"><span>🗣️ Vernacular & English Support</span></div>
+                            <div class="course-meta-item"><span>📦 Activity Booksets Delivered</span></div>
+                            <div class="course-meta-item"><span>👪 Weekly Parent Sync</span></div>
+                        </div>
+                        <div class="price-row">
+                            <span class="current-price">₹1,499</span>
+                            <span class="original-price">₹2,999</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="openEnrollModal('Primary Literacy Kit', 1499)">Enroll Now</button>
+                            <button class="btn btn-secondary" onclick="addToCart('Primary Kit')" title="Save for later">♡</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. COMPANY VISION & MISSION -->
-        <section class="section-padding" id="about" style="background: var(--card-bg);">
-            <div class="container">
-                <div class="section-header">
-                    <span class="eyebrow">Our Foundational Values</span>
-                    <h2 class="section-title">Democratizing Quality Education Across Every Region</h2>
-                    <p class="section-subtitle">
-                        Sharusuri EdTech combines modern pedagogy, technology, and community-driven mentorship to build world-class learning ecosystems accessible to all.
-                    </p>
+        <!-- 6. CAMPUS HOSTEL & LEARNING FACILITIES -->
+        <section class="container" id="hostelFacilities">
+            <div class="section-header-compact">
+                <div>
+                    <h2 class="section-title-main">On-Campus Facilities & Hostel Infrastructure</h2>
+                    <p class="section-subtitle-main">State-of-the-art residential study environments designed for student focus and growth.</p>
+                </div>
+            </div>
+
+            <div class="facilities-banner-grid">
+                <div class="facility-box">
+                    <div class="facility-icon-header">🏢</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Secure Hostels</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Separate boys & girls residential blocks with biometric access and resident wardens.</p>
                 </div>
 
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="value-icon">👁️</div>
-                        <h3>Company Vision</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">
-                            To lead the global hybrid educational movement by making outcome-driven, industry-relevant learning accessible, affordable, and actionable for every learner.
-                        </p>
-                    </div>
+                <div class="facility-box">
+                    <div class="facility-icon-header">🥗</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Hygienic Dining</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Nutritious multi-cuisine meal plans prepared in clean, audited campus kitchens.</p>
+                </div>
 
-                    <div class="value-card">
-                        <div class="value-icon">🎯</div>
-                        <h3>Mission Statement</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">
-                            To empower students through structured K-12 support, entrance exam rigor, and skill-first training backed by dedicated mentors and high-tech physical learning hubs.
-                        </p>
-                    </div>
-
-                    <div class="value-card">
-                        <div class="value-icon">💎</div>
-                        <h3>Core Values</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">
-                            Student Success First • Uncompromising Quality • Inclusivity & Equity • Transparent Governance • Continuous Innovation.
-                        </p>
-                    </div>
+                <div class="facility-box">
+                    <div class="facility-icon-header">📡</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">High-Speed Wi-Fi & Labs</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">24/7 digital connectivity for accessing live streams, digital notes, and video vaults.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 4. PROGRAMS & LEARNING MODES -->
-        <section class="section-padding" id="programs">
-            <div class="container">
-                <div class="section-header">
-                    <span class="eyebrow">Academic Programs</span>
-                    <h2 class="section-title">Industry-Aligned Programs & Flexible Batches</h2>
-                    <p class="section-subtitle">
-                        Choose from structured courses designed for board preparation, competitive entrance exams, and future-ready digital skills.
-                    </p>
+        <!-- 7. TEACHING METHODOLOGY / 3-TIER FRAMEWORK -->
+        <section class="container" id="methodology" style="margin-bottom: 4rem;">
+            <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 3rem;">
+                <div style="text-align: center; max-width: 650px; margin: 0 auto 2.5rem;">
+                    <span style="color: var(--primary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">Unmatched Academic Quality</span>
+                    <h2 style="font-size: 2rem; margin-top: 0.3rem;">3-Tier Mentorship Framework</h2>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Every enrolled student receives tri-layered guidance covering teaching, personal care, and instant doubts.</p>
                 </div>
 
-                <!-- Program Filters -->
-                <div class="filter-container">
-                    <button class="filter-btn active" onclick="filterPrograms('all')">All Courses</button>
-                    <button class="filter-btn" onclick="filterPrograms('school')">K-12 School Foundation</button>
-                    <button class="filter-btn" onclick="filterPrograms('entrance')">Competitive Entrance</button>
-                    <button class="filter-btn" onclick="filterPrograms('skills')">Skill Development</button>
-                </div>
-
-                <div class="programs-grid">
-                    <!-- Card 1 -->
-                    <div class="program-card" data-cat="school">
-                        <div class="program-header">
-                            <span class="program-tag">Classes 1 - 5</span>
-                            <h3>Primary Academic Foundation</h3>
-                        </div>
-                        <div class="program-body">
-                            <p>Build early conceptual clarity in Literacy, Numeracy, Science, and Logical Thinking.</p>
-                            <ul class="program-features">
-                                <li>✓ Vernacular & English Support</li>
-                                <li>✓ Interactive Activity Kits</li>
-                                <li>✓ Daily Guided Homework</li>
-                            </ul>
-                        </div>
-                        <div class="program-footer">
-                            <span style="font-weight: 800; color: var(--primary);">Flexible Pricing</span>
-                            <a href="#contact" class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Enquire Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="program-card" data-cat="entrance">
-                        <div class="program-header">
-                            <span class="program-tag">Classes 4 & 5 Special</span>
-                            <h3>Navodaya & Entrance Prep</h3>
-                        </div>
-                        <div class="program-body">
-                            <p>Targeted coaching for Morarji Desai, Navodaya, and state residential entrance examinations.</p>
-                            <ul class="program-features">
-                                <li>✓ 100+ Mock Exam Sets</li>
-                                <li>✓ Speed & Accuracy Drills</li>
-                                <li>✓ Weekend Doubt Resolution</li>
-                            </ul>
-                        </div>
-                        <div class="program-footer">
-                            <span style="font-weight: 800; color: var(--primary);">High Success Batch</span>
-                            <a href="#contact" class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Enquire Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="program-card" data-cat="school">
-                        <div class="program-header">
-                            <span class="program-tag">Classes 6 - 10</span>
-                            <h3>Secondary Mathematics & Science</h3>
-                        </div>
-                        <div class="program-body">
-                            <p>In-depth coverage of NCERT & State Board syllabus with exam strategy preparation.</p>
-                            <ul class="program-features">
-                                <li>✓ Daily Problem Sets (DPPs)</li>
-                                <li>✓ Dedicated Mentor Reviews</li>
-                                <li>✓ Board Exam Test Series</li>
-                            </ul>
-                        </div>
-                        <div class="program-footer">
-                            <span style="font-weight: 800; color: var(--primary);">Popular Choice</span>
-                            <a href="#contact" class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Enquire Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="program-card" data-cat="school">
-                        <div class="program-header">
-                            <span class="program-tag">PUC / Class 11-12</span>
-                            <h3>Higher Secondary Science Stream</h3>
-                        </div>
-                        <div class="program-body">
-                            <p>Physics, Chemistry, Mathematics, and Biology for Board and competitive readiness.</p>
-                            <ul class="program-features">
-                                <li>✓ Solved Question Archives</li>
-                                <li>✓ Formula & Concept Manuals</li>
-                                <li>✓ Career Path Counselling</li>
-                            </ul>
-                        </div>
-                        <div class="program-footer">
-                            <span style="font-weight: 800; color: var(--primary);">Comprehensive</span>
-                            <a href="#contact" class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Enquire Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Card 5 -->
-                    <div class="program-card" data-cat="skills">
-                        <div class="program-header">
-                            <span class="program-tag">Skill Development</span>
-                            <h3>Digital Literacy & Coding Foundation</h3>
-                        </div>
-                        <div class="program-body">
-                            <p>Empowering young minds with essential computer concepts, web basics, and digital fluency.</p>
-                            <ul class="program-features">
-                                <li>✓ Hands-on Lab Projects</li>
-                                <li>✓ Verified Certificate</li>
-                                <li>✓ Practical Soft Skills</li>
-                            </ul>
-                        </div>
-                        <div class="program-footer">
-                            <span style="font-weight: 800; color: var(--primary);">Future Ready</span>
-                            <a href="#contact" class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Enquire Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Delivery Modes & Batch Schedules -->
-                <div class="delivery-modes-wrapper">
-                    <h3 style="font-size: 1.6rem; text-align: center; margin-bottom: 0.5rem;">Flexible Delivery Modes & Batch Options</h3>
-                    <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto;">Tailored scheduling models designed around student lifestyle and academic goals.</p>
-
-                    <div class="modes-grid">
-                        <div class="mode-box">
-                            <h4>🌐 Online Live Classes</h4>
-                            <p>Real-time interactive lectures, downloadable notes, digitized quizzes, and recorded backup streams.</p>
-                        </div>
-                        <div class="mode-box">
-                            <h4>🏢 Offline Campus Training</h4>
-                            <p>In-person physical classrooms with smart boards, supervised library study hours, and face-to-face mentorship.</p>
-                        </div>
-                        <div class="mode-box">
-                            <h4>⚡ Hybrid Model</h4>
-                            <p>The best of both worlds: live digital content combined with weekly local mentor center attendance.</p>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 2rem; padding: 1.25rem; background: var(--bg); border-radius: var(--radius-sm); display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; text-align: center;">
-                        <div>
-                            <strong style="display: block; color: var(--primary);">Weekday Morning / Evening</strong>
-                            <span style="font-size: 0.85rem; color: var(--text-muted);">Regular School Batch</span>
-                        </div>
-                        <div>
-                            <strong style="display: block; color: var(--primary);">Weekend Executive Batches</strong>
-                            <span style="font-size: 0.85rem; color: var(--text-muted);">Intensive Saturday & Sunday</span>
-                        </div>
-                        <div>
-                            <strong style="display: block; color: var(--primary);">Summer Vacation Bootcamps</strong>
-                            <span style="font-size: 0.85rem; color: var(--text-muted);">Accelerated Foundation</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. TEACHING METHODOLOGY & MENTORSHIP FRAMEWORK -->
-        <section class="section-padding" id="methodology" style="background: var(--card-bg);">
-            <div class="container">
-                <div class="section-header">
-                    <span class="eyebrow">Academic Framework</span>
-                    <h2 class="section-title">Structured 3-Tier Mentorship Framework</h2>
-                    <p class="section-subtitle">
-                        Every student is supported by three distinct specialists ensuring academic performance, personal growth, and prompt issue resolution.
-                    </p>
-                </div>
-
-                <div class="tier-grid">
-                    <div class="tier-card">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;" class="facilities-banner-grid">
+                    <div style="text-align: center;">
                         <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">👨‍🏫</div>
-                        <h3>Tier 1: Lead Teachers</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">
-                            Senior subject experts delivering core conceptual masterclasses, board-aligned curriculum, and interactive problem-solving techniques.
-                        </p>
+                        <h3 style="font-size: 1.15rem;">1. Master Instructors</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.4rem;">Delivering core syllabus lectures, board strategies, and concept breakdowns.</p>
                     </div>
-
-                    <div class="tier-card">
+                    <div style="text-align: center;">
                         <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">👩‍💼</div>
-                        <h3>Tier 2: Personal Mentors</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">
-                            Dedicated advisors monitoring batch attendance, assignment submissions, parent syncs, and individual academic goal setting.
-                        </p>
+                        <h3 style="font-size: 1.15rem;">2. Personal Mentors</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.4rem;">Tracking weekly test scores, attendance, and facilitating parent progress reviews.</p>
                     </div>
-
-                    <div class="tier-card">
+                    <div style="text-align: center;">
                         <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🙋‍♂️</div>
-                        <h3>Tier 3: Academic Guides</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">
-                            On-demand doubt-solving tutors available online and at campus study lounges for 1-on-1 concept refinement.
-                        </p>
-                    </div>
-                </div>
-
-                <div style="margin-top: 3.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; text-align: center;" class="modes-grid">
-                    <div style="background: var(--bg); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
-                        <strong style="font-size: 1.1rem; color: var(--text-main);">📈 Real-time Batch Analytics</strong>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Automated dashboard tracking student milestone scores and attendance.</p>
-                    </div>
-                    <div style="background: var(--bg); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
-                        <strong style="font-size: 1.1rem; color: var(--text-main);">💬 Instant Doubt Resolution</strong>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Dedicated app portal for submitting photo/text questions anytime.</p>
-                    </div>
-                    <div style="background: var(--bg); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
-                        <strong style="font-size: 1.1rem; color: var(--text-main);">👪 Parent Progress Sync</strong>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Monthly comprehensive PDF reports and scheduled advisor meetings.</p>
+                        <h3 style="font-size: 1.15rem;">3. Doubt Tutors</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.4rem;">On-demand doubt resolution via app photo uploads and campus study lounges.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 6. CAMPUS & HOSTEL FACILITIES -->
-        <section class="section-padding" id="facilities">
-            <div class="container">
-                <div class="section-header">
-                    <span class="eyebrow">Campus Life</span>
-                    <h2 class="section-title">On-Campus Infrastructure & Hostel Facilities</h2>
-                    <p class="section-subtitle">
-                        For offline and residential scholars, Sharusuri EdTech offers safe, modern, and tech-integrated campus environments.
-                    </p>
+        <!-- 8. ROLE-BASED DASHBOARD PREVIEWS -->
+        <section class="container" id="dashboards">
+            <div class="dashboard-section-wrapper">
+                <div style="margin-bottom: 2rem;">
+                    <span style="color: #2dd4bf; font-size: 0.85rem; font-weight: 800; text-transform: uppercase;">Enterprise EdTech Portal</span>
+                    <h2 style="font-size: 2rem; color: white;">Role-Based Portal Environment</h2>
+                    <p style="color: #94a3b8; font-size: 0.95rem;">Experience what students, faculty, and administrators see inside their customized management portals.</p>
                 </div>
 
-                <div class="facilities-grid">
-                    <div class="facility-card">
-                        <span class="facility-icon">🏢</span>
-                        <h3>Residential Hostels</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Separate secure residential blocks for boys and girls with furnished rooms and study desks.</p>
-                    </div>
-
-                    <div class="facility-card">
-                        <span class="facility-icon">📡</span>
-                        <h3>High-Speed Wi-Fi</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Campus-wide internet infrastructure enabling seamless access to online lectures and cloud notes.</p>
-                    </div>
-
-                    <div class="facility-card">
-                        <span class="facility-icon">🥗</span>
-                        <h3>Hygienic Dining</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Nutritious multi-cuisine meal plans prepared in certified clean campus kitchens.</p>
-                    </div>
-
-                    <div class="facility-card">
-                        <span class="facility-icon">🛡️</span>
-                        <h3>24/7 Safety & Security</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Full CCTV coverage, biometric access controls, and round-the-clock resident wardens.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. ROLE-BASED DASHBOARD PREVIEWS (APP & WEB READY) -->
-        <section class="section-padding" id="dashboards" style="background: var(--card-bg);">
-            <div class="container">
-                <div class="section-header">
-                    <span class="eyebrow">App & Web OS Ecosystem</span>
-                    <h2 class="section-title">Role-Based Dashboard Previews</h2>
-                    <p class="section-subtitle">
-                        Purpose-built portals tailored specifically for Students, Faculty, and Campus Administrators.
-                    </p>
+                <div class="tab-buttons-row">
+                    <button class="dash-tab-btn active" onclick="switchDashTab('studentTab', this)">🎓 Student Portal</button>
+                    <button class="dash-tab-btn" onclick="switchDashTab('mentorTab', this)">👩‍🏫 Mentor Console</button>
+                    <button class="dash-tab-btn" onclick="switchDashTab('adminTab', this)">⚙️ Admin & Campus OS</button>
                 </div>
 
-                <div class="dashboard-preview-box">
-                    <div class="tab-buttons">
-                        <button class="tab-btn active" onclick="switchDashboardTab('studentTab', this)">🎓 Student Portal</button>
-                        <button class="tab-btn" onclick="switchDashboardTab('teacherTab', this)">👩‍🏫 Faculty Portal</button>
-                        <button class="tab-btn" onclick="switchDashboardTab('adminTab', this)">⚙️ Admin & Campus OS</button>
+                <!-- Student Screen -->
+                <div id="studentTab" class="dash-screen active">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
+                        <div>
+                            <h4 style="color: white; font-size: 1.2rem;">Scholar Dashboard: Suresh Kumar</h4>
+                            <span style="color: #94a3b8; font-size: 0.85rem;">Enrolled: Class 10 Navodaya & Science Hybrid (#SE-2026)</span>
+                        </div>
+                        <span style="background: var(--primary); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem;">96.4% Attendance</span>
                     </div>
 
-                    <!-- Student Screen -->
-                    <div id="studentTab" class="dashboard-screen active">
-                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
-                            <div>
-                                <h4 style="color: white; font-size: 1.2rem;">Welcome back, Suresh Kumar</h4>
-                                <span style="color: #94a3b8; font-size: 0.85rem;">Batch: Class 10 Science & Math Hybrid • ID: #SE-2026-88</span>
-                            </div>
-                            <span style="background: var(--primary); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem;">Active Scholar</span>
+                    <div class="dash-metrics-grid">
+                        <div class="metric-card">
+                            <h5>Completed Modules</h5>
+                            <div class="val">28 / 30</div>
                         </div>
-
-                        <div class="dash-widget-grid">
-                            <div class="dash-card">
-                                <h5>Attendance Score</h5>
-                                <div class="val">96.4%</div>
-                            </div>
-                            <div class="dash-card">
-                                <h5>Assignments Completed</h5>
-                                <div class="val">24 / 26</div>
-                            </div>
-                            <div class="dash-card">
-                                <h5>Fee Status</h5>
-                                <div class="val" style="color: #10b981;">Paid (Q3 Cleared)</div>
-                            </div>
+                        <div class="metric-card">
+                            <h5>Mock Exam Rank</h5>
+                            <div class="val" style="color: #38bdf8;">#4 in District</div>
+                        </div>
+                        <div class="metric-card">
+                            <h5>Fee Status</h5>
+                            <div class="val" style="color: #10b981;">Q3 Cleared</div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Faculty Screen -->
-                    <div id="teacherTab" class="dashboard-screen">
-                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
-                            <div>
-                                <h4 style="color: white; font-size: 1.2rem;">Faculty Console - Prof. Anita Rao</h4>
-                                <span style="color: #94a3b8; font-size: 0.85rem;">Department: Mathematics & Foundation Science</span>
-                            </div>
-                            <span style="background: var(--secondary); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem;">3 Classes Today</span>
+                <!-- Mentor Screen -->
+                <div id="mentorTab" class="dash-screen">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
+                        <div>
+                            <h4 style="color: white; font-size: 1.2rem;">Faculty Console: Prof. Anita Rao</h4>
+                            <span style="color: #94a3b8; font-size: 0.85rem;">Department: Mathematics & Foundation Science</span>
                         </div>
-
-                        <div class="dash-widget-grid">
-                            <div class="dash-card">
-                                <h5>Total Enrolled Scholars</h5>
-                                <div class="val">185 Students</div>
-                            </div>
-                            <div class="dash-card">
-                                <h5>Pending Homework Grading</h5>
-                                <div class="val">12 Submissions</div>
-                            </div>
-                            <div class="dash-card">
-                                <h5>Avg. Test Performance</h5>
-                                <div class="val" style="color: #60a5fa;">84.2%</div>
-                            </div>
-                        </div>
+                        <span style="background: var(--secondary); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem;">3 Batches Today</span>
                     </div>
 
-                    <!-- Admin Screen -->
-                    <div id="adminTab" class="dashboard-screen">
-                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
-                            <div>
-                                <h4 style="color: white; font-size: 1.2rem;">Campus Master Console</h4>
-                                <span style="color: #94a3b8; font-size: 0.85rem;">Raichur Pilot Hub & Online Nodes</span>
-                            </div>
-                            <span style="background: #10b981; padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem;">All Systems Operational</span>
+                    <div class="dash-metrics-grid">
+                        <div class="metric-card">
+                            <h5>Assigned Scholars</h5>
+                            <div class="val">185 Students</div>
                         </div>
+                        <div class="metric-card">
+                            <h5>Pending Assignments</h5>
+                            <div class="val" style="color: #f59e0b;">12 Papers</div>
+                        </div>
+                        <div class="metric-card">
+                            <h5>Batch Average Test Score</h5>
+                            <div class="val">84.2%</div>
+                        </div>
+                    </div>
+                </div>
 
-                        <div class="dash-widget-grid">
-                            <div class="dash-card">
-                                <h5>Total Active Admissions</h5>
-                                <div class="val">1,240</div>
-                            </div>
-                            <div class="dash-card">
-                                <h5>Hostel Occupancy</h5>
-                                <div class="val">88% Capacity</div>
-                            </div>
-                            <div class="dash-card">
-                                <h5>Faculty Allocation</h5>
-                                <div class="val" style="color: #f59e0b;">100% Allocated</div>
-                            </div>
+                <!-- Admin Screen -->
+                <div id="adminTab" class="dash-screen">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
+                        <div>
+                            <h4 style="color: white; font-size: 1.2rem;">Master Campus OS</h4>
+                            <span style="color: #94a3b8; font-size: 0.85rem;">Raichur Sindhanur Hub & Regional Nodes</span>
+                        </div>
+                        <span style="background: #10b981; padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem;">Operational</span>
+                    </div>
+
+                    <div class="dash-metrics-grid">
+                        <div class="metric-card">
+                            <h5>Total Active Admissions</h5>
+                            <div class="val">1,240</div>
+                        </div>
+                        <div class="metric-card">
+                            <h5>Hostel Occupancy</h5>
+                            <div class="val" style="color: #38bdf8;">88% Full</div>
+                        </div>
+                        <div class="metric-card">
+                            <h5>Regional Hub Nodes</h5>
+                            <div class="val">18 Active</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 8. CONTACT US & INQUIRY FORM WITH CASCADING LOCATION DROPDOWNS -->
-        <section class="section-padding" id="contact">
-            <div class="container">
-                <div class="section-header">
-                    <span class="eyebrow">Connect With Us</span>
-                    <h2 class="section-title">Schedule a Visit or Request Admission Info</h2>
-                    <p class="section-subtitle">
-                        Our academic advisors are ready to assist parents and scholars with batch placement, fee details, and regional hub availability.
-                    </p>
+        <!-- 9. ADMISSION & ENQUIRY FORM -->
+        <section class="container" id="contactForm" style="margin-bottom: 4rem;">
+            <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 3rem; box-shadow: var(--shadow-md);">
+                <div style="max-width: 600px; margin-bottom: 2rem;">
+                    <span style="color: var(--primary); font-size: 0.85rem; font-weight: 800; text-transform: uppercase;">Counseling & Direct Admissions</span>
+                    <h2 style="font-size: 1.8rem; color: var(--text-main); margin-top: 0.2rem;">Request Fee Structure or Campus Visit</h2>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Submit student details to receive instant counseling support from our regional hub manager.</p>
                 </div>
 
-                <div class="contact-grid">
-                    <div class="contact-info-card">
-                        <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Corporate & Pilot Campus Address</h3>
-                        
-                        <div class="info-item">
-                            <div class="info-item-icon">📍</div>
-                            <div>
-                                <strong>Campus Location</strong>
-                                <p style="font-size: 0.9rem; color: var(--text-muted);">
-                                    #117, Near Sunklamma Katte, AP K Hosalli, Tq Sindhnaur, Dt Raichur, Karnataka, PIN 584132.
-                                </p>
-                            </div>
+                <form onsubmit="handleFormSubmit(event)">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div>
+                            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem;">Student Full Name *</label>
+                            <input type="text" id="formStudent" required placeholder="e.g. Suresh Kumar" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
                         </div>
-
-                        <div class="info-item">
-                            <div class="info-item-icon">📞</div>
-                            <div>
-                                <strong>Direct Helpline</strong>
-                                <p style="font-size: 0.9rem; color: var(--text-muted);">
-                                    <a href="tel:+918088835686">+91 80888 35686</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="info-item">
-                            <div class="info-item-icon">📧</div>
-                            <div>
-                                <strong>Email Inquiries</strong>
-                                <p style="font-size: 0.9rem; color: var(--text-muted);">
-                                    <a href="mailto:suresh2suresh80888@gmail.com">suresh2suresh80888@gmail.com</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div style="margin-top: 1rem; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border); background: var(--bg); padding: 1.25rem; text-align: center;">
-                            <strong style="font-size: 0.95rem; display: block; margin-bottom: 0.4rem;">🗺️ Interactive Campus Map</strong>
-                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">Located conveniently near Sindhnaur Educational Hub.</p>
-                            <a href="https://maps.app.goo.gl/3XHNqcdV9NSPH1KW8" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Open Location in Google Maps ↗</a>
+                        <div>
+                            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem;">Mobile / WhatsApp Number *</label>
+                            <input type="tel" id="formPhone" required placeholder="+91 80888 35686" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
                         </div>
                     </div>
 
-                    <!-- Admission Inquiry Form featuring Cascading Location Dropdowns -->
-                    <div class="inquiry-form-card">
-                        <h3 style="font-size: 1.35rem; margin-bottom: 0.25rem;">Admission & Regional Hub Registration</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Complete student details and location mapping for personalized counseling.</p>
-
-                        <form id="admissionForm" onsubmit="handleFormSubmit(event)">
-                            
-                            <!-- Step 1: Personal Details -->
-                            <div class="form-section-title">
-                                <span>👤 Step 1: Scholar & Contact Information</span>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="studentName">Student Full Name *</label>
-                                    <input type="text" id="studentName" required placeholder="e.g. Suresh Kumar">
-                                </div>
-                                <div class="form-group">
-                                    <label for="parentName">Parent / Guardian Name *</label>
-                                    <input type="text" id="parentName" required placeholder="e.g. Ramesh Kumar">
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="phone">Mobile / WhatsApp Number *</label>
-                                    <input type="tel" id="phone" required placeholder="+91 80888 35686">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email Address (Optional)</label>
-                                    <input type="email" id="email" placeholder="student@example.com">
-                                </div>
-                            </div>
-
-                            <!-- Step 2: Dynamic Cascading Regional Location Mapping -->
-                            <div class="form-section-title" style="margin-top: 1rem;">
-                                <span>🗺️ Step 2: Regional Location Hierarchy (State > District > Taluk > Hobli > Village)</span>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="stateSelect">State *</label>
-                                    <select id="stateSelect" required aria-label="Select State">
-                                        <option value="">-- Select State --</option>
-                                    </select>
-                                    <span class="location-helper-badge">1st Tier Region</span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="districtSelect">District *</label>
-                                    <select id="districtSelect" required disabled aria-label="Select District">
-                                        <option value="">-- Select State First --</option>
-                                    </select>
-                                    <span class="location-helper-badge">2nd Tier Region</span>
-                                </div>
-                            </div>
-
-                            <div class="form-row-3">
-                                <div class="form-group">
-                                    <label for="talukSelect">Taluk *</label>
-                                    <select id="talukSelect" required disabled aria-label="Select Taluk">
-                                        <option value="">-- Select District First --</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="hobliSelect">Hobli *</label>
-                                    <select id="hobliSelect" required disabled aria-label="Select Hobli">
-                                        <option value="">-- Select Taluk First --</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="villageSelect">Village / Hub Area *</label>
-                                    <select id="villageSelect" required disabled aria-label="Select Village">
-                                        <option value="">-- Select Hobli First --</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Step 3: Academic Program & Preferred Mode -->
-                            <div class="form-section-title" style="margin-top: 1rem;">
-                                <span>📚 Step 3: Program & Learning Preferences</span>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="classGrade">Select Academic Grade *</label>
-                                    <select id="classGrade" required>
-                                        <option value="">Select Grade</option>
-                                        <option>Class 1 - 5 Primary Foundation</option>
-                                        <option>Class 4-5 Navodaya Entrance Prep</option>
-                                        <option>Class 6 - 10 Secondary Math & Science</option>
-                                        <option>PUC 1st / 2nd Year Science Stream</option>
-                                        <option>Digital Literacy & Coding Foundation</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="mode">Preferred Delivery Mode *</label>
-                                    <select id="mode" required>
-                                        <option value="">Select Delivery Mode</option>
-                                        <option>Online Live Interactive Stream</option>
-                                        <option>Offline Campus Training</option>
-                                        <option>Hybrid Model (Digital + Mentor Hub)</option>
-                                        <option>Hostel Residential Scholar</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="notes">Additional Entrance Goals / Notes</label>
-                                <textarea id="notes" rows="2" placeholder="Mention target competitive exams or special counseling inquiries..."></textarea>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
-                                Submit Admission Inquiry & Location Mapping
-                            </button>
-                        </form>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div>
+                            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem;">Course Interest *</label>
+                            <select id="formCourse" required style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                                <option value="">Select Course</option>
+                                <option>Navodaya Entrance Coaching</option>
+                                <option>Class 6 - 10 Math & Science</option>
+                                <option>Class 10 Hostel Bootcamp</option>
+                                <option>PUC Science Stream</option>
+                                <option>Digital Coding & Skills</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem;">Preferred Delivery Mode *</label>
+                            <select id="formMode" required style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                                <option value="">Select Mode</option>
+                                <option>Online Live Interactive</option>
+                                <option>Hybrid (Online + Weekend Hub)</option>
+                                <option>Offline Residential Campus Hostel</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry for Counseling</button>
+                </form>
             </div>
         </section>
     </main>
 
-    <!-- 9. FOOTER -->
+    <!-- 10. QUICK ENROLLMENT MODAL POPUP -->
+    <div class="modal-overlay" id="enrollModal">
+        <div class="modal-card">
+            <button class="modal-close-btn" onclick="closeEnrollModal()">✕</button>
+            <span style="color: var(--primary); font-weight: 800; font-size: 0.8rem; text-transform: uppercase;">Express Checkout</span>
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;" id="modalCourseTitle">Course Enrollment</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">Selected Price: <strong style="color: var(--primary); font-size: 1.1rem;" id="modalCoursePrice">₹0</strong></p>
+
+            <form onsubmit="handleModalSubmit(event)">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem;">Student Name</label>
+                    <input type="text" required placeholder="Enter student full name" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem;">WhatsApp Mobile Number</label>
+                    <input type="tel" required placeholder="+91 Mobile number" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg); color: var(--text-main);">
+                </div>
+
+                <button type="submit" class="btn btn-accent" style="width: 100%;">Proceed to Payment / Confirmation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 11. FOOTER -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div>
                     <div class="footer-brand">
-                        <span class="brand-badge" style="width: 36px; height: 36px; font-size: 0.9rem;">SE</span>
+                        <span class="brand-badge" style="width: 38px; height: 38px; font-size: 1rem;">SE</span>
                         <span>Sharusuri EdTech</span>
                     </div>
-                    <p style="font-size: 0.85rem; margin-bottom: 1.25rem;">
-                        Transforming rural & semi-urban education through enterprise hybrid learning technologies, local mentorship networks, and world-class physical learning hubs.
+                    <p style="font-size: 0.88rem; margin-bottom: 1.25rem;">
+                        Empowering students across rural and urban centers through hybrid education, offline study centers, and tech-driven career roadmaps.
                     </p>
                     <div style="font-size: 0.8rem; color: #64748b;">
-                        Accredited & Recognized Educational Organization
+                        📍 Raichur Main Campus: #117, Near Sunklamma Katte, AP K Hosalli, Sindhanur 584132.
                     </div>
                 </div>
 
                 <div>
-                    <h4 class="footer-title">Navigation</h4>
+                    <h4 class="footer-title">Categories</h4>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#programs">Programs Catalog</a></li>
-                        <li><a href="#methodology">Teaching Methodology</a></li>
-                        <li><a href="#facilities">Campus & Hostels</a></li>
+                        <li><a href="javascript:void(0)" onclick="filterByCategory('entrance')">Navodaya Prep</a></li>
+                        <li><a href="javascript:void(0)" onclick="filterByCategory('school')">K-12 Tuitions</a></li>
+                        <li><a href="javascript:void(0)" onclick="filterByCategory('puc')">PUC Science</a></li>
+                        <li><a href="javascript:void(0)" onclick="filterByCategory('skills')">Coding Courses</a></li>
+                        <li><a href="javascript:void(0)" onclick="filterByCategory('hostel')">Hostel Batches</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="footer-title">Portals & Legal</h4>
+                    <h4 class="footer-title">Portals</h4>
                     <ul class="footer-links">
                         <li><a href="login.html?role=student">Student Login</a></li>
-                        <li><a href="login.html?role=teacher">Faculty Portal</a></li>
-                        <li><a href="login.html?role=admin">Campus OS Admin</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="login.html?role=teacher">Mentor Console</a></li>
+                        <li><a href="login.html?role=admin">Campus Admin</a></li>
+                        <li><a href="#locationFinder">Village Hub Finder</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="footer-title">Get Mobile App</h4>
-                    <p style="font-size: 0.85rem; margin-bottom: 1rem;">Download our Android and Webview app for seamless offline-first learning.</p>
-                    <div class="app-badges">
-                        <a href="#" class="app-btn">
-                            📱 Google Play
-                        </a>
-                        <a href="#" class="app-btn">
-                            🍎 App Store
-                        </a>
+                    <p style="font-size: 0.85rem; margin-bottom: 1rem;">Download our Android App for offline lectures & study notes.</p>
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <a href="#" class="app-btn">📱 Google Play Store</a>
+                        <a href="#" class="app-btn">🍎 Apple App Store</a>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <span>&copy; 2026 Sharusuri EdTech Platform. All rights reserved.</span>
-                <span>Bridging Digital Divide • Empowering Communities</span>
+                <span>Bridging Digital Divide • Empowering Next-Gen Learners</span>
             </div>
         </div>
     </footer>
 
-    <!-- INTERACTIVE SCRIPTS & CASCADING LOCATION ENGINE -->
+    <!-- INTERACTIVE JAVASCRIPT ENGINE -->
     <script>
         // ==========================================
-        // 1. CASCADING LOCATION DATA HIERARCHY
+        // 1. CASCADING LOCATION HIERARCHY DATA ENGINE
         // State -> District -> Taluk -> Hobli -> Village
         // ==========================================
         const locationData = {
             "Karnataka": {
                 "Raichur": {
                     "Sindhanur": {
-                        "AP K Hosalli Hobli": ["AP K Hosalli", "Sunklamma Katte Region", "Gorebal", "Turvihal Central"],
-                        "Turvihal Hobli": ["Turvihal Town", "Jalwadgi", "Badarli", "Gundur"],
-                        "Balaganur Hobli": ["Balaganur Town", "Salagunda", "Gorebal East"]
+                        "AP K Hosalli Hobli": ["AP K Hosalli Main Campus", "Sunklamma Katte Region", "Gorebal Hub", "Turvihal Central"],
+                        "Turvihal Hobli": ["Turvihal Town Node", "Jalwadgi Center", "Badarli Node"],
+                        "Balaganur Hobli": ["Balaganur Center", "Salagunda Village"]
                     },
                     "Raichur": {
-                        "Raichur Rural": ["Yapaldinni", "Eklaspur", "Askihal"],
-                        "Gillesugur": ["Gillesugur Village", "Chicksugur", "Marchatthal"]
+                        "Raichur Rural": ["Yapaldinni Node", "Eklaspur Center", "Askihal Node"]
                     },
                     "Manvi": {
-                        "Manvi Hobli": ["Kawaloor", "Kurdi", "Pothnal"],
-                        "Sirwar": ["Sirwar Town", "Arakera", "Kallur"]
+                        "Sirwar": ["Sirwar Town Hub", "Arakera Node", "Kallur Center"]
                     }
                 },
                 "Bengaluru Urban": {
                     "Bengaluru North": {
-                        "Yelahanka Hobli": ["Yelahanka Town", "Chikkajala", "Singanayakanahalli"],
-                        "Hesaraghatta": ["Hesaraghatta Village", "Sivasandra", "Kakolu"]
-                    },
-                    "Bengaluru South": {
-                        "Begur": ["Begur Village", "Gottigere", "Hulimavu"],
-                        "Kengeri": ["Kumbalgodu", "Kengeri Satellite Town", "Ramohalli"]
-                    }
-                },
-                "Mysuru": {
-                    "Mysuru": {
-                        "Varuna": ["Varuna Village", "Dandikere", "Sutthur"],
-                        "Jayapura": ["Jayapura Town", "Harohalli", "Udbur"]
+                        "Yelahanka Hobli": ["Yelahanka Town Node", "Chikkajala Study Center"],
+                        "Hesaraghatta": ["Hesaraghatta Hub", "Kakolu Village Node"]
                     }
                 },
                 "Kalaburagi": {
                     "Kalaburagi": {
-                        "Gulbarga North": ["Ramji Nagar", "Farhatabad", "Sultpur"],
-                        "Gulbarga South": ["Kusnoor", "Taj Sultanpur", "Kotnoor"]
+                        "Gulbarga North": ["Farhatabad Hub", "Ramji Nagar Node"]
                     }
                 }
             },
             "Maharashtra": {
                 "Mumbai Suburban": {
                     "Kurla": {
-                        "Kurla Central": ["Ghatkopar", "Vidyavihar", "Sakinaka"],
-                        "Chembur Hobli": ["Chembur East", "Trombay", "Mahanagar"]
-                    }
-                },
-                "Pune": {
-                    "Haveli": {
-                        "Hadapsar": ["Magarpatta", "Hadapsar Village", "Fursungi"],
-                        "Kothrud": ["Kothrud Central", "Bavdhan", "Warje"]
+                        "Kurla Central": ["Ghatkopar Study Hub", "Vidyavihar Node"]
                     }
                 }
             },
             "Tamil Nadu": {
                 "Chennai": {
                     "Velachery": {
-                        "Velachery Hobli": ["Velachery Town", "Madipakkam", "Taramani"]
-                    },
-                    "Mylapore": {
-                        "Mylapore Central": ["Mandaveli", "Alwarpet", "R.A. Puram"]
-                    }
-                }
-            },
-            "Delhi": {
-                "New Delhi": {
-                    "Chanakyapuri": {
-                        "Central Circle": ["Chanakyapuri Hub", "Dhaula Kuan", "Sardar Patel Marg"]
+                        "Velachery Hobli": ["Velachery Central Hub", "Madipakkam Node"]
                     }
                 }
             }
         };
 
-        // DOM Location Dropdown References
         const stateSelect = document.getElementById('stateSelect');
         const districtSelect = document.getElementById('districtSelect');
         const talukSelect = document.getElementById('talukSelect');
         const hobliSelect = document.getElementById('hobliSelect');
         const villageSelect = document.getElementById('villageSelect');
+        const hubResultCard = document.getElementById('hubResultCard');
 
-        // Helper: Reset Dropdown State
-        function resetDropdown(selectElement, placeholder) {
-            selectElement.innerHTML = `<option value="">-- ${placeholder} --</option>`;
-            selectElement.disabled = true;
-        }
-
-        // Helper: Populate Options
-        function populateDropdown(selectElement, items, placeholder) {
-            selectElement.innerHTML = `<option value="">-- ${placeholder} --</option>`;
-            items.forEach(item => {
-                const opt = document.createElement('option');
-                opt.value = item;
-                opt.textContent = item;
-                selectElement.appendChild(opt);
-            });
-            selectElement.disabled = false;
-        }
-
-        // Initialize State Dropdown
         function initLocationEngine() {
             stateSelect.innerHTML = '<option value="">-- Select State --</option>';
             Object.keys(locationData).sort().forEach(state => {
@@ -1898,133 +1783,210 @@
             });
         }
 
-        // Event: State Changed
+        function resetSelect(element, placeholder) {
+            element.innerHTML = `<option value="">-- ${placeholder} --</option>`;
+            element.disabled = true;
+        }
+
+        function populateSelect(element, items, placeholder) {
+            element.innerHTML = `<option value="">-- ${placeholder} --</option>`;
+            items.forEach(item => {
+                const opt = document.createElement('option');
+                opt.value = item;
+                opt.textContent = item;
+                element.appendChild(opt);
+            });
+            element.disabled = false;
+        }
+
         stateSelect.addEventListener('change', function() {
-            const selectedState = this.value;
-            resetDropdown(districtSelect, "Select District");
-            resetDropdown(talukSelect, "Select District First");
-            resetDropdown(hobliSelect, "Select Taluk First");
-            resetDropdown(villageSelect, "Select Hobli First");
+            resetSelect(districtSelect, "Select District");
+            resetSelect(talukSelect, "Select District First");
+            resetSelect(hobliSelect, "Select Taluk First");
+            resetSelect(villageSelect, "Select Hobli First");
+            hubResultCard.classList.remove('active');
 
-            if (selectedState && locationData[selectedState]) {
-                const districts = Object.keys(locationData[selectedState]).sort();
-                populateDropdown(districtSelect, districts, "Select District");
-            } else {
-                resetDropdown(districtSelect, "Select State First");
+            if (this.value && locationData[this.value]) {
+                populateSelect(districtSelect, Object.keys(locationData[this.value]).sort(), "Select District");
             }
         });
 
-        // Event: District Changed
         districtSelect.addEventListener('change', function() {
-            const selectedState = stateSelect.value;
-            const selectedDistrict = this.value;
-            resetDropdown(talukSelect, "Select Taluk");
-            resetDropdown(hobliSelect, "Select Taluk First");
-            resetDropdown(villageSelect, "Select Hobli First");
+            resetSelect(talukSelect, "Select Taluk");
+            resetSelect(hobliSelect, "Select Taluk First");
+            resetSelect(villageSelect, "Select Hobli First");
+            hubResultCard.classList.remove('active');
 
-            if (selectedState && selectedDistrict && locationData[selectedState]?.[selectedDistrict]) {
-                const taluks = Object.keys(locationData[selectedState][selectedDistrict]).sort();
-                populateDropdown(talukSelect, taluks, "Select Taluk");
-            } else {
-                resetDropdown(talukSelect, "Select District First");
+            const state = stateSelect.value;
+            if (state && this.value && locationData[state]?.[this.value]) {
+                populateSelect(talukSelect, Object.keys(locationData[state][this.value]).sort(), "Select Taluk");
             }
         });
 
-        // Event: Taluk Changed
         talukSelect.addEventListener('change', function() {
-            const selectedState = stateSelect.value;
-            const selectedDistrict = districtSelect.value;
-            const selectedTaluk = this.value;
-            resetDropdown(hobliSelect, "Select Hobli");
-            resetDropdown(villageSelect, "Select Hobli First");
+            resetSelect(hobliSelect, "Select Hobli");
+            resetSelect(villageSelect, "Select Hobli First");
+            hubResultCard.classList.remove('active');
 
-            if (selectedState && selectedDistrict && selectedTaluk && locationData[selectedState]?.[selectedDistrict]?.[selectedTaluk]) {
-                const hoblis = Object.keys(locationData[selectedState][selectedDistrict][selectedTaluk]).sort();
-                populateDropdown(hobliSelect, hoblis, "Select Hobli");
-            } else {
-                resetDropdown(hobliSelect, "Select Taluk First");
+            const state = stateSelect.value;
+            const dist = districtSelect.value;
+            if (state && dist && this.value && locationData[state]?.[dist]?.[this.value]) {
+                populateSelect(hobliSelect, Object.keys(locationData[state][dist][this.value]).sort(), "Select Hobli");
             }
         });
 
-        // Event: Hobli Changed
         hobliSelect.addEventListener('change', function() {
-            const selectedState = stateSelect.value;
-            const selectedDistrict = districtSelect.value;
-            const selectedTaluk = talukSelect.value;
-            const selectedHobli = this.value;
+            resetSelect(villageSelect, "Select Village");
+            hubResultCard.classList.remove('active');
 
-            if (selectedState && selectedDistrict && selectedTaluk && selectedHobli && locationData[selectedState]?.[selectedDistrict]?.[selectedTaluk]?.[selectedHobli]) {
-                const villages = locationData[selectedState][selectedDistrict][selectedTaluk][selectedHobli].slice().sort();
-                populateDropdown(villageSelect, villages, "Select Village / Hub Area");
+            const state = stateSelect.value;
+            const dist = districtSelect.value;
+            const taluk = talukSelect.value;
+            if (state && dist && taluk && this.value && locationData[state]?.[dist]?.[taluk]?.[this.value]) {
+                populateSelect(villageSelect, locationData[state][dist][taluk][this.value].slice().sort(), "Select Village");
+            }
+        });
+
+        villageSelect.addEventListener('change', function() {
+            if (this.value) {
+                document.getElementById('hubTitle').textContent = `Nearest Center: ${this.value} Node`;
+                document.getElementById('hubDetails').textContent = `Located in ${hobliSelect.value}, ${talukSelect.value}. Daily Bus Pickup & Hostel Seats Available!`;
+                hubResultCard.classList.add('active');
             } else {
-                resetDropdown(villageSelect, "Select Hobli First");
+                hubResultCard.classList.remove('active');
             }
         });
 
         // ==========================================
-        // 2. OTHER INTERACTIVE UI LOGIC
+        // 2. HERO CAROUSEL SLIDER ENGINE
         // ==========================================
+        let currentSlideIdx = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
 
-        // Theme Toggle Functionality
-        const themeToggleBtn = document.getElementById('themeToggle');
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            themeToggleBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-        });
+        function showSlide(index) {
+            slides.forEach((s, idx) => {
+                s.classList.toggle('active', idx === index);
+            });
+        }
 
-        // Dashboard Switcher
-        function switchDashboardTab(tabId, btnElement) {
-            document.querySelectorAll('.dashboard-screen').forEach(screen => {
-                screen.classList.remove('active');
+        function nextSlide() {
+            currentSlideIdx = (currentSlideIdx + 1) % slides.length;
+            showSlide(currentSlideIdx);
+        }
+
+        function prevSlide() {
+            currentSlideIdx = (currentSlideIdx - 1 + slides.length) % slides.length;
+            showSlide(currentSlideIdx);
+        }
+
+        setInterval(nextSlide, 7000);
+
+        // ==========================================
+        // 3. COURSE SEARCH & FILTER LOGIC
+        // ==========================================
+        let savedCartCount = 0;
+
+        function filterByPill(category, btnElement) {
+            document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+            if(btnElement) btnElement.classList.add('active');
+
+            const cards = document.querySelectorAll('.course-card');
+            let visible = 0;
+
+            cards.forEach(card => {
+                const cat = card.getAttribute('data-category');
+                if (category === 'all' || cat === category) {
+                    card.style.display = 'flex';
+                    visible++;
+                } else {
+                    card.style.display = 'none';
+                }
             });
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
+
+            document.getElementById('courseCounterText').textContent = `Showing ${visible} Courses`;
+        }
+
+        function filterByCategory(category) {
+            filterByPill(category, null);
+            document.getElementById('coursesGrid').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.course-card');
+            let visible = 0;
+
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title').toLowerCase();
+                if (title.includes(query)) {
+                    card.style.display = 'flex';
+                    visible++;
+                } else {
+                    card.style.display = 'none';
+                }
             });
+
+            document.getElementById('courseCounterText').textContent = `Showing ${visible} Search Results`;
+        }
+
+        function addToCart(courseName) {
+            savedCartCount++;
+            document.getElementById('cartCount').textContent = savedCartCount;
+            alert(`"${courseName}" has been added to your Saved Courses list!`);
+        }
+
+        function openCartModal() {
+            alert(`You have ${savedCartCount} saved courses in your cart list.`);
+        }
+
+        // ==========================================
+        // 4. MODAL ENROLLMENT POPUP
+        // ==========================================
+        function openEnrollModal(title, price) {
+            document.getElementById('modalCourseTitle').textContent = title;
+            document.getElementById('modalCoursePrice').textContent = `₹${price.toLocaleString()}`;
+            document.getElementById('enrollModal').classList.add('active');
+        }
+
+        function closeEnrollModal() {
+            document.getElementById('enrollModal').classList.remove('active');
+        }
+
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            alert('Thank you! Your enrollment order has been created. Our advisor will reach out on WhatsApp.');
+            closeEnrollModal();
+        }
+
+        // ==========================================
+        // 5. DASHBOARD PREVIEW TAB SWITCHER
+        // ==========================================
+        function switchDashTab(tabId, btnElement) {
+            document.querySelectorAll('.dash-screen').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.dash-tab-btn').forEach(b => b.classList.remove('active'));
 
             document.getElementById(tabId).classList.add('active');
             btnElement.classList.add('active');
         }
 
-        // Program Filter Functionality
-        function filterPrograms(category) {
-            const cards = document.querySelectorAll('.program-card');
-            const buttons = document.querySelectorAll('.filter-btn');
+        // ==========================================
+        // 6. THEME SWITCHER
+        // ==========================================
+        const themeBtn = document.getElementById('themeToggleBtn');
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            themeBtn.querySelector('.icon').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
 
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-cat') === category) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        // Form Submission Handler
         function handleFormSubmit(e) {
             e.preventDefault();
-            const student = document.getElementById('studentName').value;
-            const state = stateSelect.value;
-            const district = districtSelect.value;
-            const taluk = talukSelect.value;
-            const hobli = hobliSelect.value;
-            const village = villageSelect.value;
-
-            alert(`Thank you, ${student}! Your admission inquiry has been mapped to region:\n${village}, ${hobli}, ${taluk}, ${district}, ${state}.\nAn academic counselor will contact you shortly.`);
-            
-            document.getElementById('admissionForm').reset();
-            initLocationEngine();
-            resetDropdown(districtSelect, "Select State First");
-            resetDropdown(talukSelect, "Select District First");
-            resetDropdown(hobliSelect, "Select Taluk First");
-            resetDropdown(villageSelect, "Select Hobli First");
+            const student = document.getElementById('formStudent').value;
+            alert(`Thank you, ${student}! Your admission inquiry has been submitted successfully.`);
         }
 
-        // Initialize Location Dropdowns on DOM Load
+        // Initialize Location Engine on load
         document.addEventListener('DOMContentLoaded', () => {
             initLocationEngine();
         });
