@@ -574,12 +574,17 @@
             box-shadow: var(--shadow-sm);
             display: flex;
             flex-direction: column;
+            cursor: pointer;
         }
 
-        .tier-card:hover {
+        .tier-card:hover, .tier-card.selected-tier {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
             border-color: var(--primary);
+        }
+
+        .tier-card.selected-tier {
+            background: var(--primary-light);
         }
 
         .tier-badge-number {
@@ -633,6 +638,110 @@
             content: "✦ ";
             color: var(--accent);
             font-weight: bold;
+        }
+
+        /* DETAILED TIER DEEP DIVE SECTION */
+        .tier-deep-dive-box {
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-lg);
+            padding: 2.2rem;
+            box-shadow: var(--shadow-lg);
+            margin-top: 2rem;
+            animation: fadeInView 0.3s ease forwards;
+        }
+
+        .tier-nav-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-light);
+        }
+
+        .tier-tab-btn {
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            font-weight: 800;
+            font-size: 0.88rem;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tier-tab-btn:hover, .tier-tab-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
+        }
+
+        .tier-breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tier-dimension-card {
+            background: var(--bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .tier-dimension-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tier-dim-icon {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .tier-dim-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .tier-dim-text {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .tier-impact-stat-box {
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid var(--primary);
+        }
+
+        .tier-stat-number {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
         }
 
         /* FLEXIBLE TUITION MODEL CARDS */
@@ -1074,7 +1183,7 @@
                 <div class="section-header">
                     <span class="badge badge-purple">🛡️ Unmatched Student Protection & Support</span>
                     <h2>4-Tier Academic Support Hierarchy</h2>
-                    <p>Every student gets 360-degree coverage across every subject, guaranteed zero doubt backlog, and cross-branch expert access.</p>
+                    <p>Every student gets 360-degree coverage across every subject, guaranteed zero doubt backlog, and cross-branch expert access. Click any tier below to explore its deep-dive breakdown.</p>
                 </div>
 
                 <div class="tier-flow-grid" id="homeTierGrid">
@@ -1112,15 +1221,38 @@
         <!-- 2. DEEP INTERACTIVE PROGRAM, SUPPORT TIERS & BATCH SELECTOR (PROGRAMS PAGE VIEW) -->
         <section id="page-programs" class="page-view">
             <div class="section-container" style="margin-top: 2rem;">
-                <!-- SECTION 1: 4-TIER VISUAL FLOW -->
+                
+                <!-- SECTION 1: 4-TIER VISUAL FLOW & DETAILED DEEP-DIVE BREAKDOWN -->
                 <div class="section-header">
                     <span class="badge badge-purple">🎓 Complete Subject Coverage Framework</span>
                     <h2>Our 4-Tier Academic Support Hierarchy</h2>
-                    <p>Designed to ensure no child is left behind. Experience complete support from core lectures to cross-region subject specialists.</p>
+                    <p>Designed to ensure no child is left behind. Click through the tiers below to read the comprehensive pedagogical blueprint for each tier.</p>
                 </div>
 
                 <div class="tier-flow-grid" id="programsTierGrid">
-                    <!-- Populated dynamically -->
+                    <!-- Populated dynamically via JS -->
+                </div>
+
+                <!-- DETAILED TIER DEEP DIVE BREAKDOWN CONTAINER -->
+                <div class="tier-deep-dive-box" id="tierDeepDiveSection">
+                    <div class="tier-nav-tabs" id="tierTabHeader">
+                        <button class="tier-tab-btn active" onclick="showTierDetail(1)">
+                            <span>1️⃣ Tier 1: Core Class Teacher</span>
+                        </button>
+                        <button class="tier-tab-btn" onclick="showTierDetail(2)">
+                            <span>2️⃣ Tier 2: Subject Doubt Hour</span>
+                        </button>
+                        <button class="tier-tab-btn" onclick="showTierDetail(3)">
+                            <span>3️⃣ Tier 3: 1-on-1 Personal Mentor</span>
+                        </button>
+                        <button class="tier-tab-btn" onclick="showTierDetail(4)">
+                            <span>4️⃣ Tier 4: Cross-Branch Expert</span>
+                        </button>
+                    </div>
+
+                    <div id="tierDetailContent">
+                        <!-- Populated dynamically by JS function renderTierDetailContent(tierNum) -->
+                    </div>
                 </div>
 
                 <!-- SECTION 2: FLEXIBLE TUITION MODELS -->
@@ -1926,7 +2058,67 @@
 
         let currentLang = 'en';
 
-        // 2. EXPANDED APP DATASET WITH SUPPORT TIERS, BRANCHES & DOUBTS
+        // 2. DETAILED 4-TIER ACADEMIC SUPPORT HIERARCHY CONTENT DATASET
+        const TIER_DETAILS_DATA = {
+            1: {
+                tierNum: 1,
+                name: "Core Class Teacher",
+                tagline: "Foundational Concept Mastery & Structured Daily Curriculum",
+                badgeClass: "badge-purple",
+                icon: "👨‍🏫",
+                whatItIs: "High-impact live interactive classroom teaching led by Karnataka's premier Navodaya & Morarji subject experts. Features structured syllabus delivery across Mental Ability, Arithmetic, Kannada, English, and General Intelligence.",
+                whyWeBuiltIt: "Traditional classroom coaching in rural and tier-2 districts often suffers from unstructured syllabus completion, lack of exam-pattern alignment, and passive listening. We built Tier 1 to guarantee 100% syllabus coverage on schedule with active student engagement.",
+                usefulness: "Gives students a predictable, disciplined daily learning structure. Parents receive weekly digital progress reports tracking topic completion and class attendance, ensuring complete visibility into classroom progress.",
+                howTheyLearn: "Structured 90-minute daily lectures using visual breakdown diagrams, speed-math tricks, pattern-recognition methodologies, and real-time interactive Q&A polling.",
+                effectiveness: "Directly drives foundational conceptual accuracy; students in Tier 1 achieve a 45% faster problem-solving speed in Mental Ability within 4 weeks.",
+                highlightStat: "45%",
+                highlightLabel: "Faster Problem Solving in Mental Ability"
+            },
+            2: {
+                tierNum: 2,
+                name: "Subject Doubt Hour",
+                tagline: "Daily Supervised Practice & Speed Drills",
+                badgeClass: "badge-primary",
+                icon: "⏱️",
+                whatItIs: "Mandatory, daily 60-minute supervised practice and speed-drilling sessions where students attempt timed OMR worksheets and receive immediate corrections on subject-specific doubt areas.",
+                whyWeBuiltIt: "Listening to a lecture isn't enough to clear entrance exams; real learning happens when students apply concepts on actual exam-format papers. Most students fail because they delay practicing until exam week.",
+                usefulness: "Removes procrastination, builds exam stamina, and trains 10-12 year old children to manage time efficiently without panicking under competitive exam conditions.",
+                howTheyLearn: "Daily OMR test paper practice in time-restricted conditions followed by immediate, guided step-by-step paper walk-throughs by Subject Leads.",
+                effectiveness: "Boosts exam speed by 60% and reduces negative marking / OMR bubbling errors by over 92% across Navodaya and Morarji test takers.",
+                highlightStat: "92%",
+                highlightLabel: "Reduction in OMR & Speed Errors"
+            },
+            3: {
+                tierNum: 3,
+                name: "1-on-1 Personal Mentor",
+                tagline: "Individualized SLA-Backed Doubt Resolution",
+                badgeClass: "badge-success",
+                icon: "🎯",
+                whatItIs: "Individualized, 1-on-1 dedicated academic mentoring with a guaranteed sub-2 hour SLA (Service Level Agreement). Every child gets a dedicated mentor who reviews homework, addresses personal learning gaps, and provides custom video/handwritten solutions.",
+                whyWeBuiltIt: "Shy or slower-paced students often hesitate to ask questions in front of a full class, letting small doubts accumulate into major conceptual failures.",
+                usefulness: "Parents no longer need to worry about homework assistance or complex arithmetic doubts at home. Personalized care ensures no student is left behind regardless of their initial skill level.",
+                howTheyLearn: "Asynchronous or 1-on-1 live call doubt submission via the Sharusuri OS portal. Mentors generate bite-sized 1-minute video walk-throughs, audio voice notes, and step-by-step solution sheets tailored to the child's learning speed.",
+                effectiveness: "Eliminates doubt backlogs entirely; 98.4% of students with active Tier 3 mentor engagement report complete confidence on exam day.",
+                highlightStat: "< 2 Hrs",
+                highlightLabel: "Guaranteed Doubt SLA Resolution"
+            },
+            4: {
+                tierNum: 4,
+                name: "Cross-Branch Expert",
+                tagline: "Statewide Access to Karnataka's Top Rank Builders",
+                badgeClass: "badge-danger",
+                icon: "🌐",
+                whatItIs: "Statewide open access to top-ranking master faculty from any Cousins Academy regional branch (Sindhanur, Raichur, Bellary, or Digital Division). Students can attend doubt clinics or revision camps led by specialized rank-producing experts.",
+                whyWeBuiltIt: "Single-location coaching institutes are constrained by local faculty limitations. We built Tier 4 to democratize access, allowing every student in any town or online mode to learn directly from Karnataka's top-performing entrance rank builders.",
+                usefulness: "If a child needs an alternative perspective or advanced short-tricks for difficult topics like spatial reasoning or ratio tricks, they aren't restricted to one teacher.",
+                howTheyLearn: "Interactive Weekend Cross-Branch Masterclasses, multi-campus simulated mock exam debriefs, and state-level ranker clinics.",
+                effectiveness: "Propels average performers into top-10 district rankers. Drives our 98.4% selection rate across JNVST and KREIS residential school exams.",
+                highlightStat: "98.4%",
+                highlightLabel: "Overall Entrance Selection Rate"
+            }
+        };
+
+        // 3. EXPANDED APP DATASET WITH SUPPORT TIERS, BRANCHES & DOUBTS
         const APP_DATA = {
             support_tiers: [
                 {
@@ -1938,21 +2130,21 @@
                 },
                 {
                     tier: 2,
-                    title: "Subject Study Hour Leads",
+                    title: "Subject Doubt Hour",
                     subtitle: "Daily Practice Supervisors",
                     desc: "Supervises dedicated daily practice hours to solve OMR worksheets and reinforce concepts.",
                     features: ["Supervised Practice Hours", "Daily OMR Drills", "Speed & Accuracy Coaching"]
                 },
                 {
                     tier: 3,
-                    title: "1-on-1 Doubt Mentors",
+                    title: "1-on-1 Personal Mentor",
                     subtitle: "Personal Doubt Specialists",
                     desc: "On-demand mentors assigned to resolve individual homework and concept doubts within 2 hours.",
                     features: ["Sub-2 hr Resolution SLA", "Individual Homework Help", "Video/Audio Explanations"]
                 },
                 {
                     tier: 4,
-                    title: "Cross-Branch Expert Network",
+                    title: "Cross-Branch Expert",
                     subtitle: "Statewide Faculty Access",
                     desc: "Freedom to join doubt clinics or request sessions with top teachers from ANY branch nationwide.",
                     features: ["Access Any Center's Faculty", "Specialized Revision Clinics", "State-Level Top Rankers"]
@@ -2005,6 +2197,7 @@
         };
 
         let currentWizardStep = 1;
+        let activeSelectedTier = 1;
 
         // PAGE NAVIGATION ENGINE
         function navigateToPage(pageId) {
@@ -2037,13 +2230,27 @@
 
         // RENDER 4-TIER HIERARCHY CARDS
         function renderSupportTiers() {
-            const containers = [document.getElementById('homeTierGrid'), document.getElementById('programsTierGrid')];
-            containers.forEach(container => {
+            const containers = [
+                { id: 'homeTierGrid', isHome: true },
+                { id: 'programsTierGrid', isHome: false }
+            ];
+
+            containers.forEach(({ id, isHome }) => {
+                const container = document.getElementById(id);
                 if (!container) return;
                 container.innerHTML = '';
                 APP_DATA.support_tiers.forEach(item => {
                     const card = document.createElement('div');
-                    card.className = 'tier-card';
+                    card.className = `tier-card ${!isHome && item.tier === activeSelectedTier ? 'selected-tier' : ''}`;
+                    card.onclick = () => {
+                        if (isHome) {
+                            navigateToPage('programs');
+                            showTierDetail(item.tier);
+                        } else {
+                            showTierDetail(item.tier);
+                        }
+                    };
+
                     card.innerHTML = `
                         <div class="tier-badge-number">${item.tier}</div>
                         <div class="tier-subtitle">Tier ${item.tier} Support</div>
@@ -2052,10 +2259,100 @@
                         <ul class="tier-feature-list">
                             ${item.features.map(f => `<li>${f}</li>`).join('')}
                         </ul>
+                        <div style="margin-top: 1rem; font-size: 0.78rem; font-weight: 800; color: var(--primary);">
+                            👉 Click to view detailed analysis →
+                        </div>
                     `;
                     container.appendChild(card);
                 });
             });
+        }
+
+        // RENDER DETAILED 4-TIER BREAKDOWN CONTENT
+        function showTierDetail(tierNum) {
+            activeSelectedTier = tierNum;
+
+            // Highlight tier cards in programs page
+            const progCards = document.querySelectorAll('#programsTierGrid .tier-card');
+            progCards.forEach((card, idx) => {
+                if (idx + 1 === tierNum) {
+                    card.classList.add('selected-tier');
+                } else {
+                    card.classList.remove('selected-tier');
+                }
+            });
+
+            // Update tab header buttons
+            const tabBtns = document.querySelectorAll('#tierTabHeader .tier-tab-btn');
+            tabBtns.forEach((btn, idx) => {
+                if (idx + 1 === tierNum) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            const detail = TIER_DETAILS_DATA[tierNum];
+            const contentContainer = document.getElementById('tierDetailContent');
+            if (!contentContainer || !detail) return;
+
+            contentContainer.innerHTML = `
+                <div style="margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <span class="badge ${detail.badgeClass}">Tier ${detail.tierNum} Academic Pillar</span>
+                        <h3 style="font-size: 1.8rem; font-weight: 900; margin-top: 0.3rem;">${detail.icon} ${detail.name}</h3>
+                        <p style="font-size: 1rem; color: var(--text-muted); font-weight: 600;">${detail.tagline}</p>
+                    </div>
+                    <button class="btn btn-accent btn-sm" onclick="openDemoModal('Demo: ${detail.name}')">
+                        ✨ Book Free Demo for Tier ${detail.tierNum}
+                    </button>
+                </div>
+
+                <div class="tier-breakdown-grid">
+                    <!-- DIMENSION 1: WHAT IT IS -->
+                    <div class="tier-dimension-card">
+                        <div class="tier-dim-icon">📖</div>
+                        <div class="tier-dim-title">1. What It Is (Definition & Role)</div>
+                        <div class="tier-dim-text">${detail.whatItIs}</div>
+                    </div>
+
+                    <!-- DIMENSION 2: WHY WE BUILT IT -->
+                    <div class="tier-dimension-card">
+                        <div class="tier-dim-icon">💡</div>
+                        <div class="tier-dim-title">2. Why We Built It (Philosophy & Gap Filled)</div>
+                        <div class="tier-dim-text">${detail.whyWeBuiltIt}</div>
+                    </div>
+
+                    <!-- DIMENSION 3: WHAT MAKES IT USEFUL -->
+                    <div class="tier-dimension-card">
+                        <div class="tier-dim-icon">🛡️</div>
+                        <div class="tier-dim-title">3. Practical Utility for Students & Parents</div>
+                        <div class="tier-dim-text">${detail.usefulness}</div>
+                    </div>
+
+                    <!-- DIMENSION 4: HOW THEY LEARN -->
+                    <div class="tier-dimension-card">
+                        <div class="tier-dim-icon">🧠</div>
+                        <div class="tier-dim-title">4. How They Learn (Pedagogical Mechanism)</div>
+                        <div class="tier-dim-text">${detail.howTheyLearn}</div>
+                    </div>
+                </div>
+
+                <!-- DIMENSION 5: EFFECTIVENESS & IMPACT STAT -->
+                <div class="tier-impact-stat-box">
+                    <div class="tier-stat-number">${detail.highlightStat}</div>
+                    <div>
+                        <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-main);">5. Measured Learning Effectiveness</div>
+                        <div style="font-size: 0.88rem; color: var(--text-muted);">${detail.effectiveness}</div>
+                    </div>
+                </div>
+            `;
+
+            // Scroll smoothly to deep dive section if clicked
+            const deepDiveBox = document.getElementById('tierDeepDiveSection');
+            if (deepDiveBox && window.scrollY > 400) {
+                deepDiveBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
         }
 
         // RENDER PORTAL DASHBOARD TABS
@@ -2341,6 +2638,7 @@
         // INITIALIZATION
         document.addEventListener('DOMContentLoaded', () => {
             renderSupportTiers();
+            showTierDetail(1);
             renderAssignedStaff();
             renderBranchScheduler();
             renderDoubtTracker();
