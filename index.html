@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <!-- Optimized Viewport Meta Tag for Mobile WebViews & Native Scaling Control -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="description" content="Sharusuri EdTech & Cousins Academy - Multi-Page Coaching Engine for Navodaya Entrance, Morarji Desai, Sainik School, with 4-Tier Support, Multi-Branch Access, and Parent Assurance Dashboard.">
+    <meta name="description" content="Sharusuri EdTech & Cousins Academy - Multi-Page Coaching Engine & Rural E-Commerce Marketplace for Navodaya, Morarji Desai, Sainik School, Books, AgTech Inputs & Local Goods.">
     <meta name="theme-color" content="#0f766e">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-    <title>Sharusuri EdTech | Cousins Academy Programs, Batches & Multi-Branch Support Hub</title>
+    <title>Sharusuri EdTech | Cousins Academy Programs, Online Order Marketplace & Multi-Branch Support Hub</title>
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,7 +114,7 @@
         ul { list-style: none; }
 
         /* TOUCH TARGET SIZE & MOBILE WEBVIEW OPTIMIZATIONS */
-        button, .btn, .nav-link-btn, .lang-toggle-btn, .icon-btn, .slot-pill, .tier-card, .option-selectable-card, .dash-tab-btn, .tier-tab-btn {
+        button, .btn, .nav-link-btn, .lang-toggle-btn, .icon-btn, .slot-pill, .tier-card, .option-selectable-card, .dash-tab-btn, .tier-tab-btn, .cat-pill {
             touch-action: manipulation;
             min-height: 48px;
             display: inline-flex;
@@ -288,6 +288,35 @@
             box-shadow: inset 0 0 0 1px var(--primary);
         }
 
+        /* SHOPPING CART BADGE IN HEADER */
+        .header-cart-btn {
+            position: relative;
+            background: var(--primary-light);
+            border: 1.5px solid var(--primary);
+            color: var(--primary);
+            font-weight: 800;
+            padding: 0.45rem 0.9rem;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .cart-badge-count {
+            background: var(--danger);
+            color: white;
+            font-size: 0.72rem;
+            font-weight: 900;
+            padding: 0.1rem 0.45rem;
+            border-radius: 50px;
+            min-width: 20px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
         /* MOBILE DRAWER OVERLAY */
         .mobile-drawer-backdrop {
             position: fixed;
@@ -348,6 +377,137 @@
             padding: 0.85rem 1rem;
             font-size: 0.95rem;
             border-radius: var(--radius-md);
+        }
+
+        /* CART SLIDE-IN DRAWER */
+        .cart-drawer-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 2500;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .cart-drawer-backdrop.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 90%;
+            max-width: 440px;
+            background: var(--card-bg);
+            z-index: 2501;
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            padding: calc(1.25rem + var(--safe-area-top)) 1.25rem calc(1.25rem + var(--safe-area-bottom));
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cart-drawer.open {
+            transform: translateX(0);
+        }
+
+        .cart-drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .cart-items-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+
+        }
+
+        .cart-item-card {
+            background: var(--bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-sm);
+            object-fit: cover;
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .cart-item-info {
+            flex-grow: 1;
+        }
+
+        .cart-item-title {
+            font-size: 0.88rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+
+        .cart-item-price {
+            font-size: 0.82rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .cart-qty-ctrl {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 0.15rem 0.4rem;
+        }
+
+        .cart-qty-btn {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: none;
+            background: var(--bg);
+            color: var(--text-main);
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 26px;
+        }
+
+        .cart-checkout-box {
+            border-top: 1px solid var(--border-light);
+            padding-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
         }
 
         /* LANGUAGE & THEME TOGGLES */
@@ -458,6 +618,150 @@
             justify-content: center;
             gap: 0.75rem;
             flex-wrap: wrap;
+        }
+
+        /* MARKETPLACE PRODUCT CARDS & GRID */
+        .market-search-bar-wrap {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .market-search-input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border-radius: 50px;
+            border: 2px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text-main);
+            font-size: 16px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .market-search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
+        }
+
+        .category-pills-scroll {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .cat-pill {
+            padding: 0.5rem 1.1rem;
+            border-radius: 50px;
+            background: var(--card-bg);
+            border: 1.5px solid var(--border);
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .cat-pill.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+            border-color: var(--primary);
+        }
+
+        .product-img-box {
+            height: 160px;
+            background: linear-gradient(135deg, var(--bg), var(--primary-light));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            margin-bottom: 0.85rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: var(--dark);
+            color: white;
+            font-size: 0.68rem;
+            font-weight: 800;
+            padding: 0.2rem 0.55rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+
+        .product-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 0.35rem;
+            line-height: 1.3;
+        }
+
+        .product-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-bottom: 0.85rem;
+        }
+
+        .product-price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--border-light);
+        }
+
+        .price-current {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .price-mrp {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-left: 0.3rem;
         }
 
         /* DYNAMIC WIZARD & CARDS */
@@ -1139,6 +1443,7 @@
             .grid-3, .footer-grid, .tuition-models-grid { grid-template-columns: repeat(2, 1fr); }
             .grid-4, .tier-flow-grid { grid-template-columns: repeat(2, 1fr); }
             .wizard-steps-bar { grid-template-columns: repeat(2, 1fr); }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -1146,7 +1451,7 @@
             .mobile-nav-toggle { display: flex; }
             .hero-title { font-size: 1.8rem; }
             .hero-subtitle { font-size: 0.95rem; }
-            .grid-3, .grid-2, .grid-4, .footer-grid, .tier-flow-grid, .tuition-models-grid { grid-template-columns: 1fr; }
+            .grid-3, .grid-2, .grid-4, .footer-grid, .tier-flow-grid, .tuition-models-grid, .product-grid { grid-template-columns: 1fr; }
             .wizard-steps-bar { grid-template-columns: 1fr; }
             .top-notice-bar { flex-direction: column; text-align: center; justify-content: center; }
             .top-contacts { justify-content: center; }
@@ -1171,8 +1476,8 @@
     <!-- TOP ANNOUNCEMENT & CONTACT BAR -->
     <div class="top-notice-bar">
         <div>
-            <span class="notice-tag" id="noticeTagText" data-i18n="announcement_tag">🎓 Multi-Tier Support & Trial Demos</span>
-            <span id="noticeBarMsg" data-i18n="announcement_msg">Official Partner: Cousins Academy (@cousinsacademy4599) • Free Demo Sessions Available Nationwide</span>
+            <span class="notice-tag" id="noticeTagText" data-i18n="announcement_tag">🎓 Multi-Tier Support & Marketplace</span>
+            <span id="noticeBarMsg" data-i18n="announcement_msg">Official Partner: Cousins Academy (@cousinsacademy4599) • Free Demo Sessions & Marketplace Online Orders</span>
         </div>
         <div class="top-contacts">
             <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')">📞 +91 9916083774</a>
@@ -1202,6 +1507,9 @@
                 <button class="nav-link-btn" id="nav-programs" onclick="navigateToPage('programs')">
                     <span>📚</span> <span data-i18n="nav_programs">Programs & Tiers</span>
                 </button>
+                <button class="nav-link-btn" id="nav-marketplace" onclick="navigateToPage('marketplace')">
+                    <span>🛍️</span> <span data-i18n="nav_marketplace">Online Store</span>
+                </button>
                 <button class="nav-link-btn" id="nav-schedule" onclick="navigateToPage('schedule')">
                     <span>🗓️</span> <span data-i18n="nav_schedule">Batches & Schedule</span>
                 </button>
@@ -1219,8 +1527,15 @@
                 </button>
             </nav>
 
-            <!-- CONTROLS & LANGUAGE TOGGLE -->
+            <!-- CONTROLS, CART & LANGUAGE TOGGLE -->
             <div class="toggle-btn-group">
+                <!-- CART DRAWER TRIGGER -->
+                <button class="header-cart-btn" onclick="toggleCartDrawer()">
+                    <span>🛒</span>
+                    <span data-i18n="cart_btn_text">Cart</span>
+                    <span class="cart-badge-count" id="cartBadgeCount">0</span>
+                </button>
+
                 <!-- KANNADA / ENGLISH LANGUAGE TOGGLE -->
                 <button class="lang-toggle-btn" id="langToggleBtn" onclick="toggleLanguage()">
                     <span>🌐</span>
@@ -1262,6 +1577,9 @@
             <button class="nav-link-btn" onclick="navigateToPage('programs'); toggleMobileNav();">
                 <span>📚</span> <span data-i18n="nav_programs">Programs & Support Tiers</span>
             </button>
+            <button class="nav-link-btn" onclick="navigateToPage('marketplace'); toggleMobileNav();">
+                <span>🛍️</span> <span data-i18n="nav_marketplace">Online Store & Marketplace</span>
+            </button>
             <button class="nav-link-btn" onclick="navigateToPage('schedule'); toggleMobileNav();">
                 <span>🗓️</span> <span data-i18n="nav_schedule">Batches & Schedule</span>
             </button>
@@ -1289,6 +1607,49 @@
         </div>
     </aside>
 
+    <!-- SHOPPING CART SLIDE-IN DRAWER -->
+    <div class="cart-drawer-backdrop" id="cartDrawerBackdrop" onclick="toggleCartDrawer()"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="font-size: 1.4rem;">🛍️</span>
+                <h3 style="font-size: 1.15rem;" data-i18n="cart_drawer_title">Your Shopping Cart</h3>
+            </div>
+            <button class="icon-btn" onclick="toggleCartDrawer()">✕</button>
+        </div>
+
+        <div class="cart-items-container" id="cartItemsList">
+            <!-- Dynamically populated via JS -->
+        </div>
+
+        <div class="cart-checkout-box">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem; font-weight: 800;">
+                <span data-i18n="cart_total_label">Total Amount:</span>
+                <span style="color: var(--primary);" id="cartDrawerTotalPrice">₹0</span>
+            </div>
+
+            <!-- Quick Checkout Address & WhatsApp Direct Slip Form -->
+            <form id="marketplaceCheckoutForm" onsubmit="submitMarketplaceOrder(event)">
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="form-label" data-i18n="cart_label_name">Student / Customer Full Name *</label>
+                    <input type="text" id="orderCustName" class="form-input" required placeholder="e.g. Ramesh Kumar">
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="form-label" data-i18n="cart_label_phone">WhatsApp Phone Number *</label>
+                    <input type="tel" id="orderCustPhone" class="form-input" required placeholder="10-digit number">
+                </div>
+                <div class="form-group" style="margin-bottom: 0.75rem;">
+                    <label class="form-label" data-i18n="cart_label_address">Delivery Village / Town & Address *</label>
+                    <textarea id="orderCustAddress" class="form-input" rows="2" required placeholder="e.g. House No. 42, Main Road, AP K Hosalli, Sindhanur"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-whatsapp" style="width: 100%;" id="cartCheckoutBtn">
+                    💬 Place Order via WhatsApp
+                </button>
+            </form>
+        </div>
+    </aside>
+
     <!-- MAIN MULTI-PAGE CONTAINER VIEWS -->
     <main style="flex-grow: 1;">
 
@@ -1312,6 +1673,9 @@
                         </button>
                         <button class="btn btn-primary btn-lg" onclick="navigateToPage('programs')" data-i18n="hero_btn_explore">
                             🚀 Explore Programs & Support Tiers
+                        </button>
+                        <button class="btn btn-purple btn-lg" onclick="navigateToPage('marketplace')" data-i18n="hero_btn_store">
+                            🛍️ Visit Online Order Store
                         </button>
                         <button class="btn btn-yt btn-lg" onclick="openExternalUrl('https://www.youtube.com/@cousinsacademy4599?sub_confirmation=1')" data-i18n="hero_btn_yt">
                             📺 Subscribe YouTube Channel
@@ -1588,7 +1952,40 @@
             </div>
         </section>
 
-        <!-- 3. SCHEDULE & BATCH CALENDAR PAGE VIEW -->
+        <!-- 3. ONLINE ORDER & RURAL MARKETPLACE MODULE PAGE VIEW -->
+        <section id="page-marketplace" class="page-view">
+            <div class="section-container" style="margin-top: 1.5rem;">
+                <div class="section-header">
+                    <span class="badge badge-primary" data-i18n="shop_badge">🛒 E-Commerce & Direct Fulfillment</span>
+                    <h2 data-i18n="shop_title">Rural EdTech & Local Marketplace</h2>
+                    <p data-i18n="shop_sub">Order Study Guides, OMR Exam Kits, Digital Learning Devices, Agricultural Inputs & Local Goods delivered directly to your doorstep.</p>
+                </div>
+
+                <!-- SEARCH & CATEGORY FILTERS -->
+                <div class="market-search-bar-wrap">
+                    <input type="text" class="market-search-input" id="marketSearchInput" placeholder="Search books, exam kits, electronics, agricultural inputs..." oninput="filterMarketProducts()">
+                    <button class="btn btn-primary" onclick="toggleCartDrawer()">
+                        🛒 <span data-i18n="view_cart_btn">View Cart</span>
+                    </button>
+                </div>
+
+                <!-- CATEGORY PILLS -->
+                <div class="category-pills-scroll" id="marketCatPills">
+                    <button class="cat-pill active" onclick="filterCategory('ALL', this)">🌐 All Items</button>
+                    <button class="cat-pill" onclick="filterCategory('BOOKS', this)">📚 Books & Guides</button>
+                    <button class="cat-pill" onclick="filterCategory('KITS', this)">🎒 Exam Kits & Stationeries</button>
+                    <button class="cat-pill" onclick="filterCategory('ELECTRONICS', this)">💻 Digital Devices</button>
+                    <button class="cat-pill" onclick="filterCategory('AGTECH', this)">🌾 Agricultural Inputs & Seeds</button>
+                </div>
+
+                <!-- PRODUCT CATALOG GRID -->
+                <div class="product-grid" id="marketProductsGrid">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SCHEDULE & BATCH CALENDAR PAGE VIEW -->
         <section id="page-schedule" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -1648,7 +2045,7 @@
             </div>
         </section>
 
-        <!-- 4. ABOUT US PAGE VIEW -->
+        <!-- 5. ABOUT US PAGE VIEW -->
         <section id="page-about" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -1697,7 +2094,7 @@
             </div>
         </section>
 
-        <!-- 5. CONTACT US PAGE VIEW WITH DEMO BOOKING -->
+        <!-- 6. CONTACT US PAGE VIEW WITH DEMO BOOKING -->
         <section id="page-contact" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -1796,7 +2193,7 @@
             </div>
         </section>
 
-        <!-- 6. STUDENT & PARENT PORTAL PAGE VIEW (WITH PARENT TRANSPARENCY DASHBOARD) -->
+        <!-- 7. STUDENT & PARENT PORTAL PAGE VIEW (WITH PARENT TRANSPARENCY DASHBOARD) -->
         <section id="page-portal" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -1928,7 +2325,7 @@
             </div>
         </section>
 
-        <!-- 7. ADMIN CONSOLE PAGE VIEW -->
+        <!-- 8. ADMIN CONSOLE PAGE VIEW -->
         <section id="page-admin" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -1973,7 +2370,7 @@
                     <h3 style="font-size: 1.1rem; color: white;">Sharusuri EdTech & Cousins Academy</h3>
                 </div>
                 <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.55;" data-i18n="footer_desc">
-                    Karnataka's leading educational platform equipped with a 4-Tier Support Hierarchy, multi-branch expert network, and flexible tuition models.
+                    Karnataka's leading educational platform equipped with a 4-Tier Support Hierarchy, multi-branch expert network, flexible tuition models, and direct local fulfillment marketplace.
                 </p>
             </div>
 
@@ -1982,6 +2379,7 @@
                 <ul style="font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem; color: #cbd5e1;">
                     <li><a href="javascript:void(0)" onclick="navigateToPage('home')" data-i18n="nav_home">Home</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('programs')" data-i18n="nav_programs">Programs & Support Tiers</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigateToPage('marketplace')" data-i18n="nav_marketplace">Online Store & Marketplace</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('schedule')" data-i18n="nav_schedule">Batches & Schedule</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('portal')" data-i18n="nav_portal">Parent & Student Portal</a></li>
                 </ul>
@@ -2148,13 +2546,24 @@
             }
         }
 
+        // TOGGLE CART DRAWER
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cartDrawer');
+            const backdrop = document.getElementById('cartDrawerBackdrop');
+            if (drawer && backdrop) {
+                drawer.classList.toggle('open');
+                backdrop.classList.toggle('open');
+            }
+        }
+
         // 1. COMPREHENSIVE BILINGUAL (ENGLISH & KANNADA) DICTIONARY DATASET
         const I18N_DATA = {
             en: {
-                announcement_tag: "🎓 Multi-Tier Support & Trial Demos",
-                announcement_msg: "Official Partner: Cousins Academy (@cousinsacademy4599) • Free Demo Sessions Available Nationwide",
+                announcement_tag: "🎓 Multi-Tier Support & Marketplace",
+                announcement_msg: "Official Partner: Cousins Academy (@cousinsacademy4599) • Free Demo Sessions & Marketplace Online Orders",
                 nav_home: "Home",
                 nav_programs: "Programs & Tiers",
+                nav_marketplace: "Online Store",
                 nav_schedule: "Batches & Schedule",
                 nav_about: "About Us",
                 nav_contact: "Contact Us",
@@ -2162,11 +2571,13 @@
                 nav_admin: "Admin Console",
                 btn_free_demo: "✨ Free Demo",
                 btn_login: "🔐 Login",
+                cart_btn_text: "Cart",
                 hero_badge_text: "📺 Official Channel Partner • Cousins Academy @cousinsacademy4599",
                 hero_title: "Master Navodaya & Morarji Entrance Exams with Cousins Academy",
                 hero_sub: "Karnataka's top coaching engine backed by a 4-Tier Academic Support Hierarchy, Cross-Branch Teacher Access, and Flexible Hybrid Learning Models.",
                 hero_btn_trial: "🎯 Book Free Trial Demo Class",
                 hero_btn_explore: "🚀 Explore Programs & Support Tiers",
+                hero_btn_store: "🛍️ Visit Online Order Store",
                 hero_btn_yt: "📺 Subscribe YouTube Channel",
                 wizard_badge: "⚡ Fast Track Enrollment & Trial Demos",
                 wizard_heading: "Choose Your Coaching Path in 4 Simple Steps",
@@ -2205,17 +2616,27 @@
                 wiz_step2_label: "Batch Type",
                 wiz_step3_label: "Learning Mode",
                 wiz_step4_label: "Timings & Summary",
-                footer_desc: "Karnataka's leading educational platform equipped with a 4-Tier Support Hierarchy, multi-branch expert network, and flexible tuition models.",
+                shop_badge: "🛒 E-Commerce & Direct Fulfillment",
+                shop_title: "Rural EdTech & Local Marketplace",
+                shop_sub: "Order Study Guides, OMR Exam Kits, Digital Learning Devices, Agricultural Inputs & Local Goods delivered directly to your doorstep.",
+                view_cart_btn: "View Cart",
+                cart_drawer_title: "Your Shopping Cart",
+                cart_total_label: "Total Amount:",
+                cart_label_name: "Student / Customer Full Name *",
+                cart_label_phone: "WhatsApp Phone Number *",
+                cart_label_address: "Delivery Village / Town & Address *",
+                footer_desc: "Karnataka's leading educational platform equipped with a 4-Tier Support Hierarchy, multi-branch expert network, flexible tuition models, and direct local fulfillment marketplace.",
                 footer_quick_links: "Quick Links",
                 footer_official_contacts: "Official Contacts",
                 footer_trial_yt: "Trial Demo & YouTube",
                 footer_copyright: "© 2026 Sharusuri EdTech OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com"
             },
             kn: {
-                announcement_tag: "🎓 4-ಹಂತದ ಬೆಂಬಲ ಮತ್ತು ಉಚಿತ ಡೆಮೊ",
-                announcement_msg: "ಅಧಿಕೃತ ಪಾಲುದಾರರು: ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ (@cousinsacademy4599) • ಉಚಿತ ಡೆಮೊ ತರಗತಿಗಳು ಲಭ್ಯವಿವೆ",
+                announcement_tag: "🎓 4-ಹಂತದ ಬೆಂಬಲ ಮತ್ತು ಆನ್‌ಲೈನ್ ಅಂಗಡಿ",
+                announcement_msg: "ಅಧಿಕೃತ ಪಾಲುದಾರರು: ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ (@cousinsacademy4599) • ಉಚಿತ ಡೆಮೊ ಮತ್ತು ಆನ್‌ಲೈನ್ ಆರ್ಡರ್ ಸೌಲಭ್ಯ",
                 nav_home: "ಮುಖಪುಟ",
                 nav_programs: "ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಸಪೋರ್ಟ್",
+                nav_marketplace: "ಆನ್‌ಲೈನ್ ಅಂಗಡಿ",
                 nav_schedule: "ಬ್ಯಾಚ್ ಸಮಯ",
                 nav_about: "ನಮ್ಮ ಬಗ್ಗೆ",
                 nav_contact: "ಸಂಪರ್ಕಿಸಿ",
@@ -2223,11 +2644,13 @@
                 nav_admin: "ಅಡ್ಮಿನ್",
                 btn_free_demo: "✨ ಉಚಿತ ಡೆಮೊ",
                 btn_login: "🔐 ಲಾಗಿನ್",
+                cart_btn_text: "ಕಾರ್ಟ್",
                 hero_badge_text: "📺 ಅಧಿಕೃತ ಯೂಟ್ಯೂಬ್ ಚಾನೆಲ್ ಪಾಲುದಾರರು • ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ @cousinsacademy4599",
                 hero_title: "ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿಯೊಂದಿಗೆ ನವೋದಯ ಮತ್ತು ಮೊರಾರ್ಜಿ ಪರೀಕ್ಷೆಗಳನ್ನು ಗೆಲ್ಲಿರಿ",
                 hero_sub: "4-ಹಂತದ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ, ಮಲ್ಟಿ-ಬ್ರಾಂಚ್ ಶಿಕ್ಷಕರ ಸಹಾಯ ಮತ್ತು ಹೈಬ್ರಿಡ್ ಕಲಿಕಾ ವ್ಯವಸ್ಥೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಅತ್ಯುತ್ತಮ ಕೋಚಿಂಗ್ ಸಂಸ್ಥೆ.",
                 hero_btn_trial: "🎯 ಉಚಿತ ಡೆಮೊ ತರಗತಿಯನ್ನು ಬುಕ್ ಮಾಡಿ",
                 hero_btn_explore: "🚀 ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಬೆಂಬಲ ಹಂತಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
+                hero_btn_store: "🛍️ ಆನ್‌ಲೈನ್ ಅಂಗಡಿಗೆ ಭೇಟಿ ನೀಡಿ",
                 hero_btn_yt: "📺 ಯೂಟ್ಯೂಬ್ ಚಾನೆಲ್ ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಮಾಡಿ",
                 wizard_badge: "⚡ ತ್ವರಿತ ದಾಖಲಾತಿ ಮತ್ತು ಡೆಮೊ ತರಗತಿ",
                 wizard_heading: "4 ಸರಳ ಹಂತಗಳಲ್ಲಿ ನಿಮ್ಮ ಸೂಕ್ತ ಕೋರ್ಸ್ ಆಯ್ಕೆಮಾಡಿ",
@@ -2266,7 +2689,16 @@
                 wiz_step2_label: "ಬ್ಯಾಚ್ ಮಾದರಿ",
                 wiz_step3_label: "ಕಲಿಕಾ ವಿಧಾನ",
                 wiz_step4_label: "ಸಮಯ ಮತ್ತು ವಿವರ",
-                footer_desc: "4-ಹಂತದ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ, ವಿವಿಧ ಶಾಖೆಗಳ ಪರಿಣಿತ ಶಿಕ್ಷಕರು ಮತ್ತು ಹೈಬ್ರಿಡ್ ಕಲಿಕೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಅಗ್ರಗಣ್ಯ ಶಿಕ್ಷಣ ಸಂಸ್ಥೆ.",
+                shop_badge: "🛒 ಆನ್‌ಲೈನ್ ಖರೀದಿ & ಮನೆ ಬಾಗಿಲಿಗೆ ವಿತರಣೆ",
+                shop_title: "ಗ್ರಾಮೀಣ ಶಿಕ್ಷಣ & ಸ್ಥಳೀಯ ಮಾರುಕಟ್ಟೆ",
+                shop_sub: "ನವೋದಯ ಪುಸ್ತಕಗಳು, OMR ಕಿಟ್‌ಗಳು, ಡಿಜಿಟಲ್ ಸಾಧನಗಳು, ಕೃಷಿ ಸಾಮಗ್ರಿಗಳು ಮತ್ತು ಸ್ಥಳೀಯ ಉತ್ಪನ್ನಗಳನ್ನು ನೇರವಾಗಿ ನಿಮ್ಮ ಮನೆಗೆ ಆರ್ಡರ್ ಮಾಡಿ.",
+                view_cart_btn: "ಕಾರ್ಟ್ ವೀಕ್ಷಿಸಿ",
+                cart_drawer_title: "ನಿಮ್ಮ ಶಾಪಿಂಗ್ ಕಾರ್ಟ್",
+                cart_total_label: "ಒಟ್ಟು ಮೊತ್ತ:",
+                cart_label_name: "ವಿದ್ಯಾರ್ಥಿ / ಗ್ರಾಹಕರ ಹೆಸರು *",
+                cart_label_phone: "ವಾಟ್ಸಾಪ್ ಫೋನ್ ಸಂಖ್ಯೆ *",
+                cart_label_address: "ಡೆಲಿವರಿ ವಿಳಾಸ ಮತ್ತು ಊರು *",
+                footer_desc: "4-ಹಂತದ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ, ವಿವಿಧ ಶಾಖೆಗಳ ಪರಿಣಿತ ಶಿಕ್ಷಕರು, ಹೈಬ್ರಿಡ್ ಕಲಿಕೆ ಮತ್ತು ಸ್ಥಳೀಯ ಮಾರುಕಟ್ಟೆ ಸರಬರಾಜಿನೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಅಗ್ರಗಣ್ಯ ಸಂಸ್ಥೆ.",
                 footer_quick_links: "ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು",
                 footer_official_contacts: "ಅಧಿಕೃತ ಸಂಪರ್ಕಗಳು",
                 footer_trial_yt: "ಉಚಿತ ಡೆಮೊ ಮತ್ತು ಯೂಟ್ಯೂಬ್",
@@ -2436,13 +2868,19 @@
             }
         };
 
+        // 4. MARKETPLACE PRODUCTS DATASET (BILINGUAL)
+        const MARKETPLACE_PRODUCTS = [
+            { id: "m101", cat: "BOOKS", icon: "📚", titleEn: "Navodaya Entrance Comprehensive Master Guide", titleKn: "ನವೋದಯ ಪ್ರವೇಶ ಪರೀಕ್ಷೆ ಸಮಗ್ರ ಮಾರ್ಗದರ್ಶಿ ಪುಸ್ತಕ", price: 599, mrp: 850, tag: "Best Seller", descEn: "Complete JNVST Class 5/6 mental ability, math short tricks & previous 10 years solved papers.", descKn: "JNVST 5ನೇ/6ನೇ ತರಗತಿಯ ಮಾನಸಿಕ ಸಾಮರ್ಥ್ಯ, ಗಣಿತ ಶಾರ್ಟ್‌ಕಟ್‌ಗಳು ಮತ್ತು ಕಳೆದ 10 ವರ್ಷಗಳ ಪ್ರಶ್ನೋತ್ತರಗಳು." },
+            { id: "m102", cat: "BOOKS", icon: "📖", titleEn: "Morarji Desai & KREIS Model Question Bank", titleKn: "ಮೊರಾರ್ಜಿ ದೇಸಾಯಿ ಮತ್ತು KREIS ಮಾದರಿ ಪ್ರಶ್ನೋತ್ತರ ಬ್ಯಾಂಕ್", price: 399, mrp: 550, tag: "Top Choice", descEn: "50 Model OMR test sheets with full Kannada & English step-by-step explanations.", descKn: "50 ಮಾದರಿ OMR ಪರೀಕ್ಷಾ ಪತ್ರಿಕೆಗಳು, ಕನ್ನಡ ಮತ್ತು ಇಂಗ್ಲಿಷ್ ವಿವರಣೆಗಳೊಂದಿಗೆ." },
+            { id: "m103", cat: "KITS", icon: "🎒", titleEn: "Official Student OMR Practice Kit", titleKn: "ಅಧಿಕೃತ OMR ಪರೀಕ್ಷಾ ಅಭ್ಯಾಸ ಕಿಟ್", price: 299, mrp: 450, tag: "Essential", descEn: "Contains 100 printed high-quality OMR bubbling sheets, dark blue OMR pens, and geometry set.", descKn: "100 ಪ್ರಿಂಟೆಡ್ OMR ಶೀಟ್‌ಗಳು, ಪ್ರತ್ಯೇಕ OMR ಪೆನ್ನುಗಳು ಮತ್ತು ಜ್ಯಾಮಿತಿ ಪೆಟ್ಟಿಗೆ." },
+            { id: "m104", cat: "ELECTRONICS", icon: "💻", titleEn: "Sharusuri EdTech 8-inch Learning Tablet", titleKn: "ಶಾರುಸೂರಿ 8-ಇಂಚು ಲರ್ನಿಂಗ್ ಟ್ಯಾಬ್ಲೆಟ್", price: 6999, mrp: 9999, tag: "Pre-Loaded", descEn: "Includes all Cousins Academy video masterclasses, offline doubt portal, and screen protector.", descKn: "ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿಯ ಎಲ್ಲಾ ವೀಡಿಯೊ ಪಾಠಗಳು, ಆಫ್‌ಲೈನ್ ಸಂಶಯ ಪರಿಹಾರ ಪೋರ್ಟಲ್ ಒಳಗೊಂಡಿದೆ." },
+            { id: "m105", cat: "ELECTRONICS", icon: "🎧", titleEn: "Noise-Isolating Student Study Headphones", titleKn: "ಸ್ಪಷ್ಟ ಧ್ವನಿಯ ಸ್ಟೂಡೆಂಟ್ ಹೆಡ್‌ಫೋನ್ಸ್", price: 899, mrp: 1499, tag: "HD Sound", descEn: "Ergonomic over-ear headphones with microphone for online live class focus.", descKn: "ಆನ್‌ಲೈನ್ ತರಗತಿಗಳಿಗಾಗಿ ಮೈಕ್ರೋಫೋನ್ ಹೊಂದಿರುವ ಎಚ್‌ಡಿ ಹೆಡ್‌ಫೋನ್ಸ್." },
+            { id: "m106", cat: "AGTECH", icon: "🌾", titleEn: "High-Yield Certified Organic Crop Inputs Kit", titleKn: "ಹೆಚ್ಚು ಇಳುವರಿ ನೀಡುವ ಜೈವಿಕ ಕೃಷಿ ಸಾಮಗ್ರಿ ಕಿಟ್", price: 1299, mrp: 1800, tag: "Farmer Special", descEn: "Pure bio-fertilizers, organic neem seed extracts, and soil health boosters for Raichur soil.", descKn: "ರಾಯಚೂರು ಭೂಮಿಗೆ ಸೂಕ್ತವಾದ ಜೈವಿಕ ಗೊಬ್ಬರಗಳು ಮತ್ತು ಮಣ್ಣಿನ ಫಲವತ್ತತೆ ಹೆಚ್ಚಿಸುವ ಸಾಮಗ್ರಿ." },
+            { id: "m107", cat: "AGTECH", icon: "🌱", titleEn: "Hybrid Vegetable & Grain Seed Pack", titleKn: "ಹೈಬ್ರಿಡ್ ತರಕಾರಿ ಮತ್ತು ಧಾನ್ಯದ ಬೀಜಗಳ ಕಿಟ್", price: 499, mrp: 750, tag: "Pure Organic", descEn: "High germination climate-resistant seeds certified for local Karnataka farming.", descKn: "ಉತ್ತಮ ಮೊಳಕೆ ಪ್ರಮಾಣ ಹೊಂದಿರುವ ಹೈಬ್ರಿಡ್ ಧಾನ್ಯ ಮತ್ತು ತರಕಾರಿ ಬೀಜಗಳು." },
+            { id: "m108", cat: "KITS", icon: "👕", titleEn: "Cousins Academy Official Uniform & School Bag", titleKn: "ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ ಯೂನಿಫಾರ್ಮ್ ಮತ್ತು ಬ್ಯಾಗ್", price: 999, mrp: 1500, tag: "Official", descEn: "Durable waterproof school bag with official academy logo and extra book pockets.", descKn: "ಉತ್ತಮ ಗುಣಮಟ್ಟದ ಜಲನಿರೋಧಕ ಸ್ಕೂಲ್ ಬ್ಯಾಗ್ ಮತ್ತು ಯೂನಿಫಾರ್ಮ್ ಸೆಟ್." }
+        ];
+
         const APP_DATA = {
-            support_tiers: [
-                { tier: 1, title: "Core Class Teacher", subtitle: "Primary Subject Specialist", desc: "Delivers live interactive lectures and structured syllabus coverage.", features: ["Live Interactive Lectures", "Structured Syllabus Completion", "Weekly Exam Strategy"] },
-                { tier: 2, title: "Subject Doubt Hour", subtitle: "Daily Practice Supervisors", desc: "Supervises dedicated daily practice hours to solve OMR worksheets.", features: ["Supervised Practice Hours", "Daily OMR Drills", "Speed & Accuracy Coaching"] },
-                { tier: 3, title: "1-on-1 Personal Mentor", subtitle: "Personal Doubt Specialists", desc: "On-demand mentors assigned to resolve individual homework and doubts within 2 hrs.", features: ["Sub-2 hr Resolution SLA", "Individual Homework Help", "Video/Audio Explanations"] },
-                { tier: 4, title: "Cross-Branch Expert", subtitle: "Statewide Faculty Access", desc: "Freedom to join doubt clinics or request sessions with top teachers from ANY branch.", features: ["Access Any Center's Faculty", "Specialized Revision Clinics", "State-Level Top Rankers"] }
-            ],
             assigned_staff: [
                 { role: "Tier 1: Core Teacher", name: "Prof. Anita Rao", subject: "Mental Ability & Math", contact: "+91 9916083774", status: "Active" },
                 { role: "Tier 2: Study Hour Lead", name: "Suresh S", subject: "Daily OMR Practice", contact: "+91 7022777478", status: "Active" },
@@ -2470,6 +2908,8 @@
         let currentLang = 'en';
         let activeSelectedTier = 1;
         let currentWizardStep = 1;
+        let activeCategoryFilter = 'ALL';
+        let cart = [];
 
         let wizardSelection = {
             program: "Navodaya Entrance Coaching",
@@ -2490,6 +2930,8 @@
             showTierDetail(activeSelectedTier);
             renderWizardSteps();
             updateWizardSummary();
+            renderMarketProducts();
+            renderCart();
 
             showToast(`Language switched to ${currentLang === 'en' ? 'English' : 'ಕನ್ನಡ'}`);
         }
@@ -2514,6 +2956,185 @@
             if (activeNavBtn) activeNavBtn.classList.add('active');
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // RENDER MARKETPLACE PRODUCTS
+        function renderMarketProducts() {
+            const grid = document.getElementById('marketProductsGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            const searchTerm = document.getElementById('marketSearchInput')?.value.toLowerCase() || '';
+
+            const filtered = MARKETPLACE_PRODUCTS.filter(p => {
+                const title = currentLang === 'en' ? p.titleEn : p.titleKn;
+                const desc = currentLang === 'en' ? p.descEn : p.descKn;
+                const matchesCat = activeCategoryFilter === 'ALL' || p.cat === activeCategoryFilter;
+                const matchesSearch = title.toLowerCase().includes(searchTerm) || desc.toLowerCase().includes(searchTerm);
+                return matchesCat && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-muted);">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
+                        <p>No items found matching your filter criteria.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(p => {
+                const title = currentLang === 'en' ? p.titleEn : p.titleKn;
+                const desc = currentLang === 'en' ? p.descEn : p.descKn;
+                
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="product-img-box">
+                            <span>${p.icon}</span>
+                            <span class="product-tag">${p.tag}</span>
+                        </div>
+                        <h4 class="product-title">${title}</h4>
+                        <p class="product-desc">${desc}</p>
+                    </div>
+                    <div>
+                        <div class="product-price-row">
+                            <div>
+                                <span class="price-current">₹${p.price}</span>
+                                <span class="price-mrp">₹${p.mrp}</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="addToCart('${p.id}')">
+                                🛒 ${currentLang === 'en' ? 'Add' : 'ಸೇರಿಸಿ'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(cat, btnEl) {
+            activeCategoryFilter = cat;
+            document.querySelectorAll('#marketCatPills .cat-pill').forEach(b => b.classList.remove('active'));
+            btnEl.classList.add('active');
+            renderMarketProducts();
+        }
+
+        function filterMarketProducts() {
+            renderMarketProducts();
+        }
+
+        // CART SYSTEM & WHATSAPP DIRECT ORDER SLIP GENERATOR
+        function addToCart(productId) {
+            const item = MARKETPLACE_PRODUCTS.find(p => p.id === productId);
+            if (!item) return;
+
+            const existing = cart.find(c => c.id === productId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...item, qty: 1 });
+            }
+
+            renderCart();
+            showToast(`🛒 Added "${currentLang === 'en' ? item.titleEn : item.titleKn}" to cart!`);
+        }
+
+        function updateCartQty(productId, delta) {
+            const index = cart.findIndex(c => c.id === productId);
+            if (index !== -1) {
+                cart[index].qty += delta;
+                if (cart[index].qty <= 0) {
+                    cart.splice(index, 1);
+                }
+            }
+            renderCart();
+        }
+
+        function renderCart() {
+            const cartList = document.getElementById('cartItemsList');
+            const cartBadge = document.getElementById('cartBadgeCount');
+            const totalPriceEl = document.getElementById('cartDrawerTotalPrice');
+
+            if (!cartList) return;
+
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            cartBadge.textContent = totalItems;
+            totalPriceEl.textContent = `₹${totalPrice.toLocaleString()}`;
+
+            if (cart.length === 0) {
+                cartList.innerHTML = `
+                    <div style="text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
+                        <div style="font-size: 3rem; margin-bottom: 0.5rem;">🛒</div>
+                        <p style="font-weight: 700;">Your shopping cart is empty.</p>
+                        <p style="font-size: 0.8rem; margin-top: 0.2rem;">Browse our marketplace to add books, devices, or local goods.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            cartList.innerHTML = '';
+            cart.forEach(item => {
+                const title = currentLang === 'en' ? item.titleEn : item.titleKn;
+                const div = document.createElement('div');
+                div.className = 'cart-item-card';
+                div.innerHTML = `
+                    <div class="cart-item-img">${item.icon}</div>
+                    <div class="cart-item-info">
+                        <div class="cart-item-title">${title}</div>
+                        <div class="cart-item-price">₹${item.price} × ${item.qty} = ₹${item.price * item.qty}</div>
+                    </div>
+                    <div class="cart-qty-ctrl">
+                        <button class="cart-qty-btn" onclick="updateCartQty('${item.id}', -1)">-</button>
+                        <span style="font-size: 0.85rem; font-weight: 800; min-width: 16px; text-align: center;">${item.qty}</span>
+                        <button class="cart-qty-btn" onclick="updateCartQty('${item.id}', 1)">+</button>
+                    </div>
+                `;
+                cartList.appendChild(div);
+            });
+        }
+
+        function submitMarketplaceOrder(e) {
+            e.preventDefault();
+            if (cart.length === 0) {
+                showToast('⚠️ Your cart is empty! Add items before placing an order.');
+                return;
+            }
+
+            const custName = document.getElementById('orderCustName').value;
+            const custPhone = document.getElementById('orderCustPhone').value;
+            const custAddr = document.getElementById('orderCustAddress').value;
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            let itemsListStr = cart.map((item, idx) => {
+                const title = currentLang === 'en' ? item.titleEn : item.titleKn;
+                return `${idx + 1}. ${title} (x${item.qty}) - ₹${item.price * item.qty}`;
+            }).join('\n');
+
+            const orderSlip = `📦 NEW MARKETPLACE ORDER - SHARUSURI OS\n` +
+                `----------------------------------\n` +
+                `👤 Customer Name: ${custName}\n` +
+                `📞 Phone Number: ${custPhone}\n` +
+                `📍 Delivery Address: ${custAddr}\n\n` +
+                `🛍️ ORDER ITEMS:\n${itemsListStr}\n\n` +
+                `💰 TOTAL AMOUNT: ₹${total.toLocaleString()}\n` +
+                `----------------------------------\n` +
+                `Please confirm my order & delivery timeframe.`;
+
+            showToast('📦 Processing order! Opening WhatsApp direct fulfillment line...');
+            
+            cart = [];
+            renderCart();
+            toggleCartDrawer();
+
+            setTimeout(() => {
+                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(orderSlip)}`);
+            }, 800);
         }
 
         // RENDER 4-TIER HIERARCHY CARDS
@@ -2940,6 +3561,8 @@
             showTierDetail(1);
             renderWizardSteps();
             updateWizardSummary();
+            renderMarketProducts();
+            renderCart();
             renderAssignedStaff();
             renderBranchScheduler();
             renderDoubtTracker();
