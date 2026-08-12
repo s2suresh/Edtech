@@ -2,8 +2,14 @@
 <html lang="en" data-theme="light" data-lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Optimized Viewport Meta Tag for Mobile WebViews & Native Scaling Control -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="description" content="Sharusuri EdTech & Cousins Academy - Multi-Page Coaching Engine for Navodaya Entrance, Morarji Desai, Sainik School, with 4-Tier Support, Multi-Branch Access, and Parent Assurance Dashboard.">
+    <meta name="theme-color" content="#0f766e">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
     <title>Sharusuri EdTech | Cousins Academy Programs, Batches & Multi-Branch Support Hub</title>
 
     <!-- Fonts & Icons -->
@@ -53,6 +59,8 @@
             --shadow-lg: 0 20px 40px -10px rgba(15, 118, 110, 0.2);
             --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             --sidebar-width: 280px;
+            --safe-area-top: env(safe-area-inset-top, 0px);
+            --safe-area-bottom: env(safe-area-inset-bottom, 0px);
         }
 
         [data-theme="dark"] {
@@ -72,7 +80,19 @@
             font-family: 'Noto Sans Kannada', 'Plus Jakarta Sans', sans-serif;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overscroll-behavior-y: contain;
+            -webkit-overflow-scrolling: touch;
+        }
 
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -83,38 +103,53 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            padding-bottom: var(--safe-area-bottom);
             transition: background-color 0.3s ease, color 0.3s ease;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         h1, h2, h3, h4, h5, h6, .brand-font { font-family: 'Outfit', 'Noto Sans Kannada', sans-serif; }
-        a { text-decoration: none; color: inherit; }
+        a { text-decoration: none; color: inherit; touch-action: manipulation; }
         ul { list-style: none; }
+
+        /* TOUCH TARGET SIZE & MOBILE WEBVIEW OPTIMIZATIONS */
+        button, .btn, .nav-link-btn, .lang-toggle-btn, .icon-btn, .slot-pill, .tier-card, .option-selectable-card, .dash-tab-btn, .tier-tab-btn {
+            touch-action: manipulation;
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         /* TOAST NOTIFICATIONS */
         .toast-container {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
+            bottom: calc(5.5rem + var(--safe-area-bottom));
+            right: 1.25rem;
+            left: 1.25rem;
             z-index: 9999;
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
+            pointer-events: none;
         }
 
         .toast {
             background: var(--dark);
             color: white;
-            padding: 0.9rem 1.35rem;
-            border-radius: var(--radius-sm);
+            padding: 0.9rem 1.25rem;
+            border-radius: var(--radius-md);
             box-shadow: var(--shadow-lg);
             font-size: 0.88rem;
             font-weight: 600;
             display: flex;
             align-items: center;
             gap: 0.85rem;
-            animation: slideInToast 0.3s ease forwards, fadeOutToast 0.3s ease 3.8s forwards;
-            max-width: 460px;
+            animation: slideInToast 0.3s ease forwards;
+            max-width: 100%;
             border-left: 4px solid var(--success);
+            pointer-events: auto;
         }
 
         .toast.error { border-left-color: var(--danger); }
@@ -125,18 +160,14 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes fadeOutToast {
-            from { opacity: 1; transform: translateY(0); }
-            to { opacity: 0; transform: translateY(10px); }
-        }
 
         /* ANNOUNCEMENT BAR */
         .top-notice-bar {
             background: linear-gradient(90deg, #dc2626, #0f766e, #1d4ed8);
             color: white;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            padding: 0.45rem 1.25rem;
+            padding: calc(0.45rem + var(--safe-area-top)) 1rem 0.45rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -147,18 +178,18 @@
 
         .notice-tag {
             background: rgba(255, 255, 255, 0.22);
-            padding: 0.15rem 0.65rem;
+            padding: 0.2rem 0.65rem;
             border-radius: 50px;
             font-size: 0.72rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-right: 0.5rem;
+            margin-right: 0.4rem;
         }
 
         .top-contacts {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.85rem;
             font-size: 0.78rem;
             flex-wrap: wrap;
         }
@@ -169,6 +200,8 @@
             gap: 0.3rem;
             color: white;
             font-weight: 700;
+            padding: 0.2rem 0;
+            min-height: 36px;
         }
 
         /* HEADER & NAVIGATION BAR */
@@ -185,8 +218,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 1rem;
-            padding: 0.75rem 1.5rem;
+            gap: 0.75rem;
+            padding: 0.6rem 1.25rem;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -194,16 +227,15 @@
         .brand-logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            font-size: 1.3rem;
+            gap: 0.65rem;
+            font-size: 1.2rem;
             font-weight: 800;
             color: var(--text-main);
             flex-shrink: 0;
             cursor: pointer;
-            transition: var(--transition);
             user-select: none;
-            padding: 0.2rem 0.5rem;
-            border-radius: var(--radius-md);
+            padding: 0.2rem 0;
+            min-height: 48px;
         }
 
         .brand-badge {
@@ -216,8 +248,9 @@
             align-items: center;
             justify-content: center;
             font-weight: 900;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             box-shadow: 0 4px 14px rgba(15, 118, 110, 0.35);
+            flex-shrink: 0;
         }
 
         /* MULTI-PAGE NAVIGATION MENU */
@@ -231,7 +264,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.45rem;
-            padding: 0.55rem 0.9rem;
+            padding: 0.55rem 0.85rem;
             border-radius: 50px;
             font-size: 0.88rem;
             font-weight: 700;
@@ -242,49 +275,110 @@
             background: transparent;
         }
 
-        .nav-link-btn:hover, .nav-link-btn.active {
-            background: var(--primary-light);
-            color: var(--primary);
+        @media (hover: hover) {
+            .nav-link-btn:hover {
+                background: var(--primary-light);
+                color: var(--primary);
+            }
         }
 
         .nav-link-btn.active {
+            background: var(--primary-light);
+            color: var(--primary);
             box-shadow: inset 0 0 0 1px var(--primary);
+        }
+
+        /* MOBILE DRAWER OVERLAY */
+        .mobile-drawer-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .mobile-drawer-backdrop.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 82%;
+            max-width: 320px;
+            background: var(--card-bg);
+            z-index: 2001;
+            transform: translateX(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            padding: calc(1.25rem + var(--safe-area-top)) 1.25rem calc(1.25rem + var(--safe-area-bottom));
+            box-shadow: var(--shadow-lg);
+            overflow-y: auto;
+        }
+
+        .mobile-drawer.open {
+            transform: translateX(0);
+        }
+
+        .drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .mobile-drawer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .mobile-drawer-nav .nav-link-btn {
+            width: 100%;
+            justify-content: flex-start;
+            padding: 0.85rem 1rem;
+            font-size: 0.95rem;
+            border-radius: var(--radius-md);
         }
 
         /* LANGUAGE & THEME TOGGLES */
         .toggle-btn-group {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
         }
 
         .lang-toggle-btn {
             background: var(--primary-light);
             border: 1.5px solid var(--primary);
             color: var(--primary);
-            padding: 0.4rem 0.85rem;
+            padding: 0.4rem 0.75rem;
             border-radius: 50px;
             font-weight: 800;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
             transition: var(--transition);
-            box-shadow: 0 2px 8px rgba(15, 118, 110, 0.15);
-        }
-
-        .lang-toggle-btn:hover {
-            background: var(--primary);
-            color: white;
+            min-height: 42px;
         }
 
         .icon-btn {
             background: var(--bg);
             border: 1px solid var(--border);
             color: var(--text-main);
-            width: 38px;
-            height: 38px;
+            min-width: 42px;
+            min-height: 42px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -292,12 +386,7 @@
             cursor: pointer;
             transition: var(--transition);
             position: relative;
-        }
-
-        .icon-btn:hover {
-            background: var(--primary-light);
-            color: var(--primary);
-            border-color: var(--primary);
+            font-size: 1.1rem;
         }
 
         .mobile-nav-toggle { display: none; }
@@ -305,7 +394,7 @@
         /* PAGE VIEWS MANAGEMENT */
         .page-view {
             display: none;
-            animation: fadeInView 0.3s ease forwards;
+            animation: fadeInView 0.25s ease forwards;
         }
 
         .page-view.active-view {
@@ -320,7 +409,7 @@
         /* HERO SECTION */
         .hero-section {
             background: linear-gradient(135deg, rgba(255, 0, 0, 0.05) 0%, rgba(15, 118, 110, 0.12) 50%, rgba(37, 99, 235, 0.08) 100%);
-            padding: 4rem 1.5rem 3rem;
+            padding: 2.5rem 1.25rem 2.5rem;
             border-bottom: 1px solid var(--border-light);
             text-align: center;
         }
@@ -334,46 +423,48 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.4rem 1.1rem;
+            padding: 0.45rem 1rem;
             background: var(--yt-bg-light);
             color: var(--yt-red);
             border: 1px solid rgba(255,0,0,0.2);
             border-radius: 50px;
             font-weight: 800;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             margin-bottom: 1.25rem;
+            max-width: 100%;
+            text-align: left;
         }
 
         .hero-title {
-            font-size: 3rem;
+            font-size: 2.3rem;
             font-weight: 900;
-            line-height: 1.18;
-            margin-bottom: 1.25rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
             color: var(--text-main);
         }
 
         .hero-title span { color: var(--yt-red); }
 
         .hero-subtitle {
-            font-size: 1.18rem;
+            font-size: 1.05rem;
             color: var(--text-muted);
             max-width: 860px;
-            margin: 0 auto 2.2rem;
-            line-height: 1.6;
+            margin: 0 auto 1.75rem;
+            line-height: 1.55;
         }
 
         .hero-cta-group {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.75rem;
             flex-wrap: wrap;
         }
 
         /* DYNAMIC WIZARD & CARDS */
         .selector-wizard-wrapper {
             max-width: 1100px;
-            margin: -2.5rem auto 3rem;
-            padding: 0 1.5rem;
+            margin: -1.75rem auto 2.5rem;
+            padding: 0 1.25rem;
             position: relative;
             z-index: 10;
         }
@@ -383,29 +474,30 @@
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-light);
             box-shadow: var(--shadow-lg);
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .wizard-steps-bar {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 0.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             position: relative;
         }
 
         .step-indicator {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            padding: 0.75rem 0.85rem;
+            gap: 0.5rem;
+            padding: 0.65rem 0.75rem;
             background: var(--bg);
             border: 1px solid var(--border-light);
             border-radius: var(--radius-md);
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 700;
             color: var(--text-muted);
             transition: var(--transition);
+            min-height: 48px;
         }
 
         .step-indicator.active {
@@ -430,6 +522,7 @@
             justify-content: center;
             font-size: 0.78rem;
             font-weight: 800;
+            flex-shrink: 0;
         }
 
         .step-indicator.active .step-num {
@@ -454,28 +547,40 @@
         .wizard-grid {
             display: grid;
             grid-template-columns: repeat( auto-fit, minmax(220px, 1fr) );
-            gap: 1.25rem;
-            margin-bottom: 1.75rem;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .option-selectable-card {
             background: var(--bg);
             border: 2px solid var(--border-light);
             border-radius: var(--radius-md);
-            padding: 1.25rem;
+            padding: 1.1rem;
             cursor: pointer;
             transition: var(--transition);
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            min-height: 120px;
         }
 
-        .option-selectable-card:hover, .option-selectable-card.selected {
+        .option-selectable-card:active {
+            transform: scale(0.98);
+        }
+
+        @media (hover: hover) {
+            .option-selectable-card:hover {
+                border-color: var(--primary);
+                background: var(--card-bg);
+                box-shadow: var(--shadow-md);
+            }
+        }
+
+        .option-selectable-card.selected {
             border-color: var(--primary);
             background: var(--card-bg);
             box-shadow: var(--shadow-md);
-            transform: translateY(-3px);
         }
 
         .option-selectable-card.selected::after {
@@ -496,19 +601,19 @@
         }
 
         .option-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
         }
 
         .option-title {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 800;
             color: var(--text-main);
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.25rem;
         }
 
         .option-desc {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             line-height: 1.4;
         }
@@ -519,6 +624,7 @@
             align-items: center;
             padding-top: 1.25rem;
             border-top: 1px solid var(--border-light);
+            gap: 0.75rem;
         }
 
         /* TIMING & SLOT SUMMARY CARD */
@@ -526,14 +632,14 @@
             background: linear-gradient(135deg, var(--primary-light), rgba(37, 99, 235, 0.08));
             border: 2px solid var(--primary);
             border-radius: var(--radius-md);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
         }
 
         .timing-slots-grid {
             display: grid;
-            grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
-            gap: 1rem;
+            grid-template-columns: repeat( auto-fit, minmax(180px, 1fr) );
+            gap: 0.75rem;
             margin: 1rem 0;
         }
 
@@ -544,48 +650,51 @@
             padding: 0.85rem;
             cursor: pointer;
             transition: var(--transition);
-        }
-
-        .slot-pill:hover, .slot-pill.active {
-            border-color: var(--primary);
-            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
         }
 
         .slot-pill.active {
             background: var(--primary);
             color: white;
+            border-color: var(--primary);
         }
 
         /* 4-TIER ACADEMIC SUPPORT HIERARCHY STYLES */
         .tier-flow-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.25rem;
+            gap: 1rem;
             position: relative;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
         }
 
         .tier-card {
             background: var(--card-bg);
             border: 1px solid var(--border-light);
             border-radius: var(--radius-md);
-            padding: 1.5rem;
+            padding: 1.25rem;
             position: relative;
             transition: var(--transition);
             box-shadow: var(--shadow-sm);
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
             cursor: pointer;
+            min-height: 180px;
         }
 
-        .tier-card:hover, .tier-card.selected-tier {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
+        .tier-card:active {
+            transform: scale(0.98);
         }
 
         .tier-card.selected-tier {
             background: var(--primary-light);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
         }
 
         .tier-badge-number {
@@ -599,46 +708,35 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.85rem;
             box-shadow: 0 4px 10px rgba(15, 118, 110, 0.25);
+            flex-shrink: 0;
         }
 
         .tier-title {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 800;
             color: var(--text-main);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.35rem;
+            text-align: left;
         }
 
         .tier-subtitle {
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 700;
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
+            text-align: left;
         }
 
         .tier-desc {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-
-        .tier-feature-list {
-            font-size: 0.8rem;
-            color: var(--text-main);
-            margin-top: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 0.35rem;
-        }
-
-        .tier-feature-list li::before {
-            content: "✦ ";
-            color: var(--accent);
-            font-weight: bold;
+            line-height: 1.45;
+            margin-bottom: 0.75rem;
+            text-align: left;
         }
 
         /* DETAILED TIER DEEP DIVE SECTION */
@@ -646,92 +744,80 @@
             background: var(--card-bg);
             border: 2px solid var(--primary);
             border-radius: var(--radius-lg);
-            padding: 2.2rem;
+            padding: 1.5rem;
             box-shadow: var(--shadow-lg);
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             animation: fadeInView 0.3s ease forwards;
         }
 
         .tier-nav-tabs {
             display: flex;
             gap: 0.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             overflow-x: auto;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--border-light);
+            -webkit-overflow-scrolling: touch;
         }
 
         .tier-tab-btn {
-            padding: 0.75rem 1.25rem;
+            padding: 0.65rem 1.1rem;
             border-radius: 50px;
             background: var(--bg);
             border: 1px solid var(--border);
             font-weight: 800;
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             color: var(--text-main);
             cursor: pointer;
-            transition: var(--transition);
             white-space: nowrap;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
+            flex-shrink: 0;
         }
 
-        .tier-tab-btn:hover, .tier-tab-btn.active {
+        .tier-tab-btn.active {
             background: var(--primary);
             color: white;
             border-color: var(--primary);
-            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
         }
 
         .tier-breakdown-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
         }
 
         .tier-dimension-card {
             background: var(--bg);
             border: 1px solid var(--border-light);
             border-radius: var(--radius-md);
-            padding: 1.5rem;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .tier-dimension-card:hover {
-            border-color: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-sm);
+            padding: 1.25rem;
         }
 
         .tier-dim-icon {
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-            display: inline-block;
+            font-size: 1.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .tier-dim-title {
-            font-size: 1.05rem;
+            font-size: 0.98rem;
             font-weight: 800;
             color: var(--text-main);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
+            margin-bottom: 0.4rem;
         }
 
         .tier-dim-text {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
-            line-height: 1.6;
+            line-height: 1.55;
         }
 
         .tier-impact-stat-box {
             background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
             border-radius: var(--radius-md);
-            padding: 1.25rem;
-            margin-top: 1.5rem;
+            padding: 1.1rem;
+            margin-top: 1.25rem;
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -739,58 +825,53 @@
         }
 
         .tier-stat-number {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 900;
             color: var(--primary);
             line-height: 1;
+            flex-shrink: 0;
         }
 
         /* FLEXIBLE TUITION MODEL CARDS */
         .tuition-models-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
+            gap: 1.25rem;
+            margin: 1.5rem 0;
         }
 
         .model-card {
             background: var(--card-bg);
             border: 2px solid var(--border-light);
             border-radius: var(--radius-lg);
-            padding: 1.75rem;
-            transition: var(--transition);
+            padding: 1.35rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .model-card:hover {
-            border-color: var(--secondary);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-4px);
-        }
-
         /* PARENT ASSURANCE DASHBOARD IN PORTAL */
         .dashboard-tab-nav {
             display: flex;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
             border-bottom: 2px solid var(--border-light);
             padding-bottom: 0.5rem;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .dash-tab-btn {
-            padding: 0.65rem 1.25rem;
+            padding: 0.65rem 1.1rem;
             border-radius: 50px;
             background: var(--bg);
             border: 1px solid var(--border);
             font-weight: 700;
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             cursor: pointer;
-            transition: var(--transition);
             white-space: nowrap;
             color: var(--text-main);
+            flex-shrink: 0;
         }
 
         .dash-tab-btn.active {
@@ -808,58 +889,58 @@
             display: block;
         }
 
-        /* BUTTON STYLES */
+        /* BUTTON STYLES WITH TAP TARGET ASSURANCE */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            padding: 0.65rem 1.35rem;
+            gap: 0.45rem;
+            padding: 0.65rem 1.25rem;
             font-weight: 700;
             font-size: 0.88rem;
             border-radius: var(--radius-sm);
             border: 2px solid transparent;
             cursor: pointer;
             transition: var(--transition);
+            min-height: 48px;
+            touch-action: manipulation;
         }
 
-        .btn-sm { padding: 0.4rem 0.85rem; font-size: 0.8rem; }
-        .btn-lg { padding: 0.85rem 1.85rem; font-size: 1rem; border-radius: 50px; }
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn-sm { padding: 0.4rem 0.85rem; font-size: 0.8rem; min-height: 40px; }
+        .btn-lg { padding: 0.75rem 1.5rem; font-size: 0.95rem; border-radius: 50px; min-height: 52px; }
 
         .btn-primary { background-color: var(--primary); color: #ffffff; }
-        .btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-1px); }
         .btn-secondary { background: transparent; border-color: var(--border); color: var(--text-main); }
-        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
         .btn-accent { background-color: var(--accent); color: var(--dark); }
-        .btn-accent:hover { background-color: var(--accent-hover); color: white; }
         .btn-purple { background-color: var(--purple); color: white; }
-        .btn-purple:hover { background-color: #7c3aed; }
         .btn-yt { background-color: var(--yt-red); color: white; }
-        .btn-yt:hover { background-color: var(--yt-red-dark); }
         .btn-whatsapp { background-color: var(--whatsapp); color: white; }
-        .btn-whatsapp:hover { background-color: var(--whatsapp-dark); }
 
         /* CONTENT SECTIONS & CARDS */
         .section-container {
             max-width: 1200px;
-            margin: 3.5rem auto;
-            padding: 0 1.5rem;
+            margin: 2.5rem auto;
+            padding: 0 1.25rem;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .section-header h2 {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: var(--text-main);
-            margin-top: 0.4rem;
+            margin-top: 0.3rem;
         }
 
         .section-header p {
             color: var(--text-muted);
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             max-width: 700px;
             margin: 0.3rem auto 0;
         }
@@ -867,41 +948,34 @@
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         .grid-4 {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.25rem;
+            gap: 1rem;
         }
 
         .info-card {
             background: var(--card-bg);
             border-radius: var(--radius-md);
             border: 1px solid var(--border-light);
-            padding: 1.75rem;
+            padding: 1.35rem;
             box-shadow: var(--shadow-sm);
-            transition: var(--transition);
         }
 
-        .info-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary);
-        }
-
-        /* WHATSAPP FLOATING BADGE */
+        /* WHATSAPP FLOATING BADGE (MOBILE TOUCH SIZED) */
         .whatsapp-float {
             position: fixed;
-            bottom: 2rem;
-            left: 2rem;
+            bottom: calc(1.5rem + var(--safe-area-bottom));
+            left: 1.25rem;
             background: var(--whatsapp);
             color: white;
             width: 56px;
@@ -914,11 +988,11 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
             z-index: 900;
             transition: var(--transition);
+            touch-action: manipulation;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1) rotate(10deg);
-            background: var(--whatsapp-dark);
+        .whatsapp-float:active {
+            transform: scale(0.92);
         }
 
         /* MODAL OVERLAY */
@@ -932,6 +1006,7 @@
             align-items: center;
             justify-content: center;
             padding: 1rem;
+            overflow-y: auto;
         }
 
         .modal-overlay.active { display: flex; }
@@ -939,49 +1014,56 @@
         .modal-box {
             background: var(--card-bg);
             border-radius: var(--radius-lg);
-            max-width: 680px;
+            max-width: 620px;
             width: 100%;
-            padding: 2rem;
+            padding: 1.5rem;
             box-shadow: var(--shadow-lg);
             border: 1px solid var(--border);
             position: relative;
-            max-height: 90vh;
+            max-height: 88vh;
             overflow-y: auto;
+            margin: auto;
         }
 
         .modal-close {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: transparent;
-            border: none;
-            font-size: 1.5rem;
+            top: 0.85rem;
+            right: 0.85rem;
+            background: var(--bg);
+            border: 1px solid var(--border-light);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 1.2rem;
             cursor: pointer;
             color: var(--text-muted);
             z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* FORM INPUTS */
+        /* FORM INPUTS - OPTIMIZED TO PREVENT MOBILE ZOOM ON FOCUS */
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 0.9rem;
         }
 
         .form-label {
             display: block;
             font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 0.35rem;
+            font-size: 0.82rem;
+            margin-bottom: 0.3rem;
             color: var(--text-main);
         }
 
         .form-input {
             width: 100%;
-            padding: 0.65rem 0.85rem;
+            padding: 0.75rem 0.85rem;
             border-radius: var(--radius-sm);
             border: 1px solid var(--border);
             background: var(--bg);
             color: var(--text-main);
-            font-size: 0.9rem;
+            font-size: 16px; /* 16px prevents iOS/Android auto-zoom on form focus */
             outline: none;
             transition: var(--transition);
         }
@@ -991,11 +1073,35 @@
             box-shadow: 0 0 0 3px var(--primary-glow);
         }
 
-        /* TABLES */
-        .data-table-wrapper { width: 100%; overflow-x: auto; }
-        .data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-        .data-table th { background: var(--bg); padding: 0.85rem; text-align: left; border-bottom: 2px solid var(--border-light); font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); }
-        .data-table td { padding: 0.85rem; border-bottom: 1px solid var(--border-light); }
+        /* TABLES - RESPONSIVE & MOBILE TOUCH SCROLLABLE */
+        .data-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: var(--radius-sm);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 600px;
+        }
+
+        .data-table th {
+            background: var(--bg);
+            padding: 0.75rem 0.85rem;
+            text-align: left;
+            border-bottom: 2px solid var(--border-light);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .data-table td {
+            padding: 0.75rem 0.85rem;
+            border-bottom: 1px solid var(--border-light);
+        }
 
         /* BADGES */
         .badge { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.25rem 0.65rem; border-radius: 50px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
@@ -1009,27 +1115,26 @@
         .site-footer {
             background: var(--dark-surface);
             color: white;
-            padding: 3.5rem 1.5rem 1.5rem;
+            padding: 2.5rem 1.25rem calc(1.5rem + var(--safe-area-bottom));
             margin-top: auto;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .footer-grid {
             max-width: 1200px;
-            margin: 0 auto 2.5rem;
+            margin: 0 auto 2rem;
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
-        /* CONTACT CARD BADGES GRID */
         .contact-grid-buttons {
             display: flex;
             flex-direction: column;
             gap: 0.65rem;
         }
 
-        /* RESPONSIVE DESIGN */
+        /* MOBILE WEBVIEW SPECIFIC MEDIA QUERIES */
         @media (max-width: 1024px) {
             .grid-3, .footer-grid, .tuition-models-grid { grid-template-columns: repeat(2, 1fr); }
             .grid-4, .tier-flow-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1039,10 +1144,17 @@
         @media (max-width: 768px) {
             .nav-links-menu { display: none; }
             .mobile-nav-toggle { display: flex; }
-            .hero-title { font-size: 2.1rem; }
+            .hero-title { font-size: 1.8rem; }
+            .hero-subtitle { font-size: 0.95rem; }
             .grid-3, .grid-2, .grid-4, .footer-grid, .tier-flow-grid, .tuition-models-grid { grid-template-columns: 1fr; }
             .wizard-steps-bar { grid-template-columns: 1fr; }
-            .top-notice-bar { flex-direction: column; text-align: center; }
+            .top-notice-bar { flex-direction: column; text-align: center; justify-content: center; }
+            .top-contacts { justify-content: center; }
+            .section-header h2 { font-size: 1.5rem; }
+            .btn-lg { width: 100%; justify-content: center; }
+            .hero-cta-group { width: 100%; }
+            .selector-wizard-wrapper { margin-top: -1rem; padding: 0 0.85rem; }
+            .wizard-card { padding: 1.1rem; }
         }
     </style>
 </head>
@@ -1052,7 +1164,7 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <!-- WHATSAPP QUICK CHAT FLOATING BUTTON -->
-    <a href="https://wa.me/919916083774?text=Hello%20Cousins%20Academy,%20I%20want%20information%20regarding%20Navodaya%20and%20Morarji%20coaching%20batches." target="_blank" class="whatsapp-float" title="Direct WhatsApp Chat (+91 9916083774)">
+    <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Cousins%20Academy,%20I%20want%20information%20regarding%20Navodaya%20and%20Morarji%20coaching%20batches.')" class="whatsapp-float" title="Direct WhatsApp Chat (+91 9916083774)">
         💬
     </a>
 
@@ -1063,9 +1175,9 @@
             <span id="noticeBarMsg" data-i18n="announcement_msg">Official Partner: Cousins Academy (@cousinsacademy4599) • Free Demo Sessions Available Nationwide</span>
         </div>
         <div class="top-contacts">
-            <a href="tel:+919916083774">📞 +91 9916083774</a>
-            <a href="https://wa.me/917022777478" target="_blank">💬 +91 7022777478</a>
-            <a href="tel:+918088171010">📞 +91 8088171010</a>
+            <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')">📞 +91 9916083774</a>
+            <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/917022777478')">💬 +91 7022777478</a>
+            <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088171010')">📞 +91 8088171010</a>
             <span>📍 Sindhanur • Raichur • Bellary</span>
         </div>
     </div>
@@ -1082,7 +1194,7 @@
                 </div>
             </a>
 
-            <!-- NAVIGATION LINKS MENU -->
+            <!-- DESKTOP NAVIGATION LINKS MENU -->
             <nav class="nav-links-menu" id="desktopNavMenu">
                 <button class="nav-link-btn active" id="nav-home" onclick="navigateToPage('home')">
                     <span>🏠</span> <span data-i18n="nav_home">Home</span>
@@ -1123,16 +1235,59 @@
                     ✨ Free Demo
                 </button>
 
-                <!-- AUTH TRIGGER BUTTON -->
-                <button class="btn btn-primary btn-sm" id="mainAuthBtn" onclick="openAuthModal()" data-i18n="btn_login">
-                    🔐 Login
-                </button>
-
-                <!-- MOBILE NAV TRIGGER -->
+                <!-- MOBILE DRAWER MENU TRIGGER -->
                 <button class="icon-btn mobile-nav-toggle" onclick="toggleMobileNav()" title="Menu">☰</button>
             </div>
         </div>
     </header>
+
+    <!-- MOBILE NAVIGATION DRAWER OVERLAY -->
+    <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" onclick="toggleMobileNav()"></div>
+    <aside class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <div class="brand-logo" onclick="navigateToPage('home'); toggleMobileNav();">
+                <span class="brand-badge">SE</span>
+                <div>
+                    <span style="display: block; line-height: 1.1; font-size: 1rem;">Sharusuri EdTech</span>
+                    <span style="font-size: 0.65rem; color: var(--yt-red); font-weight: 800; display: block;">Cousins Academy</span>
+                </div>
+            </div>
+            <button class="icon-btn" onclick="toggleMobileNav()">✕</button>
+        </div>
+
+        <nav class="mobile-drawer-nav">
+            <button class="nav-link-btn" onclick="navigateToPage('home'); toggleMobileNav();">
+                <span>🏠</span> <span data-i18n="nav_home">Home</span>
+            </button>
+            <button class="nav-link-btn" onclick="navigateToPage('programs'); toggleMobileNav();">
+                <span>📚</span> <span data-i18n="nav_programs">Programs & Support Tiers</span>
+            </button>
+            <button class="nav-link-btn" onclick="navigateToPage('schedule'); toggleMobileNav();">
+                <span>🗓️</span> <span data-i18n="nav_schedule">Batches & Schedule</span>
+            </button>
+            <button class="nav-link-btn" onclick="navigateToPage('portal'); toggleMobileNav();">
+                <span>💻</span> <span data-i18n="nav_portal">Parent & Student Portal</span>
+            </button>
+            <button class="nav-link-btn" onclick="navigateToPage('about'); toggleMobileNav();">
+                <span>ℹ️</span> <span data-i18n="nav_about">About Us</span>
+            </button>
+            <button class="nav-link-btn" onclick="navigateToPage('contact'); toggleMobileNav();">
+                <span>📞</span> <span data-i18n="nav_contact">Contact Us</span>
+            </button>
+            <button class="nav-link-btn" onclick="navigateToPage('admin'); toggleMobileNav();">
+                <span>⚙️</span> <span data-i18n="nav_admin">Admin Console</span>
+            </button>
+        </nav>
+
+        <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 0.5rem;">
+            <button class="btn btn-primary" onclick="openAuthModal(); toggleMobileNav();" data-i18n="btn_login">
+                🔐 Login Portal
+            </button>
+            <button class="btn btn-accent" onclick="openDemoModal(); toggleMobileNav();" data-i18n="btn_free_demo">
+                ✨ Free Trial Demo
+            </button>
+        </div>
+    </aside>
 
     <!-- MAIN MULTI-PAGE CONTAINER VIEWS -->
     <main style="flex-grow: 1;">
@@ -1158,7 +1313,7 @@
                         <button class="btn btn-primary btn-lg" onclick="navigateToPage('programs')" data-i18n="hero_btn_explore">
                             🚀 Explore Programs & Support Tiers
                         </button>
-                        <button class="btn btn-yt btn-lg" onclick="window.open('https://www.youtube.com/@cousinsacademy4599?sub_confirmation=1', '_blank')" data-i18n="hero_btn_yt">
+                        <button class="btn btn-yt btn-lg" onclick="openExternalUrl('https://www.youtube.com/@cousinsacademy4599?sub_confirmation=1')" data-i18n="hero_btn_yt">
                             📺 Subscribe YouTube Channel
                         </button>
                     </div>
@@ -1169,8 +1324,8 @@
             <div class="selector-wizard-wrapper">
                 <div class="wizard-card" style="text-align: center;">
                     <span class="badge badge-primary" style="margin-bottom: 0.5rem;" data-i18n="wizard_badge">⚡ Fast Track Enrollment & Trial Demos</span>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;" data-i18n="wizard_heading">Choose Your Coaching Path in 4 Simple Steps</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;" data-i18n="wizard_sub">Select program, batch type, mode (Online/Offline/Home Mentorship), and view custom timing slots.</p>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;" data-i18n="wizard_heading">Choose Your Coaching Path in 4 Simple Steps</h3>
+                    <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.25rem;" data-i18n="wizard_sub">Select program, batch type, mode (Online/Offline/Home Mentorship), and view custom timing slots.</p>
                     <button class="btn btn-primary" onclick="navigateToPage('programs')" data-i18n="wizard_launch_btn">
                         👉 Launch Interactive Program & Batch Selector
                     </button>
@@ -1182,7 +1337,7 @@
                 <div class="section-header">
                     <span class="badge badge-purple" data-i18n="tier_sec_badge">🛡️ Unmatched Student Protection & Support</span>
                     <h2 data-i18n="tier_sec_heading">4-Tier Academic Support Hierarchy</h2>
-                    <p data-i18n="tier_sec_sub">Every student gets 360-degree coverage across every subject, guaranteed zero doubt backlog, and cross-branch expert access. Click any tier below to explore its deep-dive breakdown.</p>
+                    <p data-i18n="tier_sec_sub">Every student gets 360-degree coverage across every subject, guaranteed zero doubt backlog, and cross-branch expert access. Tap any tier below to explore its deep-dive breakdown.</p>
                 </div>
 
                 <div class="tier-flow-grid" id="homeTierGrid">
@@ -1194,24 +1349,24 @@
             <div class="section-container">
                 <div class="grid-4">
                     <div class="info-card" style="text-align: center;">
-                        <div style="font-size: 2.2rem; color: var(--primary); font-weight: 900;">98.4%</div>
-                        <div style="font-weight: 800; font-size: 0.95rem; margin-top: 0.3rem;" data-i18n="stat1_label">Navodaya Selection Rate</div>
-                        <div style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="stat1_sub">Top ranks in Raichur & Bellary</div>
+                        <div style="font-size: 2rem; color: var(--primary); font-weight: 900;">98.4%</div>
+                        <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;" data-i18n="stat1_label">Navodaya Selection Rate</div>
+                        <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat1_sub">Top ranks in Raichur & Bellary</div>
                     </div>
                     <div class="info-card" style="text-align: center;">
-                        <div style="font-size: 2.2rem; color: var(--secondary); font-weight: 900;">12,500+</div>
-                        <div style="font-weight: 800; font-size: 0.95rem; margin-top: 0.3rem;" data-i18n="stat2_label">Enrolled Students</div>
-                        <div style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="stat2_sub">Online & Multi-Campus Network</div>
+                        <div style="font-size: 2rem; color: var(--secondary); font-weight: 900;">12,500+</div>
+                        <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;" data-i18n="stat2_label">Enrolled Students</div>
+                        <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat2_sub">Online & Multi-Campus Network</div>
                     </div>
                     <div class="info-card" style="text-align: center;">
-                        <div style="font-size: 2.2rem; color: var(--accent); font-weight: 900;">4 Tiers</div>
-                        <div style="font-weight: 800; font-size: 0.95rem; margin-top: 0.3rem;" data-i18n="stat3_label">Academic Backing</div>
-                        <div style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="stat3_sub">Class teacher to cross-branch mentors</div>
+                        <div style="font-size: 2rem; color: var(--accent); font-weight: 900;">4 Tiers</div>
+                        <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;" data-i18n="stat3_label">Academic Backing</div>
+                        <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat3_sub">Class teacher to cross-branch mentors</div>
                     </div>
                     <div class="info-card" style="text-align: center;">
-                        <div style="font-size: 2.2rem; color: var(--yt-red); font-weight: 900;">@cousinsacademy</div>
-                        <div style="font-weight: 800; font-size: 0.95rem; margin-top: 0.3rem;" data-i18n="stat4_label">Official Video Lessons</div>
-                        <div style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="stat4_sub">Dedicated YouTube masterclasses</div>
+                        <div style="font-size: 1.5rem; color: var(--yt-red); font-weight: 900; word-break: break-all;">@cousinsacademy</div>
+                        <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;" data-i18n="stat4_label">Official Video Lessons</div>
+                        <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat4_sub">Dedicated YouTube masterclasses</div>
                     </div>
                 </div>
             </div>
@@ -1219,13 +1374,13 @@
 
         <!-- 2. DEEP INTERACTIVE PROGRAM, SUPPORT TIERS & BATCH SELECTOR (PROGRAMS PAGE VIEW) -->
         <section id="page-programs" class="page-view">
-            <div class="section-container" style="margin-top: 2rem;">
+            <div class="section-container" style="margin-top: 1.5rem;">
                 
                 <!-- SECTION 1: 4-TIER VISUAL FLOW & DETAILED DEEP-DIVE BREAKDOWN -->
                 <div class="section-header">
                     <span class="badge badge-purple" data-i18n="prog_tier_header_badge">🎓 Complete Subject Coverage Framework</span>
                     <h2 data-i18n="prog_tier_header_title">Our 4-Tier Academic Support Hierarchy</h2>
-                    <p data-i18n="prog_tier_header_sub">Designed to ensure no child is left behind. Click through the tiers below to read the comprehensive pedagogical blueprint for each tier.</p>
+                    <p data-i18n="prog_tier_header_sub">Designed to ensure no child is left behind. Tap through the tiers below to read the comprehensive pedagogical blueprint for each tier.</p>
                 </div>
 
                 <div class="tier-flow-grid" id="programsTierGrid">
@@ -1255,7 +1410,7 @@
                 </div>
 
                 <!-- SECTION 2: FLEXIBLE TUITION MODELS -->
-                <div style="margin-top: 4rem;">
+                <div style="margin-top: 3rem;">
                     <div class="section-header">
                         <span class="badge badge-primary" data-i18n="tuition_header_badge">🔀 Adaptable Tuition Ecosystem</span>
                         <h2 data-i18n="tuition_header_title">Flexible Tuition & Learning Models</h2>
@@ -1266,8 +1421,8 @@
                         <div class="model-card">
                             <div>
                                 <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Option 1</span>
-                                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;" data-i18n="tuition_opt1_title">Regular Campus Tuition</h3>
-                                <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;" data-i18n="tuition_opt1_desc">
+                                <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem;" data-i18n="tuition_opt1_title">Regular Campus Tuition</h3>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;" data-i18n="tuition_opt1_desc">
                                     Structured daily in-person classes at your nearest regional tuition center with direct teacher interaction and daily OMR test papers.
                                 </p>
                             </div>
@@ -1281,8 +1436,8 @@
                         <div class="model-card">
                             <div>
                                 <span class="badge badge-success" style="margin-bottom: 0.5rem;">Option 2</span>
-                                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;" data-i18n="tuition_opt2_title">Cross-Branch Access Pass</h3>
-                                <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;" data-i18n="tuition_opt2_desc">
+                                <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem;" data-i18n="tuition_opt2_title">Cross-Branch Access Pass</h3>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;" data-i18n="tuition_opt2_desc">
                                     Enroll in one campus and get free access to neighboring centers for weekend doubt clinics, specialized revision camps, and mock test drills.
                                 </p>
                             </div>
@@ -1296,8 +1451,8 @@
                         <div class="model-card">
                             <div>
                                 <span class="badge badge-purple" style="margin-bottom: 0.5rem;">Option 3</span>
-                                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;" data-i18n="tuition_opt3_title">Hybrid & Home Mentorship</h3>
-                                <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;" data-i18n="tuition_opt3_desc">
+                                <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem;" data-i18n="tuition_opt3_title">Hybrid & Home Mentorship</h3>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;" data-i18n="tuition_opt3_desc">
                                     Combine online live streaming with weekly 1-on-1 home mentor visits for exam strategy, paper solving, and personalized progress reviews.
                                 </p>
                             </div>
@@ -1311,7 +1466,7 @@
                 </div>
 
                 <!-- SECTION 3: 4-STEP WIZARD SELECTOR -->
-                <div style="margin-top: 4rem;">
+                <div style="margin-top: 3rem;">
                     <div class="section-header">
                         <span class="badge badge-primary" data-i18n="wiz_header_badge">📚 Interactive Batch & Program Selector</span>
                         <h2 data-i18n="wiz_header_title">Customize Your Learning Journey</h2>
@@ -1341,7 +1496,7 @@
 
                         <!-- STEP 1: CHOOSE PROGRAM -->
                         <div class="wizard-step-content active" id="wizardStep1">
-                            <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Step 1: Select Target Program / Course</h3>
+                            <h3 style="font-size: 1.15rem; margin-bottom: 0.85rem;">Step 1: Select Target Program / Course</h3>
                             <div class="wizard-grid" id="wizardProgramGrid">
                                 <!-- Populated dynamically by JS -->
                             </div>
@@ -1349,7 +1504,7 @@
 
                         <!-- STEP 2: CHOOSE BATCH TYPE -->
                         <div class="wizard-step-content" id="wizardStep2">
-                            <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Step 2: Choose Batch Type</h3>
+                            <h3 style="font-size: 1.15rem; margin-bottom: 0.85rem;">Step 2: Choose Batch Type</h3>
                             <div class="wizard-grid" id="wizardBatchGrid">
                                 <!-- Populated dynamically by JS -->
                             </div>
@@ -1357,7 +1512,7 @@
 
                         <!-- STEP 3: CHOOSE LEARNING MODE -->
                         <div class="wizard-step-content" id="wizardStep3">
-                            <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Step 3: Choose Learning Mode</h3>
+                            <h3 style="font-size: 1.15rem; margin-bottom: 0.85rem;">Step 3: Choose Learning Mode</h3>
                             <div class="wizard-grid" id="wizardModeGrid">
                                 <!-- Populated dynamically by JS -->
                             </div>
@@ -1365,55 +1520,55 @@
 
                         <!-- STEP 4: TIMINGS & SUMMARY -->
                         <div class="wizard-step-content" id="wizardStep4">
-                            <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Step 4: Select Class Timing Slot & Confirm Details</h3>
+                            <h3 style="font-size: 1.15rem; margin-bottom: 0.85rem;">Step 4: Select Class Timing Slot & Confirm Details</h3>
                             
                             <div class="timing-summary-box">
                                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
                                     <div>
                                         <span class="badge badge-primary">Program Summary</span>
-                                        <h4 style="font-size: 1.2rem; font-weight: 800; margin-top: 0.2rem;" id="sumProgramTitle">Navodaya Entrance Coaching</h4>
+                                        <h4 style="font-size: 1.15rem; font-weight: 800; margin-top: 0.2rem;" id="sumProgramTitle">Navodaya Entrance Coaching</h4>
                                     </div>
                                     <div>
-                                        <span style="font-size: 0.82rem; color: var(--text-muted);">Course Fee:</span>
-                                        <strong style="font-size: 1.3rem; color: var(--primary); display: block;" id="sumCourseFee">₹5,999 / Year</strong>
+                                        <span style="font-size: 0.8rem; color: var(--text-muted);">Course Fee:</span>
+                                        <strong style="font-size: 1.25rem; color: var(--primary); display: block;" id="sumCourseFee">₹5,999 / Year</strong>
                                     </div>
                                 </div>
 
-                                <div style="margin-top: 1rem; font-size: 0.88rem; display: grid; grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) ); gap: 0.75rem;">
+                                <div style="margin-top: 1rem; font-size: 0.85rem; display: grid; grid-template-columns: repeat( auto-fit, minmax(180px, 1fr) ); gap: 0.75rem;">
                                     <div><strong>Selected Batch:</strong> <span id="sumBatchType">Regular Batch (Monday to Friday)</span></div>
                                     <div><strong>Selected Mode:</strong> <span id="sumModeType">Online Live Interactive Classes</span></div>
                                     <div><strong>Academic Support:</strong> <span class="badge badge-purple">Included All 4 Tiers</span></div>
                                     <div><strong>Assigned Faculty:</strong> <span id="sumFaculty">Prof. Anita Rao & Suresh S</span></div>
                                 </div>
 
-                                <div style="margin-top: 1.25rem;">
+                                <div style="margin-top: 1.1rem;">
                                     <label class="form-label">Available Timing Slots *</label>
                                     <div class="timing-slots-grid">
                                         <div class="slot-pill active" onclick="selectTimingSlot('Morning Slot (6:30 AM - 8:00 AM)', this)">
                                             <div style="font-weight: 800;">🌅 Morning Slot</div>
-                                            <div style="font-size: 0.8rem;">6:30 AM – 8:00 AM</div>
+                                            <div style="font-size: 0.78rem;">6:30 AM – 8:00 AM</div>
                                         </div>
                                         <div class="slot-pill" onclick="selectTimingSlot('Evening Slot (5:30 PM - 7:00 PM)', this)">
                                             <div style="font-weight: 800;">🌆 Evening Slot</div>
-                                            <div style="font-size: 0.8rem;">5:30 PM – 7:00 PM</div>
+                                            <div style="font-size: 0.78rem;">5:30 PM – 7:00 PM</div>
                                         </div>
                                         <div class="slot-pill" onclick="selectTimingSlot('Weekend Special (9:00 AM - 1:00 PM)', this)">
                                             <div style="font-weight: 800;">☀️ Weekend Special</div>
-                                            <div style="font-size: 0.8rem;">9:00 AM – 1:00 PM</div>
+                                            <div style="font-size: 0.78rem;">9:00 AM – 1:00 PM</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-end;">
+                            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: flex-end;">
                                 <button class="btn btn-accent" onclick="openDemoModal()">
-                                    ✨ Book Free Trial Demo First
+                                    ✨ Book Free Trial Demo
                                 </button>
                                 <button class="btn btn-whatsapp" onclick="openWhatsAppInquiry()">
-                                    💬 WhatsApp Direct Registration
+                                    💬 WhatsApp Registration
                                 </button>
                                 <button class="btn btn-primary" onclick="openEnrollmentModal()">
-                                    📝 Book Seat / Enroll Now
+                                    📝 Book Seat Now
                                 </button>
                             </div>
                         </div>
@@ -1435,7 +1590,7 @@
 
         <!-- 3. SCHEDULE & BATCH CALENDAR PAGE VIEW -->
         <section id="page-schedule" class="page-view">
-            <div class="section-container" style="margin-top: 2rem;">
+            <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
                     <span class="badge badge-primary">🗓️ Interactive Class Schedule Hub</span>
                     <h2>Weekly Timetable & Live Sessions</h2>
@@ -1495,7 +1650,7 @@
 
         <!-- 4. ABOUT US PAGE VIEW -->
         <section id="page-about" class="page-view">
-            <div class="section-container" style="margin-top: 2rem;">
+            <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
                     <span class="badge badge-primary">ℹ️ About Sharusuri & Cousins Academy</span>
                     <h2>Democratizing Competitive Coaching Across Karnataka</h2>
@@ -1504,38 +1659,38 @@
 
                 <div class="grid-2">
                     <div class="info-card">
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                            <div class="brand-badge" style="width: 50px; height: 50px; font-size: 1.4rem;">SS</div>
+                        <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem;">
+                            <div class="brand-badge" style="width: 48px; height: 48px; font-size: 1.3rem;">SS</div>
                             <div>
-                                <h3 style="font-size: 1.2rem;">Suresh S</h3>
-                                <p style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">Founder & CEO, Platform Architect</p>
+                                <h3 style="font-size: 1.15rem;">Suresh S</h3>
+                                <p style="font-size: 0.82rem; color: var(--primary); font-weight: 700;">Founder & CEO, Platform Architect</p>
                             </div>
                         </div>
-                        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
                             Lead visionary dedicated to transforming rural education in Karnataka. Creator of Sharusuri EdTech OS and official partner of Cousins Academy video content (@cousinsacademy4599).
                         </p>
-                        <div style="margin-top: 1rem; font-size: 0.85rem;">
+                        <div style="margin-top: 1rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem;">
                             <div>✉️ Email: <strong>suresh2suresh80888@gmail.com</strong></div>
-                            <div>📞 Call / Helpline: <strong>+91 9916083774</strong></div>
-                            <div>📞 Direct Desk: <strong>+91 8088171010</strong></div>
+                            <div>📞 Helpline: <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')" style="color: var(--primary); font-weight: 700;">+91 9916083774</a></div>
+                            <div>📞 Direct Desk: <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088171010')" style="color: var(--primary); font-weight: 700;">+91 8088171010</a></div>
                         </div>
                     </div>
 
                     <div class="info-card">
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                            <div class="brand-badge" style="width: 50px; height: 50px; font-size: 1.4rem; background: linear-gradient(135deg, var(--purple), var(--secondary));">SS</div>
+                        <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem;">
+                            <div class="brand-badge" style="width: 48px; height: 48px; font-size: 1.3rem; background: linear-gradient(135deg, var(--purple), var(--secondary));">SS</div>
                             <div>
-                                <h3 style="font-size: 1.2rem;">Sharada S</h3>
-                                <p style="font-size: 0.85rem; color: var(--purple); font-weight: 700;">Co-Founder & Executive Director</p>
+                                <h3 style="font-size: 1.15rem;">Sharada S</h3>
+                                <p style="font-size: 0.82rem; color: var(--purple); font-weight: 700;">Co-Founder & Executive Director</p>
                             </div>
                         </div>
-                        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
                             Directing regional franchise partnerships, 4-tier mentorship operations, and residential hostel academic monitoring across regional campuses.
                         </p>
-                        <div style="margin-top: 1rem; font-size: 0.85rem;">
+                        <div style="margin-top: 1rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem;">
                             <div>✉️ Email: <strong>sharada@sharusuri.edu</strong></div>
-                            <div>💬 WhatsApp: <strong>+91 7022777478</strong></div>
-                            <div>📞 Hotline: <strong>+91 7892493133</strong></div>
+                            <div>💬 WhatsApp: <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/917022777478')" style="color: var(--whatsapp); font-weight: 700;">+91 7022777478</a></div>
+                            <div>📞 Hotline: <a href="javascript:void(0)" onclick="openExternalUrl('tel:+917892493133')" style="color: var(--primary); font-weight: 700;">+91 7892493133</a></div>
                         </div>
                     </div>
                 </div>
@@ -1544,7 +1699,7 @@
 
         <!-- 5. CONTACT US PAGE VIEW WITH DEMO BOOKING -->
         <section id="page-contact" class="page-view">
-            <div class="section-container" style="margin-top: 2rem;">
+            <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
                     <span class="badge badge-primary">📞 Official Platform Contact & Admissions Desk</span>
                     <h2>Get in Touch & Book Your Free Demo Class</h2>
@@ -1554,7 +1709,7 @@
                 <div class="grid-2">
                     <!-- Contact & Demo Form -->
                     <div class="info-card">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">✨ Book Free Trial Demo or Send Inquiry</h3>
+                        <h3 style="font-size: 1.15rem; margin-bottom: 0.85rem;">✨ Book Free Trial Demo or Send Inquiry</h3>
                         <form onsubmit="handleContactSubmit(event)">
                             <div class="form-group">
                                 <label class="form-label">Student Full Name *</label>
@@ -1596,9 +1751,9 @@
                     <!-- Direct Reach Out Box & Branch Locations -->
                     <div class="info-card" style="display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
-                            <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem;">📍 Regional Campus Network</h3>
+                            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem;">📍 Regional Campus Network</h3>
                             
-                            <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+                            <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem;">
                                 <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--border);">
                                     <strong style="color: var(--text-main);">🏛️ Sindhanur Main Campus:</strong><br>
                                     Near Bus Stand Road, AP K Hosalli Circle, Sindhanur – 584128
@@ -1613,26 +1768,26 @@
                                 </div>
                             </div>
 
-                            <h4 style="font-size: 1rem; margin-bottom: 0.75rem;">📞 Official Helplines & WhatsApp Desk</h4>
+                            <h4 style="font-size: 0.95rem; margin-bottom: 0.65rem;">📞 Official Helplines & WhatsApp Desk</h4>
                             <div class="contact-grid-buttons">
-                                <a href="https://wa.me/919916083774" target="_blank" class="btn btn-whatsapp">
+                                <button type="button" onclick="openExternalUrl('https://wa.me/919916083774')" class="btn btn-whatsapp">
                                     💬 Line 1 (WhatsApp / Call): +91 9916083774
-                                </a>
-                                <a href="https://wa.me/917022777478" target="_blank" class="btn btn-whatsapp" style="background: var(--whatsapp-dark);">
+                                </button>
+                                <button type="button" onclick="openExternalUrl('https://wa.me/917022777478')" class="btn btn-whatsapp" style="background: var(--whatsapp-dark);">
                                     💬 Line 2 (WhatsApp / Support): +91 7022777478
-                                </a>
-                                <a href="tel:+918088171010" class="btn btn-secondary">
+                                </button>
+                                <button type="button" onclick="openExternalUrl('tel:+918088171010')" class="btn btn-secondary">
                                     📞 Line 3 (Student Helpdesk): +91 8088171010
-                                </a>
-                                <a href="tel:+917892493133" class="btn btn-secondary">
+                                </button>
+                                <button type="button" onclick="openExternalUrl('tel:+917892493133')" class="btn btn-secondary">
                                     📞 Line 4 (Admissions Office): +91 7892493133
-                                </a>
+                                </button>
                             </div>
                         </div>
 
-                        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed var(--border);">
+                        <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px dashed var(--border);">
                             <span class="badge badge-danger">YouTube Partner</span>
-                            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">
+                            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem;">
                                 Official Channel: <strong>@cousinsacademy4599</strong>
                             </div>
                         </div>
@@ -1643,7 +1798,7 @@
 
         <!-- 6. STUDENT & PARENT PORTAL PAGE VIEW (WITH PARENT TRANSPARENCY DASHBOARD) -->
         <section id="page-portal" class="page-view">
-            <div class="section-container" style="margin-top: 2rem;">
+            <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
                     <span class="badge badge-purple">💻 Parent Transparency & Student Portal</span>
                     <h2>Mentor Assignments, Cross-Branch Sessions & Doubt Tracker</h2>
@@ -1676,15 +1831,15 @@
                 <!-- TAB PANEL 2: CROSS-BRANCH TEACHER SCHEDULER -->
                 <div class="dash-panel-content" id="panel-cross-branch-scheduler">
                     <div class="info-card" style="margin-bottom: 1.5rem;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">🗓️ Book Open Doubt Session with Faculty Across Any Branch</h3>
+                        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">🗓️ Book Open Doubt Session with Faculty Across Any Branch</h3>
                         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
                             If your child needs a different explanation or teaching style for complex arithmetic/mental ability topics, select an expert teacher from any campus nationwide.
                         </p>
                         
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
-                            <label style="font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <label style="font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; width: 100%;">
                                 Filter Branch:
-                                <select class="form-input" id="branchFilterSelect" style="width: auto; font-weight: 700;" onchange="renderBranchScheduler()">
+                                <select class="form-input" id="branchFilterSelect" style="width: auto; flex-grow: 1; font-weight: 700;" onchange="renderBranchScheduler()">
                                     <option value="ALL">All Branches & Locations</option>
                                     <option value="b1">Sindhanur Main Campus</option>
                                     <option value="b2">Raichur Central Hub</option>
@@ -1715,7 +1870,7 @@
 
                 <!-- TAB PANEL 3: REAL-TIME DOUBT RESOLUTION TRACKER -->
                 <div class="dash-panel-content" id="panel-doubt-tracker">
-                    <div class="grid-2" style="margin-bottom: 1.5rem;">
+                    <div class="grid-2" style="margin-bottom: 1.25rem;">
                         <div class="info-card">
                             <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem;">❓ Submit a New Question / OMR Doubt</h3>
                             <form onsubmit="handleDoubtSubmit(event)">
@@ -1735,7 +1890,7 @@
 
                         <div class="info-card">
                             <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem;">📊 Doubt SLA & Guarantee SLA</h3>
-                            <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+                            <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.55;">
                                 <p style="margin-bottom: 0.5rem;"><strong>⚡ SLA Guarantee:</strong> All submitted questions are reviewed within 2 hours by dedicated Tier 3 mentors.</p>
                                 <p style="margin-bottom: 0.5rem;"><strong>🎥 Response Mode:</strong> Mentors attach step-by-step video solutions, handwritten OMR paper notes, or audio voice clips.</p>
                                 <p><strong>🔁 Escalation:</strong> Unresolved doubts automatically escalate to Tier 4 Cross-Branch Experts after 6 hours.</p>
@@ -1744,7 +1899,7 @@
                     </div>
 
                     <div class="info-card">
-                        <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">📋 Submitted Questions History & Status</h3>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 0.85rem;">📋 Submitted Questions History & Status</h3>
                         <div class="data-table-wrapper">
                             <table class="data-table">
                                 <thead>
@@ -1775,7 +1930,7 @@
 
         <!-- 7. ADMIN CONSOLE PAGE VIEW -->
         <section id="page-admin" class="page-view">
-            <div class="section-container" style="margin-top: 2rem;">
+            <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
                     <span class="badge badge-primary">⚙️ Master Admin Console</span>
                     <h2>Platform Governance & Program Management</h2>
@@ -1783,7 +1938,7 @@
                 </div>
 
                 <div class="info-card" style="margin-bottom: 2rem;">
-                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">➕ Quick Add Program or Batch Slot</h3>
+                    <h3 style="font-size: 1.15rem; margin-bottom: 0.85rem;">➕ Quick Add Program or Batch Slot</h3>
                     <form onsubmit="handleAdminAddSlot(event)" style="display: grid; grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) ); gap: 0.85rem; align-items: end;">
                         <div>
                             <label class="form-label">Program Name</label>
@@ -1801,7 +1956,7 @@
                             <label class="form-label">Timing Slot</label>
                             <input type="text" id="adminProgTime" required placeholder="e.g. 6:30 AM - 8:00 AM" class="form-input">
                         </div>
-                        <button type="submit" class="btn btn-primary">➕ Create Slot</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">➕ Create Slot</button>
                     </form>
                 </div>
             </div>
@@ -1815,16 +1970,16 @@
             <div>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.85rem;">
                     <span class="brand-badge" style="width: 34px; height: 34px; font-size: 0.9rem;">SE</span>
-                    <h3 style="font-size: 1.2rem; color: white;">Sharusuri EdTech & Cousins Academy</h3>
+                    <h3 style="font-size: 1.1rem; color: white;">Sharusuri EdTech & Cousins Academy</h3>
                 </div>
-                <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.6;" data-i18n="footer_desc">
+                <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.55;" data-i18n="footer_desc">
                     Karnataka's leading educational platform equipped with a 4-Tier Support Hierarchy, multi-branch expert network, and flexible tuition models.
                 </p>
             </div>
 
             <div>
-                <h4 style="font-size: 0.95rem; color: white; margin-bottom: 0.85rem;" data-i18n="footer_quick_links">Quick Links</h4>
-                <ul style="font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.4rem; color: #cbd5e1;">
+                <h4 style="font-size: 0.9rem; color: white; margin-bottom: 0.75rem;" data-i18n="footer_quick_links">Quick Links</h4>
+                <ul style="font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem; color: #cbd5e1;">
                     <li><a href="javascript:void(0)" onclick="navigateToPage('home')" data-i18n="nav_home">Home</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('programs')" data-i18n="nav_programs">Programs & Support Tiers</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('schedule')" data-i18n="nav_schedule">Batches & Schedule</a></li>
@@ -1833,28 +1988,28 @@
             </div>
 
             <div>
-                <h4 style="font-size: 0.95rem; color: white; margin-bottom: 0.85rem;" data-i18n="footer_official_contacts">Official Contacts</h4>
-                <ul style="font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.4rem; color: #cbd5e1;">
-                    <li>📞 +91 9916083774</li>
-                    <li>💬 +91 7022777478</li>
-                    <li>📞 +91 8088171010</li>
-                    <li>📞 +91 7892493133</li>
+                <h4 style="font-size: 0.9rem; color: white; margin-bottom: 0.75rem;" data-i18n="footer_official_contacts">Official Contacts</h4>
+                <ul style="font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.4rem; color: #cbd5e1;">
+                    <li><a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')">📞 +91 9916083774</a></li>
+                    <li><a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/917022777478')">💬 +91 7022777478</a></li>
+                    <li><a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088171010')">📞 +91 8088171010</a></li>
+                    <li><a href="javascript:void(0)" onclick="openExternalUrl('tel:+917892493133')">📞 +91 7892493133</a></li>
                     <li>✉️ suresh2suresh80888@gmail.com</li>
                 </ul>
             </div>
 
             <div>
-                <h4 style="font-size: 0.95rem; color: white; margin-bottom: 0.85rem;" data-i18n="footer_trial_yt">Trial Demo & YouTube</h4>
+                <h4 style="font-size: 0.9rem; color: white; margin-bottom: 0.75rem;" data-i18n="footer_trial_yt">Trial Demo & YouTube</h4>
                 <button class="btn btn-accent btn-sm" style="width: 100%; margin-bottom: 0.5rem;" onclick="openDemoModal()" data-i18n="btn_free_demo">
                     ✨ Book Free Demo Class
                 </button>
-                <a href="https://www.youtube.com/@cousinsacademy4599" target="_blank" class="btn btn-yt btn-sm" style="width: 100%;">
+                <button class="btn btn-yt btn-sm" style="width: 100%;" onclick="openExternalUrl('https://www.youtube.com/@cousinsacademy4599')">
                     📺 @cousinsacademy4599
-                </a>
+                </button>
             </div>
         </div>
 
-        <div style="text-align: center; font-size: 0.78rem; color: #64748b; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.25rem;" data-i18n="footer_copyright">
+        <div style="text-align: center; font-size: 0.75rem; color: #64748b; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.1rem;" data-i18n="footer_copyright">
             © 2026 Sharusuri EdTech OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com
         </div>
     </footer>
@@ -1863,10 +2018,10 @@
     <div class="modal-overlay" id="demoModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeDemoModal()">✕</button>
-            <div style="text-align: center; margin-bottom: 1.25rem;">
+            <div style="text-align: center; margin-bottom: 1.1rem;">
                 <span class="badge badge-accent" style="margin-bottom: 0.3rem;">🎯 Free Trial Demo & Campus Visit</span>
-                <h3 style="font-size: 1.4rem;" id="demoModalTitle">Book a Free Trial Demo Class</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Experience our 4-tier support and interactive teaching before joining.</p>
+                <h3 style="font-size: 1.3rem;" id="demoModalTitle">Book a Free Trial Demo Class</h3>
+                <p style="font-size: 0.82rem; color: var(--text-muted);">Experience our 4-tier support and interactive teaching before joining.</p>
             </div>
 
             <form onsubmit="handleDemoBookingSubmit(event)">
@@ -1906,7 +2061,7 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1rem; margin-top: 0.5rem;">
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
                     🚀 Confirm Demo & Send WhatsApp Ticket
                 </button>
             </form>
@@ -1917,10 +2072,10 @@
     <div class="modal-overlay" id="enrollmentModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeEnrollmentModal()">✕</button>
-            <div style="text-align: center; margin-bottom: 1.25rem;">
+            <div style="text-align: center; margin-bottom: 1.1rem;">
                 <span class="badge badge-primary" style="margin-bottom: 0.3rem;">📝 Seat Reservation</span>
-                <h3 style="font-size: 1.4rem;">Confirm Course Enrollment</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Fill in student details to confirm instant seat reservation.</p>
+                <h3 style="font-size: 1.3rem;">Confirm Course Enrollment</h3>
+                <p style="font-size: 0.82rem; color: var(--text-muted);">Fill in student details to confirm instant seat reservation.</p>
             </div>
 
             <form onsubmit="handleEnrollmentSubmit(event)">
@@ -1936,7 +2091,7 @@
                     <label class="form-label">Selected Program & Timing</label>
                     <input type="text" class="form-input" id="modalSelectedSummary" readonly style="font-weight: 700; background: var(--bg);">
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1rem; margin-top: 0.5rem;">
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
                     🚀 Confirm Seat Reservation
                 </button>
             </form>
@@ -1945,12 +2100,12 @@
 
     <!-- MODAL 3: AUTHENTICATION MODAL -->
     <div class="modal-overlay" id="authModal">
-        <div class="modal-box" style="max-width: 480px;">
+        <div class="modal-box" style="max-width: 440px;">
             <button class="modal-close" onclick="closeAuthModal()">✕</button>
-            <div style="text-align: center; margin-bottom: 1.25rem;">
+            <div style="text-align: center; margin-bottom: 1.1rem;">
                 <span class="brand-badge" style="margin: 0 auto 0.5rem;">SE</span>
-                <h3 style="font-size: 1.35rem;">Portal Login</h3>
-                <p style="font-size: 0.82rem; color: var(--text-muted);">Log in as Super Admin, Teacher, or Student</p>
+                <h3 style="font-size: 1.25rem;">Portal Login</h3>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Log in as Super Admin, Teacher, or Student</p>
             </div>
 
             <form onsubmit="handleQuickLogin(event)">
@@ -1967,8 +2122,32 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT ENGINE WITH BILINGUAL JSON DATASETS -->
+    <!-- JAVASCRIPT ENGINE WITH BILINGUAL JSON DATASETS & WEBVIEW EXTERNAL LINK COMPATIBILITY -->
     <script>
+        // WEBVIEW COMPATIBLE EXTERNAL LINK OPENER
+        function openExternalUrl(url) {
+            if (!url) return;
+            try {
+                if (window.AndroidInterface && typeof window.AndroidInterface.openExternal === 'function') {
+                    window.AndroidInterface.openExternal(url);
+                } else {
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                }
+            } catch (e) {
+                window.location.href = url;
+            }
+        }
+
+        // TOGGLE MOBILE DRAWER
+        function toggleMobileNav() {
+            const drawer = document.getElementById('mobileDrawer');
+            const backdrop = document.getElementById('mobileDrawerBackdrop');
+            if (drawer && backdrop) {
+                drawer.classList.toggle('open');
+                backdrop.classList.toggle('open');
+            }
+        }
+
         // 1. COMPREHENSIVE BILINGUAL (ENGLISH & KANNADA) DICTIONARY DATASET
         const I18N_DATA = {
             en: {
@@ -1995,7 +2174,7 @@
                 wizard_launch_btn: "👉 Launch Interactive Program & Batch Selector",
                 tier_sec_badge: "🛡️ Unmatched Student Protection & Support",
                 tier_sec_heading: "4-Tier Academic Support Hierarchy",
-                tier_sec_sub: "Every student gets 360-degree coverage across every subject, guaranteed zero doubt backlog, and cross-branch expert access. Click any tier below to explore its deep-dive breakdown.",
+                tier_sec_sub: "Every student gets 360-degree coverage across every subject, guaranteed zero doubt backlog, and cross-branch expert access. Tap any tier below to explore its deep-dive breakdown.",
                 stat1_label: "Navodaya Selection Rate",
                 stat1_sub: "Top ranks in Raichur & Bellary",
                 stat2_label: "Enrolled Students",
@@ -2004,11 +2183,9 @@
                 stat3_sub: "Class teacher to cross-branch mentors",
                 stat4_label: "Official Video Lessons",
                 stat4_sub: "Dedicated YouTube masterclasses",
-                // Programs page header
                 prog_tier_header_badge: "🎓 Complete Subject Coverage Framework",
                 prog_tier_header_title: "Our 4-Tier Academic Support Hierarchy",
-                prog_tier_header_sub: "Designed to ensure no child is left behind. Click through the tiers below to read the comprehensive pedagogical blueprint for each tier.",
-                // Flexible Tuition Models
+                prog_tier_header_sub: "Designed to ensure no child is left behind. Tap through the tiers below to read the comprehensive pedagogical blueprint for each tier.",
                 tuition_header_badge: "🔀 Adaptable Tuition Ecosystem",
                 tuition_header_title: "Flexible Tuition & Learning Models",
                 tuition_header_sub: "Switch seamlessly between campus classes, home tuition, and cross-branch revision centers based on your convenience.",
@@ -2021,7 +2198,6 @@
                 tuition_opt3_title: "Hybrid & Home Mentorship",
                 tuition_opt3_desc: "Combine online live streaming with weekly 1-on-1 home mentor visits for exam strategy, paper solving, and personalized progress reviews.",
                 tuition_opt3_btn: "🏠 Request Home Mentor Demo",
-                // Wizard Steps
                 wiz_header_badge: "📚 Interactive Batch & Program Selector",
                 wiz_header_title: "Customize Your Learning Journey",
                 wiz_header_sub: "Complete the 4-step selection workflow to find your ideal program, batch type, mode of learning, and available timing slots.",
@@ -2029,7 +2205,6 @@
                 wiz_step2_label: "Batch Type",
                 wiz_step3_label: "Learning Mode",
                 wiz_step4_label: "Timings & Summary",
-                // Footer
                 footer_desc: "Karnataka's leading educational platform equipped with a 4-Tier Support Hierarchy, multi-branch expert network, and flexible tuition models.",
                 footer_quick_links: "Quick Links",
                 footer_official_contacts: "Official Contacts",
@@ -2069,11 +2244,9 @@
                 stat3_sub: "ತರಗತಿ ಶಿಕ್ಷಕರಿಂದ ಹಿರಿಯ ವಿಷಯ ತಜ್ಞರವರೆಗೆ",
                 stat4_label: "ಅಧಿಕೃತ ವೀಡಿಯೊ ಪಾಠಗಳು",
                 stat4_sub: "ವಿಶೇಷ ಯೂಟ್ಯೂಬ್ ಮಾಸ್ಟರ್ ಕ್ಲಾಸ್",
-                // Programs page header
                 prog_tier_header_badge: "🎓 ಪೂರ್ಣ ಪ್ರಮಾಣದ ವಿಷಯ ಬೋಧನಾ ಚೌಕಟ್ಟು",
                 prog_tier_header_title: "ನಮ್ಮ 4-ಹಂತದ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ ವ್ಯವಸ್ಥೆ",
                 prog_tier_header_sub: "ಯಾವೊಬ್ಬ ಮಗುವೂ ಕಲಿಕೆಯಲ್ಲಿ ಹಿಂದುಳಿಯದಂತೆ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ. ಪ್ರತಿಯೊಂದು ಹಂತದ ಶೈಕ್ಷಣಿಕ ಯೋಜನೆಯನ್ನು ವಿವರವಾಗಿ ತಿಳಿಯಲು ಕೆಳಗೆ ಕ್ಲಿಕ್ ಮಾಡಿ.",
-                // Flexible Tuition Models
                 tuition_header_badge: "🔀 ಹೊಂದಿಕೊಳ್ಳುವ ಶಿಕ್ಷಣ ಮಾದರಿ",
                 tuition_header_title: "ಹೊಂದಿಕೊಳ್ಳುವ ಬೋಧನೆ ಮತ್ತು ಕಲಿಕಾ ವಿಧಾನಗಳು",
                 tuition_header_sub: "ನಿಮ್ಮ ಅನುಕೂಲಕ್ಕೆ ತಕ್ಕಂತೆ ಕ್ಯಾಂಪಸ್ ತರಗತಿಗಳು, ಮನೆ ಬೋಧನೆ ಮತ್ತು ವಿವಿಧ ಶಾಖೆಗಳ ನಡುವೆ ಸುಲಭವಾಗಿ ಬದಲಾಯಿಸಿ.",
@@ -2086,7 +2259,6 @@
                 tuition_opt3_title: "ಹೈಬ್ರಿಡ್ ಮತ್ತು ಮನೆ ಮಾರ್ಗದರ್ಶನ",
                 tuition_opt3_desc: "ಆನ್‌ಲೈನ್ ನೇರ ಪ್ರಸಾರ ತರಗತಿಗಳ ಜೊತೆಗೆ ವಾರಕ್ಕೊಮ್ಮೆ ಮನೆಗೆ ಭೇಟಿ ನೀಡುವ ಮಾರ್ಗದರ್ಶಕರಿಂದ ಪರೀಕ್ಷಾ ತಂತ್ರ ಮತ್ತು ಪ್ರಗತಿ ಪರಿಶೀಲನೆ.",
                 tuition_opt3_btn: "🏠 ಮನೆ ಮಾರ್ಗದರ್ಶಕರ ಡೆಮೊ ವಿನಂತಿಸಿ",
-                // Wizard Steps
                 wiz_header_badge: "📚 ಕೋರ್ಸ್ ಮತ್ತು ಬ್ಯಾಚ್ ಆಯ್ಕೆ ಸೆಲೆಕ್ಟರ್",
                 wiz_header_title: "ನಿಮ್ಮ ಕಲಿಕಾ ಪಯಣವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
                 wiz_header_sub: "ನಿಮ್ಮಿಷ್ಟದ ಕೋರ್ಸ್, ಬ್ಯಾಚ್, ಕಲಿಕಾ ವಿಧಾನ ಮತ್ತು ಸಮಯವನ್ನು ಆಯ್ಕೆ ಮಾಡಲು 4 ಹಂತದ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ.",
@@ -2094,7 +2266,6 @@
                 wiz_step2_label: "ಬ್ಯಾಚ್ ಮಾದರಿ",
                 wiz_step3_label: "ಕಲಿಕಾ ವಿಧಾನ",
                 wiz_step4_label: "ಸಮಯ ಮತ್ತು ವಿವರ",
-                // Footer
                 footer_desc: "4-ಹಂತದ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ, ವಿವಿಧ ಶಾಖೆಗಳ ಪರಿಣಿತ ಶಿಕ್ಷಕರು ಮತ್ತು ಹೈಬ್ರಿಡ್ ಕಲಿಕೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಅಗ್ರಗಣ್ಯ ಶಿಕ್ಷಣ ಸಂಸ್ಥೆ.",
                 footer_quick_links: "ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು",
                 footer_official_contacts: "ಅಧಿಕೃತ ಸಂಪರ್ಕಗಳು",
@@ -2372,7 +2543,7 @@
                         <div class="tier-title">${item.name}</div>
                         <div class="tier-desc">${item.tagline}</div>
                         <div style="margin-top: auto; font-size: 0.78rem; font-weight: 800; color: var(--primary);">
-                            👉 ${currentLang === 'en' ? 'Click to view detailed analysis →' : 'ವಿವರಗಳಿಗೆ ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ →'}
+                            👉 ${currentLang === 'en' ? 'Tap to view detailed analysis →' : 'ವಿವರಗಳಿಗೆ ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ →'}
                         </div>
                     `;
                     container.appendChild(card);
@@ -2384,13 +2555,11 @@
         function showTierDetail(tierNum) {
             activeSelectedTier = tierNum;
 
-            // Highlight active tier cards
             document.querySelectorAll('#programsTierGrid .tier-card').forEach((card, idx) => {
                 if (idx + 1 === tierNum) card.classList.add('selected-tier');
                 else card.classList.remove('selected-tier');
             });
 
-            // Highlight tab header buttons
             document.querySelectorAll('#tierTabHeader .tier-tab-btn').forEach((btn, idx) => {
                 if (idx + 1 === tierNum) btn.classList.add('active');
                 else btn.classList.remove('active');
@@ -2401,11 +2570,11 @@
             if (!contentContainer || !detail) return;
 
             contentContainer.innerHTML = `
-                <div style="margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                <div style="margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.85rem;">
                     <div>
                         <span class="badge ${detail.badgeClass}">Tier ${detail.tierNum} Academic Pillar</span>
-                        <h3 style="font-size: 1.8rem; font-weight: 900; margin-top: 0.3rem;">${detail.icon} ${detail.name}</h3>
-                        <p style="font-size: 1rem; color: var(--text-muted); font-weight: 600;">${detail.tagline}</p>
+                        <h3 style="font-size: 1.5rem; font-weight: 900; margin-top: 0.2rem;">${detail.icon} ${detail.name}</h3>
+                        <p style="font-size: 0.92rem; color: var(--text-muted); font-weight: 600;">${detail.tagline}</p>
                     </div>
                     <button class="btn btn-accent btn-sm" onclick="openDemoModal('Demo: ${detail.name}')">
                         ✨ ${currentLang === 'en' ? 'Book Free Demo for Tier ' + detail.tierNum : 'ಉಚಿತ ಡೆಮೊ ತರಗತಿ ಬುಕ್ ಮಾಡಿ'}
@@ -2441,8 +2610,8 @@
                 <div class="tier-impact-stat-box">
                     <div class="tier-stat-number">${detail.highlightStat}</div>
                     <div>
-                        <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-main);">5. ${currentLang === 'en' ? 'Measured Learning Effectiveness' : 'ಕಲಿಕೆಯಲ್ಲಿ ಕಂಡುಕೊಂಡ ಪ್ರಗತಿ'}</div>
-                        <div style="font-size: 0.88rem; color: var(--text-muted);">${detail.effectiveness}</div>
+                        <div style="font-size: 0.95rem; font-weight: 800; color: var(--text-main);">5. ${currentLang === 'en' ? 'Measured Learning Effectiveness' : 'ಕಲಿಕೆಯಲ್ಲಿ ಕಂಡುಕೊಂಡ ಪ್ರಗತಿ'}</div>
+                        <div style="font-size: 0.82rem; color: var(--text-muted);">${detail.effectiveness}</div>
                     </div>
                 </div>
             `;
@@ -2452,7 +2621,6 @@
         function renderWizardSteps() {
             const data = SELECTOR_OPTIONS_DATA[currentLang];
 
-            // Render Step 1 Programs
             const progGrid = document.getElementById('wizardProgramGrid');
             if (progGrid) {
                 progGrid.innerHTML = '';
@@ -2471,7 +2639,6 @@
                 });
             }
 
-            // Render Step 2 Batches
             const batchGrid = document.getElementById('wizardBatchGrid');
             if (batchGrid) {
                 batchGrid.innerHTML = '';
@@ -2490,7 +2657,6 @@
                 });
             }
 
-            // Render Step 3 Modes
             const modeGrid = document.getElementById('wizardModeGrid');
             if (modeGrid) {
                 modeGrid.innerHTML = '';
@@ -2578,10 +2744,10 @@
                 card.className = 'info-card';
                 card.innerHTML = `
                     <span class="badge badge-purple" style="margin-bottom: 0.5rem;">${s.role}</span>
-                    <h4 style="font-size: 1.1rem; margin-bottom: 0.2rem;">${s.name}</h4>
-                    <p style="font-size: 0.82rem; color: var(--primary); font-weight: 700;">${s.subject}</p>
-                    <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.75rem;">
-                        📞 Contact: <strong>${s.contact}</strong>
+                    <h4 style="font-size: 1.05rem; margin-bottom: 0.2rem;">${s.name}</h4>
+                    <p style="font-size: 0.8rem; color: var(--primary); font-weight: 700;">${s.subject}</p>
+                    <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem;">
+                        📞 Contact: <a href="javascript:void(0)" onclick="openExternalUrl('tel:${s.contact}')" style="color: var(--primary); font-weight: 700;">${s.contact}</a>
                     </div>
                 `;
                 container.appendChild(card);
@@ -2660,10 +2826,10 @@
                 const card = document.createElement('div');
                 card.className = 'info-card';
                 card.innerHTML = `
-                    <img src="https://img.youtube.com/vi/${v.ytId}/hqdefault.jpg" style="width: 100%; border-radius: 8px; margin-bottom: 0.75rem;" alt="Lesson Thumbnail">
+                    <img src="https://img.youtube.com/vi/${v.ytId}/hqdefault.jpg" style="width: 100%; border-radius: 8px; margin-bottom: 0.65rem;" alt="Lesson Thumbnail">
                     <span class="badge badge-danger">@cousinsacademy4599</span>
-                    <h4 style="font-size: 1rem; margin: 0.5rem 0;">${v.title}</h4>
-                    <button class="btn btn-yt btn-sm" style="width: 100%;" onclick="window.open('https://youtu.be/${v.ytId}', '_blank')">▶ Watch Masterclass</button>
+                    <h4 style="font-size: 0.95rem; margin: 0.4rem 0;">${v.title}</h4>
+                    <button class="btn btn-yt btn-sm" style="width: 100%;" onclick="openExternalUrl('https://youtu.be/${v.ytId}')">▶ Watch Masterclass</button>
                 `;
                 container.appendChild(card);
             });
@@ -2695,13 +2861,13 @@
             const msg = `Hello Cousins Academy, I would like to confirm a FREE TRIAL DEMO for my child:\n\n• Student: ${student}\n• Phone: ${phone}\n• Program: ${program}\n• Mode/Location: ${location}\n• Slot: ${slot}\n\nPlease confirm our demo ticket slot.`;
             
             setTimeout(() => {
-                window.open(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`, '_blank');
+                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
             }, 800);
         }
 
         function openWhatsAppInquiry() {
             const msg = `Hello Cousins Academy, I am interested in ${wizardSelection.program} (${wizardSelection.batch}, ${wizardSelection.mode}, Slot: ${wizardSelection.timing}). Please share admission details.`;
-            window.open(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`, '_blank');
+            openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
         }
 
         function openEnrollmentModal() {
@@ -2737,7 +2903,7 @@
             const msg = `Hello Cousins Academy team, Inquiry details:\n• Name: ${student}\n• Phone: ${phone}\n• Program: ${prog}`;
             
             setTimeout(() => {
-                window.open(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`, '_blank');
+                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
             }, 800);
 
             e.target.reset();
