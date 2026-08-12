@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <!-- Optimized Viewport Meta Tag for Mobile WebViews & Native Scaling Control -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="description" content="Sharusuri EdTech & Cousins Academy - Multi-Page Coaching Engine for Navodaya Entrance, Morarji Desai, Sainik School, with 4-Tier Support, Multi-Branch Access, and Parent Assurance Dashboard.">
+    <meta name="description" content="Sharusuri EdTech & Cousins Academy - Multi-Page Coaching Engine for Navodaya Entrance, Morarji Desai, Sainik School, with 4-Tier Support, Multi-Branch Access, Parent Assurance Dashboard, and Express Transport & Car Rental Logistics.">
     <meta name="theme-color" content="#0f766e">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-    <title>Sharusuri EdTech | Cousins Academy Programs, Batches & Multi-Branch Support Hub</title>
+    <title>Sharusuri EdTech | Cousins Academy & Transport Services SuperApp</title>
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,7 +114,7 @@
         ul { list-style: none; }
 
         /* TOUCH TARGET SIZE & MOBILE WEBVIEW OPTIMIZATIONS */
-        button, .btn, .nav-link-btn, .lang-toggle-btn, .icon-btn, .slot-pill, .tier-card, .option-selectable-card, .dash-tab-btn, .tier-tab-btn {
+        button, .btn, .nav-link-btn, .lang-toggle-btn, .icon-btn, .slot-pill, .tier-card, .option-selectable-card, .dash-tab-btn, .tier-tab-btn, .fleet-filter-btn {
             touch-action: manipulation;
             min-height: 48px;
             display: inline-flex;
@@ -850,6 +850,157 @@
             justify-content: space-between;
         }
 
+        /* TRANSPORT & CAR RENTAL MODULE STYLES (AMAZON/FLIPKART CARD STYLES) */
+        .transport-hero-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #0f766e 60%, #1d4ed8 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 2rem 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .fleet-filter-bar {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .fleet-filter-btn {
+            padding: 0.6rem 1.1rem;
+            border-radius: 50px;
+            background: var(--card-bg);
+            border: 1.5px solid var(--border);
+            font-weight: 800;
+            font-size: 0.82rem;
+            color: var(--text-main);
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .fleet-filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .vehicle-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .vehicle-card-header {
+            background: var(--bg);
+            padding: 1.5rem 1.25rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        .vehicle-type-icon {
+            font-size: 3.2rem;
+            margin-bottom: 0.3rem;
+            line-height: 1;
+        }
+
+        .vehicle-badge-top {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+        }
+
+        .vehicle-card-body {
+            padding: 1.25rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vehicle-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+
+        .vehicle-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .vehicle-specs-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .spec-chip {
+            background: var(--bg);
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            padding: 0.25rem 0.55rem;
+            font-size: 0.74rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .price-tag-box {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 0.85rem;
+            border-top: 1px dashed var(--border-light);
+            margin-bottom: 1rem;
+        }
+
+        .price-amount {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .price-unit {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
         /* PARENT ASSURANCE DASHBOARD IN PORTAL */
         .dashboard-tab-nav {
             display: flex;
@@ -1164,15 +1315,15 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <!-- WHATSAPP QUICK CHAT FLOATING BUTTON -->
-    <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Cousins%20Academy,%20I%20want%20information%20regarding%20Navodaya%20and%20Morarji%20coaching%20batches.')" class="whatsapp-float" title="Direct WhatsApp Chat (+91 9916083774)">
+    <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20SuperApp,%20I%20want%20information%20regarding%20coaching%20batches%20and%20transport%20rental%20services.')" class="whatsapp-float" title="Direct WhatsApp Chat (+91 9916083774)">
         💬
     </a>
 
     <!-- TOP ANNOUNCEMENT & CONTACT BAR -->
     <div class="top-notice-bar">
         <div>
-            <span class="notice-tag" id="noticeTagText" data-i18n="announcement_tag">🎓 Multi-Tier Support & Trial Demos</span>
-            <span id="noticeBarMsg" data-i18n="announcement_msg">Official Partner: Cousins Academy (@cousinsacademy4599) • Free Demo Sessions Available Nationwide</span>
+            <span class="notice-tag" id="noticeTagText" data-i18n="announcement_tag">🎓 Coaching & Transport Express</span>
+            <span id="noticeBarMsg" data-i18n="announcement_msg">Official Partner: Cousins Academy (@cousinsacademy4599) • Car Rentals & Paddy Cargo Transport Live</span>
         </div>
         <div class="top-contacts">
             <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')">📞 +91 9916083774</a>
@@ -1189,8 +1340,8 @@
             <a href="javascript:void(0)" class="brand-logo" onclick="navigateToPage('home')">
                 <span class="brand-badge">SE</span>
                 <div>
-                    <span style="display: block; line-height: 1.1;">Sharusuri <small style="color: var(--primary); font-size: 0.68rem; display: inline;">EdTech</small></span>
-                    <span style="font-size: 0.65rem; color: var(--yt-red); font-weight: 800; display: block;">Cousins Academy Hub</span>
+                    <span style="display: block; line-height: 1.1;">Sharusuri <small style="color: var(--primary); font-size: 0.68rem; display: inline;">SuperApp</small></span>
+                    <span style="font-size: 0.65rem; color: var(--yt-red); font-weight: 800; display: block;">EdTech & Transport Hub</span>
                 </div>
             </a>
 
@@ -1201,6 +1352,9 @@
                 </button>
                 <button class="nav-link-btn" id="nav-programs" onclick="navigateToPage('programs')">
                     <span>📚</span> <span data-i18n="nav_programs">Programs & Tiers</span>
+                </button>
+                <button class="nav-link-btn" id="nav-transport" onclick="navigateToPage('transport')">
+                    <span>🚕</span> <span data-i18n="nav_transport">Transport & Rentals</span>
                 </button>
                 <button class="nav-link-btn" id="nav-schedule" onclick="navigateToPage('schedule')">
                     <span>🗓️</span> <span data-i18n="nav_schedule">Batches & Schedule</span>
@@ -1248,8 +1402,8 @@
             <div class="brand-logo" onclick="navigateToPage('home'); toggleMobileNav();">
                 <span class="brand-badge">SE</span>
                 <div>
-                    <span style="display: block; line-height: 1.1; font-size: 1rem;">Sharusuri EdTech</span>
-                    <span style="font-size: 0.65rem; color: var(--yt-red); font-weight: 800; display: block;">Cousins Academy</span>
+                    <span style="display: block; line-height: 1.1; font-size: 1rem;">Sharusuri SuperApp</span>
+                    <span style="font-size: 0.65rem; color: var(--yt-red); font-weight: 800; display: block;">EdTech & Transport Services</span>
                 </div>
             </div>
             <button class="icon-btn" onclick="toggleMobileNav()">✕</button>
@@ -1261,6 +1415,9 @@
             </button>
             <button class="nav-link-btn" onclick="navigateToPage('programs'); toggleMobileNav();">
                 <span>📚</span> <span data-i18n="nav_programs">Programs & Support Tiers</span>
+            </button>
+            <button class="nav-link-btn" onclick="navigateToPage('transport'); toggleMobileNav();">
+                <span>🚕</span> <span data-i18n="nav_transport">Transport & Rentals</span>
             </button>
             <button class="nav-link-btn" onclick="navigateToPage('schedule'); toggleMobileNav();">
                 <span>🗓️</span> <span data-i18n="nav_schedule">Batches & Schedule</span>
@@ -1312,6 +1469,9 @@
                         </button>
                         <button class="btn btn-primary btn-lg" onclick="navigateToPage('programs')" data-i18n="hero_btn_explore">
                             🚀 Explore Programs & Support Tiers
+                        </button>
+                        <button class="btn btn-purple btn-lg" onclick="navigateToPage('transport')" data-i18n="hero_btn_transport">
+                            🚕 Rent Cars & Agricultural Freight
                         </button>
                         <button class="btn btn-yt btn-lg" onclick="openExternalUrl('https://www.youtube.com/@cousinsacademy4599?sub_confirmation=1')" data-i18n="hero_btn_yt">
                             📺 Subscribe YouTube Channel
@@ -1588,7 +1748,97 @@
             </div>
         </section>
 
-        <!-- 3. SCHEDULE & BATCH CALENDAR PAGE VIEW -->
+        <!-- 3. TRANSPORTATION & CAR RENTAL MODULE PAGE VIEW -->
+        <section id="page-transport" class="page-view">
+            <div class="section-container" style="margin-top: 1.5rem;">
+                
+                <!-- TRANSPORT HERO BANNER -->
+                <div class="transport-hero-banner">
+                    <div style="position: relative; z-index: 2; max-width: 800px;">
+                        <span class="badge badge-warning" style="margin-bottom: 0.5rem;" data-i18n="transport_badge">🚕 Sharusuri Express Transport & Logistics</span>
+                        <h2 style="font-size: 2rem; font-weight: 900; line-height: 1.25; margin-bottom: 0.65rem;" data-i18n="transport_hero_title">
+                            Self-Drive Car Rentals & Rural Agricultural Freight Logistics
+                        </h2>
+                        <p style="font-size: 0.95rem; opacity: 0.9; line-height: 1.5; margin-bottom: 1.25rem;" data-i18n="transport_hero_sub">
+                            Instant online bookings for cars, luxury cabs, passenger vans, and agricultural goods trucks (Paddy, Fertilizer & Machinery Express) across Sindhanur, Raichur, Bellary, and Koppal.
+                        </p>
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <button class="btn btn-accent btn-lg" onclick="openTransportModal()" data-i18n="btn_instant_transport">
+                                🚀 Instant Booking Workflow
+                            </button>
+                            <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20Transport,%20I%20need%20a%20quick%20vehicle%20rental%20quote.')">
+                                💬 WhatsApp Booking Desk
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FLEET CATEGORY FILTER TABS -->
+                <div class="fleet-filter-bar" id="fleetFilterBar">
+                    <button class="fleet-filter-btn active" onclick="filterFleet('ALL', this)" data-i18n="fleet_tab_all">
+                        🚘 All Fleet Vehicles (8)
+                    </button>
+                    <button class="fleet-filter-btn" onclick="filterFleet('SELF_DRIVE', this)" data-i18n="fleet_tab_self">
+                        🚗 Self-Drive & Cabs
+                    </button>
+                    <button class="fleet-filter-btn" onclick="filterFleet('RURAL_CARGO', this)" data-i18n="fleet_tab_cargo">
+                        🌾 Rural Goods & Paddy Logistics
+                    </button>
+                    <button class="fleet-filter-btn" onclick="filterFleet('PASSENGER_VAN', this)" data-i18n="fleet_tab_bus">
+                        🚌 Buses & Passenger Vans
+                    </button>
+                </div>
+
+                <!-- AMAZON/FLIPKART STYLE FLEET LISTING GRID -->
+                <div class="fleet-grid" id="fleetCardsGrid">
+                    <!-- Populated dynamically via JS -->
+                </div>
+
+                <!-- RURAL CARGO & AGRICULTURAL FREIGHT CALCULATOR WIDGET -->
+                <div class="info-card" style="margin-top: 2rem; border: 2px solid var(--primary);">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                        <div class="brand-badge" style="background: linear-gradient(135deg, #10b981, #0f766e);">🌾</div>
+                        <div>
+                            <h3 style="font-size: 1.25rem; font-weight: 800;" data-i18n="cargo_calc_title">Agricultural Produce & Paddy Freight Rate Estimator</h3>
+                            <p style="font-size: 0.82rem; color: var(--text-muted);" data-i18n="cargo_calc_sub">Get instant fare estimate for paddy sacks, fertilizer bags, or farm machinery dispatch.</p>
+                        </div>
+                    </div>
+
+                    <form onsubmit="handleCargoEstimate(event)" style="display: grid; grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) ); gap: 0.85rem;">
+                        <div>
+                            <label class="form-label" data-i18n="lbl_goods_type">Goods Type *</label>
+                            <select id="cargoGoodsType" class="form-input" style="font-weight: 700;">
+                                <option>🌾 Paddy / Rice Sacks (Bags)</option>
+                                <option>🌱 Fertilizer & Seeds</option>
+                                <option>☁️ Raw Cotton Bales</option>
+                                <option>🚜 Heavy Farm Equipment</option>
+                                <option>📦 House Shifting & Cargo</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label" data-i18n="lbl_load_weight">Estimated Load Weight / Quantity *</label>
+                            <select id="cargoWeight" class="form-input" style="font-weight: 700;">
+                                <option value="1">Up to 1.5 Tons (Mini-Truck / Ace)</option>
+                                <option value="3">3 Tons to 5 Tons (Pickup Bolero)</option>
+                                <option value="10">10 Tons to 15 Tons (Eicher 14-ft / 6-Wheeler)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label" data-i18n="lbl_pickup_drop">Pickup & Drop Route *</label>
+                            <input type="text" id="cargoRoute" class="form-input" placeholder="e.g. Sindhanur APMC to Raichur Mill" required>
+                        </div>
+                        <div style="display: flex; align-items: flex-end;">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="btn_calc_quote">
+                                📊 Calculate & Book via WhatsApp
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. SCHEDULE & BATCH CALENDAR PAGE VIEW -->
         <section id="page-schedule" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -1648,7 +1898,7 @@
             </div>
         </section>
 
-        <!-- 4. ABOUT US PAGE VIEW -->
+        <!-- 5. ABOUT US PAGE VIEW -->
         <section id="page-about" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -1697,7 +1947,7 @@
             </div>
         </section>
 
-        <!-- 5. CONTACT US PAGE VIEW WITH DEMO BOOKING -->
+        <!-- 6. CONTACT US PAGE VIEW WITH DEMO BOOKING -->
         <section id="page-contact" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -1726,6 +1976,7 @@
                                     <option>Morarji Desai Entrance Exam</option>
                                     <option>Sainik School Entrance</option>
                                     <option>State Board Foundation</option>
+                                    <option>Car Rental / Goods Transport Service</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -1755,7 +2006,7 @@
                             
                             <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem;">
                                 <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--border);">
-                                    <strong style="color: var(--text-main);">🏛️ Sindhanur Main Campus:</strong><br>
+                                    <strong style="color: var(--text-main);">🏛️ Sindhanur Main Campus & Transport Hub:</strong><br>
                                     Near Bus Stand Road, AP K Hosalli Circle, Sindhanur – 584128
                                 </div>
                                 <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--border);">
@@ -1780,7 +2031,7 @@
                                     📞 Line 3 (Student Helpdesk): +91 8088171010
                                 </button>
                                 <button type="button" onclick="openExternalUrl('tel:+917892493133')" class="btn btn-secondary">
-                                    📞 Line 4 (Admissions Office): +91 7892493133
+                                    📞 Line 4 (Admissions & Transport): +91 7892493133
                                 </button>
                             </div>
                         </div>
@@ -1796,7 +2047,7 @@
             </div>
         </section>
 
-        <!-- 6. STUDENT & PARENT PORTAL PAGE VIEW (WITH PARENT TRANSPARENCY DASHBOARD) -->
+        <!-- 7. STUDENT & PARENT PORTAL PAGE VIEW (WITH PARENT TRANSPARENCY DASHBOARD) -->
         <section id="page-portal" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -1928,7 +2179,7 @@
             </div>
         </section>
 
-        <!-- 7. ADMIN CONSOLE PAGE VIEW -->
+        <!-- 8. ADMIN CONSOLE PAGE VIEW -->
         <section id="page-admin" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -1970,10 +2221,10 @@
             <div>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.85rem;">
                     <span class="brand-badge" style="width: 34px; height: 34px; font-size: 0.9rem;">SE</span>
-                    <h3 style="font-size: 1.1rem; color: white;">Sharusuri EdTech & Cousins Academy</h3>
+                    <h3 style="font-size: 1.1rem; color: white;">Sharusuri SuperApp & Transport Hub</h3>
                 </div>
                 <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.55;" data-i18n="footer_desc">
-                    Karnataka's leading educational platform equipped with a 4-Tier Support Hierarchy, multi-branch expert network, and flexible tuition models.
+                    Karnataka's leading educational and logistics platform equipped with 4-Tier Coaching, multi-branch expert network, car rentals, and rural paddy freight transport.
                 </p>
             </div>
 
@@ -1982,6 +2233,7 @@
                 <ul style="font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem; color: #cbd5e1;">
                     <li><a href="javascript:void(0)" onclick="navigateToPage('home')" data-i18n="nav_home">Home</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('programs')" data-i18n="nav_programs">Programs & Support Tiers</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigateToPage('transport')" data-i18n="nav_transport">Transport & Car Rentals</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('schedule')" data-i18n="nav_schedule">Batches & Schedule</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('portal')" data-i18n="nav_portal">Parent & Student Portal</a></li>
                 </ul>
@@ -2010,7 +2262,7 @@
         </div>
 
         <div style="text-align: center; font-size: 0.75rem; color: #64748b; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.1rem;" data-i18n="footer_copyright">
-            © 2026 Sharusuri EdTech OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com
+            © 2026 Sharusuri EdTech & Express Transport OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com
         </div>
     </footer>
 
@@ -2098,7 +2350,73 @@
         </div>
     </div>
 
-    <!-- MODAL 3: AUTHENTICATION MODAL -->
+    <!-- MODAL 3: TRANSPORT & CAR RENTAL BOOKING WORKFLOW MODAL -->
+    <div class="modal-overlay" id="transportBookingModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeTransportModal()">✕</button>
+            <div style="text-align: center; margin-bottom: 1.1rem;">
+                <span class="badge badge-primary" style="margin-bottom: 0.3rem;">🚕 Instant Transport Dispatch</span>
+                <h3 style="font-size: 1.3rem;" id="transportModalTitle">Book Vehicle or Freight Express</h3>
+                <p style="font-size: 0.82rem; color: var(--text-muted);">Self-Drive, Chauffeur-Driven Cabs or Agricultural Cargo Transport</p>
+            </div>
+
+            <form onsubmit="handleTransportBookingSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label">Vehicle Selected *</label>
+                    <input type="text" id="transSelectedVehicle" class="form-input" required readonly style="font-weight: 800; background: var(--bg);">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Rental / Service Option *</label>
+                    <select id="transServiceOption" class="form-input" style="font-weight: 700;">
+                        <option value="Self-Drive Rental">🚗 Self-Drive Rental (No Driver)</option>
+                        <option value="Chauffeur Driven Cab">👨‍✈️ Vehicle with Professional Driver</option>
+                        <option value="Agricultural Cargo Transport">🌾 Agricultural Produce Freight (Paddy/Fertilizer)</option>
+                        <option value="Commercial & House Shifting">📦 Commercial / Goods Transport</option>
+                    </select>
+                </div>
+                <div class="grid-2" style="margin-bottom: 0;">
+                    <div class="form-group">
+                        <label class="form-label">Customer Name *</label>
+                        <input type="text" id="transCustomerName" class="form-input" required placeholder="e.g. Suresh Patil">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Contact Mobile *</label>
+                        <input type="tel" id="transCustomerPhone" class="form-input" required placeholder="10-digit number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Pickup Address & Landmark *</label>
+                    <input type="text" id="transPickupLoc" class="form-input" required placeholder="e.g. Sindhanur APMC Market / Bus Stand Road">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Destination / Drop Location</label>
+                    <input type="text" id="transDropLoc" class="form-input" placeholder="e.g. Raichur Central / Outstation Trip">
+                </div>
+                <div class="grid-2" style="margin-bottom: 0;">
+                    <div class="form-group">
+                        <label class="form-label">Pickup Date *</label>
+                        <input type="date" id="transPickupDate" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Time Slot *</label>
+                        <select id="transPickupTime" class="form-input">
+                            <option>Early Morning (6:00 AM)</option>
+                            <option>Morning Slot (9:00 AM)</option>
+                            <option>Afternoon Slot (2:00 PM)</option>
+                            <option>Evening Slot (6:00 PM)</option>
+                            <option>Night Emergency Dispatch</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-whatsapp" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">
+                    💬 Generate Confirmation & Open WhatsApp (+91 9916083774)
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 4: AUTHENTICATION MODAL -->
     <div class="modal-overlay" id="authModal">
         <div class="modal-box" style="max-width: 440px;">
             <button class="modal-close" onclick="closeAuthModal()">✕</button>
@@ -2151,10 +2469,11 @@
         // 1. COMPREHENSIVE BILINGUAL (ENGLISH & KANNADA) DICTIONARY DATASET
         const I18N_DATA = {
             en: {
-                announcement_tag: "🎓 Multi-Tier Support & Trial Demos",
-                announcement_msg: "Official Partner: Cousins Academy (@cousinsacademy4599) • Free Demo Sessions Available Nationwide",
+                announcement_tag: "🎓 Coaching & Transport Express",
+                announcement_msg: "Official Partner: Cousins Academy (@cousinsacademy4599) • Car Rentals & Paddy Cargo Transport Live",
                 nav_home: "Home",
                 nav_programs: "Programs & Tiers",
+                nav_transport: "Transport & Rentals",
                 nav_schedule: "Batches & Schedule",
                 nav_about: "About Us",
                 nav_contact: "Contact Us",
@@ -2167,6 +2486,7 @@
                 hero_sub: "Karnataka's top coaching engine backed by a 4-Tier Academic Support Hierarchy, Cross-Branch Teacher Access, and Flexible Hybrid Learning Models.",
                 hero_btn_trial: "🎯 Book Free Trial Demo Class",
                 hero_btn_explore: "🚀 Explore Programs & Support Tiers",
+                hero_btn_transport: "🚕 Rent Cars & Agricultural Freight",
                 hero_btn_yt: "📺 Subscribe YouTube Channel",
                 wizard_badge: "⚡ Fast Track Enrollment & Trial Demos",
                 wizard_heading: "Choose Your Coaching Path in 4 Simple Steps",
@@ -2205,17 +2525,32 @@
                 wiz_step2_label: "Batch Type",
                 wiz_step3_label: "Learning Mode",
                 wiz_step4_label: "Timings & Summary",
-                footer_desc: "Karnataka's leading educational platform equipped with a 4-Tier Support Hierarchy, multi-branch expert network, and flexible tuition models.",
+                transport_badge: "🚕 Sharusuri Express Transport & Logistics",
+                transport_hero_title: "Self-Drive Car Rentals & Rural Agricultural Freight Logistics",
+                transport_hero_sub: "Instant online bookings for cars, luxury cabs, passenger vans, and agricultural goods trucks (Paddy, Fertilizer & Machinery Express) across Sindhanur, Raichur, Bellary, and Koppal.",
+                btn_instant_transport: "🚀 Instant Booking Workflow",
+                fleet_tab_all: "🚘 All Fleet Vehicles (8)",
+                fleet_tab_self: "🚗 Self-Drive & Cabs",
+                fleet_tab_cargo: "🌾 Rural Goods & Paddy Logistics",
+                fleet_tab_bus: "🚌 Buses & Passenger Vans",
+                cargo_calc_title: "Agricultural Produce & Paddy Freight Rate Estimator",
+                cargo_calc_sub: "Get instant fare estimate for paddy sacks, fertilizer bags, or farm machinery dispatch.",
+                lbl_goods_type: "Goods Type *",
+                lbl_load_weight: "Estimated Load Weight / Quantity *",
+                lbl_pickup_drop: "Pickup & Drop Route *",
+                btn_calc_quote: "📊 Calculate & Book via WhatsApp",
+                footer_desc: "Karnataka's leading educational and logistics platform equipped with 4-Tier Coaching, multi-branch expert network, car rentals, and rural paddy freight transport.",
                 footer_quick_links: "Quick Links",
                 footer_official_contacts: "Official Contacts",
                 footer_trial_yt: "Trial Demo & YouTube",
-                footer_copyright: "© 2026 Sharusuri EdTech OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com"
+                footer_copyright: "© 2026 Sharusuri EdTech & Express Transport OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com"
             },
             kn: {
-                announcement_tag: "🎓 4-ಹಂತದ ಬೆಂಬಲ ಮತ್ತು ಉಚಿತ ಡೆಮೊ",
-                announcement_msg: "ಅಧಿಕೃತ ಪಾಲುದಾರರು: ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ (@cousinsacademy4599) • ಉಚಿತ ಡೆಮೊ ತರಗತಿಗಳು ಲಭ್ಯವಿವೆ",
+                announcement_tag: "🎓 ಕೋಚಿಂಗ್ ಮತ್ತು ವಾಹನ ಸೇವೆ",
+                announcement_msg: "ಅಧಿಕೃತ ಪಾಲುದಾರರು: ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ (@cousinsacademy4599) • ಕಾರು ಬಾಡಿಗೆ ಮತ್ತು ಭತ್ತದ ಸಾರಿಗೆ ಸೇವೆ ಲಭ್ಯವಿದೆ",
                 nav_home: "ಮುಖಪುಟ",
                 nav_programs: "ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಸಪೋರ್ಟ್",
+                nav_transport: "ವಾಹನ & ಸರಕು ಸೇವೆ",
                 nav_schedule: "ಬ್ಯಾಚ್ ಸಮಯ",
                 nav_about: "ನಮ್ಮ ಬಗ್ಗೆ",
                 nav_contact: "ಸಂಪರ್ಕಿಸಿ",
@@ -2228,6 +2563,7 @@
                 hero_sub: "4-ಹಂತದ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ, ಮಲ್ಟಿ-ಬ್ರಾಂಚ್ ಶಿಕ್ಷಕರ ಸಹಾಯ ಮತ್ತು ಹೈಬ್ರಿಡ್ ಕಲಿಕಾ ವ್ಯವಸ್ಥೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಅತ್ಯುತ್ತಮ ಕೋಚಿಂಗ್ ಸಂಸ್ಥೆ.",
                 hero_btn_trial: "🎯 ಉಚಿತ ಡೆಮೊ ತರಗತಿಯನ್ನು ಬುಕ್ ಮಾಡಿ",
                 hero_btn_explore: "🚀 ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಬೆಂಬಲ ಹಂತಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
+                hero_btn_transport: "🚕 ಕಾರು ಬಾಡಿಗೆ ಮತ್ತು ಸರಕು ಸಾರಿಗೆ ಸೇವೆ",
                 hero_btn_yt: "📺 ಯೂಟ್ಯೂಬ್ ಚಾನೆಲ್ ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಮಾಡಿ",
                 wizard_badge: "⚡ ತ್ವರಿತ ದಾಖಲಾತಿ ಮತ್ತು ಡೆಮೊ ತರಗತಿ",
                 wizard_heading: "4 ಸರಳ ಹಂತಗಳಲ್ಲಿ ನಿಮ್ಮ ಸೂಕ್ತ ಕೋರ್ಸ್ ಆಯ್ಕೆಮಾಡಿ",
@@ -2266,11 +2602,25 @@
                 wiz_step2_label: "ಬ್ಯಾಚ್ ಮಾದರಿ",
                 wiz_step3_label: "ಕಲಿಕಾ ವಿಧಾನ",
                 wiz_step4_label: "ಸಮಯ ಮತ್ತು ವಿವರ",
-                footer_desc: "4-ಹಂತದ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ, ವಿವಿಧ ಶಾಖೆಗಳ ಪರಿಣಿತ ಶಿಕ್ಷಕರು ಮತ್ತು ಹೈಬ್ರಿಡ್ ಕಲಿಕೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಅಗ್ರಗಣ್ಯ ಶಿಕ್ಷಣ ಸಂಸ್ಥೆ.",
+                transport_badge: "🚕 ಶಾರುಸೂರಿ ಎಕ್ಸ್‌ಪ್ರೆಸ್ ವಾಹನ ಮತ್ತು ಸರಕು ಸೇವೆ",
+                transport_hero_title: "ಸ್ವಯಂ ಚಾಲನಾ ಕಾರು ಬಾಡಿಗೆ ಮತ್ತು ಕೃಷಿ ಸರಕು ಸಾರಿಗೆ",
+                transport_hero_sub: "ಸಿಂಧನೂರು, ರಾಯಚೂರು, ಬಳ್ಳಾರಿ ಮತ್ತು ಕೊಪ್ಪಳ ಭಾಗದಲ್ಲಿ ಕಾರು ಬಾಡಿಗೆ, ಮಿನಿ ಟ್ರಕ್ ಹಾಗೂ ಭತ್ತದ ಮೂಟೆಗಳ ಸಾರಿಗೆ ಸೇವೆಗೆ ತಕ್ಷಣ ಬುಕ್ ಮಾಡಿ.",
+                btn_instant_transport: "🚀 ತಕ್ಷಣ ವಾಹನ ಬುಕ್ ಮಾಡಿ",
+                fleet_tab_all: "🚘 ಎಲ್ಲ ವಾಹನಗಳು (8)",
+                fleet_tab_self: "🚗 ಕಾರುಗಳು ಮತ್ತು ಸ್ಯಾಂಟ್ರೋ",
+                fleet_tab_cargo: "🌾 ಕೃಷಿ ಸರಕು ಮತ್ತು ಭತ್ತದ ಸಾರಿಗೆ",
+                fleet_tab_bus: "🚌 ಬಸ್‌ಗಳು ಮತ್ತು ಟ್ರಾವೆಲರ್",
+                cargo_calc_title: "ಕೃಷಿ ಸರಕು ಮತ್ತು ಭತ್ತದ ಮೂಟೆಗಳ ಸಾರಿಗೆ ದರ ಅಂದಾಜು",
+                cargo_calc_sub: "ಭತ್ತದ ಮೂಟೆ, ರಸಗೊಬ್ಬರ ಚೀಲ ಅಥವಾ ಕೃಷಿ ಉಪಕರಣಗಳ ಸಾರಿಗೆ ದರವನ್ನು ತಕ್ಷಣವೇ ಪಡೆಯಿರಿ.",
+                lbl_goods_type: "ಸರಕಿನ ಮಾದರಿ *",
+                lbl_load_weight: "ಅಂದಾಜು ತೂಕ / ಪ್ರಮಾಣ *",
+                lbl_pickup_drop: "ಪಿಕಪ್ ಮತ್ತು ಡ್ರಾಪ್ ಮಾರ್ಗ *",
+                btn_calc_quote: "📊 ವಾಟ್ಸಾಪ್ ಮೂಲಕ ದರ ಪಡೆಯಿರಿ",
+                footer_desc: "4-ಹಂತದ ಬೋಧನೆ, ವಿವಿಧ ಶಾಖೆಗಳ ಪರಿಣಿತ ಶಿಕ್ಷಕರು, ಕಾರು ಬಾಡಿಗೆ ಮತ್ತು ಕೃಷಿ ಸರಕು ಸಾರಿಗೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್.",
                 footer_quick_links: "ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು",
                 footer_official_contacts: "ಅಧಿಕೃತ ಸಂಪರ್ಕಗಳು",
                 footer_trial_yt: "ಉಚಿತ ಡೆಮೊ ಮತ್ತು ಯೂಟ್ಯೂಬ್",
-                footer_copyright: "© 2026 ಶಾರುಸೂರಿ ಎಡ್‌ಟೆಕ್ OS. ಸರ್ವ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ. ಅಡ್ಮಿನ್: suresh2suresh80888@gmail.com"
+                footer_copyright: "© 2026 ಶಾರುಸೂರಿ ಎಡ್‌ಟೆಕ್ & ಎಕ್ಸ್‌ಪ್ರೆಸ್ ಟ್ರಾನ್ಸ್‌ಪೋರ್ಟ್ OS. ಸರ್ವ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
             }
         };
 
@@ -2436,6 +2786,114 @@
             }
         };
 
+        // 4. TRANSPORTATION & FLEET MARKETPLACE DATASET
+        const FLEET_DATA = [
+            {
+                id: "v1",
+                category: "SELF_DRIVE",
+                name: "Swift Dzire / Toyota Etios",
+                type: "Sedan (5 Seater)",
+                rate: "₹1,800",
+                rateUnit: "per day (Self-Drive)",
+                icon: "🚗",
+                badgeText: "Popular Choice",
+                badgeClass: "badge-success",
+                specs: ["5 Seats", "Manual/AC", "Self-Drive / Driver", "Unlimited KM options"],
+                desc: "Comfortable air-conditioned sedan ideal for city trips, family travel, and entrance exam center visits."
+            },
+            {
+                id: "v2",
+                category: "SELF_DRIVE",
+                name: "Mahindra Thar / Scorpio SUV",
+                type: "4x4 Rugged SUV",
+                rate: "₹3,200",
+                rateUnit: "per day (Self-Drive)",
+                icon: "🚙",
+                badgeText: "Self-Drive Special",
+                badgeClass: "badge-primary",
+                specs: ["7 Seats", "Diesel 4x4", "Rural Road Master", "24/7 Roadside Assist"],
+                desc: "High-ground clearance SUV for tough rural district roads, farm visits, and long-distance outstation travel."
+            },
+            {
+                id: "v3",
+                category: "SELF_DRIVE",
+                name: "Toyota Innova Crysta",
+                type: "Premium MPV (7-Seater)",
+                rate: "₹3,800",
+                rateUnit: "per day (Chauffeur)",
+                icon: "🚘",
+                badgeText: "VIP Travel",
+                badgeClass: "badge-purple",
+                specs: ["7 Captain Seats", "Dual AC", "Professional Driver", "Outstation Express"],
+                desc: "Luxury 7-seater MPV with experienced chauffeur for VIP delegation, pilgrimage, and long trips."
+            },
+            {
+                id: "v4",
+                category: "RURAL_CARGO",
+                name: "Tata Ace / Piaggio Ape (Mini Truck)",
+                type: "Agricultural Mini-Freight",
+                rate: "₹900",
+                rateUnit: "per local trip / ₹1,500 daily",
+                icon: "🛺",
+                badgeText: "Paddy Special",
+                badgeClass: "badge-warning",
+                specs: ["1.2 Ton Payload", "Paddy Bag Transport", "APMC Mandi Express", "Local Rural Delivery"],
+                desc: "Perfect for transporting paddy sacks, fertilizer bags, and seeds directly from farm fields to APMC markets."
+            },
+            {
+                id: "v5",
+                category: "RURAL_CARGO",
+                name: "Mahindra Bolero Pickup (1.5 Ton)",
+                type: "Heavy Commercial Pickup",
+                rate: "₹2,200",
+                rateUnit: "per day / trip",
+                icon: "🛻",
+                badgeText: "Heavy Freight",
+                badgeClass: "badge-danger",
+                specs: ["1.8 Ton Payload", "Open/Closed Deck", "Crop & Rice Mill Logistics", "District Freight"],
+                desc: "Heavy-duty commercial pickup truck for large paddy harvests, rice mill supplies, and construction material."
+            },
+            {
+                id: "v6",
+                category: "RURAL_CARGO",
+                name: "Eicher 14-ft Commercial Truck",
+                type: "6-Wheeler Freight Express",
+                rate: "₹4,500",
+                rateUnit: "per inter-district trip",
+                icon: "🚛",
+                badgeText: "Inter-District",
+                badgeClass: "badge-primary",
+                specs: ["5-7 Ton Payload", "Covered Container", "Bulk Agricultural Transport", "Statewide Cargo"],
+                desc: "Large commercial freight carrier for high-volume agricultural produce, rice bags, and warehouse dispatch."
+            },
+            {
+                id: "v7",
+                category: "PASSENGER_VAN",
+                name: "Force Traveller (17-Seater AC)",
+                type: "Group Passenger Bus",
+                rate: "₹4,000",
+                rateUnit: "per day",
+                icon: "🚌",
+                badgeText: "School & Group Trips",
+                badgeClass: "badge-success",
+                specs: ["17 Pushback Seats", "AC/Non-AC", "Exam Center Shuttle", "Group Tour Specialist"],
+                desc: "Spacious passenger minibus for school student trips, coaching center shuttles, and marriage functions."
+            },
+            {
+                id: "v8",
+                category: "RURAL_CARGO",
+                name: "Eicher 380 Tractor + Heavy Trolley",
+                type: "Farm Field Heavy Hauler",
+                rate: "₹1,800",
+                rateUnit: "per day",
+                icon: "🚜",
+                badgeText: "Farm Special",
+                badgeClass: "badge-warning",
+                specs: ["High Torque Engine", "2-Wheel Heavy Trolley", "Direct Field Paddy Loading", "Off-road Heavy Pull"],
+                desc: "Heavy agricultural tractor and trolley combination for direct farm field harvesting and heavy mud transport."
+            }
+        ];
+
         const APP_DATA = {
             support_tiers: [
                 { tier: 1, title: "Core Class Teacher", subtitle: "Primary Subject Specialist", desc: "Delivers live interactive lectures and structured syllabus coverage.", features: ["Live Interactive Lectures", "Structured Syllabus Completion", "Weekly Exam Strategy"] },
@@ -2490,6 +2948,7 @@
             showTierDetail(activeSelectedTier);
             renderWizardSteps();
             updateWizardSummary();
+            renderFleetGrid('ALL');
 
             showToast(`Language switched to ${currentLang === 'en' ? 'English' : 'ಕನ್ನಡ'}`);
         }
@@ -2514,6 +2973,128 @@
             if (activeNavBtn) activeNavBtn.classList.add('active');
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // RENDER TRANSPORT FLEET GRID
+        function renderFleetGrid(categoryFilter = 'ALL') {
+            const grid = document.getElementById('fleetCardsGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            const items = categoryFilter === 'ALL' ? FLEET_DATA : FLEET_DATA.filter(v => v.category === categoryFilter);
+
+            items.forEach(v => {
+                const card = document.createElement('div');
+                card.className = 'vehicle-card';
+                card.innerHTML = `
+                    <div class="vehicle-card-header">
+                        <div class="vehicle-type-icon">${v.icon}</div>
+                        <span class="badge ${v.badgeClass} vehicle-badge-top">${v.badgeText}</span>
+                        <div class="vehicle-title">${v.name}</div>
+                        <div class="vehicle-sub">${v.type}</div>
+                    </div>
+                    <div class="vehicle-card-body">
+                        <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0.85rem;">${v.desc}</p>
+                        
+                        <div class="vehicle-specs-list">
+                            ${v.specs.map(s => `<span class="spec-chip">✓ ${s}</span>`).join('')}
+                        </div>
+
+                        <div class="price-tag-box">
+                            <div>
+                                <span class="price-amount">${v.rate}</span>
+                                <span class="price-unit">/${v.rateUnit}</span>
+                            </div>
+                            <span class="badge badge-success">Available</span>
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%;" onclick="openTransportModal('${v.name}', '${v.category}')">
+                            ⚡ ${currentLang === 'en' ? 'Book Vehicle Now' : 'ತಕ್ಷಣವೇ ಬುಕ್ ಮಾಡಿ'}
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterFleet(cat, btnEl) {
+            document.querySelectorAll('.fleet-filter-btn').forEach(b => b.classList.remove('active'));
+            btnEl.classList.add('active');
+            renderFleetGrid(cat);
+        }
+
+        // TRANSPORT BOOKING WORKFLOW HANDLERS
+        function openTransportModal(vehicleName = 'Swift Dzire Sedan', catType = 'SELF_DRIVE') {
+            document.getElementById('transSelectedVehicle').value = vehicleName;
+            
+            const selectEl = document.getElementById('transServiceOption');
+            if (catType === 'RURAL_CARGO') {
+                selectEl.value = 'Agricultural Cargo Transport';
+            } else if (catType === 'PASSENGER_VAN') {
+                selectEl.value = 'Chauffeur Driven Cab';
+            } else {
+                selectEl.value = 'Self-Drive Rental';
+            }
+
+            // Set default date to tomorrow
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('transPickupDate').value = tomorrow.toISOString().split('T')[0];
+
+            document.getElementById('transportBookingModal').classList.add('active');
+        }
+
+        function closeTransportModal() {
+            document.getElementById('transportBookingModal').classList.remove('active');
+        }
+
+        function handleTransportBookingSubmit(e) {
+            e.preventDefault();
+            const vehicle = document.getElementById('transSelectedVehicle').value;
+            const serviceOpt = document.getElementById('transServiceOption').value;
+            const name = document.getElementById('transCustomerName').value;
+            const phone = document.getElementById('transCustomerPhone').value;
+            const pickup = document.getElementById('transPickupLoc').value;
+            const drop = document.getElementById('transDropLoc').value || 'As requested';
+            const date = document.getElementById('transPickupDate').value;
+            const time = document.getElementById('transPickupTime').value;
+
+            closeTransportModal();
+            showToast(`🚕 Transport booking generated for ${vehicle}! Redirecting to WhatsApp...`);
+
+            const msg = `*SHARUSURI SUPERAPP - TRANSPORT & FREIGHT BOOKING*\n\n` +
+                        `• *Vehicle:* ${vehicle}\n` +
+                        `• *Service Option:* ${serviceOpt}\n` +
+                        `• *Customer Name:* ${name}\n` +
+                        `• *Contact Phone:* ${phone}\n` +
+                        `• *Pickup Location:* ${pickup}\n` +
+                        `• *Drop / Route:* ${drop}\n` +
+                        `• *Pickup Date:* ${date}\n` +
+                        `• *Time Slot:* ${time}\n\n` +
+                        `Please confirm availability, vehicle registration number, and driver contact details.`;
+
+            setTimeout(() => {
+                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
+            }, 800);
+        }
+
+        function handleCargoEstimate(e) {
+            e.preventDefault();
+            const goods = document.getElementById('cargoGoodsType').value;
+            const weight = document.getElementById('cargoWeight').options[document.getElementById('cargoWeight').selectedIndex].text;
+            const route = document.getElementById('cargoRoute').value;
+
+            showToast('🌾 Agricultural cargo quote generated! Opening WhatsApp...');
+
+            const msg = `*AGRICULTURAL CARGO FREIGHT INQUIRY*\n\n` +
+                        `• *Goods Type:* ${goods}\n` +
+                        `• *Load Weight:* ${weight}\n` +
+                        `• *Route:* ${route}\n\n` +
+                        `Please send best fare estimate and nearest available truck/pickup driver.`;
+
+            setTimeout(() => {
+                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
+            }, 800);
         }
 
         // RENDER 4-TIER HIERARCHY CARDS
@@ -2940,6 +3521,7 @@
             showTierDetail(1);
             renderWizardSteps();
             updateWizardSummary();
+            renderFleetGrid('ALL');
             renderAssignedStaff();
             renderBranchScheduler();
             renderDoubtTracker();
