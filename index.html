@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <!-- Optimized Viewport Meta Tag for Mobile WebViews & Native Scaling Control -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="description" content="Sharusuri EdTech & Cousins Academy - Multi-Page Coaching Engine for Navodaya Entrance, Morarji Desai, Sainik School, with 4-Tier Support, Multi-Branch Access, Parent Assurance Dashboard, and Express Transport & Car Rental Logistics.">
+    <meta name="description" content="Sharusuri EdTech & Agriculture SuperApp - Multi-Page Coaching Engine, Precision Agricultural Drone Spraying, Tungabhadra Paddy & Rice Trading, High-Grade Fertilizers, and Express Transport & Logistics.">
     <meta name="theme-color" content="#0f766e">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-    <title>Sharusuri EdTech | Cousins Academy & Transport Services SuperApp</title>
+    <title>Sharusuri SuperApp | EdTech, Agriculture Hub & Express Transport</title>
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,6 +32,10 @@
             --accent: #f59e0b;
             --accent-hover: #d97706;
             --accent-light: #fef3c7;
+            --agri-green: #15803d;
+            --agri-green-light: #dcfce7;
+            --agri-gold: #d97706;
+            --agri-gold-light: #fef3c7;
             --purple: #8b5cf6;
             --purple-light: #ede9fe;
             --danger: #dc2626;
@@ -74,6 +78,8 @@
             --primary-glow: rgba(20, 184, 166, 0.35);
             --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
             --yt-bg-light: #2b1212;
+            --agri-green-light: #143821;
+            --agri-gold-light: #3d2d0f;
         }
 
         [data-lang="kn"] {
@@ -114,7 +120,7 @@
         ul { list-style: none; }
 
         /* TOUCH TARGET SIZE & MOBILE WEBVIEW OPTIMIZATIONS */
-        button, .btn, .nav-link-btn, .lang-toggle-btn, .icon-btn, .slot-pill, .tier-card, .option-selectable-card, .dash-tab-btn, .tier-tab-btn, .fleet-filter-btn {
+        button, .btn, .nav-link-btn, .lang-toggle-btn, .icon-btn, .slot-pill, .tier-card, .option-selectable-card, .dash-tab-btn, .tier-tab-btn, .fleet-filter-btn, .agri-pillar-btn {
             touch-action: manipulation;
             min-height: 48px;
             display: inline-flex;
@@ -163,7 +169,7 @@
 
         /* ANNOUNCEMENT BAR */
         .top-notice-bar {
-            background: linear-gradient(90deg, #dc2626, #0f766e, #1d4ed8);
+            background: linear-gradient(90deg, #15803d, #0f766e, #1d4ed8);
             color: white;
             font-size: 0.8rem;
             font-weight: 600;
@@ -241,7 +247,7 @@
         .brand-badge {
             width: 42px;
             height: 42px;
-            background: linear-gradient(135deg, var(--primary), #0d9488);
+            background: linear-gradient(135deg, var(--primary), #15803d);
             color: white;
             border-radius: 12px;
             display: flex;
@@ -286,6 +292,16 @@
             background: var(--primary-light);
             color: var(--primary);
             box-shadow: inset 0 0 0 1px var(--primary);
+        }
+
+        .nav-link-btn.agri-nav-highlight {
+            background: var(--agri-green-light);
+            color: var(--agri-green);
+        }
+
+        .nav-link-btn.agri-nav-highlight.active {
+            background: var(--agri-green);
+            color: white;
         }
 
         /* MOBILE DRAWER OVERLAY */
@@ -408,7 +424,7 @@
 
         /* HERO SECTION */
         .hero-section {
-            background: linear-gradient(135deg, rgba(255, 0, 0, 0.05) 0%, rgba(15, 118, 110, 0.12) 50%, rgba(37, 99, 235, 0.08) 100%);
+            background: linear-gradient(135deg, rgba(21, 128, 61, 0.08) 0%, rgba(15, 118, 110, 0.12) 50%, rgba(37, 99, 235, 0.08) 100%);
             padding: 2.5rem 1.25rem 2.5rem;
             border-bottom: 1px solid var(--border-light);
             text-align: center;
@@ -458,6 +474,182 @@
             justify-content: center;
             gap: 0.75rem;
             flex-wrap: wrap;
+        }
+
+        /* AGRICULTURE HUB SPECIFIC STYLES */
+        .agri-hero-banner {
+            background: linear-gradient(135deg, #052e16 0%, #15803d 50%, #0f766e 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 1.75rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .agri-hero-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            opacity: 0.18;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+
+        .agri-tb-river-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(90deg, #0284c7, #0f766e);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.82rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        }
+
+        .agri-location-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .agri-location-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agri-location-card:hover {
+            border-color: var(--agri-green);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .agri-pillar-nav-bar {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.75rem;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 0.75rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .agri-pillar-btn {
+            padding: 0.8rem 1.4rem;
+            border-radius: 50px;
+            background: var(--bg);
+            border: 2px solid var(--border);
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .agri-pillar-btn.active {
+            background: var(--agri-green);
+            color: white;
+            border-color: var(--agri-green);
+            box-shadow: 0 6px 18px rgba(21, 128, 61, 0.3);
+        }
+
+        .agri-pillar-content {
+            display: none;
+            animation: fadeInView 0.3s ease forwards;
+        }
+
+        .agri-pillar-content.active {
+            display: block;
+        }
+
+        .ecommerce-product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .ecommerce-product-card:hover {
+            border-color: var(--agri-green);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .ecommerce-product-img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            background: var(--bg);
+        }
+
+        .ecommerce-card-body {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .agri-badge-green {
+            background: var(--agri-green-light);
+            color: var(--agri-green);
+        }
+
+        .agri-badge-gold {
+            background: var(--agri-gold-light);
+            color: var(--agri-gold);
+        }
+
+        .drone-process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .drone-step-card {
+            background: var(--bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .drone-step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--agri-green);
+            color: white;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.65rem;
+            font-size: 0.85rem;
         }
 
         /* DYNAMIC WIZARD & CARDS */
@@ -1065,6 +1257,7 @@
         .btn-lg { padding: 0.75rem 1.5rem; font-size: 0.95rem; border-radius: 50px; min-height: 52px; }
 
         .btn-primary { background-color: var(--primary); color: #ffffff; }
+        .btn-agri { background-color: var(--agri-green); color: #ffffff; }
         .btn-secondary { background: transparent; border-color: var(--border); color: var(--text-main); }
         .btn-accent { background-color: var(--accent); color: var(--dark); }
         .btn-purple { background-color: var(--purple); color: white; }
@@ -1287,8 +1480,8 @@
 
         /* MOBILE WEBVIEW SPECIFIC MEDIA QUERIES */
         @media (max-width: 1024px) {
-            .grid-3, .footer-grid, .tuition-models-grid { grid-template-columns: repeat(2, 1fr); }
-            .grid-4, .tier-flow-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-3, .footer-grid, .tuition-models-grid, .agri-location-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-4, .tier-flow-grid, .drone-process-grid { grid-template-columns: repeat(2, 1fr); }
             .wizard-steps-bar { grid-template-columns: repeat(2, 1fr); }
         }
 
@@ -1297,7 +1490,7 @@
             .mobile-nav-toggle { display: flex; }
             .hero-title { font-size: 1.8rem; }
             .hero-subtitle { font-size: 0.95rem; }
-            .grid-3, .grid-2, .grid-4, .footer-grid, .tier-flow-grid, .tuition-models-grid { grid-template-columns: 1fr; }
+            .grid-3, .grid-2, .grid-4, .footer-grid, .tier-flow-grid, .tuition-models-grid, .agri-location-grid, .drone-process-grid { grid-template-columns: 1fr; }
             .wizard-steps-bar { grid-template-columns: 1fr; }
             .top-notice-bar { flex-direction: column; text-align: center; justify-content: center; }
             .top-contacts { justify-content: center; }
@@ -1306,6 +1499,7 @@
             .hero-cta-group { width: 100%; }
             .selector-wizard-wrapper { margin-top: -1rem; padding: 0 0.85rem; }
             .wizard-card { padding: 1.1rem; }
+            .agri-hero-banner { padding: 1.5rem 1rem; }
         }
     </style>
 </head>
@@ -1315,21 +1509,21 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <!-- WHATSAPP QUICK CHAT FLOATING BUTTON -->
-    <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20SuperApp,%20I%20want%20information%20regarding%20coaching%20batches%20and%20transport%20rental%20services.')" class="whatsapp-float" title="Direct WhatsApp Chat (+91 9916083774)">
+    <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20SuperApp,%20I%20want%20information%20regarding%20coaching,%20drone%20spraying,%20fertilizers,%20or%20paddy%20trading.')" class="whatsapp-float" title="Direct WhatsApp Desk (+91 9916083774)">
         💬
     </a>
 
     <!-- TOP ANNOUNCEMENT & CONTACT BAR -->
     <div class="top-notice-bar">
         <div>
-            <span class="notice-tag" id="noticeTagText" data-i18n="announcement_tag">🎓 Coaching & Transport Express</span>
-            <span id="noticeBarMsg" data-i18n="announcement_msg">Official Partner: Cousins Academy (@cousinsacademy4599) • Car Rentals & Paddy Cargo Transport Live</span>
+            <span class="notice-tag" id="noticeTagText" data-i18n="announcement_tag">🌾 Agriculture & Coaching Engine</span>
+            <span id="noticeBarMsg" data-i18n="announcement_msg">Tungabhadra River Basin Agri Hub • Drone Spraying • Kaveri & Sona Masuri Rice Trade • Cousins Academy</span>
         </div>
         <div class="top-contacts">
             <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')">📞 +91 9916083774</a>
             <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/917022777478')">💬 +91 7022777478</a>
             <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088171010')">📞 +91 8088171010</a>
-            <span>📍 Sindhanur • Raichur • Bellary</span>
+            <span>📍 Sindhanur • Hampi/Hosapete Basin • Raichur/Bellary</span>
         </div>
     </div>
 
@@ -1341,7 +1535,7 @@
                 <span class="brand-badge">SE</span>
                 <div>
                     <span style="display: block; line-height: 1.1;">Sharusuri <small style="color: var(--primary); font-size: 0.68rem; display: inline;">SuperApp</small></span>
-                    <span style="font-size: 0.65rem; color: var(--yt-red); font-weight: 800; display: block;">EdTech & Transport Hub</span>
+                    <span style="font-size: 0.65rem; color: var(--agri-green); font-weight: 800; display: block;">EdTech, AgTech & Transport Hub</span>
                 </div>
             </a>
 
@@ -1349,6 +1543,9 @@
             <nav class="nav-links-menu" id="desktopNavMenu">
                 <button class="nav-link-btn active" id="nav-home" onclick="navigateToPage('home')">
                     <span>🏠</span> <span data-i18n="nav_home">Home</span>
+                </button>
+                <button class="nav-link-btn agri-nav-highlight" id="nav-agriculture" onclick="navigateToPage('agriculture')">
+                    <span>🌾</span> <span data-i18n="nav_agri">Agriculture Hub</span>
                 </button>
                 <button class="nav-link-btn" id="nav-programs" onclick="navigateToPage('programs')">
                     <span>📚</span> <span data-i18n="nav_programs">Programs & Tiers</span>
@@ -1403,7 +1600,7 @@
                 <span class="brand-badge">SE</span>
                 <div>
                     <span style="display: block; line-height: 1.1; font-size: 1rem;">Sharusuri SuperApp</span>
-                    <span style="font-size: 0.65rem; color: var(--yt-red); font-weight: 800; display: block;">EdTech & Transport Services</span>
+                    <span style="font-size: 0.65rem; color: var(--agri-green); font-weight: 800; display: block;">EdTech & Agriculture Hub</span>
                 </div>
             </div>
             <button class="icon-btn" onclick="toggleMobileNav()">✕</button>
@@ -1412,6 +1609,9 @@
         <nav class="mobile-drawer-nav">
             <button class="nav-link-btn" onclick="navigateToPage('home'); toggleMobileNav();">
                 <span>🏠</span> <span data-i18n="nav_home">Home</span>
+            </button>
+            <button class="nav-link-btn agri-nav-highlight" onclick="navigateToPage('agriculture'); toggleMobileNav();">
+                <span>🌾</span> <span data-i18n="nav_agri">Agriculture Hub (Tungabhadra Basin)</span>
             </button>
             <button class="nav-link-btn" onclick="navigateToPage('programs'); toggleMobileNav();">
                 <span>📚</span> <span data-i18n="nav_programs">Programs & Support Tiers</span>
@@ -1437,6 +1637,9 @@
         </nav>
 
         <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 0.5rem;">
+            <button class="btn btn-agri" onclick="navigateToPage('agriculture'); toggleMobileNav();">
+                🌾 Explore Agriculture Hub
+            </button>
             <button class="btn btn-primary" onclick="openAuthModal(); toggleMobileNav();" data-i18n="btn_login">
                 🔐 Login Portal
             </button>
@@ -1464,6 +1667,9 @@
                         Karnataka's top coaching engine backed by a 4-Tier Academic Support Hierarchy, Cross-Branch Teacher Access, and Flexible Hybrid Learning Models.
                     </p>
                     <div class="hero-cta-group">
+                        <button class="btn btn-agri btn-lg" onclick="navigateToPage('agriculture')">
+                            🌾 Agriculture Hub & Drone Spraying
+                        </button>
                         <button class="btn btn-accent btn-lg" onclick="openDemoModal()" data-i18n="hero_btn_trial">
                             🎯 Book Free Trial Demo Class
                         </button>
@@ -1471,10 +1677,27 @@
                             🚀 Explore Programs & Support Tiers
                         </button>
                         <button class="btn btn-purple btn-lg" onclick="navigateToPage('transport')" data-i18n="hero_btn_transport">
-                            🚕 Rent Cars & Agricultural Freight
+                            🚕 Rent Cars & Freight Logistics
                         </button>
-                        <button class="btn btn-yt btn-lg" onclick="openExternalUrl('https://www.youtube.com/@cousinsacademy4599?sub_confirmation=1')" data-i18n="hero_btn_yt">
-                            📺 Subscribe YouTube Channel
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUICK AGRICULTURE HUB BANNER ON HOME -->
+            <div class="section-container" style="margin-top: 2rem;">
+                <div class="info-card" style="background: linear-gradient(135deg, #052e16 0%, #15803d 100%); color: white; border: none; padding: 1.75rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div style="max-width: 750px;">
+                            <span class="agri-tb-river-badge">🌊 Powered by Sweet Tungabhadra River Water</span>
+                            <h3 style="font-size: 1.6rem; font-weight: 900; color: white; margin-bottom: 0.4rem;">
+                                Industry-Standard Tungabhadra Agriculture Hub
+                            </h3>
+                            <p style="font-size: 0.92rem; opacity: 0.92; line-height: 1.5;">
+                                Precision Drone Spraying Services • High-Grade Fertilizers (Urea, 10-26-26, Zinc) • Direct Farmgate Paddy Procurement & Premium Kaveri/Sona Masuri Rice Sales.
+                            </p>
+                        </div>
+                        <button class="btn btn-accent btn-lg" onclick="navigateToPage('agriculture')">
+                            🌾 Launch Agriculture Hub →
                         </button>
                     </div>
                 </div>
@@ -1509,6 +1732,11 @@
             <div class="section-container">
                 <div class="grid-4">
                     <div class="info-card" style="text-align: center;">
+                        <div style="font-size: 2rem; color: var(--agri-green); font-weight: 900;">10 Mins</div>
+                        <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;">Drone Spray / Acre</div>
+                        <div style="font-size: 0.78rem; color: var(--text-muted);">Precision AgTech in Sindhanur</div>
+                    </div>
+                    <div class="info-card" style="text-align: center;">
                         <div style="font-size: 2rem; color: var(--primary); font-weight: 900;">98.4%</div>
                         <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;" data-i18n="stat1_label">Navodaya Selection Rate</div>
                         <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat1_sub">Top ranks in Raichur & Bellary</div>
@@ -1519,16 +1747,297 @@
                         <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat2_sub">Online & Multi-Campus Network</div>
                     </div>
                     <div class="info-card" style="text-align: center;">
-                        <div style="font-size: 2rem; color: var(--accent); font-weight: 900;">4 Tiers</div>
-                        <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;" data-i18n="stat3_label">Academic Backing</div>
-                        <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat3_sub">Class teacher to cross-branch mentors</div>
-                    </div>
-                    <div class="info-card" style="text-align: center;">
                         <div style="font-size: 1.5rem; color: var(--yt-red); font-weight: 900; word-break: break-all;">@cousinsacademy</div>
                         <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;" data-i18n="stat4_label">Official Video Lessons</div>
                         <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat4_sub">Dedicated YouTube masterclasses</div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- NEW INDUSTRY-STANDARD AGRICULTURE HUB VIEW -->
+        <section id="page-agriculture" class="page-view">
+            <div class="section-container" style="margin-top: 1.5rem;">
+                
+                <!-- HERO BANNER WITH TUNGABHADRA RIVER BRANDING -->
+                <div class="agri-hero-banner">
+                    <div class="agri-hero-bg-overlay"></div>
+                    <div style="position: relative; z-index: 2; max-width: 880px;">
+                        <span class="agri-tb-river-badge">
+                            🌊 Cultivated with Sweet Tungabhadra River Water • Hampi Irrigation Belt
+                        </span>
+                        <h1 style="font-size: 2.3rem; font-weight: 900; line-height: 1.2; margin-bottom: 0.75rem;">
+                            Tungabhadra River Basin Agriculture & AgTech Hub
+                        </h1>
+                        <p style="font-size: 1rem; opacity: 0.92; line-height: 1.6; margin-bottom: 1.5rem;">
+                            Serving Sindhanur, Hampi/Hosapete, Raichur, and Bellary with precision agricultural drone spraying services, high-grade soil nutrients & fertilizers, and direct farmgate paddy trading for sweet-water Kaveri & Sona Masuri rice varieties.
+                        </p>
+                        
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <button class="btn btn-accent btn-lg" onclick="openDroneBookingModal()">
+                                🛸 Book Drone Spray Service (₹499/Acre)
+                            </button>
+                            <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20Agri%20Hub,%20I%20want%20information%20regarding%20drone%20spraying,%20fertilizers,%20and%20paddy%20trading.')">
+                                💬 Direct Agri WhatsApp Desk
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SPECIFICATION 1: PRIME LOCATIONS & REGIONAL HUBS SHOWCASE -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div class="section-header" style="text-align: left; margin-bottom: 1.25rem;">
+                        <span class="badge badge-primary">📍 Regional Operations Network</span>
+                        <h2 style="font-size: 1.5rem; margin-top: 0.2rem;">Our Prime Agriculture & Trade Depots</h2>
+                        <p style="margin: 0; font-size: 0.88rem;">Strategically positioned hubs across the fertile Tungabhadra river irrigation network.</p>
+                    </div>
+
+                    <div class="agri-location-grid">
+                        <div class="agri-location-card">
+                            <span class="badge badge-success" style="margin-bottom: 0.5rem;">Central Hub</span>
+                            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">🚜 Sindhanur APMC & AgTech Depot</h3>
+                            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
+                                AP K Hosalli Circle, Bus Stand Road, Sindhanur. Fleet command for 12 agricultural spraying drones and direct paddy procurement desk.
+                            </p>
+                            <div style="font-size: 0.78rem; font-weight: 700; color: var(--primary);">
+                                📞 Helplines: +91 9916083774 / +91 8088171010
+                            </div>
+                        </div>
+
+                        <div class="agri-location-card" style="border-color: #0284c7;">
+                            <span class="badge" style="background: #e0f2fe; color: #0284c7; margin-bottom: 0.5rem;">Sweet Water Irrigated Basin</span>
+                            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">🌊 Hampi & Hosapete River Basin</h3>
+                            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
+                                Premium paddy fields nurtured by canal water from Tungabhadra Dam. Primary growing zone for sweet Sona Masuri & Kaveri rice.
+                            </p>
+                            <div style="font-size: 0.78rem; font-weight: 700; color: #0284c7;">
+                                🌊 Tungabhadra Canal Distribution Center
+                            </div>
+                        </div>
+
+                        <div class="agri-location-card">
+                            <span class="badge badge-purple" style="margin-bottom: 0.5rem;">District Logistics Nodes</span>
+                            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">🏬 Raichur & Bellary Outposts</h3>
+                            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
+                                Station Road Raichur & Royal Circle Bellary. Fertilizer distribution depots and regional rice mill dispatch facilities.
+                            </p>
+                            <div style="font-size: 0.78rem; font-weight: 700; color: var(--purple);">
+                                📦 Bulk Transport & Express Dispatch
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SPECIFICATION 2: INTERACTIVE 3-PILLAR TAB SELECTOR -->
+                <div>
+                    <div class="section-header" style="text-align: center; margin-bottom: 1.5rem;">
+                        <span class="badge badge-warning">⚡ 3 Comprehensive Agricultural Pillars</span>
+                        <h2>Explore Our Agricultural Ecosystem</h2>
+                        <p>Select a pillar below to access drone bookings, high-grade fertilizers, or paddy/rice trade services.</p>
+                    </div>
+
+                    <!-- TAB SELECTOR BUTTONS -->
+                    <div class="agri-pillar-nav-bar" id="agriPillarTabs">
+                        <button class="agri-pillar-btn active" onclick="switchAgriPillar('drone', this)">
+                            <span>🛸 Pillar 1: Drone Spraying Services</span>
+                        </button>
+                        <button class="agri-pillar-btn" onclick="switchAgriPillar('fertilizer', this)">
+                            <span>🧪 Pillar 2: High-Grade Fertilizers</span>
+                        </button>
+                        <button class="agri-pillar-btn" onclick="switchAgriPillar('paddy', this)">
+                            <span>🌾 Pillar 3: Tungabhadra Paddy & Rice Trade</span>
+                        </button>
+                    </div>
+
+                    <!-- PILLAR 1: PRECISION DRONE SPRAYING SERVICES -->
+                    <div class="agri-pillar-content active" id="agriPillar-drone">
+                        <div class="info-card" style="margin-bottom: 1.5rem; border: 2px solid var(--agri-green);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+                                <div>
+                                    <span class="badge agri-badge-green" style="margin-bottom: 0.4rem;">🛸 Next-Gen Precision Agriculture</span>
+                                    <h3 style="font-size: 1.4rem; font-weight: 800;">High-Capacity Agricultural Drone Spraying</h3>
+                                    <p style="font-size: 0.88rem; color: var(--text-muted);">Faster, safer, and 100% uniform liquid fertilizer, pesticide, and micronutrient application across your fields.</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <span style="font-size: 0.8rem; color: var(--text-muted);">Special Farmer Fare:</span>
+                                    <div style="font-size: 1.6rem; font-weight: 900; color: var(--agri-green);">₹499 <small style="font-size: 0.8rem; color: var(--text-muted);">/ Acre</small></div>
+                                </div>
+                            </div>
+
+                            <!-- Drone How It Works Workflow -->
+                            <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 0.75rem;">How Precision Drone Spraying Works:</h4>
+                            <div class="drone-process-grid">
+                                <div class="drone-step-card">
+                                    <div class="drone-step-num">1</div>
+                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Book Field Slot</h5>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Provide land acre count and field location via app or WhatsApp call.</p>
+                                </div>
+                                <div class="drone-step-card">
+                                    <div class="drone-step-num">2</div>
+                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">3D Terrain Mapping</h5>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Drone pilot maps field boundaries and crop height using obstacle radar.</p>
+                                </div>
+                                <div class="drone-step-card">
+                                    <div class="drone-step-num">3</div>
+                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Micro-Mist Spray</h5>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted);">10-liter liquid payload covers 1 acre in just 10 minutes with 95% water saving.</p>
+                                </div>
+                                <div class="drone-step-card">
+                                    <div class="drone-step-num">4</div>
+                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Instant Report</h5>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Receive digital field health map and precise spray completion certificate.</p>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 0.85rem; flex-wrap: wrap; margin-top: 1.25rem;">
+                                <button class="btn btn-agri btn-lg" onclick="openDroneBookingModal()">
+                                    🛸 Book Drone Spray Service Now
+                                </button>
+                                <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Drone%20Desk,%20I%20want%20to%20book%20a%20drone%20spray%20for%20my%20field.')">
+                                    💬 WhatsApp Drone Booking (+91 9916083774)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PILLAR 2: HIGH-GRADE FERTILIZERS (AMAZON/FLIPKART STYLE E-COMMERCE CARDS) -->
+                    <div class="agri-pillar-content" id="agriPillar-fertilizer">
+                        <div class="section-header" style="text-align: left; margin-bottom: 1.25rem;">
+                            <span class="badge badge-primary">🧪 Genuine Input Guarantee</span>
+                            <h3 style="font-size: 1.3rem;">High-Grade Soil Nutrients & Complex Fertilizers</h3>
+                            <p style="margin: 0; font-size: 0.85rem;">Sourced directly from certified government suppliers and top chemical manufacturers for high crop yield.</p>
+                        </div>
+
+                        <div class="grid-4" style="margin-bottom: 1.5rem;">
+                            <!-- Product 1: Urea -->
+                            <div class="ecommerce-product-card">
+                                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="Neem Coated Urea Bag">
+                                <div class="ecommerce-card-body">
+                                    <span class="badge agri-badge-green" style="margin-bottom: 0.4rem; align-self: flex-start;">High Nitrogen 46%</span>
+                                    <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">Neem Coated Urea (45kg)</h4>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">Essential nitrogen booster for fast vegetative growth in paddy crops.</p>
+                                    
+                                    <div class="price-tag-box">
+                                        <div>
+                                            <span class="price-amount">₹266</span>
+                                            <span class="price-unit">/ 45kg bag</span>
+                                        </div>
+                                        <span class="badge badge-success">In Stock</span>
+                                    </div>
+                                    <button class="btn btn-agri btn-sm" style="width: 100%;" onclick="openFertilizerQuoteModal('Neem Coated Urea 45kg')">
+                                        🛍️ Order / Bulk Inquiry
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Product 2: NPK 10-26-26 -->
+                            <div class="ecommerce-product-card">
+                                <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="NPK 10-26-26 Complex">
+                                <div class="ecommerce-card-body">
+                                    <span class="badge agri-badge-gold" style="margin-bottom: 0.4rem; align-self: flex-start;">Complex NPK (10:26:26)</span>
+                                    <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">NPK 10-26-26 Complex (50kg)</h4>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">High Phosphorus & Potash formulation for strong root & grain weight.</p>
+                                    
+                                    <div class="price-tag-box">
+                                        <div>
+                                            <span class="price-amount">₹1,470</span>
+                                            <span class="price-unit">/ 50kg bag</span>
+                                        </div>
+                                        <span class="badge badge-success">In Stock</span>
+                                    </div>
+                                    <button class="btn btn-agri btn-sm" style="width: 100%;" onclick="openFertilizerQuoteModal('NPK 10-26-26 Complex 50kg')">
+                                        🛍️ Order / Bulk Inquiry
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Product 3: NPK 10-10-10 -->
+                            <div class="ecommerce-product-card">
+                                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="NPK 10-10-10 Balanced Booster">
+                                <div class="ecommerce-card-body">
+                                    <span class="badge badge-primary" style="margin-bottom: 0.4rem; align-self: flex-start;">Balanced Fertilizer</span>
+                                    <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">NPK 10-10-10 Balanced Booster</h4>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">Equal ratio nutrient blend for early crop tillering & balanced soil health.</p>
+                                    
+                                    <div class="price-tag-box">
+                                        <div>
+                                            <span class="price-amount">₹1,180</span>
+                                            <span class="price-unit">/ 50kg bag</span>
+                                        </div>
+                                        <span class="badge badge-success">In Stock</span>
+                                    </div>
+                                    <button class="btn btn-agri btn-sm" style="width: 100%;" onclick="openFertilizerQuoteModal('NPK 10-10-10 Balanced Booster')">
+                                        🛍️ Order / Bulk Inquiry
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Product 4: Zinc Micronutrient -->
+                            <div class="ecommerce-product-card">
+                                <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="Chelated Zinc Sulphate">
+                                <div class="ecommerce-card-body">
+                                    <span class="badge badge-purple" style="margin-bottom: 0.4rem; align-self: flex-start;">Chelated Zinc 33%</span>
+                                    <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">Zinc Sulphate Micronutrient</h4>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">Prevents Khaira disease in paddy; restores leaf greenness and grain shine.</p>
+                                    
+                                    <div class="price-tag-box">
+                                        <div>
+                                            <span class="price-amount">₹480</span>
+                                            <span class="price-unit">/ 10kg pack</span>
+                                        </div>
+                                        <span class="badge badge-success">In Stock</span>
+                                    </div>
+                                    <button class="btn btn-agri btn-sm" style="width: 100%;" onclick="openFertilizerQuoteModal('Zinc Sulphate Micronutrient 10kg')">
+                                        🛍️ Order / Bulk Inquiry
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PILLAR 3: PADDY & RICE PRODUCE TRADING (BUYING & SELLING) -->
+                    <div class="agri-pillar-content" id="agriPillar-paddy">
+                        <div class="info-card" style="border: 2px solid var(--agri-gold); margin-bottom: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 1rem;">
+                                <div>
+                                    <span class="badge agri-badge-gold" style="margin-bottom: 0.3rem;">🌊 Pure Tungabhadra Canal Irrigation</span>
+                                    <h3 style="font-size: 1.4rem; font-weight: 900;">Tungabhadra Sweet Water Paddy & Rice Produce Desk</h3>
+                                    <p style="font-size: 0.88rem; color: var(--text-muted);">
+                                        Cultivated in the fertile Hampi/Hosapete & Sindhanur canal belts using mineral-rich sweet Tungabhadra river water. Specializing in aromatic <strong>Kaveri</strong> and long-grain <strong>Sona Masuri</strong> varieties.
+                                    </p>
+                                </div>
+                                <span class="badge badge-success" style="font-size: 0.85rem;">Verified Mill Direct</span>
+                            </div>
+
+                            <div class="grid-2" style="margin: 1.25rem 0;">
+                                <!-- DUAL CHANNEL OPTION 1: WE BUY RAW PADDY FROM FARMERS -->
+                                <div style="background: var(--bg); border: 1.5px solid var(--border-light); border-radius: var(--radius-md); padding: 1.25rem;">
+                                    <span class="badge agri-badge-green" style="margin-bottom: 0.5rem;">🚜 For Local Farmers</span>
+                                    <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Sell Raw Paddy to Us (Farmgate Purchase)</h4>
+                                    <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.85rem;">
+                                        Get instant spot cash and field-pickup for your raw paddy harvest. We purchase Kaveri, Sona Masuri, and RNR 15048 varieties directly at APMC market rates with zero transport hassle.
+                                    </p>
+                                    <button class="btn btn-agri style='width: 100%;'" onclick="openPaddyTradeModal('SELL_PADDY', 'Sona Masuri / Kaveri Raw Paddy')">
+                                        🌾 Submit Paddy Sale Offer
+                                    </button>
+                                </div>
+
+                                <!-- DUAL CHANNEL OPTION 2: WE SELL PREMIUM RICE TO BUYERS -->
+                                <div style="background: var(--bg); border: 1.5px solid var(--border-light); border-radius: var(--radius-md); padding: 1.25rem;">
+                                    <span class="badge agri-badge-gold" style="margin-bottom: 0.5rem;">🏬 For Wholesale Buyers & Families</span>
+                                    <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Buy Premium Rice (Direct Mill Supply)</h4>
+                                    <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.85rem;">
+                                        Order 100% aged, silky polished, sweet Tungabhadra Sona Masuri & Kaveri Rice bags (25kg/50kg) directly from our Sindhanur & Raichur processing mills with home delivery.
+                                    </p>
+                                    <button class="btn btn-accent style='width: 100%;'" onclick="openPaddyTradeModal('BUY_RICE', 'Tungabhadra Sona Masuri / Kaveri Rice')">
+                                        🛒 Order Premium Rice Bags
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -1903,8 +2412,8 @@
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
                     <span class="badge badge-primary">ℹ️ About Sharusuri & Cousins Academy</span>
-                    <h2>Democratizing Competitive Coaching Across Karnataka</h2>
-                    <p>Empowering rural and urban students across Raichur, Bellary, Koppal, and state-wide to achieve top ranks in competitive entrance exams.</p>
+                    <h2>Democratizing Competitive Coaching & Agricultural Services</h2>
+                    <p>Empowering rural and urban communities across Raichur, Bellary, Koppal, and Tungabhadra basin with top coaching and agtech solutions.</p>
                 </div>
 
                 <div class="grid-2">
@@ -1917,7 +2426,7 @@
                             </div>
                         </div>
                         <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
-                            Lead visionary dedicated to transforming rural education in Karnataka. Creator of Sharusuri EdTech OS and official partner of Cousins Academy video content (@cousinsacademy4599).
+                            Lead visionary dedicated to transforming rural education and agricultural technology in Karnataka. Creator of Sharusuri SuperApp and official partner of Cousins Academy video content (@cousinsacademy4599).
                         </p>
                         <div style="margin-top: 1rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem;">
                             <div>✉️ Email: <strong>suresh2suresh80888@gmail.com</strong></div>
@@ -1962,7 +2471,7 @@
                         <h3 style="font-size: 1.15rem; margin-bottom: 0.85rem;">✨ Book Free Trial Demo or Send Inquiry</h3>
                         <form onsubmit="handleContactSubmit(event)">
                             <div class="form-group">
-                                <label class="form-label">Student Full Name *</label>
+                                <label class="form-label">Full Name *</label>
                                 <input type="text" class="form-input" id="contactStudentName" required placeholder="e.g. Ramesh Patil">
                             </div>
                             <div class="form-group">
@@ -1970,13 +2479,15 @@
                                 <input type="tel" class="form-input" id="contactPhone" required placeholder="10-digit mobile number">
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Target Program</label>
+                                <label class="form-label">Inquiry Category</label>
                                 <select class="form-input" id="contactProgram" style="font-weight: 700;">
                                     <option>Navodaya Entrance Coaching</option>
                                     <option>Morarji Desai Entrance Exam</option>
                                     <option>Sainik School Entrance</option>
-                                    <option>State Board Foundation</option>
-                                    <option>Car Rental / Goods Transport Service</option>
+                                    <option>Agricultural Drone Spraying Booking</option>
+                                    <option>Tungabhadra Paddy & Rice Trade</option>
+                                    <option>Fertilizer Bulk Purchase</option>
+                                    <option>Car Rental / Freight Transport</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -2006,14 +2517,18 @@
                             
                             <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem;">
                                 <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--border);">
-                                    <strong style="color: var(--text-main);">🏛️ Sindhanur Main Campus & Transport Hub:</strong><br>
+                                    <strong style="color: var(--text-main);">🏛️ Sindhanur Main Campus & Agri Depot:</strong><br>
                                     Near Bus Stand Road, AP K Hosalli Circle, Sindhanur – 584128
+                                </div>
+                                <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--border);">
+                                    <strong style="color: var(--text-main);">🌊 Hampi / Hosapete River Basin Office:</strong><br>
+                                    Tungabhadra Dam Road, Hosapete – 583225
                                 </div>
                                 <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--border);">
                                     <strong style="color: var(--text-main);">🏛️ Raichur Central Hub:</strong><br>
                                     Station Road, Opposite Govt Junior College, Raichur – 584101
                                 </div>
-                                <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--border);">
+                                <div>
                                     <strong style="color: var(--text-main);">🏛️ Bellary Branch:</strong><br>
                                     Infantry Road, Near Royal Circle, Bellary – 583101
                                 </div>
@@ -2028,10 +2543,10 @@
                                     💬 Line 2 (WhatsApp / Support): +91 7022777478
                                 </button>
                                 <button type="button" onclick="openExternalUrl('tel:+918088171010')" class="btn btn-secondary">
-                                    📞 Line 3 (Student Helpdesk): +91 8088171010
+                                    📞 Line 3 (Helpdesk): +91 8088171010
                                 </button>
                                 <button type="button" onclick="openExternalUrl('tel:+917892493133')" class="btn btn-secondary">
-                                    📞 Line 4 (Admissions & Transport): +91 7892493133
+                                    📞 Line 4 (Agri & Transport): +91 7892493133
                                 </button>
                             </div>
                         </div>
@@ -2185,7 +2700,7 @@
                 <div class="section-header">
                     <span class="badge badge-primary">⚙️ Master Admin Console</span>
                     <h2>Platform Governance & Program Management</h2>
-                    <p>Log in as <code>suresh2suresh80888@gmail.com</code> to add programs, manage schedule slots, monitor demo requests, and manage doubt escalations.</p>
+                    <p>Log in as <code>suresh2suresh80888@gmail.com</code> to manage programs, agriculture drone bookings, paddy trade leads, and support tickets.</p>
                 </div>
 
                 <div class="info-card" style="margin-bottom: 2rem;">
@@ -2221,10 +2736,10 @@
             <div>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.85rem;">
                     <span class="brand-badge" style="width: 34px; height: 34px; font-size: 0.9rem;">SE</span>
-                    <h3 style="font-size: 1.1rem; color: white;">Sharusuri SuperApp & Transport Hub</h3>
+                    <h3 style="font-size: 1.1rem; color: white;">Sharusuri SuperApp & Agriculture Hub</h3>
                 </div>
                 <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.55;" data-i18n="footer_desc">
-                    Karnataka's leading educational and logistics platform equipped with 4-Tier Coaching, multi-branch expert network, car rentals, and rural paddy freight transport.
+                    Karnataka's leading educational and agricultural technology platform equipped with 4-Tier Coaching, precision drone spraying, fertilizer inputs, Tungabhadra rice trading, and rural transport.
                 </p>
             </div>
 
@@ -2232,9 +2747,9 @@
                 <h4 style="font-size: 0.9rem; color: white; margin-bottom: 0.75rem;" data-i18n="footer_quick_links">Quick Links</h4>
                 <ul style="font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem; color: #cbd5e1;">
                     <li><a href="javascript:void(0)" onclick="navigateToPage('home')" data-i18n="nav_home">Home</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigateToPage('agriculture')" data-i18n="nav_agri">Agriculture Hub</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('programs')" data-i18n="nav_programs">Programs & Support Tiers</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('transport')" data-i18n="nav_transport">Transport & Car Rentals</a></li>
-                    <li><a href="javascript:void(0)" onclick="navigateToPage('schedule')" data-i18n="nav_schedule">Batches & Schedule</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('portal')" data-i18n="nav_portal">Parent & Student Portal</a></li>
                 </ul>
             </div>
@@ -2262,7 +2777,7 @@
         </div>
 
         <div style="text-align: center; font-size: 0.75rem; color: #64748b; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.1rem;" data-i18n="footer_copyright">
-            © 2026 Sharusuri EdTech & Express Transport OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com
+            © 2026 Sharusuri EdTech & AgTech OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com
         </div>
     </footer>
 
@@ -2416,7 +2931,150 @@
         </div>
     </div>
 
-    <!-- MODAL 4: AUTHENTICATION MODAL -->
+    <!-- MODAL 4: DRONE SPRAY BOOKING MODAL -->
+    <div class="modal-overlay" id="droneBookingModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeDroneBookingModal()">✕</button>
+            <div style="text-align: center; margin-bottom: 1.1rem;">
+                <span class="badge agri-badge-green" style="margin-bottom: 0.3rem;">🛸 Precision Agricultural Drone</span>
+                <h3 style="font-size: 1.3rem;">Book Drone Spraying Service</h3>
+                <p style="font-size: 0.82rem; color: var(--text-muted);">₹499/Acre • Fast 10-Minute Spray • 95% Water Saving</p>
+            </div>
+
+            <form onsubmit="handleDroneBookingSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label">Farmer / Landowner Name *</label>
+                    <input type="text" id="droneFarmerName" class="form-input" required placeholder="e.g. Basavaraj Gowda">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Mobile Number *</label>
+                    <input type="tel" id="droneFarmerPhone" class="form-input" required placeholder="10-digit mobile number">
+                </div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Total Land Area (Acres) *</label>
+                        <input type="number" id="droneAcres" class="form-input" required min="1" value="5">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Crop Type *</label>
+                        <select id="droneCropType" class="form-input" style="font-weight: 700;">
+                            <option>🌾 Paddy / Rice Crop</option>
+                            <option>☁️ Cotton Crop</option>
+                            <option>🌽 Maize / Corn</option>
+                            <option>🌶️ Red Chili / Spices</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Field Location / Village *</label>
+                    <input type="text" id="droneLocation" class="form-input" required placeholder="e.g. Near Hosalli Circle, Sindhanur">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Spray Requirement</label>
+                    <select id="droneSprayType" class="form-input">
+                        <option>Pesticide / Insecticide Spray</option>
+                        <option>Liquid Nano Urea & Nutrient Spray</option>
+                        <option>Fungicide & Disease Control</option>
+                        <option>Custom Combination Spray</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-agri" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">
+                    🚀 Confirm Booking & Send via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 5: FERTILIZER BULK ORDER / QUOTE MODAL -->
+    <div class="modal-overlay" id="fertilizerQuoteModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeFertilizerQuoteModal()">✕</button>
+            <div style="text-align: center; margin-bottom: 1.1rem;">
+                <span class="badge badge-primary" style="margin-bottom: 0.3rem;">🧪 Genuine Soil Inputs</span>
+                <h3 style="font-size: 1.3rem;">Fertilizer Bulk Order Inquiry</h3>
+                <p style="font-size: 0.82rem; color: var(--text-muted);">Direct delivery from Sindhanur & Raichur APMC Depots</p>
+            </div>
+
+            <form onsubmit="handleFertilizerQuoteSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label">Selected Fertilizer Product *</label>
+                    <input type="text" id="fertProductName" class="form-input" required readonly style="font-weight: 800; background: var(--bg);">
+                </div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Farmer / Buyer Name *</label>
+                        <input type="text" id="fertCustomerName" class="form-input" required placeholder="e.g. Veereshappa">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number *</label>
+                        <input type="tel" id="fertCustomerPhone" class="form-input" required placeholder="10-digit number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Quantity (Number of Bags) *</label>
+                    <input type="number" id="fertBagQuantity" class="form-input" required min="1" value="10">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Delivery Address / APMC Depot Pickup *</label>
+                    <input type="text" id="fertDeliveryAddress" class="form-input" required placeholder="e.g. Sindhanur APMC or Farmfield village address">
+                </div>
+
+                <button type="submit" class="btn btn-whatsapp" style="width: 100%; margin-top: 0.5rem;">
+                    💬 Send Order to WhatsApp (+91 9916083774)
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 6: PADDY & RICE TRADE MODAL -->
+    <div class="modal-overlay" id="paddyTradeModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closePaddyTradeModal()">✕</button>
+            <div style="text-align: center; margin-bottom: 1.1rem;">
+                <span class="badge agri-badge-gold" style="margin-bottom: 0.3rem;">🌊 Sweet Tungabhadra Rice Desk</span>
+                <h3 style="font-size: 1.3rem;" id="paddyTradeModalTitle">Paddy & Rice Trade Desk</h3>
+                <p style="font-size: 0.82rem; color: var(--text-muted);">Direct farmgate buying and mill rice sales</p>
+            </div>
+
+            <form onsubmit="handlePaddyTradeSubmit(event)">
+                <input type="hidden" id="paddyTradeType" value="SELL_PADDY">
+                <div class="form-group">
+                    <label class="form-label">Rice / Paddy Variety *</label>
+                    <select id="paddyVariety" class="form-input" style="font-weight: 700;">
+                        <option>🌾 Tungabhadra Sona Masuri (BPT 5204)</option>
+                        <option>🌾 Sweet Water Kaveri Rice</option>
+                        <option>🌾 RNR 15048 Low GI Rice</option>
+                        <option>🌾 Super Fine Bullet Rice</option>
+                    </select>
+                </div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Contact Name *</label>
+                        <input type="text" id="paddyContactName" class="form-input" required placeholder="e.g. Nagendra Patil">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mobile Number *</label>
+                        <input type="tel" id="paddyContactPhone" class="form-input" required placeholder="10-digit phone number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Quantity (Quintals or 25kg Bags) *</label>
+                    <input type="text" id="paddyQuantity" class="form-input" required placeholder="e.g. 50 Quintals Paddy OR 10 Rice Bags">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Location / Farm Address *</label>
+                    <input type="text" id="paddyLocation" class="form-input" required placeholder="e.g. Hosapete / Sindhanur Rice Mill Belt">
+                </div>
+
+                <button type="submit" class="btn btn-agri" style="width: 100%; margin-top: 0.5rem;">
+                    📲 Submit to Trade Desk via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 7: AUTHENTICATION MODAL -->
     <div class="modal-overlay" id="authModal">
         <div class="modal-box" style="max-width: 440px;">
             <button class="modal-close" onclick="closeAuthModal()">✕</button>
@@ -2469,9 +3127,10 @@
         // 1. COMPREHENSIVE BILINGUAL (ENGLISH & KANNADA) DICTIONARY DATASET
         const I18N_DATA = {
             en: {
-                announcement_tag: "🎓 Coaching & Transport Express",
-                announcement_msg: "Official Partner: Cousins Academy (@cousinsacademy4599) • Car Rentals & Paddy Cargo Transport Live",
+                announcement_tag: "🌾 Agriculture & Coaching Engine",
+                announcement_msg: "Tungabhadra River Basin Agri Hub • Drone Spraying • Kaveri & Sona Masuri Rice Trade • Cousins Academy",
                 nav_home: "Home",
+                nav_agri: "Agriculture Hub",
                 nav_programs: "Programs & Tiers",
                 nav_transport: "Transport & Rentals",
                 nav_schedule: "Batches & Schedule",
@@ -2486,7 +3145,7 @@
                 hero_sub: "Karnataka's top coaching engine backed by a 4-Tier Academic Support Hierarchy, Cross-Branch Teacher Access, and Flexible Hybrid Learning Models.",
                 hero_btn_trial: "🎯 Book Free Trial Demo Class",
                 hero_btn_explore: "🚀 Explore Programs & Support Tiers",
-                hero_btn_transport: "🚕 Rent Cars & Agricultural Freight",
+                hero_btn_transport: "🚕 Rent Cars & Freight Logistics",
                 hero_btn_yt: "📺 Subscribe YouTube Channel",
                 wizard_badge: "⚡ Fast Track Enrollment & Trial Demos",
                 wizard_heading: "Choose Your Coaching Path in 4 Simple Steps",
@@ -2539,16 +3198,17 @@
                 lbl_load_weight: "Estimated Load Weight / Quantity *",
                 lbl_pickup_drop: "Pickup & Drop Route *",
                 btn_calc_quote: "📊 Calculate & Book via WhatsApp",
-                footer_desc: "Karnataka's leading educational and logistics platform equipped with 4-Tier Coaching, multi-branch expert network, car rentals, and rural paddy freight transport.",
+                footer_desc: "Karnataka's leading educational and agricultural technology platform equipped with 4-Tier Coaching, precision drone spraying, fertilizer inputs, Tungabhadra rice trading, and rural transport.",
                 footer_quick_links: "Quick Links",
                 footer_official_contacts: "Official Contacts",
                 footer_trial_yt: "Trial Demo & YouTube",
-                footer_copyright: "© 2026 Sharusuri EdTech & Express Transport OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com"
+                footer_copyright: "© 2026 Sharusuri EdTech & AgTech OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com"
             },
             kn: {
-                announcement_tag: "🎓 ಕೋಚಿಂಗ್ ಮತ್ತು ವಾಹನ ಸೇವೆ",
-                announcement_msg: "ಅಧಿಕೃತ ಪಾಲುದಾರರು: ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ (@cousinsacademy4599) • ಕಾರು ಬಾಡಿಗೆ ಮತ್ತು ಭತ್ತದ ಸಾರಿಗೆ ಸೇವೆ ಲಭ್ಯವಿದೆ",
+                announcement_tag: "🌾 ಕೃಷಿ ಮತ್ತು ಶಿಕ್ಷಣ ಸೇವೆ",
+                announcement_msg: "ತುಂಗಭದ್ರಾ ಕೃಷಿ ಕೇಂದ್ರ • ಡ್ರೋನ್ ಸಿಂಪಡಣೆ • ಕಾವೇರಿ ಮತ್ತು ಸೋನಾ ಮಸೂರಿ ಅಕ್ಕಿ ವ್ಯಾಪಾರ • ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ",
                 nav_home: "ಮುಖಪುಟ",
+                nav_agri: "ಕೃಷಿ ಕೇಂದ್ರ (Agri Hub)",
                 nav_programs: "ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಸಪೋರ್ಟ್",
                 nav_transport: "ವಾಹನ & ಸರಕು ಸೇವೆ",
                 nav_schedule: "ಬ್ಯಾಚ್ ಸಮಯ",
@@ -2616,11 +3276,11 @@
                 lbl_load_weight: "ಅಂದಾಜು ತೂಕ / ಪ್ರಮಾಣ *",
                 lbl_pickup_drop: "ಪಿಕಪ್ ಮತ್ತು ಡ್ರಾಪ್ ಮಾರ್ಗ *",
                 btn_calc_quote: "📊 ವಾಟ್ಸಾಪ್ ಮೂಲಕ ದರ ಪಡೆಯಿರಿ",
-                footer_desc: "4-ಹಂತದ ಬೋಧನೆ, ವಿವಿಧ ಶಾಖೆಗಳ ಪರಿಣಿತ ಶಿಕ್ಷಕರು, ಕಾರು ಬಾಡಿಗೆ ಮತ್ತು ಕೃಷಿ ಸರಕು ಸಾರಿಗೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್.",
+                footer_desc: "4-ಹಂತದ ಬೋಧನೆ, ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ, ರಸಗೊಬ್ಬರ, ತುಂಗಭದ್ರಾ ಕಾವೇರಿ ಸೋನಾ ಮಸೂರಿ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಸಾರಿಗೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್.",
                 footer_quick_links: "ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು",
                 footer_official_contacts: "ಅಧಿಕೃತ ಸಂಪರ್ಕಗಳು",
                 footer_trial_yt: "ಉಚಿತ ಡೆಮೊ ಮತ್ತು ಯೂಟ್ಯೂಬ್",
-                footer_copyright: "© 2026 ಶಾರುಸೂರಿ ಎಡ್‌ಟೆಕ್ & ಎಕ್ಸ್‌ಪ್ರೆಸ್ ಟ್ರಾನ್ಸ್‌ಪೋರ್ಟ್ OS. ಸರ್ವ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
+                footer_copyright: "© 2026 ಶಾರುಸೂರಿ ಎಡ್‌ಟೆಕ್ & ಅಗ್ರಿಟೆಕ್. ಸರ್ವ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
             }
         };
 
@@ -2973,6 +3633,130 @@
             if (activeNavBtn) activeNavBtn.classList.add('active');
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // AGRICULTURE HUB PILLAR TAB SWITCHER
+        function switchAgriPillar(pillarId, btnEl) {
+            document.querySelectorAll('.agri-pillar-btn').forEach(b => b.classList.remove('active'));
+            btnEl.classList.add('active');
+
+            document.querySelectorAll('.agri-pillar-content').forEach(c => c.classList.remove('active'));
+            const target = document.getElementById(`agriPillar-${pillarId}`);
+            if (target) target.classList.add('active');
+        }
+
+        // DRONE BOOKING MODAL HANDLERS
+        function openDroneBookingModal() {
+            document.getElementById('droneBookingModal').classList.add('active');
+        }
+
+        function closeDroneBookingModal() {
+            document.getElementById('droneBookingModal').classList.remove('active');
+        }
+
+        function handleDroneBookingSubmit(e) {
+            e.preventDefault();
+            const farmer = document.getElementById('droneFarmerName').value;
+            const phone = document.getElementById('droneFarmerPhone').value;
+            const acres = document.getElementById('droneAcres').value;
+            const crop = document.getElementById('droneCropType').value;
+            const loc = document.getElementById('droneLocation').value;
+            const spray = document.getElementById('droneSprayType').value;
+
+            closeDroneBookingModal();
+            showToast(`🛸 Drone spraying booked for ${acres} Acres! Opening WhatsApp...`);
+
+            const msg = `*SHARUSURI SUPERAPP - AGRICULTURAL DRONE SPRAY BOOKING*\n\n` +
+                        `• *Farmer Name:* ${farmer}\n` +
+                        `• *Phone:* ${phone}\n` +
+                        `• *Land Area:* ${acres} Acres (Estimated ₹${acres * 499})\n` +
+                        `• *Crop:* ${crop}\n` +
+                        `• *Location:* ${loc}\n` +
+                        `• *Spray Requirement:* ${spray}\n\n` +
+                        `Please assign nearest pilot and confirm spray slot.`;
+
+            setTimeout(() => {
+                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
+            }, 800);
+        }
+
+        // FERTILIZER QUOTE MODAL HANDLERS
+        function openFertilizerQuoteModal(prodName) {
+            document.getElementById('fertProductName').value = prodName;
+            document.getElementById('fertilizerQuoteModal').classList.add('active');
+        }
+
+        function closeFertilizerQuoteModal() {
+            document.getElementById('fertilizerQuoteModal').classList.remove('active');
+        }
+
+        function handleFertilizerQuoteSubmit(e) {
+            e.preventDefault();
+            const prod = document.getElementById('fertProductName').value;
+            const name = document.getElementById('fertCustomerName').value;
+            const phone = document.getElementById('fertCustomerPhone').value;
+            const qty = document.getElementById('fertBagQuantity').value;
+            const addr = document.getElementById('fertDeliveryAddress').value;
+
+            closeFertilizerQuoteModal();
+            showToast(`🧪 Fertilizer inquiry recorded for ${qty} bags! Opening WhatsApp...`);
+
+            const msg = `*FERTILIZER & SOIL INPUT ORDER INQUIRY*\n\n` +
+                        `• *Product:* ${prod}\n` +
+                        `• *Customer:* ${name}\n` +
+                        `• *Phone:* ${phone}\n` +
+                        `• *Quantity:* ${qty} Bags\n` +
+                        `• *Delivery Depot / Location:* ${addr}\n\n` +
+                        `Please share stock availability and discount price quote.`;
+
+            setTimeout(() => {
+                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
+            }, 800);
+        }
+
+        // PADDY & RICE TRADE MODAL HANDLERS
+        function openPaddyTradeModal(type, variety = '') {
+            document.getElementById('paddyTradeType').value = type;
+            const modalTitle = document.getElementById('paddyTradeModalTitle');
+            if (type === 'SELL_PADDY') {
+                modalTitle.textContent = "🌾 Sell Raw Paddy Harvest (Farmgate Buy)";
+            } else {
+                modalTitle.textContent = "🛒 Buy Premium Tungabhadra Rice Bags";
+            }
+            if (variety) {
+                document.getElementById('paddyVariety').value = variety;
+            }
+            document.getElementById('paddyTradeModal').classList.add('active');
+        }
+
+        function closePaddyTradeModal() {
+            document.getElementById('paddyTradeModal').classList.remove('active');
+        }
+
+        function handlePaddyTradeSubmit(e) {
+            e.preventDefault();
+            const tradeType = document.getElementById('paddyTradeType').value;
+            const variety = document.getElementById('paddyVariety').value;
+            const name = document.getElementById('paddyContactName').value;
+            const phone = document.getElementById('paddyContactPhone').value;
+            const qty = document.getElementById('paddyQuantity').value;
+            const loc = document.getElementById('paddyLocation').value;
+
+            closePaddyTradeModal();
+            showToast(`🌾 Trade request submitted! Connecting to WhatsApp Trade Desk...`);
+
+            const msg = `*TUNGABHADRA PADDY & RICE TRADE INQUIRY*\n\n` +
+                        `• *Trade Direction:* ${tradeType === 'SELL_PADDY' ? 'Farmer Selling Raw Paddy' : 'Buyer Ordering Rice Bags'}\n` +
+                        `• *Variety:* ${variety}\n` +
+                        `• *Contact Person:* ${name}\n` +
+                        `• *Phone:* ${phone}\n` +
+                        `• *Quantity:* ${qty}\n` +
+                        `• *Location:* ${loc}\n\n` +
+                        `Please share market rates and logistics arrangement.`;
+
+            setTimeout(() => {
+                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
+            }, 800);
         }
 
         // RENDER TRANSPORT FLEET GRID
