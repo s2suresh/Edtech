@@ -1,0 +1,427 @@
+<!-- ========================================================= -->
+<!-- AGRICULTURE HUB SECTION (PASTE INTO YOUR MAIN LAYOUT)     -->
+<!-- ========================================================= -->
+
+<style>
+    /* COMPLETED CSS FOR AGRICULTURE HUB & E-COMMERCE CARDS */
+    .agri-section-wrapper {
+        max-width: 1300px;
+        margin: 2rem auto;
+        padding: 0 1.25rem;
+    }
+
+    .agri-hero-banner {
+        background: linear-gradient(135deg, #052e16 0%, #15803d 50%, #0f766e 100%);
+        color: white;
+        border-radius: var(--radius-lg, 20px);
+        padding: 2.5rem 1.75rem;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 40px -10px rgba(15, 118, 110, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .agri-tb-river-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: linear-gradient(90deg, #0284c7, #0f766e);
+        color: white;
+        padding: 0.45rem 1.1rem;
+        border-radius: 50px;
+        font-weight: 800;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+    }
+
+    .agri-location-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .agri-location-card {
+        background: var(--card-bg, #ffffff);
+        border: 2px solid var(--border-light, #e2e8f0);
+        border-radius: var(--radius-md, 14px);
+        padding: 1.25rem;
+        transition: all 0.25s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        position: relative;
+    }
+
+    .agri-location-card:hover {
+        border-color: #15803d;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.08);
+    }
+
+    .agri-pillar-nav-bar {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 1.75rem;
+        border-bottom: 2px solid var(--border-light, #e2e8f0);
+        padding-bottom: 0.75rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .agri-pillar-btn {
+        padding: 0.8rem 1.4rem;
+        border-radius: 50px;
+        background: var(--bg, #f8fafc);
+        border: 2px solid var(--border, #cbd5e1);
+        font-weight: 800;
+        font-size: 0.9rem;
+        color: var(--text-main, #0f172a);
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.25s ease;
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .agri-pillar-btn.active {
+        background: #15803d;
+        color: white;
+        border-color: #15803d;
+        box-shadow: 0 6px 18px rgba(21, 128, 61, 0.3);
+    }
+
+    .agri-pillar-content {
+        display: none;
+        animation: fadeInView 0.3s ease forwards;
+    }
+
+    .agri-pillar-content.active {
+        display: block;
+    }
+
+    /* E-COMMERCE GRID STYLE (FLIPKART / AMAZON LOOK) */
+    .ecommerce-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1.25rem;
+    }
+
+    .ecommerce-product-card {
+        background: var(--card-bg, #ffffff);
+        border: 1px solid var(--border-light, #e2e8f0);
+        border-radius: var(--radius-lg, 20px);
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        transition: all 0.25s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .ecommerce-product-card:hover {
+        border-color: #15803d;
+        box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.12);
+        transform: translateY(-4px);
+    }
+
+    .ecommerce-product-img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        background: #f1f5f9;
+    }
+
+    .ecommerce-card-body {
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .price-tag {
+        font-size: 1.25rem;
+        font-weight: 900;
+        color: #15803d;
+    }
+
+    .price-mrp {
+        font-size: 0.85rem;
+        text-decoration: line-through;
+        color: #94a3b8;
+        margin-left: 0.4rem;
+    }
+
+    .btn-whatsapp-buy {
+        background: #25d366;
+        color: white;
+        font-weight: 800;
+        border: none;
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        cursor: pointer;
+        text-decoration: none;
+        margin-top: 1rem;
+        transition: background 0.2s ease;
+    }
+
+    .btn-whatsapp-buy:hover {
+        background: #128c7e;
+    }
+
+    .drone-process-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .drone-step-card {
+        background: var(--bg, #f8fafc);
+        border: 1px solid var(--border-light, #e2e8f0);
+        border-radius: 14px;
+        padding: 1.1rem;
+        text-align: center;
+    }
+
+    .drone-step-num {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: #15803d;
+        color: white;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.65rem;
+    }
+
+    @keyframes fadeInView {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="agri-section-wrapper">
+
+    <!-- HERO BANNER WITH TUNGABHADRA RIVER BRANDING -->
+    <div class="agri-hero-banner">
+        <div class="agri-tb-river-badge">
+            💧 Cultivated with Sweet Tungabhadra River Water
+        </div>
+        <h1 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 0.75rem;">
+            Sharusuri Precision Agriculture Hub
+        </h1>
+        <p style="font-size: 1.05rem; opacity: 0.9; max-width: 850px; line-height: 1.6;">
+            Empowering Karnataka farmers across the Tungabhadra belt with high-tech Drone Spraying, high-grade organic and chemical fertilizers, and direct farmgate Paddy & Kaveri/Sona Masuri Rice trading.
+        </p>
+    </div>
+
+    <!-- PRIME REGIONAL LOCATIONS & BRANCHES -->
+    <h3 style="font-weight: 800; margin-bottom: 1rem; font-size: 1.25rem;">📍 Regional Operating Basins & Centers</h3>
+    <div class="agri-location-grid">
+        <div class="agri-location-card">
+            <span style="background: #dcfce7; color: #15803d; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.6rem; border-radius: 50px;">CENTRAL HUB</span>
+            <h4 style="font-size: 1.1rem; font-weight: 800; margin: 0.5rem 0 0.25rem;">Sindhanur Basin Center</h4>
+            <p style="font-size: 0.85rem; color: #64748b;">Primary drone fleet dispatch station, fertilizer distribution, and paddy procurement office.</p>
+        </div>
+
+        <div class="agri-location-card">
+            <span style="background: #dbeafe; color: #2563eb; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.6rem; border-radius: 50px;">RIVER BELT</span>
+            <h4 style="font-size: 1.1rem; font-weight: 800; margin: 0.5rem 0 0.25rem;">Hampi / Hosapete Basin</h4>
+            <p style="font-size: 0.85rem; color: #64748b;">Specialized sweet water paddy cultivation belt for premium Kaveri & Sona Masuri rice varieties.</p>
+        </div>
+
+        <div class="agri-location-card">
+            <span style="background: #fef3c7; color: #d97706; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.6rem; border-radius: 50px;">REGIONAL NETWORK</span>
+            <h4 style="font-size: 1.1rem; font-weight: 800; margin: 0.5rem 0 0.25rem;">Raichur & Bellary Belt</h4>
+            <p style="font-size: 0.85rem; color: #64748b;">Express fertilizer delivery routes and mobile drone spraying units for wide-acre farmland.</p>
+        </div>
+    </div>
+
+    <!-- 3-PILLAR INTERACTIVE TAB SWITCHER -->
+    <div class="agri-pillar-nav-bar">
+        <button class="agri-pillar-btn active" onclick="switchAgriPillar('drone-pillar', this)">
+            🛸 1. Precision Drone Spraying
+        </button>
+        <button class="agri-pillar-btn" onclick="switchAgriPillar('fertilizers-pillar', this)">
+            🌱 2. High-Grade Fertilizers
+        </button>
+        <button class="agri-pillar-btn" onclick="switchAgriPillar('paddy-pillar', this)">
+            🌾 3. Tungabhadra Paddy & Rice Business
+        </button>
+    </div>
+
+    <!-- PILLAR 1: DRONE SPRAYING -->
+    <div id="drone-pillar" class="agri-pillar-content active">
+        <div style="background: var(--card-bg); border-radius: 16px; padding: 1.5rem; border: 1px solid var(--border-light);">
+            <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem;">🛸 Autonomous Agricultural Drone Spraying</h3>
+            <p style="color: #64748b; font-size: 0.95rem;">Save up to 90% water, reduce chemical wastage, and achieve complete crop coverage in under 15 minutes per acre.</p>
+
+            <div class="drone-process-grid">
+                <div class="drone-step-card">
+                    <div class="drone-step-num">1</div>
+                    <strong style="display:block; margin-bottom: 0.3rem;">Farmland Mapping</strong>
+                    <span style="font-size: 0.8rem; color: #64748b;">GPS boundary definition for accurate spraying.</span>
+                </div>
+                <div class="drone-step-card">
+                    <div class="drone-step-num">2</div>
+                    <strong style="display:block; margin-bottom: 0.3rem;">Expert Mixing</strong>
+                    <span style="font-size: 0.8rem; color: #64748b;">Recommended micronutrients & pest protection mix.</span>
+                </div>
+                <div class="drone-step-card">
+                    <div class="drone-step-num">3</div>
+                    <strong style="display:block; margin-bottom: 0.3rem;">Precision Flight</strong>
+                    <span style="font-size: 0.8rem; color: #64748b;">Ultra-low volume mist spray reaching underside of leaves.</span>
+                </div>
+                <div class="drone-step-card">
+                    <div class="drone-step-num">4</div>
+                    <strong style="display:block; margin-bottom: 0.3rem;">Coverage Report</strong>
+                    <span style="font-size: 0.8rem; color: #64748b;">Instant job completion confirmation for farmers.</span>
+                </div>
+            </div>
+
+            <a href="https://wa.me/919916083774?text=Hello%20Sharusuri%20Team,%20I%20want%20to%20book%20a%20Drone%20Spray%20slot%20for%20my%20farm." class="btn-whatsapp-buy" style="max-width: 320px;">
+                💬 Book Drone Spraying Slot on WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- PILLAR 2: FERTILIZERS (FLIPKART/AMAZON STYLE E-COMMERCE) -->
+    <div id="fertilizers-pillar" class="agri-pillar-content">
+        <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 1rem;">🌱 Certified High-Grade Farm Inputs</h3>
+        <div class="ecommerce-grid">
+
+            <!-- Product 1 -->
+            <div class="ecommerce-product-card">
+                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="Neem Coated Urea">
+                <div class="ecommerce-card-body">
+                    <span style="font-size: 0.75rem; font-weight: 800; color: #15803d; text-transform: uppercase;">Nitrogen Booster</span>
+                    <h4 style="font-size: 1.05rem; font-weight: 800; margin: 0.3rem 0;">Neem Coated Urea (46% N)</h4>
+                    <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.75rem;">Slow-release nitrogen input for lush green crop growth. 45kg bag.</p>
+                    <div>
+                        <span class="price-tag">₹266</span>
+                        <span class="price-mrp">₹300</span>
+                    </div>
+                    <a href="https://wa.me/919916083774?text=I%20want%20to%20order%20Neem%20Coated%20Urea" class="btn-whatsapp-buy">💬 Order on WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="ecommerce-product-card">
+                <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="NPK 10-26-26">
+                <div class="ecommerce-card-body">
+                    <span style="font-size: 0.75rem; font-weight: 800; color: #2563eb; text-transform: uppercase;">Complex Fertilizer</span>
+                    <h4 style="font-size: 1.05rem; font-weight: 800; margin: 0.3rem 0;">Complex NPK 10-26-26</h4>
+                    <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.75rem;">High Potash & Phosphate formulation for strong root & grain weight.</p>
+                    <div>
+                        <span class="price-tag">₹1,470</span>
+                        <span class="price-mrp">₹1,600</span>
+                    </div>
+                    <a href="https://wa.me/919916083774?text=I%20want%20to%20order%20NPK%2010-26-26" class="btn-whatsapp-buy">💬 Order on WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="ecommerce-product-card">
+                <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="NPK 10-10-10">
+                <div class="ecommerce-card-body">
+                    <span style="font-size: 0.75rem; font-weight: 800; color: #8b5cf6; text-transform: uppercase;">Balanced Growth</span>
+                    <h4 style="font-size: 1.05rem; font-weight: 800; margin: 0.3rem 0;">Balanced NPK 10-10-10</h4>
+                    <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.75rem;">Universal nutritional balance for early to mid-stage crops.</p>
+                    <div>
+                        <span class="price-tag">₹1,150</span>
+                        <span class="price-mrp">₹1,300</span>
+                    </div>
+                    <a href="https://wa.me/919916083774?text=I%20want%20to%20order%20NPK%2010-10-10" class="btn-whatsapp-buy">💬 Order on WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="ecommerce-product-card">
+                <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="Zinc Sulphate">
+                <div class="ecommerce-card-body">
+                    <span style="font-size: 0.75rem; font-weight: 800; color: #d97706; text-transform: uppercase;">Micronutrient</span>
+                    <h4 style="font-size: 1.05rem; font-weight: 800; margin: 0.3rem 0;">Zinc Sulphate (33% Monohydrate)</h4>
+                    <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.75rem;">Essential for paddy yellowing prevention & yield enhancement.</p>
+                    <div>
+                        <span class="price-tag">₹580</span>
+                        <span class="price-mrp">₹680</span>
+                    </div>
+                    <a href="https://wa.me/919916083774?text=I%20want%20to%20order%20Zinc%20Sulphate" class="btn-whatsapp-buy">💬 Order on WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PILLAR 3: TUNGABHADRA PADDY & RICE BUSINESS -->
+    <div id="paddy-pillar" class="agri-pillar-content">
+        <div style="background: var(--card-bg); border-radius: 16px; padding: 1.5rem; border: 1px solid var(--border-light);">
+            <div style="display: inline-block; background: #e0f2fe; color: #0284c7; padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem; font-weight: 800; margin-bottom: 0.5rem;">
+                🌊 Pure Tungabhadra Basin Yields
+            </div>
+            <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem;">🌾 Paddy Procurement & Premium Rice Trade</h3>
+            <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem;">Cultivated in the fertile Hampi/Hosapete & Sindhanur soil irrigated by sweet Tungabhadra river water.</p>
+
+            <div class="ecommerce-grid" style="margin-bottom: 1.5rem;">
+                <!-- Rice 1 -->
+                <div class="ecommerce-product-card">
+                    <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="Kaveri Steam Rice">
+                    <div class="ecommerce-card-body">
+                        <h4 style="font-size: 1.1rem; font-weight: 800;">Premium Kaveri Steam Rice</h4>
+                        <p style="font-size: 0.8rem; color: #64748b; margin: 0.4rem 0 0.8rem;">Aromatic, non-sticky long grain rice ideal for daily meals and catering. 26kg / 50kg bags available.</p>
+                        <a href="https://wa.me/919916083774?text=Interested%20in%20buying%20Kaveri%20Steam%20Rice" class="btn-whatsapp-buy">🛍️ Buy Finished Rice Bags</a>
+                    </div>
+                </div>
+
+                <!-- Rice 2 -->
+                <div class="ecommerce-product-card">
+                    <img src="https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="Sona Masuri Rice">
+                    <div class="ecommerce-card-body">
+                        <h4 style="font-size: 1.1rem; font-weight: 800;">Super Fine Sona Masuri Rice</h4>
+                        <p style="font-size: 0.8rem; color: #64748b; margin: 0.4rem 0 0.8rem;">Lightweight, low-starch premium grain grown along the Hampi river basin. 26kg bag.</p>
+                        <a href="https://wa.me/919916083774?text=Interested%20in%20buying%20Sona%20Masuri%20Rice" class="btn-whatsapp-buy">🛍️ Buy Finished Rice Bags</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FARMER PADDY BUYING PORTAL CALLOUT -->
+            <div style="background: linear-gradient(135deg, #fef3c7, #dcfce7); border: 2px dashed #15803d; border-radius: 14px; padding: 1.25rem; text-align: center;">
+                <h4 style="font-size: 1.15rem; font-weight: 800; color: #15803d;">👨‍🌾 Are you a Paddy Farmer looking to sell raw harvest?</h4>
+                <p style="font-size: 0.88rem; color: #0f172a; margin: 0.3rem 0 0.8rem;">We offer direct farmgate procurement for raw Kaveri and Sona Masuri paddy with fair market rates and instant bank settlement.</p>
+                <a href="https://wa.me/919916083774?text=I%20am%20a%20farmer%20wanting%20to%20sell%20my%20raw%20Paddy%20harvest" class="btn-whatsapp-buy" style="max-width: 300px; margin: 0 auto; background: #15803d;">
+                    💰 Sell Raw Paddy Harvest
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // TAB SWITCHING SCRIPT FOR AGRICULTURE HUB
+    function switchAgriPillar(pillarId, btnElement) {
+        // Hide all pillar contents
+        document.querySelectorAll('.agri-pillar-content').forEach(content => {
+            content.classList.remove('active');
+        });
+
+        // Deactivate all buttons
+        document.querySelectorAll('.agri-pillar-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        // Activate selected tab & content
+        document.getElementById(pillarId).classList.add('active');
+        btnElement.classList.add('active');
+    }
+</script>
