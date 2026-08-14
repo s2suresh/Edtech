@@ -579,6 +579,7 @@
             display: block;
         }
 
+        /* FLIPKART/AMAZON STYLE E-COMMERCE PRODUCTS */
         .ecommerce-product-card {
             background: var(--card-bg);
             border: 1px solid var(--border-light);
@@ -603,6 +604,11 @@
             height: 190px;
             object-fit: cover;
             background: var(--bg);
+            transition: transform 0.3s ease;
+        }
+
+        .ecommerce-product-card:hover .ecommerce-product-img {
+            transform: scale(1.04);
         }
 
         .ecommerce-card-body {
@@ -610,6 +616,54 @@
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #eab308;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-rating span.review-count {
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-left: 0.2rem;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-right: 0.4rem;
+        }
+
+        .discount-badge-bubble {
+            background: #22c55e;
+            color: white;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .stock-progress-bar {
+            width: 100%;
+            height: 5px;
+            background: var(--border-light);
+            border-radius: 10px;
+            margin: 0.5rem 0;
+            overflow: hidden;
+        }
+
+        .stock-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f59e0b, #10b981);
+            border-radius: 10px;
         }
 
         .agri-badge-green {
@@ -636,6 +690,14 @@
             padding: 1.1rem;
             text-align: center;
             position: relative;
+            transition: var(--transition);
+        }
+
+        .drone-step-card:hover {
+            border-color: var(--agri-green);
+            background: var(--card-bg);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
 
         .drone-step-num {
@@ -1869,23 +1931,23 @@
                             <div class="drone-process-grid">
                                 <div class="drone-step-card">
                                     <div class="drone-step-num">1</div>
-                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Book Field Slot</h5>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Provide land acre count and field location via app or WhatsApp call.</p>
+                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Land Mapping</h5>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted);">We execute 3D mapping of obstacle boundaries and field contours before launch.</p>
                                 </div>
                                 <div class="drone-step-card">
                                     <div class="drone-step-num">2</div>
-                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">3D Terrain Mapping</h5>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Drone pilot maps field boundaries and crop height using obstacle radar.</p>
+                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Expert Formulation</h5>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Nutrients or protective solutions are measured to match crop lifecycle targets.</p>
                                 </div>
                                 <div class="drone-step-card">
                                     <div class="drone-step-num">3</div>
-                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Micro-Mist Spray</h5>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted);">10-liter liquid payload covers 1 acre in just 10 minutes with 95% water saving.</p>
+                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Autonomous Flight</h5>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Auto-mist spraying nozzles complete one entire acre within 10 minutes flat.</p>
                                 </div>
                                 <div class="drone-step-card">
                                     <div class="drone-step-num">4</div>
-                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Instant Report</h5>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Receive digital field health map and precise spray completion certificate.</p>
+                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Coverage Analysis</h5>
+                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Digital reports provide detailed thermal coverage and nutrient dispersion metrics.</p>
                                 </div>
                             </div>
 
@@ -1911,16 +1973,26 @@
                         <div class="grid-4" style="margin-bottom: 1.5rem;">
                             <!-- Product 1: Urea -->
                             <div class="ecommerce-product-card">
-                                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="Neem Coated Urea Bag">
+                                <div style="position: relative; overflow: hidden; height: 190px;">
+                                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="Neem Coated Urea Bag">
+                                    <span style="position: absolute; top: 10px; left: 10px;" class="discount-badge-bubble">Save 10%</span>
+                                </div>
                                 <div class="ecommerce-card-body">
                                     <span class="badge agri-badge-green" style="margin-bottom: 0.4rem; align-self: flex-start;">High Nitrogen 46%</span>
                                     <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">Neem Coated Urea (45kg)</h4>
+                                    <div class="product-rating">★ 4.8 <span class="review-count">(142 reviews)</span></div>
                                     <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">Essential nitrogen booster for fast vegetative growth in paddy crops.</p>
                                     
+                                    <div class="stock-progress-bar">
+                                        <div class="stock-progress-fill" style="width: 85%;"></div>
+                                    </div>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Only 14 Bags Left in Sindhanur Hub</span>
+
                                     <div class="price-tag-box">
                                         <div>
+                                            <span class="original-price">₹295</span>
                                             <span class="price-amount">₹266</span>
-                                            <span class="price-unit">/ 45kg bag</span>
+                                            <span class="price-unit">/ Bag</span>
                                         </div>
                                         <span class="badge badge-success">In Stock</span>
                                     </div>
@@ -1932,16 +2004,26 @@
 
                             <!-- Product 2: NPK 10-26-26 -->
                             <div class="ecommerce-product-card">
-                                <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="NPK 10-26-26 Complex">
+                                <div style="position: relative; overflow: hidden; height: 190px;">
+                                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="NPK 10-26-26 Complex">
+                                    <span style="position: absolute; top: 10px; left: 10px;" class="discount-badge-bubble">Save 11%</span>
+                                </div>
                                 <div class="ecommerce-card-body">
                                     <span class="badge agri-badge-gold" style="margin-bottom: 0.4rem; align-self: flex-start;">Complex NPK (10:26:26)</span>
                                     <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">NPK 10-26-26 Complex (50kg)</h4>
+                                    <div class="product-rating">★ 4.9 <span class="review-count">(98 reviews)</span></div>
                                     <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">High Phosphorus & Potash formulation for strong root & grain weight.</p>
                                     
+                                    <div class="stock-progress-bar">
+                                        <div class="stock-progress-fill" style="width: 60%;"></div>
+                                    </div>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Only 22 Bags Left in Hampi Depot</span>
+
                                     <div class="price-tag-box">
                                         <div>
+                                            <span class="original-price">₹1,650</span>
                                             <span class="price-amount">₹1,470</span>
-                                            <span class="price-unit">/ 50kg bag</span>
+                                            <span class="price-unit">/ Bag</span>
                                         </div>
                                         <span class="badge badge-success">In Stock</span>
                                     </div>
@@ -1953,16 +2035,26 @@
 
                             <!-- Product 3: NPK 10-10-10 -->
                             <div class="ecommerce-product-card">
-                                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="NPK 10-10-10 Balanced Booster">
+                                <div style="position: relative; overflow: hidden; height: 190px;">
+                                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="NPK 10-10-10 Balanced Booster">
+                                    <span style="position: absolute; top: 10px; left: 10px;" class="discount-badge-bubble">Save 12%</span>
+                                </div>
                                 <div class="ecommerce-card-body">
                                     <span class="badge badge-primary" style="margin-bottom: 0.4rem; align-self: flex-start;">Balanced Fertilizer</span>
                                     <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">NPK 10-10-10 Balanced Booster</h4>
+                                    <div class="product-rating">★ 4.7 <span class="review-count">(74 reviews)</span></div>
                                     <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">Equal ratio nutrient blend for early crop tillering & balanced soil health.</p>
                                     
+                                    <div class="stock-progress-bar">
+                                        <div class="stock-progress-fill" style="width: 45%;"></div>
+                                    </div>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Only 19 Bags Left in Raichur Depot</span>
+
                                     <div class="price-tag-box">
                                         <div>
+                                            <span class="original-price">₹1,340</span>
                                             <span class="price-amount">₹1,180</span>
-                                            <span class="price-unit">/ 50kg bag</span>
+                                            <span class="price-unit">/ Bag</span>
                                         </div>
                                         <span class="badge badge-success">In Stock</span>
                                     </div>
@@ -1974,14 +2066,24 @@
 
                             <!-- Product 4: Zinc Micronutrient -->
                             <div class="ecommerce-product-card">
-                                <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="Chelated Zinc Sulphate">
+                                <div style="position: relative; overflow: hidden; height: 190px;">
+                                    <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="Chelated Zinc Sulphate">
+                                    <span style="position: absolute; top: 10px; left: 10px;" class="discount-badge-bubble">Save 15%</span>
+                                </div>
                                 <div class="ecommerce-card-body">
                                     <span class="badge badge-purple" style="margin-bottom: 0.4rem; align-self: flex-start;">Chelated Zinc 33%</span>
                                     <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">Zinc Sulphate Micronutrient</h4>
+                                    <div class="product-rating">★ 4.9 <span class="review-count">(112 reviews)</span></div>
                                     <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">Prevents Khaira disease in paddy; restores leaf greenness and grain shine.</p>
                                     
+                                    <div class="stock-progress-bar">
+                                        <div class="stock-progress-fill" style="width: 90%;"></div>
+                                    </div>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Only 8 Packs Left in Bellary Outlet</span>
+
                                     <div class="price-tag-box">
                                         <div>
+                                            <span class="original-price">₹565</span>
                                             <span class="price-amount">₹480</span>
                                             <span class="price-unit">/ 10kg pack</span>
                                         </div>
@@ -2003,7 +2105,7 @@
                                     <span class="badge agri-badge-gold" style="margin-bottom: 0.3rem;">🌊 Pure Tungabhadra Canal Irrigation</span>
                                     <h3 style="font-size: 1.4rem; font-weight: 900;">Tungabhadra Sweet Water Paddy & Rice Produce Desk</h3>
                                     <p style="font-size: 0.88rem; color: var(--text-muted);">
-                                        Cultivated in the fertile Hampi/Hosapete & Sindhanur canal belts using mineral-rich sweet Tungabhadra river water. Specializing in aromatic <strong>Kaveri</strong> and long-grain <strong>Sona Masuri</strong> varieties.
+                                        Cultivated in the fertile Hampi/Hosapete & Sindhanur canal belts using mineral-rich sweet Tungabhadra river water. Specializing in aromatic <strong>Kaveri Steam Rice</strong> and long-grain <strong>Super Fine Sona Masuri Rice</strong>.
                                     </p>
                                 </div>
                                 <span class="badge badge-success" style="font-size: 0.85rem;">Verified Mill Direct</span>
@@ -2017,7 +2119,7 @@
                                     <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.85rem;">
                                         Get instant spot cash and field-pickup for your raw paddy harvest. We purchase Kaveri, Sona Masuri, and RNR 15048 varieties directly at APMC market rates with zero transport hassle.
                                     </p>
-                                    <button class="btn btn-agri style='width: 100%;'" onclick="openPaddyTradeModal('SELL_PADDY', 'Sona Masuri / Kaveri Raw Paddy')">
+                                    <button class="btn btn-agri" style="width: 100%;" onclick="openPaddyTradeModal('SELL_PADDY', 'Sona Masuri / Kaveri Raw Paddy')">
                                         🌾 Submit Paddy Sale Offer
                                     </button>
                                 </div>
@@ -2029,7 +2131,7 @@
                                     <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.85rem;">
                                         Order 100% aged, silky polished, sweet Tungabhadra Sona Masuri & Kaveri Rice bags (25kg/50kg) directly from our Sindhanur & Raichur processing mills with home delivery.
                                     </p>
-                                    <button class="btn btn-accent style='width: 100%;'" onclick="openPaddyTradeModal('BUY_RICE', 'Tungabhadra Sona Masuri / Kaveri Rice')">
+                                    <button class="btn btn-accent" style="width: 100%;" onclick="openPaddyTradeModal('BUY_RICE', 'Tungabhadra Sona Masuri / Kaveri Rice')">
                                         🛒 Order Premium Rice Bags
                                     </button>
                                 </div>
@@ -3264,7 +3366,7 @@
                 wiz_step4_label: "ಸಮಯ ಮತ್ತು ವಿವರ",
                 transport_badge: "🚕 ಶಾರುಸೂರಿ ಎಕ್ಸ್‌ಪ್ರೆಸ್ ವಾಹನ ಮತ್ತು ಸರಕು ಸೇವೆ",
                 transport_hero_title: "ಸ್ವಯಂ ಚಾಲನಾ ಕಾರು ಬಾಡಿಗೆ ಮತ್ತು ಕೃಷಿ ಸರಕು ಸಾರಿಗೆ",
-                transport_hero_sub: "ಸಿಂಧನೂರು, ರಾಯಚೂರು, ಬಳ್ಳಾರಿ ಮತ್ತು ಕೊಪ್ಪಳ ಭಾಗದಲ್ಲಿ ಕಾರು ಬಾಡಿಗೆ, ಮಿನಿ ಟ್ರಕ್ ಹಾಗೂ ಭತ್ತದ ಮೂಟೆಗಳ ಸಾರಿಗೆ ಸೇವೆಗೆ ತಕ್ಷಣ ಬುಕ್ ಮಾಡಿ.",
+                transport_hero_sub: "ಸಿಂಧನೂರು, ರಾಯಚೂರು, ಬಳ್ಳಾರಿ ಮತ್ತು ಕೊಪ್ಪಳ भागದಲ್ಲಿ ಕಾರು ಬಾಡಿಗೆ, ಮಿನಿ ಟ್ರಕ್ ಹಾಗೂ ಭತ್ತದ ಮೂಟೆಗಳ ಸಾರಿಗೆ ಸೇವೆಗೆ ತಕ್ಷಣ ಬುಕ್ ಮಾಡಿ.",
                 btn_instant_transport: "🚀 ತಕ್ಷಣ ವಾಹನ ಬುಕ್ ಮಾಡಿ",
                 fleet_tab_all: "🚘 ಎಲ್ಲ ವಾಹನಗಳು (8)",
                 fleet_tab_self: "🚗 ಕಾರುಗಳು ಮತ್ತು ಸ್ಯಾಂಟ್ರೋ",
@@ -4100,6 +4202,7 @@
             if (activePanel) activePanel.classList.add('active');
         }
 
+        // RENDER PORTAL PARENT TRANSPARENCY DASHBOARD
         function renderAssignedStaff() {
             const container = document.getElementById('assignedStaffCardsGrid');
             if (!container) return;
