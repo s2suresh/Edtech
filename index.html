@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <!-- Optimized Viewport Meta Tag for Mobile WebViews & Native Scaling Control -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="description" content="Sharusuri EdTech & Agriculture SuperApp - Multi-Page Coaching Engine, Precision Agricultural Drone Spraying, Tungabhadra Paddy & Rice Trading, High-Grade Fertilizers, and Express Transport & Logistics.">
+    <meta name="description" content="Sharusuri EdTech & Agriculture SuperApp - Multi-Page Coaching Engine, Precision Agricultural Drone Spraying, Crop Monitoring, Tungabhadra Paddy & Rice Trading, High-Grade Fertilizers, and Express Transport & Logistics.">
     <meta name="theme-color" content="#0f766e">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-    <title>Sharusuri SuperApp | EdTech, Agriculture Hub & Express Transport</title>
+    <title>Sharusuri SuperApp | Agriculture Solutions, EdTech & Express Transport</title>
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +33,7 @@
             --accent-hover: #d97706;
             --accent-light: #fef3c7;
             --agri-green: #15803d;
+            --agri-green-hover: #166534;
             --agri-green-light: #dcfce7;
             --agri-gold: #d97706;
             --agri-gold-light: #fef3c7;
@@ -476,7 +477,29 @@
             flex-wrap: wrap;
         }
 
-        /* AGRICULTURE HUB SPECIFIC STYLES */
+        /* BACK TO HOME SUB-SERVICE LINK */
+        .back-home-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: var(--agri-green);
+            background: var(--agri-green-light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: var(--transition);
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(21, 128, 61, 0.2);
+        }
+
+        .back-home-link:hover {
+            background: var(--agri-green);
+            color: white;
+            transform: translateX(-3px);
+        }
+
+        /* AGRICULTURE LANDING & SUB-SERVICE SPECIFIC STYLES */
         .agri-hero-banner {
             background: linear-gradient(135deg, #052e16 0%, #15803d 50%, #0f766e 100%);
             color: white;
@@ -510,6 +533,56 @@
             font-size: 0.82rem;
             margin-bottom: 1rem;
             box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        }
+
+        .agri-feature-highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .agri-feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agri-feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--agri-green), var(--primary));
+        }
+
+        .agri-feature-card:hover {
+            border-color: var(--agri-green);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .agri-icon-wrapper {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius-md);
+            background: var(--agri-green-light);
+            color: var(--agri-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
         }
 
         .agri-location-grid {
@@ -579,7 +652,7 @@
             display: block;
         }
 
-        /* FLIPKART/AMAZON STYLE E-COMMERCE PRODUCTS */
+        /* E-COMMERCE PRODUCTS */
         .ecommerce-product-card {
             background: var(--card-bg);
             border: 1px solid var(--border-light);
@@ -1104,7 +1177,7 @@
             justify-content: space-between;
         }
 
-        /* TRANSPORT & CAR RENTAL MODULE STYLES (AMAZON/FLIPKART CARD STYLES) */
+        /* TRANSPORT & CAR RENTAL MODULE STYLES */
         .transport-hero-banner {
             background: linear-gradient(135deg, #0f172a 0%, #0f766e 60%, #1d4ed8 100%);
             color: white;
@@ -1320,6 +1393,7 @@
 
         .btn-primary { background-color: var(--primary); color: #ffffff; }
         .btn-agri { background-color: var(--agri-green); color: #ffffff; }
+        .btn-agri:hover { background-color: var(--agri-green-hover); }
         .btn-secondary { background: transparent; border-color: var(--border); color: var(--text-main); }
         .btn-accent { background-color: var(--accent); color: var(--dark); }
         .btn-purple { background-color: var(--purple); color: white; }
@@ -1449,7 +1523,7 @@
             justify-content: center;
         }
 
-        /* FORM INPUTS - OPTIMIZED TO PREVENT MOBILE ZOOM ON FOCUS */
+        /* FORM INPUTS */
         .form-group {
             margin-bottom: 0.9rem;
         }
@@ -1469,7 +1543,7 @@
             border: 1px solid var(--border);
             background: var(--bg);
             color: var(--text-main);
-            font-size: 16px; /* 16px prevents iOS/Android auto-zoom on form focus */
+            font-size: 16px;
             outline: none;
             transition: var(--transition);
         }
@@ -1479,7 +1553,7 @@
             box-shadow: 0 0 0 3px var(--primary-glow);
         }
 
-        /* TABLES - RESPONSIVE & MOBILE TOUCH SCROLLABLE */
+        /* TABLES */
         .data-table-wrapper {
             width: 100%;
             overflow-x: auto;
@@ -1540,9 +1614,9 @@
             gap: 0.65rem;
         }
 
-        /* MOBILE WEBVIEW SPECIFIC MEDIA QUERIES */
+        /* MOBILE WEBVIEW MEDIA QUERIES */
         @media (max-width: 1024px) {
-            .grid-3, .footer-grid, .tuition-models-grid, .agri-location-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-3, .footer-grid, .tuition-models-grid, .agri-location-grid, .agri-feature-highlight-grid { grid-template-columns: repeat(2, 1fr); }
             .grid-4, .tier-flow-grid, .drone-process-grid { grid-template-columns: repeat(2, 1fr); }
             .wizard-steps-bar { grid-template-columns: repeat(2, 1fr); }
         }
@@ -1552,7 +1626,7 @@
             .mobile-nav-toggle { display: flex; }
             .hero-title { font-size: 1.8rem; }
             .hero-subtitle { font-size: 0.95rem; }
-            .grid-3, .grid-2, .grid-4, .footer-grid, .tier-flow-grid, .tuition-models-grid, .agri-location-grid, .drone-process-grid { grid-template-columns: 1fr; }
+            .grid-3, .grid-2, .grid-4, .footer-grid, .tier-flow-grid, .tuition-models-grid, .agri-location-grid, .agri-feature-highlight-grid, .drone-process-grid { grid-template-columns: 1fr; }
             .wizard-steps-bar { grid-template-columns: 1fr; }
             .top-notice-bar { flex-direction: column; text-align: center; justify-content: center; }
             .top-contacts { justify-content: center; }
@@ -1571,7 +1645,7 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <!-- WHATSAPP QUICK CHAT FLOATING BUTTON -->
-    <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20SuperApp,%20I%20want%20information%20regarding%20coaching,%20drone%20spraying,%20fertilizers,%20or%20paddy%20trading.')" class="whatsapp-float" title="Direct WhatsApp Desk (+91 9916083774)">
+    <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20SuperApp,%20I%20want%20information%20regarding%20agri-solutions,%20drone%20spraying,%20fertilizers,%20paddy%20trading,%20or%20coaching.')" class="whatsapp-float" title="Direct WhatsApp Desk (+91 9916083774)">
         💬
     </a>
 
@@ -1579,7 +1653,7 @@
     <div class="top-notice-bar">
         <div>
             <span class="notice-tag" id="noticeTagText" data-i18n="announcement_tag">🌾 Agriculture & Coaching Engine</span>
-            <span id="noticeBarMsg" data-i18n="announcement_msg">Tungabhadra River Basin Agri Hub • Drone Spraying • Kaveri & Sona Masuri Rice Trade • Cousins Academy</span>
+            <span id="noticeBarMsg" data-i18n="announcement_msg">Tungabhadra River Basin Agri Hub • Precision Drone Spraying • Smart Crop Monitoring • Kaveri & Sona Masuri Rice Trade</span>
         </div>
         <div class="top-contacts">
             <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')">📞 +91 9916083774</a>
@@ -1597,7 +1671,7 @@
                 <span class="brand-badge">SE</span>
                 <div>
                     <span style="display: block; line-height: 1.1;">Sharusuri <small style="color: var(--primary); font-size: 0.68rem; display: inline;">SuperApp</small></span>
-                    <span style="font-size: 0.65rem; color: var(--agri-green); font-weight: 800; display: block;">EdTech, AgTech & Transport Hub</span>
+                    <span style="font-size: 0.65rem; color: var(--agri-green); font-weight: 800; display: block;">AgriTech Solutions & EdTech Hub</span>
                 </div>
             </a>
 
@@ -1607,7 +1681,7 @@
                     <span>🏠</span> <span data-i18n="nav_home">Home</span>
                 </button>
                 <button class="nav-link-btn agri-nav-highlight" id="nav-agriculture" onclick="navigateToPage('agriculture')">
-                    <span>🌾</span> <span data-i18n="nav_agri">Agriculture Hub</span>
+                    <span>🌱</span> <span data-i18n="nav_agri">Agriculture Solutions</span>
                 </button>
                 <button class="nav-link-btn" id="nav-programs" onclick="navigateToPage('programs')">
                     <span>📚</span> <span data-i18n="nav_programs">Programs & Tiers</span>
@@ -1662,7 +1736,7 @@
                 <span class="brand-badge">SE</span>
                 <div>
                     <span style="display: block; line-height: 1.1; font-size: 1rem;">Sharusuri SuperApp</span>
-                    <span style="font-size: 0.65rem; color: var(--agri-green); font-weight: 800; display: block;">EdTech & Agriculture Hub</span>
+                    <span style="font-size: 0.65rem; color: var(--agri-green); font-weight: 800; display: block;">AgriTech & EdTech Hub</span>
                 </div>
             </div>
             <button class="icon-btn" onclick="toggleMobileNav()">✕</button>
@@ -1673,7 +1747,7 @@
                 <span>🏠</span> <span data-i18n="nav_home">Home</span>
             </button>
             <button class="nav-link-btn agri-nav-highlight" onclick="navigateToPage('agriculture'); toggleMobileNav();">
-                <span>🌾</span> <span data-i18n="nav_agri">Agriculture Hub (Tungabhadra Basin)</span>
+                <span>🌱</span> <span data-i18n="nav_agri">Agriculture Solutions Landing</span>
             </button>
             <button class="nav-link-btn" onclick="navigateToPage('programs'); toggleMobileNav();">
                 <span>📚</span> <span data-i18n="nav_programs">Programs & Support Tiers</span>
@@ -1700,7 +1774,7 @@
 
         <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 0.5rem;">
             <button class="btn btn-agri" onclick="navigateToPage('agriculture'); toggleMobileNav();">
-                🌾 Explore Agriculture Hub
+                🌾 Explore Agriculture Portal
             </button>
             <button class="btn btn-primary" onclick="openAuthModal(); toggleMobileNav();" data-i18n="btn_login">
                 🔐 Login Portal
@@ -1720,17 +1794,17 @@
             <div class="hero-section">
                 <div class="hero-container">
                     <div class="hero-badge">
-                        <span data-i18n="hero_badge_text">📺 Official Channel Partner • Cousins Academy @cousinsacademy4599</span>
+                        <span data-i18n="hero_badge_text">🌱 SuperApp Ecosystem • Precision Agriculture & Coaching Engine</span>
                     </div>
                     <h1 class="hero-title" data-i18n="hero_title">
-                        Master Navodaya & Morarji Entrance Exams with <span>Cousins Academy</span>
+                        Empowering Farmers & Students with <span>Sharusuri SuperApp</span>
                     </h1>
                     <p class="hero-subtitle" data-i18n="hero_sub">
-                        Karnataka's top coaching engine backed by a 4-Tier Academic Support Hierarchy, Cross-Branch Teacher Access, and Flexible Hybrid Learning Models.
+                        Karnataka's top platform integrating Agriculture Solutions, Precision Drone Spraying, Tungabhadra Rice Trade, and Cousins Academy 4-Tier Coaching Engine.
                     </p>
                     <div class="hero-cta-group">
                         <button class="btn btn-agri btn-lg" onclick="navigateToPage('agriculture')">
-                            🌾 Agriculture Hub & Drone Spraying
+                            🌱 Launch Agriculture Portal →
                         </button>
                         <button class="btn btn-accent btn-lg" onclick="openDemoModal()" data-i18n="hero_btn_trial">
                             🎯 Book Free Trial Demo Class
@@ -1745,21 +1819,21 @@
                 </div>
             </div>
 
-            <!-- QUICK AGRICULTURE HUB BANNER ON HOME -->
+            <!-- QUICK AGRICULTURE HUB LANDING BANNER ON HOME -->
             <div class="section-container" style="margin-top: 2rem;">
                 <div class="info-card" style="background: linear-gradient(135deg, #052e16 0%, #15803d 100%); color: white; border: none; padding: 1.75rem;">
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                         <div style="max-width: 750px;">
                             <span class="agri-tb-river-badge">🌊 Powered by Sweet Tungabhadra River Water</span>
                             <h3 style="font-size: 1.6rem; font-weight: 900; color: white; margin-bottom: 0.4rem;">
-                                Industry-Standard Tungabhadra Agriculture Hub
+                                Next-Gen Agricultural Solutions & Farm Management Portal
                             </h3>
                             <p style="font-size: 0.92rem; opacity: 0.92; line-height: 1.5;">
-                                Precision Drone Spraying Services • High-Grade Fertilizers (Urea, 10-26-26, Zinc) • Direct Farmgate Paddy Procurement & Premium Kaveri/Sona Masuri Rice Sales.
+                                Precision Drone Spraying Services • Crop Health Monitoring • High-Grade Fertilizers (Urea, 10-26-26, Zinc) • Direct Farmgate Paddy Procurement & Premium Kaveri/Sona Masuri Rice Sales.
                             </p>
                         </div>
                         <button class="btn btn-accent btn-lg" onclick="navigateToPage('agriculture')">
-                            🌾 Launch Agriculture Hub →
+                            🌾 Explore Agriculture Portal →
                         </button>
                     </div>
                 </div>
@@ -1817,30 +1891,105 @@
             </div>
         </section>
 
-        <!-- NEW INDUSTRY-STANDARD AGRICULTURE HUB VIEW -->
+        <!-- 2. DEDICATED AGRICULTURE SUB-SERVICE LANDING PAGE ROUTE VIEW (/services/agriculture) -->
         <section id="page-agriculture" class="page-view">
-            <div class="section-container" style="margin-top: 1.5rem;">
+            <div class="section-container" style="margin-top: 1.25rem;">
                 
-                <!-- HERO BANNER WITH TUNGABHADRA RIVER BRANDING -->
+                <!-- BREADCRUMB / BACK TO HOME LINK -->
+                <a href="javascript:void(0)" onclick="navigateToPage('home')" class="back-home-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span data-i18n="agri_back_home">← Back to Home</span>
+                </a>
+
+                <!-- HERO BANNER WITH SPROUT ICON BRANDING -->
                 <div class="agri-hero-banner">
                     <div class="agri-hero-bg-overlay"></div>
                     <div style="position: relative; z-index: 2; max-width: 880px;">
                         <span class="agri-tb-river-badge">
                             🌊 Cultivated with Sweet Tungabhadra River Water • Hampi Irrigation Belt
                         </span>
-                        <h1 style="font-size: 2.3rem; font-weight: 900; line-height: 1.2; margin-bottom: 0.75rem;">
-                            Tungabhadra River Basin Agriculture & AgTech Hub
-                        </h1>
+                        
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.85rem; flex-wrap: wrap;">
+                            <div style="padding: 0.85rem; background: rgba(255,255,255,0.15); border-radius: 16px; backdrop-filter: blur(8px); display: inline-flex;">
+                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M7 20h10"></path>
+                                    <path d="M10 20c0-4.3 1.4-7 4-10 1.2 2 2 4.2 2 7 0 1-.2 2-.5 3"></path>
+                                    <path d="M14 20c0-4.3-1.4-7-4-10-1.2 2-2 4.2-2 7 0 1 .2 2 .5 3"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h1 style="font-size: 2.3rem; font-weight: 900; line-height: 1.2; color: white;">
+                                    Agriculture Solutions & Agri-Tech Portal
+                                </h1>
+                                <p style="font-size: 0.95rem; opacity: 0.92; margin-top: 0.2rem;">
+                                    Smart Crop Monitoring, Precision Drone Spraying & Direct Farmgate Produce Trading
+                                </p>
+                            </div>
+                        </div>
+
                         <p style="font-size: 1rem; opacity: 0.92; line-height: 1.6; margin-bottom: 1.5rem;">
-                            Serving Sindhanur, Hampi/Hosapete, Raichur, and Bellary with precision agricultural drone spraying services, high-grade soil nutrients & fertilizers, and direct farmgate paddy trading for sweet-water Kaveri & Sona Masuri rice varieties.
+                            Welcome to the Sharusuri Agriculture portal. Here we manage agri-tech innovations, aerial crop diagnostics, precision spraying, high-grade soil inputs, and direct farmgate trade for sweet-water Kaveri & Sona Masuri rice across Sindhanur, Hampi, Raichur, and Bellary.
                         </p>
                         
                         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
                             <button class="btn btn-accent btn-lg" onclick="openDroneBookingModal()">
                                 🛸 Book Drone Spray Service (₹499/Acre)
                             </button>
-                            <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20Agri%20Hub,%20I%20want%20information%20regarding%20drone%20spraying,%20fertilizers,%20and%20paddy%20trading.')">
+                            <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20Agri%20Solutions,%20I%20want%20information%20regarding%20crop%20monitoring,%20drone%20spraying,%20fertilizers,%20and%20paddy%20trading.')">
                                 💬 Direct Agri WhatsApp Desk
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KEY AGRI-TECH HIGHLIGHTS GRID -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div class="section-header" style="text-align: left; margin-bottom: 1.25rem;">
+                        <span class="badge badge-primary">⚡ Smart AgriTech Innovations</span>
+                        <h2 style="font-size: 1.5rem; margin-top: 0.2rem;">Integrated Farm Management Solutions</h2>
+                        <p style="margin: 0; font-size: 0.88rem;">Empowering local farmers with advanced technology, higher yields, and direct market access.</p>
+                    </div>
+
+                    <div class="agri-feature-highlight-grid">
+                        <div class="agri-feature-card">
+                            <div class="agri-icon-wrapper">🌱</div>
+                            <div>
+                                <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Crop Monitoring & Health Diagnostics</h3>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+                                    Early pest detection, crop stress analysis, and moisture tracking powered by high-resolution thermal drone mapping and AI field analytics.
+                                </p>
+                            </div>
+                            <button class="btn btn-secondary btn-sm" onclick="openDroneBookingModal()">
+                                🔍 Request Crop Scan →
+                            </button>
+                        </div>
+
+                        <div class="agri-feature-card">
+                            <div class="agri-icon-wrapper">🛸</div>
+                            <div>
+                                <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Precision Drone Spraying</h3>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+                                    Uniform liquid fertilizer, nano urea, and pesticide spraying in 10 minutes per acre with 95% water reduction and zero chemical wastage.
+                                </p>
+                            </div>
+                            <button class="btn btn-agri btn-sm" onclick="openDroneBookingModal()">
+                                🛸 Book Spray (₹499/Acre) →
+                            </button>
+                        </div>
+
+                        <div class="agri-feature-card">
+                            <div class="agri-icon-wrapper">🌾</div>
+                            <div>
+                                <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Tungabhadra Rice & Paddy Trade</h3>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+                                    Direct farmgate paddy buying at APMC rates with spot cash, and premium mill-direct Kaveri & Sona Masuri rice sales for wholesale buyers.
+                                </p>
+                            </div>
+                            <button class="btn btn-accent btn-sm" onclick="openPaddyTradeModal('SELL_PADDY', 'Sona Masuri / Kaveri Raw Paddy')">
+                                📊 Launch Trade Desk →
                             </button>
                         </div>
                     </div>
@@ -1894,14 +2043,14 @@
                 <div>
                     <div class="section-header" style="text-align: center; margin-bottom: 1.5rem;">
                         <span class="badge badge-warning">⚡ 3 Comprehensive Agricultural Pillars</span>
-                        <h2>Explore Our Agricultural Ecosystem</h2>
+                        <h2>Explore Our Agriculture Ecosystem</h2>
                         <p>Select a pillar below to access drone bookings, high-grade fertilizers, or paddy/rice trade services.</p>
                     </div>
 
                     <!-- TAB SELECTOR BUTTONS -->
                     <div class="agri-pillar-nav-bar" id="agriPillarTabs">
                         <button class="agri-pillar-btn active" onclick="switchAgriPillar('drone', this)">
-                            <span>🛸 Pillar 1: Drone Spraying Services</span>
+                            <span>🛸 Pillar 1: Drone Spraying & Crop Monitoring</span>
                         </button>
                         <button class="agri-pillar-btn" onclick="switchAgriPillar('fertilizer', this)">
                             <span>🧪 Pillar 2: High-Grade Fertilizers</span>
@@ -1917,7 +2066,7 @@
                             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
                                 <div>
                                     <span class="badge agri-badge-green" style="margin-bottom: 0.4rem;">🛸 Next-Gen Precision Agriculture</span>
-                                    <h3 style="font-size: 1.4rem; font-weight: 800;">High-Capacity Agricultural Drone Spraying</h3>
+                                    <h3 style="font-size: 1.4rem; font-weight: 800;">High-Capacity Agricultural Drone Spraying & Monitoring</h3>
                                     <p style="font-size: 0.88rem; color: var(--text-muted);">Faster, safer, and 100% uniform liquid fertilizer, pesticide, and micronutrient application across your fields.</p>
                                 </div>
                                 <div style="text-align: right;">
@@ -1962,7 +2111,7 @@
                         </div>
                     </div>
 
-                    <!-- PILLAR 2: HIGH-GRADE FERTILIZERS (AMAZON/FLIPKART STYLE E-COMMERCE CARDS) -->
+                    <!-- PILLAR 2: HIGH-GRADE FERTILIZERS -->
                     <div class="agri-pillar-content" id="agriPillar-fertilizer">
                         <div class="section-header" style="text-align: left; margin-bottom: 1.25rem;">
                             <span class="badge badge-primary">🧪 Genuine Input Guarantee</span>
@@ -2097,7 +2246,7 @@
                         </div>
                     </div>
 
-                    <!-- PILLAR 3: PADDY & RICE PRODUCE TRADING (BUYING & SELLING) -->
+                    <!-- PILLAR 3: PADDY & RICE PRODUCE TRADING -->
                     <div class="agri-pillar-content" id="agriPillar-paddy">
                         <div class="info-card" style="border: 2px solid var(--agri-gold); margin-bottom: 1.5rem;">
                             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 1rem;">
@@ -2143,7 +2292,7 @@
             </div>
         </section>
 
-        <!-- 2. DEEP INTERACTIVE PROGRAM, SUPPORT TIERS & BATCH SELECTOR (PROGRAMS PAGE VIEW) -->
+        <!-- 3. DEEP INTERACTIVE PROGRAM, SUPPORT TIERS & BATCH SELECTOR (PROGRAMS PAGE VIEW) -->
         <section id="page-programs" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 
@@ -2359,7 +2508,7 @@
             </div>
         </section>
 
-        <!-- 3. TRANSPORTATION & CAR RENTAL MODULE PAGE VIEW -->
+        <!-- 4. TRANSPORTATION & CAR RENTAL MODULE PAGE VIEW -->
         <section id="page-transport" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 
@@ -2400,7 +2549,7 @@
                     </button>
                 </div>
 
-                <!-- AMAZON/FLIPKART STYLE FLEET LISTING GRID -->
+                <!-- FLEET LISTING GRID -->
                 <div class="fleet-grid" id="fleetCardsGrid">
                     <!-- Populated dynamically via JS -->
                 </div>
@@ -2449,7 +2598,7 @@
             </div>
         </section>
 
-        <!-- 4. SCHEDULE & BATCH CALENDAR PAGE VIEW -->
+        <!-- 5. SCHEDULE & BATCH CALENDAR PAGE VIEW -->
         <section id="page-schedule" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -2509,7 +2658,7 @@
             </div>
         </section>
 
-        <!-- 5. ABOUT US PAGE VIEW -->
+        <!-- 6. ABOUT US PAGE VIEW -->
         <section id="page-about" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -2558,7 +2707,7 @@
             </div>
         </section>
 
-        <!-- 6. CONTACT US PAGE VIEW WITH DEMO BOOKING -->
+        <!-- 7. CONTACT US PAGE VIEW WITH DEMO BOOKING -->
         <section id="page-contact" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -2583,12 +2732,12 @@
                             <div class="form-group">
                                 <label class="form-label">Inquiry Category</label>
                                 <select class="form-input" id="contactProgram" style="font-weight: 700;">
+                                    <option>Agricultural Drone Spraying & Crop Monitoring</option>
+                                    <option>Tungabhadra Paddy & Rice Trade</option>
+                                    <option>Fertilizer Bulk Purchase</option>
                                     <option>Navodaya Entrance Coaching</option>
                                     <option>Morarji Desai Entrance Exam</option>
                                     <option>Sainik School Entrance</option>
-                                    <option>Agricultural Drone Spraying Booking</option>
-                                    <option>Tungabhadra Paddy & Rice Trade</option>
-                                    <option>Fertilizer Bulk Purchase</option>
                                     <option>Car Rental / Freight Transport</option>
                                 </select>
                             </div>
@@ -2596,7 +2745,7 @@
                                 <label class="form-label">Preferred Demo / Visit Mode</label>
                                 <select class="form-input" id="contactMode" style="font-weight: 700;">
                                     <option>Online Live Class Demo</option>
-                                    <option>Sindhanur Campus Visit</option>
+                                    <option>Sindhanur Campus / Agri Depot Visit</option>
                                     <option>Raichur Central Hub Visit</option>
                                     <option>Bellary Campus Visit</option>
                                     <option>Home Tuition Demo Session</option>
@@ -2615,11 +2764,11 @@
                     <!-- Direct Reach Out Box & Branch Locations -->
                     <div class="info-card" style="display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
-                            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem;">📍 Regional Campus Network</h3>
+                            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem;">📍 Regional Campus & Agri Depot Network</h3>
                             
                             <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem;">
                                 <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--border);">
-                                    <strong style="color: var(--text-main);">🏛️ Sindhanur Main Campus & Agri Depot:</strong><br>
+                                    <strong style="color: var(--text-main);">🏛️ Sindhanur Main Campus & Agri Hub:</strong><br>
                                     Near Bus Stand Road, AP K Hosalli Circle, Sindhanur – 584128
                                 </div>
                                 <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--border);">
@@ -2664,7 +2813,7 @@
             </div>
         </section>
 
-        <!-- 7. STUDENT & PARENT PORTAL PAGE VIEW (WITH PARENT TRANSPARENCY DASHBOARD) -->
+        <!-- 8. STUDENT & PARENT PORTAL PAGE VIEW -->
         <section id="page-portal" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -2796,7 +2945,7 @@
             </div>
         </section>
 
-        <!-- 8. ADMIN CONSOLE PAGE VIEW -->
+        <!-- 9. ADMIN CONSOLE PAGE VIEW -->
         <section id="page-admin" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -2838,10 +2987,10 @@
             <div>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.85rem;">
                     <span class="brand-badge" style="width: 34px; height: 34px; font-size: 0.9rem;">SE</span>
-                    <h3 style="font-size: 1.1rem; color: white;">Sharusuri SuperApp & Agriculture Hub</h3>
+                    <h3 style="font-size: 1.1rem; color: white;">Sharusuri SuperApp & Agriculture Solutions</h3>
                 </div>
                 <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.55;" data-i18n="footer_desc">
-                    Karnataka's leading educational and agricultural technology platform equipped with 4-Tier Coaching, precision drone spraying, fertilizer inputs, Tungabhadra rice trading, and rural transport.
+                    Karnataka's leading educational and agricultural technology platform equipped with 4-Tier Coaching, precision drone spraying, crop monitoring, fertilizer inputs, Tungabhadra rice trading, and rural transport.
                 </p>
             </div>
 
@@ -2849,7 +2998,7 @@
                 <h4 style="font-size: 0.9rem; color: white; margin-bottom: 0.75rem;" data-i18n="footer_quick_links">Quick Links</h4>
                 <ul style="font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem; color: #cbd5e1;">
                     <li><a href="javascript:void(0)" onclick="navigateToPage('home')" data-i18n="nav_home">Home</a></li>
-                    <li><a href="javascript:void(0)" onclick="navigateToPage('agriculture')" data-i18n="nav_agri">Agriculture Hub</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigateToPage('agriculture')" data-i18n="nav_agri">Agriculture Solutions</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('programs')" data-i18n="nav_programs">Programs & Support Tiers</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('transport')" data-i18n="nav_transport">Transport & Car Rentals</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('portal')" data-i18n="nav_portal">Parent & Student Portal</a></li>
@@ -3200,7 +3349,7 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT ENGINE WITH BILINGUAL JSON DATASETS & WEBVIEW EXTERNAL LINK COMPATIBILITY -->
+    <!-- JAVASCRIPT ENGINE WITH BILINGUAL JSON DATASETS & ROUTING -->
     <script>
         // WEBVIEW COMPATIBLE EXTERNAL LINK OPENER
         function openExternalUrl(url) {
@@ -3226,13 +3375,13 @@
             }
         }
 
-        // 1. COMPREHENSIVE BILINGUAL (ENGLISH & KANNADA) DICTIONARY DATASET
+        // 1. COMPREHENSIVE BILINGUAL DICTIONARY
         const I18N_DATA = {
             en: {
                 announcement_tag: "🌾 Agriculture & Coaching Engine",
-                announcement_msg: "Tungabhadra River Basin Agri Hub • Drone Spraying • Kaveri & Sona Masuri Rice Trade • Cousins Academy",
+                announcement_msg: "Tungabhadra River Basin Agri Hub • Precision Drone Spraying • Smart Crop Monitoring • Kaveri & Sona Masuri Rice Trade",
                 nav_home: "Home",
-                nav_agri: "Agriculture Hub",
+                nav_agri: "Agriculture Solutions",
                 nav_programs: "Programs & Tiers",
                 nav_transport: "Transport & Rentals",
                 nav_schedule: "Batches & Schedule",
@@ -3242,9 +3391,10 @@
                 nav_admin: "Admin Console",
                 btn_free_demo: "✨ Free Demo",
                 btn_login: "🔐 Login",
-                hero_badge_text: "📺 Official Channel Partner • Cousins Academy @cousinsacademy4599",
-                hero_title: "Master Navodaya & Morarji Entrance Exams with Cousins Academy",
-                hero_sub: "Karnataka's top coaching engine backed by a 4-Tier Academic Support Hierarchy, Cross-Branch Teacher Access, and Flexible Hybrid Learning Models.",
+                agri_back_home: "← Back to Home",
+                hero_badge_text: "🌱 SuperApp Ecosystem • Precision Agriculture & Coaching Engine",
+                hero_title: "Empowering Farmers & Students with Sharusuri SuperApp",
+                hero_sub: "Karnataka's top platform integrating Agriculture Solutions, Precision Drone Spraying, Tungabhadra Rice Trade, and Cousins Academy 4-Tier Coaching Engine.",
                 hero_btn_trial: "🎯 Book Free Trial Demo Class",
                 hero_btn_explore: "🚀 Explore Programs & Support Tiers",
                 hero_btn_transport: "🚕 Rent Cars & Freight Logistics",
@@ -3300,7 +3450,7 @@
                 lbl_load_weight: "Estimated Load Weight / Quantity *",
                 lbl_pickup_drop: "Pickup & Drop Route *",
                 btn_calc_quote: "📊 Calculate & Book via WhatsApp",
-                footer_desc: "Karnataka's leading educational and agricultural technology platform equipped with 4-Tier Coaching, precision drone spraying, fertilizer inputs, Tungabhadra rice trading, and rural transport.",
+                footer_desc: "Karnataka's leading educational and agricultural technology platform equipped with 4-Tier Coaching, precision drone spraying, crop monitoring, fertilizer inputs, Tungabhadra rice trading, and rural transport.",
                 footer_quick_links: "Quick Links",
                 footer_official_contacts: "Official Contacts",
                 footer_trial_yt: "Trial Demo & YouTube",
@@ -3308,9 +3458,9 @@
             },
             kn: {
                 announcement_tag: "🌾 ಕೃಷಿ ಮತ್ತು ಶಿಕ್ಷಣ ಸೇವೆ",
-                announcement_msg: "ತುಂಗಭದ್ರಾ ಕೃಷಿ ಕೇಂದ್ರ • ಡ್ರೋನ್ ಸಿಂಪಡಣೆ • ಕಾವೇರಿ ಮತ್ತು ಸೋನಾ ಮಸೂರಿ ಅಕ್ಕಿ ವ್ಯಾಪಾರ • ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ",
+                announcement_msg: "ತುಂಗಭದ್ರಾ ಕೃಷಿ ಕೇಂದ್ರ • ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ • ಬೆಳೆ ವೀಕ್ಷಣೆ • ಕಾವೇರಿ ಮತ್ತು ಸೋನಾ ಮಸೂರಿ ಅಕ್ಕಿ ವ್ಯಾಪಾರ",
                 nav_home: "ಮುಖಪುಟ",
-                nav_agri: "ಕೃಷಿ ಕೇಂದ್ರ (Agri Hub)",
+                nav_agri: "ಕೃಷಿ ಸೇವೆಗಳು (Agri Hub)",
                 nav_programs: "ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಸಪೋರ್ಟ್",
                 nav_transport: "ವಾಹನ & ಸರಕು ಸೇವೆ",
                 nav_schedule: "ಬ್ಯಾಚ್ ಸಮಯ",
@@ -3320,20 +3470,21 @@
                 nav_admin: "ಅಡ್ಮಿನ್",
                 btn_free_demo: "✨ ಉಚಿತ ಡೆಮೊ",
                 btn_login: "🔐 ಲಾಗಿನ್",
-                hero_badge_text: "📺 ಅಧಿಕೃತ ಯೂಟ್ಯೂಬ್ ಚಾನೆಲ್ ಪಾಲುದಾರರು • ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ @cousinsacademy4599",
-                hero_title: "ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿಯೊಂದಿಗೆ ನವೋದಯ ಮತ್ತು ಮೊರಾರ್ಜಿ ಪರೀಕ್ಷೆಗಳನ್ನು ಗೆಲ್ಲಿರಿ",
-                hero_sub: "4-ಹಂತದ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ, ಮಲ್ಟಿ-ಬ್ರಾಂಚ್ ಶಿಕ್ಷಕರ ಸಹಾಯ ಮತ್ತು ಹೈಬ್ರಿಡ್ ಕಲಿಕಾ ವ್ಯವಸ್ಥೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಅತ್ಯುತ್ತಮ ಕೋಚಿಂಗ್ ಸಂಸ್ಥೆ.",
+                agri_back_home: "← ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
+                hero_badge_text: "🌱 ಸೂಪರ್ ಆ್ಯಪ್ • ಕೃಷಿ ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ಪರೀಕ್ಷಾ ತರಬೇತಿ",
+                hero_title: "ಶಾರುಸೂರಿ ಸೂಪರ್ ಆ್ಯಪ್‌ನೊಂದಿಗೆ ಕೃಷಿ ಮತ್ತು ಶಿಕ್ಷಣ ಸೇವೆಗಳು",
+                hero_sub: "ಡ್ರೋನ್ ಸಿಂಪಡಣೆ, ಬೆಳೆ ವೀಕ್ಷಣೆ, ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ ತರಬೇತಿಯನ್ನು ಒಳಗೊಂಡ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ವೇದಿಕೆ.",
                 hero_btn_trial: "🎯 ಉಚಿತ ಡೆಮೊ ತರಗತಿಯನ್ನು ಬುಕ್ ಮಾಡಿ",
                 hero_btn_explore: "🚀 ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಬೆಂಬಲ ಹಂತಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
                 hero_btn_transport: "🚕 ಕಾರು ಬಾಡಿಗೆ ಮತ್ತು ಸರಕು ಸಾರಿಗೆ ಸೇವೆ",
                 hero_btn_yt: "📺 ಯೂಟ್ಯೂಬ್ ಚಾನೆಲ್ ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಮಾಡಿ",
                 wizard_badge: "⚡ ತ್ವರಿತ ದಾಖಲಾತಿ ಮತ್ತು ಡೆಮೊ ತರಗತಿ",
                 wizard_heading: "4 ಸರಳ ಹಂತಗಳಲ್ಲಿ ನಿಮ್ಮ ಸೂಕ್ತ ಕೋರ್ಸ್ ಆಯ್ಕೆಮಾಡಿ",
-                wizard_sub: "ನಿಮ್ಮ ಕೋರ್ಸ್, ಬ್ಯಾಚ್ ಮಾದರಿ, ಕಲಿಕಾ ವಿಧಾನ (ಆನ್‌ಲೈನ್/ಆಫ್‌ಲೈನ್/ಮನೆ ಬೋಧನೆ) ಮತ್ತು ಸಮಯದ ಸ್ಲಾಟ್ ಆಯ್ಕೆಮಾಡಿ.",
+                wizard_sub: "ನಿಮ್ಮ ಕೋರ್ಸ್, ಬ್ಯಾಚ್ ಮಾದರಿ, ಕಲಿಕಾ ವಿಧಾನ ಮತ್ತು ಸಮಯದ ಸ್ಲಾಟ್ ಆಯ್ಕೆಮಾಡಿ.",
                 wizard_launch_btn: "👉 ಕೋರ್ಸ್ ಮತ್ತು ಬ್ಯಾಚ್ ಸೆಲೆಕ್ಟರ್ ಬಳಸಿ",
                 tier_sec_badge: "🛡️ ಸಾಟಿಯಿಲ್ಲದ ವಿದ್ಯಾರ್ಥಿ ಬೆಂಬಲ ವ್ಯವಸ್ಥೆ",
-                tier_sec_heading: "4-ಹಂತದ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ ವ್ಯವಸ್ಥೆ (Academic Support Hierarchy)",
-                tier_sec_sub: "ಪ್ರತಿ ವಿದ್ಯಾರ್ಥಿಗೂ ಪ್ರತಿ ವಿಷಯದಲ್ಲೂ 360-ಡಿಗ್ರಿ ಮಾರ್ಗದರ್ಶನ, ತಕ್ಷಣದ ಸಂಶಯ ನಿವಾರಣೆ ಮತ್ತು ಮಲ್ಟಿ-ಬ್ರಾಂಚ್ ಶಿಕ್ಷಕರ ನೆರವು. ವಿವರಗಳಿಗೆ ಕೆಳಗಿನ ಹಂತಗಳನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ.",
+                tier_sec_heading: "4-ಹಂತದ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ ವ್ಯವಸ್ಥೆ",
+                tier_sec_sub: "ಪ್ರತಿ ವಿದ್ಯಾರ್ಥಿಗೂ ಪ್ರತಿ ವಿಷಯದಲ್ಲೂ 360-ಡಿಗ್ರಿ ಮಾರ್ಗದರ್ಶನ, ತಕ್ಷಣದ ಸಂಶಯ ನಿವಾರಣೆ ಮತ್ತು ಮಲ್ಟಿ-ಬ್ರಾಂಚ್ ಶಿಕ್ಷಕರ ನೆರವು.",
                 stat1_label: "ನವೋದಯ ಆಯ್ಕೆಯ ಪ್ರಮಾಣ",
                 stat1_sub: "ರಾಯಚೂರು ಮತ್ತು ಬಳ್ಳಾರಿಯಲ್ಲಿ ಅತ್ಯುತ್ತಮ ರ್ಯಾಂಕ್",
                 stat2_label: "ದಾಖಲಾದ ವಿದ್ಯಾರ್ಥಿಗಳು",
@@ -3344,41 +3495,41 @@
                 stat4_sub: "ವಿಶೇಷ ಯೂಟ್ಯೂಬ್ ಮಾಸ್ಟರ್ ಕ್ಲಾಸ್",
                 prog_tier_header_badge: "🎓 ಪೂರ್ಣ ಪ್ರಮಾಣದ ವಿಷಯ ಬೋಧನಾ ಚೌಕಟ್ಟು",
                 prog_tier_header_title: "ನಮ್ಮ 4-ಹಂತದ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ ವ್ಯವಸ್ಥೆ",
-                prog_tier_header_sub: "ಯಾವೊಬ್ಬ ಮಗುವೂ ಕಲಿಕೆಯಲ್ಲಿ ಹಿಂದುಳಿಯದಂತೆ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ. ಪ್ರತಿಯೊಂದು ಹಂತದ ಶೈಕ್ಷಣಿಕ ಯೋಜನೆಯನ್ನು ವಿವರವಾಗಿ ತಿಳಿಯಲು ಕೆಳಗೆ ಕ್ಲಿಕ್ ಮಾಡಿ.",
+                prog_tier_header_sub: "ಯಾವೊಬ್ಬ ಮಗುವೂ ಕಲಿಕೆಯಲ್ಲಿ ಹಿಂದುಳಿಯದಂತೆ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ.",
                 tuition_header_badge: "🔀 ಹೊಂದಿಕೊಳ್ಳುವ ಶಿಕ್ಷಣ ಮಾದರಿ",
                 tuition_header_title: "ಹೊಂದಿಕೊಳ್ಳುವ ಬೋಧನೆ ಮತ್ತು ಕಲಿಕಾ ವಿಧಾನಗಳು",
-                tuition_header_sub: "ನಿಮ್ಮ ಅನುಕೂಲಕ್ಕೆ ತಕ್ಕಂತೆ ಕ್ಯಾಂಪಸ್ ತರಗತಿಗಳು, ಮನೆ ಬೋಧನೆ ಮತ್ತು ವಿವಿಧ ಶಾಖೆಗಳ ನಡುವೆ ಸುಲಭವಾಗಿ ಬದಲಾಯಿಸಿ.",
+                tuition_header_sub: "ನಿಮ್ಮ ಅನುಕೂಲಕ್ಕೆ ತಕ್ಕಂತೆ ಕ್ಯಾಂಪಸ್ ತರಗತಿಗಳು, ಮನೆ ಬೋಧನೆ ಮತ್ತು ವಿಭಿನ್ನ ಶಾಖೆಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಿ.",
                 tuition_opt1_title: "ಸಾಮಾನ್ಯ ಕ್ಯಾಂಪಸ್ ಟ್ಯೂಷನ್",
-                tuition_opt1_desc: "ನಿಮ್ಮ ಸಮೀಪದ ಕೇಂದ್ರದಲ್ಲಿ ಪ್ರತಿದಿನವೂ ಮುಖಾಮುಖಿ ತರಗತಿಗಳು, ನೇರ ಶಿಕ್ಷಕರ ಮಾರ್ಗದರ್ಶನ ಮತ್ತು ದಿನನಿತ್ಯದ OMR ಪರೀಕ್ಷೆಗಳು.",
+                tuition_opt1_desc: "ಪ್ರತಿದಿನವೂ ಮುಖಾಮುಖಿ ತರಗತಿಗಳು, ನೇರ ಶಿಕ್ಷಕರ ಮಾರ್ಗದರ್ಶನ ಮತ್ತು OMR ಪರೀಕ್ಷೆಗಳು.",
                 tuition_opt1_btn: "📍 ಕ್ಯಾಂಪಸ್ ಭೇಟಿ ಡೆಮೊ ಬುಕ್ ಮಾಡಿ",
                 tuition_opt2_title: "ಕ್ರಾಸ್-ಬ್ರಾಂಚ್ ಆಕ್ಸೆಸ್ ಪಾಸ್",
-                tuition_opt2_desc: "ಒಂದು ಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ದಾಖಲಾಗಿ, ವಾರಾಂತ್ಯದ ಸಂಶಯ ನಿವಾರಣಾ ತರಗತಿಗಳು ಮತ್ತು ಮಾಕ್ ಪರೀಕ್ಷೆಗಳಿಗಾಗಿ ಯಾವುದೇ ಬ್ರಾಂಚ್‌ಗೆ ಭೇಟಿ ನೀಡಿ.",
+                tuition_opt2_desc: "ವಾರಾಂತ್ಯದ ಸಂಶಯ ನಿವಾರಣಾ ತರಗತಿಗಳಿಗಾಗಿ ಯಾವುದೇ ಬ್ರಾಂಚ್‌ಗೆ ಭೇಟಿ ನೀಡಿ.",
                 tuition_opt2_btn: "🌐 ನಮ್ಮ ಬ್ರಾಂಚ್ ನೆಟ್‌ವರ್ಕ್ ವೀಕ್ಷಿಸಿ",
                 tuition_opt3_title: "ಹೈಬ್ರಿಡ್ ಮತ್ತು ಮನೆ ಮಾರ್ಗದರ್ಶನ",
-                tuition_opt3_desc: "ಆನ್‌ಲೈನ್ ನೇರ ಪ್ರಸಾರ ತರಗತಿಗಳ ಜೊತೆಗೆ ವಾರಕ್ಕೊಮ್ಮೆ ಮನೆಗೆ ಭೇಟಿ ನೀಡುವ ಮಾರ್ಗದರ್ಶಕರಿಂದ ಪರೀಕ್ಷಾ ತಂತ್ರ ಮತ್ತು ಪ್ರಗತಿ ಪರಿಶೀಲನೆ.",
+                tuition_opt3_desc: "ಆನ್‌ಲೈನ್ ಲೈವ್ ತರಗತಿಗಳ ಜೊತೆಗೆ ಮನೆ ಮಾರ್ಗದರ್ಶಕರಿಂದ ಪರೀಕ್ಷಾ ತಂತ್ರ.",
                 tuition_opt3_btn: "🏠 ಮನೆ ಮಾರ್ಗದರ್ಶಕರ ಡೆಮೊ ವಿನಂತಿಸಿ",
                 wiz_header_badge: "📚 ಕೋರ್ಸ್ ಮತ್ತು ಬ್ಯಾಚ್ ಆಯ್ಕೆ ಸೆಲೆಕ್ಟರ್",
                 wiz_header_title: "ನಿಮ್ಮ ಕಲಿಕಾ ಪಯಣವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
-                wiz_header_sub: "ನಿಮ್ಮಿಷ್ಟದ ಕೋರ್ಸ್, ಬ್ಯಾಚ್, ಕಲಿಕಾ ವಿಧಾನ ಮತ್ತು ಸಮಯವನ್ನು ಆಯ್ಕೆ ಮಾಡಲು 4 ಹಂತದ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ.",
+                wiz_header_sub: "ನಿಮ್ಮಿಷ್ಟದ ಕೋರ್ಸ್, ಬ್ಯಾಚ್, ಕಲಿಕಾ ವಿಧಾನ ಮತ್ತು ಸಮಯವನ್ನು ಆಯ್ಕೆ ಮಾಡಲು 4 ಹಂತ ಪೂರ್ಣಗೊಳಿಸಿ.",
                 wiz_step1_label: "ಕೋರ್ಸ್ ಆಯ್ಕೆ",
                 wiz_step2_label: "ಬ್ಯಾಚ್ ಮಾದರಿ",
                 wiz_step3_label: "ಕಲಿಕಾ ವಿಧಾನ",
                 wiz_step4_label: "ಸಮಯ ಮತ್ತು ವಿವರ",
                 transport_badge: "🚕 ಶಾರುಸೂರಿ ಎಕ್ಸ್‌ಪ್ರೆಸ್ ವಾಹನ ಮತ್ತು ಸರಕು ಸೇವೆ",
                 transport_hero_title: "ಸ್ವಯಂ ಚಾಲನಾ ಕಾರು ಬಾಡಿಗೆ ಮತ್ತು ಕೃಷಿ ಸರಕು ಸಾರಿಗೆ",
-                transport_hero_sub: "ಸಿಂಧನೂರು, ರಾಯಚೂರು, ಬಳ್ಳಾರಿ ಮತ್ತು ಕೊಪ್ಪಳ भागದಲ್ಲಿ ಕಾರು ಬಾಡಿಗೆ, ಮಿನಿ ಟ್ರಕ್ ಹಾಗೂ ಭತ್ತದ ಮೂಟೆಗಳ ಸಾರಿಗೆ ಸೇವೆಗೆ ತಕ್ಷಣ ಬುಕ್ ಮಾಡಿ.",
+                transport_hero_sub: "ಸಿಂಧನೂರು, ರಾಯಚೂರು, ಬಳ್ಳಾರಿ ಭಾಗದಲ್ಲಿ ಕಾರು ಬಾಡಿಗೆ, ಮಿನಿ ಟ್ರಕ್ ಹಾಗೂ ಭತ್ತದ ಮೂಟೆಗಳ ಸಾರಿಗೆ ಸೇವೆ.",
                 btn_instant_transport: "🚀 ತಕ್ಷಣ ವಾಹನ ಬುಕ್ ಮಾಡಿ",
                 fleet_tab_all: "🚘 ಎಲ್ಲ ವಾಹನಗಳು (8)",
                 fleet_tab_self: "🚗 ಕಾರುಗಳು ಮತ್ತು ಸ್ಯಾಂಟ್ರೋ",
                 fleet_tab_cargo: "🌾 ಕೃಷಿ ಸರಕು ಮತ್ತು ಭತ್ತದ ಸಾರಿಗೆ",
                 fleet_tab_bus: "🚌 ಬಸ್‌ಗಳು ಮತ್ತು ಟ್ರಾವೆಲರ್",
                 cargo_calc_title: "ಕೃಷಿ ಸರಕು ಮತ್ತು ಭತ್ತದ ಮೂಟೆಗಳ ಸಾರಿಗೆ ದರ ಅಂದಾಜು",
-                cargo_calc_sub: "ಭತ್ತದ ಮೂಟೆ, ರಸಗೊಬ್ಬರ ಚೀಲ ಅಥವಾ ಕೃಷಿ ಉಪಕರಣಗಳ ಸಾರಿಗೆ ದರವನ್ನು ತಕ್ಷಣವೇ ಪಡೆಯಿರಿ.",
+                cargo_calc_sub: "ಭತ್ತದ ಮೂಟೆ, ರಸಗೊಬ್ಬರ ಚೀಲ ಅಥವಾ ಕೃಷಿ ಉಪಕರಣಗಳ ಸಾರಿಗೆ ದರ ಪಡೆಯಿರಿ.",
                 lbl_goods_type: "ಸರಕಿನ ಮಾದರಿ *",
                 lbl_load_weight: "ಅಂದಾಜು ತೂಕ / ಪ್ರಮಾಣ *",
                 lbl_pickup_drop: "ಪಿಕಪ್ ಮತ್ತು ಡ್ರಾಪ್ ಮಾರ್ಗ *",
                 btn_calc_quote: "📊 ವಾಟ್ಸಾಪ್ ಮೂಲಕ ದರ ಪಡೆಯಿರಿ",
-                footer_desc: "4-ಹಂತದ ಬೋಧನೆ, ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ, ರಸಗೊಬ್ಬರ, ತುಂಗಭದ್ರಾ ಕಾವೇರಿ ಸೋನಾ ಮಸೂರಿ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಸಾರಿಗೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್.",
+                footer_desc: "4-ಹಂತದ ಬೋಧನೆ, ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ, ಬೆಳೆ ವೀಕ್ಷಣೆ, ರಸಗೊಬ್ಬರ, ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಸಾರಿಗೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್.",
                 footer_quick_links: "ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು",
                 footer_official_contacts: "ಅಧಿಕೃತ ಸಂಪರ್ಕಗಳು",
                 footer_trial_yt: "ಉಚಿತ ಡೆಮೊ ಮತ್ತು ಯೂಟ್ಯೂಬ್",
@@ -3386,7 +3537,7 @@
             }
         };
 
-        // 2. DETAILED BILINGUAL 4-TIER ACADEMIC SUPPORT DATASET
+        // 2. DETAILED BILINGUAL 4-TIER DATASET
         const TIER_DETAILS_DATA = {
             en: {
                 1: {
@@ -3395,11 +3546,11 @@
                     tagline: "Foundational Concept Mastery & Structured Daily Curriculum",
                     badgeClass: "badge-purple",
                     icon: "👨‍🏫",
-                    whatItIs: "High-impact live interactive classroom teaching led by Karnataka's premier Navodaya & Morarji subject experts. Features structured syllabus delivery across Mental Ability, Arithmetic, Kannada, English, and General Intelligence.",
-                    whyWeBuiltIt: "Traditional classroom coaching in rural and tier-2 districts often suffers from unstructured syllabus completion, lack of exam-pattern alignment, and passive listening. We built Tier 1 to guarantee 100% syllabus coverage on schedule with active student engagement.",
-                    usefulness: "Gives students a predictable, disciplined daily learning structure. Parents receive weekly digital progress reports tracking topic completion and class attendance, ensuring complete visibility into classroom progress.",
-                    howTheyLearn: "Structured 90-minute daily lectures using visual breakdown diagrams, speed-math tricks, pattern-recognition methodologies, and real-time interactive Q&A polling.",
-                    effectiveness: "Directly drives foundational conceptual accuracy; students in Tier 1 achieve a 45% faster problem-solving speed in Mental Ability within 4 weeks.",
+                    whatItIs: "High-impact live interactive classroom teaching led by Karnataka's premier Navodaya & Morarji subject experts.",
+                    whyWeBuiltIt: "Built to guarantee 100% syllabus coverage on schedule with active student engagement.",
+                    usefulness: "Gives students a predictable, disciplined daily learning structure with weekly digital progress reports.",
+                    howTheyLearn: "Structured 90-minute daily lectures using visual breakdown diagrams and speed-math tricks.",
+                    effectiveness: "Drives foundational conceptual accuracy; students achieve a 45% faster problem-solving speed in Mental Ability.",
                     highlightStat: "45%",
                     highlightLabel: "Faster Problem Solving in Mental Ability"
                 },
@@ -3409,11 +3560,11 @@
                     tagline: "Daily Supervised Practice & Speed Drills",
                     badgeClass: "badge-primary",
                     icon: "⏱️",
-                    whatItIs: "Mandatory, daily 60-minute supervised practice and speed-drilling sessions where students attempt timed OMR worksheets and receive immediate corrections on subject-specific doubt areas.",
-                    whyWeBuiltIt: "Listening to a lecture isn't enough to clear entrance exams; real learning happens when students apply concepts on actual exam-format papers. Most students fail because they delay practicing until exam week.",
-                    usefulness: "Removes procrastination, builds exam stamina, and trains 10-12 year old children to manage time efficiently without panicking under competitive exam conditions.",
-                    howTheyLearn: "Daily OMR test paper practice in time-restricted conditions followed by immediate, guided step-by-step paper walk-throughs by Subject Leads.",
-                    effectiveness: "Boosts exam speed by 60% and reduces negative marking / OMR bubbling errors by over 92% across Navodaya and Morarji test takers.",
+                    whatItIs: "Mandatory daily 60-minute supervised practice where students attempt timed OMR worksheets.",
+                    whyWeBuiltIt: "Real learning happens when students apply concepts on actual exam-format papers under time pressure.",
+                    usefulness: "Removes procrastination and trains children to manage time efficiently without panicking.",
+                    howTheyLearn: "Daily OMR test paper practice in time-restricted conditions followed by step-by-step walk-throughs.",
+                    effectiveness: "Boosts exam speed by 60% and reduces OMR bubbling errors by over 92%.",
                     highlightStat: "92%",
                     highlightLabel: "Reduction in OMR & Speed Errors"
                 },
@@ -3423,11 +3574,11 @@
                     tagline: "Individualized SLA-Backed Doubt Resolution",
                     badgeClass: "badge-success",
                     icon: "🎯",
-                    whatItIs: "Individualized, 1-on-1 dedicated academic mentoring with a guaranteed sub-2 hour SLA (Service Level Agreement). Every child gets a dedicated mentor who reviews homework, addresses personal learning gaps, and provides custom video/handwritten solutions.",
-                    whyWeBuiltIt: "Shy or slower-paced students often hesitate to ask questions in front of a full class, letting small doubts accumulate into major conceptual failures.",
-                    usefulness: "Parents no longer need to worry about homework assistance or complex arithmetic doubts at home. Personalized care ensures no student is left behind regardless of their initial skill level.",
-                    howTheyLearn: "Asynchronous or 1-on-1 live call doubt submission via the Sharusuri OS portal. Mentors generate bite-sized 1-minute video walk-throughs, audio voice notes, and step-by-step solution sheets tailored to the child's learning speed.",
-                    effectiveness: "Eliminates doubt backlogs entirely; 98.4% of students with active Tier 3 mentor engagement report complete confidence on exam day.",
+                    whatItIs: "Individualized 1-on-1 dedicated academic mentoring with a guaranteed sub-2 hour resolution SLA.",
+                    whyWeBuiltIt: "Ensures shy students get custom video or handwritten solutions without feeling hesitant.",
+                    usefulness: "Parents no longer worry about homework assistance or complex arithmetic doubts at home.",
+                    howTheyLearn: "Submissions via portal trigger bite-sized video walk-throughs and voice notes tailored to the child's speed.",
+                    effectiveness: "Eliminates doubt backlogs entirely; 98.4% of students report complete confidence on exam day.",
                     highlightStat: "< 2 Hrs",
                     highlightLabel: "Guaranteed Doubt SLA Resolution"
                 },
@@ -3437,11 +3588,11 @@
                     tagline: "Statewide Access to Karnataka's Top Rank Builders",
                     badgeClass: "badge-danger",
                     icon: "🌐",
-                    whatItIs: "Statewide open access to top-ranking master faculty from any Cousins Academy regional branch (Sindhanur, Raichur, Bellary, or Digital Division). Students can attend doubt clinics or revision camps led by specialized rank-producing experts.",
-                    whyWeBuiltIt: "Single-location coaching institutes are constrained by local faculty limitations. We built Tier 4 to democratize access, allowing every student in any town or online mode to learn directly from Karnataka's top-performing entrance rank builders.",
-                    usefulness: "If a child needs an alternative perspective or advanced short-tricks for difficult topics like spatial reasoning or ratio tricks, they aren't restricted to one teacher.",
-                    howTheyLearn: "Interactive Weekend Cross-Branch Masterclasses, multi-campus simulated mock exam debriefs, and state-level ranker clinics.",
-                    effectiveness: "Propels average performers into top-10 district rankers. Drives our 98.4% selection rate across JNVST and KREIS residential school exams.",
+                    whatItIs: "Statewide open access to top-ranking master faculty from any regional branch.",
+                    whyWeBuiltIt: "Democratizes access, allowing every student to learn directly from Karnataka's top entrance rank builders.",
+                    usefulness: "Allows students to learn alternative perspectives or advanced short-tricks for difficult topics.",
+                    howTheyLearn: "Interactive Weekend Cross-Branch Masterclasses and simulated mock exam debriefs.",
+                    effectiveness: "Propels average performers into top district rankers across JNVST and KREIS residential exams.",
                     highlightStat: "98.4%",
                     highlightLabel: "Overall Entrance Selection Rate"
                 }
@@ -3453,11 +3604,11 @@
                     tagline: "ಪಠ್ಯಕ್ರಮದ ಮೂಲಭೂತ ಪರಿಕಲ್ಪನೆಗಳ ಬೋಧನೆ ಮತ್ತು ದೈನಂದಿನ ತರಗತಿ",
                     badgeClass: "badge-purple",
                     icon: "👨‍🏫",
-                    whatItIs: "ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ನವೋದಯ ಮತ್ತು ಮೊರಾರ್ಜಿ ಪರೀಕ್ಷಾ ಪರಿಣಿತರಿಂದ ನೇರ ಸಂವಾದಾತ್ಮಕ ತರಗತಿಗಳು. ಮಾನಸಿಕ ಸಾಮರ್ಥ್ಯ, ಗಣಿತ, ಕನ್ನಡ, ಇಂಗ್ಲಿಷ್ ಮತ್ತು ಸಾಮಾನ್ಯ ಜ್ಞಾನ ವಿಷಯಗಳ ಪರಿಪೂರ್ಣ ಬೋಧನೆ.",
-                    whyWeBuiltIt: "ಗ್ರಾಮೀಣ ಭಾಗದ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ ಪಠ್ಯಕ್ರಮ ಪೂರ್ಣಗೊಳ್ಳದಿರುವುದು ಮತ್ತು ಪರೀಕ್ಷಾ ವಿಧಾನದ ಸ್ಪಷ್ಟತೆ ಇಲ್ಲದಿರುವುದನ್ನು ತಡೆಗಟ್ಟಲು ಈ ಹಂತವನ್ನು ರೂಪಿಸಲಾಗಿದೆ.",
-                    usefulness: "ವಿದ್ಯಾರ್ಥಿಗಳಲ್ಲಿ ನಿರಂತರ ಕಲಿಕಾ ಶಿಸ್ತು ಮೂಡಿಸುತ್ತದೆ. ಪೋಷಕರು ಪ್ರತೀವಾರ ತಮ್ಮ ಮಗುವಿನ ಹಾಜರಾತಿ ಮತ್ತು ಕಲಿಕಾ ಪ್ರಗತಿ ವರದಿಯನ್ನು ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ಪಡೆಯಬಹುದು.",
-                    howTheyLearn: "ದಿನನಿತ್ಯ 90 ನಿಮಿಷಗಳ ರೇಖಾಚಿತ್ರ ಆಧಾರಿತ ಬೋಧನೆ, ವೇಗದ ಗಣಿತ ಶಾರ್ಟ್‌ಕಟ್ ತಂತ್ರಗಳು ಮತ್ತು ಸಂವಾದಾತ್ಮಕ ಪ್ರಶ್ನೋತ್ತರ ಸೆಷನ್‌ಗಳು.",
-                    effectiveness: "ವಿದ್ಯಾರ್ಥಿಗಳ ಮೂಲಭೂತ ಗ್ರಹಿಕೆ ಹೆಚ್ಚಿಸುತ್ತದೆ; 4 ವಾರಗಳಲ್ಲಿ ಮಾನಸಿಕ ಸಾಮರ್ಥ್ಯದ ಪ್ರಶ್ನೆಗಳನ್ನು 45% ವೇಗವಾಗಿ ಬಿಡಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
+                    whatItIs: "ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ನವೋದಯ ಮತ್ತು ಮೊರಾರ್ಜಿ ಪರೀಕ್ಷಾ ಪರಿಣಿತರಿಂದ ನೇರ ಸಂವಾದಾತ್ಮಕ ತರಗತಿಗಳು.",
+                    whyWeBuiltIt: "ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ ಪಠ್ಯಕ್ರಮ ಪೂರ್ಣಗೊಳಿಸಲು ಇದನ್ನು ರೂಪಿಸಲಾಗಿದೆ.",
+                    usefulness: "ವಿದ್ಯಾರ್ಥಿಗಳಲ್ಲಿ ನಿರಂತರ ಕಲಿಕಾ ಶಿಸ್ತು ಮೂಡಿಸುತ್ತದೆ.",
+                    howTheyLearn: "ದಿನನಿತ್ಯ 90 ನಿಮಿಷಗಳ ರೇಖಾಚಿತ್ರ ಆಧಾರಿತ ಬೋಧನೆ ಮತ್ತು ಶಾರ್ಟ್‌ಕಟ್ ತಂತ್ರಗಳು.",
+                    effectiveness: "ಮಾನಸಿಕ ಸಾಮರ್ಥ್ಯದ ಪ್ರಶ್ನೆಗಳನ್ನು 45% ವೇಗವಾಗಿ ಬಿಡಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
                     highlightStat: "45%",
                     highlightLabel: "ಮಾನಸಿಕ ಸಾಮರ್ಥ್ಯದಲ್ಲಿ ಹೆಚ್ಛಿನ ಬಿಡಿಸುವ ವೇಗ"
                 },
@@ -3467,11 +3618,11 @@
                     tagline: "ದೈನಂದಿನ ಮಾರ್ಗದರ್ಶಿತ ಅಭ್ಯಾಸ ಮತ್ತು OMR ಪರೀಕ್ಷಾ ತರಬೇತಿ",
                     badgeClass: "badge-primary",
                     icon: "⏱️",
-                    whatItIs: "ಪ್ರತಿದಿನ 60 ನಿಮಿಷಗಳ ಕಡ್ಡಾಯ OMR ಅಭ್ಯಾಸ ತರಗತಿಗಳು. ವಿದ್ಯಾರ್ಥಿಗಳು ಸಮಯದ ಮಿತಿಯಲ್ಲಿ ಪ್ರತ್ನ ಪತ್ರಿಕೆಗಳನ್ನು ಬಿಡಿಸಿ, ತಕ್ಷಣವೇ ತಮ್ಮ ತಪ್ಪುಗಳನ್ನು ತಿದ್ದಿಕೊಳ್ಳುತ್ತಾರೆ.",
-                    whyWeBuiltIt: "ಕೇವಲ ಪಾಠ ಕೇಳುವುದರಿಂದ ಪರೀಕ್ಷೆ ಗೆಲ್ಲಲು ಸಾಧ್ಯವಿಲ್ಲ; ನೈಜ OMR ಶೀಟ್‌ಗಳಲ್ಲಿ ಅಭ್ಯಾಸ ಮಾಡಿದಾಗ ಮಾತ್ರ ಪರೀಕ್ಷಾ ಭಯ ನಿವಾರಣೆಯಾಗುತ್ತದೆ.",
-                    usefulness: "ವಿದ್ಯಾರ್ಥಿಗಳಲ್ಲಿ ಸಮಯ ನಿರ್ವಹಣೆ ಮತ್ತು ಪರೀಕ್ಷಾ ಜಾಣ್ಮೆಯನ್ನು ಬೆಳೆಸುತ್ತದೆ. OMR ಶೀಟ್ ತುಂಬುವಾಗ ಮಾಡುವ ತಪ್ಪುಗಳನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ತಡೆಯುತ್ತದೆ.",
-                    howTheyLearn: "ಸಮಯ ಆಧಾರಿತ OMR ಪತ್ರಿಕೆಗಳ ಅಭ್ಯಾಸ ಮತ್ತು ವಿಷಯ ಶಿಕ್ಷಕರಿಂದ ಹಂತ-ಹಂತದ ಉತ್ತರ ವಿಶ್ಲೇಷಣೆ.",
-                    effectiveness: "ಪರೀಕ್ಷಾ ವೇಗವನ್ನು 60% ಹೆಚ್ಚಿಸುತ್ತದೆ ಮತ್ತು OMR ಶೀಟ್ ಬಬ್ಲಿಂಗ್ ತಪ್ಪುಗಳನ್ನು 92% ಕ್ಕಿಂತ ಹೆಚ್ಚು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ.",
+                    whatItIs: "ಪ್ರತಿದಿನ 60 ನಿಮಿಷಗಳ ಕಡ್ಡಾಯ OMR ಅಭ್ಯಾಸ ತರಗತಿಗಳು.",
+                    whyWeBuiltIt: "ನೈಜ OMR ಶೀಟ್‌ಗಳಲ್ಲಿ ಅಭ್ಯಾಸ ಮಾಡಿದಾಗ ಮಾತ್ರ ಪರೀಕ್ಷಾ ಭಯ ನಿವಾರಣೆಯಾಗುತ್ತದೆ.",
+                    usefulness: "ವಿದ್ಯಾರ್ಥಿಗಳಲ್ಲಿ ಸಮಯ ನಿರ್ವಹಣೆಯನ್ನು ಬೆಳೆಸುತ್ತದೆ.",
+                    howTheyLearn: "ಸಮಯ ಆಧಾರಿತ OMR ಪತ್ರಿಕೆಗಳ ಅಭ್ಯಾಸ ಮತ್ತು ಉತ್ತರ ವಿಶ್ಲೇಷಣೆ.",
+                    effectiveness: "OMR ಶೀಟ್ ಬಬ್ಲಿಂಗ್ ತಪ್ಪುಗಳನ್ನು 92% ಕ್ಕಿಂತ ಹೆಚ್ಚು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ.",
                     highlightStat: "92%",
                     highlightLabel: "OMR ಪರೀಕ್ಷಾ ತಪ್ಪುಗಳಲ್ಲಿ ಇಳಿತ"
                 },
@@ -3481,11 +3632,11 @@
                     tagline: "ವೈಯಕ್ತಿಕ ಕಾಳಜಿ ಮತ್ತು 2 ಗಂಟೆಗಳಲ್ಲಿ ಸಂಶಯ ಪರಿಹಾರ",
                     badgeClass: "badge-success",
                     icon: "🎯",
-                    whatItIs: "ಪ್ರತಿ ವಿದ್ಯಾರ್ಥಿಗೂ ಒಬ್ಬ ಪ್ರತ್ಯೇಕ ಶೈಕ್ಷಣಿಕ ಮಾರ್ಗದರ್ಶಕರು (Mentor). ಮನೆಗೆಲಸದ ಬೆಂಬಲ ಮತ್ತು ಗಂಟೆಗಿಂತ ಕಡಿಮೆ ಅವಧಿಯಲ್ಲಿ ಸಂಶಯಗಳಿಗೆ ವೀಡಿಯೊ/ಲಿಖಿತ ವಿವರಣೆ.",
-                    whyWeBuiltIt: "ತರಗತಿಯಲ್ಲಿ ಪ್ರಶ್ನೆ ಕೇಳಲು ಸಂಕೋಚಪಡುವ ವಿದ್ಯಾರ್ಥಿಗಳ ಸಂಶಯಗಳನ್ನು ತಕ್ಷಣವೇ ಬಗೆಹರಿಸಿ ಅವರಲ್ಲಿ ಆತ್ಮವಿಶ್ವಾಸ ತುಂಬಲು ಈ ವ್ಯವಸ್ಥೆ ತರಲಾಗಿದೆ.",
-                    usefulness: "ಪೋಷಕರು ಮನೆಯಲ್ಲಿ ಗಣಿತ ಅಥವಾ ಇತರ ವಿಷಯಗಳ ಅಭ್ಯಾಸದ ಬಗ್ಗೆ ಚಿಂತಿಸುವ ಅಗತ್ಯವಿಲ್ಲ. ವೈಯಕ್ತಿಕ ಗಮನದಿಂದ ಪ್ರತಿಯೊಬ್ಬ ಮಗುವೂ ಯಶಸ್ವಿಯಾಗುತ್ತದೆ.",
-                    howTheyLearn: "ಶಾರುಸೂರಿ ಪೋರ್ಟಲ್ ಮೂಲಕ ಸಂಶಯದ ಚಿತ್ರ ಅಥವಾ ವಿವರಣೆ ಕಳುಹಿಸಿದ ತಕ್ಷಣ, ಮಾರ್ಗದರ್ಶಕರು 1-ನಿಮಿಷದ ವೀಡಿಯೊ ಅಥವಾ ಧ್ವನಿ ಸಂದೇಶದ ಮೂಲಕ ಉತ್ತರಿಸುತ್ತಾರೆ.",
-                    effectiveness: "ಸಂಶಯಗಳ ಬಾಕಿಯನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಇಲ್ಲದಂತೆ ಮಾಡುತ್ತದೆ; 98.4% ವಿದ್ಯಾರ್ಥಿಗಳು ಸಂಪೂರ್ಣ ಆತ್ಮವಿಶ್ವಾಸದೊಂದಿಗೆ ಪರೀಕ್ಷೆ ಎದುರಿಸುತ್ತಾರೆ.",
+                    whatItIs: "ಪ್ರತಿ ವಿದ್ಯಾರ್ಥಿಗೂ ಒಬ್ಬ ಪ್ರತ್ಯೇಕ ಶೈಕ್ಷಣಿಕ ಮಾರ್ಗದರ್ಶಕರು (Mentor).",
+                    whyWeBuiltIt: "ತರಗತಿಯಲ್ಲಿ ಪ್ರಶ್ನೆ ಕೇಳಲು ಸಂಕೋಚಪಡುವ ವಿದ್ಯಾರ್ಥಿಗಳ ಸಂಶಯ ಪರಿಹರಿಸಲು.",
+                    usefulness: "ಪೋಷಕರು ಮನೆಯಲ್ಲಿ ಅಭ್ಯಾಸದ ಬಗ್ಗೆ ಚಿಂತಿಸುವ ಅಗತ್ಯವಿಲ್ಲ.",
+                    howTheyLearn: "ಪೋರ್ಟಲ್ ಮೂಲಕ ಸಂಶಯ ಕಳುಹಿಸಿದ ತಕ್ಷಣ ವೀಡಿಯೊ ಮೂಲಕ ಉತ್ತರ ನೀಡಲಾಗುತ್ತದೆ.",
+                    effectiveness: "98.4% ವಿದ್ಯಾರ್ಥಿಗಳು ಸಂಪೂರ್ಣ ಆತ್ಮವಿಶ್ವಾಸದೊಂದಿಗೆ ಪರೀಕ್ಷೆ ಎದುರಿಸುತ್ತಾರೆ.",
                     highlightStat: "< 2 Hrs",
                     highlightLabel: "ಸಂಶಯ ಪರಿಹಾರದ ಖಾತರಿ ಸಮಯ"
                 },
@@ -3495,18 +3646,18 @@
                     tagline: "ರಾಜ್ಯಮಟ್ಟದ ಶ್ರೇಷ್ಠ ಶಿಕ್ಷಕರಿಂದ ಮಾರ್ಗದರ್ಶನ",
                     badgeClass: "badge-danger",
                     icon: "🌐",
-                    whatItIs: "ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿಯ ಸಿಂಧನೂರು, ರಾಯಚೂರು, ಬಳ್ಳಾರಿ ಹಾಗೂ ಡಿಜಿಟಲ್ ವಿಭಾಗದ ರಾಜ್ಯಮಟ್ಟದ ಹಿರಿಯ ವಿಷಯ ತಜ್ಞರಿಂದ ನೇರ ಪಾಠ ಕೇಳುವ ಅವಕಾಶ.",
-                    whyWeBuiltIt: "ಕೇವಲ ಸ್ಥಳೀಯ ಶಿಕ್ಷಕರಿಗೆ ಸೀಮಿತವಾಗದೆ, ರಾಜ್ಯದ ಅತ್ಯುತ್ತಮ ರ್ಯಾಂಕ್ ತಂದಿತ್ತ ಅನುಭವಿ ಶಿಕ್ಷಕರ ಜ್ಞಾನವನ್ನು ಎಲ್ಲ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೂ ತಲುಪಿಸಲು.",
-                    usefulness: "ಕಠಿಣ ವಿಷಯಗಳು ಅಥವಾ ಕ್ಲಿಷ್ಟ ಗಣಿತ ಲೆಕ್ಕಗಳಿಗೆ ವಿಭಿನ್ನ ಮತ್ತು ಸುಲಭ ಶಾರ್ಟ್‌ಕಟ್ ವಿಧಾನಗಳನ್ನು ಕಲಿಯಬಹುದು.",
-                    howTheyLearn: "ವಾರಾಂತ್ಯದ ಕ್ರಾಸ್-ಬ್ರಾಂಚ್ ಮಾಸ್ಟರ್ ಕ್ಲಾಸ್, ಮಾಕ್ ಪರೀಕ್ಷಾ ವಿಶ್ಲೇಷಣೆ ಮತ್ತು ರಾಜ್ಯಮಟ್ಟದ ರ್ಯಾಂಕರ್ ಕ್ಲಿನಿಕ್.",
-                    effectiveness: "ಸಾಮಾನ್ಯ ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಜಿಲ್ಲಾ ಮಟ್ಟದ ಟಾಪ್ 10 ರ್ಯಾಂಕರ್‌ಗಳನ್ನಾಗಿ ಪರಿವರ್ತಿಸುತ್ತದೆ; 98.4% ಆಯ್ಕೆ ಪ್ರಮಾಣವನ್ನು ಸಾಧಿಸಲು ಇದು ಪ್ರಮುಖ ಕಾರಣ.",
+                    whatItIs: "ವಿವಿಧ ಬ್ರಾಂಚ್‌ಗಳ ಹಿರಿಯ ವಿಷಯ ತಜ್ಞರಿಂದ ನೇರ ಪಾಠ ಕೇಳುವ ಅವಕಾಶ.",
+                    whyWeBuiltIt: "ರಾಜ್ಯದ ಅತ್ಯುತ್ತಮ ಶಿಕ್ಷಕರ ಜ್ಞಾನವನ್ನು ಎಲ್ಲ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೂ ತಲುಪಿಸಲು.",
+                    usefulness: "ಕ್ಲಿಷ್ಟ ಗಣಿತ ಲೆಕ್ಕಗಳಿಗೆ ವಿಭಿನ್ನ ಶಾರ್ಟ್‌ಕಟ್ ವಿಧಾನಗಳನ್ನು ಕಲಿಯಬಹುದು.",
+                    howTheyLearn: "ವಾರಾಂತ್ಯದ ಕ್ರಾಸ್-ಬ್ರಾಂಚ್ ಮಾಸ್ಟರ್ ಕ್ಲಾಸ್ ಮತ್ತು ಮಾಕ್ ಪರೀಕ್ಷಾ ವಿಶ್ಲೇಷಣೆ.",
+                    effectiveness: "98.4% ಆಯ್ಕೆ ಪ್ರಮಾಣವನ್ನು ಸಾಧಿಸಲು ಇದು ಪ್ರಮುಖ ಕಾರಣ.",
                     highlightStat: "98.4%",
                     highlightLabel: "ನವೋದಯ ಮತ್ತು ಮೊರಾರ್ಜಿ ಆಯ್ಕೆ ಪ್ರಮಾಣ"
                 }
             }
         };
 
-        // 3. PROGRAM SELECTOR OPTIONS DATASET (BILINGUAL)
+        // 3. PROGRAM SELECTOR OPTIONS DATASET
         const SELECTOR_OPTIONS_DATA = {
             en: {
                 programs: [
@@ -3529,26 +3680,26 @@
             },
             kn: {
                 programs: [
-                    { id: "p1", icon: "🏆", name: "ನವೋದಯ ಪ್ರವೇಶ ಪರೀಕ್ಷೆ ತರಬೇತಿ", fee: "₹5,999 / ವರ್ಷ", desc: "JNVST 5ನೇ ಮತ್ತು 6ನೇ ತರಗತಿಯ ಮಾನಸಿಕ ಸಾಮರ್ಥ್ಯ, ಗಣಿತ ಹಾಗೂ ಭಾಷಾ ಪರೀಕ್ಷೆಯ ಪರಿಪೂರ್ಣ ತರಬೇತಿ." },
-                    { id: "p2", icon: "📝", name: "ಮೊರಾರ್ಜಿ ದೇಸಾಯಿ ಪ್ರವೇಶ ಪರೀಕ್ಷೆ", fee: "₹3,999 / ವರ್ಷ", desc: "KREIS ವಸತಿ ಶಾಲೆಗಳ ಪ್ರವೇಶ ಪರೀಕ್ಷೆಗಾಗಿ ಕನ್ನಡ ಮತ್ತು ಇಂಗ್ಲಿಷ್ OMR ಅಭ್ಯಾಸ ಪತ್ರಿಕೆಗಳು." },
+                    { id: "p1", icon: "🏆", name: "ನವೋದಯ ಪ್ರವೇಶ ಪರೀಕ್ಷೆ ತರಬೇತಿ", fee: "₹5,999 / ವರ್ಷ", desc: "JNVST 5ನೇ ಮತ್ತು 6ನೇ ತರಗತಿಯ ಮಾನಸಿಕ ಸಾಮರ್ಥ್ಯ, ಗಣಿತ ಹಾಗೂ ಭಾಷಾ ಪರೀಕ್ಷೆಯ ತರಬೇತಿ." },
+                    { id: "p2", icon: "📝", name: "ಮೊರಾರ್ಜಿ ದೇಸಾಯಿ ಪ್ರವೇಶ ಪರೀಕ್ಷೆ", fee: "₹3,999 / ವರ್ಷ", desc: "KREIS ವಸತಿ ಶಾಲೆಗಳ ಪ್ರವೇಶ ಪರೀಕ್ಷೆಗಾಗಿ OMR ಅಭ್ಯಾಸ ಪತ್ರಿಕೆಗಳು." },
                     { id: "p3", icon: "🎖️", name: "ಸೈನಿಕ ಶಾಲೆ / RMS ಪ್ರವೇಶ ಪರೀಕ್ಷೆ", fee: "₹7,500 / ವರ್ಷ", desc: "ಅಖಿಲ ಭಾರತ ಸೈನಿಕ ಶಾಲೆ (AISSEE) ಸ್ಪರ್ಧಾತ್ಮಕ ಪ್ರವೇಶ ಪರೀಕ್ಷಾ ಬೋಧನೆ." },
-                    { id: "p4", icon: "🏫", name: "ರಾಜ್ಯ ಪಠ್ಯಕ್ರಮ ಮತ್ತು ಫೌಂಡೇಶನ್ ಟ್ಯೂಷನ್", fee: "₹4,500 / ವರ್ಷ", desc: "5 ರಿಂದ 10ನೇ ತರಗತಿ ಗಣಿತ, ವಿಜ್ಞಾನ ಮತ್ತು ಒಲಂಪಿಯಾಡ್ ಫೌಂಡೇಶನ್ ವಿಷಯಗಳು." }
+                    { id: "p4", icon: "🏫", name: "ರಾಜ್ಯ ಪಠ್ಯಕ್ರಮ ಮತ್ತು ಫೌಂಡೇಶನ್ ಟ್ಯೂಷನ್", fee: "₹4,500 / ವರ್ಷ", desc: "5 ರಿಂದ 10ನೇ ತರಗತಿ ಗಣಿತ, ವಿಜ್ಞಾನ ಮತ್ತು ಒಲಂಪಿಯಾಡ್ ಫೌಂಡೇಶನ್." }
                 ],
                 batches: [
-                    { id: "b1", icon: "📅", name: "ನಿಯಮಿತ ಬ್ಯಾಚ್ (ಸೋಮವಾರ - ಶುಕ್ರವಾರ)", desc: "ಸೋಮವಾರದಿಂದ ಶುಕ್ರವಾರದವರೆಗೆ ಪ್ರತಿದಿನ 1.5 ಗಂಟೆಗಳ ಬೋಧನೆ ಮತ್ತು ವಾರಾಂತ್ಯದ OMR ಪರೀಕ್ಷೆಗಳು." },
-                    { id: "b2", icon: "🗓️", name: "ವಾರಾಂತ್ಯದ ಬ್ಯಾಚ್ (ಶನಿವಾರ - ಭಾನುವಾರ)", desc: "ದಿನನಿತ್ಯ ಶಾಲೆಗೆ ಹೋಗುವ ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ ಶನಿವಾರ ಮತ್ತು ಭಾನುವಾರ ವಿಶೇಷ ತರಗತಿಗಳು." },
-                    { id: "b3", icon: "⚡", name: "ರಜಾದಿನಗಳ / ಕ್ರ್ಯಾಶ್ ಕೋರ್ಸ್", desc: "30 ದಿನಗಳ ತೀವ್ರ ರಜಾದಿನಗಳ ತರಬೇತಿ, ನಿರಂತರ ಮಾಕ್ ಪರೀಕ್ಷೆಗಳು ಮತ್ತು ತಕ್ಷಣದ ಸಂಶಯ ಪರಿಹಾರ." }
+                    { id: "b1", icon: "📅", name: "ನಿಯಮಿತ ಬ್ಯಾಚ್ (ಸೋಮವಾರ - ಶುಕ್ರವಾರ)", desc: "ಸೋಮವಾರದಿಂದ ಶುಕ್ರವಾರದವರೆಗೆ ಪ್ರತಿದಿನ 1.5 ಗಂಟೆಗಳ ಬೋಧನೆ ಮತ್ತು ಪರೀಕ್ಷೆಗಳು." },
+                    { id: "b2", icon: "🗓️", name: "ವಾರಾಂತ್ಯದ ಬ್ಯಾಚ್ (ಶನಿವಾರ - ಭಾನುವಾರ)", desc: "ಶಾಲಾ ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ ಶನಿವಾರ ಮತ್ತು ಭಾನುವಾರ ವಿಶೇಷ ತರಗತಿಗಳು." },
+                    { id: "b3", icon: "⚡", name: "ರಜಾದಿನಗಳ / ಕ್ರ್ಯಾಶ್ ಕೋರ್ಸ್", desc: "30 ದಿನಗಳ ತೀವ್ರ ರಜಾದಿನಗಳ ತರಬೇತಿ ಮತ್ತು ಪರೀಕ್ಷೆಗಳು." }
                 ],
                 modes: [
-                    { id: "m1", icon: "🌐", name: "ಆನ್‌ಲೈನ್ ನೇರ ಪ್ರಸಾರ ತರಗತಿಗಳು", desc: "ಲೈವ್ ತರಗತಿಗಳು, ಲೈವ್ ಚಾಟ್, ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ ವೀಡಿಯೊ ಲೈಬ್ರರಿ ಮತ್ತು ಡಿಜಿಟಲ್ ನೋಟ್ಸ್‌ಗಳ ಸೌಲಭ್ಯ." },
-                    { id: "m2", icon: "🏫", name: "ಆಫ್‌ಲೈನ್ ಕ್ಯಾಂಪಸ್ ತರಗತಿಗಳು", desc: "ನಮ್ಮ ಸಿಂಧನೂರು ಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ನೇರ ಮುಖಾಮುಖಿ ಬೋಧನೆ ಮತ್ತು OMR ಶೀಟ್ ಮೌಲ್ಯಮಾಪನ." },
-                    { id: "m3", icon: "🔀", name: "ಹೈಬ್ರಿಡ್ (ಆನ್‌ಲೈನ್ + ಆಫ್‌ಲೈನ್)", desc: "ವಾರದ ದಿನಗಳಲ್ಲಿ ಆನ್‌ಲೈನ್ ಲೈವ್ ತರಗತಿ ಮತ್ತು ವಾರಾಂತ್ಯದಲ್ಲಿ ಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ OMR ಮಾಕ್ ಪರೀಕ್ಷೆ." },
-                    { id: "m4", icon: "🏠", name: "ಮನೆ ಬೋಧನೆ / ವೈಯಕ್ತಿಕ ಮಾರ್ಗದರ್ಶನ", desc: "1-ಆನ್-1 ಪ್ರತ್ಯೇಕ ಮನೆ ಶಿಕ್ಷಕರು ಅಥವಾ ಖಾಸಗಿ ಆನ್‌ಲೈನ್ ಮಾರ್ಗದರ್ಶಕರ ನೇರ ಸೌಲಭ್ಯ." }
+                    { id: "m1", icon: "🌐", name: "ಆನ್‌ಲೈನ್ ನೇರ ಪ್ರಸಾರ ತರಗತಿಗಳು", desc: "ಲೈವ್ ತರಗತಿಗಳು, ಲೈವ್ ಚಾಟ್, ವೀಡಿಯೊ ಲೈಬ್ರರಿ ಮತ್ತು ಡಿಜಿಟಲ್ ನೋಟ್ಸ್‌ಗಳ ಸೌಲಭ್ಯ." },
+                    { id: "m2", icon: "🏫", name: "ಆಫ್‌ಲೈನ್ ಕ್ಯಾಂಪಸ್ ತರಗತಿಗಳು", desc: "ಸಿಂಧನೂರು ಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ನೇರ ಮುಖಾಮುಖಿ ಬೋಧನೆ." },
+                    { id: "m3", icon: "🔀", name: "ಹೈಬ್ರಿಡ್ (ಆನ್‌ಲೈನ್ + ಆಫ್‌ಲೈನ್)", desc: "ವಾರದ ದಿನಗಳಲ್ಲಿ ಆನ್‌ಲೈನ್ ತರಗತಿ ಮತ್ತು ವಾರಾಂತ್ಯದಲ್ಲಿ ಕ್ಯಾಂಪಸ್ ಪರೀಕ್ಷೆ." },
+                    { id: "m4", icon: "🏠", name: "ಮನೆ ಬೋಧನೆ / ವೈಯಕ್ತಿಕ ಮಾರ್ಗದರ್ಶನ", desc: "1-ಆನ್-1 ಪ್ರತ್ಯೇಕ ಮನೆ ಶಿಕ್ಷಕರು ಅಥವಾ ಖಾಸಗಿ ಮಾರ್ಗದರ್ಶಕರು." }
                 ]
             }
         };
 
-        // 4. TRANSPORTATION & FLEET MARKETPLACE DATASET
+        // 4. TRANSPORTATION DATASET
         const FLEET_DATA = [
             {
                 id: "v1",
@@ -3657,12 +3808,6 @@
         ];
 
         const APP_DATA = {
-            support_tiers: [
-                { tier: 1, title: "Core Class Teacher", subtitle: "Primary Subject Specialist", desc: "Delivers live interactive lectures and structured syllabus coverage.", features: ["Live Interactive Lectures", "Structured Syllabus Completion", "Weekly Exam Strategy"] },
-                { tier: 2, title: "Subject Doubt Hour", subtitle: "Daily Practice Supervisors", desc: "Supervises dedicated daily practice hours to solve OMR worksheets.", features: ["Supervised Practice Hours", "Daily OMR Drills", "Speed & Accuracy Coaching"] },
-                { tier: 3, title: "1-on-1 Personal Mentor", subtitle: "Personal Doubt Specialists", desc: "On-demand mentors assigned to resolve individual homework and doubts within 2 hrs.", features: ["Sub-2 hr Resolution SLA", "Individual Homework Help", "Video/Audio Explanations"] },
-                { tier: 4, title: "Cross-Branch Expert", subtitle: "Statewide Faculty Access", desc: "Freedom to join doubt clinics or request sessions with top teachers from ANY branch.", features: ["Access Any Center's Faculty", "Specialized Revision Clinics", "State-Level Top Rankers"] }
-            ],
             assigned_staff: [
                 { role: "Tier 1: Core Teacher", name: "Prof. Anita Rao", subject: "Mental Ability & Math", contact: "+91 9916083774", status: "Active" },
                 { role: "Tier 2: Study Hour Lead", name: "Suresh S", subject: "Daily OMR Practice", contact: "+91 7022777478", status: "Active" },
@@ -3699,7 +3844,7 @@
             fee: "₹5,999 / Year"
         };
 
-        // LANGUAGE TOGGLE & DOM TRANSLATION ENGINE
+        // LANGUAGE TOGGLE & TRANSLATION ENGINE
         function toggleLanguage() {
             currentLang = currentLang === 'en' ? 'kn' : 'en';
             document.documentElement.setAttribute('data-lang', currentLang);
@@ -3724,7 +3869,7 @@
             });
         }
 
-        // PAGE NAVIGATION
+        // PAGE NAVIGATION WITH ROUTING SUPPORT
         function navigateToPage(pageId) {
             document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active-view'));
             const targetPage = document.getElementById(`page-${pageId}`);
@@ -3861,7 +4006,7 @@
             }, 800);
         }
 
-        // RENDER TRANSPORT FLEET GRID
+        // RENDER FLEET GRID
         function renderFleetGrid(categoryFilter = 'ALL') {
             const grid = document.getElementById('fleetCardsGrid');
             if (!grid) return;
@@ -3922,7 +4067,6 @@
                 selectEl.value = 'Self-Drive Rental';
             }
 
-            // Set default date to tomorrow
             const tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
             document.getElementById('transPickupDate').value = tomorrow.toISOString().split('T')[0];
@@ -4202,7 +4346,6 @@
             if (activePanel) activePanel.classList.add('active');
         }
 
-        // RENDER PORTAL PARENT TRANSPARENCY DASHBOARD
         function renderAssignedStaff() {
             const container = document.getElementById('assignedStaffCardsGrid');
             if (!container) return;
