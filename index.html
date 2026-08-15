@@ -140,6 +140,108 @@
             justify-content: center;
         }
 
+        /* CONTACT ACTION CARDS & BUTTONS */
+        .contact-action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .contact-action-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.1rem;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .contact-action-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .contact-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card-role {
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--primary);
+        }
+
+        .contact-card-number {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: var(--text-main);
+            margin-bottom: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .contact-btn-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-call {
+            flex: 1;
+            background: var(--sky-light);
+            color: var(--sky-hover);
+            border: 1.5px solid var(--sky);
+            border-radius: var(--radius-sm);
+            padding: 0.55rem;
+            font-weight: 800;
+            font-size: 0.82rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            text-decoration: none;
+            transition: var(--transition);
+            min-height: 44px;
+        }
+
+        .btn-call:hover {
+            background: var(--sky);
+            color: white;
+        }
+
+        .btn-wa {
+            flex: 1;
+            background: var(--success-light);
+            color: var(--whatsapp-dark);
+            border: 1.5px solid var(--whatsapp);
+            border-radius: var(--radius-sm);
+            padding: 0.55rem;
+            font-weight: 800;
+            font-size: 0.82rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            text-decoration: none;
+            transition: var(--transition);
+            min-height: 44px;
+        }
+
+        .btn-wa:hover {
+            background: var(--whatsapp);
+            color: white;
+        }
+
         /* TOAST NOTIFICATIONS */
         .toast-container {
             position: fixed;
@@ -1795,6 +1897,7 @@
             .selector-wizard-wrapper { margin-top: -1rem; padding: 0 0.85rem; }
             .wizard-card { padding: 1.1rem; }
             .agri-hero-banner, .drone-hero-banner { padding: 1.5rem 1rem; }
+            .contact-action-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1815,9 +1918,10 @@
             <span id="noticeBarMsg" data-i18n="announcement_msg">Car & Vehicle Rentals • Drone Spraying • Tungabhadra Rice Trade • Cousins Coaching</span>
         </div>
         <div class="top-contacts">
+            <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088171010')">📞 +91 8088171010</a>
+            <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/918088171010')">💬 WhatsApp</a>
             <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')">📞 +91 9916083774</a>
             <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/917022777478')">💬 +91 7022777478</a>
-            <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088171010')">📞 +91 8088171010</a>
             <span>📍 Sindhanur • Hampi/Hosapete Basin • Raichur/Bellary</span>
         </div>
     </div>
@@ -2140,9 +2244,42 @@
                         <button class="btn btn-secondary btn-lg" onclick="openRentalTrackerModal()">
                             📍 Track Active Rental & Fleet
                         </button>
-                        <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20Car%20Rental%20Desk,%20I%20want%20to%20book%20a%20vehicle.')">
-                            💬 WhatsApp Booking Desk (+91 9916083774)
+                        <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919008558970?text=Hello%20Sharusuri%20Car%20Rental%20Desk,%20I%20want%20to%20book%20a%20vehicle.')">
+                            💬 WhatsApp Booking Desk (+91 9008558970)
                         </button>
+                    </div>
+                </div>
+
+                <!-- CAR RENTAL ACTION CONTACT CARDS (REQUESTED CLICK-TO-CALL & WHATSAPP) -->
+                <div style="margin-bottom: 2rem;">
+                    <div style="margin-bottom: 0.75rem;">
+                        <span class="badge badge-warning">📞 Car Rental Direct Helplines</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; margin-top: 0.2rem;">Car Rentals Direct Booking Desks</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Tap below to call directly or open WhatsApp for immediate vehicle availability and pricing.</p>
+                    </div>
+
+                    <div class="contact-action-grid">
+                        <div class="contact-action-card">
+                            <div>
+                                <div class="contact-card-role">🚗 Car Rentals Helpline 1</div>
+                                <div class="contact-card-number">📞 +91 9008558970</div>
+                            </div>
+                            <div class="contact-btn-group">
+                                <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919008558970')" class="btn-call">📞 Call</a>
+                                <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919008558970?text=Hello,%20I%20am%20inquiring%20about%20Car%20Rental%20services.')" class="btn-wa">💬 WhatsApp</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-action-card">
+                            <div>
+                                <div class="contact-card-role">🚙 Car Rentals Helpline 2</div>
+                                <div class="contact-card-number">📞 +91 7892493133</div>
+                            </div>
+                            <div class="contact-btn-group">
+                                <a href="javascript:void(0)" onclick="openExternalUrl('tel:+917892493133')" class="btn-call">📞 Call</a>
+                                <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/917892493133?text=Hello,%20I%20am%20inquiring%20about%20Car%20Rental%20services.')" class="btn-wa">💬 WhatsApp</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -2298,9 +2435,80 @@
                             <button class="btn btn-accent btn-lg" onclick="openDroneBookingModal()">
                                 ⚡ Book Drone Spraying Service (₹499/Acre)
                             </button>
-                            <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20Drone%20Desk,%20I%20want%20information%20regarding%20drone%20spraying,%20land%20surveying,%20and%20aerial%20mapping.')">
-                                💬 Direct Drone WhatsApp Desk (+91 9916083774)
+                            <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/918088171010?text=Hello%20Sharusuri%20Drone%20Desk,%20I%20want%20information%20regarding%20drone%20spraying,%20land%20surveying,%20and%20aerial%20mapping.')">
+                                💬 Direct Drone WhatsApp Desk (+91 8088171010)
                             </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DRONE SERVICES DIRECT ACTION CONTACT DIRECTORY -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div style="margin-bottom: 0.75rem;">
+                        <span class="badge badge-sky">📞 Certified Drone Flight Directory</span>
+                        <h3 style="font-size: 1.35rem; font-weight: 800; margin-top: 0.25rem;">Drone Services Operational Helplines</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Direct phone and WhatsApp links for Drone Owners, Flight Pilots, and Technical Maintenance & Repair.</p>
+                    </div>
+
+                    <div class="contact-action-grid">
+                        <!-- Owner 1 -->
+                        <div class="contact-action-card">
+                            <div>
+                                <div class="contact-card-role">👑 Drone Owner / Admin 1</div>
+                                <div class="contact-card-number">📞 +91 8088171010</div>
+                            </div>
+                            <div class="contact-btn-group">
+                                <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088171010')" class="btn-call">📞 Call</a>
+                                <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/918088171010?text=Hello,%20I%20need%20Drone%20Services%20Owner%20assistance.')" class="btn-wa">💬 WhatsApp</a>
+                            </div>
+                        </div>
+
+                        <!-- Owner 2 -->
+                        <div class="contact-action-card">
+                            <div>
+                                <div class="contact-card-role">👑 Drone Owner / Admin 2</div>
+                                <div class="contact-card-number">📞 +91 9008558970</div>
+                            </div>
+                            <div class="contact-btn-group">
+                                <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919008558970')" class="btn-call">📞 Call</a>
+                                <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919008558970?text=Hello,%20I%20need%20Drone%20Services%20Owner%20assistance.')" class="btn-wa">💬 WhatsApp</a>
+                            </div>
+                        </div>
+
+                        <!-- Pilot 1 -->
+                        <div class="contact-action-card">
+                            <div>
+                                <div class="contact-card-role">🚁 Certified Drone Pilot 1</div>
+                                <div class="contact-card-number">📞 +91 7892493133</div>
+                            </div>
+                            <div class="contact-btn-group">
+                                <a href="javascript:void(0)" onclick="openExternalUrl('tel:+917892493133')" class="btn-call">📞 Call</a>
+                                <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/917892493133?text=Hello%20Pilot,%20I%20want%20to%20book%20a%20drone%20spray%20session.')" class="btn-wa">💬 WhatsApp</a>
+                            </div>
+                        </div>
+
+                        <!-- Pilot 2 -->
+                        <div class="contact-action-card">
+                            <div>
+                                <div class="contact-card-role">🚁 Certified Drone Pilot 2</div>
+                                <div class="contact-card-number">📞 +91 8123543866</div>
+                            </div>
+                            <div class="contact-btn-group">
+                                <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918123543866')" class="btn-call">📞 Call</a>
+                                <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/918123543866?text=Hello%20Pilot,%20I%20want%20to%20book%20a%20drone%20spray%20session.')" class="btn-wa">💬 WhatsApp</a>
+                            </div>
+                        </div>
+
+                        <!-- Drone Repair -->
+                        <div class="contact-action-card" style="grid-column: span 1 / -1;">
+                            <div>
+                                <div class="contact-card-role">🛠️ Drone Technical Maintenance & Repair</div>
+                                <div class="contact-card-number">📞 +91 9916083774</div>
+                            </div>
+                            <div class="contact-btn-group">
+                                <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')" class="btn-call">📞 Call</a>
+                                <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello,%20I%20need%20Drone%20Repair%20and%20Technical%20Service.')" class="btn-wa">💬 WhatsApp</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2335,7 +2543,7 @@
                                     High-resolution orthomosaic mapping, contour lines, elevation modeling, and GPS boundary surveys for agricultural plots and land development.
                                 </p>
                             </div>
-                            <button class="btn btn-secondary btn-sm" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello,%20I%20want%20a%203D%20Land%20Survey%20Drone%20Quote.')">
+                            <button class="btn btn-secondary btn-sm" onclick="openExternalUrl('https://wa.me/918088171010?text=Hello,%20I%20want%20a%203D%20Land%20Survey%20Drone%20Quote.')">
                                 📊 Request Survey Quote →
                             </button>
                         </div>
@@ -2348,7 +2556,7 @@
                                     NDVI infrared sensor scanning to identify early pest attacks, nitrogen deficiency, water stress, and crop disease 2 weeks before visual detection.
                                 </p>
                             </div>
-                            <button class="btn btn-secondary btn-sm" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello,%20I%20want%20an%20NDVI%20Crop%20Health%20Drone%20Scan.')">
+                            <button class="btn btn-secondary btn-sm" onclick="openExternalUrl('https://wa.me/918088171010?text=Hello,%20I%20want%20an%20NDVI%20Crop%20Health%20Drone%20Scan.')">
                                 🔍 Schedule Crop Scan →
                             </button>
                         </div>
@@ -2361,7 +2569,7 @@
                                     Aerial thermal inspection for solar panels, power lines, canal water embankments, and commercial buildings using 4K zoom optics.
                                 </p>
                             </div>
-                            <button class="btn btn-secondary btn-sm" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello,%20I%20need%20Thermal%20Aerial%20Inspection%20Services.')">
+                            <button class="btn btn-secondary btn-sm" onclick="openExternalUrl('https://wa.me/918088171010?text=Hello,%20I%20need%20Thermal%20Aerial%20Inspection%20Services.')">
                                 🏢 Request Inspection →
                             </button>
                         </div>
@@ -2430,7 +2638,7 @@
                                 </tr>
                             </table>
 
-                            <button class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 1rem;" onclick="openExternalUrl('https://wa.me/919916083774?text=I%20want%20to%20book%20Mavic%203%20Enterprise%20RTK%20Survey')">
+                            <button class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 1rem;" onclick="openExternalUrl('https://wa.me/918088171010?text=I%20want%20to%20book%20Mavic%203%20Enterprise%20RTK%20Survey')">
                                 🗺️ Request RTK Survey →
                             </button>
                         </div>
@@ -2459,7 +2667,7 @@
                                 </tr>
                             </table>
 
-                            <button class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 1rem;" onclick="openExternalUrl('https://wa.me/919916083774?text=I%20want%20Multispectral%20Crop%20Diagnostics')">
+                            <button class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 1rem;" onclick="openExternalUrl('https://wa.me/918088171010?text=I%20want%20Multispectral%20Crop%20Diagnostics')">
                                 🌱 Schedule NDVI Scan →
                             </button>
                         </div>
@@ -2519,9 +2727,83 @@
                             <button class="btn btn-accent btn-lg" onclick="openDroneBookingModal()">
                                 ⚡ Book Drone Spray Service (₹499/Acre)
                             </button>
-                            <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20Agri%20Solutions,%20I%20want%20information%20regarding%20crop%20monitoring,%20drone%20spraying,%20fertilizers,%20and%20paddy%20trading.')">
-                                💬 Direct Agri WhatsApp Desk
+                            <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/918088171010?text=Hello%20Sharusuri%20Agri%20Solutions,%20I%20want%20information%20regarding%20crop%20monitoring,%20drone%20spraying,%20fertilizers,%20and%20paddy%20trading.')">
+                                💬 Direct Agri WhatsApp Desk (+91 8088171010)
                             </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AGRICULTURE ACTION CONTACT DIRECTORY (PADDY BUYING & PADDY CUTTER) -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div style="margin-bottom: 0.75rem;">
+                        <span class="badge badge-primary">🌾 Agriculture Direct Helpline Directory</span>
+                        <h3 style="font-size: 1.35rem; font-weight: 800; margin-top: 0.25rem;">Paddy Buying Desk & Paddy Cutter Machine Contacts</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Instant Call and WhatsApp links for paddy buying desks and combine harvester machine bookings.</p>
+                    </div>
+
+                    <div style="margin-bottom: 1rem; font-weight: 800; font-size: 1.05rem; color: var(--agri-green);">
+                        🌾 Paddy Buying & Trade Desks
+                    </div>
+                    <div class="contact-action-grid">
+                        <div class="contact-action-card">
+                            <div>
+                                <div class="contact-card-role">🌾 Paddy Buying Desk 1</div>
+                                <div class="contact-card-number">📞 +91 8088171010</div>
+                            </div>
+                            <div class="contact-btn-group">
+                                <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088171010')" class="btn-call">📞 Call</a>
+                                <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/918088171010?text=Hello,%20I%20want%20to%20sell%20paddy%20produce.')" class="btn-wa">💬 WhatsApp</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-action-card">
+                            <div>
+                                <div class="contact-card-role">🌾 Paddy Buying Desk 2</div>
+                                <div class="contact-card-number">📞 +91 8088835686</div>
+                            </div>
+                            <div class="contact-btn-group">
+                                <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088835686')" class="btn-call">📞 Call</a>
+                                <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/918088835686?text=Hello,%20I%20want%20to%20sell%20paddy%20produce.')" class="btn-wa">💬 WhatsApp</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-action-card">
+                            <div>
+                                <div class="contact-card-role">🌾 Paddy Buying Desk 3</div>
+                                <div class="contact-card-number">📞 +91 8088877208</div>
+                            </div>
+                            <div class="contact-btn-group">
+                                <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088877208')" class="btn-call">📞 Call</a>
+                                <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/918088877208?text=Hello,%20I%20want%20to%20sell%20paddy%20produce.')" class="btn-wa">💬 WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 1.5rem 0 0.5rem; font-weight: 800; font-size: 1.05rem; color: var(--accent-hover);">
+                        🚜 Paddy Cutter & Combine Harvester Booking
+                    </div>
+                    <div class="contact-action-grid">
+                        <div class="contact-action-card">
+                            <div>
+                                <div class="contact-card-role">🚜 Paddy Cutter Machine 1</div>
+                                <div class="contact-card-number">📞 +91 8310843014</div>
+                            </div>
+                            <div class="contact-btn-group">
+                                <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918310843014')" class="btn-call">📞 Call</a>
+                                <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/918310843014?text=Hello,%20I%20want%20to%20book%20a%20paddy%20cutter%20machine.')" class="btn-wa">💬 WhatsApp</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-action-card">
+                            <div>
+                                <div class="contact-card-role">🚜 Paddy Cutter Machine 2</div>
+                                <div class="contact-card-number">📞 +91 8088303341</div>
+                            </div>
+                            <div class="contact-btn-group">
+                                <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088303341')" class="btn-call">📞 Call</a>
+                                <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/918088303341?text=Hello,%20I%20want%20to%20book%20a%20paddy%20cutter%20machine.')" class="btn-wa">💬 WhatsApp</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2587,6 +2869,38 @@
                     <span class="badge badge-purple" data-i18n="prog_tier_header_badge">🎓 Complete Subject Coverage Framework</span>
                     <h2 data-i18n="prog_tier_header_title">Our 4-Tier Academic Support Hierarchy</h2>
                     <p data-i18n="prog_tier_header_sub">Designed to ensure no child is left behind. Tap through the tiers below to read the comprehensive pedagogical blueprint for each tier.</p>
+                </div>
+
+                <!-- EDUCATION & ADMISSIONS DIRECT HELPLINES ACTION CARDS -->
+                <div style="margin-bottom: 2rem;">
+                    <div style="margin-bottom: 0.75rem; text-align: center;">
+                        <span class="badge badge-purple">📞 Admissions & Coaching Helplines</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; margin-top: 0.25rem;">Direct Education & Student Mentorship Desks</h3>
+                    </div>
+
+                    <div class="contact-action-grid">
+                        <div class="contact-action-card">
+                            <div>
+                                <div class="contact-card-role">🎓 Admissions & Academic Desk Line 1</div>
+                                <div class="contact-card-number">📞 +91 8088835686</div>
+                            </div>
+                            <div class="contact-btn-group">
+                                <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088835686')" class="btn-call">📞 Call</a>
+                                <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/918088835686?text=Hello,%20I%20am%20inquiring%20about%20Admissions%20and%20Coaching.')" class="btn-wa">💬 WhatsApp</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-action-card">
+                            <div>
+                                <div class="contact-card-role">📚 Student Support & Mentorship Line 2</div>
+                                <div class="contact-card-number">📞 +91 7022777478</div>
+                            </div>
+                            <div class="contact-btn-group">
+                                <a href="javascript:void(0)" onclick="openExternalUrl('tel:+917022777478')" class="btn-call">📞 Call</a>
+                                <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/917022777478?text=Hello,%20I%20am%20inquiring%20about%20Student%20Support%20and%20Mentorship.')" class="btn-wa">💬 WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="tier-flow-grid" id="programsTierGrid">
@@ -2905,8 +3219,8 @@
                         </p>
                         <div style="margin-top: 1rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem;">
                             <div>✉️ Email: <strong>suresh2suresh80888@gmail.com</strong></div>
-                            <div>📞 Helpline: <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')" style="color: var(--primary); font-weight: 700;">+91 9916083774</a></div>
-                            <div>📞 Direct Desk: <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088171010')" style="color: var(--primary); font-weight: 700;">+91 8088171010</a></div>
+                            <div>📞 Helpline: <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088171010')" style="color: var(--primary); font-weight: 700;">+91 8088171010</a></div>
+                            <div>📞 Support: <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088835686')" style="color: var(--primary); font-weight: 700;">+91 8088835686</a></div>
                         </div>
                     </div>
 
@@ -2924,7 +3238,7 @@
                         <div style="margin-top: 1rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem;">
                             <div>✉️ Email: <strong>sharada@sharusuri.edu</strong></div>
                             <div>💬 WhatsApp: <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/917022777478')" style="color: var(--whatsapp); font-weight: 700;">+91 7022777478</a></div>
-                            <div>📞 Hotline: <a href="javascript:void(0)" onclick="openExternalUrl('tel:+917892493133')" style="color: var(--primary); font-weight: 700;">+91 7892493133</a></div>
+                            <div>📞 Drone Pilot: <a href="javascript:void(0)" onclick="openExternalUrl('tel:+917892493133')" style="color: var(--primary); font-weight: 700;">+91 7892493133</a></div>
                         </div>
                     </div>
                 </div>
@@ -2960,7 +3274,7 @@
                                     <option>Agricultural Drone Spraying & Crop Monitoring</option>
                                     <option>3D Aerial Mapping & Land Topography Survey</option>
                                     <option>Tungabhadra Paddy & Rice Trade</option>
-                                    <option>Fertilizer Bulk Purchase</option>
+                                    <option>Paddy Cutter & Combine Harvester</option>
                                     <option>Navodaya Entrance Coaching</option>
                                     <option>Morarji Desai Entrance Exam</option>
                                     <option>Sainik School Entrance</option>
@@ -3010,20 +3324,53 @@
                                 </div>
                             </div>
 
-                            <h4 style="font-size: 0.95rem; margin-bottom: 0.65rem;">📞 Official Helplines & WhatsApp Desk</h4>
-                            <div class="contact-grid-buttons">
-                                <button type="button" onclick="openExternalUrl('https://wa.me/919916083774')" class="btn btn-whatsapp">
-                                    💬 Line 1 (WhatsApp / Call): +91 9916083774
-                                </button>
-                                <button type="button" onclick="openExternalUrl('https://wa.me/917022777478')" class="btn btn-whatsapp" style="background: var(--whatsapp-dark);">
-                                    💬 Line 2 (WhatsApp / Support): +91 7022777478
-                                </button>
-                                <button type="button" onclick="openExternalUrl('tel:+918088171010')" class="btn btn-secondary">
-                                    📞 Line 3 (Helpdesk): +91 8088171010
-                                </button>
-                                <button type="button" onclick="openExternalUrl('tel:+917892493133')" class="btn btn-secondary">
-                                    📞 Line 4 (Car Rentals & Agri): +91 7892493133
-                                </button>
+                            <h4 style="font-size: 0.95rem; margin-bottom: 0.65rem;">📞 Comprehensive Service Directory</h4>
+                            
+                            <!-- ALL SERVICE CONTACT ACTION CARDS IN CONTACT PAGE -->
+                            <div class="contact-action-grid">
+                                <div class="contact-action-card">
+                                    <div>
+                                        <div class="contact-card-role">🎓 Admissions / Paddy Buying</div>
+                                        <div class="contact-card-number">📞 +91 8088835686</div>
+                                    </div>
+                                    <div class="contact-btn-group">
+                                        <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088835686')" class="btn-call">📞 Call</a>
+                                        <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/918088835686')" class="btn-wa">💬 WhatsApp</a>
+                                    </div>
+                                </div>
+
+                                <div class="contact-action-card">
+                                    <div>
+                                        <div class="contact-card-role">📚 Mentorship & Support</div>
+                                        <div class="contact-card-number">📞 +91 7022777478</div>
+                                    </div>
+                                    <div class="contact-btn-group">
+                                        <a href="javascript:void(0)" onclick="openExternalUrl('tel:+917022777478')" class="btn-call">📞 Call</a>
+                                        <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/917022777478')" class="btn-wa">💬 WhatsApp</a>
+                                    </div>
+                                </div>
+
+                                <div class="contact-action-card">
+                                    <div>
+                                        <div class="contact-card-role">🛸 Drone Owner / Paddy Buying</div>
+                                        <div class="contact-card-number">📞 +91 8088171010</div>
+                                    </div>
+                                    <div class="contact-btn-group">
+                                        <a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088171010')" class="btn-call">📞 Call</a>
+                                        <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/918088171010')" class="btn-wa">💬 WhatsApp</a>
+                                    </div>
+                                </div>
+
+                                <div class="contact-action-card">
+                                    <div>
+                                        <div class="contact-card-role">🛠️ Drone Repair / Technical</div>
+                                        <div class="contact-card-number">📞 +91 9916083774</div>
+                                    </div>
+                                    <div class="contact-btn-group">
+                                        <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')" class="btn-call">📞 Call</a>
+                                        <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774')" class="btn-wa">💬 WhatsApp</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -3235,10 +3582,10 @@
             <div>
                 <h4 style="font-size: 0.9rem; color: white; margin-bottom: 0.75rem;" data-i18n="footer_official_contacts">Official Contacts</h4>
                 <ul style="font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.4rem; color: #cbd5e1;">
-                    <li><a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')">📞 +91 9916083774</a></li>
-                    <li><a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/917022777478')">💬 +91 7022777478</a></li>
-                    <li><a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088171010')">📞 +91 8088171010</a></li>
-                    <li><a href="javascript:void(0)" onclick="openExternalUrl('tel:+917892493133')">📞 +91 7892493133</a></li>
+                    <li><a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088171010')">📞 +91 8088171010</a> / <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/918088171010')">💬 WA</a></li>
+                    <li><a href="javascript:void(0)" onclick="openExternalUrl('tel:+918088835686')">📞 +91 8088835686</a> / <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/918088835686')">💬 WA</a></li>
+                    <li><a href="javascript:void(0)" onclick="openExternalUrl('tel:+917022777478')">📞 +91 7022777478</a> / <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/917022777478')">💬 WA</a></li>
+                    <li><a href="javascript:void(0)" onclick="openExternalUrl('tel:+917892493133')">📞 +91 7892493133</a> / <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/917892493133')">💬 WA</a></li>
                     <li>✉️ suresh2suresh80888@gmail.com</li>
                 </ul>
             </div>
@@ -3403,7 +3750,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-whatsapp" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">
-                    💬 Generate Confirmation & Open WhatsApp (+91 9916083774)
+                    💬 Generate Confirmation & Open WhatsApp (+91 9008558970)
                 </button>
             </form>
         </div>
@@ -3499,7 +3846,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-whatsapp" style="width: 100%; margin-top: 0.5rem;">
-                    💬 Send Order to WhatsApp (+91 9916083774)
+                    💬 Send Order to WhatsApp (+91 8088171010)
                 </button>
             </form>
         </div>
@@ -4050,7 +4397,7 @@
 
         const APP_DATA = {
             assigned_staff: [
-                { role: "Tier 1: Core Teacher", name: "Prof. Anita Rao", subject: "Mental Ability & Math", contact: "+91 9916083774", status: "Active" },
+                { role: "Tier 1: Core Teacher", name: "Prof. Anita Rao", subject: "Mental Ability & Math", contact: "+91 8088835686", status: "Active" },
                 { role: "Tier 2: Study Hour Lead", name: "Suresh S", subject: "Daily OMR Practice", contact: "+91 7022777478", status: "Active" },
                 { role: "Tier 3: Personal Mentor", name: "Rekha Sharma", subject: "1-on-1 Doubt Resolver", contact: "+91 8088171010", status: "Assigned" },
                 { role: "Tier 4: Cross-Branch Expert", name: "Dr. Ramesh Patil", subject: "Sainik & Higher Math", contact: "+91 7892493133", status: "Available" }
@@ -4171,7 +4518,7 @@
                         `Please assign nearest pilot and confirm spray slot.`;
 
             setTimeout(() => {
-                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
+                openExternalUrl(`https://wa.me/918088171010?text=${encodeURIComponent(msg)}`);
             }, 800);
         }
 
@@ -4205,7 +4552,7 @@
                         `Please share stock availability and discount price quote.`;
 
             setTimeout(() => {
-                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
+                openExternalUrl(`https://wa.me/918088171010?text=${encodeURIComponent(msg)}`);
             }, 800);
         }
 
@@ -4250,7 +4597,7 @@
                         `Please share market rates and logistics arrangement.`;
 
             setTimeout(() => {
-                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
+                openExternalUrl(`https://wa.me/918088171010?text=${encodeURIComponent(msg)}`);
             }, 800);
         }
 
@@ -4354,7 +4701,7 @@
                         `Please confirm vehicle availability and driver assignment.`;
 
             setTimeout(() => {
-                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
+                openExternalUrl(`https://wa.me/919008558970?text=${encodeURIComponent(msg)}`);
             }, 800);
         }
 
@@ -4373,7 +4720,7 @@
                         `Please send best fare estimate and nearest available truck/pickup driver.`;
 
             setTimeout(() => {
-                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
+                openExternalUrl(`https://wa.me/919008558970?text=${encodeURIComponent(msg)}`);
             }, 800);
         }
 
@@ -4403,422 +4750,4 @@
                         <div class="tier-subtitle">Tier ${tierNum}</div>
                         <div class="tier-title">${item.name}</div>
                         <div class="tier-desc">${item.tagline}</div>
-                        <div style="margin-top: auto; font-size: 0.78rem; font-weight: 800; color: var(--primary);">
-                            👉 ${currentLang === 'en' ? 'Tap to view detailed analysis →' : 'ವಿವರಗಳಿಗೆ ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ →'}
-                        </div>
-                    `;
-                    container.appendChild(card);
-                });
-            });
-        }
-
-        // SHOW TIER DEEP DIVE DETAILS
-        function showTierDetail(tierNum) {
-            activeSelectedTier = tierNum;
-
-            document.querySelectorAll('#programsTierGrid .tier-card').forEach((card, idx) => {
-                if (idx + 1 === tierNum) card.classList.add('selected-tier');
-                else card.classList.remove('selected-tier');
-            });
-
-            document.querySelectorAll('#tierTabHeader .tier-tab-btn').forEach((btn, idx) => {
-                if (idx + 1 === tierNum) btn.classList.add('active');
-                else btn.classList.remove('active');
-            });
-
-            const detail = TIER_DETAILS_DATA[currentLang][tierNum];
-            const contentContainer = document.getElementById('tierDetailContent');
-            if (!contentContainer || !detail) return;
-
-            contentContainer.innerHTML = `
-                <div style="margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.85rem;">
-                    <div>
-                        <span class="badge ${detail.badgeClass}">Tier ${detail.tierNum} Academic Pillar</span>
-                        <h3 style="font-size: 1.5rem; font-weight: 900; margin-top: 0.2rem;">${detail.icon} ${detail.name}</h3>
-                        <p style="font-size: 0.92rem; color: var(--text-muted); font-weight: 600;">${detail.tagline}</p>
-                    </div>
-                    <button class="btn btn-accent btn-sm" onclick="openDemoModal('Demo: ${detail.name}')">
-                        ✨ ${currentLang === 'en' ? 'Book Free Demo for Tier ' + detail.tierNum : 'ಉಚಿತ ಡೆಮೊ ತರಗತಿ ಬುಕ್ ಮಾಡಿ'}
-                    </button>
-                </div>
-
-                <div class="tier-breakdown-grid">
-                    <div class="tier-dimension-card">
-                        <div class="tier-dim-icon">📖</div>
-                        <div class="tier-dim-title">1. ${currentLang === 'en' ? 'What It Is (Definition & Role)' : 'ಇದು ಏನೆಂದರೆ (ವಿವರಣೆ & ಪಾತ್ರ)'}</div>
-                        <div class="tier-dim-text">${detail.whatItIs}</div>
-                    </div>
-
-                    <div class="tier-dimension-card">
-                        <div class="tier-dim-icon">💡</div>
-                        <div class="tier-dim-title">2. ${currentLang === 'en' ? 'Why We Built It (Philosophy)' : 'ಇದರ ಉದ್ದೇಶ (ರೂಪಿಸಲು ಕಾರಣ)'}</div>
-                        <div class="tier-dim-text">${detail.whyWeBuiltIt}</div>
-                    </div>
-
-                    <div class="tier-dimension-card">
-                        <div class="tier-dim-icon">🛡️</div>
-                        <div class="tier-dim-title">3. ${currentLang === 'en' ? 'Practical Utility' : 'ವಿದ್ಯಾರ್ಥಿ ಮತ್ತು ಪೋಷಕರಿಗೆ ಪ್ರಯೋಜನ'}</div>
-                        <div class="tier-dim-text">${detail.usefulness}</div>
-                    </div>
-
-                    <div class="tier-dimension-card">
-                        <div class="tier-dim-icon">🧠</div>
-                        <div class="tier-dim-title">4. ${currentLang === 'en' ? 'How They Learn (Mechanism)' : 'ಕಲಿಕಾ ವಿಧಾನ (How They Learn)'}</div>
-                        <div class="tier-dim-text">${detail.howTheyLearn}</div>
-                    </div>
-                </div>
-
-                <div class="tier-impact-stat-box">
-                    <div class="tier-stat-number">${detail.highlightStat}</div>
-                    <div>
-                        <div style="font-size: 0.95rem; font-weight: 800; color: var(--text-main);">5. ${currentLang === 'en' ? 'Measured Learning Effectiveness' : 'ಕಲಿಕೆಯಲ್ಲಿ ಕಂಡುಕೊಂಡ ಪ್ರಗತಿ'}</div>
-                        <div style="font-size: 0.82rem; color: var(--text-muted);">${detail.effectiveness}</div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // RENDER WIZARD STEPS CARDS
-        function renderWizardSteps() {
-            const data = SELECTOR_OPTIONS_DATA[currentLang];
-
-            const progGrid = document.getElementById('wizardProgramGrid');
-            if (progGrid) {
-                progGrid.innerHTML = '';
-                data.programs.forEach((p, idx) => {
-                    const card = document.createElement('div');
-                    card.className = `option-selectable-card ${idx === 0 ? 'selected' : ''}`;
-                    card.onclick = () => selectWizardOption(1, 'program', p.name, card, p.fee);
-                    card.innerHTML = `
-                        <div class="option-icon">${p.icon}</div>
-                        <div>
-                            <div class="option-title">${p.name}</div>
-                            <div class="option-desc">${p.desc}</div>
-                        </div>
-                    `;
-                    progGrid.appendChild(card);
-                });
-            }
-
-            const batchGrid = document.getElementById('wizardBatchGrid');
-            if (batchGrid) {
-                batchGrid.innerHTML = '';
-                data.batches.forEach((b, idx) => {
-                    const card = document.createElement('div');
-                    card.className = `option-selectable-card ${idx === 0 ? 'selected' : ''}`;
-                    card.onclick = () => selectWizardOption(2, 'batch', b.name, card);
-                    card.innerHTML = `
-                        <div class="option-icon">${b.icon}</div>
-                        <div>
-                            <div class="option-title">${b.name}</div>
-                            <div class="option-desc">${b.desc}</div>
-                        </div>
-                    `;
-                    batchGrid.appendChild(card);
-                });
-            }
-
-            const modeGrid = document.getElementById('wizardModeGrid');
-            if (modeGrid) {
-                modeGrid.innerHTML = '';
-                data.modes.forEach((m, idx) => {
-                    const card = document.createElement('div');
-                    card.className = `option-selectable-card ${idx === 0 ? 'selected' : ''}`;
-                    card.onclick = () => selectWizardOption(3, 'mode', m.name, card);
-                    card.innerHTML = `
-                        <div class="option-icon">${m.icon}</div>
-                        <div>
-                            <div class="option-title">${m.name}</div>
-                            <div class="option-desc">${m.desc}</div>
-                        </div>
-                    `;
-                    modeGrid.appendChild(card);
-                });
-            }
-        }
-
-        function selectWizardOption(step, category, value, cardEl, fee = null) {
-            const parent = cardEl.parentElement;
-            parent.querySelectorAll('.option-selectable-card').forEach(c => c.classList.remove('selected'));
-            cardEl.classList.add('selected');
-
-            wizardSelection[category] = value;
-            if (fee) wizardSelection.fee = fee;
-
-            updateWizardSummary();
-        }
-
-        function updateWizardSummary() {
-            document.getElementById('sumProgramTitle').textContent = wizardSelection.program;
-            document.getElementById('sumBatchType').textContent = wizardSelection.batch;
-            document.getElementById('sumModeType').textContent = wizardSelection.mode;
-            document.getElementById('sumCourseFee').textContent = wizardSelection.fee;
-        }
-
-        function selectTimingSlot(slotValue, el) {
-            document.querySelectorAll('.slot-pill').forEach(s => s.classList.remove('active'));
-            el.classList.add('active');
-            wizardSelection.timing = slotValue;
-        }
-
-        function navigateWizardStep(direction) {
-            currentWizardStep += direction;
-            if (currentWizardStep < 1) currentWizardStep = 1;
-            if (currentWizardStep > 4) currentWizardStep = 4;
-
-            for (let i = 1; i <= 4; i++) {
-                const stepContent = document.getElementById(`wizardStep${i}`);
-                const stepInd = document.getElementById(`stepInd-${i}`);
-
-                if (i === currentWizardStep) {
-                    stepContent.classList.add('active');
-                    stepInd.classList.add('active');
-                } else {
-                    stepContent.classList.remove('active');
-                    stepInd.classList.remove('active');
-                }
-
-                if (i < currentWizardStep) stepInd.classList.add('completed');
-                else stepInd.classList.remove('completed');
-            }
-
-            document.getElementById('wizBackBtn').style.display = currentWizardStep > 1 ? 'inline-flex' : 'none';
-            document.getElementById('wizNextBtn').style.display = currentWizardStep < 4 ? 'inline-flex' : 'none';
-        }
-
-        // PORTAL TAB SYSTEM & RENDERERS
-        function switchPortalTab(tabId, btnEl) {
-            document.querySelectorAll('.dash-tab-btn').forEach(b => b.classList.remove('active'));
-            btnEl.classList.add('active');
-
-            document.querySelectorAll('.dash-panel-content').forEach(p => p.classList.remove('active'));
-            const activePanel = document.getElementById(`panel-${tabId}`);
-            if (activePanel) activePanel.classList.add('active');
-        }
-
-        function renderAssignedStaff() {
-            const container = document.getElementById('assignedStaffCardsGrid');
-            if (!container) return;
-            container.innerHTML = '';
-            APP_DATA.assigned_staff.forEach(s => {
-                const card = document.createElement('div');
-                card.className = 'info-card';
-                card.innerHTML = `
-                    <span class="badge badge-purple" style="margin-bottom: 0.5rem;">${s.role}</span>
-                    <h4 style="font-size: 1.05rem; margin-bottom: 0.2rem;">${s.name}</h4>
-                    <p style="font-size: 0.8rem; color: var(--primary); font-weight: 700;">${s.subject}</p>
-                    <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem;">
-                        📞 Contact: <a href="javascript:void(0)" onclick="openExternalUrl('tel:${s.contact}')" style="color: var(--primary); font-weight: 700;">${s.contact}</a>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function renderBranchScheduler() {
-            const tableBody = document.getElementById('branchSchedulerTableBody');
-            if (!tableBody) return;
-            const filter = document.getElementById('branchFilterSelect')?.value || 'ALL';
-            tableBody.innerHTML = '';
-
-            const list = filter === 'ALL' ? APP_DATA.teachers : APP_DATA.teachers.filter(t => t.branchId === filter);
-
-            list.forEach(t => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td><strong>${t.name}</strong></td>
-                    <td><span class="badge badge-primary">${t.branchName}</span></td>
-                    <td>${t.subject}</td>
-                    <td>${t.slot}</td>
-                    <td><button class="btn btn-primary btn-sm" onclick="showToast('Open doubt session request sent to ${t.name}')">📅 Book Slot</button></td>
-                `;
-                tableBody.appendChild(tr);
-            });
-        }
-
-        function renderDoubtTracker() {
-            const tbody = document.getElementById('doubtTrackerTableBody');
-            if (!tbody) return;
-            tbody.innerHTML = '';
-            APP_DATA.doubts_tracker.forEach(d => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td><strong>${d.id}</strong></td>
-                    <td>${d.topic}</td>
-                    <td>${d.mentor}</td>
-                    <td><span class="badge ${d.status === 'Resolved' ? 'badge-success' : 'badge-warning'}">${d.status}</span></td>
-                    <td><span style="font-size: 0.8rem; color: var(--text-muted);">${d.reply}</span></td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        function renderPortalVideos() {
-            const grid = document.getElementById('portalVideoGrid');
-            if (!grid) return;
-            grid.innerHTML = '';
-            APP_DATA.videos.forEach(v => {
-                const card = document.createElement('div');
-                card.className = 'info-card';
-                card.innerHTML = `
-                    <div style="aspect-ratio: 16/9; background: #000; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 0.75rem;">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${v.ytId}" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <h4 style="font-size: 0.95rem; font-weight: 800;">${v.title}</h4>
-                    <span class="badge badge-danger" style="margin-top: 0.4rem;">@cousinsacademy4599</span>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        function handleDoubtSubmit(e) {
-            e.preventDefault();
-            const topic = document.getElementById('doubtTopicVal').value;
-            const desc = document.getElementById('doubtDescVal').value;
-
-            const newId = `TICK-${Math.floor(100 + Math.random() * 900)}`;
-            APP_DATA.doubts_tracker.unshift({
-                id: newId,
-                topic: topic,
-                mentor: "Rekha Sharma (Tier 3)",
-                status: "Assigned",
-                reply: "Review in progress. SLA: Sub 2 hours."
-            });
-
-            renderDoubtTracker();
-            document.getElementById('doubtTopicVal').value = '';
-            document.getElementById('doubtDescVal').value = '';
-
-            showToast(`Question submitted! Ticket ${newId} created with Tier 3 SLA.`);
-        }
-
-        // DEMO MODAL HANDLERS
-        function openDemoModal(title = "Book a Free Trial Demo Class") {
-            const modalTitle = document.getElementById('demoModalTitle');
-            if (modalTitle) modalTitle.textContent = title;
-            document.getElementById('demoModal').classList.add('active');
-        }
-
-        function closeDemoModal() {
-            document.getElementById('demoModal').classList.remove('active');
-        }
-
-        function handleDemoBookingSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('demoStudentName').value;
-            const phone = document.getElementById('demoPhone').value;
-            const prog = document.getElementById('demoProgramSelect').value;
-            const loc = document.getElementById('demoLocationSelect').value;
-            const slot = document.getElementById('demoSlotSelect').value;
-
-            closeDemoModal();
-            showToast(`✨ Demo class booked for ${name}! Redirecting to WhatsApp...`);
-
-            const msg = `*SHARUSURI SUPERAPP - FREE DEMO CLASS BOOKING*\n\n` +
-                        `• *Student Name:* ${name}\n` +
-                        `• *Parent Phone:* ${phone}\n` +
-                        `• *Program:* ${prog}\n` +
-                        `• *Location/Mode:* ${loc}\n` +
-                        `• *Preferred Slot:* ${slot}\n\n` +
-                        `Please confirm demo ticket and send class link/address.`;
-
-            setTimeout(() => {
-                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
-            }, 800);
-        }
-
-        // ENROLLMENT MODAL HANDLERS
-        function openEnrollmentModal() {
-            document.getElementById('modalSelectedSummary').value = `${wizardSelection.program} (${wizardSelection.batch} - ${wizardSelection.timing})`;
-            document.getElementById('enrollmentModal').classList.add('active');
-        }
-
-        function closeEnrollmentModal() {
-            document.getElementById('enrollmentModal').classList.remove('active');
-        }
-
-        function handleEnrollmentSubmit(e) {
-            e.preventDefault();
-            closeEnrollmentModal();
-            showToast('🎉 Seat reservation request recorded! Connecting to Admissions Desk...');
-        }
-
-        function openWhatsAppInquiry() {
-            const msg = `*SHARUSURI SUPERAPP - PROGRAM REGISTRATION INQUIRY*\n\n` +
-                        `• *Program:* ${wizardSelection.program}\n` +
-                        `• *Batch:* ${wizardSelection.batch}\n` +
-                        `• *Mode:* ${wizardSelection.mode}\n` +
-                        `• *Timing:* ${wizardSelection.timing}\n` +
-                        `• *Fee:* ${wizardSelection.fee}\n\n` +
-                        `I want to confirm enrollment for this batch.`;
-            openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
-        }
-
-        // CONTACT FORM SUBMISSION
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('contactStudentName').value;
-            const phone = document.getElementById('contactPhone').value;
-            const category = document.getElementById('contactProgram').value;
-            const mode = document.getElementById('contactMode').value;
-            const msgText = document.getElementById('contactMsg').value || 'General inquiry';
-
-            showToast(`Message sent for ${name}! Opening WhatsApp contact desk...`);
-
-            const msg = `*SHARUSURI SUPERAPP - CONTACT & DEMO INQUIRY*\n\n` +
-                        `• *Name:* ${name}\n` +
-                        `• *Phone:* ${phone}\n` +
-                        `• *Inquiry Category:* ${category}\n` +
-                        `• *Mode:* ${mode}\n` +
-                        `• *Message:* ${msgText}\n\n` +
-                        `Please get in touch with me.`;
-
-            setTimeout(() => {
-                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
-            }, 800);
-        }
-
-        // AUTHENTICATION MODAL HANDLERS
-        function openAuthModal() {
-            document.getElementById('authModal').classList.add('active');
-        }
-
-        function closeAuthModal() {
-            document.getElementById('authModal').classList.remove('active');
-        }
-
-        function handleQuickLogin(e) {
-            e.preventDefault();
-            const userVal = document.getElementById('loginUserVal').value;
-            closeAuthModal();
-            showToast(`🔓 Welcome back, Master Admin (${userVal})!`);
-            navigateToPage('admin');
-        }
-
-        function handleAdminAddSlot(e) {
-            e.preventDefault();
-            const name = document.getElementById('adminProgName').value;
-            const mode = document.getElementById('adminProgMode').value;
-            const time = document.getElementById('adminProgTime').value;
-
-            showToast(`➕ New program slot created: ${name} (${mode} - ${time})`);
-            document.getElementById('adminProgName').value = '';
-            document.getElementById('adminProgTime').value = '';
-        }
-
-        // INITIALIZATION ON PAGE LOAD
-        window.addEventListener('DOMContentLoaded', () => {
-            applyLanguageTranslations();
-            renderSupportTiers();
-            showTierDetail(1);
-            renderWizardSteps();
-            updateWizardSummary();
-            renderFleetGrid('ALL');
-            renderAssignedStaff();
-            renderBranchScheduler();
-            renderDoubtTracker();
-            renderPortalVideos();
-        });
-    </script>
-</body>
-</html>
+                        <div style="margin-top: auto; font-size
