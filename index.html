@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <!-- Optimized Viewport Meta Tag for Mobile WebViews & Native Scaling Control -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="description" content="Sharusuri EdTech, Agriculture & Drone SuperApp - Multi-Page Coaching Engine, Precision Aerial Drone Spraying, Multispectral Crop Mapping, Tungabhadra Rice Trading, High-Grade Fertilizers, Express Transport & Logistics.">
+    <meta name="description" content="Sharusuri EdTech, Agriculture, Drone & Transport SuperApp - Precision Aerial Spraying, Crop Mapping, Tungabhadra Rice Trade, Car & Vehicle Rentals, Express Freight, Coaching Engine.">
     <meta name="theme-color" content="#0f766e">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-    <title>Sharusuri SuperApp | Drone & Aerial Services, Agriculture Solutions, EdTech & Logistics</title>
+    <title>Sharusuri SuperApp | Car & Vehicle Rentals, Drone & Aerial Services, Agriculture & Coaching Hub</title>
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,6 +36,9 @@
             --accent: #f59e0b;
             --accent-hover: #d97706;
             --accent-light: #fef3c7;
+            --amber-bg: #fffbeb;
+            --amber-border: #fde68a;
+            --amber-text: #b45309;
             --agri-green: #15803d;
             --agri-green-hover: #166534;
             --agri-green-light: #dcfce7;
@@ -80,6 +83,9 @@
             --text-muted: #94a3b8;
             --border: #26354a;
             --border-light: #1e2d42;
+            --amber-bg: #2d2006;
+            --amber-border: #453008;
+            --amber-text: #fef3c7;
             --primary-glow: rgba(20, 184, 166, 0.35);
             --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
             --yt-bg-light: #2b1212;
@@ -175,7 +181,7 @@
 
         /* ANNOUNCEMENT BAR */
         .top-notice-bar {
-            background: linear-gradient(90deg, #15803d, #0f766e, #0284c7, #1d4ed8);
+            background: linear-gradient(90deg, #15803d, #0f766e, #0284c7, #d97706);
             color: white;
             font-size: 0.8rem;
             font-weight: 600;
@@ -300,24 +306,24 @@
             box-shadow: inset 0 0 0 1px var(--primary);
         }
 
+        .nav-link-btn.car-nav-highlight {
+            background: var(--accent-light);
+            color: var(--accent-hover);
+        }
+
+        .nav-link-btn.car-nav-highlight.active {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
         .nav-link-btn.agri-nav-highlight {
             background: var(--agri-green-light);
             color: var(--agri-green);
         }
 
-        .nav-link-btn.agri-nav-highlight.active {
-            background: var(--agri-green);
-            color: white;
-        }
-
         .nav-link-btn.drone-nav-highlight {
             background: var(--sky-light);
             color: var(--sky);
-        }
-
-        .nav-link-btn.drone-nav-highlight.active {
-            background: var(--sky);
-            color: white;
         }
 
         /* MOBILE DRAWER OVERLAY */
@@ -440,7 +446,7 @@
 
         /* HERO SECTION */
         .hero-section {
-            background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(15, 118, 110, 0.12) 50%, rgba(21, 128, 61, 0.08) 100%);
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(15, 118, 110, 0.12) 50%, rgba(245, 158, 11, 0.08) 100%);
             padding: 2.5rem 1.25rem 2.5rem;
             border-bottom: 1px solid var(--border-light);
             text-align: center;
@@ -496,22 +502,48 @@
         .back-home-link {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.45rem;
             font-size: 0.88rem;
             font-weight: 800;
-            color: var(--primary);
-            background: var(--primary-light);
+            color: var(--accent-hover);
+            background: var(--accent-light);
             padding: 0.5rem 1rem;
             border-radius: 50px;
             transition: var(--transition);
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(15, 118, 110, 0.2);
+            border: 1px solid rgba(245, 158, 11, 0.3);
         }
 
         .back-home-link:hover {
-            background: var(--primary);
-            color: white;
+            background: var(--accent);
+            color: var(--dark);
             transform: translateX(-3px);
+        }
+
+        /* CAR & RENT SUB-SERVICE PAGE STYLES */
+        .car-rent-hero-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .car-rent-icon-badge {
+            width: 58px;
+            height: 58px;
+            background: var(--accent-light);
+            color: var(--accent-hover);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
         }
 
         /* DRONE DEDICATED SUB-SERVICE PAGE STYLES */
@@ -1303,7 +1335,7 @@
 
         /* TRANSPORT & CAR RENTAL MODULE STYLES */
         .transport-hero-banner {
-            background: linear-gradient(135deg, #0f172a 0%, #0f766e 60%, #1d4ed8 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #d97706 60%, #1d4ed8 100%);
             color: white;
             border-radius: var(--radius-lg);
             padding: 2rem 1.5rem;
@@ -1772,15 +1804,15 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <!-- WHATSAPP QUICK CHAT FLOATING BUTTON -->
-    <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20SuperApp,%20I%20want%20information%20regarding%20drone%20services,%20agri-solutions,%20or%20coaching.')" class="whatsapp-float" title="Direct WhatsApp Desk (+91 9916083774)">
+    <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20SuperApp,%20I%20want%20information%20regarding%20car%20rentals,%20drone%20services,%20or%20coaching.')" class="whatsapp-float" title="Direct WhatsApp Desk (+91 9916083774)">
         💬
     </a>
 
     <!-- TOP ANNOUNCEMENT & CONTACT BAR -->
     <div class="top-notice-bar">
         <div>
-            <span class="notice-tag" id="noticeTagText" data-i18n="announcement_tag">🛸 Drone Services & Agri Hub</span>
-            <span id="noticeBarMsg" data-i18n="announcement_msg">Precision Drone Spraying • Aerial Mapping & Surveying • Tungabhadra Rice Trade • Cousins Coaching Engine</span>
+            <span class="notice-tag" id="noticeTagText" data-i18n="announcement_tag">🚗 Car Rental • 🛸 Drone Services • Agri Hub</span>
+            <span id="noticeBarMsg" data-i18n="announcement_msg">Car & Vehicle Rentals • Drone Spraying • Tungabhadra Rice Trade • Cousins Coaching</span>
         </div>
         <div class="top-contacts">
             <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')">📞 +91 9916083774</a>
@@ -1798,7 +1830,7 @@
                 <span class="brand-badge">SE</span>
                 <div>
                     <span style="display: block; line-height: 1.1;">Sharusuri <small style="color: var(--sky); font-size: 0.68rem; display: inline;">SuperApp</small></span>
-                    <span style="font-size: 0.65rem; color: var(--primary); font-weight: 800; display: block;">Drone Tech, AgriTech & EdTech Hub</span>
+                    <span style="font-size: 0.65rem; color: var(--primary); font-weight: 800; display: block;">Car Rentals, Drone Tech & EdTech Hub</span>
                 </div>
             </a>
 
@@ -1806,6 +1838,9 @@
             <nav class="nav-links-menu" id="desktopNavMenu">
                 <button class="nav-link-btn active" id="nav-home" onclick="navigateToPage('home')">
                     <span>🏠</span> <span data-i18n="nav_home">Home</span>
+                </button>
+                <button class="nav-link-btn car-nav-highlight" id="nav-car-rent" onclick="navigateToPage('car-rent')">
+                    <span>🚗</span> <span data-i18n="nav_car_rent">Car & Rent</span>
                 </button>
                 <button class="nav-link-btn drone-nav-highlight" id="nav-drone" onclick="navigateToPage('drone')">
                     <span>🛸</span> <span data-i18n="nav_drone">Drone Services</span>
@@ -1817,7 +1852,7 @@
                     <span>📚</span> <span data-i18n="nav_programs">Programs & Tiers</span>
                 </button>
                 <button class="nav-link-btn" id="nav-transport" onclick="navigateToPage('transport')">
-                    <span>🚕</span> <span data-i18n="nav_transport">Transport & Rentals</span>
+                    <span>🚕</span> <span data-i18n="nav_transport">Freight & Logistics</span>
                 </button>
                 <button class="nav-link-btn" id="nav-schedule" onclick="navigateToPage('schedule')">
                     <span>🗓️</span> <span data-i18n="nav_schedule">Batches & Schedule</span>
@@ -1845,7 +1880,7 @@
                 </button>
 
                 <!-- THEME TOGGLE -->
-                <button class="icon-btn" id="themeToggleBtn" title="Toggle Theme">🌙</button>
+                <button class="icon-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle Theme">🌙</button>
 
                 <!-- FREE DEMO ACTION -->
                 <button class="btn btn-accent btn-sm" onclick="openDemoModal()" data-i18n="btn_free_demo">
@@ -1866,7 +1901,7 @@
                 <span class="brand-badge">SE</span>
                 <div>
                     <span style="display: block; line-height: 1.1; font-size: 1rem;">Sharusuri SuperApp</span>
-                    <span style="font-size: 0.65rem; color: var(--sky); font-weight: 800; display: block;">Drone, AgriTech & EdTech Hub</span>
+                    <span style="font-size: 0.65rem; color: var(--sky); font-weight: 800; display: block;">Car Rentals, Drone & EdTech</span>
                 </div>
             </div>
             <button class="icon-btn" onclick="toggleMobileNav()">✕</button>
@@ -1876,17 +1911,20 @@
             <button class="nav-link-btn" onclick="navigateToPage('home'); toggleMobileNav();">
                 <span>🏠</span> <span data-i18n="nav_home">Home</span>
             </button>
+            <button class="nav-link-btn car-nav-highlight" onclick="navigateToPage('car-rent'); toggleMobileNav();">
+                <span>🚗</span> <span data-i18n="nav_car_rent">Car & Vehicle Rentals</span>
+            </button>
             <button class="nav-link-btn drone-nav-highlight" onclick="navigateToPage('drone'); toggleMobileNav();">
                 <span>🛸</span> <span data-i18n="nav_drone">Drone & Aerial Services</span>
             </button>
             <button class="nav-link-btn agri-nav-highlight" onclick="navigateToPage('agriculture'); toggleMobileNav();">
-                <span>🌱</span> <span data-i18n="nav_agri">Agriculture Solutions Landing</span>
+                <span>🌱</span> <span data-i18n="nav_agri">Agriculture Solutions</span>
             </button>
             <button class="nav-link-btn" onclick="navigateToPage('programs'); toggleMobileNav();">
                 <span>📚</span> <span data-i18n="nav_programs">Programs & Support Tiers</span>
             </button>
             <button class="nav-link-btn" onclick="navigateToPage('transport'); toggleMobileNav();">
-                <span>🚕</span> <span data-i18n="nav_transport">Transport & Rentals</span>
+                <span>🚕</span> <span data-i18n="nav_transport">Freight & Logistics</span>
             </button>
             <button class="nav-link-btn" onclick="navigateToPage('schedule'); toggleMobileNav();">
                 <span>🗓️</span> <span data-i18n="nav_schedule">Batches & Schedule</span>
@@ -1906,6 +1944,9 @@
         </nav>
 
         <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 0.5rem;">
+            <button class="btn btn-accent" onclick="navigateToPage('car-rent'); toggleMobileNav();">
+                🚗 Car & Vehicle Rentals
+            </button>
             <button class="btn btn-sky" onclick="navigateToPage('drone'); toggleMobileNav();">
                 🛸 Launch Drone Services Portal
             </button>
@@ -1927,23 +1968,23 @@
             <div class="hero-section">
                 <div class="hero-container">
                     <div class="hero-badge">
-                        <span data-i18n="hero_badge_text">🌱 SuperApp Ecosystem • Drone Aerial Solutions & Precision Agriculture</span>
+                        <span data-i18n="hero_badge_text">🌱 SuperApp Ecosystem • Car Rentals, Drone Aerial Solutions & Precision Agriculture</span>
                     </div>
                     <h1 class="hero-title" data-i18n="hero_title">
                         Empowering Farmers & Students with <span>Sharusuri SuperApp</span>
                     </h1>
                     <p class="hero-subtitle" data-i18n="hero_sub">
-                        Karnataka's premier SuperApp combining Drone & Aerial Survey Services, Precision Crop Spraying, Tungabhadra Rice Trade, and Cousins Academy Coaching Engine.
+                        Karnataka's premier SuperApp combining Car & Vehicle Rentals, Drone Spraying, Aerial Survey Services, Tungabhadra Rice Trade, and Cousins Academy Coaching Engine.
                     </p>
                     <div class="hero-cta-group">
+                        <button class="btn btn-accent btn-lg" onclick="navigateToPage('car-rent')">
+                            🚗 Car & Vehicle Rentals →
+                        </button>
                         <button class="btn btn-sky btn-lg" onclick="navigateToPage('drone')">
                             🛸 Drone & Aerial Services →
                         </button>
                         <button class="btn btn-agri btn-lg" onclick="navigateToPage('agriculture')">
                             🌱 Launch Agriculture Hub →
-                        </button>
-                        <button class="btn btn-accent btn-lg" onclick="openDemoModal()" data-i18n="hero_btn_trial">
-                            🎯 Book Free Trial Demo Class
                         </button>
                         <button class="btn btn-primary btn-lg" onclick="navigateToPage('programs')" data-i18n="hero_btn_explore">
                             🚀 Explore Programs & Support Tiers
@@ -1952,8 +1993,33 @@
                 </div>
             </div>
 
-            <!-- QUICK DRONE & AERIAL SERVICES BANNER ON HOME -->
+            <!-- CAR & RENT SUB-SERVICE QUICK HIGHLIGHT ON HOME -->
             <div class="section-container" style="margin-top: 2rem;">
+                <div class="info-card" style="background: linear-gradient(135deg, #1e293b 0%, #d97706 100%); color: white; border: none; padding: 1.75rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div style="max-width: 750px;">
+                            <span class="badge badge-warning" style="margin-bottom: 0.5rem;">🚗 Instant Vehicle Rentals</span>
+                            <h3 style="font-size: 1.6rem; font-weight: 900; color: white; margin-bottom: 0.4rem;">
+                                On-Demand Car & Vehicle Rentals
+                            </h3>
+                            <p style="font-size: 0.92rem; opacity: 0.92; line-height: 1.5;">
+                                Book self-drive cars, luxury cabs, passenger minibuses, and agricultural cargo transport on demand. Track rentals, schedule pickups, and manage fleet logistics with ease.
+                            </p>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button class="btn btn-accent btn-lg" onclick="navigateToPage('car-rent')">
+                                🚗 Explore Car & Rent Page →
+                            </button>
+                            <button class="btn btn-primary btn-lg" onclick="openTransportModal('Swift Dzire Sedan', 'SELF_DRIVE')">
+                                ⚡ Quick Rental Booking
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUICK DRONE & AERIAL SERVICES BANNER ON HOME -->
+            <div class="section-container" style="margin-top: 1rem;">
                 <div class="info-card" style="background: linear-gradient(135deg, #0284c7 0%, #0f766e 100%); color: white; border: none; padding: 1.75rem;">
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                         <div style="max-width: 750px;">
@@ -1962,7 +2028,7 @@
                                 Precision Drone Spraying, 3D Mapping & Thermal Aerial Diagnostics
                             </h3>
                             <p style="font-size: 0.92rem; opacity: 0.92; line-height: 1.5;">
-                                10-minute per acre precision liquid fertilizer & pesticide spraying, multispectral crop stress mapping, land topography survey, and infrastructure inspections across Sindhanur, Raichur, and Bellary.
+                                10-minute per acre precision liquid fertilizer & pesticide spraying, multispectral crop stress mapping, land topography survey, and infrastructure inspections.
                             </p>
                         </div>
                         <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
@@ -1994,7 +2060,7 @@
                 <div class="section-header">
                     <span class="badge badge-purple" data-i18n="tier_sec_badge">🛡️ Unmatched Student Protection & Support</span>
                     <h2 data-i18n="tier_sec_heading">4-Tier Academic Support Hierarchy</h2>
-                    <p data-i18n="tier_sec_sub">Every student gets 360-degree coverage across every subject, guaranteed zero doubt backlog, and cross-branch expert access. Tap any tier below to explore its deep-dive breakdown.</p>
+                    <p data-i18n="tier_sec_sub">Every student gets 360-degree coverage across every subject, guaranteed zero doubt backlog, and cross-branch expert access.</p>
                 </div>
 
                 <div class="tier-flow-grid" id="homeTierGrid">
@@ -2006,6 +2072,11 @@
             <div class="section-container">
                 <div class="grid-4">
                     <div class="info-card" style="text-align: center;">
+                        <div style="font-size: 2rem; color: var(--accent-hover); font-weight: 900;">100+</div>
+                        <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;">Fleet Vehicles</div>
+                        <div style="font-size: 0.78rem; color: var(--text-muted);">Cars, Cabs & Cargo Trucks</div>
+                    </div>
+                    <div class="info-card" style="text-align: center;">
                         <div style="font-size: 2rem; color: var(--sky); font-weight: 900;">10 Mins</div>
                         <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;">Drone Spray / Acre</div>
                         <div style="font-size: 0.78rem; color: var(--text-muted);">95% Water Saving Precision</div>
@@ -2016,11 +2087,6 @@
                         <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat1_sub">Top ranks in Raichur & Bellary</div>
                     </div>
                     <div class="info-card" style="text-align: center;">
-                        <div style="font-size: 2rem; color: var(--secondary); font-weight: 900;">12,500+</div>
-                        <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;" data-i18n="stat2_label">Enrolled Students</div>
-                        <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat2_sub">Online & Multi-Campus Network</div>
-                    </div>
-                    <div class="info-card" style="text-align: center;">
                         <div style="font-size: 1.5rem; color: var(--yt-red); font-weight: 900; word-break: break-all;">@cousinsacademy</div>
                         <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;" data-i18n="stat4_label">Official Video Lessons</div>
                         <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat4_sub">Dedicated YouTube masterclasses</div>
@@ -2029,7 +2095,164 @@
             </div>
         </section>
 
-        <!-- 2. DEDICATED DRONE & AERIAL SERVICES SUB-SERVICE LANDING PAGE ROUTE VIEW (/services/drone) -->
+        <!-- 2. DEDICATED CAR & RENT SUB-SERVICE LANDING PAGE VIEW (/services/car-rent) -->
+        <section id="page-car-rent" class="page-view">
+            <div class="section-container" style="margin-top: 1.25rem;">
+                
+                <!-- BREADCRUMB / BACK TO HOME LINK -->
+                <a href="javascript:void(0)" onclick="navigateToPage('home')" class="back-home-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span data-i18n="car_rent_back">← Back to Home</span>
+                </a>
+
+                <!-- CAR & VEHICLE RENTALS HERO BANNER -->
+                <div class="car-rent-hero-card">
+                    <div style="display: flex; items-center; gap: 1.25rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                        <div class="car-rent-icon-badge">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2"></path>
+                                <circle cx="7" cy="17" r="2"></circle>
+                                <circle cx="17" cy="17" r="2"></circle>
+                            </svg>
+                        </div>
+                        <div style="flex-grow: 1;">
+                            <span class="badge badge-warning" style="margin-bottom: 0.35rem;" data-i18n="nav_car_rent">Car & Rent</span>
+                            <h1 style="font-size: 2.2rem; font-weight: 900; line-height: 1.2; color: var(--text-main);" data-i18n="car_rent_title">
+                                Car & Vehicle Rentals
+                            </h1>
+                            <p style="font-size: 1rem; color: var(--text-muted); margin-top: 0.3rem;" data-i18n="car_rent_sub">
+                                Book vehicles on demand, track rentals, and manage fleet logistics.
+                            </p>
+                        </div>
+                    </div>
+
+                    <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem; max-width: 900px;">
+                        Whether you need a sleek self-drive sedan for family travel, a luxury SUV with chauffeur for official trips, or heavy agricultural cargo vehicles for paddy transport, Sharusuri SuperApp provides transparent pricing, instant booking confirmation, and 24/7 roadside support across Sindhanur, Raichur, Bellary, and Koppal.
+                    </p>
+
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <button class="btn btn-accent btn-lg" onclick="openTransportModal('Swift Dzire Sedan', 'SELF_DRIVE')">
+                            🚗 Book Car On Demand
+                        </button>
+                        <button class="btn btn-secondary btn-lg" onclick="openRentalTrackerModal()">
+                            📍 Track Active Rental & Fleet
+                        </button>
+                        <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20Car%20Rental%20Desk,%20I%20want%20to%20book%20a%20vehicle.')">
+                            💬 WhatsApp Booking Desk (+91 9916083774)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAR RENT FLEET CATEGORY FILTER BAR -->
+                <div class="fleet-filter-bar" id="carRentFilterBar">
+                    <button class="fleet-filter-btn active" onclick="filterFleet('ALL', this)">
+                        🚘 All Fleet Vehicles (8)
+                    </button>
+                    <button class="fleet-filter-btn" onclick="filterFleet('SELF_DRIVE', this)">
+                        🚗 Self-Drive & Cabs
+                    </button>
+                    <button class="fleet-filter-btn" onclick="filterFleet('RURAL_CARGO', this)">
+                        🌾 Goods & Cargo Freight
+                    </button>
+                    <button class="fleet-filter-btn" onclick="filterFleet('PASSENGER_VAN', this)">
+                        🚌 Minibuses & Vans
+                    </button>
+                </div>
+
+                <!-- VEHICLES FLEET GRID -->
+                <div class="fleet-grid" id="fleetCardsGrid">
+                    <!-- Dynamic rendering via JS -->
+                </div>
+
+                <!-- CAR & RENT FEATURE HIGHLIGHTS -->
+                <div class="grid-3" style="margin-bottom: 2.5rem;">
+                    <div class="info-card" style="border-top: 4px solid var(--accent);">
+                        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">⏱️</div>
+                        <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">On-Demand Booking</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                            Reserve your vehicle in less than 2 minutes with zero security deposit hassles and transparent per-day or per-kilometer rates.
+                        </p>
+                    </div>
+
+                    <div class="info-card" style="border-top: 4px solid var(--primary);">
+                        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🛰️</div>
+                        <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">GPS Rental Tracking</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                            Real-time GPS tracking for passenger safety and precision dispatch for agricultural goods freight from farmfield to mill.
+                        </p>
+                    </div>
+
+                    <div class="info-card" style="border-top: 4px solid var(--success);">
+                        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🛠️</div>
+                        <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">24/7 Roadside Assistance</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                            Fully insured fleet with round-the-clock emergency replacement and breakdown assistance across the district.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- RENTALS MANAGEMENT & LOGISTICS TRACKER MOCKUP -->
+                <div class="info-card" style="margin-bottom: 2.5rem; border: 2px solid var(--amber-border); background: var(--amber-bg);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+                        <div>
+                            <span class="badge badge-warning" style="margin-bottom: 0.3rem;">📋 Fleet Logistics Management</span>
+                            <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main);">Live Rental Status & Dispatch Tracker</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Manage active vehicle bookings, driver assignment, and route progress.</p>
+                        </div>
+                        <button class="btn btn-accent btn-sm" onclick="openTransportModal('Custom Fleet Vehicle', 'SELF_DRIVE')">
+                            ➕ Request New Rental
+                        </button>
+                    </div>
+
+                    <div class="data-table-wrapper" style="background: var(--card-bg); border-radius: var(--radius-md);">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Booking ID</th>
+                                    <th>Vehicle & Type</th>
+                                    <th>Customer / Organization</th>
+                                    <th>Route / Pickup</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>RENT-401</strong></td>
+                                    <td>Swift Dzire Sedan</td>
+                                    <td>Ramesh Patil</td>
+                                    <td>Sindhanur to Raichur Station</td>
+                                    <td><span class="badge badge-success">On Trip</span></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="showToast('Tracking Swift Dzire (RENT-401): Active GPS Signal OK')">🛰️ Track GPS</button></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>RENT-402</strong></td>
+                                    <td>Mahindra Bolero Pickup</td>
+                                    <td>Veereshappa (Farmer)</td>
+                                    <td>Hosalli Farm to APMC Mandi</td>
+                                    <td><span class="badge badge-warning">Dispatched</span></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="showToast('Bolero Pickup (RENT-402): En Route to Pickup Point')">📞 Call Driver</button></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>RENT-403</strong></td>
+                                    <td>Toyota Innova Crysta</td>
+                                    <td>Cousins Academy Delegation</td>
+                                    <td>Bellary Campus VIP Trip</td>
+                                    <td><span class="badge badge-primary">Scheduled</span></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="showToast('Innova Crysta (RENT-403): Driver Assigned for Tomorrow 7:00 AM')">📄 Details</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. DEDICATED DRONE & AERIAL SERVICES SUB-SERVICE LANDING PAGE ROUTE VIEW (/services/drone) -->
         <section id="page-drone" class="page-view">
             <div class="section-container" style="margin-top: 1.25rem;">
                 
@@ -2243,61 +2466,10 @@
                     </div>
                 </div>
 
-                <!-- STEP-BY-STEP PROCESS WORKFLOW -->
-                <div class="info-card" style="margin-bottom: 2.5rem; border: 2px solid var(--sky);">
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 1rem;">
-                        <div>
-                            <span class="badge badge-sky" style="margin-bottom: 0.3rem;">⚡ How It Works</span>
-                            <h3 style="font-size: 1.35rem; font-weight: 800;">4-Step Precision Aerial Execution Workflow</h3>
-                            <p style="font-size: 0.85rem; color: var(--text-muted);">From booking to digital report, we ensure zero delay and maximum efficiency.</p>
-                        </div>
-                        <button class="btn btn-sky btn-sm" onclick="openDroneBookingModal()">
-                            🚀 Book Your Slot Today
-                        </button>
-                    </div>
-
-                    <div class="drone-process-grid">
-                        <div class="drone-step-card">
-                            <div class="drone-step-num">1</div>
-                            <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">1. Instant Slot Booking</h5>
-                            <p style="font-size: 0.78rem; color: var(--text-muted);">Submit field location and land acres via web or WhatsApp (+91 9916083774).</p>
-                        </div>
-                        <div class="drone-step-card">
-                            <div class="drone-step-num">2</div>
-                            <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">2. 3D Field Boundary Scan</h5>
-                            <p style="font-size: 0.78rem; color: var(--text-muted);">Pilot scans trees, electric poles, and field terrain before takeoff.</p>
-                        </div>
-                        <div class="drone-step-card">
-                            <div class="drone-step-num">3</div>
-                            <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">3. Autonomous Flight</h5>
-                            <p style="font-size: 0.78rem; color: var(--text-muted);">Drone sprays liquid nutrients/pesticide evenly at 10 minutes/acre speed.</p>
-                        </div>
-                        <div class="drone-step-card">
-                            <div class="drone-step-num">4</div>
-                            <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">4. Digital Report</h5>
-                            <p style="font-size: 0.78rem; color: var(--text-muted);">Receive flight log report, covered acreage proof, and crop health notes.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DRONE FAQ & WHATSAPP DIRECT BANNER -->
-                <div class="info-card" style="background: linear-gradient(135deg, #0f172a 0%, #0284c7 100%); color: white;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                        <div>
-                            <span class="badge badge-warning" style="margin-bottom: 0.4rem;">❓ Got Questions?</span>
-                            <h3 style="font-size: 1.3rem; font-weight: 800; color: white;">Have Custom Flight or Large Land Area Requirements?</h3>
-                            <p style="font-size: 0.88rem; opacity: 0.9;">We offer special bulk field rates for farming cooperatives, APMC traders, and estate owners.</p>
-                        </div>
-                        <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20Drone%20Desk,%20I%20have%20bulk%20drone%20spraying%20or%20surveying%20requirements.')">
-                            💬 Chat on WhatsApp (+91 9916083774)
-                        </button>
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- 3. DEDICATED AGRICULTURE SUB-SERVICE LANDING PAGE ROUTE VIEW (/services/agriculture) -->
+        <!-- 4. DEDICATED AGRICULTURE SUB-SERVICE LANDING PAGE ROUTE VIEW (/services/agriculture) -->
         <section id="page-agriculture" class="page-view">
             <div class="section-container" style="margin-top: 1.25rem;">
                 
@@ -2404,311 +2576,13 @@
                     </div>
                 </div>
 
-                <!-- SPECIFICATION 1: PRIME LOCATIONS & REGIONAL HUBS SHOWCASE -->
-                <div style="margin-bottom: 2.5rem;">
-                    <div class="section-header" style="text-align: left; margin-bottom: 1.25rem;">
-                        <span class="badge badge-primary">📍 Regional Operations Network</span>
-                        <h2 style="font-size: 1.5rem; margin-top: 0.2rem;">Our Prime Agriculture & Trade Depots</h2>
-                        <p style="margin: 0; font-size: 0.88rem;">Strategically positioned hubs across the fertile Tungabhadra river irrigation network.</p>
-                    </div>
-
-                    <div class="agri-location-grid">
-                        <div class="agri-location-card">
-                            <span class="badge badge-success" style="margin-bottom: 0.5rem;">Central Hub</span>
-                            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">🚜 Sindhanur APMC & AgTech Depot</h3>
-                            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
-                                AP K Hosalli Circle, Bus Stand Road, Sindhanur. Fleet command for 12 agricultural spraying drones and direct paddy procurement desk.
-                            </p>
-                            <div style="font-size: 0.78rem; font-weight: 700; color: var(--primary);">
-                                📞 Helplines: +91 9916083774 / +91 8088171010
-                            </div>
-                        </div>
-
-                        <div class="agri-location-card" style="border-color: #0284c7;">
-                            <span class="badge" style="background: #e0f2fe; color: #0284c7; margin-bottom: 0.5rem;">Sweet Water Irrigated Basin</span>
-                            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">🌊 Hampi & Hosapete River Basin</h3>
-                            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
-                                Premium paddy fields nurtured by canal water from Tungabhadra Dam. Primary growing zone for sweet Sona Masuri & Kaveri rice.
-                            </p>
-                            <div style="font-size: 0.78rem; font-weight: 700; color: #0284c7;">
-                                🌊 Tungabhadra Canal Distribution Center
-                            </div>
-                        </div>
-
-                        <div class="agri-location-card">
-                            <span class="badge badge-purple" style="margin-bottom: 0.5rem;">District Logistics Nodes</span>
-                            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">🏬 Raichur & Bellary Outposts</h3>
-                            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
-                                Station Road Raichur & Royal Circle Bellary. Fertilizer distribution depots and regional rice mill dispatch facilities.
-                            </p>
-                            <div style="font-size: 0.78rem; font-weight: 700; color: var(--purple);">
-                                📦 Bulk Transport & Express Dispatch
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SPECIFICATION 2: INTERACTIVE 3-PILLAR TAB SELECTOR -->
-                <div>
-                    <div class="section-header" style="text-align: center; margin-bottom: 1.5rem;">
-                        <span class="badge badge-warning">⚡ 3 Comprehensive Agricultural Pillars</span>
-                        <h2>Explore Our Agriculture Ecosystem</h2>
-                        <p>Select a pillar below to access drone bookings, high-grade fertilizers, or paddy/rice trade services.</p>
-                    </div>
-
-                    <!-- TAB SELECTOR BUTTONS -->
-                    <div class="agri-pillar-nav-bar" id="agriPillarTabs">
-                        <button class="agri-pillar-btn active" onclick="switchAgriPillar('drone', this)">
-                            <span>🛸 Pillar 1: Drone Spraying & Crop Monitoring</span>
-                        </button>
-                        <button class="agri-pillar-btn" onclick="switchAgriPillar('fertilizer', this)">
-                            <span>🧪 Pillar 2: High-Grade Fertilizers</span>
-                        </button>
-                        <button class="agri-pillar-btn" onclick="switchAgriPillar('paddy', this)">
-                            <span>🌾 Pillar 3: Tungabhadra Paddy & Rice Trade</span>
-                        </button>
-                    </div>
-
-                    <!-- PILLAR 1: PRECISION DRONE SPRAYING SERVICES -->
-                    <div class="agri-pillar-content active" id="agriPillar-drone">
-                        <div class="info-card" style="margin-bottom: 1.5rem; border: 2px solid var(--agri-green);">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
-                                <div>
-                                    <span class="badge agri-badge-green" style="margin-bottom: 0.4rem;">🛸 Next-Gen Precision Agriculture</span>
-                                    <h3 style="font-size: 1.4rem; font-weight: 800;">High-Capacity Agricultural Drone Spraying & Monitoring</h3>
-                                    <p style="font-size: 0.88rem; color: var(--text-muted);">Faster, safer, and 100% uniform liquid fertilizer, pesticide, and micronutrient application across your fields.</p>
-                                </div>
-                                <div style="text-align: right;">
-                                    <span style="font-size: 0.8rem; color: var(--text-muted);">Special Farmer Fare:</span>
-                                    <div style="font-size: 1.6rem; font-weight: 900; color: var(--agri-green);">₹499 <small style="font-size: 0.8rem; color: var(--text-muted);">/ Acre</small></div>
-                                </div>
-                            </div>
-
-                            <!-- Drone How It Works Workflow -->
-                            <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 0.75rem;">How Precision Drone Spraying Works:</h4>
-                            <div class="drone-process-grid">
-                                <div class="drone-step-card">
-                                    <div class="drone-step-num">1</div>
-                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Land Mapping</h5>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted);">We execute 3D mapping of obstacle boundaries and field contours before launch.</p>
-                                </div>
-                                <div class="drone-step-card">
-                                    <div class="drone-step-num">2</div>
-                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Expert Formulation</h5>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Nutrients or protective solutions are measured to match crop lifecycle targets.</p>
-                                </div>
-                                <div class="drone-step-card">
-                                    <div class="drone-step-num">3</div>
-                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Autonomous Flight</h5>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Auto-mist spraying nozzles complete one entire acre within 10 minutes flat.</p>
-                                </div>
-                                <div class="drone-step-card">
-                                    <div class="drone-step-num">4</div>
-                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Coverage Analysis</h5>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Digital reports provide detailed thermal coverage and nutrient dispersion metrics.</p>
-                                </div>
-                            </div>
-
-                            <div style="display: flex; gap: 0.85rem; flex-wrap: wrap; margin-top: 1.25rem;">
-                                <button class="btn btn-sky btn-lg" onclick="navigateToPage('drone')">
-                                    🛸 Launch Dedicated Drone Portal →
-                                </button>
-                                <button class="btn btn-agri btn-lg" onclick="openDroneBookingModal()">
-                                    ⚡ Book Spraying Service Now
-                                </button>
-                                <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Drone%20Desk,%20I%20want%20to%20book%20a%20drone%20spray%20for%20my%20field.')">
-                                    💬 WhatsApp Drone Booking (+91 9916083774)
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PILLAR 2: HIGH-GRADE FERTILIZERS -->
-                    <div class="agri-pillar-content" id="agriPillar-fertilizer">
-                        <div class="section-header" style="text-align: left; margin-bottom: 1.25rem;">
-                            <span class="badge badge-primary">🧪 Genuine Input Guarantee</span>
-                            <h3 style="font-size: 1.3rem;">High-Grade Soil Nutrients & Complex Fertilizers</h3>
-                            <p style="margin: 0; font-size: 0.85rem;">Sourced directly from certified government suppliers and top chemical manufacturers for high crop yield.</p>
-                        </div>
-
-                        <div class="grid-4" style="margin-bottom: 1.5rem;">
-                            <!-- Product 1: Urea -->
-                            <div class="ecommerce-product-card">
-                                <div style="position: relative; overflow: hidden; height: 190px;">
-                                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="Neem Coated Urea Bag">
-                                    <span style="position: absolute; top: 10px; left: 10px;" class="discount-badge-bubble">Save 10%</span>
-                                </div>
-                                <div class="ecommerce-card-body">
-                                    <span class="badge agri-badge-green" style="margin-bottom: 0.4rem; align-self: flex-start;">High Nitrogen 46%</span>
-                                    <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">Neem Coated Urea (45kg)</h4>
-                                    <div class="product-rating">★ 4.8 <span class="review-count">(142 reviews)</span></div>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">Essential nitrogen booster for fast vegetative growth in paddy crops.</p>
-                                    
-                                    <div class="stock-progress-bar">
-                                        <div class="stock-progress-fill" style="width: 85%;"></div>
-                                    </div>
-                                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Only 14 Bags Left in Sindhanur Hub</span>
-
-                                    <div class="price-tag-box">
-                                        <div>
-                                            <span class="original-price">₹295</span>
-                                            <span class="price-amount">₹266</span>
-                                            <span class="price-unit">/ Bag</span>
-                                        </div>
-                                        <span class="badge badge-success">In Stock</span>
-                                    </div>
-                                    <button class="btn btn-agri btn-sm" style="width: 100%;" onclick="openFertilizerQuoteModal('Neem Coated Urea 45kg')">
-                                        🛍️ Order / Bulk Inquiry
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Product 2: NPK 10-26-26 -->
-                            <div class="ecommerce-product-card">
-                                <div style="position: relative; overflow: hidden; height: 190px;">
-                                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="NPK 10-26-26 Complex">
-                                    <span style="position: absolute; top: 10px; left: 10px;" class="discount-badge-bubble">Save 11%</span>
-                                </div>
-                                <div class="ecommerce-card-body">
-                                    <span class="badge agri-badge-gold" style="margin-bottom: 0.4rem; align-self: flex-start;">Complex NPK (10:26:26)</span>
-                                    <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">NPK 10-26-26 Complex (50kg)</h4>
-                                    <div class="product-rating">★ 4.9 <span class="review-count">(98 reviews)</span></div>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">High Phosphorus & Potash formulation for strong root & grain weight.</p>
-                                    
-                                    <div class="stock-progress-bar">
-                                        <div class="stock-progress-fill" style="width: 60%;"></div>
-                                    </div>
-                                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Only 22 Bags Left in Hampi Depot</span>
-
-                                    <div class="price-tag-box">
-                                        <div>
-                                            <span class="original-price">₹1,650</span>
-                                            <span class="price-amount">₹1,470</span>
-                                            <span class="price-unit">/ Bag</span>
-                                        </div>
-                                        <span class="badge badge-success">In Stock</span>
-                                    </div>
-                                    <button class="btn btn-agri btn-sm" style="width: 100%;" onclick="openFertilizerQuoteModal('NPK 10-26-26 Complex 50kg')">
-                                        🛍️ Order / Bulk Inquiry
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Product 3: NPK 10-10-10 -->
-                            <div class="ecommerce-product-card">
-                                <div style="position: relative; overflow: hidden; height: 190px;">
-                                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="NPK 10-10-10 Balanced Booster">
-                                    <span style="position: absolute; top: 10px; left: 10px;" class="discount-badge-bubble">Save 12%</span>
-                                </div>
-                                <div class="ecommerce-card-body">
-                                    <span class="badge badge-primary" style="margin-bottom: 0.4rem; align-self: flex-start;">Balanced Fertilizer</span>
-                                    <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">NPK 10-10-10 Balanced Booster</h4>
-                                    <div class="product-rating">★ 4.7 <span class="review-count">(74 reviews)</span></div>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">Equal ratio nutrient blend for early crop tillering & balanced soil health.</p>
-                                    
-                                    <div class="stock-progress-bar">
-                                        <div class="stock-progress-fill" style="width: 45%;"></div>
-                                    </div>
-                                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Only 19 Bags Left in Raichur Depot</span>
-
-                                    <div class="price-tag-box">
-                                        <div>
-                                            <span class="original-price">₹1,340</span>
-                                            <span class="price-amount">₹1,180</span>
-                                            <span class="price-unit">/ Bag</span>
-                                        </div>
-                                        <span class="badge badge-success">In Stock</span>
-                                    </div>
-                                    <button class="btn btn-agri btn-sm" style="width: 100%;" onclick="openFertilizerQuoteModal('NPK 10-10-10 Balanced Booster')">
-                                        🛍️ Order / Bulk Inquiry
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Product 4: Zinc Micronutrient -->
-                            <div class="ecommerce-product-card">
-                                <div style="position: relative; overflow: hidden; height: 190px;">
-                                    <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="Chelated Zinc Sulphate">
-                                    <span style="position: absolute; top: 10px; left: 10px;" class="discount-badge-bubble">Save 15%</span>
-                                </div>
-                                <div class="ecommerce-card-body">
-                                    <span class="badge badge-purple" style="margin-bottom: 0.4rem; align-self: flex-start;">Chelated Zinc 33%</span>
-                                    <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">Zinc Sulphate Micronutrient</h4>
-                                    <div class="product-rating">★ 4.9 <span class="review-count">(112 reviews)</span></div>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">Prevents Khaira disease in paddy; restores leaf greenness and grain shine.</p>
-                                    
-                                    <div class="stock-progress-bar">
-                                        <div class="stock-progress-fill" style="width: 90%;"></div>
-                                    </div>
-                                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Only 8 Packs Left in Bellary Outlet</span>
-
-                                    <div class="price-tag-box">
-                                        <div>
-                                            <span class="original-price">₹565</span>
-                                            <span class="price-amount">₹480</span>
-                                            <span class="price-unit">/ 10kg pack</span>
-                                        </div>
-                                        <span class="badge badge-success">In Stock</span>
-                                    </div>
-                                    <button class="btn btn-agri btn-sm" style="width: 100%;" onclick="openFertilizerQuoteModal('Zinc Sulphate Micronutrient 10kg')">
-                                        🛍️ Order / Bulk Inquiry
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PILLAR 3: PADDY & RICE PRODUCE TRADING -->
-                    <div class="agri-pillar-content" id="agriPillar-paddy">
-                        <div class="info-card" style="border: 2px solid var(--agri-gold); margin-bottom: 1.5rem;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 1rem;">
-                                <div>
-                                    <span class="badge agri-badge-gold" style="margin-bottom: 0.3rem;">🌊 Pure Tungabhadra Canal Irrigation</span>
-                                    <h3 style="font-size: 1.4rem; font-weight: 900;">Tungabhadra Sweet Water Paddy & Rice Produce Desk</h3>
-                                    <p style="font-size: 0.88rem; color: var(--text-muted);">
-                                        Cultivated in the fertile Hampi/Hosapete & Sindhanur canal belts using mineral-rich sweet Tungabhadra river water. Specializing in aromatic <strong>Kaveri Steam Rice</strong> and long-grain <strong>Super Fine Sona Masuri Rice</strong>.
-                                    </p>
-                                </div>
-                                <span class="badge badge-success" style="font-size: 0.85rem;">Verified Mill Direct</span>
-                            </div>
-
-                            <div class="grid-2" style="margin: 1.25rem 0;">
-                                <!-- DUAL CHANNEL OPTION 1: WE BUY RAW PADDY FROM FARMERS -->
-                                <div style="background: var(--bg); border: 1.5px solid var(--border-light); border-radius: var(--radius-md); padding: 1.25rem;">
-                                    <span class="badge agri-badge-green" style="margin-bottom: 0.5rem;">🚜 For Local Farmers</span>
-                                    <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Sell Raw Paddy to Us (Farmgate Purchase)</h4>
-                                    <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.85rem;">
-                                        Get instant spot cash and field-pickup for your raw paddy harvest. We purchase Kaveri, Sona Masuri, and RNR 15048 varieties directly at APMC market rates with zero transport hassle.
-                                    </p>
-                                    <button class="btn btn-agri" style="width: 100%;" onclick="openPaddyTradeModal('SELL_PADDY', 'Sona Masuri / Kaveri Raw Paddy')">
-                                        🌾 Submit Paddy Sale Offer
-                                    </button>
-                                </div>
-
-                                <!-- DUAL CHANNEL OPTION 2: WE SELL PREMIUM RICE TO BUYERS -->
-                                <div style="background: var(--bg); border: 1.5px solid var(--border-light); border-radius: var(--radius-md); padding: 1.25rem;">
-                                    <span class="badge agri-badge-gold" style="margin-bottom: 0.5rem;">🏬 For Wholesale Buyers & Families</span>
-                                    <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Buy Premium Rice (Direct Mill Supply)</h4>
-                                    <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.85rem;">
-                                        Order 100% aged, silky polished, sweet Tungabhadra Sona Masuri & Kaveri Rice bags (25kg/50kg) directly from our Sindhanur & Raichur processing mills with home delivery.
-                                    </p>
-                                    <button class="btn btn-accent" style="width: 100%;" onclick="openPaddyTradeModal('BUY_RICE', 'Tungabhadra Sona Masuri / Kaveri Rice')">
-                                        🛒 Order Premium Rice Bags
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- 4. DEEP INTERACTIVE PROGRAM, SUPPORT TIERS & BATCH SELECTOR (PROGRAMS PAGE VIEW) -->
+        <!-- 5. DEEP INTERACTIVE PROGRAM, SUPPORT TIERS & BATCH SELECTOR (PROGRAMS PAGE VIEW) -->
         <section id="page-programs" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 
-                <!-- SECTION 1: 4-TIER VISUAL FLOW & DETAILED DEEP-DIVE BREAKDOWN -->
                 <div class="section-header">
                     <span class="badge badge-purple" data-i18n="prog_tier_header_badge">🎓 Complete Subject Coverage Framework</span>
                     <h2 data-i18n="prog_tier_header_title">Our 4-Tier Academic Support Hierarchy</h2>
@@ -2737,67 +2611,11 @@
                     </div>
 
                     <div id="tierDetailContent">
-                        <!-- Populated dynamically by JS function renderTierDetailContent(tierNum) -->
+                        <!-- Populated dynamically by JS -->
                     </div>
                 </div>
 
-                <!-- SECTION 2: FLEXIBLE TUITION MODELS -->
-                <div style="margin-top: 3rem;">
-                    <div class="section-header">
-                        <span class="badge badge-primary" data-i18n="tuition_header_badge">🔀 Adaptable Tuition Ecosystem</span>
-                        <h2 data-i18n="tuition_header_title">Flexible Tuition & Learning Models</h2>
-                        <p data-i18n="tuition_header_sub">Switch seamlessly between campus classes, home tuition, and cross-branch revision centers based on your convenience.</p>
-                    </div>
-
-                    <div class="tuition-models-grid">
-                        <div class="model-card">
-                            <div>
-                                <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Option 1</span>
-                                <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem;" data-i18n="tuition_opt1_title">Regular Campus Tuition</h3>
-                                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;" data-i18n="tuition_opt1_desc">
-                                    Structured daily in-person classes at your nearest regional tuition center with direct teacher interaction and daily OMR test papers.
-                                </p>
-                            </div>
-                            <div style="margin-top: 1.25rem;">
-                                <button class="btn btn-secondary btn-sm" style="width: 100%;" onclick="openDemoModal('Campus Visit Demo')" data-i18n="tuition_opt1_btn">
-                                    📍 Book Campus Visit Demo
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="model-card">
-                            <div>
-                                <span class="badge badge-success" style="margin-bottom: 0.5rem;">Option 2</span>
-                                <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem;" data-i18n="tuition_opt2_title">Cross-Branch Access Pass</h3>
-                                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;" data-i18n="tuition_opt2_desc">
-                                    Enroll in one campus and get free access to neighboring centers for weekend doubt clinics, specialized revision camps, and mock test drills.
-                                </p>
-                            </div>
-                            <div style="margin-top: 1.25rem;">
-                                <button class="btn btn-secondary btn-sm" style="width: 100%;" onclick="openDemoModal('Cross-Branch Pass Demo')" data-i18n="tuition_opt2_btn">
-                                    🌐 Explore Branch Network
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="model-card">
-                            <div>
-                                <span class="badge badge-purple" style="margin-bottom: 0.5rem;">Option 3</span>
-                                <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem;" data-i18n="tuition_opt3_title">Hybrid & Home Mentorship</h3>
-                                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;" data-i18n="tuition_opt3_desc">
-                                    Combine online live streaming with weekly 1-on-1 home mentor visits for exam strategy, paper solving, and personalized progress reviews.
-                                </p>
-                            </div>
-                            <div style="margin-top: 1.25rem;">
-                                <button class="btn btn-secondary btn-sm" style="width: 100%;" onclick="openDemoModal('Hybrid Mentorship Demo')" data-i18n="tuition_opt3_btn">
-                                    🏠 Request Home Mentor Demo
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SECTION 3: 4-STEP WIZARD SELECTOR -->
+                <!-- 4-STEP WIZARD SELECTOR -->
                 <div style="margin-top: 3rem;">
                     <div class="section-header">
                         <span class="badge badge-primary" data-i18n="wiz_header_badge">📚 Interactive Batch & Program Selector</span>
@@ -2920,54 +2738,48 @@
             </div>
         </section>
 
-        <!-- 5. TRANSPORTATION & CAR RENTAL MODULE PAGE VIEW -->
+        <!-- 6. FREIGHT & LOGISTICS PAGE VIEW -->
         <section id="page-transport" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 
-                <!-- TRANSPORT HERO BANNER -->
                 <div class="transport-hero-banner">
                     <div style="position: relative; z-index: 2; max-width: 800px;">
                         <span class="badge badge-warning" style="margin-bottom: 0.5rem;" data-i18n="transport_badge">🚕 Sharusuri Express Transport & Logistics</span>
                         <h2 style="font-size: 2rem; font-weight: 900; line-height: 1.25; margin-bottom: 0.65rem;" data-i18n="transport_hero_title">
-                            Self-Drive Car Rentals & Rural Agricultural Freight Logistics
+                            Rural Agricultural Freight Logistics & Goods Transport
                         </h2>
                         <p style="font-size: 0.95rem; opacity: 0.9; line-height: 1.5; margin-bottom: 1.25rem;" data-i18n="transport_hero_sub">
-                            Instant online bookings for cars, luxury cabs, passenger vans, and agricultural goods trucks (Paddy, Fertilizer & Machinery Express) across Sindhanur, Raichur, Bellary, and Koppal.
+                            Instant online bookings for agricultural goods trucks (Paddy, Fertilizer & Machinery Express), commercial pickups, passenger vans, and inter-district freight across Sindhanur, Raichur, Bellary, and Koppal.
                         </p>
                         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                            <button class="btn btn-accent btn-lg" onclick="openTransportModal()" data-i18n="btn_instant_transport">
-                                🚀 Instant Booking Workflow
+                            <button class="btn btn-accent btn-lg" onclick="openTransportModal('Bolero Pickup Truck', 'RURAL_CARGO')" data-i18n="btn_instant_transport">
+                                🚀 Instant Freight Dispatch
                             </button>
-                            <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20Transport,%20I%20need%20a%20quick%20vehicle%20rental%20quote.')">
-                                💬 WhatsApp Booking Desk
+                            <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20Freight%20Desk,%20I%20need%20a%20goods%20transport%20quote.')">
+                                💬 WhatsApp Freight Desk
                             </button>
                         </div>
                     </div>
                 </div>
 
                 <!-- FLEET CATEGORY FILTER TABS -->
-                <div class="fleet-filter-bar" id="fleetFilterBar">
-                    <button class="fleet-filter-btn active" onclick="filterFleet('ALL', this)" data-i18n="fleet_tab_all">
-                        🚘 All Fleet Vehicles (8)
+                <div class="fleet-filter-bar" id="fleetFilterBarPage">
+                    <button class="fleet-filter-btn active" onclick="filterFleet('ALL', this)">
+                        🚘 All Logistics Vehicles (8)
                     </button>
-                    <button class="fleet-filter-btn" onclick="filterFleet('SELF_DRIVE', this)" data-i18n="fleet_tab_self">
+                    <button class="fleet-filter-btn" onclick="filterFleet('RURAL_CARGO', this)">
+                        🌾 Goods & Paddy Freight
+                    </button>
+                    <button class="fleet-filter-btn" onclick="filterFleet('SELF_DRIVE', this)">
                         🚗 Self-Drive & Cabs
                     </button>
-                    <button class="fleet-filter-btn" onclick="filterFleet('RURAL_CARGO', this)" data-i18n="fleet_tab_cargo">
-                        🌾 Rural Goods & Paddy Logistics
-                    </button>
-                    <button class="fleet-filter-btn" onclick="filterFleet('PASSENGER_VAN', this)" data-i18n="fleet_tab_bus">
-                        🚌 Buses & Passenger Vans
+                    <button class="fleet-filter-btn" onclick="filterFleet('PASSENGER_VAN', this)">
+                        🚌 Buses & Vans
                     </button>
                 </div>
 
-                <!-- FLEET LISTING GRID -->
-                <div class="fleet-grid" id="fleetCardsGrid">
-                    <!-- Populated dynamically via JS -->
-                </div>
-
-                <!-- RURAL CARGO & AGRICULTURAL FREIGHT CALCULATOR WIDGET -->
-                <div class="info-card" style="margin-top: 2rem; border: 2px solid var(--primary);">
+                <!-- FREIGHT CALCULATOR WIDGET -->
+                <div class="info-card" style="margin-top: 1rem; border: 2px solid var(--primary);">
                     <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap;">
                         <div class="brand-badge" style="background: linear-gradient(135deg, #10b981, #0f766e);">🌾</div>
                         <div>
@@ -3010,7 +2822,7 @@
             </div>
         </section>
 
-        <!-- 6. SCHEDULE & BATCH CALENDAR PAGE VIEW -->
+        <!-- 7. SCHEDULE & BATCH CALENDAR PAGE VIEW -->
         <section id="page-schedule" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -3070,13 +2882,13 @@
             </div>
         </section>
 
-        <!-- 7. ABOUT US PAGE VIEW -->
+        <!-- 8. ABOUT US PAGE VIEW -->
         <section id="page-about" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
                     <span class="badge badge-primary">ℹ️ About Sharusuri & Cousins Academy</span>
                     <h2>Democratizing Competitive Coaching & Agricultural Services</h2>
-                    <p>Empowering rural and urban communities across Raichur, Bellary, Koppal, and Tungabhadra basin with top coaching and agtech solutions.</p>
+                    <p>Empowering rural and urban communities across Raichur, Bellary, Koppal, and Tungabhadra basin with top coaching, car rentals, and agtech solutions.</p>
                 </div>
 
                 <div class="grid-2">
@@ -3089,7 +2901,7 @@
                             </div>
                         </div>
                         <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
-                            Lead visionary dedicated to transforming rural education, drone services, and agricultural technology in Karnataka. Creator of Sharusuri SuperApp and official partner of Cousins Academy video content (@cousinsacademy4599).
+                            Lead visionary dedicated to transforming rural education, drone services, car rentals, and agricultural technology in Karnataka. Creator of Sharusuri SuperApp and official partner of Cousins Academy video content (@cousinsacademy4599).
                         </p>
                         <div style="margin-top: 1rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem;">
                             <div>✉️ Email: <strong>suresh2suresh80888@gmail.com</strong></div>
@@ -3107,7 +2919,7 @@
                             </div>
                         </div>
                         <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
-                            Directing regional franchise partnerships, 4-tier mentorship operations, drone logistics dispatch, and residential hostel academic monitoring across regional campuses.
+                            Directing regional franchise partnerships, 4-tier mentorship operations, car rental dispatch, drone logistics, and residential hostel academic monitoring across regional campuses.
                         </p>
                         <div style="margin-top: 1rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem;">
                             <div>✉️ Email: <strong>sharada@sharusuri.edu</strong></div>
@@ -3119,7 +2931,7 @@
             </div>
         </section>
 
-        <!-- 8. CONTACT US PAGE VIEW WITH DEMO BOOKING -->
+        <!-- 9. CONTACT US PAGE VIEW -->
         <section id="page-contact" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -3144,6 +2956,7 @@
                             <div class="form-group">
                                 <label class="form-label">Inquiry Category</label>
                                 <select class="form-input" id="contactProgram" style="font-weight: 700;">
+                                    <option>Car & Vehicle Rentals</option>
                                     <option>Agricultural Drone Spraying & Crop Monitoring</option>
                                     <option>3D Aerial Mapping & Land Topography Survey</option>
                                     <option>Tungabhadra Paddy & Rice Trade</option>
@@ -3151,7 +2964,6 @@
                                     <option>Navodaya Entrance Coaching</option>
                                     <option>Morarji Desai Entrance Exam</option>
                                     <option>Sainik School Entrance</option>
-                                    <option>Car Rental / Freight Transport</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -3177,11 +2989,11 @@
                     <!-- Direct Reach Out Box & Branch Locations -->
                     <div class="info-card" style="display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
-                            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem;">📍 Regional Campus, Drone & Agri Network</h3>
+                            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem;">📍 Regional Campus, Fleet & Agri Network</h3>
                             
                             <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem;">
                                 <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--border);">
-                                    <strong style="color: var(--text-main);">🏛️ Sindhanur Main Campus & Drone Command:</strong><br>
+                                    <strong style="color: var(--text-main);">🏛️ Sindhanur Main Campus & Fleet Depot:</strong><br>
                                     Near Bus Stand Road, AP K Hosalli Circle, Sindhanur – 584128
                                 </div>
                                 <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--border);">
@@ -3210,7 +3022,7 @@
                                     📞 Line 3 (Helpdesk): +91 8088171010
                                 </button>
                                 <button type="button" onclick="openExternalUrl('tel:+917892493133')" class="btn btn-secondary">
-                                    📞 Line 4 (Agri & Transport): +91 7892493133
+                                    📞 Line 4 (Car Rentals & Agri): +91 7892493133
                                 </button>
                             </div>
                         </div>
@@ -3226,7 +3038,7 @@
             </div>
         </section>
 
-        <!-- 9. STUDENT & PARENT PORTAL PAGE VIEW -->
+        <!-- 10. STUDENT & PARENT PORTAL PAGE VIEW -->
         <section id="page-portal" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -3358,13 +3170,13 @@
             </div>
         </section>
 
-        <!-- 10. ADMIN CONSOLE PAGE VIEW -->
+        <!-- 11. ADMIN CONSOLE PAGE VIEW -->
         <section id="page-admin" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
                     <span class="badge badge-primary">⚙️ Master Admin Console</span>
                     <h2>Platform Governance & Program Management</h2>
-                    <p>Log in as <code>suresh2suresh80888@gmail.com</code> to manage programs, agriculture drone bookings, paddy trade leads, and support tickets.</p>
+                    <p>Log in as <code>suresh2suresh80888@gmail.com</code> to manage programs, car rentals, drone bookings, paddy trade leads, and support tickets.</p>
                 </div>
 
                 <div class="info-card" style="margin-bottom: 2rem;">
@@ -3400,10 +3212,10 @@
             <div>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.85rem;">
                     <span class="brand-badge" style="width: 34px; height: 34px; font-size: 0.9rem;">SE</span>
-                    <h3 style="font-size: 1.1rem; color: white;">Sharusuri SuperApp, Drone & Agri Solutions</h3>
+                    <h3 style="font-size: 1.1rem; color: white;">Sharusuri SuperApp, Car Rentals & Agri OS</h3>
                 </div>
                 <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.55;" data-i18n="footer_desc">
-                    Karnataka's leading educational and agricultural technology platform equipped with 4-Tier Coaching, precision aerial drone spraying, multispectral crop mapping, fertilizer inputs, Tungabhadra rice trading, and rural transport.
+                    Karnataka's leading educational, mobility, and agricultural technology platform equipped with Car & Vehicle Rentals, 4-Tier Coaching, precision aerial drone spraying, multispectral crop mapping, fertilizer inputs, and Tungabhadra rice trading.
                 </p>
             </div>
 
@@ -3411,10 +3223,11 @@
                 <h4 style="font-size: 0.9rem; color: white; margin-bottom: 0.75rem;" data-i18n="footer_quick_links">Quick Links</h4>
                 <ul style="font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem; color: #cbd5e1;">
                     <li><a href="javascript:void(0)" onclick="navigateToPage('home')" data-i18n="nav_home">Home</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigateToPage('car-rent')" data-i18n="nav_car_rent">Car & Vehicle Rentals</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('drone')" data-i18n="nav_drone">Drone & Aerial Services</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('agriculture')" data-i18n="nav_agri">Agriculture Solutions</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('programs')" data-i18n="nav_programs">Programs & Support Tiers</a></li>
-                    <li><a href="javascript:void(0)" onclick="navigateToPage('transport')" data-i18n="nav_transport">Transport & Car Rentals</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigateToPage('transport')" data-i18n="nav_transport">Freight & Logistics</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('portal')" data-i18n="nav_portal">Parent & Student Portal</a></li>
                 </ul>
             </div>
@@ -3442,7 +3255,7 @@
         </div>
 
         <div style="text-align: center; font-size: 0.75rem; color: #64748b; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.1rem;" data-i18n="footer_copyright">
-            © 2026 Sharusuri EdTech, AgTech & Drone OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com
+            © 2026 Sharusuri EdTech, AgTech, Car Rentals & Drone OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com
         </div>
     </footer>
 
@@ -3535,9 +3348,9 @@
         <div class="modal-box">
             <button class="modal-close" onclick="closeTransportModal()">✕</button>
             <div style="text-align: center; margin-bottom: 1.1rem;">
-                <span class="badge badge-primary" style="margin-bottom: 0.3rem;">🚕 Instant Transport Dispatch</span>
-                <h3 style="font-size: 1.3rem;" id="transportModalTitle">Book Vehicle or Freight Express</h3>
-                <p style="font-size: 0.82rem; color: var(--text-muted);">Self-Drive, Chauffeur-Driven Cabs or Agricultural Cargo Transport</p>
+                <span class="badge badge-warning" style="margin-bottom: 0.3rem;">🚗 Instant Vehicle Booking</span>
+                <h3 style="font-size: 1.3rem;" id="transportModalTitle">Book Vehicle or Cargo Rental</h3>
+                <p style="font-size: 0.82rem; color: var(--text-muted);">Self-Drive, Chauffeur Cabs or Agricultural Freight Transport</p>
             </div>
 
             <form onsubmit="handleTransportBookingSubmit(event)">
@@ -3566,11 +3379,11 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">Pickup Address & Landmark *</label>
-                    <input type="text" id="transPickupLoc" class="form-input" required placeholder="e.g. Sindhanur APMC Market / Bus Stand Road">
+                    <input type="text" id="transPickupLoc" class="form-input" required placeholder="e.g. Sindhanur Bus Stand / APMC Circle">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Destination / Drop Location</label>
-                    <input type="text" id="transDropLoc" class="form-input" placeholder="e.g. Raichur Central / Outstation Trip">
+                    <input type="text" id="transDropLoc" class="form-input" placeholder="e.g. Raichur Station / Outstation Trip">
                 </div>
                 <div class="grid-2" style="margin-bottom: 0;">
                     <div class="form-group">
@@ -3789,16 +3602,43 @@
             }
         }
 
+        // TOGGLE THEME
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', nextTheme);
+            const themeBtn = document.getElementById('themeToggleBtn');
+            if (themeBtn) themeBtn.textContent = nextTheme === 'light' ? '🌙' : '☀️';
+            showToast(`Theme switched to ${nextTheme} mode`);
+        }
+
+        // TOAST NOTIFICATIONS
+        function showToast(msg, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `<span>${type === 'success' ? '✅' : 'ℹ️'}</span> <span>${msg}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(10px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
         // 1. COMPREHENSIVE BILINGUAL DICTIONARY
         const I18N_DATA = {
             en: {
-                announcement_tag: "🛸 Drone Services & Agri Hub",
-                announcement_msg: "Precision Drone Spraying • Aerial Mapping & Surveying • Tungabhadra Rice Trade • Cousins Coaching Engine",
+                announcement_tag: "🚗 Car Rental • 🛸 Drone Services • Agri Hub",
+                announcement_msg: "Car & Vehicle Rentals • Precision Drone Spraying • Aerial Mapping • Tungabhadra Rice Trade • Coaching Engine",
                 nav_home: "Home",
+                nav_car_rent: "Car & Rent",
                 nav_drone: "Drone Services",
                 nav_agri: "Agriculture Solutions",
                 nav_programs: "Programs & Tiers",
-                nav_transport: "Transport & Rentals",
+                nav_transport: "Freight & Logistics",
                 nav_schedule: "Batches & Schedule",
                 nav_about: "About Us",
                 nav_contact: "Contact Us",
@@ -3808,9 +3648,12 @@
                 btn_login: "🔐 Login",
                 agri_back_home: "← Back to Home",
                 drone_back_home: "← Back to Home",
-                hero_badge_text: "🌱 SuperApp Ecosystem • Drone Aerial Solutions & Precision Agriculture",
+                car_rent_back: "← Back to Home",
+                car_rent_title: "Car & Vehicle Rentals",
+                car_rent_sub: "Book vehicles on demand, track rentals, and manage fleet logistics.",
+                hero_badge_text: "🌱 SuperApp Ecosystem • Car Rentals, Drone Aerial Solutions & Precision Agriculture",
                 hero_title: "Empowering Farmers & Students with Sharusuri SuperApp",
-                hero_sub: "Karnataka's premier SuperApp combining Drone & Aerial Survey Services, Precision Crop Spraying, Tungabhadra Rice Trade, and Cousins Academy Coaching Engine.",
+                hero_sub: "Karnataka's premier SuperApp combining Car & Vehicle Rentals, Drone & Aerial Survey Services, Precision Crop Spraying, Tungabhadra Rice Trade, and Cousins Academy Coaching Engine.",
                 hero_btn_trial: "🎯 Book Free Trial Demo Class",
                 hero_btn_explore: "🚀 Explore Programs & Support Tiers",
                 hero_btn_transport: "🚕 Rent Cars & Freight Logistics",
@@ -3821,7 +3664,7 @@
                 wizard_launch_btn: "👉 Launch Interactive Program & Batch Selector",
                 tier_sec_badge: "🛡️ Unmatched Student Protection & Support",
                 tier_sec_heading: "4-Tier Academic Support Hierarchy",
-                tier_sec_sub: "Every student gets 360-degree coverage across every subject, guaranteed zero doubt backlog, and cross-branch expert access. Tap any tier below to explore its deep-dive breakdown.",
+                tier_sec_sub: "Every student gets 360-degree coverage across every subject, guaranteed zero doubt backlog, and cross-branch expert access.",
                 stat1_label: "Navodaya Selection Rate",
                 stat1_sub: "Top ranks in Raichur & Bellary",
                 stat2_label: "Enrolled Students",
@@ -3833,18 +3676,6 @@
                 prog_tier_header_badge: "🎓 Complete Subject Coverage Framework",
                 prog_tier_header_title: "Our 4-Tier Academic Support Hierarchy",
                 prog_tier_header_sub: "Designed to ensure no child is left behind. Tap through the tiers below to read the comprehensive pedagogical blueprint for each tier.",
-                tuition_header_badge: "🔀 Adaptable Tuition Ecosystem",
-                tuition_header_title: "Flexible Tuition & Learning Models",
-                tuition_header_sub: "Switch seamlessly between campus classes, home tuition, and cross-branch revision centers based on your convenience.",
-                tuition_opt1_title: "Regular Campus Tuition",
-                tuition_opt1_desc: "Structured daily in-person classes at your nearest regional tuition center with direct teacher interaction and daily OMR test papers.",
-                tuition_opt1_btn: "📍 Book Campus Visit Demo",
-                tuition_opt2_title: "Cross-Branch Access Pass",
-                tuition_opt2_desc: "Enroll in one campus and get free access to neighboring centers for weekend doubt clinics, specialized revision camps, and mock test drills.",
-                tuition_opt2_btn: "🌐 Explore Branch Network",
-                tuition_opt3_title: "Hybrid & Home Mentorship",
-                tuition_opt3_desc: "Combine online live streaming with weekly 1-on-1 home mentor visits for exam strategy, paper solving, and personalized progress reviews.",
-                tuition_opt3_btn: "🏠 Request Home Mentor Demo",
                 wiz_header_badge: "📚 Interactive Batch & Program Selector",
                 wiz_header_title: "Customize Your Learning Journey",
                 wiz_header_sub: "Complete the 4-step selection workflow to find your ideal program, batch type, mode of learning, and available timing slots.",
@@ -3853,12 +3684,12 @@
                 wiz_step3_label: "Learning Mode",
                 wiz_step4_label: "Timings & Summary",
                 transport_badge: "🚕 Sharusuri Express Transport & Logistics",
-                transport_hero_title: "Self-Drive Car Rentals & Rural Agricultural Freight Logistics",
-                transport_hero_sub: "Instant online bookings for cars, luxury cabs, passenger vans, and agricultural goods trucks (Paddy, Fertilizer & Machinery Express) across Sindhanur, Raichur, Bellary, and Koppal.",
-                btn_instant_transport: "🚀 Instant Booking Workflow",
-                fleet_tab_all: "🚘 All Fleet Vehicles (8)",
+                transport_hero_title: "Rural Agricultural Freight Logistics & Goods Transport",
+                transport_hero_sub: "Instant online bookings for agricultural goods trucks (Paddy, Fertilizer & Machinery Express), commercial pickups, passenger vans, and inter-district freight across Sindhanur, Raichur, Bellary, and Koppal.",
+                btn_instant_transport: "🚀 Instant Freight Dispatch",
+                fleet_tab_all: "🚘 All Logistics Vehicles (8)",
                 fleet_tab_self: "🚗 Self-Drive & Cabs",
-                fleet_tab_cargo: "🌾 Rural Goods & Paddy Logistics",
+                fleet_tab_cargo: "🌾 Goods & Paddy Freight",
                 fleet_tab_bus: "🚌 Buses & Passenger Vans",
                 cargo_calc_title: "Agricultural Produce & Paddy Freight Rate Estimator",
                 cargo_calc_sub: "Get instant fare estimate for paddy sacks, fertilizer bags, or farm machinery dispatch.",
@@ -3866,20 +3697,21 @@
                 lbl_load_weight: "Estimated Load Weight / Quantity *",
                 lbl_pickup_drop: "Pickup & Drop Route *",
                 btn_calc_quote: "📊 Calculate & Book via WhatsApp",
-                footer_desc: "Karnataka's leading educational and agricultural technology platform equipped with 4-Tier Coaching, precision aerial drone spraying, multispectral crop mapping, fertilizer inputs, Tungabhadra rice trading, and rural transport.",
+                footer_desc: "Karnataka's leading educational, mobility, and agricultural technology platform equipped with Car & Vehicle Rentals, 4-Tier Coaching, precision aerial drone spraying, multispectral crop mapping, fertilizer inputs, and Tungabhadra rice trading.",
                 footer_quick_links: "Quick Links",
                 footer_official_contacts: "Official Contacts",
                 footer_trial_yt: "Trial Demo & YouTube",
-                footer_copyright: "© 2026 Sharusuri EdTech, AgTech & Drone OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com"
+                footer_copyright: "© 2026 Sharusuri EdTech, AgTech, Car Rentals & Drone OS. All rights reserved."
             },
             kn: {
-                announcement_tag: "🛸 ಡ್ರೋನ್ ಸೇವೆಗಳು & ಕೃಷಿ ಕೇಂದ್ರ",
-                announcement_msg: "ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ • ವೈಮಾನಿಕ ಸಮೀಕ್ಷೆ & ಮ್ಯಾಪಿಂಗ್ • ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ • ಕಸಿನ್ಸ್ ತರಬೇತಿ",
+                announcement_tag: "🚗 ಕಾರು ಬಾಡಿಗೆ • 🛸 ಡ್ರೋನ್ ಸೇವೆಗಳು • ಕೃಷಿ ಹಬ್",
+                announcement_msg: "ಕಾರು ಮತ್ತು ವಾಹನ ಬಾಡಿಗೆ • ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ • ವೈಮಾನಿಕ ಮ್ಯಾಪಿಂಗ್ • ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ • ಕೋಚಿಂಗ್",
                 nav_home: "ಮುಖಪುಟ",
+                nav_car_rent: "ಕಾರು ಬಾಡಿಗೆ (Car & Rent)",
                 nav_drone: "ಡ್ರೋನ್ ಸೇವೆಗಳು (Drone Hub)",
                 nav_agri: "ಕೃಷಿ ಸೇವೆಗಳು (Agri Hub)",
                 nav_programs: "ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಸಪೋರ್ಟ್",
-                nav_transport: "ವಾಹನ & ಸರಕು ಸೇವೆ",
+                nav_transport: "ಸರಕು & ಸಾರಿಗೆ",
                 nav_schedule: "ಬ್ಯಾಚ್ ಸಮಯ",
                 nav_about: "ನಮ್ಮ ಬಗ್ಗೆ",
                 nav_contact: "ಸಂಪರ್ಕಿಸಿ",
@@ -3889,9 +3721,12 @@
                 btn_login: "🔐 ಲಾಗಿನ್",
                 agri_back_home: "← ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
                 drone_back_home: "← ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
-                hero_badge_text: "🌱 ಸೂಪರ್ ಆ್ಯಪ್ • ಡ್ರೋನ್ ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ಕೃಷಿ ಸೇವೆಗಳು",
-                hero_title: "ಶಾರುಸೂರಿ ಸೂಪರ್ ಆ್ಯಪ್‌ನೊಂದಿಗೆ ಡ್ರೋನ್, ಕೃಷಿ ಮತ್ತು ಶಿಕ್ಷಣ ಸೇವೆಗಳು",
-                hero_sub: "ಡ್ರೋನ್ ಸಿಂಪಡಣೆ, ವೈಮಾನಿಕ ಮ್ಯಾಪಿಂಗ್, ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ ತರಬೇತಿಯನ್ನು ಒಳಗೊಂಡ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ವೇದಿಕೆ.",
+                car_rent_back: "← ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
+                car_rent_title: "ಕಾರು ಮತ್ತು ವಾಹನ ಬಾಡಿಗೆ ಸೇವೆಗಳು",
+                car_rent_sub: "ಅಗತ್ಯಕ್ಕೆ ತಕ್ಕಂತೆ ಕಾರುಗಳನ್ನು ಬುಕ್ ಮಾಡಿ, ವಾಹನಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ ಮತ್ತು ಸಾರಿಗೆ ಸೇವೆ ಪಡೆಯಿರಿ.",
+                hero_badge_text: "🌱 ಸೂಪರ್ ಆ್ಯಪ್ • ಕಾರು ಬಾಡಿಗೆ, ಡ್ರೋನ್ ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ಕೃಷಿ ಸೇವೆಗಳು",
+                hero_title: "ಶಾರುಸೂರಿ ಸೂಪರ್ ಆ್ಯಪ್‌ನೊಂದಿಗೆ ಕಾರು ಬಾಡಿಗೆ, ಡ್ರೋನ್, ಕೃಷಿ ಮತ್ತು ಶಿಕ್ಷಣ ಸೇವೆಗಳು",
+                hero_sub: "ಕಾರು ಮತ್ತು ವಾಹನ ಬಾಡಿಗೆ, ಡ್ರೋನ್ ಸಿಂಪಡಣೆ, ವೈಮಾನಿಕ ಮ್ಯಾಪಿಂಗ್, ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ ತರಬೇತಿಯನ್ನು ಒಳಗೊಂಡ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ವೇದಿಕೆ.",
                 hero_btn_trial: "🎯 ಉಚಿತ ಡೆಮೊ ತರಗತಿಯನ್ನು ಬುಕ್ ಮಾಡಿ",
                 hero_btn_explore: "🚀 ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಬೆಂಬಲ ಹಂತಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
                 hero_btn_transport: "🚕 ಕಾರು ಬಾಡಿಗೆ ಮತ್ತು ಸರಕು ಸಾರಿಗೆ ಸೇವೆ",
@@ -3902,7 +3737,7 @@
                 wizard_launch_btn: "👉 ಕೋರ್ಸ್ ಮತ್ತು ಬ್ಯಾಚ್ ಸೆಲೆಕ್ಟರ್ ಬಳಸಿ",
                 tier_sec_badge: "🛡️ ಸಾಟಿಯಿಲ್ಲದ ವಿದ್ಯಾರ್ಥಿ ಬೆಂಬಲ ವ್ಯವಸ್ಥೆ",
                 tier_sec_heading: "4-ಹಂತದ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ ವ್ಯವಸ್ಥೆ",
-                tier_sec_sub: "ಪ್ರತಿ ವಿದ್ಯಾರ್ಥಿಗೂ ಪ್ರತಿ ವಿಷಯದಲ್ಲೂ 360-ಡಿಗ್ರಿ ಮಾರ್ಗದರ್ಶನ, ತಕ್ಷಣದ ಸಂಶಯ ನಿವಾರಣೆ ಮತ್ತು ಮಲ್ಟಿ-ಬ್ರಾಂಚ್ ಶಿಕ್ಷಕರ ನೆರವು.",
+                tier_sec_sub: "ಪ್ರತಿ ವಿದ್ಯಾರ್ಥಿಗೂ ಪ್ರತಿ ವಿಷಯದಲ್ಲೂ 360-ಡಿಗ್ರಿ ಮಾರ್ಗದರ್ಶನ ಮತ್ತು ಸಂಶಯ ನಿವಾರಣೆ.",
                 stat1_label: "ನವೋದಯ ಆಯ್ಕೆಯ ಪ್ರಮಾಣ",
                 stat1_sub: "ರಾಯಚೂರು ಮತ್ತು ಬಳ್ಳಾರಿಯಲ್ಲಿ ಅತ್ಯುತ್ತಮ ರ್ಯಾಂಕ್",
                 stat2_label: "ದಾಖಲಾದ ವಿದ್ಯಾರ್ಥಿಗಳು",
@@ -3914,18 +3749,6 @@
                 prog_tier_header_badge: "🎓 ಪೂರ್ಣ ಪ್ರಮಾಣದ ವಿಷಯ ಬೋಧನಾ ಚೌಕಟ್ಟು",
                 prog_tier_header_title: "ನಮ್ಮ 4-ಹಂತದ ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ ವ್ಯವಸ್ಥೆ",
                 prog_tier_header_sub: "ಯಾವೊಬ್ಬ ಮಗುವೂ ಕಲಿಕೆಯಲ್ಲಿ ಹಿಂದುಳಿಯದಂತೆ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ.",
-                tuition_header_badge: "🔀 ಹೊಂದಿಕೊಳ್ಳುವ ಶಿಕ್ಷಣ ಮಾದರಿ",
-                tuition_header_title: "ಹೊಂದಿಕೊಳ್ಳುವ ಬೋಧನೆ ಮತ್ತು ಕಲಿಕಾ ವಿಧಾನಗಳು",
-                tuition_header_sub: "ನಿಮ್ಮ ಅನುಕೂಲಕ್ಕೆ ತಕ್ಕಂತೆ ಕ್ಯಾಂಪಸ್ ತರಗತಿಗಳು, ಮನೆ ಬೋಧನೆ ಮತ್ತು ವಿಭಿನ್ನ ಶಾಖೆಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಿ.",
-                tuition_opt1_title: "ಸಾಮಾನ್ಯ ಕ್ಯಾಂಪಸ್ ಟ್ಯೂಷನ್",
-                tuition_opt1_desc: "ಪ್ರತಿದಿನವೂ ಮುಖಾಮುಖಿ ತರಗತಿಗಳು, ನೇರ ಶಿಕ್ಷಕರ ಮಾರ್ಗದರ್ಶನ ಮತ್ತು OMR ಪರೀಕ್ಷೆಗಳು.",
-                tuition_opt1_btn: "📍 ಕ್ಯಾಂಪಸ್ ಭೇಟಿ ಡೆಮೊ ಬುಕ್ ಮಾಡಿ",
-                tuition_opt2_title: "ಕ್ರಾಸ್-ಬ್ರಾಂಚ್ ಆಕ್ಸೆಸ್ ಪಾಸ್",
-                tuition_opt2_desc: "ವಾರಾಂತ್ಯದ ಸಂಶಯ ನಿವಾರಣಾ ತರಗತಿಗಳಿಗಾಗಿ ಯಾವುದೇ ಬ್ರಾಂಚ್‌ಗೆ ಭೇಟಿ ನೀಡಿ.",
-                tuition_opt2_btn: "🌐 ನಮ್ಮ ಬ್ರಾಂಚ್ ನೆಟ್‌ವರ್ಕ್ ವೀಕ್ಷಿಸಿ",
-                tuition_opt3_title: "ಹೈಬ್ರಿಡ್ ಮತ್ತು ಮನೆ ಮಾರ್ಗದರ್ಶನ",
-                tuition_opt3_desc: "ಆನ್‌ಲೈನ್ ಲೈವ್ ತರಗತಿಗಳ ಜೊತೆಗೆ ಮನೆ ಮಾರ್ಗದರ್ಶಕರಿಂದ ಪರೀಕ್ಷಾ ತಂತ್ರ.",
-                tuition_opt3_btn: "🏠 ಮನೆ ಮಾರ್ಗದರ್ಶಕರ ಡೆಮೊ ವಿನಂತಿಸಿ",
                 wiz_header_badge: "📚 ಕೋರ್ಸ್ ಮತ್ತು ಬ್ಯಾಚ್ ಆಯ್ಕೆ ಸೆಲೆಕ್ಟರ್",
                 wiz_header_title: "ನಿಮ್ಮ ಕಲಿಕಾ ಪಯಣವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
                 wiz_header_sub: "ನಿಮ್ಮಿಷ್ಟದ ಕೋರ್ಸ್, ಬ್ಯಾಚ್, ಕಲಿಕಾ ವಿಧಾನ ಮತ್ತು ಸಮಯವನ್ನು ಆಯ್ಕೆ ಮಾಡಲು 4 ಹಂತ ಪೂರ್ಣಗೊಳಿಸಿ.",
@@ -3934,7 +3757,7 @@
                 wiz_step3_label: "ಕಲಿಕಾ ವಿಧಾನ",
                 wiz_step4_label: "ಸಮಯ ಮತ್ತು ವಿವರ",
                 transport_badge: "🚕 ಶಾರುಸೂರಿ ಎಕ್ಸ್‌ಪ್ರೆಸ್ ವಾಹನ ಮತ್ತು ಸರಕು ಸೇವೆ",
-                transport_hero_title: "ಸ್ವಯಂ ಚಾಲನಾ ಕಾರು ಬಾಡಿಗೆ ಮತ್ತು ಕೃಷಿ ಸರಕು ಸಾರಿಗೆ",
+                transport_hero_title: "ಕೃಷಿ ಸರಕು ಸಾರಿಗೆ ಮತ್ತು ವಾಹನ ಸೇವೆ",
                 transport_hero_sub: "ಸಿಂಧನೂರು, ರಾಯಚೂರು, ಬಳ್ಳಾರಿ ಭಾಗದಲ್ಲಿ ಕಾರು ಬಾಡಿಗೆ, ಮಿನಿ ಟ್ರಕ್ ಹಾಗೂ ಭತ್ತದ ಮೂಟೆಗಳ ಸಾರಿಗೆ ಸೇವೆ.",
                 btn_instant_transport: "🚀 ತಕ್ಷಣ ವಾಹನ ಬುಕ್ ಮಾಡಿ",
                 fleet_tab_all: "🚘 ಎಲ್ಲ ವಾಹನಗಳು (8)",
@@ -3947,11 +3770,11 @@
                 lbl_load_weight: "ಅಂದಾಜು ತೂಕ / ಪ್ರಮಾಣ *",
                 lbl_pickup_drop: "ಪಿಕಪ್ ಮತ್ತು ಡ್ರಾಪ್ ಮಾರ್ಗ *",
                 btn_calc_quote: "📊 ವಾಟ್ಸಾಪ್ ಮೂಲಕ ದರ ಪಡೆಯಿರಿ",
-                footer_desc: "4-ಹಂತದ ಬೋಧನೆ, ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ, ಮ್ಯಾಪಿಂಗ್, ರಸಗೊಬ್ಬರ, ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಸಾರಿಗೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್.",
+                footer_desc: "ಕಾರು ಬಾಡಿಗೆ, 4-ಹಂತದ ಬೋಧನೆ, ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ, ಮ್ಯಾಪಿಂಗ್, ರಸಗೊಬ್ಬರ, ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಸಾರಿಗೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್.",
                 footer_quick_links: "ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು",
                 footer_official_contacts: "ಅಧಿಕೃತ ಸಂಪರ್ಕಗಳು",
                 footer_trial_yt: "ಉಚಿತ ಡೆಮೊ ಮತ್ತು ಯೂಟ್ಯೂಬ್",
-                footer_copyright: "© 2026 ಶಾರುಸೂರಿ ಎಡ್‌ಟೆಕ್, ಅಗ್ರಿಟೆಕ್ & ಡ್ರೋನ್ ಸೇವೆಗಳು. ಸರ್ವ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
+                footer_copyright: "© 2026 ಶಾರುಸೂರಿ ಎಡ್‌ಟೆಕ್, ಅಗ್ರಿಟೆಕ್ & ಕಾರು ಬಾಡಿಗೆ ಸೇವೆಗಳು."
             }
         };
 
@@ -4117,7 +3940,7 @@
             }
         };
 
-        // 4. TRANSPORTATION DATASET
+        // 4. TRANSPORTATION & CAR FLEET DATASET
         const FLEET_DATA = [
             {
                 id: "v1",
@@ -4287,9 +4110,11 @@
             });
         }
 
-        // PAGE NAVIGATION WITH ROUTING SUPPORT
+        // PAGE NAVIGATION WITH ROUTING SUPPORT (handles 'car-rent', 'drone', 'agriculture', etc.)
         function navigateToPage(pageId) {
             document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active-view'));
+            
+            // Map alias 'car-rent' to page-car-rent
             const targetPage = document.getElementById(`page-${pageId}`);
             if (targetPage) targetPage.classList.add('active-view');
 
@@ -4298,6 +4123,11 @@
             if (activeNavBtn) activeNavBtn.classList.add('active');
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // RENTAL TRACKER MODAL MOCKUP
+        function openRentalTrackerModal() {
+            showToast('📍 Rental Tracker: All fleet vehicles operational. GPS active.', 'info');
         }
 
         // AGRICULTURE HUB PILLAR TAB SWITCHER
@@ -4426,49 +4256,51 @@
 
         // RENDER FLEET GRID
         function renderFleetGrid(categoryFilter = 'ALL') {
-            const grid = document.getElementById('fleetCardsGrid');
-            if (!grid) return;
-            grid.innerHTML = '';
+            const grids = [document.getElementById('fleetCardsGrid'), document.querySelectorAll('.fleet-grid')];
 
             const items = categoryFilter === 'ALL' ? FLEET_DATA : FLEET_DATA.filter(v => v.category === categoryFilter);
 
-            items.forEach(v => {
-                const card = document.createElement('div');
-                card.className = 'vehicle-card';
-                card.innerHTML = `
-                    <div class="vehicle-card-header">
-                        <div class="vehicle-type-icon">${v.icon}</div>
-                        <span class="badge ${v.badgeClass} vehicle-badge-top">${v.badgeText}</span>
-                        <div class="vehicle-title">${v.name}</div>
-                        <div class="vehicle-sub">${v.type}</div>
-                    </div>
-                    <div class="vehicle-card-body">
-                        <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0.85rem;">${v.desc}</p>
-                        
-                        <div class="vehicle-specs-list">
-                            ${v.specs.map(s => `<span class="spec-chip">✓ ${s}</span>`).join('')}
+            document.querySelectorAll('.fleet-grid').forEach(grid => {
+                if (!grid) return;
+                grid.innerHTML = '';
+                items.forEach(v => {
+                    const card = document.createElement('div');
+                    card.className = 'vehicle-card';
+                    card.innerHTML = `
+                        <div class="vehicle-card-header">
+                            <div class="vehicle-type-icon">${v.icon}</div>
+                            <span class="badge ${v.badgeClass} vehicle-badge-top">${v.badgeText}</span>
+                            <div class="vehicle-title">${v.name}</div>
+                            <div class="vehicle-sub">${v.type}</div>
                         </div>
-
-                        <div class="price-tag-box">
-                            <div>
-                                <span class="price-amount">${v.rate}</span>
-                                <span class="price-unit">/${v.rateUnit}</span>
+                        <div class="vehicle-card-body">
+                            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0.85rem;">${v.desc}</p>
+                            
+                            <div class="vehicle-specs-list">
+                                ${v.specs.map(s => `<span class="spec-chip">✓ ${s}</span>`).join('')}
                             </div>
-                            <span class="badge badge-success">Available</span>
-                        </div>
 
-                        <button class="btn btn-primary" style="width: 100%;" onclick="openTransportModal('${v.name}', '${v.category}')">
-                            ⚡ ${currentLang === 'en' ? 'Book Vehicle Now' : 'ತಕ್ಷಣವೇ ಬುಕ್ ಮಾಡಿ'}
-                        </button>
-                    </div>
-                `;
-                grid.appendChild(card);
+                            <div class="price-tag-box">
+                                <div>
+                                    <span class="price-amount">${v.rate}</span>
+                                    <span class="price-unit">/${v.rateUnit}</span>
+                                </div>
+                                <span class="badge badge-success">Available</span>
+                            </div>
+
+                            <button class="btn btn-primary" style="width: 100%;" onclick="openTransportModal('${v.name}', '${v.category}')">
+                                ⚡ ${currentLang === 'en' ? 'Book Vehicle Now' : 'ತಕ್ಷಣವೇ ಬುಕ್ ಮಾಡಿ'}
+                            </button>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
             });
         }
 
         function filterFleet(cat, btnEl) {
             document.querySelectorAll('.fleet-filter-btn').forEach(b => b.classList.remove('active'));
-            btnEl.classList.add('active');
+            if (btnEl) btnEl.classList.add('active');
             renderFleetGrid(cat);
         }
 
@@ -4510,7 +4342,7 @@
             closeTransportModal();
             showToast(`🚕 Transport booking generated for ${vehicle}! Redirecting to WhatsApp...`);
 
-            const msg = `*SHARUSURI SUPERAPP - TRANSPORT & FREIGHT BOOKING*\n\n` +
+            const msg = `*SHARUSURI SUPERAPP - TRANSPORT & VEHICLE RENTAL BOOKING*\n\n` +
                         `• *Vehicle:* ${vehicle}\n` +
                         `• *Service Option:* ${serviceOpt}\n` +
                         `• *Customer Name:* ${name}\n` +
@@ -4519,7 +4351,7 @@
                         `• *Drop / Route:* ${drop}\n` +
                         `• *Pickup Date:* ${date}\n` +
                         `• *Time Slot:* ${time}\n\n` +
-                        `Please confirm availability, vehicle registration number, and driver contact details.`;
+                        `Please confirm vehicle availability and driver assignment.`;
 
             setTimeout(() => {
                 openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
@@ -4789,4 +4621,204 @@
             const filter = document.getElementById('branchFilterSelect')?.value || 'ALL';
             tableBody.innerHTML = '';
 
-            const list = filter === 'ALL'
+            const list = filter === 'ALL' ? APP_DATA.teachers : APP_DATA.teachers.filter(t => t.branchId === filter);
+
+            list.forEach(t => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${t.name}</strong></td>
+                    <td><span class="badge badge-primary">${t.branchName}</span></td>
+                    <td>${t.subject}</td>
+                    <td>${t.slot}</td>
+                    <td><button class="btn btn-primary btn-sm" onclick="showToast('Open doubt session request sent to ${t.name}')">📅 Book Slot</button></td>
+                `;
+                tableBody.appendChild(tr);
+            });
+        }
+
+        function renderDoubtTracker() {
+            const tbody = document.getElementById('doubtTrackerTableBody');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+            APP_DATA.doubts_tracker.forEach(d => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${d.id}</strong></td>
+                    <td>${d.topic}</td>
+                    <td>${d.mentor}</td>
+                    <td><span class="badge ${d.status === 'Resolved' ? 'badge-success' : 'badge-warning'}">${d.status}</span></td>
+                    <td><span style="font-size: 0.8rem; color: var(--text-muted);">${d.reply}</span></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function renderPortalVideos() {
+            const grid = document.getElementById('portalVideoGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            APP_DATA.videos.forEach(v => {
+                const card = document.createElement('div');
+                card.className = 'info-card';
+                card.innerHTML = `
+                    <div style="aspect-ratio: 16/9; background: #000; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 0.75rem;">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${v.ytId}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4 style="font-size: 0.95rem; font-weight: 800;">${v.title}</h4>
+                    <span class="badge badge-danger" style="margin-top: 0.4rem;">@cousinsacademy4599</span>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function handleDoubtSubmit(e) {
+            e.preventDefault();
+            const topic = document.getElementById('doubtTopicVal').value;
+            const desc = document.getElementById('doubtDescVal').value;
+
+            const newId = `TICK-${Math.floor(100 + Math.random() * 900)}`;
+            APP_DATA.doubts_tracker.unshift({
+                id: newId,
+                topic: topic,
+                mentor: "Rekha Sharma (Tier 3)",
+                status: "Assigned",
+                reply: "Review in progress. SLA: Sub 2 hours."
+            });
+
+            renderDoubtTracker();
+            document.getElementById('doubtTopicVal').value = '';
+            document.getElementById('doubtDescVal').value = '';
+
+            showToast(`Question submitted! Ticket ${newId} created with Tier 3 SLA.`);
+        }
+
+        // DEMO MODAL HANDLERS
+        function openDemoModal(title = "Book a Free Trial Demo Class") {
+            const modalTitle = document.getElementById('demoModalTitle');
+            if (modalTitle) modalTitle.textContent = title;
+            document.getElementById('demoModal').classList.add('active');
+        }
+
+        function closeDemoModal() {
+            document.getElementById('demoModal').classList.remove('active');
+        }
+
+        function handleDemoBookingSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('demoStudentName').value;
+            const phone = document.getElementById('demoPhone').value;
+            const prog = document.getElementById('demoProgramSelect').value;
+            const loc = document.getElementById('demoLocationSelect').value;
+            const slot = document.getElementById('demoSlotSelect').value;
+
+            closeDemoModal();
+            showToast(`✨ Demo class booked for ${name}! Redirecting to WhatsApp...`);
+
+            const msg = `*SHARUSURI SUPERAPP - FREE DEMO CLASS BOOKING*\n\n` +
+                        `• *Student Name:* ${name}\n` +
+                        `• *Parent Phone:* ${phone}\n` +
+                        `• *Program:* ${prog}\n` +
+                        `• *Location/Mode:* ${loc}\n` +
+                        `• *Preferred Slot:* ${slot}\n\n` +
+                        `Please confirm demo ticket and send class link/address.`;
+
+            setTimeout(() => {
+                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
+            }, 800);
+        }
+
+        // ENROLLMENT MODAL HANDLERS
+        function openEnrollmentModal() {
+            document.getElementById('modalSelectedSummary').value = `${wizardSelection.program} (${wizardSelection.batch} - ${wizardSelection.timing})`;
+            document.getElementById('enrollmentModal').classList.add('active');
+        }
+
+        function closeEnrollmentModal() {
+            document.getElementById('enrollmentModal').classList.remove('active');
+        }
+
+        function handleEnrollmentSubmit(e) {
+            e.preventDefault();
+            closeEnrollmentModal();
+            showToast('🎉 Seat reservation request recorded! Connecting to Admissions Desk...');
+        }
+
+        function openWhatsAppInquiry() {
+            const msg = `*SHARUSURI SUPERAPP - PROGRAM REGISTRATION INQUIRY*\n\n` +
+                        `• *Program:* ${wizardSelection.program}\n` +
+                        `• *Batch:* ${wizardSelection.batch}\n` +
+                        `• *Mode:* ${wizardSelection.mode}\n` +
+                        `• *Timing:* ${wizardSelection.timing}\n` +
+                        `• *Fee:* ${wizardSelection.fee}\n\n` +
+                        `I want to confirm enrollment for this batch.`;
+            openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
+        }
+
+        // CONTACT FORM SUBMISSION
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('contactStudentName').value;
+            const phone = document.getElementById('contactPhone').value;
+            const category = document.getElementById('contactProgram').value;
+            const mode = document.getElementById('contactMode').value;
+            const msgText = document.getElementById('contactMsg').value || 'General inquiry';
+
+            showToast(`Message sent for ${name}! Opening WhatsApp contact desk...`);
+
+            const msg = `*SHARUSURI SUPERAPP - CONTACT & DEMO INQUIRY*\n\n` +
+                        `• *Name:* ${name}\n` +
+                        `• *Phone:* ${phone}\n` +
+                        `• *Inquiry Category:* ${category}\n` +
+                        `• *Mode:* ${mode}\n` +
+                        `• *Message:* ${msgText}\n\n` +
+                        `Please get in touch with me.`;
+
+            setTimeout(() => {
+                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
+            }, 800);
+        }
+
+        // AUTHENTICATION MODAL HANDLERS
+        function openAuthModal() {
+            document.getElementById('authModal').classList.add('active');
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+        }
+
+        function handleQuickLogin(e) {
+            e.preventDefault();
+            const userVal = document.getElementById('loginUserVal').value;
+            closeAuthModal();
+            showToast(`🔓 Welcome back, Master Admin (${userVal})!`);
+            navigateToPage('admin');
+        }
+
+        function handleAdminAddSlot(e) {
+            e.preventDefault();
+            const name = document.getElementById('adminProgName').value;
+            const mode = document.getElementById('adminProgMode').value;
+            const time = document.getElementById('adminProgTime').value;
+
+            showToast(`➕ New program slot created: ${name} (${mode} - ${time})`);
+            document.getElementById('adminProgName').value = '';
+            document.getElementById('adminProgTime').value = '';
+        }
+
+        // INITIALIZATION ON PAGE LOAD
+        window.addEventListener('DOMContentLoaded', () => {
+            applyLanguageTranslations();
+            renderSupportTiers();
+            showTierDetail(1);
+            renderWizardSteps();
+            updateWizardSummary();
+            renderFleetGrid('ALL');
+            renderAssignedStaff();
+            renderBranchScheduler();
+            renderDoubtTracker();
+            renderPortalVideos();
+        });
+    </script>
+</body>
+</html>
