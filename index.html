@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <!-- Optimized Viewport Meta Tag for Mobile WebViews & Native Scaling Control -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="description" content="Sharusuri EdTech, Agriculture & Drone SuperApp - Multi-Page Coaching Engine, Precision Aerial Drone Spraying, Multispectral Crop Mapping, Tungabhadra Rice Trading, High-Grade Fertilizers, Express Transport & Logistics.">
+    <meta name="description" content="Sharusuri EdTech, Agriculture & Drone SuperApp - Multi-Page Coaching Engine, Precision Aerial Drone Spraying, Multispectral Crop Mapping, Tungabhadra Rice Trading, High-Grade Fertilizers, Express Transport & General On-Demand Services.">
     <meta name="theme-color" content="#0f766e">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-    <title>Sharusuri SuperApp | Drone & Aerial Services, Agriculture Solutions, EdTech & Logistics</title>
+    <title>Sharusuri SuperApp | Drone & Aerial Services, Agriculture Solutions, EdTech, Logistics & General On-Demand Services</title>
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,6 +42,7 @@
             --agri-gold: #d97706;
             --agri-gold-light: #fef3c7;
             --purple: #8b5cf6;
+            --purple-dark: #6d28d9;
             --purple-light: #ede9fe;
             --danger: #dc2626;
             --danger-light: #fee2e2;
@@ -86,6 +87,7 @@
             --agri-green-light: #143821;
             --agri-gold-light: #3d2d0f;
             --sky-light: #0c2a45;
+            --purple-light: #2c1a4d;
         }
 
         [data-lang="kn"] {
@@ -126,7 +128,7 @@
         ul { list-style: none; }
 
         /* TOUCH TARGET SIZE & MOBILE WEBVIEW OPTIMIZATIONS */
-        button, .btn, .nav-link-btn, .lang-toggle-btn, .icon-btn, .slot-pill, .tier-card, .option-selectable-card, .dash-tab-btn, .tier-tab-btn, .fleet-filter-btn, .agri-pillar-btn {
+        button, .btn, .nav-link-btn, .lang-toggle-btn, .icon-btn, .slot-pill, .tier-card, .option-selectable-card, .dash-tab-btn, .tier-tab-btn, .fleet-filter-btn, .agri-pillar-btn, .general-cat-btn {
             touch-action: manipulation;
             min-height: 48px;
             display: inline-flex;
@@ -175,7 +177,7 @@
 
         /* ANNOUNCEMENT BAR */
         .top-notice-bar {
-            background: linear-gradient(90deg, #15803d, #0f766e, #0284c7, #1d4ed8);
+            background: linear-gradient(90deg, #15803d, #0f766e, #6d28d9, #0284c7);
             color: white;
             font-size: 0.8rem;
             font-weight: 600;
@@ -270,6 +272,7 @@
             display: flex;
             align-items: center;
             gap: 0.35rem;
+            flex-wrap: wrap;
         }
 
         .nav-link-btn {
@@ -317,6 +320,16 @@
 
         .nav-link-btn.drone-nav-highlight.active {
             background: var(--sky);
+            color: white;
+        }
+
+        .nav-link-btn.general-nav-highlight {
+            background: var(--purple-light);
+            color: var(--purple-dark);
+        }
+
+        .nav-link-btn.general-nav-highlight.active {
+            background: var(--purple-dark);
             color: white;
         }
 
@@ -440,7 +453,7 @@
 
         /* HERO SECTION */
         .hero-section {
-            background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(15, 118, 110, 0.12) 50%, rgba(21, 128, 61, 0.08) 100%);
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(15, 118, 110, 0.12) 50%, rgba(139, 92, 246, 0.08) 100%);
             padding: 2.5rem 1.25rem 2.5rem;
             border-bottom: 1px solid var(--border-light);
             text-align: center;
@@ -512,6 +525,127 @@
             background: var(--primary);
             color: white;
             transform: translateX(-3px);
+        }
+
+        /* GENERAL SERVICES PAGE SPECIFIC STYLES */
+        .general-hero-banner {
+            background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #0f172a 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 1.75rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .general-hero-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            opacity: 0.18;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+
+        .general-badge-purple {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(90deg, #8b5cf6, #6d28d9);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.82rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+        }
+
+        .general-card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .general-service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .general-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--purple), var(--secondary));
+        }
+
+        .general-service-card:hover {
+            border-color: var(--purple);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .general-icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: var(--purple-light);
+            color: var(--purple-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
+        }
+
+        .general-cat-bar {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.75rem;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 0.75rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .general-cat-btn {
+            padding: 0.8rem 1.4rem;
+            border-radius: 50px;
+            background: var(--bg);
+            border: 2px solid var(--border);
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .general-cat-btn.active {
+            background: var(--purple-dark);
+            color: white;
+            border-color: var(--purple-dark);
+            box-shadow: 0 6px 18px rgba(109, 40, 217, 0.3);
         }
 
         /* DRONE DEDICATED SUB-SERVICE PAGE STYLES */
@@ -1522,7 +1656,7 @@
         .btn-agri:hover { background-color: var(--agri-green-hover); }
         .btn-secondary { background: transparent; border-color: var(--border); color: var(--text-main); }
         .btn-accent { background-color: var(--accent); color: var(--dark); }
-        .btn-purple { background-color: var(--purple); color: white; }
+        .btn-purple { background-color: var(--purple-dark); color: white; }
         .btn-yt { background-color: var(--yt-red); color: white; }
         .btn-whatsapp { background-color: var(--whatsapp); color: white; }
 
@@ -1716,7 +1850,7 @@
         .badge-success { background: var(--success-light); color: var(--success); }
         .badge-warning { background: var(--accent-light); color: var(--accent-hover); }
         .badge-danger { background: var(--yt-bg-light); color: var(--yt-red); }
-        .badge-purple { background: var(--purple-light); color: var(--purple); }
+        .badge-purple { background: var(--purple-light); color: var(--purple-dark); }
 
         /* FOOTER */
         .site-footer {
@@ -1743,7 +1877,7 @@
 
         /* MOBILE WEBVIEW MEDIA QUERIES */
         @media (max-width: 1024px) {
-            .grid-3, .footer-grid, .tuition-models-grid, .agri-location-grid, .agri-feature-highlight-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-3, .footer-grid, .tuition-models-grid, .agri-location-grid, .agri-feature-highlight-grid, .general-card-grid { grid-template-columns: repeat(2, 1fr); }
             .grid-4, .tier-flow-grid, .drone-process-grid, .drone-card-grid { grid-template-columns: repeat(2, 1fr); }
             .wizard-steps-bar { grid-template-columns: repeat(2, 1fr); }
         }
@@ -1753,7 +1887,7 @@
             .mobile-nav-toggle { display: flex; }
             .hero-title { font-size: 1.8rem; }
             .hero-subtitle { font-size: 0.95rem; }
-            .grid-3, .grid-2, .grid-4, .footer-grid, .tier-flow-grid, .tuition-models-grid, .agri-location-grid, .agri-feature-highlight-grid, .drone-process-grid, .drone-card-grid { grid-template-columns: 1fr; }
+            .grid-3, .grid-2, .grid-4, .footer-grid, .tier-flow-grid, .tuition-models-grid, .agri-location-grid, .agri-feature-highlight-grid, .drone-process-grid, .drone-card-grid, .general-card-grid { grid-template-columns: 1fr; }
             .wizard-steps-bar { grid-template-columns: 1fr; }
             .top-notice-bar { flex-direction: column; text-align: center; justify-content: center; }
             .top-contacts { justify-content: center; }
@@ -1762,7 +1896,7 @@
             .hero-cta-group { width: 100%; }
             .selector-wizard-wrapper { margin-top: -1rem; padding: 0 0.85rem; }
             .wizard-card { padding: 1.1rem; }
-            .agri-hero-banner, .drone-hero-banner { padding: 1.5rem 1rem; }
+            .agri-hero-banner, .drone-hero-banner, .general-hero-banner { padding: 1.5rem 1rem; }
         }
     </style>
 </head>
@@ -1772,15 +1906,15 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <!-- WHATSAPP QUICK CHAT FLOATING BUTTON -->
-    <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20SuperApp,%20I%20want%20information%20regarding%20drone%20services,%20agri-solutions,%20or%20coaching.')" class="whatsapp-float" title="Direct WhatsApp Desk (+91 9916083774)">
+    <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20SuperApp,%20I%20want%20information%20regarding%20drone%20services,%20agri-solutions,%20general%20services,%20or%20coaching.')" class="whatsapp-float" title="Direct WhatsApp Desk (+91 9916083774)">
         💬
     </a>
 
     <!-- TOP ANNOUNCEMENT & CONTACT BAR -->
     <div class="top-notice-bar">
         <div>
-            <span class="notice-tag" id="noticeTagText" data-i18n="announcement_tag">🛸 Drone Services & Agri Hub</span>
-            <span id="noticeBarMsg" data-i18n="announcement_msg">Precision Drone Spraying • Aerial Mapping & Surveying • Tungabhadra Rice Trade • Cousins Coaching Engine</span>
+            <span class="notice-tag" id="noticeTagText" data-i18n="announcement_tag">🛸 Drone, Agri & General Services Hub</span>
+            <span id="noticeBarMsg" data-i18n="announcement_msg">Precision Drone Spraying • General On-Demand Services • Tungabhadra Rice Trade • Cousins Coaching Engine</span>
         </div>
         <div class="top-contacts">
             <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')">📞 +91 9916083774</a>
@@ -1798,7 +1932,7 @@
                 <span class="brand-badge">SE</span>
                 <div>
                     <span style="display: block; line-height: 1.1;">Sharusuri <small style="color: var(--sky); font-size: 0.68rem; display: inline;">SuperApp</small></span>
-                    <span style="font-size: 0.65rem; color: var(--primary); font-weight: 800; display: block;">Drone Tech, AgriTech & EdTech Hub</span>
+                    <span style="font-size: 0.65rem; color: var(--primary); font-weight: 800; display: block;">Drone, AgriTech, EdTech & Services</span>
                 </div>
             </a>
 
@@ -1812,6 +1946,9 @@
                 </button>
                 <button class="nav-link-btn agri-nav-highlight" id="nav-agriculture" onclick="navigateToPage('agriculture')">
                     <span>🌱</span> <span data-i18n="nav_agri">Agriculture Solutions</span>
+                </button>
+                <button class="nav-link-btn general-nav-highlight" id="nav-general" onclick="navigateToPage('general')">
+                    <span>💼</span> <span data-i18n="nav_general">General Services</span>
                 </button>
                 <button class="nav-link-btn" id="nav-programs" onclick="navigateToPage('programs')">
                     <span>📚</span> <span data-i18n="nav_programs">Programs & Tiers</span>
@@ -1866,7 +2003,7 @@
                 <span class="brand-badge">SE</span>
                 <div>
                     <span style="display: block; line-height: 1.1; font-size: 1rem;">Sharusuri SuperApp</span>
-                    <span style="font-size: 0.65rem; color: var(--sky); font-weight: 800; display: block;">Drone, AgriTech & EdTech Hub</span>
+                    <span style="font-size: 0.65rem; color: var(--sky); font-weight: 800; display: block;">Drone, AgriTech & Services Hub</span>
                 </div>
             </div>
             <button class="icon-btn" onclick="toggleMobileNav()">✕</button>
@@ -1880,7 +2017,10 @@
                 <span>🛸</span> <span data-i18n="nav_drone">Drone & Aerial Services</span>
             </button>
             <button class="nav-link-btn agri-nav-highlight" onclick="navigateToPage('agriculture'); toggleMobileNav();">
-                <span>🌱</span> <span data-i18n="nav_agri">Agriculture Solutions Landing</span>
+                <span>🌱</span> <span data-i18n="nav_agri">Agriculture Solutions</span>
+            </button>
+            <button class="nav-link-btn general-nav-highlight" onclick="navigateToPage('general'); toggleMobileNav();">
+                <span>💼</span> <span data-i18n="nav_general">General On-Demand Services</span>
             </button>
             <button class="nav-link-btn" onclick="navigateToPage('programs'); toggleMobileNav();">
                 <span>📚</span> <span data-i18n="nav_programs">Programs & Support Tiers</span>
@@ -1906,6 +2046,9 @@
         </nav>
 
         <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 0.5rem;">
+            <button class="btn btn-purple" onclick="navigateToPage('general'); toggleMobileNav();">
+                💼 On-Demand Services Hub
+            </button>
             <button class="btn btn-sky" onclick="navigateToPage('drone'); toggleMobileNav();">
                 🛸 Launch Drone Services Portal
             </button>
@@ -1927,15 +2070,18 @@
             <div class="hero-section">
                 <div class="hero-container">
                     <div class="hero-badge">
-                        <span data-i18n="hero_badge_text">🌱 SuperApp Ecosystem • Drone Aerial Solutions & Precision Agriculture</span>
+                        <span data-i18n="hero_badge_text">🌱 SuperApp Ecosystem • Drone Aerial Solutions, Precision Agriculture & General On-Demand Services</span>
                     </div>
                     <h1 class="hero-title" data-i18n="hero_title">
-                        Empowering Farmers & Students with <span>Sharusuri SuperApp</span>
+                        Empowering Farmers, Professionals & Students with <span>Sharusuri SuperApp</span>
                     </h1>
                     <p class="hero-subtitle" data-i18n="hero_sub">
-                        Karnataka's premier SuperApp combining Drone & Aerial Survey Services, Precision Crop Spraying, Tungabhadra Rice Trade, and Cousins Academy Coaching Engine.
+                        Karnataka's premier SuperApp combining Drone & Aerial Survey Services, General Professional On-Demand Services, Tungabhadra Rice Trade, and Cousins Academy Coaching Engine.
                     </p>
                     <div class="hero-cta-group">
+                        <button class="btn btn-purple btn-lg" onclick="navigateToPage('general')">
+                            💼 General On-Demand Services →
+                        </button>
                         <button class="btn btn-sky btn-lg" onclick="navigateToPage('drone')">
                             🛸 Drone & Aerial Services →
                         </button>
@@ -1952,8 +2098,33 @@
                 </div>
             </div>
 
-            <!-- QUICK DRONE & AERIAL SERVICES BANNER ON HOME -->
+            <!-- QUICK GENERAL SERVICES BANNER ON HOME -->
             <div class="section-container" style="margin-top: 2rem;">
+                <div class="info-card" style="background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 100%); color: white; border: none; padding: 1.75rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div style="max-width: 750px;">
+                            <span class="general-badge-purple">💼 Professional & Technical On-Demand Hub</span>
+                            <h3 style="font-size: 1.6rem; font-weight: 900; color: white; margin-bottom: 0.4rem;">
+                                Academic Form Filing, Technical Consulting & Farmgate Utility Support
+                            </h3>
+                            <p style="font-size: 0.92rem; opacity: 0.92; line-height: 1.5;">
+                                Request on-demand academic admission assistance, RTC/Pahani documentation, digital IT setup for local businesses, soil testing consultation, and custom rural dispatch across Sindhanur, Raichur, Bellary, and Koppal.
+                            </p>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button class="btn btn-accent btn-lg" onclick="navigateToPage('general')">
+                                💼 Explore Services Hub →
+                            </button>
+                            <button class="btn btn-secondary btn-lg" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="openGeneralServiceModal('General On-Demand Inquiry')">
+                                ⚡ Submit Quick Request
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUICK DRONE & AERIAL SERVICES BANNER ON HOME -->
+            <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="info-card" style="background: linear-gradient(135deg, #0284c7 0%, #0f766e 100%); color: white; border: none; padding: 1.75rem;">
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                         <div style="max-width: 750px;">
@@ -2006,6 +2177,11 @@
             <div class="section-container">
                 <div class="grid-4">
                     <div class="info-card" style="text-align: center;">
+                        <div style="font-size: 2rem; color: var(--purple-dark); font-weight: 900;">25+</div>
+                        <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;">On-Demand Services</div>
+                        <div style="font-size: 0.78rem; color: var(--text-muted);">Academic, Tech & Farm Support</div>
+                    </div>
+                    <div class="info-card" style="text-align: center;">
                         <div style="font-size: 2rem; color: var(--sky); font-weight: 900;">10 Mins</div>
                         <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;">Drone Spray / Acre</div>
                         <div style="font-size: 0.78rem; color: var(--text-muted);">95% Water Saving Precision</div>
@@ -2016,11 +2192,6 @@
                         <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat1_sub">Top ranks in Raichur & Bellary</div>
                     </div>
                     <div class="info-card" style="text-align: center;">
-                        <div style="font-size: 2rem; color: var(--secondary); font-weight: 900;">12,500+</div>
-                        <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;" data-i18n="stat2_label">Enrolled Students</div>
-                        <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat2_sub">Online & Multi-Campus Network</div>
-                    </div>
-                    <div class="info-card" style="text-align: center;">
                         <div style="font-size: 1.5rem; color: var(--yt-red); font-weight: 900; word-break: break-all;">@cousinsacademy</div>
                         <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;" data-i18n="stat4_label">Official Video Lessons</div>
                         <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat4_sub">Dedicated YouTube masterclasses</div>
@@ -2029,7 +2200,135 @@
             </div>
         </section>
 
-        <!-- 2. DEDICATED DRONE & AERIAL SERVICES SUB-SERVICE LANDING PAGE ROUTE VIEW (/services/drone) -->
+        <!-- 2. DEDICATED GENERAL SERVICES SUB-SERVICE LANDING PAGE ROUTE VIEW (/services/general) -->
+        <section id="page-general" class="page-view">
+            <div class="section-container" style="margin-top: 1.25rem;">
+                
+                <!-- BREADCRUMB / BACK TO HOME LINK -->
+                <a href="javascript:void(0)" onclick="navigateToPage('home')" class="back-home-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span data-i18n="general_back_home">← Back to Home</span>
+                </a>
+
+                <!-- HERO BANNER FOR GENERAL ON-DEMAND SERVICES -->
+                <div class="general-hero-banner">
+                    <div class="general-hero-bg-overlay"></div>
+                    <div style="position: relative; z-index: 2; max-width: 900px;">
+                        <span class="general-badge-purple">
+                            💼 Professional, Technical & Utility On-Demand Services Hub
+                        </span>
+                        
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.85rem; flex-wrap: wrap;">
+                            <div style="padding: 0.85rem; background: rgba(255,255,255,0.18); border-radius: 16px; backdrop-filter: blur(8px); display: inline-flex;">
+                                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#ede9fe" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h1 style="font-size: 2.3rem; font-weight: 900; line-height: 1.2; color: white;" data-i18n="general_hero_title">
+                                    General On-Demand Services
+                                </h1>
+                                <p style="font-size: 0.95rem; opacity: 0.92; margin-top: 0.2rem;" data-i18n="general_hero_sub">
+                                    Discover and request various professional, technical, academic & utility services on demand across Karnataka.
+                                </p>
+                            </div>
+                        </div>
+
+                        <p style="font-size: 1rem; opacity: 0.92; line-height: 1.6; margin-bottom: 1.5rem;">
+                            Whether you need student entrance application assistance, RTC/Pahani land record verification, digital IT setup for small businesses, soil testing consultation, or custom rural errand dispatch in Sindhanur, Raichur, and Bellary — Sharusuri SuperApp connects you directly with verified regional experts.
+                        </p>
+                        
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <button class="btn btn-accent btn-lg" onclick="openGeneralServiceModal('General Request')">
+                                🚀 Request Service Now
+                            </button>
+                            <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20General%20Services%20Desk,%20I%20have%20an%20on-demand%20service%20inquiry.')">
+                                💬 WhatsApp Services Desk (+91 9916083774)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CATEGORY NAVIGATION TABS -->
+                <div class="general-cat-bar" id="generalCatTabs">
+                    <button class="general-cat-btn active" onclick="filterGeneralServices('ALL', this)">
+                        <span>💼 All Services (6)</span>
+                    </button>
+                    <button class="general-cat-btn" onclick="filterGeneralServices('ACADEMIC', this)">
+                        <span>🎓 Academic & Admin Help</span>
+                    </button>
+                    <button class="general-cat-btn" onclick="filterGeneralServices('DIGITAL', this)">
+                        <span>💻 Digital & Tech Setup</span>
+                    </button>
+                    <button class="general-cat-btn" onclick="filterGeneralServices('UTILITY', this)">
+                        <span>🌾 Utility & Farm Consulting</span>
+                    </button>
+                </div>
+
+                <!-- SERVICES GRID -->
+                <div class="general-card-grid" id="generalServicesGrid">
+                    <!-- Dynamic rendering via JS -->
+                </div>
+
+                <!-- HOW GENERAL SERVICES WORK -->
+                <div class="info-card" style="margin-bottom: 2.5rem; border: 2px solid var(--purple-dark);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 1rem;">
+                        <div>
+                            <span class="badge badge-purple" style="margin-bottom: 0.3rem;">⚡ Simple Workflow</span>
+                            <h3 style="font-size: 1.35rem; font-weight: 800;">How On-Demand Services Work</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Request in 3 steps and get assigned a verified regional service representative.</p>
+                        </div>
+                        <button class="btn btn-purple btn-sm" onclick="openGeneralServiceModal('General Request')">
+                            📝 Submit Service Request
+                        </button>
+                    </div>
+
+                    <div class="drone-process-grid">
+                        <div class="drone-step-card">
+                            <div class="drone-step-num" style="background: var(--purple-dark);">1</div>
+                            <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">1. Select Service</h5>
+                            <p style="font-size: 0.78rem; color: var(--text-muted);">Choose your required service category or describe your custom task.</p>
+                        </div>
+                        <div class="drone-step-card">
+                            <div class="drone-step-num" style="background: var(--purple-dark);">2</div>
+                            <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">2. Instant Callback</h5>
+                            <p style="font-size: 0.78rem; color: var(--text-muted);">Our team reviews requirement and confirms scope & transparent charges.</p>
+                        </div>
+                        <div class="drone-step-card">
+                            <div class="drone-step-num" style="background: var(--purple-dark);">3</div>
+                            <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">3. Expert Execution</h5>
+                            <p style="font-size: 0.78rem; color: var(--text-muted);">Dedicated field executive completes your service with doorstep support.</p>
+                        </div>
+                        <div class="drone-step-card">
+                            <div class="drone-step-num" style="background: var(--purple-dark);">4</div>
+                            <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">4. Completion & Receipt</h5>
+                            <p style="font-size: 0.78rem; color: var(--text-muted);">Receive completed digital files, verified paperwork, or service invoice.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIRECT WHATSAPP ASSISTANCE BANNER -->
+                <div class="info-card" style="background: linear-gradient(135deg, #0f172a 0%, #4c1d95 100%); color: white;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <span class="badge badge-warning" style="margin-bottom: 0.4rem;">💡 Need Custom Support?</span>
+                            <h3 style="font-size: 1.3rem; font-weight: 800; color: white;">Have a Custom Requirement or Urgent Task in Sindhanur or Raichur?</h3>
+                            <p style="font-size: 0.88rem; opacity: 0.9;">We handle specialized academic, technical, agricultural, and logistics errands on demand.</p>
+                        </div>
+                        <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20General%20Services%20Desk,%20I%20have%20a%20custom%20service%20task%20requirement.')">
+                            💬 Connect on WhatsApp (+91 9916083774)
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. DEDICATED DRONE & AERIAL SERVICES SUB-SERVICE LANDING PAGE ROUTE VIEW (/services/drone) -->
         <section id="page-drone" class="page-view">
             <div class="section-container" style="margin-top: 1.25rem;">
                 
@@ -2243,61 +2542,10 @@
                     </div>
                 </div>
 
-                <!-- STEP-BY-STEP PROCESS WORKFLOW -->
-                <div class="info-card" style="margin-bottom: 2.5rem; border: 2px solid var(--sky);">
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 1rem;">
-                        <div>
-                            <span class="badge badge-sky" style="margin-bottom: 0.3rem;">⚡ How It Works</span>
-                            <h3 style="font-size: 1.35rem; font-weight: 800;">4-Step Precision Aerial Execution Workflow</h3>
-                            <p style="font-size: 0.85rem; color: var(--text-muted);">From booking to digital report, we ensure zero delay and maximum efficiency.</p>
-                        </div>
-                        <button class="btn btn-sky btn-sm" onclick="openDroneBookingModal()">
-                            🚀 Book Your Slot Today
-                        </button>
-                    </div>
-
-                    <div class="drone-process-grid">
-                        <div class="drone-step-card">
-                            <div class="drone-step-num">1</div>
-                            <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">1. Instant Slot Booking</h5>
-                            <p style="font-size: 0.78rem; color: var(--text-muted);">Submit field location and land acres via web or WhatsApp (+91 9916083774).</p>
-                        </div>
-                        <div class="drone-step-card">
-                            <div class="drone-step-num">2</div>
-                            <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">2. 3D Field Boundary Scan</h5>
-                            <p style="font-size: 0.78rem; color: var(--text-muted);">Pilot scans trees, electric poles, and field terrain before takeoff.</p>
-                        </div>
-                        <div class="drone-step-card">
-                            <div class="drone-step-num">3</div>
-                            <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">3. Autonomous Flight</h5>
-                            <p style="font-size: 0.78rem; color: var(--text-muted);">Drone sprays liquid nutrients/pesticide evenly at 10 minutes/acre speed.</p>
-                        </div>
-                        <div class="drone-step-card">
-                            <div class="drone-step-num">4</div>
-                            <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">4. Digital Report</h5>
-                            <p style="font-size: 0.78rem; color: var(--text-muted);">Receive flight log report, covered acreage proof, and crop health notes.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DRONE FAQ & WHATSAPP DIRECT BANNER -->
-                <div class="info-card" style="background: linear-gradient(135deg, #0f172a 0%, #0284c7 100%); color: white;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                        <div>
-                            <span class="badge badge-warning" style="margin-bottom: 0.4rem;">❓ Got Questions?</span>
-                            <h3 style="font-size: 1.3rem; font-weight: 800; color: white;">Have Custom Flight or Large Land Area Requirements?</h3>
-                            <p style="font-size: 0.88rem; opacity: 0.9;">We offer special bulk field rates for farming cooperatives, APMC traders, and estate owners.</p>
-                        </div>
-                        <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20Drone%20Desk,%20I%20have%20bulk%20drone%20spraying%20or%20surveying%20requirements.')">
-                            💬 Chat on WhatsApp (+91 9916083774)
-                        </button>
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- 3. DEDICATED AGRICULTURE SUB-SERVICE LANDING PAGE ROUTE VIEW (/services/agriculture) -->
+        <!-- 4. DEDICATED AGRICULTURE SUB-SERVICE LANDING PAGE ROUTE VIEW (/services/agriculture) -->
         <section id="page-agriculture" class="page-view">
             <div class="section-container" style="margin-top: 1.25rem;">
                 
@@ -2404,307 +2652,10 @@
                     </div>
                 </div>
 
-                <!-- SPECIFICATION 1: PRIME LOCATIONS & REGIONAL HUBS SHOWCASE -->
-                <div style="margin-bottom: 2.5rem;">
-                    <div class="section-header" style="text-align: left; margin-bottom: 1.25rem;">
-                        <span class="badge badge-primary">📍 Regional Operations Network</span>
-                        <h2 style="font-size: 1.5rem; margin-top: 0.2rem;">Our Prime Agriculture & Trade Depots</h2>
-                        <p style="margin: 0; font-size: 0.88rem;">Strategically positioned hubs across the fertile Tungabhadra river irrigation network.</p>
-                    </div>
-
-                    <div class="agri-location-grid">
-                        <div class="agri-location-card">
-                            <span class="badge badge-success" style="margin-bottom: 0.5rem;">Central Hub</span>
-                            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">🚜 Sindhanur APMC & AgTech Depot</h3>
-                            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
-                                AP K Hosalli Circle, Bus Stand Road, Sindhanur. Fleet command for 12 agricultural spraying drones and direct paddy procurement desk.
-                            </p>
-                            <div style="font-size: 0.78rem; font-weight: 700; color: var(--primary);">
-                                📞 Helplines: +91 9916083774 / +91 8088171010
-                            </div>
-                        </div>
-
-                        <div class="agri-location-card" style="border-color: #0284c7;">
-                            <span class="badge" style="background: #e0f2fe; color: #0284c7; margin-bottom: 0.5rem;">Sweet Water Irrigated Basin</span>
-                            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">🌊 Hampi & Hosapete River Basin</h3>
-                            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
-                                Premium paddy fields nurtured by canal water from Tungabhadra Dam. Primary growing zone for sweet Sona Masuri & Kaveri rice.
-                            </p>
-                            <div style="font-size: 0.78rem; font-weight: 700; color: #0284c7;">
-                                🌊 Tungabhadra Canal Distribution Center
-                            </div>
-                        </div>
-
-                        <div class="agri-location-card">
-                            <span class="badge badge-purple" style="margin-bottom: 0.5rem;">District Logistics Nodes</span>
-                            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">🏬 Raichur & Bellary Outposts</h3>
-                            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
-                                Station Road Raichur & Royal Circle Bellary. Fertilizer distribution depots and regional rice mill dispatch facilities.
-                            </p>
-                            <div style="font-size: 0.78rem; font-weight: 700; color: var(--purple);">
-                                📦 Bulk Transport & Express Dispatch
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SPECIFICATION 2: INTERACTIVE 3-PILLAR TAB SELECTOR -->
-                <div>
-                    <div class="section-header" style="text-align: center; margin-bottom: 1.5rem;">
-                        <span class="badge badge-warning">⚡ 3 Comprehensive Agricultural Pillars</span>
-                        <h2>Explore Our Agriculture Ecosystem</h2>
-                        <p>Select a pillar below to access drone bookings, high-grade fertilizers, or paddy/rice trade services.</p>
-                    </div>
-
-                    <!-- TAB SELECTOR BUTTONS -->
-                    <div class="agri-pillar-nav-bar" id="agriPillarTabs">
-                        <button class="agri-pillar-btn active" onclick="switchAgriPillar('drone', this)">
-                            <span>🛸 Pillar 1: Drone Spraying & Crop Monitoring</span>
-                        </button>
-                        <button class="agri-pillar-btn" onclick="switchAgriPillar('fertilizer', this)">
-                            <span>🧪 Pillar 2: High-Grade Fertilizers</span>
-                        </button>
-                        <button class="agri-pillar-btn" onclick="switchAgriPillar('paddy', this)">
-                            <span>🌾 Pillar 3: Tungabhadra Paddy & Rice Trade</span>
-                        </button>
-                    </div>
-
-                    <!-- PILLAR 1: PRECISION DRONE SPRAYING SERVICES -->
-                    <div class="agri-pillar-content active" id="agriPillar-drone">
-                        <div class="info-card" style="margin-bottom: 1.5rem; border: 2px solid var(--agri-green);">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
-                                <div>
-                                    <span class="badge agri-badge-green" style="margin-bottom: 0.4rem;">🛸 Next-Gen Precision Agriculture</span>
-                                    <h3 style="font-size: 1.4rem; font-weight: 800;">High-Capacity Agricultural Drone Spraying & Monitoring</h3>
-                                    <p style="font-size: 0.88rem; color: var(--text-muted);">Faster, safer, and 100% uniform liquid fertilizer, pesticide, and micronutrient application across your fields.</p>
-                                </div>
-                                <div style="text-align: right;">
-                                    <span style="font-size: 0.8rem; color: var(--text-muted);">Special Farmer Fare:</span>
-                                    <div style="font-size: 1.6rem; font-weight: 900; color: var(--agri-green);">₹499 <small style="font-size: 0.8rem; color: var(--text-muted);">/ Acre</small></div>
-                                </div>
-                            </div>
-
-                            <!-- Drone How It Works Workflow -->
-                            <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 0.75rem;">How Precision Drone Spraying Works:</h4>
-                            <div class="drone-process-grid">
-                                <div class="drone-step-card">
-                                    <div class="drone-step-num">1</div>
-                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Land Mapping</h5>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted);">We execute 3D mapping of obstacle boundaries and field contours before launch.</p>
-                                </div>
-                                <div class="drone-step-card">
-                                    <div class="drone-step-num">2</div>
-                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Expert Formulation</h5>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Nutrients or protective solutions are measured to match crop lifecycle targets.</p>
-                                </div>
-                                <div class="drone-step-card">
-                                    <div class="drone-step-num">3</div>
-                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Autonomous Flight</h5>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Auto-mist spraying nozzles complete one entire acre within 10 minutes flat.</p>
-                                </div>
-                                <div class="drone-step-card">
-                                    <div class="drone-step-num">4</div>
-                                    <h5 style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.2rem;">Coverage Analysis</h5>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted);">Digital reports provide detailed thermal coverage and nutrient dispersion metrics.</p>
-                                </div>
-                            </div>
-
-                            <div style="display: flex; gap: 0.85rem; flex-wrap: wrap; margin-top: 1.25rem;">
-                                <button class="btn btn-sky btn-lg" onclick="navigateToPage('drone')">
-                                    🛸 Launch Dedicated Drone Portal →
-                                </button>
-                                <button class="btn btn-agri btn-lg" onclick="openDroneBookingModal()">
-                                    ⚡ Book Spraying Service Now
-                                </button>
-                                <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Drone%20Desk,%20I%20want%20to%20book%20a%20drone%20spray%20for%20my%20field.')">
-                                    💬 WhatsApp Drone Booking (+91 9916083774)
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PILLAR 2: HIGH-GRADE FERTILIZERS -->
-                    <div class="agri-pillar-content" id="agriPillar-fertilizer">
-                        <div class="section-header" style="text-align: left; margin-bottom: 1.25rem;">
-                            <span class="badge badge-primary">🧪 Genuine Input Guarantee</span>
-                            <h3 style="font-size: 1.3rem;">High-Grade Soil Nutrients & Complex Fertilizers</h3>
-                            <p style="margin: 0; font-size: 0.85rem;">Sourced directly from certified government suppliers and top chemical manufacturers for high crop yield.</p>
-                        </div>
-
-                        <div class="grid-4" style="margin-bottom: 1.5rem;">
-                            <!-- Product 1: Urea -->
-                            <div class="ecommerce-product-card">
-                                <div style="position: relative; overflow: hidden; height: 190px;">
-                                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="Neem Coated Urea Bag">
-                                    <span style="position: absolute; top: 10px; left: 10px;" class="discount-badge-bubble">Save 10%</span>
-                                </div>
-                                <div class="ecommerce-card-body">
-                                    <span class="badge agri-badge-green" style="margin-bottom: 0.4rem; align-self: flex-start;">High Nitrogen 46%</span>
-                                    <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">Neem Coated Urea (45kg)</h4>
-                                    <div class="product-rating">★ 4.8 <span class="review-count">(142 reviews)</span></div>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">Essential nitrogen booster for fast vegetative growth in paddy crops.</p>
-                                    
-                                    <div class="stock-progress-bar">
-                                        <div class="stock-progress-fill" style="width: 85%;"></div>
-                                    </div>
-                                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Only 14 Bags Left in Sindhanur Hub</span>
-
-                                    <div class="price-tag-box">
-                                        <div>
-                                            <span class="original-price">₹295</span>
-                                            <span class="price-amount">₹266</span>
-                                            <span class="price-unit">/ Bag</span>
-                                        </div>
-                                        <span class="badge badge-success">In Stock</span>
-                                    </div>
-                                    <button class="btn btn-agri btn-sm" style="width: 100%;" onclick="openFertilizerQuoteModal('Neem Coated Urea 45kg')">
-                                        🛍️ Order / Bulk Inquiry
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Product 2: NPK 10-26-26 -->
-                            <div class="ecommerce-product-card">
-                                <div style="position: relative; overflow: hidden; height: 190px;">
-                                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="NPK 10-26-26 Complex">
-                                    <span style="position: absolute; top: 10px; left: 10px;" class="discount-badge-bubble">Save 11%</span>
-                                </div>
-                                <div class="ecommerce-card-body">
-                                    <span class="badge agri-badge-gold" style="margin-bottom: 0.4rem; align-self: flex-start;">Complex NPK (10:26:26)</span>
-                                    <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">NPK 10-26-26 Complex (50kg)</h4>
-                                    <div class="product-rating">★ 4.9 <span class="review-count">(98 reviews)</span></div>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">High Phosphorus & Potash formulation for strong root & grain weight.</p>
-                                    
-                                    <div class="stock-progress-bar">
-                                        <div class="stock-progress-fill" style="width: 60%;"></div>
-                                    </div>
-                                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Only 22 Bags Left in Hampi Depot</span>
-
-                                    <div class="price-tag-box">
-                                        <div>
-                                            <span class="original-price">₹1,650</span>
-                                            <span class="price-amount">₹1,470</span>
-                                            <span class="price-unit">/ Bag</span>
-                                        </div>
-                                        <span class="badge badge-success">In Stock</span>
-                                    </div>
-                                    <button class="btn btn-agri btn-sm" style="width: 100%;" onclick="openFertilizerQuoteModal('NPK 10-26-26 Complex 50kg')">
-                                        🛍️ Order / Bulk Inquiry
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Product 3: NPK 10-10-10 -->
-                            <div class="ecommerce-product-card">
-                                <div style="position: relative; overflow: hidden; height: 190px;">
-                                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="NPK 10-10-10 Balanced Booster">
-                                    <span style="position: absolute; top: 10px; left: 10px;" class="discount-badge-bubble">Save 12%</span>
-                                </div>
-                                <div class="ecommerce-card-body">
-                                    <span class="badge badge-primary" style="margin-bottom: 0.4rem; align-self: flex-start;">Balanced Fertilizer</span>
-                                    <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">NPK 10-10-10 Balanced Booster</h4>
-                                    <div class="product-rating">★ 4.7 <span class="review-count">(74 reviews)</span></div>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">Equal ratio nutrient blend for early crop tillering & balanced soil health.</p>
-                                    
-                                    <div class="stock-progress-bar">
-                                        <div class="stock-progress-fill" style="width: 45%;"></div>
-                                    </div>
-                                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Only 19 Bags Left in Raichur Depot</span>
-
-                                    <div class="price-tag-box">
-                                        <div>
-                                            <span class="original-price">₹1,340</span>
-                                            <span class="price-amount">₹1,180</span>
-                                            <span class="price-unit">/ Bag</span>
-                                        </div>
-                                        <span class="badge badge-success">In Stock</span>
-                                    </div>
-                                    <button class="btn btn-agri btn-sm" style="width: 100%;" onclick="openFertilizerQuoteModal('NPK 10-10-10 Balanced Booster')">
-                                        🛍️ Order / Bulk Inquiry
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Product 4: Zinc Micronutrient -->
-                            <div class="ecommerce-product-card">
-                                <div style="position: relative; overflow: hidden; height: 190px;">
-                                    <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=600&q=80" class="ecommerce-product-img" alt="Chelated Zinc Sulphate">
-                                    <span style="position: absolute; top: 10px; left: 10px;" class="discount-badge-bubble">Save 15%</span>
-                                </div>
-                                <div class="ecommerce-card-body">
-                                    <span class="badge badge-purple" style="margin-bottom: 0.4rem; align-self: flex-start;">Chelated Zinc 33%</span>
-                                    <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.25rem;">Zinc Sulphate Micronutrient</h4>
-                                    <div class="product-rating">★ 4.9 <span class="review-count">(112 reviews)</span></div>
-                                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">Prevents Khaira disease in paddy; restores leaf greenness and grain shine.</p>
-                                    
-                                    <div class="stock-progress-bar">
-                                        <div class="stock-progress-fill" style="width: 90%;"></div>
-                                    </div>
-                                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Only 8 Packs Left in Bellary Outlet</span>
-
-                                    <div class="price-tag-box">
-                                        <div>
-                                            <span class="original-price">₹565</span>
-                                            <span class="price-amount">₹480</span>
-                                            <span class="price-unit">/ 10kg pack</span>
-                                        </div>
-                                        <span class="badge badge-success">In Stock</span>
-                                    </div>
-                                    <button class="btn btn-agri btn-sm" style="width: 100%;" onclick="openFertilizerQuoteModal('Zinc Sulphate Micronutrient 10kg')">
-                                        🛍️ Order / Bulk Inquiry
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PILLAR 3: PADDY & RICE PRODUCE TRADING -->
-                    <div class="agri-pillar-content" id="agriPillar-paddy">
-                        <div class="info-card" style="border: 2px solid var(--agri-gold); margin-bottom: 1.5rem;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 1rem;">
-                                <div>
-                                    <span class="badge agri-badge-gold" style="margin-bottom: 0.3rem;">🌊 Pure Tungabhadra Canal Irrigation</span>
-                                    <h3 style="font-size: 1.4rem; font-weight: 900;">Tungabhadra Sweet Water Paddy & Rice Produce Desk</h3>
-                                    <p style="font-size: 0.88rem; color: var(--text-muted);">
-                                        Cultivated in the fertile Hampi/Hosapete & Sindhanur canal belts using mineral-rich sweet Tungabhadra river water. Specializing in aromatic <strong>Kaveri Steam Rice</strong> and long-grain <strong>Super Fine Sona Masuri Rice</strong>.
-                                    </p>
-                                </div>
-                                <span class="badge badge-success" style="font-size: 0.85rem;">Verified Mill Direct</span>
-                            </div>
-
-                            <div class="grid-2" style="margin: 1.25rem 0;">
-                                <!-- DUAL CHANNEL OPTION 1: WE BUY RAW PADDY FROM FARMERS -->
-                                <div style="background: var(--bg); border: 1.5px solid var(--border-light); border-radius: var(--radius-md); padding: 1.25rem;">
-                                    <span class="badge agri-badge-green" style="margin-bottom: 0.5rem;">🚜 For Local Farmers</span>
-                                    <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Sell Raw Paddy to Us (Farmgate Purchase)</h4>
-                                    <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.85rem;">
-                                        Get instant spot cash and field-pickup for your raw paddy harvest. We purchase Kaveri, Sona Masuri, and RNR 15048 varieties directly at APMC market rates with zero transport hassle.
-                                    </p>
-                                    <button class="btn btn-agri" style="width: 100%;" onclick="openPaddyTradeModal('SELL_PADDY', 'Sona Masuri / Kaveri Raw Paddy')">
-                                        🌾 Submit Paddy Sale Offer
-                                    </button>
-                                </div>
-
-                                <!-- DUAL CHANNEL OPTION 2: WE SELL PREMIUM RICE TO BUYERS -->
-                                <div style="background: var(--bg); border: 1.5px solid var(--border-light); border-radius: var(--radius-md); padding: 1.25rem;">
-                                    <span class="badge agri-badge-gold" style="margin-bottom: 0.5rem;">🏬 For Wholesale Buyers & Families</span>
-                                    <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Buy Premium Rice (Direct Mill Supply)</h4>
-                                    <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.85rem;">
-                                        Order 100% aged, silky polished, sweet Tungabhadra Sona Masuri & Kaveri Rice bags (25kg/50kg) directly from our Sindhanur & Raichur processing mills with home delivery.
-                                    </p>
-                                    <button class="btn btn-accent" style="width: 100%;" onclick="openPaddyTradeModal('BUY_RICE', 'Tungabhadra Sona Masuri / Kaveri Rice')">
-                                        🛒 Order Premium Rice Bags
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- 4. DEEP INTERACTIVE PROGRAM, SUPPORT TIERS & BATCH SELECTOR (PROGRAMS PAGE VIEW) -->
+        <!-- 5. DEEP INTERACTIVE PROGRAM, SUPPORT TIERS & BATCH SELECTOR (PROGRAMS PAGE VIEW) -->
         <section id="page-programs" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 
@@ -2920,7 +2871,7 @@
             </div>
         </section>
 
-        <!-- 5. TRANSPORTATION & CAR RENTAL MODULE PAGE VIEW -->
+        <!-- 6. TRANSPORTATION & CAR RENTAL MODULE PAGE VIEW -->
         <section id="page-transport" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 
@@ -3010,7 +2961,7 @@
             </div>
         </section>
 
-        <!-- 6. SCHEDULE & BATCH CALENDAR PAGE VIEW -->
+        <!-- 7. SCHEDULE & BATCH CALENDAR PAGE VIEW -->
         <section id="page-schedule" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -3070,13 +3021,13 @@
             </div>
         </section>
 
-        <!-- 7. ABOUT US PAGE VIEW -->
+        <!-- 8. ABOUT US PAGE VIEW -->
         <section id="page-about" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
                     <span class="badge badge-primary">ℹ️ About Sharusuri & Cousins Academy</span>
-                    <h2>Democratizing Competitive Coaching & Agricultural Services</h2>
-                    <p>Empowering rural and urban communities across Raichur, Bellary, Koppal, and Tungabhadra basin with top coaching and agtech solutions.</p>
+                    <h2>Democratizing Competitive Coaching, Agricultural & On-Demand Services</h2>
+                    <p>Empowering rural and urban communities across Raichur, Bellary, Koppal, and Tungabhadra basin with top coaching, agtech, and general services.</p>
                 </div>
 
                 <div class="grid-2">
@@ -3089,7 +3040,7 @@
                             </div>
                         </div>
                         <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
-                            Lead visionary dedicated to transforming rural education, drone services, and agricultural technology in Karnataka. Creator of Sharusuri SuperApp and official partner of Cousins Academy video content (@cousinsacademy4599).
+                            Lead visionary dedicated to transforming rural education, drone services, on-demand professional assistance, and agricultural technology in Karnataka. Creator of Sharusuri SuperApp and official partner of Cousins Academy video content (@cousinsacademy4599).
                         </p>
                         <div style="margin-top: 1rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem;">
                             <div>✉️ Email: <strong>suresh2suresh80888@gmail.com</strong></div>
@@ -3100,14 +3051,14 @@
 
                     <div class="info-card">
                         <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem;">
-                            <div class="brand-badge" style="width: 48px; height: 48px; font-size: 1.3rem; background: linear-gradient(135deg, var(--purple), var(--secondary));">SS</div>
+                            <div class="brand-badge" style="width: 48px; height: 48px; font-size: 1.3rem; background: linear-gradient(135deg, var(--purple-dark), var(--secondary));">SS</div>
                             <div>
                                 <h3 style="font-size: 1.15rem;">Sharada S</h3>
-                                <p style="font-size: 0.82rem; color: var(--purple); font-weight: 700;">Co-Founder & Executive Director</p>
+                                <p style="font-size: 0.82rem; color: var(--purple-dark); font-weight: 700;">Co-Founder & Executive Director</p>
                             </div>
                         </div>
                         <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
-                            Directing regional franchise partnerships, 4-tier mentorship operations, drone logistics dispatch, and residential hostel academic monitoring across regional campuses.
+                            Directing regional franchise partnerships, 4-tier mentorship operations, general services execution, drone logistics dispatch, and residential hostel academic monitoring across regional campuses.
                         </p>
                         <div style="margin-top: 1rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem;">
                             <div>✉️ Email: <strong>sharada@sharusuri.edu</strong></div>
@@ -3119,7 +3070,7 @@
             </div>
         </section>
 
-        <!-- 8. CONTACT US PAGE VIEW WITH DEMO BOOKING -->
+        <!-- 9. CONTACT US PAGE VIEW WITH DEMO BOOKING -->
         <section id="page-contact" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -3144,6 +3095,7 @@
                             <div class="form-group">
                                 <label class="form-label">Inquiry Category</label>
                                 <select class="form-input" id="contactProgram" style="font-weight: 700;">
+                                    <option>General On-Demand Professional Services</option>
                                     <option>Agricultural Drone Spraying & Crop Monitoring</option>
                                     <option>3D Aerial Mapping & Land Topography Survey</option>
                                     <option>Tungabhadra Paddy & Rice Trade</option>
@@ -3226,7 +3178,7 @@
             </div>
         </section>
 
-        <!-- 9. STUDENT & PARENT PORTAL PAGE VIEW -->
+        <!-- 10. STUDENT & PARENT PORTAL PAGE VIEW -->
         <section id="page-portal" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -3358,7 +3310,7 @@
             </div>
         </section>
 
-        <!-- 10. ADMIN CONSOLE PAGE VIEW -->
+        <!-- 11. ADMIN CONSOLE PAGE VIEW -->
         <section id="page-admin" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -3400,10 +3352,10 @@
             <div>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.85rem;">
                     <span class="brand-badge" style="width: 34px; height: 34px; font-size: 0.9rem;">SE</span>
-                    <h3 style="font-size: 1.1rem; color: white;">Sharusuri SuperApp, Drone & Agri Solutions</h3>
+                    <h3 style="font-size: 1.1rem; color: white;">Sharusuri SuperApp, Drone & Agri OS</h3>
                 </div>
                 <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.55;" data-i18n="footer_desc">
-                    Karnataka's leading educational and agricultural technology platform equipped with 4-Tier Coaching, precision aerial drone spraying, multispectral crop mapping, fertilizer inputs, Tungabhadra rice trading, and rural transport.
+                    Karnataka's leading educational and agricultural technology platform equipped with 4-Tier Coaching, precision aerial drone spraying, multispectral crop mapping, general on-demand services, fertilizer inputs, Tungabhadra rice trading, and rural transport.
                 </p>
             </div>
 
@@ -3411,6 +3363,7 @@
                 <h4 style="font-size: 0.9rem; color: white; margin-bottom: 0.75rem;" data-i18n="footer_quick_links">Quick Links</h4>
                 <ul style="font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem; color: #cbd5e1;">
                     <li><a href="javascript:void(0)" onclick="navigateToPage('home')" data-i18n="nav_home">Home</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigateToPage('general')" data-i18n="nav_general">General On-Demand Services</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('drone')" data-i18n="nav_drone">Drone & Aerial Services</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('agriculture')" data-i18n="nav_agri">Agriculture Solutions</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('programs')" data-i18n="nav_programs">Programs & Support Tiers</a></li>
@@ -3446,7 +3399,48 @@
         </div>
     </footer>
 
-    <!-- MODAL 1: INTERACTIVE FREE TRIAL DEMO BOOKING MODAL -->
+    <!-- MODAL 1: GENERAL ON-DEMAND SERVICE REQUEST MODAL -->
+    <div class="modal-overlay" id="generalServiceModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeGeneralServiceModal()">✕</button>
+            <div style="text-align: center; margin-bottom: 1.1rem;">
+                <span class="badge badge-purple" style="margin-bottom: 0.3rem;">💼 On-Demand Services Desk</span>
+                <h3 style="font-size: 1.3rem;" id="generalModalTitle">Request General Service</h3>
+                <p style="font-size: 0.82rem; color: var(--text-muted);">Fill in your requirements and a verified regional expert will assist you.</p>
+            </div>
+
+            <form onsubmit="handleGeneralServiceSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label">Service Type *</label>
+                    <input type="text" id="genSelectedService" class="form-input" required readonly style="font-weight: 800; background: var(--bg);">
+                </div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Your Name *</label>
+                        <input type="text" id="genCustomerName" class="form-input" required placeholder="e.g. Ramesh Patil">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone / WhatsApp Number *</label>
+                        <input type="tel" id="genCustomerPhone" class="form-input" required placeholder="10-digit number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Location / Village / Town *</label>
+                    <input type="text" id="genLocation" class="form-input" required placeholder="e.g. Sindhanur Town / Raichur Hub">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Task / Service Details or Preferred Date</label>
+                    <textarea id="genTaskDesc" class="form-input" rows="3" placeholder="Describe specific assistance needed or preferred time slot..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-purple" style="width: 100%; margin-top: 0.5rem; font-size: 0.95rem;">
+                    📲 Submit Request via WhatsApp (+91 9916083774)
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: INTERACTIVE FREE TRIAL DEMO BOOKING MODAL -->
     <div class="modal-overlay" id="demoModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeDemoModal()">✕</button>
@@ -3500,7 +3494,7 @@
         </div>
     </div>
 
-    <!-- MODAL 2: ENROLLMENT & SEAT RESERVATION -->
+    <!-- MODAL 3: ENROLLMENT & SEAT RESERVATION -->
     <div class="modal-overlay" id="enrollmentModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeEnrollmentModal()">✕</button>
@@ -3530,7 +3524,7 @@
         </div>
     </div>
 
-    <!-- MODAL 3: TRANSPORT & CAR RENTAL BOOKING WORKFLOW MODAL -->
+    <!-- MODAL 4: TRANSPORT & CAR RENTAL BOOKING WORKFLOW MODAL -->
     <div class="modal-overlay" id="transportBookingModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeTransportModal()">✕</button>
@@ -3596,7 +3590,7 @@
         </div>
     </div>
 
-    <!-- MODAL 4: DRONE SPRAY BOOKING MODAL -->
+    <!-- MODAL 5: DRONE SPRAY BOOKING MODAL -->
     <div class="modal-overlay" id="droneBookingModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeDroneBookingModal()">✕</button>
@@ -3651,7 +3645,7 @@
         </div>
     </div>
 
-    <!-- MODAL 5: FERTILIZER BULK ORDER / QUOTE MODAL -->
+    <!-- MODAL 6: FERTILIZER BULK ORDER / QUOTE MODAL -->
     <div class="modal-overlay" id="fertilizerQuoteModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeFertilizerQuoteModal()">✕</button>
@@ -3692,7 +3686,7 @@
         </div>
     </div>
 
-    <!-- MODAL 6: PADDY & RICE TRADE MODAL -->
+    <!-- MODAL 7: PADDY & RICE TRADE MODAL -->
     <div class="modal-overlay" id="paddyTradeModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closePaddyTradeModal()">✕</button>
@@ -3739,7 +3733,7 @@
         </div>
     </div>
 
-    <!-- MODAL 7: AUTHENTICATION MODAL -->
+    <!-- MODAL 8: AUTHENTICATION MODAL -->
     <div class="modal-overlay" id="authModal">
         <div class="modal-box" style="max-width: 440px;">
             <button class="modal-close" onclick="closeAuthModal()">✕</button>
@@ -3789,14 +3783,30 @@
             }
         }
 
+        // TOAST NOTIFICATION DISPATCHER
+        function showToast(msg, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `<span>${type === 'error' ? '❌' : type === 'warning' ? '⚠️' : '✅'}</span> <div>${msg}</div>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(10px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
         // 1. COMPREHENSIVE BILINGUAL DICTIONARY
         const I18N_DATA = {
             en: {
-                announcement_tag: "🛸 Drone Services & Agri Hub",
-                announcement_msg: "Precision Drone Spraying • Aerial Mapping & Surveying • Tungabhadra Rice Trade • Cousins Coaching Engine",
+                announcement_tag: "🛸 Drone, Agri & General Services Hub",
+                announcement_msg: "Precision Drone Spraying • General On-Demand Services • Tungabhadra Rice Trade • Cousins Coaching Engine",
                 nav_home: "Home",
                 nav_drone: "Drone Services",
                 nav_agri: "Agriculture Solutions",
+                nav_general: "General Services",
                 nav_programs: "Programs & Tiers",
                 nav_transport: "Transport & Rentals",
                 nav_schedule: "Batches & Schedule",
@@ -3808,9 +3818,12 @@
                 btn_login: "🔐 Login",
                 agri_back_home: "← Back to Home",
                 drone_back_home: "← Back to Home",
-                hero_badge_text: "🌱 SuperApp Ecosystem • Drone Aerial Solutions & Precision Agriculture",
-                hero_title: "Empowering Farmers & Students with Sharusuri SuperApp",
-                hero_sub: "Karnataka's premier SuperApp combining Drone & Aerial Survey Services, Precision Crop Spraying, Tungabhadra Rice Trade, and Cousins Academy Coaching Engine.",
+                general_back_home: "← Back to Home",
+                hero_badge_text: "🌱 SuperApp Ecosystem • Drone Aerial Solutions, Precision Agriculture & General On-Demand Services",
+                hero_title: "Empowering Farmers, Professionals & Students with Sharusuri SuperApp",
+                hero_sub: "Karnataka's premier SuperApp combining Drone & Aerial Survey Services, General Professional On-Demand Services, Tungabhadra Rice Trade, and Cousins Academy Coaching Engine.",
+                general_hero_title: "General On-Demand Services",
+                general_hero_sub: "Discover and request various professional, technical, academic & utility services on demand across Karnataka.",
                 hero_btn_trial: "🎯 Book Free Trial Demo Class",
                 hero_btn_explore: "🚀 Explore Programs & Support Tiers",
                 hero_btn_transport: "🚕 Rent Cars & Freight Logistics",
@@ -3866,18 +3879,19 @@
                 lbl_load_weight: "Estimated Load Weight / Quantity *",
                 lbl_pickup_drop: "Pickup & Drop Route *",
                 btn_calc_quote: "📊 Calculate & Book via WhatsApp",
-                footer_desc: "Karnataka's leading educational and agricultural technology platform equipped with 4-Tier Coaching, precision aerial drone spraying, multispectral crop mapping, fertilizer inputs, Tungabhadra rice trading, and rural transport.",
+                footer_desc: "Karnataka's leading educational and agricultural technology platform equipped with 4-Tier Coaching, precision aerial drone spraying, multispectral crop mapping, general on-demand services, fertilizer inputs, Tungabhadra rice trading, and rural transport.",
                 footer_quick_links: "Quick Links",
                 footer_official_contacts: "Official Contacts",
                 footer_trial_yt: "Trial Demo & YouTube",
                 footer_copyright: "© 2026 Sharusuri EdTech, AgTech & Drone OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com"
             },
             kn: {
-                announcement_tag: "🛸 ಡ್ರೋನ್ ಸೇವೆಗಳು & ಕೃಷಿ ಕೇಂದ್ರ",
-                announcement_msg: "ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ • ವೈಮಾನಿಕ ಸಮೀಕ್ಷೆ & ಮ್ಯಾಪಿಂಗ್ • ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ • ಕಸಿನ್ಸ್ ತರಬೇತಿ",
+                announcement_tag: "🛸 ಡ್ರೋನ್, ಕೃಷಿ ಮತ್ತು ಜನರಲ್ ಸೇವೆಗಳು",
+                announcement_msg: "ಡ್ರೋನ್ ಸಿಂಪಡಣೆ • ಜನರಲ್ ಆನ್-ಡಿಮ್ಯಾಂಡ್ ಸೇವೆಗಳು • ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ • ಕಸಿನ್ಸ್ ತರಬೇತಿ",
                 nav_home: "ಮುಖಪುಟ",
                 nav_drone: "ಡ್ರೋನ್ ಸೇವೆಗಳು (Drone Hub)",
                 nav_agri: "ಕೃಷಿ ಸೇವೆಗಳು (Agri Hub)",
+                nav_general: "ಜನರಲ್ ಸೇವೆಗಳು (General Services)",
                 nav_programs: "ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಸಪೋರ್ಟ್",
                 nav_transport: "ವಾಹನ & ಸರಕು ಸೇವೆ",
                 nav_schedule: "ಬ್ಯಾಚ್ ಸಮಯ",
@@ -3889,9 +3903,12 @@
                 btn_login: "🔐 ಲಾಗಿನ್",
                 agri_back_home: "← ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
                 drone_back_home: "← ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
-                hero_badge_text: "🌱 ಸೂಪರ್ ಆ್ಯಪ್ • ಡ್ರೋನ್ ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ಕೃಷಿ ಸೇವೆಗಳು",
-                hero_title: "ಶಾರುಸೂರಿ ಸೂಪರ್ ಆ್ಯಪ್‌ನೊಂದಿಗೆ ಡ್ರೋನ್, ಕೃಷಿ ಮತ್ತು ಶಿಕ್ಷಣ ಸೇವೆಗಳು",
-                hero_sub: "ಡ್ರೋನ್ ಸಿಂಪಡಣೆ, ವೈಮಾನಿಕ ಮ್ಯಾಪಿಂಗ್, ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ ತರಬೇತಿಯನ್ನು ಒಳಗೊಂಡ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ವೇದಿಕೆ.",
+                general_back_home: "← ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
+                hero_badge_text: "🌱 ಸೂಪರ್ ಆ್ಯಪ್ • ಡ್ರೋನ್, ಕೃಷಿ ಮತ್ತು ಜನರಲ್ ಸೇವೆಗಳ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್",
+                hero_title: "ಶಾರುಸೂರಿ ಸೂಪರ್ ಆ್ಯಪ್‌ನೊಂದಿಗೆ ಡ್ರೋನ್, ಕೃಷಿ, ಶಿಕ್ಷಣ ಮತ್ತು ಜನರಲ್ ಸೇವೆಗಳು",
+                hero_sub: "ಡ್ರೋನ್ ಸಿಂಪಡಣೆ, ಜನರಲ್ ಆನ್-ಡಿಮ್ಯಾಂಡ್ ಸೇವೆಗಳು, ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ ತರಬೇತಿಯನ್ನು ಒಳಗೊಂಡ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ವೇದಿಕೆ.",
+                general_hero_title: "ಜನರಲ್ ಆನ್-ಡಿಮ್ಯಾಂಡ್ ಸೇವೆಗಳು",
+                general_hero_sub: "ಕರ್ನಾಟಕದಾದ್ಯಂತ ಶೈಕ್ಷಣಿಕ, ತಾಂತ್ರಿಕ ಮತ್ತು ಉಪಯುಕ್ತ ಜನರಲ್ ಆನ್-ಡಿಮ್ಯಾಂಡ್ ಸೇವೆಗಳನ್ನು ವಿನಂತಿಸಿ.",
                 hero_btn_trial: "🎯 ಉಚಿತ ಡೆಮೊ ತರಗತಿಯನ್ನು ಬುಕ್ ಮಾಡಿ",
                 hero_btn_explore: "🚀 ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಬೆಂಬಲ ಹಂತಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
                 hero_btn_transport: "🚕 ಕಾರು ಬಾಡಿಗೆ ಮತ್ತು ಸರಕು ಸಾರಿಗೆ ಸೇವೆ",
@@ -3947,13 +3964,71 @@
                 lbl_load_weight: "ಅಂದಾಜು ತೂಕ / ಪ್ರಮಾಣ *",
                 lbl_pickup_drop: "ಪಿಕಪ್ ಮತ್ತು ಡ್ರಾಪ್ ಮಾರ್ಗ *",
                 btn_calc_quote: "📊 ವಾಟ್ಸಾಪ್ ಮೂಲಕ ದರ ಪಡೆಯಿರಿ",
-                footer_desc: "4-ಹಂತದ ಬೋಧನೆ, ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ, ಮ್ಯಾಪಿಂಗ್, ರಸಗೊಬ್ಬರ, ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಸಾರಿಗೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್.",
+                footer_desc: "4-ಹಂತದ ಬೋಧನೆ, ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ, ಮ್ಯಾಪಿಂಗ್, ಜನರಲ್ ಆನ್-ಡಿಮ್ಯಾಂಡ್ ಸೇವೆಗಳು, ರಸಗೊಬ್ಬರ, ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಸಾರಿಗೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್.",
                 footer_quick_links: "ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು",
                 footer_official_contacts: "ಅಧಿಕೃತ ಸಂಪರ್ಕಗಳು",
                 footer_trial_yt: "ಉಚಿತ ಡೆಮೊ ಮತ್ತು ಯೂಟ್ಯೂಬ್",
                 footer_copyright: "© 2026 ಶಾರುಸೂರಿ ಎಡ್‌ಟೆಕ್, ಅಗ್ರಿಟೆಕ್ & ಡ್ರೋನ್ ಸೇವೆಗಳು. ಸರ್ವ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
             }
         };
+
+        // GENERAL ON-DEMAND SERVICES DATASET
+        const GENERAL_SERVICES_DATA = [
+            {
+                id: "g1",
+                category: "ACADEMIC",
+                icon: "📑",
+                title: "Academic Admission & Form Assistance",
+                desc: "Expert guidance & online form filling for Navodaya (JNVST), Morarji Desai (KREIS), Sainik School, and government residential scholarship applications.",
+                badge: "Academic Admin",
+                badgeClass: "badge-purple"
+            },
+            {
+                id: "g2",
+                category: "ACADEMIC",
+                icon: "🎓",
+                title: "Student Document Verification & Hall Tickets",
+                desc: "Verification support, Aadhaar correction linkage help, caste/income certificate alignment, and exam hall ticket downloads for entrance candidates.",
+                badge: "Student Support",
+                badgeClass: "badge-primary"
+            },
+            {
+                id: "g3",
+                category: "DIGITAL",
+                icon: "💻",
+                title: "Local Business Digital & IT Setup",
+                desc: "Website creation, Google Business Profile setup, digital catalogue creation, and payment gateway integration for local shops and traders.",
+                badge: "Digital Tech",
+                badgeClass: "badge-sky"
+            },
+            {
+                id: "g4",
+                category: "DIGITAL",
+                icon: "📱",
+                title: "Computer Hardware & App Support",
+                desc: "Doorstep technical troubleshooting for computers, mobile WebViews, POS machines, and internet connectivity setup across rural offices.",
+                badge: "Tech Help",
+                badgeClass: "badge-success"
+            },
+            {
+                id: "g5",
+                category: "UTILITY",
+                icon: "📜",
+                title: "RTC / Pahani & Land Record Verification",
+                desc: "Assistance with online land RTC pahani downloads, mutation status tracking, e-Kissan portal registration, and APMC trader paperwork.",
+                badge: "Land & Records",
+                badgeClass: "badge-warning"
+            },
+            {
+                id: "g6",
+                category: "UTILITY",
+                icon: "☀️",
+                title: "Solar Pump & Utility Consultation",
+                desc: "Technical consultation for solar water pumps, field CCTV installation, generator maintenance coordination, and soil testing sample dispatch.",
+                badge: "Farm Utility",
+                badgeClass: "badge-danger"
+            }
+        ];
 
         // 2. DETAILED BILINGUAL 4-TIER DATASET
         const TIER_DETAILS_DATA = {
@@ -4274,6 +4349,7 @@
             renderWizardSteps();
             updateWizardSummary();
             renderFleetGrid('ALL');
+            renderGeneralServicesGrid('ALL');
 
             showToast(`Language switched to ${currentLang === 'en' ? 'English' : 'ಕನ್ನಡ'}`);
         }
@@ -4298,6 +4374,72 @@
             if (activeNavBtn) activeNavBtn.classList.add('active');
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // GENERAL ON-DEMAND SERVICES GRID RENDERER
+        function renderGeneralServicesGrid(filterCat = 'ALL') {
+            const grid = document.getElementById('generalServicesGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            const list = filterCat === 'ALL' ? GENERAL_SERVICES_DATA : GENERAL_SERVICES_DATA.filter(s => s.category === filterCat);
+
+            list.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'general-service-card';
+                card.innerHTML = `
+                    <div class="general-icon-circle">${s.icon}</div>
+                    <div>
+                        <span class="badge ${s.badgeClass}" style="margin-bottom: 0.5rem;">${s.badge}</span>
+                        <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">${s.title}</h3>
+                        <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.25rem;">${s.desc}</p>
+                    </div>
+                    <button class="btn btn-purple btn-sm" onclick="openGeneralServiceModal('${s.title}')">
+                        ⚡ Request Service →
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterGeneralServices(cat, btnEl) {
+            document.querySelectorAll('.general-cat-btn').forEach(b => b.classList.remove('active'));
+            btnEl.classList.add('active');
+            renderGeneralServicesGrid(cat);
+        }
+
+        // GENERAL SERVICE MODAL HANDLERS
+        function openGeneralServiceModal(serviceTitle = 'General Service Request') {
+            document.getElementById('genSelectedService').value = serviceTitle;
+            document.getElementById('generalServiceModal').classList.add('active');
+        }
+
+        function closeGeneralServiceModal() {
+            document.getElementById('generalServiceModal').classList.remove('active');
+        }
+
+        function handleGeneralServiceSubmit(e) {
+            e.preventDefault();
+            const service = document.getElementById('genSelectedService').value;
+            const name = document.getElementById('genCustomerName').value;
+            const phone = document.getElementById('genCustomerPhone').value;
+            const loc = document.getElementById('genLocation').value;
+            const desc = document.getElementById('genTaskDesc').value || 'Standard request';
+
+            closeGeneralServiceModal();
+            showToast(`💼 Service request logged for ${service}! Redirecting to WhatsApp...`);
+
+            const msg = `*SHARUSURI SUPERAPP - GENERAL SERVICE REQUEST*\n\n` +
+                        `• *Service Requested:* ${service}\n` +
+                        `• *Customer Name:* ${name}\n` +
+                        `• *Phone:* ${phone}\n` +
+                        `• *Location:* ${loc}\n` +
+                        `• *Task Details:* ${desc}\n\n` +
+                        `Please assign verified regional service executive and share fee details.`;
+
+            setTimeout(() => {
+                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
+            }, 800);
         }
 
         // AGRICULTURE HUB PILLAR TAB SWITCHER
@@ -4742,51 +4884,4 @@
                     stepContent.classList.add('active');
                     stepInd.classList.add('active');
                 } else {
-                    stepContent.classList.remove('active');
-                    stepInd.classList.remove('active');
-                }
-
-                if (i < currentWizardStep) stepInd.classList.add('completed');
-                else stepInd.classList.remove('completed');
-            }
-
-            document.getElementById('wizBackBtn').style.display = currentWizardStep > 1 ? 'inline-flex' : 'none';
-            document.getElementById('wizNextBtn').style.display = currentWizardStep < 4 ? 'inline-flex' : 'none';
-        }
-
-        // PORTAL TAB SYSTEM & RENDERERS
-        function switchPortalTab(tabId, btnEl) {
-            document.querySelectorAll('.dash-tab-btn').forEach(b => b.classList.remove('active'));
-            btnEl.classList.add('active');
-
-            document.querySelectorAll('.dash-panel-content').forEach(p => p.classList.remove('active'));
-            const activePanel = document.getElementById(`panel-${tabId}`);
-            if (activePanel) activePanel.classList.add('active');
-        }
-
-        function renderAssignedStaff() {
-            const container = document.getElementById('assignedStaffCardsGrid');
-            if (!container) return;
-            container.innerHTML = '';
-            APP_DATA.assigned_staff.forEach(s => {
-                const card = document.createElement('div');
-                card.className = 'info-card';
-                card.innerHTML = `
-                    <span class="badge badge-purple" style="margin-bottom: 0.5rem;">${s.role}</span>
-                    <h4 style="font-size: 1.05rem; margin-bottom: 0.2rem;">${s.name}</h4>
-                    <p style="font-size: 0.8rem; color: var(--primary); font-weight: 700;">${s.subject}</p>
-                    <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem;">
-                        📞 Contact: <a href="javascript:void(0)" onclick="openExternalUrl('tel:${s.contact}')" style="color: var(--primary); font-weight: 700;">${s.contact}</a>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function renderBranchScheduler() {
-            const tableBody = document.getElementById('branchSchedulerTableBody');
-            if (!tableBody) return;
-            const filter = document.getElementById('branchFilterSelect')?.value || 'ALL';
-            tableBody.innerHTML = '';
-
-            const list = filter === 'ALL'
+                    stepContent.classList.remove
