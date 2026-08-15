@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <!-- Optimized Viewport Meta Tag for Mobile WebViews & Native Scaling Control -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="description" content="Sharusuri EdTech, Agriculture & Drone SuperApp - Multi-Page Coaching Engine, Precision Aerial Drone Spraying, Multispectral Crop Mapping, Tungabhadra Rice Trading, High-Grade Fertilizers, Express Transport & Logistics.">
+    <meta name="description" content="Sharusuri EdTech, Agriculture, Drone & General Services SuperApp - Precision Aerial Drone Spraying, Multispectral Crop Mapping, Tungabhadra Rice Trading, High-Grade Fertilizers, Express Transport & On-Demand Technical Services.">
     <meta name="theme-color" content="#0f766e">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-    <title>Sharusuri SuperApp | Drone & Aerial Services, Agriculture Solutions, EdTech & Logistics</title>
+    <title>Sharusuri SuperApp | Drone & Aerial Services, Agriculture Solutions, General Services & Logistics</title>
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,6 +42,7 @@
             --agri-gold: #d97706;
             --agri-gold-light: #fef3c7;
             --purple: #8b5cf6;
+            --purple-hover: #7c3aed;
             --purple-light: #ede9fe;
             --danger: #dc2626;
             --danger-light: #fee2e2;
@@ -86,6 +87,7 @@
             --agri-green-light: #143821;
             --agri-gold-light: #3d2d0f;
             --sky-light: #0c2a45;
+            --purple-light: #2c1a4d;
         }
 
         [data-lang="kn"] {
@@ -175,7 +177,7 @@
 
         /* ANNOUNCEMENT BAR */
         .top-notice-bar {
-            background: linear-gradient(90deg, #15803d, #0f766e, #0284c7, #1d4ed8);
+            background: linear-gradient(90deg, #15803d, #0f766e, #8b5cf6, #1d4ed8);
             color: white;
             font-size: 0.8rem;
             font-weight: 600;
@@ -320,6 +322,16 @@
             color: white;
         }
 
+        .nav-link-btn.general-nav-highlight {
+            background: var(--purple-light);
+            color: var(--purple);
+        }
+
+        .nav-link-btn.general-nav-highlight.active {
+            background: var(--purple);
+            color: white;
+        }
+
         /* MOBILE DRAWER OVERLAY */
         .mobile-drawer-backdrop {
             position: fixed;
@@ -440,7 +452,7 @@
 
         /* HERO SECTION */
         .hero-section {
-            background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(15, 118, 110, 0.12) 50%, rgba(21, 128, 61, 0.08) 100%);
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(139, 92, 246, 0.1) 50%, rgba(21, 128, 61, 0.08) 100%);
             padding: 2.5rem 1.25rem 2.5rem;
             border-bottom: 1px solid var(--border-light);
             text-align: center;
@@ -512,6 +524,93 @@
             background: var(--primary);
             color: white;
             transform: translateX(-3px);
+        }
+
+        /* GENERAL SERVICES DEDICATED PAGE STYLES */
+        .general-hero-banner {
+            background: linear-gradient(135deg, #4c1d95 0%, #8b5cf6 50%, #0f172a 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 1.75rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .general-hero-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            opacity: 0.2;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+
+        .general-badge-purple {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.82rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+        }
+
+        .general-card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .general-service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .general-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--purple), var(--secondary));
+        }
+
+        .general-service-card:hover {
+            border-color: var(--purple);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .general-icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: var(--purple-light);
+            color: var(--purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
         }
 
         /* DRONE DEDICATED SUB-SERVICE PAGE STYLES */
@@ -1520,9 +1619,10 @@
         .btn-sky:hover { background-color: var(--sky-hover); }
         .btn-agri { background-color: var(--agri-green); color: #ffffff; }
         .btn-agri:hover { background-color: var(--agri-green-hover); }
+        .btn-purple { background-color: var(--purple); color: #ffffff; }
+        .btn-purple:hover { background-color: var(--purple-hover); }
         .btn-secondary { background: transparent; border-color: var(--border); color: var(--text-main); }
         .btn-accent { background-color: var(--accent); color: var(--dark); }
-        .btn-purple { background-color: var(--purple); color: white; }
         .btn-yt { background-color: var(--yt-red); color: white; }
         .btn-whatsapp { background-color: var(--whatsapp); color: white; }
 
@@ -1743,7 +1843,7 @@
 
         /* MOBILE WEBVIEW MEDIA QUERIES */
         @media (max-width: 1024px) {
-            .grid-3, .footer-grid, .tuition-models-grid, .agri-location-grid, .agri-feature-highlight-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-3, .footer-grid, .tuition-models-grid, .agri-location-grid, .agri-feature-highlight-grid, .general-card-grid { grid-template-columns: repeat(2, 1fr); }
             .grid-4, .tier-flow-grid, .drone-process-grid, .drone-card-grid { grid-template-columns: repeat(2, 1fr); }
             .wizard-steps-bar { grid-template-columns: repeat(2, 1fr); }
         }
@@ -1753,7 +1853,7 @@
             .mobile-nav-toggle { display: flex; }
             .hero-title { font-size: 1.8rem; }
             .hero-subtitle { font-size: 0.95rem; }
-            .grid-3, .grid-2, .grid-4, .footer-grid, .tier-flow-grid, .tuition-models-grid, .agri-location-grid, .agri-feature-highlight-grid, .drone-process-grid, .drone-card-grid { grid-template-columns: 1fr; }
+            .grid-3, .grid-2, .grid-4, .footer-grid, .tier-flow-grid, .tuition-models-grid, .agri-location-grid, .agri-feature-highlight-grid, .general-card-grid, .drone-process-grid, .drone-card-grid { grid-template-columns: 1fr; }
             .wizard-steps-bar { grid-template-columns: 1fr; }
             .top-notice-bar { flex-direction: column; text-align: center; justify-content: center; }
             .top-contacts { justify-content: center; }
@@ -1762,7 +1862,7 @@
             .hero-cta-group { width: 100%; }
             .selector-wizard-wrapper { margin-top: -1rem; padding: 0 0.85rem; }
             .wizard-card { padding: 1.1rem; }
-            .agri-hero-banner, .drone-hero-banner { padding: 1.5rem 1rem; }
+            .agri-hero-banner, .drone-hero-banner, .general-hero-banner { padding: 1.5rem 1rem; }
         }
     </style>
 </head>
@@ -1772,15 +1872,15 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <!-- WHATSAPP QUICK CHAT FLOATING BUTTON -->
-    <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20SuperApp,%20I%20want%20information%20regarding%20drone%20services,%20agri-solutions,%20or%20coaching.')" class="whatsapp-float" title="Direct WhatsApp Desk (+91 9916083774)">
+    <a href="javascript:void(0)" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20SuperApp,%20I%20want%20information%20regarding%20drone%20services,%20agri-solutions,%20general%20services,%20or%20coaching.')" class="whatsapp-float" title="Direct WhatsApp Desk (+91 9916083774)">
         💬
     </a>
 
     <!-- TOP ANNOUNCEMENT & CONTACT BAR -->
     <div class="top-notice-bar">
         <div>
-            <span class="notice-tag" id="noticeTagText" data-i18n="announcement_tag">🛸 Drone Services & Agri Hub</span>
-            <span id="noticeBarMsg" data-i18n="announcement_msg">Precision Drone Spraying • Aerial Mapping & Surveying • Tungabhadra Rice Trade • Cousins Coaching Engine</span>
+            <span class="notice-tag" id="noticeTagText" data-i18n="announcement_tag">🛸 Drone, Agri & General Services Hub</span>
+            <span id="noticeBarMsg" data-i18n="announcement_msg">Precision Drone Spraying • General On-Demand Services • Tungabhadra Rice Trade • Cousins Coaching Engine</span>
         </div>
         <div class="top-contacts">
             <a href="javascript:void(0)" onclick="openExternalUrl('tel:+919916083774')">📞 +91 9916083774</a>
@@ -1812,6 +1912,9 @@
                 </button>
                 <button class="nav-link-btn agri-nav-highlight" id="nav-agriculture" onclick="navigateToPage('agriculture')">
                     <span>🌱</span> <span data-i18n="nav_agri">Agriculture Solutions</span>
+                </button>
+                <button class="nav-link-btn general-nav-highlight" id="nav-general" onclick="navigateToPage('general')">
+                    <span>💼</span> <span data-i18n="nav_general">General Services</span>
                 </button>
                 <button class="nav-link-btn" id="nav-programs" onclick="navigateToPage('programs')">
                     <span>📚</span> <span data-i18n="nav_programs">Programs & Tiers</span>
@@ -1882,6 +1985,9 @@
             <button class="nav-link-btn agri-nav-highlight" onclick="navigateToPage('agriculture'); toggleMobileNav();">
                 <span>🌱</span> <span data-i18n="nav_agri">Agriculture Solutions Landing</span>
             </button>
+            <button class="nav-link-btn general-nav-highlight" onclick="navigateToPage('general'); toggleMobileNav();">
+                <span>💼</span> <span data-i18n="nav_general">General Services</span>
+            </button>
             <button class="nav-link-btn" onclick="navigateToPage('programs'); toggleMobileNav();">
                 <span>📚</span> <span data-i18n="nav_programs">Programs & Support Tiers</span>
             </button>
@@ -1906,6 +2012,9 @@
         </nav>
 
         <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 0.5rem;">
+            <button class="btn btn-purple" onclick="navigateToPage('general'); toggleMobileNav();">
+                💼 Explore General Services
+            </button>
             <button class="btn btn-sky" onclick="navigateToPage('drone'); toggleMobileNav();">
                 🛸 Launch Drone Services Portal
             </button>
@@ -1927,13 +2036,13 @@
             <div class="hero-section">
                 <div class="hero-container">
                     <div class="hero-badge">
-                        <span data-i18n="hero_badge_text">🌱 SuperApp Ecosystem • Drone Aerial Solutions & Precision Agriculture</span>
+                        <span data-i18n="hero_badge_text">🌱 SuperApp Ecosystem • Drone Solutions, AgriTech & General Services</span>
                     </div>
                     <h1 class="hero-title" data-i18n="hero_title">
-                        Empowering Farmers & Students with <span>Sharusuri SuperApp</span>
+                        Empowering Farmers, Professionals & Students with <span>Sharusuri SuperApp</span>
                     </h1>
                     <p class="hero-subtitle" data-i18n="hero_sub">
-                        Karnataka's premier SuperApp combining Drone & Aerial Survey Services, Precision Crop Spraying, Tungabhadra Rice Trade, and Cousins Academy Coaching Engine.
+                        Karnataka's premier SuperApp combining Drone & Aerial Survey Services, Precision Crop Spraying, General On-Demand Services, Tungabhadra Rice Trade, and Cousins Academy Coaching Engine.
                     </p>
                     <div class="hero-cta-group">
                         <button class="btn btn-sky btn-lg" onclick="navigateToPage('drone')">
@@ -1942,37 +2051,38 @@
                         <button class="btn btn-agri btn-lg" onclick="navigateToPage('agriculture')">
                             🌱 Launch Agriculture Hub →
                         </button>
+                        <button class="btn btn-purple btn-lg" onclick="navigateToPage('general')">
+                            💼 General Services →
+                        </button>
                         <button class="btn btn-accent btn-lg" onclick="openDemoModal()" data-i18n="hero_btn_trial">
                             🎯 Book Free Trial Demo Class
-                        </button>
-                        <button class="btn btn-primary btn-lg" onclick="navigateToPage('programs')" data-i18n="hero_btn_explore">
-                            🚀 Explore Programs & Support Tiers
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- QUICK DRONE & AERIAL SERVICES BANNER ON HOME -->
+            <!-- SERVICES HIGHLIGHTS GRID ON HOME -->
             <div class="section-container" style="margin-top: 2rem;">
-                <div class="info-card" style="background: linear-gradient(135deg, #0284c7 0%, #0f766e 100%); color: white; border: none; padding: 1.75rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                        <div style="max-width: 750px;">
-                            <span class="drone-badge-sky">🛸 Next-Gen Aerial Tech Hub</span>
-                            <h3 style="font-size: 1.6rem; font-weight: 900; color: white; margin-bottom: 0.4rem;">
-                                Precision Drone Spraying, 3D Mapping & Thermal Aerial Diagnostics
-                            </h3>
-                            <p style="font-size: 0.92rem; opacity: 0.92; line-height: 1.5;">
-                                10-minute per acre precision liquid fertilizer & pesticide spraying, multispectral crop stress mapping, land topography survey, and infrastructure inspections across Sindhanur, Raichur, and Bellary.
-                            </p>
-                        </div>
-                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                            <button class="btn btn-accent btn-lg" onclick="navigateToPage('drone')">
-                                🛸 Explore Drone Hub →
-                            </button>
-                            <button class="btn btn-sky btn-lg" onclick="openDroneBookingModal()">
-                                ⚡ Book Spray (₹499/Acre)
-                            </button>
-                        </div>
+                <div class="grid-3">
+                    <div class="info-card" style="background: linear-gradient(135deg, #0284c7 0%, #0f766e 100%); color: white; border: none;">
+                        <span class="drone-badge-sky">🛸 Aerial Command</span>
+                        <h3 style="font-size: 1.3rem; font-weight: 800; color: white; margin-bottom: 0.4rem;">Precision Drone Spraying & Topo Survey</h3>
+                        <p style="font-size: 0.85rem; opacity: 0.92; line-height: 1.5; margin-bottom: 1rem;">10-minute per acre precision spraying, multispectral crop stress mapping, and 3D terrain topography.</p>
+                        <button class="btn btn-accent btn-sm" onclick="navigateToPage('drone')">Explore Drone Hub →</button>
+                    </div>
+
+                    <div class="info-card" style="background: linear-gradient(135deg, #15803d 0%, #052e16 100%); color: white; border: none;">
+                        <span class="badge agri-badge-gold" style="margin-bottom: 0.5rem;">🌾 Agri & Paddy Trade</span>
+                        <h3 style="font-size: 1.3rem; font-weight: 800; color: white; margin-bottom: 0.4rem;">Tungabhadra Rice & Soil Inputs</h3>
+                        <p style="font-size: 0.85rem; opacity: 0.92; line-height: 1.5; margin-bottom: 1rem;">Direct farmgate paddy buying, certified fertilizers, and pure sweet-water Kaveri & Sona Masuri rice.</p>
+                        <button class="btn btn-agri btn-sm" onclick="navigateToPage('agriculture')">Explore Agri Hub →</button>
+                    </div>
+
+                    <div class="info-card" style="background: linear-gradient(135deg, #4c1d95 0%, #8b5cf6 100%); color: white; border: none;">
+                        <span class="general-badge-purple" style="margin-bottom: 0.5rem;">💼 On-Demand Services</span>
+                        <h3 style="font-size: 1.3rem; font-weight: 800; color: white; margin-bottom: 0.4rem;">General Technical & Professional Services</h3>
+                        <p style="font-size: 0.85rem; opacity: 0.92; line-height: 1.5; margin-bottom: 1rem;">Solar energy installation, IT support, equipment repair, document advisory & facility management.</p>
+                        <button class="btn btn-purple btn-sm" style="background: white; color: var(--purple);" onclick="navigateToPage('general')">General Services Hub →</button>
                     </div>
                 </div>
             </div>
@@ -2016,9 +2126,9 @@
                         <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat1_sub">Top ranks in Raichur & Bellary</div>
                     </div>
                     <div class="info-card" style="text-align: center;">
-                        <div style="font-size: 2rem; color: var(--secondary); font-weight: 900;">12,500+</div>
-                        <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;" data-i18n="stat2_label">Enrolled Students</div>
-                        <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="stat2_sub">Online & Multi-Campus Network</div>
+                        <div style="font-size: 2rem; color: var(--purple); font-weight: 900;">50+</div>
+                        <div style="font-weight: 800; font-size: 0.9rem; margin-top: 0.2rem;">On-Demand Services</div>
+                        <div style="font-size: 0.78rem; color: var(--text-muted);">Technical, Solar & Advisory</div>
                     </div>
                     <div class="info-card" style="text-align: center;">
                         <div style="font-size: 1.5rem; color: var(--yt-red); font-weight: 900; word-break: break-all;">@cousinsacademy</div>
@@ -2029,7 +2139,203 @@
             </div>
         </section>
 
-        <!-- 2. DEDICATED DRONE & AERIAL SERVICES SUB-SERVICE LANDING PAGE ROUTE VIEW (/services/drone) -->
+        <!-- 2. DEDICATED GENERAL SERVICES LANDING PAGE ROUTE VIEW (/services/general) -->
+        <section id="page-general" class="page-view">
+            <div class="section-container" style="margin-top: 1.25rem;">
+                
+                <!-- BREADCRUMB / BACK TO HOME LINK -->
+                <a href="javascript:void(0)" onclick="navigateToPage('home')" class="back-home-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span data-i18n="general_back_home">← Back to Home</span>
+                </a>
+
+                <!-- HERO BANNER FOR GENERAL ON-DEMAND SERVICES -->
+                <div class="general-hero-banner">
+                    <div class="general-hero-bg-overlay"></div>
+                    <div style="position: relative; z-index: 2; max-width: 900px;">
+                        <span class="general-badge-purple">
+                            💼 On-Demand Professional & Technical Services Portal
+                        </span>
+                        
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.85rem; flex-wrap: wrap;">
+                            <div style="padding: 0.85rem; background: rgba(255,255,255,0.18); border-radius: 16px; backdrop-filter: blur(8px); display: inline-flex;">
+                                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#ede9fe" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h1 style="font-size: 2.3rem; font-weight: 900; line-height: 1.2; color: white;">
+                                    General On-Demand Services
+                                </h1>
+                                <p style="font-size: 0.95rem; opacity: 0.92; margin-top: 0.2rem;">
+                                    Professional Technical Support, Solar Energy Installation, Machinery Repairs & Business Advisory
+                                </p>
+                            </div>
+                        </div>
+
+                        <p style="font-size: 1rem; opacity: 0.92; line-height: 1.6; margin-bottom: 1.5rem;">
+                            Discover and request various professional, technical, and commercial on-demand services. From solar power installation and farm machinery repair to digital IT support and legal document advisory, Sharusuri SuperApp delivers verified experts directly to your site across Sindhanur, Raichur, Bellary, and Koppal.
+                        </p>
+                        
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <button class="btn btn-accent btn-lg" onclick="openGeneralServiceModal('General On-Demand Request')">
+                                🚀 Request Service Estimate
+                            </button>
+                            <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20General%20Services%20Desk,%20I%20want%20information%20regarding%20on-demand%20professional%20services.')">
+                                💬 Direct Services WhatsApp Desk (+91 9916083774)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CORE GENERAL SERVICES CATEGORIES GRID -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div class="section-header" style="text-align: left; margin-bottom: 1.25rem;">
+                        <span class="badge badge-purple">⚡ Verified Expertise & Quick Turnaround</span>
+                        <h2 style="font-size: 1.5rem; margin-top: 0.2rem;">Our On-Demand Service Categories</h2>
+                        <p style="margin: 0; font-size: 0.88rem;">Select a specialized service category below to request immediate doorstep dispatch or quotation.</p>
+                    </div>
+
+                    <div class="general-card-grid">
+                        <div class="general-service-card">
+                            <div class="general-icon-circle">☀️</div>
+                            <div>
+                                <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Solar & Renewable Energy</h3>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+                                    Rooftop solar panel installation, agricultural solar water pump setup, inverter maintenance, and grid-tied energy systems for homes & farms.
+                                </p>
+                            </div>
+                            <button class="btn btn-purple btn-sm" onclick="openGeneralServiceModal('Solar & Renewable Energy Setup')">
+                                ⚡ Request Solar Setup Quote →
+                            </button>
+                        </div>
+
+                        <div class="general-service-card">
+                            <div class="general-icon-circle">🔧</div>
+                            <div>
+                                <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Equipment & Machinery Repair</h3>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+                                    Doorstep mechanic and technician service for agricultural sprayers, tractors, electric motors, water pumps, and generator sets.
+                                </p>
+                            </div>
+                            <button class="btn btn-secondary btn-sm" onclick="openGeneralServiceModal('Equipment & Machinery Repair')">
+                                🛠️ Book Technician Visit →
+                            </button>
+                        </div>
+
+                        <div class="general-service-card">
+                            <div class="general-icon-circle">💻</div>
+                            <div>
+                                <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">IT & Digital Infrastructure</h3>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+                                    CCTV camera installation, Wi-Fi networking for rural campuses, computer repair, software setup, and digital classroom maintenance.
+                                </p>
+                            </div>
+                            <button class="btn btn-secondary btn-sm" onclick="openGeneralServiceModal('IT & Digital Infrastructure')">
+                                🖥️ Request IT Support →
+                            </button>
+                        </div>
+
+                        <div class="general-service-card">
+                            <div class="general-icon-circle">📄</div>
+                            <div>
+                                <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Document & Legal Advisory</h3>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+                                    RTC land document verification, government scheme applications, PM-Kisan portal assistance, GST filing, and business registration support.
+                                </p>
+                            </div>
+                            <button class="btn btn-secondary btn-sm" onclick="openGeneralServiceModal('Document & Legal Advisory')">
+                                📋 Request Document Help →
+                            </button>
+                        </div>
+
+                        <div class="general-service-card">
+                            <div class="general-icon-circle">🏢</div>
+                            <div>
+                                <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Facility & Commercial Maintenance</h3>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+                                    Commercial electrical wiring, plumbing, warehouse sanitization, pest control, and structural maintenance for schools and rice mills.
+                                </p>
+                            </div>
+                            <button class="btn btn-secondary btn-sm" onclick="openGeneralServiceModal('Facility & Commercial Maintenance')">
+                                🏗️ Request Maintenance →
+                            </button>
+                        </div>
+
+                        <div class="general-service-card">
+                            <div class="general-icon-circle">🎯</div>
+                            <div>
+                                <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Event & Workshop Logistics</h3>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+                                    Sound system setup, projector installation, seating, and stage logistics for educational seminars, farmer meets, and corporate events.
+                                </p>
+                            </div>
+                            <button class="btn btn-secondary btn-sm" onclick="openGeneralServiceModal('Event & Workshop Logistics')">
+                                🎪 Book Event Logistics →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SERVICE SLA & QUALITY ASSURANCE -->
+                <div class="info-card" style="margin-bottom: 2.5rem; border: 2px solid var(--purple);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <span class="badge badge-purple" style="margin-bottom: 0.3rem;">🛡️ Quality SLA Assurance</span>
+                            <h3 style="font-size: 1.35rem; font-weight: 800;">Why Choose Sharusuri General Services?</h3>
+                            <p style="font-size: 0.88rem; color: var(--text-muted);">Background-verified technicians, upfront transparent pricing, and 100% satisfaction guarantee.</p>
+                        </div>
+                        <button class="btn btn-purple btn-lg" onclick="openGeneralServiceModal('Custom On-Demand Query')">
+                            📝 Post Custom Service Request
+                        </button>
+                    </div>
+
+                    <div class="grid-4" style="margin-top: 1.5rem;">
+                        <div style="background: var(--bg); padding: 1rem; border-radius: var(--radius-md); text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 0.3rem;">👨‍🔧</div>
+                            <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 0.2rem;">Verified Experts</h4>
+                            <p style="font-size: 0.78rem; color: var(--text-muted);">Skilled & certified local technicians.</p>
+                        </div>
+                        <div style="background: var(--bg); padding: 1rem; border-radius: var(--radius-md); text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 0.3rem;">💰</div>
+                            <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 0.2rem;">Transparent Pricing</h4>
+                            <p style="font-size: 0.78rem; color: var(--text-muted);">No hidden costs or unexpected fees.</p>
+                        </div>
+                        <div style="background: var(--bg); padding: 1rem; border-radius: var(--radius-md); text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 0.3rem;">⏱️</div>
+                            <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 0.2rem;">Prompt Dispatch</h4>
+                            <p style="font-size: 0.78rem; color: var(--text-muted);">Doorstep arrival within scheduled slot.</p>
+                        </div>
+                        <div style="background: var(--bg); padding: 1rem; border-radius: var(--radius-md); text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 0.3rem;">📞</div>
+                            <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 0.2rem;">24/7 Support</h4>
+                            <p style="font-size: 0.78rem; color: var(--text-muted);">Dedicated helpdesk via WhatsApp & Call.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIRECT WHATSAPP BANNER FOR GENERAL SERVICES -->
+                <div class="info-card" style="background: linear-gradient(135deg, #0f172a 0%, #4c1d95 100%); color: white;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <span class="badge badge-warning" style="margin-bottom: 0.4rem;">💡 Custom Requirement?</span>
+                            <h3 style="font-size: 1.3rem; font-weight: 800; color: white;">Need a Specialized Technical or Contractual Service?</h3>
+                            <p style="font-size: 0.88rem; opacity: 0.9;">We cater to custom commercial tenders, institution maintenance contracts, and individual requirements.</p>
+                        </div>
+                        <button class="btn btn-whatsapp btn-lg" onclick="openExternalUrl('https://wa.me/919916083774?text=Hello%20Sharusuri%20General%20Services%20Desk,%20I%20have%20a%20custom%20service%20requirement.')">
+                            💬 Chat on WhatsApp (+91 9916083774)
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. DEDICATED DRONE & AERIAL SERVICES SUB-SERVICE LANDING PAGE ROUTE VIEW (/services/drone) -->
         <section id="page-drone" class="page-view">
             <div class="section-container" style="margin-top: 1.25rem;">
                 
@@ -2297,7 +2603,7 @@
             </div>
         </section>
 
-        <!-- 3. DEDICATED AGRICULTURE SUB-SERVICE LANDING PAGE ROUTE VIEW (/services/agriculture) -->
+        <!-- 4. DEDICATED AGRICULTURE SUB-SERVICE LANDING PAGE ROUTE VIEW (/services/agriculture) -->
         <section id="page-agriculture" class="page-view">
             <div class="section-container" style="margin-top: 1.25rem;">
                 
@@ -2704,7 +3010,7 @@
             </div>
         </section>
 
-        <!-- 4. DEEP INTERACTIVE PROGRAM, SUPPORT TIERS & BATCH SELECTOR (PROGRAMS PAGE VIEW) -->
+        <!-- 5. DEEP INTERACTIVE PROGRAM, SUPPORT TIERS & BATCH SELECTOR (PROGRAMS PAGE VIEW) -->
         <section id="page-programs" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 
@@ -2920,7 +3226,7 @@
             </div>
         </section>
 
-        <!-- 5. TRANSPORTATION & CAR RENTAL MODULE PAGE VIEW -->
+        <!-- 6. TRANSPORTATION & CAR RENTAL MODULE PAGE VIEW -->
         <section id="page-transport" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 
@@ -3010,7 +3316,7 @@
             </div>
         </section>
 
-        <!-- 6. SCHEDULE & BATCH CALENDAR PAGE VIEW -->
+        <!-- 7. SCHEDULE & BATCH CALENDAR PAGE VIEW -->
         <section id="page-schedule" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -3070,13 +3376,13 @@
             </div>
         </section>
 
-        <!-- 7. ABOUT US PAGE VIEW -->
+        <!-- 8. ABOUT US PAGE VIEW -->
         <section id="page-about" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
                     <span class="badge badge-primary">ℹ️ About Sharusuri & Cousins Academy</span>
                     <h2>Democratizing Competitive Coaching & Agricultural Services</h2>
-                    <p>Empowering rural and urban communities across Raichur, Bellary, Koppal, and Tungabhadra basin with top coaching and agtech solutions.</p>
+                    <p>Empowering rural and urban communities across Raichur, Bellary, Koppal, and Tungabhadra basin with top coaching, agtech, and general services.</p>
                 </div>
 
                 <div class="grid-2">
@@ -3089,7 +3395,7 @@
                             </div>
                         </div>
                         <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
-                            Lead visionary dedicated to transforming rural education, drone services, and agricultural technology in Karnataka. Creator of Sharusuri SuperApp and official partner of Cousins Academy video content (@cousinsacademy4599).
+                            Lead visionary dedicated to transforming rural education, drone services, general technical support, and agricultural technology in Karnataka. Creator of Sharusuri SuperApp and official partner of Cousins Academy video content (@cousinsacademy4599).
                         </p>
                         <div style="margin-top: 1rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem;">
                             <div>✉️ Email: <strong>suresh2suresh80888@gmail.com</strong></div>
@@ -3107,7 +3413,7 @@
                             </div>
                         </div>
                         <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
-                            Directing regional franchise partnerships, 4-tier mentorship operations, drone logistics dispatch, and residential hostel academic monitoring across regional campuses.
+                            Directing regional franchise partnerships, 4-tier mentorship operations, general services dispatch, drone logistics, and residential hostel academic monitoring across regional campuses.
                         </p>
                         <div style="margin-top: 1rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem;">
                             <div>✉️ Email: <strong>sharada@sharusuri.edu</strong></div>
@@ -3119,7 +3425,7 @@
             </div>
         </section>
 
-        <!-- 8. CONTACT US PAGE VIEW WITH DEMO BOOKING -->
+        <!-- 9. CONTACT US PAGE VIEW WITH DEMO BOOKING -->
         <section id="page-contact" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -3144,6 +3450,8 @@
                             <div class="form-group">
                                 <label class="form-label">Inquiry Category</label>
                                 <select class="form-input" id="contactProgram" style="font-weight: 700;">
+                                    <option>General Technical & On-Demand Services</option>
+                                    <option>Solar Energy Installation & Setup</option>
                                     <option>Agricultural Drone Spraying & Crop Monitoring</option>
                                     <option>3D Aerial Mapping & Land Topography Survey</option>
                                     <option>Tungabhadra Paddy & Rice Trade</option>
@@ -3177,7 +3485,7 @@
                     <!-- Direct Reach Out Box & Branch Locations -->
                     <div class="info-card" style="display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
-                            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem;">📍 Regional Campus, Drone & Agri Network</h3>
+                            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem;">📍 Regional Campus, Drone & Services Network</h3>
                             
                             <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem;">
                                 <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--border);">
@@ -3210,7 +3518,7 @@
                                     📞 Line 3 (Helpdesk): +91 8088171010
                                 </button>
                                 <button type="button" onclick="openExternalUrl('tel:+917892493133')" class="btn btn-secondary">
-                                    📞 Line 4 (Agri & Transport): +91 7892493133
+                                    📞 Line 4 (Agri, Drone & General Services): +91 7892493133
                                 </button>
                             </div>
                         </div>
@@ -3226,7 +3534,7 @@
             </div>
         </section>
 
-        <!-- 9. STUDENT & PARENT PORTAL PAGE VIEW -->
+        <!-- 10. STUDENT & PARENT PORTAL PAGE VIEW -->
         <section id="page-portal" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
@@ -3358,13 +3666,13 @@
             </div>
         </section>
 
-        <!-- 10. ADMIN CONSOLE PAGE VIEW -->
+        <!-- 11. ADMIN CONSOLE PAGE VIEW -->
         <section id="page-admin" class="page-view">
             <div class="section-container" style="margin-top: 1.5rem;">
                 <div class="section-header">
                     <span class="badge badge-primary">⚙️ Master Admin Console</span>
                     <h2>Platform Governance & Program Management</h2>
-                    <p>Log in as <code>suresh2suresh80888@gmail.com</code> to manage programs, agriculture drone bookings, paddy trade leads, and support tickets.</p>
+                    <p>Log in as <code>suresh2suresh80888@gmail.com</code> to manage programs, agriculture drone bookings, general service requests, paddy trade leads, and support tickets.</p>
                 </div>
 
                 <div class="info-card" style="margin-bottom: 2rem;">
@@ -3400,10 +3708,10 @@
             <div>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.85rem;">
                     <span class="brand-badge" style="width: 34px; height: 34px; font-size: 0.9rem;">SE</span>
-                    <h3 style="font-size: 1.1rem; color: white;">Sharusuri SuperApp, Drone & Agri Solutions</h3>
+                    <h3 style="font-size: 1.1rem; color: white;">Sharusuri SuperApp, Drone, Agri & General OS</h3>
                 </div>
                 <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.55;" data-i18n="footer_desc">
-                    Karnataka's leading educational and agricultural technology platform equipped with 4-Tier Coaching, precision aerial drone spraying, multispectral crop mapping, fertilizer inputs, Tungabhadra rice trading, and rural transport.
+                    Karnataka's leading educational, agricultural and general services technology platform equipped with 4-Tier Coaching, precision aerial drone spraying, general technical services, Tungabhadra rice trading, and rural transport.
                 </p>
             </div>
 
@@ -3413,6 +3721,7 @@
                     <li><a href="javascript:void(0)" onclick="navigateToPage('home')" data-i18n="nav_home">Home</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('drone')" data-i18n="nav_drone">Drone & Aerial Services</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('agriculture')" data-i18n="nav_agri">Agriculture Solutions</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigateToPage('general')" data-i18n="nav_general">General Services</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('programs')" data-i18n="nav_programs">Programs & Support Tiers</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('transport')" data-i18n="nav_transport">Transport & Car Rentals</a></li>
                     <li><a href="javascript:void(0)" onclick="navigateToPage('portal')" data-i18n="nav_portal">Parent & Student Portal</a></li>
@@ -3500,7 +3809,48 @@
         </div>
     </div>
 
-    <!-- MODAL 2: ENROLLMENT & SEAT RESERVATION -->
+    <!-- MODAL 2: GENERAL ON-DEMAND SERVICE REQUEST MODAL -->
+    <div class="modal-overlay" id="generalServiceModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeGeneralServiceModal()">✕</button>
+            <div style="text-align: center; margin-bottom: 1.1rem;">
+                <span class="badge badge-purple" style="margin-bottom: 0.3rem;">💼 On-Demand Service Request</span>
+                <h3 style="font-size: 1.3rem;" id="genModalTitle">Request General Service</h3>
+                <p style="font-size: 0.82rem; color: var(--text-muted);">Verified local technical experts & quick doorstep estimate.</p>
+            </div>
+
+            <form onsubmit="handleGeneralServiceSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label">Selected Category / Requirement *</label>
+                    <input type="text" id="genSelectedCategory" class="form-input" required readonly style="font-weight: 800; background: var(--bg);">
+                </div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Your Full Name *</label>
+                        <input type="text" id="genCustomerName" class="form-input" required placeholder="e.g. Anand Gowda">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mobile Number *</label>
+                        <input type="tel" id="genCustomerPhone" class="form-input" required placeholder="10-digit number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Service Location / Address *</label>
+                    <input type="text" id="genLocation" class="form-input" required placeholder="e.g. Near Bus Stand, Sindhanur">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Requirement Details / Description *</label>
+                    <textarea id="genDetails" class="form-input" rows="3" required placeholder="Specify details, preferred schedule or questions..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-purple" style="width: 100%; margin-top: 0.5rem;">
+                    📲 Request Estimate via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 3: ENROLLMENT & SEAT RESERVATION -->
     <div class="modal-overlay" id="enrollmentModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeEnrollmentModal()">✕</button>
@@ -3530,7 +3880,7 @@
         </div>
     </div>
 
-    <!-- MODAL 3: TRANSPORT & CAR RENTAL BOOKING WORKFLOW MODAL -->
+    <!-- MODAL 4: TRANSPORT & CAR RENTAL BOOKING WORKFLOW MODAL -->
     <div class="modal-overlay" id="transportBookingModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeTransportModal()">✕</button>
@@ -3596,7 +3946,7 @@
         </div>
     </div>
 
-    <!-- MODAL 4: DRONE SPRAY BOOKING MODAL -->
+    <!-- MODAL 5: DRONE SPRAY BOOKING MODAL -->
     <div class="modal-overlay" id="droneBookingModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeDroneBookingModal()">✕</button>
@@ -3651,7 +4001,7 @@
         </div>
     </div>
 
-    <!-- MODAL 5: FERTILIZER BULK ORDER / QUOTE MODAL -->
+    <!-- MODAL 6: FERTILIZER BULK ORDER / QUOTE MODAL -->
     <div class="modal-overlay" id="fertilizerQuoteModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeFertilizerQuoteModal()">✕</button>
@@ -3692,7 +4042,7 @@
         </div>
     </div>
 
-    <!-- MODAL 6: PADDY & RICE TRADE MODAL -->
+    <!-- MODAL 7: PADDY & RICE TRADE MODAL -->
     <div class="modal-overlay" id="paddyTradeModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closePaddyTradeModal()">✕</button>
@@ -3739,7 +4089,7 @@
         </div>
     </div>
 
-    <!-- MODAL 7: AUTHENTICATION MODAL -->
+    <!-- MODAL 8: AUTHENTICATION MODAL -->
     <div class="modal-overlay" id="authModal">
         <div class="modal-box" style="max-width: 440px;">
             <button class="modal-close" onclick="closeAuthModal()">✕</button>
@@ -3789,14 +4139,30 @@
             }
         }
 
+        // TOAST NOTIFICATION UTILITY
+        function showToast(msg, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `<span>${type === 'error' ? '❌' : type === 'warning' ? '⚠️' : '✅'}</span> <div>${msg}</div>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(10px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
         // 1. COMPREHENSIVE BILINGUAL DICTIONARY
         const I18N_DATA = {
             en: {
-                announcement_tag: "🛸 Drone Services & Agri Hub",
-                announcement_msg: "Precision Drone Spraying • Aerial Mapping & Surveying • Tungabhadra Rice Trade • Cousins Coaching Engine",
+                announcement_tag: "🛸 Drone, Agri & General Hub",
+                announcement_msg: "Precision Drone Spraying • General On-Demand Services • Tungabhadra Rice Trade • Cousins Coaching Engine",
                 nav_home: "Home",
                 nav_drone: "Drone Services",
                 nav_agri: "Agriculture Solutions",
+                nav_general: "General Services",
                 nav_programs: "Programs & Tiers",
                 nav_transport: "Transport & Rentals",
                 nav_schedule: "Batches & Schedule",
@@ -3808,13 +4174,12 @@
                 btn_login: "🔐 Login",
                 agri_back_home: "← Back to Home",
                 drone_back_home: "← Back to Home",
-                hero_badge_text: "🌱 SuperApp Ecosystem • Drone Aerial Solutions & Precision Agriculture",
-                hero_title: "Empowering Farmers & Students with Sharusuri SuperApp",
-                hero_sub: "Karnataka's premier SuperApp combining Drone & Aerial Survey Services, Precision Crop Spraying, Tungabhadra Rice Trade, and Cousins Academy Coaching Engine.",
+                general_back_home: "← Back to Home",
+                hero_badge_text: "🌱 SuperApp Ecosystem • Drone Aerial Solutions, AgriTech & General Services",
+                hero_title: "Empowering Farmers, Professionals & Students with Sharusuri SuperApp",
+                hero_sub: "Karnataka's premier SuperApp combining Drone & Aerial Survey Services, Precision Crop Spraying, General On-Demand Services, Tungabhadra Rice Trade, and Cousins Academy Coaching Engine.",
                 hero_btn_trial: "🎯 Book Free Trial Demo Class",
                 hero_btn_explore: "🚀 Explore Programs & Support Tiers",
-                hero_btn_transport: "🚕 Rent Cars & Freight Logistics",
-                hero_btn_yt: "📺 Subscribe YouTube Channel",
                 wizard_badge: "⚡ Fast Track Enrollment & Trial Demos",
                 wizard_heading: "Choose Your Coaching Path in 4 Simple Steps",
                 wizard_sub: "Select program, batch type, mode (Online/Offline/Home Mentorship), and view custom timing slots.",
@@ -3826,8 +4191,6 @@
                 stat1_sub: "Top ranks in Raichur & Bellary",
                 stat2_label: "Enrolled Students",
                 stat2_sub: "Online & Multi-Campus Network",
-                stat3_label: "Academic Backing",
-                stat3_sub: "Class teacher to cross-branch mentors",
                 stat4_label: "Official Video Lessons",
                 stat4_sub: "Dedicated YouTube masterclasses",
                 prog_tier_header_badge: "🎓 Complete Subject Coverage Framework",
@@ -3866,18 +4229,19 @@
                 lbl_load_weight: "Estimated Load Weight / Quantity *",
                 lbl_pickup_drop: "Pickup & Drop Route *",
                 btn_calc_quote: "📊 Calculate & Book via WhatsApp",
-                footer_desc: "Karnataka's leading educational and agricultural technology platform equipped with 4-Tier Coaching, precision aerial drone spraying, multispectral crop mapping, fertilizer inputs, Tungabhadra rice trading, and rural transport.",
+                footer_desc: "Karnataka's leading educational, agricultural and general services technology platform equipped with 4-Tier Coaching, precision aerial drone spraying, general technical services, Tungabhadra rice trading, and rural transport.",
                 footer_quick_links: "Quick Links",
                 footer_official_contacts: "Official Contacts",
                 footer_trial_yt: "Trial Demo & YouTube",
                 footer_copyright: "© 2026 Sharusuri EdTech, AgTech & Drone OS. All rights reserved. Master Admin: suresh2suresh80888@gmail.com"
             },
             kn: {
-                announcement_tag: "🛸 ಡ್ರೋನ್ ಸೇವೆಗಳು & ಕೃಷಿ ಕೇಂದ್ರ",
-                announcement_msg: "ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ • ವೈಮಾನಿಕ ಸಮೀಕ್ಷೆ & ಮ್ಯಾಪಿಂಗ್ • ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ • ಕಸಿನ್ಸ್ ತರಬೇತಿ",
+                announcement_tag: "🛸 ಡ್ರೋನ್, ಕೃಷಿ & ಸಾಮಾನ್ಯ ಸೇವೆಗಳು",
+                announcement_msg: "ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ • ಸಾಮಾನ್ಯ ತಾಂತ್ರಿಕ ಸೇವೆಗಳು • ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ • ಕಸಿನ್ಸ್ ತರಬೇತಿ",
                 nav_home: "ಮುಖಪುಟ",
-                nav_drone: "ಡ್ರೋನ್ ಸೇವೆಗಳು (Drone Hub)",
-                nav_agri: "ಕೃಷಿ ಸೇವೆಗಳು (Agri Hub)",
+                nav_drone: "ಡ್ರೋನ್ ಸೇವೆಗಳು",
+                nav_agri: "ಕೃಷಿ ಸೇವೆಗಳು",
+                nav_general: "ಸಾಮಾನ್ಯ ಸೇವೆಗಳು",
                 nav_programs: "ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಸಪೋರ್ಟ್",
                 nav_transport: "ವಾಹನ & ಸರಕು ಸೇವೆ",
                 nav_schedule: "ಬ್ಯಾಚ್ ಸಮಯ",
@@ -3889,13 +4253,12 @@
                 btn_login: "🔐 ಲಾಗಿನ್",
                 agri_back_home: "← ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
                 drone_back_home: "← ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
-                hero_badge_text: "🌱 ಸೂಪರ್ ಆ್ಯಪ್ • ಡ್ರೋನ್ ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ಕೃಷಿ ಸೇವೆಗಳು",
-                hero_title: "ಶಾರುಸೂರಿ ಸೂಪರ್ ಆ್ಯಪ್‌ನೊಂದಿಗೆ ಡ್ರೋನ್, ಕೃಷಿ ಮತ್ತು ಶಿಕ್ಷಣ ಸೇವೆಗಳು",
-                hero_sub: "ಡ್ರೋನ್ ಸಿಂಪಡಣೆ, ವೈಮಾನಿಕ ಮ್ಯಾಪಿಂಗ್, ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ ತರಬೇತಿಯನ್ನು ಒಳಗೊಂಡ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ವೇದಿಕೆ.",
+                general_back_home: "← ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
+                hero_badge_text: "🌱 ಸೂಪರ್ ಆ್ಯಪ್ • ಡ್ರೋನ್ ತಂತ್ರಜ್ಞಾನ, ಕೃಷಿ ಮತ್ತು ಸಾಮಾನ್ಯ ಸೇವೆಗಳು",
+                hero_title: "ಶಾರುಸೂರಿ ಸೂಪರ್ ಆ್ಯಪ್‌ನೊಂದಿಗೆ ಡ್ರೋನ್, ಕೃಷಿ, ತಾಂತ್ರಿಕ ಮತ್ತು ಶಿಕ್ಷಣ ಸೇವೆಗಳು",
+                hero_sub: "ಡ್ರೋನ್ ಸಿಂಪಡಣೆ, ವೈಮಾನಿಕ ಮ್ಯಾಪಿಂಗ್, ಸಾಮಾನ್ಯ ತಾಂತ್ರಿಕ ಸೇವೆಗಳು, ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಕಸಿನ್ಸ್ ಅಕಾಡೆಮಿ ತರಬೇತಿಯನ್ನು ಒಳಗೊಂಡ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ವೇದಿಕೆ.",
                 hero_btn_trial: "🎯 ಉಚಿತ ಡೆಮೊ ತರಗತಿಯನ್ನು ಬುಕ್ ಮಾಡಿ",
                 hero_btn_explore: "🚀 ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಬೆಂಬಲ ಹಂತಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
-                hero_btn_transport: "🚕 ಕಾರು ಬಾಡಿಗೆ ಮತ್ತು ಸರಕು ಸಾರಿಗೆ ಸೇವೆ",
-                hero_btn_yt: "📺 ಯೂಟ್ಯೂಬ್ ಚಾನೆಲ್ ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಮಾಡಿ",
                 wizard_badge: "⚡ ತ್ವರಿತ ದಾಖಲಾತಿ ಮತ್ತು ಡೆಮೊ ತರಗತಿ",
                 wizard_heading: "4 ಸರಳ ಹಂತಗಳಲ್ಲಿ ನಿಮ್ಮ ಸೂಕ್ತ ಕೋರ್ಸ್ ಆಯ್ಕೆಮಾಡಿ",
                 wizard_sub: "ನಿಮ್ಮ ಕೋರ್ಸ್, ಬ್ಯಾಚ್ ಮಾದರಿ, ಕಲಿಕಾ ವಿಧಾನ ಮತ್ತು ಸಮಯದ ಸ್ಲಾಟ್ ಆಯ್ಕೆಮಾಡಿ.",
@@ -3907,8 +4270,6 @@
                 stat1_sub: "ರಾಯಚೂರು ಮತ್ತು ಬಳ್ಳಾರಿಯಲ್ಲಿ ಅತ್ಯುತ್ತಮ ರ್ಯಾಂಕ್",
                 stat2_label: "ದಾಖಲಾದ ವಿದ್ಯಾರ್ಥಿಗಳು",
                 stat2_sub: "ಆನ್‌ಲೈನ್ ಮತ್ತು ವಿವಿಧ ಶಾಖೆಗಳಲ್ಲಿ",
-                stat3_label: "ಶೈಕ್ಷಣಿಕ ಬೆಂಬಲ",
-                stat3_sub: "ತರಗತಿ ಶಿಕ್ಷಕರಿಂದ ಹಿರಿಯ ವಿಷಯ ತಜ್ಞರವರೆಗೆ",
                 stat4_label: "ಅಧಿಕೃತ ವೀಡಿಯೊ ಪಾಠಗಳು",
                 stat4_sub: "ವಿಶೇಷ ಯೂಟ್ಯೂಬ್ ಮಾಸ್ಟರ್ ಕ್ಲಾಸ್",
                 prog_tier_header_badge: "🎓 ಪೂರ್ಣ ಪ್ರಮಾಣದ ವಿಷಯ ಬೋಧನಾ ಚೌಕಟ್ಟು",
@@ -3947,7 +4308,7 @@
                 lbl_load_weight: "ಅಂದಾಜು ತೂಕ / ಪ್ರಮಾಣ *",
                 lbl_pickup_drop: "ಪಿಕಪ್ ಮತ್ತು ಡ್ರಾಪ್ ಮಾರ್ಗ *",
                 btn_calc_quote: "📊 ವಾಟ್ಸಾಪ್ ಮೂಲಕ ದರ ಪಡೆಯಿರಿ",
-                footer_desc: "4-ಹಂತದ ಬೋಧನೆ, ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ, ಮ್ಯಾಪಿಂಗ್, ರಸಗೊಬ್ಬರ, ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ ಮತ್ತು ಸಾರಿಗೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್.",
+                footer_desc: "4-ಹಂತದ ಬೋಧನೆ, ಡ್ರೋನ್ ಔಷಧ ಸಿಂಪಡಣೆ, ಮ್ಯಾಪಿಂಗ್, ರಸಗೊಬ್ಬರ, ತುಂಗಭದ್ರಾ ಅಕ್ಕಿ ವ್ಯಾಪಾರ, ಸಾಮಾನ್ಯ ಸೇವೆಗಳು ಮತ್ತು ಸಾರಿಗೆಯೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್.",
                 footer_quick_links: "ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು",
                 footer_official_contacts: "ಅಧಿಕೃತ ಸಂಪರ್ಕಗಳು",
                 footer_trial_yt: "ಉಚಿತ ಡೆಮೊ ಮತ್ತು ಯೂಟ್ಯೂಬ್",
@@ -4287,506 +4648,4 @@
             });
         }
 
-        // PAGE NAVIGATION WITH ROUTING SUPPORT
-        function navigateToPage(pageId) {
-            document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active-view'));
-            const targetPage = document.getElementById(`page-${pageId}`);
-            if (targetPage) targetPage.classList.add('active-view');
-
-            document.querySelectorAll('.nav-link-btn').forEach(btn => btn.classList.remove('active'));
-            const activeNavBtn = document.getElementById(`nav-${pageId}`);
-            if (activeNavBtn) activeNavBtn.classList.add('active');
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // AGRICULTURE HUB PILLAR TAB SWITCHER
-        function switchAgriPillar(pillarId, btnEl) {
-            document.querySelectorAll('.agri-pillar-btn').forEach(b => b.classList.remove('active'));
-            btnEl.classList.add('active');
-
-            document.querySelectorAll('.agri-pillar-content').forEach(c => c.classList.remove('active'));
-            const target = document.getElementById(`agriPillar-${pillarId}`);
-            if (target) target.classList.add('active');
-        }
-
-        // DRONE BOOKING MODAL HANDLERS
-        function openDroneBookingModal() {
-            document.getElementById('droneBookingModal').classList.add('active');
-        }
-
-        function closeDroneBookingModal() {
-            document.getElementById('droneBookingModal').classList.remove('active');
-        }
-
-        function handleDroneBookingSubmit(e) {
-            e.preventDefault();
-            const farmer = document.getElementById('droneFarmerName').value;
-            const phone = document.getElementById('droneFarmerPhone').value;
-            const acres = document.getElementById('droneAcres').value;
-            const crop = document.getElementById('droneCropType').value;
-            const loc = document.getElementById('droneLocation').value;
-            const spray = document.getElementById('droneSprayType').value;
-
-            closeDroneBookingModal();
-            showToast(`🛸 Drone spraying booked for ${acres} Acres! Opening WhatsApp...`);
-
-            const msg = `*SHARUSURI SUPERAPP - AGRICULTURAL DRONE SPRAY BOOKING*\n\n` +
-                        `• *Farmer Name:* ${farmer}\n` +
-                        `• *Phone:* ${phone}\n` +
-                        `• *Land Area:* ${acres} Acres (Estimated ₹${acres * 499})\n` +
-                        `• *Crop:* ${crop}\n` +
-                        `• *Location:* ${loc}\n` +
-                        `• *Spray Requirement:* ${spray}\n\n` +
-                        `Please assign nearest pilot and confirm spray slot.`;
-
-            setTimeout(() => {
-                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
-            }, 800);
-        }
-
-        // FERTILIZER QUOTE MODAL HANDLERS
-        function openFertilizerQuoteModal(prodName) {
-            document.getElementById('fertProductName').value = prodName;
-            document.getElementById('fertilizerQuoteModal').classList.add('active');
-        }
-
-        function closeFertilizerQuoteModal() {
-            document.getElementById('fertilizerQuoteModal').classList.remove('active');
-        }
-
-        function handleFertilizerQuoteSubmit(e) {
-            e.preventDefault();
-            const prod = document.getElementById('fertProductName').value;
-            const name = document.getElementById('fertCustomerName').value;
-            const phone = document.getElementById('fertCustomerPhone').value;
-            const qty = document.getElementById('fertBagQuantity').value;
-            const addr = document.getElementById('fertDeliveryAddress').value;
-
-            closeFertilizerQuoteModal();
-            showToast(`🧪 Fertilizer inquiry recorded for ${qty} bags! Opening WhatsApp...`);
-
-            const msg = `*FERTILIZER & SOIL INPUT ORDER INQUIRY*\n\n` +
-                        `• *Product:* ${prod}\n` +
-                        `• *Customer:* ${name}\n` +
-                        `• *Phone:* ${phone}\n` +
-                        `• *Quantity:* ${qty} Bags\n` +
-                        `• *Delivery Depot / Location:* ${addr}\n\n` +
-                        `Please share stock availability and discount price quote.`;
-
-            setTimeout(() => {
-                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
-            }, 800);
-        }
-
-        // PADDY & RICE TRADE MODAL HANDLERS
-        function openPaddyTradeModal(type, variety = '') {
-            document.getElementById('paddyTradeType').value = type;
-            const modalTitle = document.getElementById('paddyTradeModalTitle');
-            if (type === 'SELL_PADDY') {
-                modalTitle.textContent = "🌾 Sell Raw Paddy Harvest (Farmgate Buy)";
-            } else {
-                modalTitle.textContent = "🛒 Buy Premium Tungabhadra Rice Bags";
-            }
-            if (variety) {
-                document.getElementById('paddyVariety').value = variety;
-            }
-            document.getElementById('paddyTradeModal').classList.add('active');
-        }
-
-        function closePaddyTradeModal() {
-            document.getElementById('paddyTradeModal').classList.remove('active');
-        }
-
-        function handlePaddyTradeSubmit(e) {
-            e.preventDefault();
-            const tradeType = document.getElementById('paddyTradeType').value;
-            const variety = document.getElementById('paddyVariety').value;
-            const name = document.getElementById('paddyContactName').value;
-            const phone = document.getElementById('paddyContactPhone').value;
-            const qty = document.getElementById('paddyQuantity').value;
-            const loc = document.getElementById('paddyLocation').value;
-
-            closePaddyTradeModal();
-            showToast(`🌾 Trade request submitted! Connecting to WhatsApp Trade Desk...`);
-
-            const msg = `*TUNGABHADRA PADDY & RICE TRADE INQUIRY*\n\n` +
-                        `• *Trade Direction:* ${tradeType === 'SELL_PADDY' ? 'Farmer Selling Raw Paddy' : 'Buyer Ordering Rice Bags'}\n` +
-                        `• *Variety:* ${variety}\n` +
-                        `• *Contact Person:* ${name}\n` +
-                        `• *Phone:* ${phone}\n` +
-                        `• *Quantity:* ${qty}\n` +
-                        `• *Location:* ${loc}\n\n` +
-                        `Please share market rates and logistics arrangement.`;
-
-            setTimeout(() => {
-                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
-            }, 800);
-        }
-
-        // RENDER FLEET GRID
-        function renderFleetGrid(categoryFilter = 'ALL') {
-            const grid = document.getElementById('fleetCardsGrid');
-            if (!grid) return;
-            grid.innerHTML = '';
-
-            const items = categoryFilter === 'ALL' ? FLEET_DATA : FLEET_DATA.filter(v => v.category === categoryFilter);
-
-            items.forEach(v => {
-                const card = document.createElement('div');
-                card.className = 'vehicle-card';
-                card.innerHTML = `
-                    <div class="vehicle-card-header">
-                        <div class="vehicle-type-icon">${v.icon}</div>
-                        <span class="badge ${v.badgeClass} vehicle-badge-top">${v.badgeText}</span>
-                        <div class="vehicle-title">${v.name}</div>
-                        <div class="vehicle-sub">${v.type}</div>
-                    </div>
-                    <div class="vehicle-card-body">
-                        <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0.85rem;">${v.desc}</p>
-                        
-                        <div class="vehicle-specs-list">
-                            ${v.specs.map(s => `<span class="spec-chip">✓ ${s}</span>`).join('')}
-                        </div>
-
-                        <div class="price-tag-box">
-                            <div>
-                                <span class="price-amount">${v.rate}</span>
-                                <span class="price-unit">/${v.rateUnit}</span>
-                            </div>
-                            <span class="badge badge-success">Available</span>
-                        </div>
-
-                        <button class="btn btn-primary" style="width: 100%;" onclick="openTransportModal('${v.name}', '${v.category}')">
-                            ⚡ ${currentLang === 'en' ? 'Book Vehicle Now' : 'ತಕ್ಷಣವೇ ಬುಕ್ ಮಾಡಿ'}
-                        </button>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        function filterFleet(cat, btnEl) {
-            document.querySelectorAll('.fleet-filter-btn').forEach(b => b.classList.remove('active'));
-            btnEl.classList.add('active');
-            renderFleetGrid(cat);
-        }
-
-        // TRANSPORT BOOKING WORKFLOW HANDLERS
-        function openTransportModal(vehicleName = 'Swift Dzire Sedan', catType = 'SELF_DRIVE') {
-            document.getElementById('transSelectedVehicle').value = vehicleName;
-            
-            const selectEl = document.getElementById('transServiceOption');
-            if (catType === 'RURAL_CARGO') {
-                selectEl.value = 'Agricultural Cargo Transport';
-            } else if (catType === 'PASSENGER_VAN') {
-                selectEl.value = 'Chauffeur Driven Cab';
-            } else {
-                selectEl.value = 'Self-Drive Rental';
-            }
-
-            const tomorrow = new Date();
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            document.getElementById('transPickupDate').value = tomorrow.toISOString().split('T')[0];
-
-            document.getElementById('transportBookingModal').classList.add('active');
-        }
-
-        function closeTransportModal() {
-            document.getElementById('transportBookingModal').classList.remove('active');
-        }
-
-        function handleTransportBookingSubmit(e) {
-            e.preventDefault();
-            const vehicle = document.getElementById('transSelectedVehicle').value;
-            const serviceOpt = document.getElementById('transServiceOption').value;
-            const name = document.getElementById('transCustomerName').value;
-            const phone = document.getElementById('transCustomerPhone').value;
-            const pickup = document.getElementById('transPickupLoc').value;
-            const drop = document.getElementById('transDropLoc').value || 'As requested';
-            const date = document.getElementById('transPickupDate').value;
-            const time = document.getElementById('transPickupTime').value;
-
-            closeTransportModal();
-            showToast(`🚕 Transport booking generated for ${vehicle}! Redirecting to WhatsApp...`);
-
-            const msg = `*SHARUSURI SUPERAPP - TRANSPORT & FREIGHT BOOKING*\n\n` +
-                        `• *Vehicle:* ${vehicle}\n` +
-                        `• *Service Option:* ${serviceOpt}\n` +
-                        `• *Customer Name:* ${name}\n` +
-                        `• *Contact Phone:* ${phone}\n` +
-                        `• *Pickup Location:* ${pickup}\n` +
-                        `• *Drop / Route:* ${drop}\n` +
-                        `• *Pickup Date:* ${date}\n` +
-                        `• *Time Slot:* ${time}\n\n` +
-                        `Please confirm availability, vehicle registration number, and driver contact details.`;
-
-            setTimeout(() => {
-                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
-            }, 800);
-        }
-
-        function handleCargoEstimate(e) {
-            e.preventDefault();
-            const goods = document.getElementById('cargoGoodsType').value;
-            const weight = document.getElementById('cargoWeight').options[document.getElementById('cargoWeight').selectedIndex].text;
-            const route = document.getElementById('cargoRoute').value;
-
-            showToast('🌾 Agricultural cargo quote generated! Opening WhatsApp...');
-
-            const msg = `*AGRICULTURAL CARGO FREIGHT INQUIRY*\n\n` +
-                        `• *Goods Type:* ${goods}\n` +
-                        `• *Load Weight:* ${weight}\n` +
-                        `• *Route:* ${route}\n\n` +
-                        `Please send best fare estimate and nearest available truck/pickup driver.`;
-
-            setTimeout(() => {
-                openExternalUrl(`https://wa.me/919916083774?text=${encodeURIComponent(msg)}`);
-            }, 800);
-        }
-
-        // RENDER 4-TIER HIERARCHY CARDS
-        function renderSupportTiers() {
-            const containers = ['homeTierGrid', 'programsTierGrid'];
-            const tiersData = TIER_DETAILS_DATA[currentLang];
-
-            containers.forEach(id => {
-                const container = document.getElementById(id);
-                if (!container) return;
-                container.innerHTML = '';
-
-                [1, 2, 3, 4].forEach(tierNum => {
-                    const item = tiersData[tierNum];
-                    const card = document.createElement('div');
-                    card.className = `tier-card ${tierNum === activeSelectedTier ? 'selected-tier' : ''}`;
-                    card.onclick = () => {
-                        if (id === 'homeTierGrid') {
-                            navigateToPage('programs');
-                        }
-                        showTierDetail(tierNum);
-                    };
-
-                    card.innerHTML = `
-                        <div class="tier-badge-number">${tierNum}</div>
-                        <div class="tier-subtitle">Tier ${tierNum}</div>
-                        <div class="tier-title">${item.name}</div>
-                        <div class="tier-desc">${item.tagline}</div>
-                        <div style="margin-top: auto; font-size: 0.78rem; font-weight: 800; color: var(--primary);">
-                            👉 ${currentLang === 'en' ? 'Tap to view detailed analysis →' : 'ವಿವರಗಳಿಗೆ ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ →'}
-                        </div>
-                    `;
-                    container.appendChild(card);
-                });
-            });
-        }
-
-        // SHOW TIER DEEP DIVE DETAILS
-        function showTierDetail(tierNum) {
-            activeSelectedTier = tierNum;
-
-            document.querySelectorAll('#programsTierGrid .tier-card').forEach((card, idx) => {
-                if (idx + 1 === tierNum) card.classList.add('selected-tier');
-                else card.classList.remove('selected-tier');
-            });
-
-            document.querySelectorAll('#tierTabHeader .tier-tab-btn').forEach((btn, idx) => {
-                if (idx + 1 === tierNum) btn.classList.add('active');
-                else btn.classList.remove('active');
-            });
-
-            const detail = TIER_DETAILS_DATA[currentLang][tierNum];
-            const contentContainer = document.getElementById('tierDetailContent');
-            if (!contentContainer || !detail) return;
-
-            contentContainer.innerHTML = `
-                <div style="margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.85rem;">
-                    <div>
-                        <span class="badge ${detail.badgeClass}">Tier ${detail.tierNum} Academic Pillar</span>
-                        <h3 style="font-size: 1.5rem; font-weight: 900; margin-top: 0.2rem;">${detail.icon} ${detail.name}</h3>
-                        <p style="font-size: 0.92rem; color: var(--text-muted); font-weight: 600;">${detail.tagline}</p>
-                    </div>
-                    <button class="btn btn-accent btn-sm" onclick="openDemoModal('Demo: ${detail.name}')">
-                        ✨ ${currentLang === 'en' ? 'Book Free Demo for Tier ' + detail.tierNum : 'ಉಚಿತ ಡೆಮೊ ತರಗತಿ ಬುಕ್ ಮಾಡಿ'}
-                    </button>
-                </div>
-
-                <div class="tier-breakdown-grid">
-                    <div class="tier-dimension-card">
-                        <div class="tier-dim-icon">📖</div>
-                        <div class="tier-dim-title">1. ${currentLang === 'en' ? 'What It Is (Definition & Role)' : 'ಇದು ಏನೆಂದರೆ (ವಿವರಣೆ & ಪಾತ್ರ)'}</div>
-                        <div class="tier-dim-text">${detail.whatItIs}</div>
-                    </div>
-
-                    <div class="tier-dimension-card">
-                        <div class="tier-dim-icon">💡</div>
-                        <div class="tier-dim-title">2. ${currentLang === 'en' ? 'Why We Built It (Philosophy)' : 'ಇದರ ಉದ್ದೇಶ (ರೂಪಿಸಲು ಕಾರಣ)'}</div>
-                        <div class="tier-dim-text">${detail.whyWeBuiltIt}</div>
-                    </div>
-
-                    <div class="tier-dimension-card">
-                        <div class="tier-dim-icon">🛡️</div>
-                        <div class="tier-dim-title">3. ${currentLang === 'en' ? 'Practical Utility' : 'ವಿದ್ಯಾರ್ಥಿ ಮತ್ತು ಪೋಷಕರಿಗೆ ಪ್ರಯೋಜನ'}</div>
-                        <div class="tier-dim-text">${detail.usefulness}</div>
-                    </div>
-
-                    <div class="tier-dimension-card">
-                        <div class="tier-dim-icon">🧠</div>
-                        <div class="tier-dim-title">4. ${currentLang === 'en' ? 'How They Learn (Mechanism)' : 'ಕಲಿಕಾ ವಿಧಾನ (How They Learn)'}</div>
-                        <div class="tier-dim-text">${detail.howTheyLearn}</div>
-                    </div>
-                </div>
-
-                <div class="tier-impact-stat-box">
-                    <div class="tier-stat-number">${detail.highlightStat}</div>
-                    <div>
-                        <div style="font-size: 0.95rem; font-weight: 800; color: var(--text-main);">5. ${currentLang === 'en' ? 'Measured Learning Effectiveness' : 'ಕಲಿಕೆಯಲ್ಲಿ ಕಂಡುಕೊಂಡ ಪ್ರಗತಿ'}</div>
-                        <div style="font-size: 0.82rem; color: var(--text-muted);">${detail.effectiveness}</div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // RENDER WIZARD STEPS CARDS
-        function renderWizardSteps() {
-            const data = SELECTOR_OPTIONS_DATA[currentLang];
-
-            const progGrid = document.getElementById('wizardProgramGrid');
-            if (progGrid) {
-                progGrid.innerHTML = '';
-                data.programs.forEach((p, idx) => {
-                    const card = document.createElement('div');
-                    card.className = `option-selectable-card ${idx === 0 ? 'selected' : ''}`;
-                    card.onclick = () => selectWizardOption(1, 'program', p.name, card, p.fee);
-                    card.innerHTML = `
-                        <div class="option-icon">${p.icon}</div>
-                        <div>
-                            <div class="option-title">${p.name}</div>
-                            <div class="option-desc">${p.desc}</div>
-                        </div>
-                    `;
-                    progGrid.appendChild(card);
-                });
-            }
-
-            const batchGrid = document.getElementById('wizardBatchGrid');
-            if (batchGrid) {
-                batchGrid.innerHTML = '';
-                data.batches.forEach((b, idx) => {
-                    const card = document.createElement('div');
-                    card.className = `option-selectable-card ${idx === 0 ? 'selected' : ''}`;
-                    card.onclick = () => selectWizardOption(2, 'batch', b.name, card);
-                    card.innerHTML = `
-                        <div class="option-icon">${b.icon}</div>
-                        <div>
-                            <div class="option-title">${b.name}</div>
-                            <div class="option-desc">${b.desc}</div>
-                        </div>
-                    `;
-                    batchGrid.appendChild(card);
-                });
-            }
-
-            const modeGrid = document.getElementById('wizardModeGrid');
-            if (modeGrid) {
-                modeGrid.innerHTML = '';
-                data.modes.forEach((m, idx) => {
-                    const card = document.createElement('div');
-                    card.className = `option-selectable-card ${idx === 0 ? 'selected' : ''}`;
-                    card.onclick = () => selectWizardOption(3, 'mode', m.name, card);
-                    card.innerHTML = `
-                        <div class="option-icon">${m.icon}</div>
-                        <div>
-                            <div class="option-title">${m.name}</div>
-                            <div class="option-desc">${m.desc}</div>
-                        </div>
-                    `;
-                    modeGrid.appendChild(card);
-                });
-            }
-        }
-
-        function selectWizardOption(step, category, value, cardEl, fee = null) {
-            const parent = cardEl.parentElement;
-            parent.querySelectorAll('.option-selectable-card').forEach(c => c.classList.remove('selected'));
-            cardEl.classList.add('selected');
-
-            wizardSelection[category] = value;
-            if (fee) wizardSelection.fee = fee;
-
-            updateWizardSummary();
-        }
-
-        function updateWizardSummary() {
-            document.getElementById('sumProgramTitle').textContent = wizardSelection.program;
-            document.getElementById('sumBatchType').textContent = wizardSelection.batch;
-            document.getElementById('sumModeType').textContent = wizardSelection.mode;
-            document.getElementById('sumCourseFee').textContent = wizardSelection.fee;
-        }
-
-        function selectTimingSlot(slotValue, el) {
-            document.querySelectorAll('.slot-pill').forEach(s => s.classList.remove('active'));
-            el.classList.add('active');
-            wizardSelection.timing = slotValue;
-        }
-
-        function navigateWizardStep(direction) {
-            currentWizardStep += direction;
-            if (currentWizardStep < 1) currentWizardStep = 1;
-            if (currentWizardStep > 4) currentWizardStep = 4;
-
-            for (let i = 1; i <= 4; i++) {
-                const stepContent = document.getElementById(`wizardStep${i}`);
-                const stepInd = document.getElementById(`stepInd-${i}`);
-
-                if (i === currentWizardStep) {
-                    stepContent.classList.add('active');
-                    stepInd.classList.add('active');
-                } else {
-                    stepContent.classList.remove('active');
-                    stepInd.classList.remove('active');
-                }
-
-                if (i < currentWizardStep) stepInd.classList.add('completed');
-                else stepInd.classList.remove('completed');
-            }
-
-            document.getElementById('wizBackBtn').style.display = currentWizardStep > 1 ? 'inline-flex' : 'none';
-            document.getElementById('wizNextBtn').style.display = currentWizardStep < 4 ? 'inline-flex' : 'none';
-        }
-
-        // PORTAL TAB SYSTEM & RENDERERS
-        function switchPortalTab(tabId, btnEl) {
-            document.querySelectorAll('.dash-tab-btn').forEach(b => b.classList.remove('active'));
-            btnEl.classList.add('active');
-
-            document.querySelectorAll('.dash-panel-content').forEach(p => p.classList.remove('active'));
-            const activePanel = document.getElementById(`panel-${tabId}`);
-            if (activePanel) activePanel.classList.add('active');
-        }
-
-        function renderAssignedStaff() {
-            const container = document.getElementById('assignedStaffCardsGrid');
-            if (!container) return;
-            container.innerHTML = '';
-            APP_DATA.assigned_staff.forEach(s => {
-                const card = document.createElement('div');
-                card.className = 'info-card';
-                card.innerHTML = `
-                    <span class="badge badge-purple" style="margin-bottom: 0.5rem;">${s.role}</span>
-                    <h4 style="font-size: 1.05rem; margin-bottom: 0.2rem;">${s.name}</h4>
-                    <p style="font-size: 0.8rem; color: var(--primary); font-weight: 700;">${s.subject}</p>
-                    <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem;">
-                        📞 Contact: <a href="javascript:void(0)" onclick="openExternalUrl('tel:${s.contact}')" style="color: var(--primary); font-weight: 700;">${s.contact}</a>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function renderBranchScheduler() {
-            const tableBody = document.getElementById('branchSchedulerTableBody');
-            if (!tableBody) return;
-            const filter = document.getElementById('branchFilterSelect')?.value || 'ALL';
-            tableBody.innerHTML = '';
-
-            const list = filter === 'ALL'
+        // PAGE NAVIGATION WITH ROUT
